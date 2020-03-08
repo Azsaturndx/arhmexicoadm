@@ -1,0 +1,27 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pagadora</title>
+  </head>
+  <body data-authorize-roles="Administrators,ArhAdmin">
+    <div data-flow="row">
+      <div id="view1" data-controller="Pagadora" data-view="grid1" data-show-in-summary="true" data-selection-mode="multiple"> </div>
+      <div data-activator="Tab|Bancos">
+        <div id="view2" data-controller="Pagadora_Banco" data-view="grid1" data-filter-source="view1" data-filter-fields="Pagadora_Id"> </div>
+      </div>
+      <div data-activator="Tab|Cuadro Accionario">
+        <div id="view3" data-controller="Pagadora_Cuadro_Accionario" data-view="grid1" data-filter-source="view1" data-filter-fields="Pagadora_Id" data-show-description="false" data-show-details-in-list-mode="false"> </div>
+      </div>
+      <div data-activator="Tab|Documentos cuadro">
+        <div id="view5" data-controller="Pagadora_Cuadro_Accionario_Documento" data-view="grid1" data-filter-source="view3" data-filter-fields="Pagadora_Cuadro_Accionario_Id"> </div>
+      </div>
+      <div data-activator="Tab|Remuneración Cuadro">
+        <div id="view6" data-controller="Pagadora_Cuadro_Accionario_Remuneracion" data-view="grid1" data-filter-source="view3" data-filter-fields="Pagadora_Cuadro_Accionario_Id"> </div>
+      </div>
+      <div data-activator="Tab|Documentos">
+        <div id="view4" data-controller="Pagadora_Documento" data-view="grid1" data-filter-source="view1" data-filter-fields="Pagadora_Id" data-show-description="false"> </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,175 @@
+﻿<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+<!-- CDN's de GoJS y Font Awesome-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gojs/1.8.22/go-debug.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gojs/1.8.22/go.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/alertify.min.js"></script>
+
+<!-- CDN's de Alertify -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/alertify.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/alertify.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/themes/default.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/themes/semantic.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/themes/bootstrap.min.css" />
+
+<!-- Lógica custom del organigrama -->
+<script id="code" src="../js/organigramaLogica.js"></script>
+<script id="code" src="../js/organigramaInit.js"></script>
+<!-- Estilos rápidos para el organigrama -->
+<link rel="stylesheet" href="../css/organigramaStyles.css" />
+
+
+
+<div class="panel-group" id="accordion">
+
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-title" id="genData" data-toggle="collapse" data-parent="#accordion" href="#collapse1">Datos de generación</a>
+            </h4>
+        </div>
+
+        <div id="collapse1" class="panel-collapse collapse in">
+
+            <div class="panel-body">
+
+                <div data-container="row" class="remove-border">
+                    <div data-container="column" class="column-fix">
+                        <span data-control="label" class="labela"><span class="glyphicon glyphicon-user"></span>
+                            Cliente:</span>
+                        <div id="contenedor_cliente" data-container="column" class="data-container-fix">
+                            <span data-control="field" data-field="Organigrama_Cliente_Id"
+                                class="fielda">[Organigrama_Cliente_Id]</span>
+                        </div>
+                    </div>
+                    <div id="contenedor_contratante" data-container="column" class="column-fix">
+                        <span data-control="label" class="labela"><span class="glyphicon glyphicon-copy"></span>
+                            Contratante :</span>
+                        <div  data-container="column" class="data-container-fix">
+                            <span data-control="field" data-field="Organigrama_Contratante_Id"
+                                class="fielda">[Organigrama_Contratante_Id]</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div data-container="row">
+
+                    <div id="contenedor_seleccion" data-container="column" class="column-fix">
+                        <span data-control="label" class="labela"><span class="glyphicon glyphicon-check"></span>
+                            Seleccione:</span>
+                        <div  data-container="column" class="data-container-fix">
+                            <span id="TipoSeleccion" data-control="field" data-field="Tipo_Organigrama_Id"
+                                class="fielda">[Tipo_Organigrama_Id]</span>
+                        </div>
+                    </div>
+
+                    <div id="contenedor_estructura" data-container="column" class="column-fix">
+                        <span data-control="label" class="labela"><span class="glyphicon glyphicon-signal"></span>
+                            Estructura:</span>
+                        <div data-container="column" class="data-container-fix">
+                            <span data-control="field" data-field="Organigrama_Estructura_Id"
+                                class="fielda">[Organigrama_Estructura_Id]</span>
+                        </div>
+                    </div>
+
+
+                    <div id="contenedor_estructura1" data-container="column" class="column-fix">
+                        <span data-control="label" class="labela"><span class="glyphicon glyphicon-signal"></span>
+                            Estructura:</span>
+                        <div data-container="column" class="data-container-fix">
+                            <span data-control="field" data-field="Organigrama_Estructura_Id_1"
+                                class="fielda">[Organigrama_Estructura_Id_1]</span>
+                        </div>
+                    </div>
+
+                    <div id="contenedor_puesto" data-container="column" class="column-fix">
+                        <span data-control="label" class="labela"><span class="glyphicon glyphicon-briefcase"></span>
+                            Puesto:</span>
+                        <div data-container="column" class="data-container-fix">
+                            <span data-control="field" data-field="Organigrama_Puesto_Id"
+                                class="fielda">[Organigrama_Puesto_Id]</span>
+                        </div>
+                    </div>
+
+                    <div id="contenedor_puesto1" data-container="column" class="column-fix">
+                        <span data-control="label" class="labela"><span class="glyphicon glyphicon-briefcase"></span>
+                            Puesto:</span>
+                        <div data-container="column" class="data-container-fix">
+                            <span data-control="field" data-field="Organigrama_Puesto_Id_1"
+                                class="fielda">[Organigrama_Puesto_Id_1]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="contenedor_nivel" data-container="row">
+                    <span data-control="label" class="labela"><span
+                            class="glyphicon glyphicon-sort-by-attributes-alt" ></span> Nivel:</span>
+                    <div  data-container="column" style="width: 50%;">
+                        <span data-control="field" data-field="Nivel" class="fielda remark-field" style="width:30%; background-color: #0000002b;border-radius: 5px;">[Nivel]</span>
+                    </div>
+                </div>
+
+            </div>
+        
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a  id="orgChart" class="accordion-title" data-toggle="collapse" data-parent="#accordion" href="#collapse2">Organigrama
+                    Generado</a>
+            </h4>
+        </div>
+        <div id="collapse2" class="panel-collapse collapse">
+            <div class="panel-body">
+                <div id="sample">
+                    <div id="myDiagramDiv" style="background-color: #ffffff; border: solid 1px white; height: 500px;overflow: hidden;">
+                    </div>
+                    
+                    <div>
+                        <div id="myInspector"></div>
+                    </div>
+                    <div style="display:none">
+                        <textarea id="mySavedModel"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div>
+    <!-- <button id="atras" onclick="regresa()" class="right btn btn-info">Regresar</button> -->
+</div>
+
+
+
+<script>
+    //Fix de Height de bootstrap.
+    $('#view1').css("height", "100%");
+
+    //Ocultar los contenedores inicialmente.
+    setTimeout(function () {
+        $('#contenedor_contratante').hide();
+        $('#contenedor_seleccion').show();
+        $('#contenedor_estructura').hide();
+        $('#contenedor_puesto').hide();
+        $('#contenedor_nivel').hide();
+        $('#contenedor_puesto1').hide();
+        $('#contenedor_estructura1').hide();
+
+    }, 500);
+
+    //Se  inicializa todo el código después de 9 segundos de el inicio de carga del JS. (?)
+    setTimeout(function () {
+        init();
+    }, 9000);
+</script>

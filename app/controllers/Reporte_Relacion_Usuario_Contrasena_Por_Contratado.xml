@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Reporte_Relacion_Usuario_Contrasena_Por_Contratado" conflictDetection="overwriteChanges" label="Reporte Relacion Usuario Contrasena Por Contratado" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Reporte_Relacion_Usuario_Contrasena_Por_Contratado"."Temporal_Contratante_Usuario_Aplicacion_Id" "Temporal_Contratante_Usuario_Aplicacion_Id"
+	,"Reporte_Relacion_Usuario_Contrasena_Por_Contratado"."Contratante_Id" "Contratante_Id"
+	,"Reporte_Relacion_Usuario_Contrasena_Por_Contratado"."Contratante" "Contratante"
+	,"Reporte_Relacion_Usuario_Contrasena_Por_Contratado"."Contratado_Id" "Contratado_Id"
+	,"Reporte_Relacion_Usuario_Contrasena_Por_Contratado"."Persona_Nombre" "Persona_Nombre"
+	,"Reporte_Relacion_Usuario_Contrasena_Por_Contratado"."Identificador_Unico" "Identificador_Unico"
+	,"Reporte_Relacion_Usuario_Contrasena_Por_Contratado"."Cliente_Id" "Cliente_Id"
+	,"Reporte_Relacion_Usuario_Contrasena_Por_Contratado"."Cliente" "Cliente"
+	,"Reporte_Relacion_Usuario_Contrasena_Por_Contratado"."Persona_Id" "Persona_Id"
+	,"Reporte_Relacion_Usuario_Contrasena_Por_Contratado"."Usuario" "Usuario"
+	,"Reporte_Relacion_Usuario_Contrasena_Por_Contratado"."Contrasena" "Contrasena"
+	,"Reporte_Relacion_Usuario_Contrasena_Por_Contratado"."Nota" "Nota"
+	,"Reporte_Relacion_Usuario_Contrasena_Por_Contratado"."Estatus_Contratado_Id" "Estatus_Contratado_Id"
+	,"Reporte_Relacion_Usuario_Contrasena_Por_Contratado"."Estatus_Contratado" "Estatus_Contratado"
+	,"Reporte_Relacion_Usuario_Contrasena_Por_Contratado"."Transaccion_Id" "Transaccion_Id"
+	,"Reporte_Relacion_Usuario_Contrasena_Por_Contratado"."Creado_Por_Id" "Creado_Por_Id"
+	,"Reporte_Relacion_Usuario_Contrasena_Por_Contratado"."Fecha_Creacion" "Fecha_Creacion"
+	,"Reporte_Relacion_Usuario_Contrasena_Por_Contratado"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"Reporte_Relacion_Usuario_Contrasena_Por_Contratado"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Reporte_Relacion_Usuario_Contrasena_Por_Contratado"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Reporte_Relacion_Usuario_Contrasena_Por_Contratado"."Estatus_Persona_Id" "Estatus_Persona_Id"
+	,"Reporte_Relacion_Usuario_Contrasena_Por_Contratado"."Estatus_Persona" "Estatus_Persona"
+from "dbo"."Reporte_Relacion_Usuario_Contrasena_Por_Contratado" "Reporte_Relacion_Usuario_Contrasena_Por_Contratado"
+]]></text>
+    </command>
+    <command id="Contratante_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Contratante_Id" />
+      </output>
+    </command>
+    <command id="Contratado_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Contratado_Id" />
+      </output>
+    </command>
+    <command id="Persona_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Persona_Id" />
+      </output>
+    </command>
+    <command id="Estatus_Persona_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Estatus_Persona_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Temporal_Contratante_Usuario_Aplicacion_Id" type="Int32" allowNulls="false" label="Temporal Contratante Usuario Aplicacion Id" showInSummary="true" isPrimaryKey="true" />
+    <field name="Contratante_Id" type="Int32" allowNulls="false" label="Contratante Id" readOnly="true" showInSummary="true" />
+    <field name="Contratante" type="String" allowNulls="false" label="Contratante" length="150" showInSummary="true" />
+    <field name="Contratado_Id" type="Int32" allowNulls="false" label="Contratado Id" readOnly="true" showInSummary="true" />
+    <field name="Persona_Nombre" type="String" label="Nombre Completo" readOnly="true" length="603" showInSummary="true" />
+    <field name="Identificador_Unico" type="String" allowNulls="false" label="Identificador Único" length="50" />
+    <field name="Cliente_Id" type="Int32" allowNulls="false" label="Cliente Id" />
+    <field name="Cliente" type="String" allowNulls="false" label="Cliente" length="150" />
+    <field name="Persona_Id" type="Int32" allowNulls="false" label="Persona Id" readOnly="true" />
+    <field name="Usuario" type="String" allowNulls="false" label="Usuario" length="250" />
+    <field name="Contrasena" type="String" allowNulls="false" label="Contraseña" length="250" />
+    <field name="Nota" type="String" allowQBE="false" allowSorting="false" label="Nota" />
+    <field name="Estatus_Contratado_Id" type="Int32" allowNulls="false" label="Estatus Contratado Id" />
+    <field name="Estatus_Contratado" type="String" allowNulls="false" label="Estatus Contratado" length="150" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" label="Transaccion Id" length="50" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" label="Creado Por Id" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="g" label="Fecha Creacion" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" label="Actualizado Por Id" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="g" label="Fecha Ultima Actualizacion" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" label="Estatus Registro Id" />
+    <field name="Estatus_Persona_Id" type="Int32" allowNulls="false" label="Estatus Persona Id" readOnly="true" />
+    <field name="Estatus_Persona" type="String" allowNulls="false" label="Estatus Persona" length="250" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Reporte Relacion Usuario Contrasena Por Contratado" sortExpression="Temporal_Contratante_Usuario_Aplicacion_Id DESC" showInSelector="false">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Temporal_Contratante_Usuario_Aplicacion_Id" columns="15" hidden="true" />
+        <dataField fieldName="Cliente_Id" columns="15" aliasFieldName="Cliente" />
+        <dataField fieldName="Contratante_Id" columns="15" aliasFieldName="Contratante" />
+        <dataField fieldName="Contratado_Id" columns="15" hidden="true" />
+        <dataField fieldName="Identificador_Unico" columns="50" />
+        <dataField fieldName="Persona_Id" columns="15" aliasFieldName="Persona_Nombre" />
+        <dataField fieldName="Usuario" />
+        <dataField fieldName="Contrasena" />
+        <dataField fieldName="Nota" rows="5" />
+        <dataField fieldName="Estatus_Contratado_Id" columns="15" aliasFieldName="Estatus_Contratado" />
+        <dataField fieldName="Estatus_Persona_Id" columns="15" aliasFieldName="Estatus_Persona" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Review Reporte Relacion Usuario Contrasena Por Contratado">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Reporte Relacion Usuario Contrasena Por Contratado" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Temporal_Contratante_Usuario_Aplicacion_Id" columns="15" />
+            <dataField fieldName="Contratante_Id" columns="15" />
+            <dataField fieldName="Contratante" />
+            <dataField fieldName="Contratado_Id" columns="15" />
+            <dataField fieldName="Persona_Nombre" />
+            <dataField fieldName="Identificador_Unico" columns="50" />
+            <dataField fieldName="Cliente_Id" columns="15" />
+            <dataField fieldName="Cliente" />
+            <dataField fieldName="Persona_Id" columns="15" />
+            <dataField fieldName="Usuario" />
+            <dataField fieldName="Contrasena" />
+            <dataField fieldName="Nota" rows="5" />
+            <dataField fieldName="Estatus_Contratado_Id" columns="15" />
+            <dataField fieldName="Estatus_Contratado" />
+            <dataField fieldName="Transaccion_Id" columns="50" />
+            <dataField fieldName="Creado_Por_Id" columns="15" />
+            <dataField fieldName="Fecha_Creacion" columns="20" />
+            <dataField fieldName="Actualizado_Por_Id" columns="15" />
+            <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+            <dataField fieldName="Estatus_Registro_Id" columns="15" />
+            <dataField fieldName="Estatus_Persona_Id" columns="15" />
+            <dataField fieldName="Estatus_Persona" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="New Reporte Relacion Usuario Contrasena Por Contratado">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Temporal_Contratante_Usuario_Aplicacion_Id" columns="15" />
+            <dataField fieldName="Contratante_Id" columns="15" />
+            <dataField fieldName="Contratante" />
+            <dataField fieldName="Contratado_Id" columns="15" />
+            <dataField fieldName="Persona_Nombre" />
+            <dataField fieldName="Identificador_Unico" columns="50" />
+            <dataField fieldName="Cliente_Id" columns="15" />
+            <dataField fieldName="Cliente" />
+            <dataField fieldName="Persona_Id" columns="15" />
+            <dataField fieldName="Usuario" />
+            <dataField fieldName="Contrasena" />
+            <dataField fieldName="Nota" rows="5" />
+            <dataField fieldName="Estatus_Contratado_Id" columns="15" />
+            <dataField fieldName="Estatus_Contratado" />
+            <dataField fieldName="Transaccion_Id" columns="50" />
+            <dataField fieldName="Creado_Por_Id" columns="15" />
+            <dataField fieldName="Fecha_Creacion" columns="20" />
+            <dataField fieldName="Actualizado_Por_Id" columns="15" />
+            <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+            <dataField fieldName="Estatus_Registro_Id" columns="15" />
+            <dataField fieldName="Estatus_Persona_Id" columns="15" />
+            <dataField fieldName="Estatus_Persona" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+  </actions>
+</dataController>

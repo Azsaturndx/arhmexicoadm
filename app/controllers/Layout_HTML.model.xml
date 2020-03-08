@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Layout_HTML" alias="Layout_HTML" created="2018-07-19T11:25:19" modified="2019-05-28T10:50:40" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="402" y="20">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Usuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="453" y="145">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Usuario_V1" parentTableSchema="dbo" parentTableName="Usuario_V" x="277" y="329">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Layout_HTML_Id" fieldName="Layout_HTML_Id" label="Layout HTML Id" />
+    <column name="Layout_HTML_Nombre" fieldName="Layout_HTML_Nombre" label="Layout HTML Nombre" />
+    <column name="Layout_HTML" fieldName="Layout_HTML" label="Layout HTML" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="Usuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V1" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="Usuario_V1" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+    <column name="Es_Layout_Publicacion_Vacante" fieldName="Es_Layout_Publicacion_Vacante" label="¿Es Layout de Publicación Vacante?" />
+    <column name="Es_Layout_Solicitud_Documento" fieldName="Es_Layout_Solicitud_Documento" label="¿Es Layout de Solicitud Documento?" />
+  </columns>
+</dataModel>

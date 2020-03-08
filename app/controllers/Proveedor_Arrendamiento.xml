@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Proveedor_Arrendamiento" label="Proveedor_Arrendamiento" conflictDetection="overwriteChanges" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE 
+	APP.Proveedor_Arrendamiento
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Proveedor_Arrendamiento_Id = @Proveedor_Arrendamiento_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE 
+	APP.Proveedor_Arrendamiento
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Proveedor_Arrendamiento_Id = @Proveedor_Arrendamiento_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE 
+	APP.Proveedor_Arrendamiento
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Proveedor_Arrendamiento_Id = @Proveedor_Arrendamiento_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE 
+	APP.Proveedor_Arrendamiento
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Proveedor_Arrendamiento_Id = @Proveedor_Arrendamiento_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <views>
+    <view id="grid1" type="Grid" commandId="gridProveedorArrendamientoV" label="Proveedor Arrendamiento" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" filter="Estatus_Registro_Id &lt;&gt; 0">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Proveedor_Id" columns="15" aliasFieldName="Proveedor_Proveedor" />
+        <dataField fieldName="Tipo_Arrendamiento_Id" columns="15" aliasFieldName="Tipo_Arrendamiento_Tipo_Arrendamiento" />
+        <dataField fieldName="Calle_Arrendamiento" rows="5" />
+        <dataField fieldName="Numero_Exterior_Arrendamiento" columns="50" />
+        <dataField fieldName="Periodicidad_Pago_Id" columns="15" aliasFieldName="Periodicidad_Periodicidad" />
+        <dataField fieldName="Dia_Pago_Id" columns="15" aliasFieldName="Dia_Pago_Dia_Pago" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Creado_Por" rows="5" />
+        <dataField fieldName="Actualizado_Por" rows="5" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" label="Actualizar Proveedor Arrendamiento" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" commandId="command2">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Proveedor_Id" columns="15" aliasFieldName="Proveedor_Proveedor" />
+            <dataField fieldName="Tipo_Arrendamiento_Id" columns="15" />
+            <dataField fieldName="Calle_Arrendamiento" rows="5" />
+            <dataField fieldName="Numero_Exterior_Arrendamiento" columns="50" />
+            <dataField fieldName="Periodicidad_Pago_Id" columns="15" />
+            <dataField fieldName="Dia_Pago_Id" columns="15" />
+            <dataField fieldName="Estatus_Registro_Id" columns="15" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nuevo Proveedor Arrendamiento" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Proveedor_Id" columns="15" aliasFieldName="Proveedor_Proveedor" />
+            <dataField fieldName="Tipo_Arrendamiento_Id" columns="3" aliasFieldName="Tipo_Arrendamiento_Tipo_Arrendamiento" />
+            <dataField fieldName="Calle_Arrendamiento" rows="5" />
+            <dataField fieldName="Numero_Exterior_Arrendamiento" columns="50" />
+            <dataField fieldName="Periodicidad_Pago_Id" columns="15" aliasFieldName="Periodicidad_Periodicidad" />
+            <dataField fieldName="Dia_Pago_Id" columns="15" aliasFieldName="Dia_Pago_Dia_Pago" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <commands>
+    <command type="Text" id="gridProveedorArrendamientoV" custom="false">
+      <text><![CDATA[SELECT [Proveedor_Arrendamiento_Id]
+      ,[Proveedor_Id]
+      ,[Proveedor_Proveedor]
+      ,[Tipo_Arrendamiento_Id]
+      ,[Tipo_Arrendamiento_Tipo_Arrendamiento]
+      ,[Calle_Arrendamiento]
+      ,[Numero_Exterior_Arrendamiento]
+      ,[Periodicidad_Pago_Id]
+      ,[Periodicidad_Periodicidad]
+      ,[Dia_Pago_Id]
+      ,[Dia_Pago_Dia_Pago]
+      ,[Transaccion_Id]
+      ,[Creado_Por_Id]
+      ,[Creado_Por]
+      ,[Fecha_Creacion]
+      ,[Actualizado_Por_Id]
+      ,[Actualizado_Por]
+      ,[Fecha_Ultima_Actualizacion]
+      ,[Estatus_Registro_Id]
+      ,[Estatus_Registro_Estatus_Registro]
+  FROM [dbo].[Grid_Proveedor_Arrendamiento_V]]]></text>
+    </command>
+    <command type="Text" id="command1" custom="false">
+      <text><![CDATA[select
+	"Proveedor_Arrendamiento"."Proveedor_Arrendamiento_Id" "Proveedor_Arrendamiento_Id"
+	,"Proveedor_Arrendamiento"."Proveedor_Id" "Proveedor_Id"
+	,"Proveedor_Arrendamiento"."Tipo_Arrendamiento_Id" "Tipo_Arrendamiento_Id"
+	,"Proveedor_Arrendamiento"."Calle_Arrendamiento" "Calle_Arrendamiento"
+	,"Proveedor_Arrendamiento"."Numero_Exterior_Arrendamiento" "Numero_Exterior_Arrendamiento"
+	,"Proveedor_Arrendamiento"."Periodicidad_Pago_Id" "Periodicidad_Pago_Id"
+	,"Proveedor_Arrendamiento"."Dia_Pago_Id" "Dia_Pago_Id"
+	,"Proveedor_Arrendamiento"."Transaccion_Id" "Transaccion_Id"
+	,"Usuario_V"."UserName" "cpUserName"
+	,"Proveedor_Arrendamiento"."Fecha_Creacion" "Fecha_Creacion"
+	,"Usuario_V1"."UserName" "apUserName"
+	,"Proveedor_Arrendamiento"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Proveedor_Arrendamiento"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	
+from "APP"."Proveedor_Arrendamiento" "Proveedor_Arrendamiento"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Proveedor_Arrendamiento"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Usuario_V" on "Proveedor_Arrendamiento"."Creado_Por_Id" = "Usuario_V"."UserId"
+	left join "dbo"."Usuario_V" "Usuario_V1" on "Proveedor_Arrendamiento"."Actualizado_Por_Id" = "Usuario_V1"."UserId"]]></text>
+    </command>
+    <command type="Text" id="command2" custom="false">
+      <text><![CDATA[select
+	"Proveedor_Arrendamiento"."Proveedor_Arrendamiento_Id" "Proveedor_Arrendamiento_Id"
+	,"Proveedor_Arrendamiento"."Proveedor_Id" "Proveedor_Id"
+	,"Proveedor_Arrendamiento"."Tipo_Arrendamiento_Id" "Tipo_Arrendamiento_Id"
+	,"Proveedor_Arrendamiento"."Calle_Arrendamiento" "Calle_Arrendamiento"
+	,"Proveedor_Arrendamiento"."Numero_Exterior_Arrendamiento" "Numero_Exterior_Arrendamiento"
+	,"Proveedor_Arrendamiento"."Periodicidad_Pago_Id" "Periodicidad_Pago_Id"
+	,"Proveedor_Arrendamiento"."Dia_Pago_Id" "Dia_Pago_Id"
+	,"Proveedor_Arrendamiento"."Transaccion_Id" "Transaccion_Id"
+	,"Usuario_V"."UserName" "cpUserName"
+	,"Proveedor_Arrendamiento"."Fecha_Creacion" "Fecha_Creacion"
+	,"Usuario_V1"."UserName" "apUserName"
+	,"Proveedor_Arrendamiento"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Proveedor_Arrendamiento"."Estatus_Registro_Id" "Estatus_Registro_Id"
+from "APP"."Proveedor_Arrendamiento" "Proveedor_Arrendamiento"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Proveedor_Arrendamiento"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Usuario_V" on "Proveedor_Arrendamiento"."Creado_Por_Id" = "Usuario_V"."UserId"
+	left join "dbo"."Usuario_V" "Usuario_V1" on "Proveedor_Arrendamiento"."Actualizado_Por_Id" = "Usuario_V1"."UserId"
+	left join "APP"."Tipo_Arrendamiento" "Tipo_Arrendamiento_" on "Tipo_Arrendamiento_"."Tipo_Arrendamiento_Id" = "Proveedor_Arrendamiento"."Tipo_Arrendamiento_Id"
+	left join "APP"."Proveedor" "Proveedor_" on "Proveedor_"."Proveedor_Id" = "Proveedor_Arrendamiento"."Proveedor_Id"
+	left join "APP"."Periodicidad" "Periodicidad_" on "Periodicidad_"."Periodicidad_Id" = "Proveedor_Arrendamiento"."Periodicidad_Pago_Id"
+	left join "APP"."Dia" "Dia_" on "Dia_"."Dia_Id" = "Proveedor_Arrendamiento"."Dia_Pago_Id"]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Proveedor_Arrendamiento_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Proveedor Arrendamiento Id" />
+    <field name="Proveedor_Id" type="Int32" allowNulls="false" label="Proveedor Id">
+      <items style="Lookup" dataController="Proveedor" dataView="Proveedor_LookUp_List" dataTextField="Proveedor" dataValueField="Proveedor_Id" />
+    </field>
+    <field name="Proveedor_Proveedor" type="String" allowNulls="false" label="Proveedor" length="150" />
+    <field name="Tipo_Arrendamiento_Id" type="Int32" allowNulls="false" label="Tipo Arrendamiento Id">
+      <items style="Lookup" dataController="Tipo_Arrendamiento" dataView="Tipo_Arrendamiento_LookUp_List" dataTextField="Tipo_Arrendamiento" dataValueField="Tipo_Arrendamiento_Id" newDataView="createForm1" />
+    </field>
+    <field name="Tipo_Arrendamiento_Tipo_Arrendamiento" type="String" allowNulls="false" label="Tipo de Arrendamiento" length="150" />
+    <field name="Calle_Arrendamiento" type="String" label="Calle " length="150" />
+    <field name="Numero_Exterior_Arrendamiento" type="String" allowNulls="false" label="Número Exterior " length="50" />
+    <field name="Periodicidad_Pago_Id" type="Int32" allowNulls="false" label="Periodicidad Pago Id">
+      <items style="Lookup" dataController="Periodicidad" dataView="Periodicidad_LookUp_List" dataTextField="Periodicidad" dataValueField="Periodicidad_Id" newDataView="createForm1" />
+    </field>
+    <field name="Periodicidad_Periodicidad" type="String" allowNulls="false" label="Periodicidad de Pago" length="150" />
+    <field name="Dia_Pago_Id" type="Int32" allowNulls="false" label="Dia Pago Id">
+      <items style="Lookup" dataController="Dia" dataView="Dia_LookUp_List" dataTextField="Dia_Numero" dataValueField="Dia_Id" />
+    </field>
+    <field name="Dia_Pago_Dia_Pago" type="String" allowNulls="false" label="Día de Pago" length="150" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" label="Estatus del Registro">
+      <items style="Lookup" dataController="EstatusRegistro" dataView="Estatus_Registro_LookUp_List" dataTextField="Estatus_Registro" dataValueField="Estatus_Registro_ID" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" allowNulls="false" label="Estatus de Registro" length="150" />
+    <field name="Creado_Por" type="String" allowNulls="false" label="Creado Por" length="150" />
+    <field name="Actualizado_Por" type="String" allowNulls="false" label="Actualizado Por" length="150" />
+  </fields>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Proveedor_Arrendamiento
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Proveedor_Arrendamiento_Id= @Proveedor_Arrendamiento_Id
+
+]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Proveedor_Arrendamiento
+SET
+	
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Proveedor_Arrendamiento_Id= @Proveedor_Arrendamiento_Id]]></rule>
+    <rule id="r102" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+SET @Existe = 0
+
+SELECT
+	TOP 1 @Existe=1
+FROM
+	APP.Proveedor_Arrendamiento
+WHERE
+	Proveedor_Id = @Proveedor_Id
+        AND Tipo_Arrendamiento_Id = @Tipo_Arrendamiento_Id
+        AND REPLACE(UPPER(Calle_Arrendamiento),' ','')=REPLACE(UPPER(@Calle_Arrendamiento),' ','') 
+        AND REPLACE(UPPER(Numero_Exterior_Arrendamiento),' ','')=REPLACE(UPPER(@Numero_Exterior_Arrendamiento),' ','') 
+        
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un registro para este arrendamiento en la base de datos, favor de corregir'
+   SET @Result_ShowAlert = 'Ya existe un registro para este arrendamiento en la base de datos, favor de corregir'
+   RETURN
+END
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+SET @Existe = 0
+
+SELECT
+	TOP 1 @Existe=1
+FROM
+	APP.Proveedor_Arrendamiento
+WHERE
+	Proveedor_Id = @Proveedor_Id
+        AND Tipo_Arrendamiento_Id = @Tipo_Arrendamiento_Id
+        AND REPLACE(UPPER(Calle_Arrendamiento),' ','')=REPLACE(UPPER(@Calle_Arrendamiento),' ','') 
+        AND REPLACE(UPPER(Numero_Exterior_Arrendamiento),' ','')=REPLACE(UPPER(@Numero_Exterior_Arrendamiento),' ','') 
+        AND Proveedor_Arrendamiento_Id<>@Proveedor_Arrendamiento_Id
+        
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un registro para este arrendamiento en la base de datos, favor de corregir'
+   SET @Result_ShowAlert = 'Ya existe un registro para este arrendamiento en la base de datos, favor de corregir'
+   RETURN
+END]]></rule>
+  </businessRules>
+</dataController>

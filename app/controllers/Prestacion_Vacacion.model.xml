@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Prestacion_Vacacion" alias="Prestacion_Vacacion" created="2018-06-29T16:27:19" modified="2019-04-10T15:21:24" x="20" y="36" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="875" y="290">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Usuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="755" y="36">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Usuario_V1" parentTableSchema="dbo" parentTableName="Usuario_V" x="766" y="139">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Contratante_Prestacion" parentTableSchema="APP" parentTableName="Contratante_Prestacion" x="467" y="20">
+      <foreignKeyColumn columnName="Contratante_Prestacion_Id" parentColumnName="Contratante_Prestacion_Id" />
+    </foreignKey>
+    <foreignKey id="Contratante" parentTableSchema="APP" parentTableName="Contratante" x="1100" y="40" baseForeignKey="Contratante_Prestacion">
+      <foreignKeyColumn columnName="Contratante_Id" parentColumnName="Contratante_Id" />
+    </foreignKey>
+    <foreignKey id="Cliente" parentTableSchema="APP" parentTableName="Cliente" x="469" y="140">
+      <foreignKeyColumn columnName="Cliente_Id" parentColumnName="Cliente_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Prestacion_Vacacion_Id" fieldName="Prestacion_Vacacion_Id" label="Prestacion Vacacion Id" />
+    <column name="Contratante_Prestacion_Id" fieldName="Contratante_Prestacion_Id" label="Contratante Prestacion Id" aliasColumnName="Contratante_Id" aliasForeignKey="Contratante_Prestacion" />
+    <column name="Contratante_Id" fieldName="Contratante_Id" label="Contratante Id" foreignKey="Contratante_Prestacion" />
+    <column name="Anio_Inicial" fieldName="Anio_Inicial" label="Año Inicial" />
+    <column name="Anio_Final" fieldName="Anio_Final" label="Año Final" />
+    <column name="Dias_Vacaciones_Por_Ley" fieldName="Dias_Vacaciones_Por_Ley" label="Dias Vacaciones Por Ley" />
+    <column name="Dias_Vacaciones_Extra_Ley" fieldName="Dias_Vacaciones_Extra_Ley" label="Dias Vacaciones Extra Ley" />
+    <column name="Porcentaje_Prima_Vacacional" fieldName="Porcentaje_Prima_Vacacional" label="Porcentaje Prima Vacacional" />
+    <column name="Cliente_Id" fieldName="Cliente_Id" label="Cliente Id" aliasColumnName="Cliente" aliasForeignKey="Cliente" />
+    <column name="Cliente" fieldName="Cliente" label="Cliente" foreignKey="Cliente" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V" />
+    <column name="UserName" fieldName="cpUserName" label="Usuario V Username" foreignKey="Usuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V1" />
+    <column name="UserName" fieldName="apUserName" label="ap User Name" foreignKey="Usuario_V1" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+    <column name="Contratante" fieldName="Contratante" label="Contratante" foreignKey="Contratante" />
+  </columns>
+</dataModel>

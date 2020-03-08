@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Contratado_Solicitud_Documento" alias="Contratado_Solicitud_Documento" created="2019-05-15T00:32:32" modified="2019-07-09T12:46:50" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Definicion_Solicitud_Documento_" parentTableSchema="APP" parentTableName="Definicion_Solicitud_Documento" x="453" y="20">
+      <foreignKeyColumn columnName="Definicion_Solicitud_Documento_Id" parentColumnName="Definicion_Solicitud_Documento_Id" />
+    </foreignKey>
+    <foreignKey id="Contratado_" parentTableSchema="APP" parentTableName="Contratado" x="1063" y="243">
+      <foreignKeyColumn columnName="Contratado_Id" parentColumnName="Contratado_Id" />
+    </foreignKey>
+    <foreignKey id="Layout_HTML_" parentTableSchema="dbo" parentTableName="Layout_HTML" x="453" y="726">
+      <foreignKeyColumn columnName="Layout_HTML_Id" parentColumnName="Layout_HTML_Id" />
+    </foreignKey>
+    <foreignKey id="Pagadora_" parentTableSchema="APP" parentTableName="Pagadora" x="983" y="956">
+      <foreignKeyColumn columnName="Pagadora_Id" parentColumnName="Pagadora_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Solicitud_" parentTableSchema="APP" parentTableName="Estatus_Solicitud" x="983" y="20">
+      <foreignKeyColumn columnName="Estatus_Solicitud_Id" parentColumnName="Estatus_Solicitud_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="983" y="250">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Creado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="1078" y="449">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Actualizado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="999" y="706">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Autorizado_Rechazado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="463" y="424">
+      <foreignKeyColumn columnName="Autorizado_Rechazado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Contratado_Solicitud_Documento_Id" fieldName="Contratado_Solicitud_Documento_Id" label="Contratado Solicitud Documento Id" />
+    <column name="Definicion_Solicitud_Documento_Id" fieldName="Definicion_Solicitud_Documento_Id" label="Definicion Solicitud Documento Id" aliasColumnName="Definicion_Solicitud_Documento" aliasForeignKey="Definicion_Solicitud_Documento_" />
+    <column name="Definicion_Solicitud_Documento" fieldName="Definicion_Solicitud_Documento_Definicion_Solicitud_Documento" label="Definición de Documento" foreignKey="Definicion_Solicitud_Documento_" />
+    <column name="Contratado_Id" fieldName="Contratado_Id" label="Contratado Id" aliasColumnName="Identificador_Unico" aliasForeignKey="Contratado_" />
+    <column name="Identificador_Unico" fieldName="Contratado_Identificador_Unico" label="Contratado Identificador Unico" foreignKey="Contratado_" />
+    <column name="Layout_HTML_Id" fieldName="Layout_HTML_Id" label="Layout HTML Id" aliasColumnName="Layout_HTML_Nombre" aliasForeignKey="Layout_HTML_" />
+    <column name="Layout_HTML_Nombre" fieldName="Layout_HTML_Layout_HTML_Nombre" label="Layout HTML" foreignKey="Layout_HTML_" />
+    <column name="Fecha_Emision_Documento" fieldName="Fecha_Emision_Documento" label="Fecha de Emisión de Documento" format="g" />
+    <column name="Layout_Documento" fieldName="Layout_Documento" label="Layout de Documento" />
+    <column name="Pagadora_Id" fieldName="Pagadora_Id" label="Pagadora Id" aliasColumnName="Pagadora" aliasForeignKey="Pagadora_" />
+    <column name="Pagadora" fieldName="Pagadora_Pagadora" label="Sindicato" foreignKey="Pagadora_" />
+    <column name="Leyenda_Sindicato" fieldName="Leyenda_Sindicato" label="Leyenda Sindicato" />
+    <column name="Destinatario" fieldName="Destinatario" label="Destinatario" />
+    <column name="Sueldo_Empleado_Valor_Letra" fieldName="Sueldo_Empleado_Valor_Letra" label="Sueldo Empleado Valor Letra" />
+    <column name="Domicilio_Contratante" fieldName="Domicilio_Contratante" label="Domicilio" />
+    <column name="Ciudad_Emision" fieldName="Ciudad_Emision" label="Ciudad de Emisión" />
+    <column name="Fecha_Ingreso_Empleado" fieldName="Fecha_Ingreso_Empleado" label="Fecha Ingreso de Empleado" format="g" />
+    <column name="Fecha_Termino_Labores_Empleado" fieldName="Fecha_Termino_Labores_Empleado" label="Fecha Termino Labores Empleado" format="g" />
+    <column name="Picture" fieldName="Picture" label="Archivo" />
+    <column name="PictureFileName" fieldName="PictureFileName" label="Nombre del Archivo" />
+    <column name="PictureContentType" fieldName="PictureContentType" label="Tipo de Archivo" />
+    <column name="PictureLength" fieldName="PictureLength" label="Tamaño del Archivo" />
+    <column name="Picture2" fieldName="Picture2" label="Archivo" />
+    <column name="Picture2FileName" fieldName="Picture2FileName" label="Nombre del Archivo" />
+    <column name="Picture2ContentType" fieldName="Picture2ContentType" label="Tipo de Archivo" />
+    <column name="Picture2Length" fieldName="Picture2Length" label="Tamaño de Archivo" />
+    <column name="Solicitud_Documento_Key" fieldName="Solicitud_Documento_Key" label="Solicitud Documento Key" />
+    <column name="Fecha_Solicitud" fieldName="Fecha_Solicitud" label="Fecha de Solicitud" format="g" />
+    <column name="Estatus_Solicitud_Id" fieldName="Estatus_Solicitud_Id" label="Estatus Solicitud Id" aliasColumnName="Estatus_Solicitud" aliasForeignKey="Estatus_Solicitud_" />
+    <column name="Estatus_Solicitud" fieldName="Estatus_Solicitud_Estatus_Solicitud" label="Estatus de Solicitud" foreignKey="Estatus_Solicitud_" />
+    <column name="Fecha_Autorizacion_Rechazo" fieldName="Fecha_Autorizacion_Rechazo" label="Fecha de Autorización o Rechazo" format="g" />
+    <column name="UserName" fieldName="AutorizadoRechazadoPorusername" label="Autorizado Rechazado Por" foreignKey="Autorizado_Rechazado_Por" />
+    <column name="Notas_Autorizacion_Rechazo" fieldName="Notas_Autorizacion_Rechazo" label="Notas de Autorización o Rechazo" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="UserName" fieldName="CreadoPorusername" label="Creado Por" foreignKey="Creado_Por" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="UserName" fieldName="ActualizadoPorusername" label="Actualizado Por" foreignKey="Actualizado_Por" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+    <column name="Nombre_Completo_Contratado" fieldName="Nombre_Completo_Contratado" label="Nombre Completo Contratado" />
+    <column name="Emisor" fieldName="Emisor" label="Emisor" />
+    <column name="Jefe_Sindicato" fieldName="Jefe_Sindicato" label="Jefe Sindicato" />
+    <column name="Fecha_Inicio_Vacaciones" fieldName="Fecha_Inicio_Vacaciones" label="Fecha Inicio Vacaciones" format="g" />
+    <column name="Fecha_Fin_Vacaciones" fieldName="Fecha_Fin_Vacaciones" label="Fecha Fin Vacaciones" format="g" />
+    <column name="Dias_Descanso" fieldName="Dias_Descanso" label="Dias Descanso" />
+    <column name="Nombre_Menor_Guarderia" fieldName="Nombre_Menor_Guarderia" label="Nombre Menor Guarderia" />
+    <column name="Matricula_Persona" fieldName="Matricula_Persona" label="Matricula Persona" />
+    <column name="Carrera_Universitaria" fieldName="Carrera_Universitaria" label="Carrera Universitaria" />
+    <column name="Horas_Trabajadas" fieldName="Horas_Trabajadas" label="Horas Trabajadas" />
+    <column name="Departamento_Emisor" fieldName="Departamento_Emisor" label="Departamento Emisor" />
+    <column name="Registro_Patronal" fieldName="Registro_Patronal" label="Registro Patronal" />
+    <column name="Codigo_Postal_Contratante" fieldName="Codigo_Postal_Contratante" label="Código Postal Contratante" />
+    <column name="Numero_Telefonico_Contratante" fieldName="Numero_Telefonico_Contratante" label="Numero Telefonico Contratante" />
+    <column name="Finalidad_Documento_Guarderia_Id" fieldName="Finalidad_Documento_Guarderia_Id" label="Finalidad Documento Guarderia Id" />
+  </columns>
+</dataModel>

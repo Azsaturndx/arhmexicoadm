@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Lista" alias="Lista" created="2018-05-19T20:14:36" modified="2018-05-19T20:15:59" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="402" y="20">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="cp" parentTableSchema="dbo" parentTableName="Usuario_V" x="402" y="174">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="ap" parentTableSchema="dbo" parentTableName="Usuario_V" x="48" y="270">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Lista_Id" fieldName="Lista_Id" label="Lista Id" />
+    <column name="Lista" fieldName="Lista" label="Lista" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cp" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="ap" />
+  </columns>
+</dataModel>

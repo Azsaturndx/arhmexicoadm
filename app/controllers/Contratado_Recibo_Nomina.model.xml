@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Contratado_Recibo_Nomina" alias="Contratado_Recibo_Nomina" created="2018-08-27T18:18:34" modified="2018-09-19T17:25:21" x="20" y="31" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Contratado_" parentTableSchema="APP" parentTableName="Contratado" x="1068" y="20">
+      <foreignKeyColumn columnName="Contratado_Id" parentColumnName="Contratado_Id" />
+    </foreignKey>
+    <foreignKey id="Cliente_" parentTableSchema="APP" parentTableName="Cliente" x="770" y="89">
+      <foreignKeyColumn columnName="Cliente_Id" parentColumnName="Cliente_Id" />
+    </foreignKey>
+    <foreignKey id="Anio_" parentTableSchema="APP" parentTableName="Anio" x="769" y="269">
+      <foreignKeyColumn columnName="Anio_Id" parentColumnName="Anio_Id" />
+    </foreignKey>
+    <foreignKey id="Mes_" parentTableSchema="APP" parentTableName="Mes" x="1035" y="578">
+      <foreignKeyColumn columnName="Mes_Id" parentColumnName="Mes_Id" />
+    </foreignKey>
+    <foreignKey id="Periodo_Nomina_" parentTableSchema="APP" parentTableName="Periodo_Nomina" x="482" y="463">
+      <foreignKeyColumn columnName="Periodo_Nomina_Id" parentColumnName="Periodo_Nomina_Id" />
+    </foreignKey>
+    <foreignKey id="Tipo_Recibo_Nomina_" parentTableSchema="dbo" parentTableName="Tipo_Recibo_Nomina" x="479" y="717">
+      <foreignKeyColumn columnName="Tipo_Recibo_Nomina_Id" parentColumnName="Tipo_Recibo_Nomina_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="129" y="714">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="cpUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="175" y="465">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="apUsuario_V1" parentTableSchema="dbo" parentTableName="Usuario_V" x="173" y="556">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Tipo_Archivo_Recibo_Nomina" parentTableSchema="dbo" parentTableName="Tipo_Archivo_Recibo_Nomina" x="464" y="933">
+      <foreignKeyColumn columnName="Tipo_Archivo_Recibo_Nomina_Id" parentColumnName="Tipo_Archivo_Recibo_Nomina_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Contratado_Recibo_Nomina_Id" fieldName="Contratado_Recibo_Nomina_Id" label="Contratado Recibo Nomina Id" />
+    <column name="Contratado_Id" fieldName="Contratado_Id" label="Contratado Id" aliasColumnName="Identificador_Unico" aliasForeignKey="Contratado_" />
+    <column name="Identificador_Unico" fieldName="Contratado_Identificador_Unico" label="Contratado Identificador Unico" foreignKey="Contratado_" />
+    <column name="Cliente_Id" fieldName="Cliente_Id" label="Cliente Id" aliasColumnName="Cliente" aliasForeignKey="Cliente_" />
+    <column name="Cliente" fieldName="Cliente_Cliente" label="Cliente" foreignKey="Cliente_" />
+    <column name="Anio_Id" fieldName="Anio_Id" label="Anio Id" aliasColumnName="Anio" aliasForeignKey="Anio_" />
+    <column name="Anio" fieldName="Anio_Anio" label="Anio" foreignKey="Anio_" />
+    <column name="Mes_Id" fieldName="Mes_Id" label="Mes Id" aliasColumnName="Mes" aliasForeignKey="Mes_" />
+    <column name="Mes" fieldName="Mes_Mes" label="Mes" foreignKey="Mes_" />
+    <column name="Periodo_Nomina_Id" fieldName="Periodo_Nomina_Id" label="Periodo Nomina Id" aliasColumnName="Periodo_Nomina" aliasForeignKey="Periodo_Nomina_" />
+    <column name="Periodo_Nomina" fieldName="Periodo_Nomina_Periodo_Nomina" label="Periodo Nomina" foreignKey="Periodo_Nomina_" />
+    <column name="Tipo_Recibo_Nomina_Id" fieldName="Tipo_Recibo_Nomina_Id" label="Tipo Recibo Nomina Id" aliasColumnName="Tipo_Recibo_Nomina" aliasForeignKey="Tipo_Recibo_Nomina_" />
+    <column name="Tipo_Recibo_Nomina" fieldName="Tipo_Recibo_Nomina_Tipo_Recibo_Nomina" label="Tipo Recibo Nomina" foreignKey="Tipo_Recibo_Nomina_" />
+    <column name="Identificador_Unico" fieldName="Identificador_Unico" label="Identificador Unico" />
+    <column name="Nombre_Archivo_Recibo_Nomina" fieldName="Nombre_Archivo_Recibo_Nomina" label="Nombre Archivo Recibo Nomina" />
+    <column name="Url_Storage" fieldName="Url_Storage" label="Url Storage" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cpUsuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha Creacion" format="g" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="apUsuario_V1" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha Ultima Actualizacion" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+    <column name="Tipo_Archivo_Recibo_Nomina_Id" fieldName="Tipo_Archivo_Recibo_Nomina_Id" label="Tipo Archivo Recibo Nomina Id" aliasColumnName="Tipo_Archivo_Recibo_Nomina" aliasForeignKey="Tipo_Archivo_Recibo_Nomina" />
+    <column name="Tipo_Archivo_Recibo_Nomina" fieldName="Tipo_Archivo_Recibo_Nomina" label="Tipo Archivo Recibo Nomina" foreignKey="Tipo_Archivo_Recibo_Nomina" />
+  </columns>
+</dataModel>

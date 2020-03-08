@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Ausentismo" alias="Ausentismo" created="2019-11-26T10:23:06" modified="2019-11-26T10:27:22" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Tipo_Ausentismo_" parentTableSchema="APP" parentTableName="Tipo_Ausentismo" x="415" y="20">
+      <foreignKeyColumn columnName="Tipo_Ausentismo_Id" parentColumnName="Tipo_Ausentismo_Id" />
+    </foreignKey>
+    <foreignKey id="Contratado_" parentTableSchema="APP" parentTableName="Contratado" x="457" y="372">
+      <foreignKeyColumn columnName="Contratado_Id" parentColumnName="Contratado_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Ausentismo_" parentTableSchema="APP" parentTableName="Estatus_Ausentismo" x="415" y="878">
+      <foreignKeyColumn columnName="Estatus_Ausentismo_Id" parentColumnName="Estatus_Ausentismo_Id" />
+    </foreignKey>
+    <foreignKey id="Contratante_" parentTableSchema="APP" parentTableName="Contratante" x="945" y="20">
+      <foreignKeyColumn columnName="Contratante_Id" parentColumnName="Contratante_Id" />
+    </foreignKey>
+    <foreignKey id="Cliente_" parentTableSchema="APP" parentTableName="Cliente" x="945" y="296">
+      <foreignKeyColumn columnName="Cliente_Id" parentColumnName="Cliente_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="945" y="526">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Creado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="1361" y="58">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Actualizado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="1372" y="332">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Ausentismo_Id" fieldName="Ausentismo_Id" label="Ausentismo Id" />
+    <column name="Ausentismo" fieldName="Ausentismo" label="Ausentismo" />
+    <column name="Tipo_Ausentismo_Id" fieldName="Tipo_Ausentismo_Id" label="Tipo Ausentismo Id" aliasColumnName="Tipo_Ausentismo" aliasForeignKey="Tipo_Ausentismo_" />
+    <column name="Tipo_Ausentismo" fieldName="Tipo_Ausentismo" label="Tipo de Ausentismo" foreignKey="Tipo_Ausentismo_" />
+    <column name="Contratado_Id" fieldName="Contratado_Id" label="Contratado Id" aliasColumnName="Identificador_Unico" aliasForeignKey="Contratado_" />
+    <column name="Identificador_Unico" fieldName="Contratado_Identificador_Unico" label="Contratado Identificador Unico" foreignKey="Contratado_" />
+    <column name="Fecha_Solicitud_Ausentismo" fieldName="Fecha_Solicitud_Ausentismo" label="Fecha Solicitud Ausentismo" format="g" />
+    <column name="Fecha_Inicio_Ausentismo" fieldName="Fecha_Inicio_Ausentismo" label="Fecha Inicio Ausentismo" format="g" />
+    <column name="Fecha_Fin_Ausentismo" fieldName="Fecha_Fin_Ausentismo" label="Fecha Fin Ausentismo" format="g" />
+    <column name="Dias_Ausentismo_Solicitados" fieldName="Dias_Ausentismo_Solicitados" label="Dias Ausentismo Solicitados" />
+    <column name="Motivo_Ausentismo" fieldName="Motivo_Ausentismo" label="Motivo Ausentismo" />
+    <column name="Estatus_Ausentismo_Id" fieldName="Estatus_Ausentismo_Id" label="Estatus Ausentismo Id" aliasColumnName="Estatus_Ausentismo" aliasForeignKey="Estatus_Ausentismo_" />
+    <column name="Estatus_Ausentismo" fieldName="Estatus_Ausentismo" label="Estatus de Ausentismo" foreignKey="Estatus_Ausentismo_" />
+    <column name="Fecha_Autorizacion_Rechazo" fieldName="Fecha_Autorizacion_Rechazo" label="Fecha Autorizacion Rechazo" format="g" />
+    <column name="Autorizado_Rechazado_Por_Id" fieldName="Autorizado_Rechazado_Por_Id" label="Autorizado Rechazado Por Id" />
+    <column name="Notas_Autorizacion_Rechazo" fieldName="Notas_Autorizacion_Rechazo" label="Notas Autorizacion Rechazo" />
+    <column name="Dias_Autorizados" fieldName="Dias_Autorizados" label="Dias Autorizados" />
+    <column name="Ausentismo_Key" fieldName="Ausentismo_Key" label="Ausentismo Key" />
+    <column name="Contratante_Id" fieldName="Contratante_Id" label="Contratante Id" aliasColumnName="Contratante" aliasForeignKey="Contratante_" />
+    <column name="Contratante" fieldName="Contratante_Contratante" label="Contratante" foreignKey="Contratante_" />
+    <column name="Cliente_Id" fieldName="Cliente_Id" label="Cliente Id" aliasColumnName="Cliente" aliasForeignKey="Cliente_" />
+    <column name="Cliente" fieldName="Cliente_Cliente" label="Cliente" foreignKey="Cliente_" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="Creado_Por" />
+    <column name="UserName" fieldName="Creado_Por" label="Creado Por" foreignKey="Creado_Por" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="Actualizado_Por" />
+    <column name="UserName" fieldName="Actualizado_Por" label="Actualizado Por" foreignKey="Actualizado_Por" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+  </columns>
+</dataModel>

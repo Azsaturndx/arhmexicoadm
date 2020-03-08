@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Persona_Experiencia_Laboral_Prestacion" conflictDetection="overwriteChanges" label="Persona Experiencia Laboral Prestacion" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Persona_Experiencia_Laboral_Prestacion"."Persona_Experiencia_Laboral_Prestacion_Id" "Persona_Experiencia_Laboral_Prestacion_Id"
+	,"Persona_Experiencia_Laboral_Prestacion"."Persona_Experiencia_Laboral_Id" "Persona_Experiencia_Laboral_Id"
+	,"Persona_Experiencia_Laboral_"."Transaccion_Id" "Persona_Experiencia_Laboral_Transaccion_Id"
+	,"Persona_Experiencia_Laboral_Prestacion"."Tipo_Prestacion_Id" "Tipo_Prestacion_Id"
+	,"Tipo_Prestacion_"."Tipo_Prestacion" "Tipo_Prestacion_Tipo_Prestacion"
+	,"Persona_Experiencia_Laboral_Prestacion"."Otro_Tipo_Prestacion" "Otro_Tipo_Prestacion"
+	,"Persona_Experiencia_Laboral_Prestacion"."Transaccion_Id" "Transaccion_Id"
+	,"Persona_Experiencia_Laboral_Prestacion"."Creado_Por_Id" "Creado_Por_Id"
+	,"Usuario_V"."UserName" "cpUserName"
+	,"Persona_Experiencia_Laboral_Prestacion"."Fecha_Creacion" "Fecha_Creacion"
+	,"Persona_Experiencia_Laboral_Prestacion"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"Usuario_V1"."UserName" "apUserName"
+	,"Persona_Experiencia_Laboral_Prestacion"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Persona_Experiencia_Laboral_Prestacion"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+from "APP"."Persona_Experiencia_Laboral_Prestacion" "Persona_Experiencia_Laboral_Prestacion"
+	left join "APP"."Persona_Experiencia_Laboral" "Persona_Experiencia_Laboral_" on "Persona_Experiencia_Laboral_Prestacion"."Persona_Experiencia_Laboral_Id" = "Persona_Experiencia_Laboral_"."Persona_Experiencia_Laboral_Id"
+	left join "APP"."Tipo_Prestacion" "Tipo_Prestacion_" on "Persona_Experiencia_Laboral_Prestacion"."Tipo_Prestacion_Id" = "Tipo_Prestacion_"."Tipo_Prestacion_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Persona_Experiencia_Laboral_Prestacion"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Usuario_V" on "Persona_Experiencia_Laboral_Prestacion"."Creado_Por_Id" = "Usuario_V"."UserId"
+	left join "dbo"."Usuario_V" "Usuario_V1" on "Persona_Experiencia_Laboral_Prestacion"."Actualizado_Por_Id" = "Usuario_V1"."UserId"
+]]></text>
+    </command>
+    <command id="Persona_Experiencia_Laboral_Prestacion_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Persona_Experiencia_Laboral_Prestacion_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Persona_Experiencia_Laboral_Prestacion_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Persona Experiencia Laboral Prestacion Id" readOnly="true" />
+    <field name="Persona_Experiencia_Laboral_Id" type="Int32" allowNulls="false" default="((0))" label="Persona Experiencia Laboral Id" showInSummary="true">
+      <items style="Lookup" dataController="Persona_Experiencia_Laboral" newDataView="createForm1" dataValueField="Persona_Experiencia_Laboral_Id" dataTextField="Transaccion_Id" dataView="Persona_Experiencia_Laboral_LookUp_List" />
+    </field>
+    <field name="Persona_Experiencia_Laboral_Transaccion_Id" type="String" readOnly="true" label="Persona Experiencia Laboral Transaccion Id" length="50" />
+    <field name="Tipo_Prestacion_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo Prestacion Id" showInSummary="true">
+      <items style="Lookup" dataController="Tipo_Prestacion" newDataView="createForm1" dataValueField="Tipo_Prestacion_Id" dataTextField="Tipo_Prestacion" dataView="Tipo_Prestacion_LookUp_List" />
+    </field>
+    <field name="Tipo_Prestacion_Tipo_Prestacion" type="String" readOnly="true" label="Tipo de Prestación" length="150" />
+    <field name="Otro_Tipo_Prestacion" type="String" allowQBE="false" allowSorting="false" label="Otro Tipo de Prestación" showInSummary="true" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transacción Id" length="50" showInSummary="true" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02',(0)))" label="Creado Por Id" showInSummary="true">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02',(0)))" label="Actualizado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Experiencia Laboral Prestación" filter="Estatus_Registro_Id &lt;&gt; 0" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Tipo_Prestacion_Tipo_Prestacion">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Persona_Experiencia_Laboral_Id" aliasFieldName="Persona_Experiencia_Laboral_Transaccion_Id" />
+        <dataField fieldName="Tipo_Prestacion_Id" aliasFieldName="Tipo_Prestacion_Tipo_Prestacion" />
+        <dataField fieldName="Otro_Tipo_Prestacion" rows="5" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Tipo_Prestacion_Tipo_Prestacion" rows="5" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Experiencia Laboral Prestación" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Persona_Experiencia_Laboral_Id" aliasFieldName="Persona_Experiencia_Laboral_Transaccion_Id" />
+            <dataField fieldName="Tipo_Prestacion_Id" aliasFieldName="Tipo_Prestacion_Tipo_Prestacion" />
+            <dataField fieldName="Otro_Tipo_Prestacion" rows="5" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nueva Experiencia Laboral Prestación" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Persona_Experiencia_Laboral_Id" aliasFieldName="Persona_Experiencia_Laboral_Transaccion_Id" />
+            <dataField fieldName="Tipo_Prestacion_Id" aliasFieldName="Tipo_Prestacion_Tipo_Prestacion" />
+            <dataField fieldName="Otro_Tipo_Prestacion" rows="5" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE 
+	APP.Persona_Experiencia_Laboral_Prestacion
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Experiencia_Laboral_Prestacion_Id= @Persona_Experiencia_Laboral_Prestacion_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE 
+	APP.Persona_Experiencia_Laboral_Prestacion
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Experiencia_Laboral_Prestacion_Id= @Persona_Experiencia_Laboral_Prestacion_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE 
+	APP.Persona_Experiencia_Laboral_Prestacion
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Experiencia_Laboral_Prestacion_Id= @Persona_Experiencia_Laboral_Prestacion_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE 
+	APP.Persona_Experiencia_Laboral_Prestacion
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Experiencia_Laboral_Prestacion_Id= @Persona_Experiencia_Laboral_Prestacion_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Persona_Experiencia_Laboral_Prestacion
+	WHERE
+		Persona_Experiencia_Laboral_Id = @Persona_Experiencia_Laboral_Id
+		AND Tipo_Prestacion_Id = @Tipo_Prestacion_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya esta registrada esta prestacion para la persona seleccionada, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya esta registrada esta prestacion para la persona seleccionada, favor de corregir.'
+   RETURN
+END]]></rule>
+    <rule id="r101" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Persona_Experiencia_Laboral_Prestacion
+SET
+Creado_Por_Id = @BusinessRules_UserId
+,Actualizado_Por_Id = @BusinessRules_UserId
+,Fecha_Creacion = GetDate()
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Experiencia_Laboral_Prestacion_Id= @Persona_Experiencia_Laboral_Prestacion_Id]]></rule>
+    <rule id="r102" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Persona_Experiencia_Laboral_Prestacion
+	WHERE
+		Persona_Experiencia_Laboral_Id = @Persona_Experiencia_Laboral_Id
+		AND Tipo_Prestacion_Id = @Tipo_Prestacion_Id
+  		AND Persona_Experiencia_Laboral_Prestacion_Id <> @Persona_Experiencia_Laboral_Prestacion_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya esta registrada esta prestacion para la persona seleccionada, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya esta registrada esta prestacion para la persona seleccionada, favor de corregir.'
+   RETURN
+END
+
+
+
+
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Persona_Experiencia_Laboral_Prestacion
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Persona_Experiencia_Laboral_Prestacion_Id = @Persona_Experiencia_Laboral_Prestacion_Id	]]></rule>
+  </businessRules>
+</dataController>

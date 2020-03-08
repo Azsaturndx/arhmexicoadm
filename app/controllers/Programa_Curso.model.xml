@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Programa_Curso" alias="Programa_Curso" created="2018-05-20T02:46:46" modified="2019-02-05T15:22:25" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="405" y="20">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="cp" parentTableSchema="dbo" parentTableName="Usuario_V" x="478" y="233">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="ap" parentTableSchema="dbo" parentTableName="Usuario_V" x="79" y="271">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Color" parentTableSchema="APP" parentTableName="Color" x="780" y="99">
+      <foreignKeyColumn columnName="Color_Fondo_Id" parentColumnName="Color_Id" />
+    </foreignKey>
+    <foreignKey id="Color1" parentTableSchema="APP" parentTableName="Color" x="475" y="394">
+      <foreignKeyColumn columnName="Color_Texto_Id" parentColumnName="Color_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Programa_Curso_Id" fieldName="Programa_Curso_Id" label="Programa Curso Id" />
+    <column name="Programa_Curso" fieldName="Programa_Curso" label="Programa o Curso" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cp" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="ap" />
+    <column name="Color_Texto_Id" fieldName="Color_Texto_Id" label="Color Texto Id" aliasColumnName="Color" aliasForeignKey="Color1" />
+    <column name="Color" fieldName="Color_Texto" label="Color de Texto" foreignKey="Color1" />
+    <column name="Color_Fondo_Id" fieldName="Color_Fondo_Id" label="Color Fondo Id" aliasColumnName="Color" aliasForeignKey="Color" />
+    <column name="Color" fieldName="Color_Fondo" label="Color Fondo" foreignKey="Color" />
+    <column name="Valor_Cuantitativo" fieldName="ValorCuantitativo" label="Valor Cuantitativo" />
+    <column name="Valor_Fin" fieldName="ValorFin" label="Valor Fin" />
+    <column name="Valor_Inicio" fieldName="ValorInicio" label="Valor Inicio" />
+  </columns>
+</dataModel>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Tipo_Conocimiento" alias="Tipo_Conocimiento" created="2018-05-19T20:11:37" modified="2019-02-05T15:15:51" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="412" y="20">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="cp" parentTableSchema="dbo" parentTableName="Usuario_V" x="431" y="150">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="ap" parentTableSchema="dbo" parentTableName="Usuario_V" x="72" y="354">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Lista" parentTableSchema="APP" parentTableName="Lista" x="439" y="371">
+      <foreignKeyColumn columnName="Lista_Id" parentColumnName="Lista_Id" />
+      <foreignKeyColumn columnName="Color_Fondo_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Color" parentTableSchema="APP" parentTableName="Color" x="834" y="144">
+      <foreignKeyColumn columnName="Color_Texto_Id" parentColumnName="Color_Id" />
+    </foreignKey>
+    <foreignKey id="Color1" parentTableSchema="APP" parentTableName="Color" x="844" y="448">
+      <foreignKeyColumn columnName="Color_Fondo_Id" parentColumnName="Color_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Tipo_Conocimiento_Id" fieldName="Tipo_Conocimiento_Id" label="Tipo Conocimiento Id" />
+    <column name="Tipo_Conocimiento" fieldName="Tipo_Conocimiento" label="Tipo de Conocimiento" />
+    <column name="Es_Idioma" fieldName="Es_Idioma" label="¿Es Idioma?" />
+    <column name="Es_Conocimiento_Tecnico" fieldName="Es_Conocimiento_Tecnico" label="¿Es Conocimiento Técnico?" />
+    <column name="Es_Conocimiento_Academico" fieldName="Es_Conocimiento_Academico" label="¿Es Conocimiento Académico?" />
+    <column name="Lista_Id" fieldName="Lista_Id" label="Lista Id" aliasColumnName="Lista" aliasForeignKey="Lista" />
+    <column name="Lista" fieldName="Lista" label="Listado de Conocimientos" foreignKey="Lista" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cp" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="ap" />
+    <column name="Color_Texto_Id" fieldName="Color_Texto_Id" label="Color Texto Id" aliasColumnName="Color" aliasForeignKey="Color" />
+    <column name="Color" fieldName="Color_Texto" label="Color de Texto" foreignKey="Color" />
+    <column name="Color_Fondo_Id" fieldName="Color_Fondo_Id" label="Color Fondo Id" aliasColumnName="Color" aliasForeignKey="Color1" />
+    <column name="Color" fieldName="Color_Fondo" label="Color Fondo" foreignKey="Color1" />
+    <column name="Valor_Cuantitativo" fieldName="ValorCuantitativo" label="Valor Cuantitativo" />
+    <column name="Valor_Fin" fieldName="ValorFin" label="Valor Fin" />
+    <column name="Valor_Inicio" fieldName="ValorInicio" label="Valor Inicio" />
+  </columns>
+</dataModel>

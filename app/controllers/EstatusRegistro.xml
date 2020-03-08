@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="EstatusRegistro" conflictDetection="overwriteChanges" label="Estatus Registro" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Estatus_Registro"."Estatus_Registro_Id" "Estatus_Registro_ID"
+	,"Estatus_Registro"."Estatus_Registro" "Estatus_Registro"
+	,"Estatus_Registro"."Estatus_Registro_Orden" "Estatus_Registro_Orden"
+from "dbo"."Estatus_Registro" "Estatus_Registro"
+]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Estatus_Registro_ID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Estatus Registro Id" readOnly="true" />
+    <field name="Estatus_Registro" type="String" allowNulls="false" label="Estatus de Registro" length="150" showInSummary="true" />
+    <field name="Estatus_Registro_Orden" type="Int32" allowNulls="false" label="Orden" showInSummary="true" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Estatus Registro" sortExpression="Estatus_Registro_Orden" filter="Estatus_Registro_Id &lt;&gt; 0" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Estatus_Registro_ID" columns="15" />
+        <dataField fieldName="Estatus_Registro" />
+        <dataField fieldName="Estatus_Registro_Orden" columns="15" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Estatus Registro" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Estatus_Registro_ID" columns="15" hidden="true" />
+            <dataField fieldName="Estatus_Registro" />
+            <dataField fieldName="Estatus_Registro_Orden" columns="15" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nuevo Estatus Registro" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Estatus_Registro" />
+            <dataField fieldName="Estatus_Registro_Orden" columns="15" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Estatus_Registro_LookUp_List" type="Grid" commandId="command1" label="Estatus Registro" sortExpression="Estatus_Registro_Orden" filter="Estatus_Registro_Id IN (1,0)" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Estatus_Registro_ID" columns="15" hidden="true" />
+        <dataField fieldName="Estatus_Registro" />
+        <dataField fieldName="Estatus_Registro_Orden" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators" />
+      <action id="a2" commandName="Delete" roles="Hidden" />
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" roles="Administrators" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" roles="Administrators" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" roles="Administrators" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" roles="Administrators" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" roles="Administrators" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators" />
+      <action id="a4" commandName="ExportRss" roles="Administrators" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators" />
+      <action id="a2" commandName="Delete" roles="Hidden" />
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Estatus_Registro
+	WHERE
+		REPLACE(UPPER(Estatus_Registro),' ','') = REPLACE(UPPER(@Estatus_Registro),' ','')
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya esta registrado este estatus de registro en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya esta registrado este estatus de registro en la base de datos, favor de corregir.'
+   RETURN
+END
+]]></rule>
+    <rule id="r103" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Estatus_Registro
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Estatus_Registro_Id= @Estatus_Registro_Id]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Estatus_Registro
+	WHERE
+		REPLACE(UPPER(Estatus_Registro),' ','') = REPLACE(UPPER(@Estatus_Registro),' ','')
+		AND Estatus_Registro_Id <> @Estatus_Registro_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya esta registrado este estatus de registro en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya esta registrado este estatus de registro en la base de datos, favor de corregir.'
+   RETURN
+END]]></rule>
+    <rule id="r102" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Estatus_Registro
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Estatus_Registro_Id = @Estatus_Registro_Id]]></rule>
+  </businessRules>
+</dataController>

@@ -1,0 +1,86 @@
+﻿
+
+
+<!-- 
+    This section provides a sample markup for Touch UI user interface. 
+-->
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div id="Forbidden" data-app-role="page" xmlns:codedom="http://www.codeontime.com/2008/codedom-compiler" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:c="urn:schemas-codeontime-com:data-aquarium" xmlns:asp="urn:asp.net" xmlns:aquarium="urn:data-aquarium">
+    <div id="forbidden-type"></div>
+</div>
+<script type="text/javascript">
+    (function() {
+        if ($app.touch)
+            $(document).one('start.app', function () {
+                // The page of Touch UI application is ready to be configured
+        });
+    })();
+
+    var fbType = getUrlVars()["fbt"];
+
+    if (fbType == 1)//Forbidden
+    {
+        $("#forbidden-type").empty();
+        $("#forbidden-type").append('<h3><i class="material-icons">pan_tool </i> Error 403 - FORBIDDEN</h3><h4>Usted no tiene permisos para acceder a este sitio.</h4>');
+
+    }
+    if (fbType == 2)
+    {
+        $("#forbidden-type").empty();
+        $("#forbidden-type").append('<h3><i class="material-icons">pan_tool </i> HA OCURRIDO UN ERROR</h3><h4>Ocurrió un error al tratar de validar el token de sesión.</h4>')
+    }
+
+    if (fbType == 3) {
+        $("#forbidden-type").empty();
+        $("#forbidden-type").append('<h3><i class="material-icons">pan_tool </i> HA OCURRIDO UN ERROR</h3><h4>Ocurrió un error al tratar de validar la solicitud de vacaciones.</h4>')
+    }
+
+    if (fbType == 4)
+    {
+        $("#forbidden-type").empty();
+        $("#forbidden-type").append('<h3><i class="material-icons">pan_tool </i> HA OCURRIDO UN ERROR</h3><h4>Ocurrió un error al tratar de validar el usuario autorizador de la solicitud de vacaciones.</h4>')
+    }
+
+    if (fbType == 5) {
+        $("#forbidden-type").empty();
+        $("#forbidden-type").append('<h3><i class="material-icons">work</i> SOLICITUD AUTORIZADA</h3><h4>Se ha actualizado con éxito la solicitud de vacaciones.</h4>')
+    }
+
+    if (fbType == 6) {
+        $("#forbidden-type").empty();
+        $("#forbidden-type").append('<h3><i class="material-icons">pan_tool </i> HA OCURRIDO UN ERROR</h3><h4>Ocurrió un error al tratar de validar el Ausentismo.</h4>')
+    }
+    if (fbType == 7) {
+        $("#forbidden-type").empty();
+        $("#forbidden-type").append('<h3><i class="material-icons">pan_tool </i> HA OCURRIDO UN ERROR</h3><h4>Ocurrió un error al tratar de validar el usuario autorizador de ausentismo.</h4>')
+    }
+
+    if (fbType == 8) {
+        $("#forbidden-type").empty();
+        $("#forbidden-type").append('<h3><i class="material-icons">pan_tool </i> HA OCURRIDO UN ERROR</h3><h4>Ocurrió un error al tratar de validar la solicitud de gasto.</h4>')
+    }
+
+    if (fbType == 9) {
+        $("#forbidden-type").empty();
+        $("#forbidden-type").append('<h3><i class="material-icons">pan_tool </i> HA OCURRIDO UN ERROR</h3><h4>Ocurrió un error al tratar de validar la solicitud de gasto.</h4>')
+    }
+
+    if (fbType == 10) {
+        $("#forbidden-type").empty();
+        $("#forbidden-type").append('<h3><i class="material-icons">pan_tool </i> HA OCURRIDO UN ERROR</h3><h4>Ocurrió un error al tratar de validar el usuario autorizador de la solicitud de gasto.</h4>')
+    }
+    if (fbType == 11) {
+        $("#forbidden-type").empty();
+        $("#forbidden-type").append('<h3><i class="material-icons">pan_tool </i> HA OCURRIDO UN ERROR</h3><h4>Ocurrió un error al tratar de validar la solicitud del documento.</h4>')
+    }
+    //Función para obtener las variables de la URL mediante el nombre del parámetro
+    function getUrlVars() {
+        var vars = {};
+        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+            vars[key] = value;
+        });
+        return vars;
+    }//function getUrlVars()
+</script>

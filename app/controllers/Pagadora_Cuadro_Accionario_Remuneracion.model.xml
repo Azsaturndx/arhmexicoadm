@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Pagadora_Cuadro_Accionario_Remuneracion" alias="Pagadora_Cuadro_Accionario_Remuneracion" created="2018-11-12T21:29:24" modified="2018-11-14T20:17:03" x="20" y="27" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Pagadora_Cuadro_Accionario_" parentTableSchema="APP" parentTableName="Pagadora_Cuadro_Accionario" x="994" y="20">
+      <foreignKeyColumn columnName="Pagadora_Cuadro_Accionario_Id" parentColumnName="Pagadora_Cuadro_Accionario_Id" />
+    </foreignKey>
+    <foreignKey id="Tipo_Remuneracion_" parentTableSchema="APP" parentTableName="Tipo_Remuneracion" x="685" y="117">
+      <foreignKeyColumn columnName="Tipo_Remuneracion_Id" parentColumnName="Tipo_Remuneracion_Id" />
+    </foreignKey>
+    <foreignKey id="Anio_" parentTableSchema="APP" parentTableName="Anio" x="803" y="316">
+      <foreignKeyColumn columnName="Anio_Id" parentColumnName="Anio_Id" />
+    </foreignKey>
+    <foreignKey id="Mes_" parentTableSchema="APP" parentTableName="Mes" x="502" y="394">
+      <foreignKeyColumn columnName="Mes_Id" parentColumnName="Mes_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="493" y="604">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="cpUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="24" y="419">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="apUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="27" y="507">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Pagadora" parentTableSchema="APP" parentTableName="Pagadora" x="1384" y="117" baseForeignKey="Pagadora_Cuadro_Accionario_">
+      <foreignKeyColumn columnName="Pagadora_Id" parentColumnName="Pagadora_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Pagadora_Cuadro_Accionario_Remuneracion_Id" fieldName="Pagadora_Cuadro_Accionario_Remuneracion_Id" label="Pagadora Cuadro Accionario Remuneracion Id" />
+    <column name="Pagadora_Cuadro_Accionario_Id" fieldName="Pagadora_Cuadro_Accionario_Id" label="Pagadora Cuadro Accionario Id" />
+    <column name="Tipo_Remuneracion_Id" fieldName="Tipo_Remuneracion_Id" label="Tipo Remuneracion Id" aliasColumnName="Tipo_Remuneracion" aliasForeignKey="Tipo_Remuneracion_" />
+    <column name="Tipo_Remuneracion" fieldName="Tipo_Remuneracion_Tipo_Remuneracion" label="Tipo de Remuneración" foreignKey="Tipo_Remuneracion_" />
+    <column name="Anio_Id" fieldName="Anio_Id" label="Anio Id" aliasColumnName="Anio" aliasForeignKey="Anio_" />
+    <column name="Anio" fieldName="Anio_Anio" label="Año" foreignKey="Anio_" />
+    <column name="Mes_Id" fieldName="Mes_Id" label="Mes Id" aliasColumnName="Mes" aliasForeignKey="Mes_" />
+    <column name="Mes" fieldName="Mes_Mes" label="Mes" foreignKey="Mes_" />
+    <column name="Fecha_Remuneracion" fieldName="Fecha_Remuneracion" label="Fecha de Remuneración UTC 0" format="d" />
+    <column name="Remuneracion" fieldName="Remuneracion" label="Remuneración" />
+    <column name="Notas" fieldName="Notas" label="Notas" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transacción Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="cpUsuario_V" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cpUsuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación UTC 0" format="d" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="apUsuario_V" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="apUsuario_V" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización UTC 0" format="d" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+    <column name="Pagadora" fieldName="Pagadora" label="Pagadora Cuadro Accionario" foreignKey="Pagadora" />
+  </columns>
+</dataModel>

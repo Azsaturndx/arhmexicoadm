@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Pagadora_Cuadro_Accionario_Remuneracion" conflictDetection="overwriteChanges" label="Pagadora Cuadro Accionario Remuneracion" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Pagadora_Cuadro_Accionario_Remuneracion"."Pagadora_Cuadro_Accionario_Remuneracion_Id" "Pagadora_Cuadro_Accionario_Remuneracion_Id"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Pagadora_Cuadro_Accionario_Id" "Pagadora_Cuadro_Accionario_Id"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Tipo_Remuneracion_Id" "Tipo_Remuneracion_Id"
+	,"Tipo_Remuneracion_"."Tipo_Remuneracion" "Tipo_Remuneracion_Tipo_Remuneracion"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Anio_Id" "Anio_Id"
+	,"Anio_"."Anio" "Anio_Anio"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Mes_Id" "Mes_Id"
+	,"Mes_"."Mes" "Mes_Mes"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Fecha_Remuneracion" "Fecha_Remuneracion"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Remuneracion" "Remuneracion"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Notas" "Notas"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Transaccion_Id" "Transaccion_Id"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Creado_Por_Id" "Creado_Por_Id"
+	,"cpUsuario_V"."UserName" "cpUserName"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Fecha_Creacion" "Fecha_Creacion"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"apUsuario_V"."UserName" "apUserName"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Pagadora"."Pagadora" "Pagadora"
+from "APP"."Pagadora_Cuadro_Accionario_Remuneracion" "Pagadora_Cuadro_Accionario_Remuneracion"
+	left join "APP"."Pagadora_Cuadro_Accionario" "Pagadora_Cuadro_Accionario_" on "Pagadora_Cuadro_Accionario_Remuneracion"."Pagadora_Cuadro_Accionario_Id" = "Pagadora_Cuadro_Accionario_"."Pagadora_Cuadro_Accionario_Id"
+	left join "APP"."Pagadora" "Pagadora" on "Pagadora_Cuadro_Accionario_"."Pagadora_Id" = "Pagadora"."Pagadora_Id"
+	left join "APP"."Tipo_Remuneracion" "Tipo_Remuneracion_" on "Pagadora_Cuadro_Accionario_Remuneracion"."Tipo_Remuneracion_Id" = "Tipo_Remuneracion_"."Tipo_Remuneracion_Id"
+	left join "APP"."Anio" "Anio_" on "Pagadora_Cuadro_Accionario_Remuneracion"."Anio_Id" = "Anio_"."Anio_Id"
+	left join "APP"."Mes" "Mes_" on "Pagadora_Cuadro_Accionario_Remuneracion"."Mes_Id" = "Mes_"."Mes_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Pagadora_Cuadro_Accionario_Remuneracion"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cpUsuario_V" on "Pagadora_Cuadro_Accionario_Remuneracion"."Creado_Por_Id" = "cpUsuario_V"."UserId"
+	left join "dbo"."Usuario_V" "apUsuario_V" on "Pagadora_Cuadro_Accionario_Remuneracion"."Actualizado_Por_Id" = "apUsuario_V"."UserId"
+]]></text>
+    </command>
+    <command id="Pagadora_Cuadro_Accionario_Remuneracion_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Pagadora_Cuadro_Accionario_Remuneracion_Id" />
+      </output>
+    </command>
+    <command type="Text" id="command_Pagadora_Cuadro_Accionario_Remuneracion" tableName="APP.Pagadora_Cuadro_Accionario_Remuneracion" custom="false">
+      <text><![CDATA[select
+	"Pagadora_Cuadro_Accionario_Remuneracion"."Pagadora_Cuadro_Accionario_Remuneracion_Id" "Pagadora_Cuadro_Accionario_Remuneracion_Id"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Pagadora_Cuadro_Accionario_Id" "Pagadora_Cuadro_Accionario_Id"
+	,"Pagadora_Cuadro_Accionario_"."CURP" "Pagadora_Cuadro_Accionario_CURP"
+	,"Pagadora_"."Pagadora" AS "Pagadora_Pagadora"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Tipo_Remuneracion_Id" "Tipo_Remuneracion_Id"
+	,"Tipo_Remuneracion_"."Tipo_Remuneracion" "Tipo_Remuneracion_Tipo_Remuneracion"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Anio_Id" "Anio_Id"
+	,"Anio_"."Anio" "Anio_Anio"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Mes_Id" "Mes_Id"
+	,"Mes_"."Mes" "Mes_Mes"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Fecha_Remuneracion" "Fecha_Remuneracion"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Remuneracion" "Remuneracion"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Notas" "Notas"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Transaccion_Id" "Transaccion_Id"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Creado_Por_Id" "Creado_Por_Id"
+	,"cpUsuario_V"."UserName" "cpUserName"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Fecha_Creacion" "Fecha_Creacion"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"apUsuario_V"."UserName" "apUserName"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Pagadora_Cuadro_Accionario_Remuneracion"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+from "APP"."Pagadora_Cuadro_Accionario_Remuneracion" "Pagadora_Cuadro_Accionario_Remuneracion"
+	left join "APP"."Pagadora_Cuadro_Accionario" "Pagadora_Cuadro_Accionario_" on "Pagadora_Cuadro_Accionario_Remuneracion"."Pagadora_Cuadro_Accionario_Id" = "Pagadora_Cuadro_Accionario_"."Pagadora_Cuadro_Accionario_Id"	
+	left join "APP"."Pagadora" "Pagadora_" on "Pagadora_Cuadro_Accionario_"."Pagadora_Id" = "Pagadora_"."Pagadora_Id"
+	left join "APP"."Tipo_Remuneracion" "Tipo_Remuneracion_" on "Pagadora_Cuadro_Accionario_Remuneracion"."Tipo_Remuneracion_Id" = "Tipo_Remuneracion_"."Tipo_Remuneracion_Id"
+	left join "APP"."Anio" "Anio_" on "Pagadora_Cuadro_Accionario_Remuneracion"."Anio_Id" = "Anio_"."Anio_Id"
+	left join "APP"."Mes" "Mes_" on "Pagadora_Cuadro_Accionario_Remuneracion"."Mes_Id" = "Mes_"."Mes_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Pagadora_Cuadro_Accionario_Remuneracion"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cpUsuario_V" on "Pagadora_Cuadro_Accionario_Remuneracion"."Creado_Por_Id" = "cpUsuario_V"."UserId"
+	left join "dbo"."Usuario_V" "apUsuario_V" on "Pagadora_Cuadro_Accionario_Remuneracion"."Actualizado_Por_Id" = "apUsuario_V"."UserId"	]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Pagadora_Cuadro_Accionario_Remuneracion_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Pagadora Cuadro Accionario Remuneracion Id" readOnly="true" />
+    <field name="Pagadora_Cuadro_Accionario_Id" type="Int32" allowNulls="false" default="((0))" label="Pagadora Cuadro Accionario Id" showInSummary="true">
+      <items style="Lookup" dataController="Pagadora_Cuadro_Accionario" newDataView="createForm1" dataValueField="Pagadora_Cuadro_Accionario_Id" dataTextField="Pagadora_Pagadora" dataView="Pagadora_Cuadro_Accionario_LookUp_List" />
+    </field>
+    <field name="Tipo_Remuneracion_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo Remuneracion Id" showInSummary="true">
+      <items style="Lookup" dataController="Tipo_Remuneracion" newDataView="createForm1" dataValueField="Tipo_Remuneracion_Id" dataTextField="Tipo_Remuneracion" dataView="Tipo_Remuneracion_LookUp_List" />
+    </field>
+    <field name="Tipo_Remuneracion_Tipo_Remuneracion" type="String" readOnly="true" label="Tipo de Remuneración" length="150" />
+    <field name="Anio_Id" type="Int32" allowNulls="false" default="((0))" label="Anio Id" showInSummary="true">
+      <items style="Lookup" dataController="Anio" newDataView="createForm1" dataValueField="Anio_Id" dataTextField="Anio" dataView="Anio_LookUp_List" />
+    </field>
+    <field name="Anio_Anio" type="String" readOnly="true" label="Año" length="150" />
+    <field name="Mes_Id" type="Int32" allowNulls="false" default="((0))" label="Mes Id" showInSummary="true">
+      <items style="Lookup" dataController="Mes" newDataView="createForm1" dataValueField="Mes_Id" dataTextField="Mes" dataView="Mes_LookUp_List" />
+    </field>
+    <field name="Mes_Mes" type="String" readOnly="true" label="Mes" length="150" />
+    <field name="Fecha_Remuneracion" type="DateTime" allowNulls="false" dataFormatString="d" label="Fecha de Remuneración UTC 0" showInSummary="true" />
+    <field name="Remuneracion" type="Decimal" allowNulls="false" label="Remuneración" />
+    <field name="Notas" type="String" allowQBE="false" allowSorting="false" label="Notas" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transacción Id" length="50" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus Registro" length="150" />
+    <field name="Pagadora" type="String" readOnly="true" label="Pagadora Cuadro Accionario" length="150" />
+    <field name="Pagadora_Pagadora" type="String" readOnly="true" label="Pagadora" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Pagadora Cuadro Accionario Remuneración" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" sortExpression="Pagadora" filter="Estatus_Registro_Id = 1">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Pagadora_Cuadro_Accionario_Id" columns="15" aliasFieldName="Pagadora" />
+        <dataField fieldName="Tipo_Remuneracion_Id" aliasFieldName="Tipo_Remuneracion_Tipo_Remuneracion" />
+        <dataField fieldName="Anio_Id" aliasFieldName="Anio_Anio" />
+        <dataField fieldName="Mes_Id" aliasFieldName="Mes_Mes" />
+        <dataField fieldName="Fecha_Remuneracion" columns="10" />
+        <dataField fieldName="Remuneracion" columns="15" />
+        <dataField fieldName="Notas" rows="5" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="10" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="10" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Pagadora" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Pagadora Cuadro Accionario Remuneración" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Pagadora_Cuadro_Accionario_Id" columns="15" aliasFieldName="Pagadora" />
+            <dataField fieldName="Tipo_Remuneracion_Id" aliasFieldName="Tipo_Remuneracion_Tipo_Remuneracion" />
+            <dataField fieldName="Anio_Id" aliasFieldName="Anio_Anio" />
+            <dataField fieldName="Mes_Id" aliasFieldName="Mes_Mes" />
+            <dataField fieldName="Fecha_Remuneracion" columns="10" />
+            <dataField fieldName="Remuneracion" columns="15" />
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="Pagadora" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nueva Pagadora Cuadro Accionario Remuneración" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Pagadora_Cuadro_Accionario_Id" columns="15" aliasFieldName="Pagadora" />
+            <dataField fieldName="Tipo_Remuneracion_Id" aliasFieldName="Tipo_Remuneracion_Tipo_Remuneracion" />
+            <dataField fieldName="Anio_Id" aliasFieldName="Anio_Anio" />
+            <dataField fieldName="Mes_Id" aliasFieldName="Mes_Mes" />
+            <dataField fieldName="Fecha_Remuneracion" columns="10" />
+            <dataField fieldName="Remuneracion" columns="15" />
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Pagadora" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE 
+APP.Pagadora_Cuadro_Accionario_Remuneracion
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Pagadora_Cuadro_Accionario_Remuneracion_Id = @Pagadora_Cuadro_Accionario_Remuneracion_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE 
+APP.Pagadora_Cuadro_Accionario_Remuneracion
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Pagadora_Cuadro_Accionario_Remuneracion_Id = @Pagadora_Cuadro_Accionario_Remuneracion_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE 
+APP.Pagadora_Cuadro_Accionario_Remuneracion
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Pagadora_Cuadro_Accionario_Remuneracion_Id = @Pagadora_Cuadro_Accionario_Remuneracion_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE 
+APP.Pagadora_Cuadro_Accionario_Remuneracion
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Pagadora_Cuadro_Accionario_Remuneracion_Id = @Pagadora_Cuadro_Accionario_Remuneracion_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Pagadora_Cuadro_Accionario_Remuneracion
+SET
+  Creado_Por_Id = @BusinessRules_UserId
+  ,Actualizado_Por_Id = @BusinessRules_UserId
+  ,Fecha_Ultima_Actualizacion = GetDate()
+  ,Fecha_Creacion = GetDate()
+WHERE
+	Pagadora_Cuadro_Accionario_Remuneracion_Id= @Pagadora_Cuadro_Accionario_Remuneracion_Id]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Pagadora_Cuadro_Accionario_Remuneracion
+SET
+  Actualizado_Por_Id = @BusinessRules_UserId
+  ,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Pagadora_Cuadro_Accionario_Remuneracion_Id= @Pagadora_Cuadro_Accionario_Remuneracion_Id]]></rule>
+  </businessRules>
+</dataController>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><logs><log type="Controllers"></log><log type="Application"><c y="NodeSet" t="2020-01-21T17:20:37"><pages />
+<insert type="page">
+  <Name>HumanBoard</Name>
+  <Template>Jumbotron</Template>
+  <Generate>FirstTimeOnly</Generate>
+  <UseExtenders>false</UseExtenders>
+  <Offline>false</Offline>
+  <Path>Human Board</Path>
+  <Title>Human Board</Title>
+  <Roles>*</Roles>
+</insert></c></log></logs>

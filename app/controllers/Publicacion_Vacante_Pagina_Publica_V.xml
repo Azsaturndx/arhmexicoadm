@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Publicacion_Vacante_Pagina_Publica_V" conflictDetection="overwriteChanges" label="Publicacion Vacante Pagina Publica V" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Publicacion_Vacante_Pagina_Publica_V"."Publicacion_Vacante_Key" "Publicacion_Vacante_Key"
+	,"Publicacion_Vacante_Pagina_Publica_V"."Publicacion_HTML" "Publicacion_HTML"
+from "dbo"."Publicacion_Vacante_Pagina_Publica_V" "Publicacion_Vacante_Pagina_Publica_V"
+]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Publicacion_Vacante_Key" type="Guid" allowNulls="false" label="Publicacion Vacante Key" showInSummary="true" />
+    <field name="Publicacion_HTML" type="String" allowNulls="false" allowQBE="false" allowSorting="false" label="Vacante" showInSummary="true" htmlEncode="false" />
+  </fields>
+  <views>
+    <view id="editForm1" type="Form" commandId="command1" label="Datos Vacante" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Publicacion_Vacante_Key" columns="15" hidden="true" />
+            <dataField fieldName="Publicacion_HTML" rows="5" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE
+	APP.Puesto
+SET
+	Actualizado_Por_Id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion =GetDate()
+	,Estatus_Registro_Id = 3
+WHERE
+	Puesto_Id= @Puesto_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,rhAdmin,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,rhAdmin,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Puesto
+SET
+	Actualizado_Por_Id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion =GetDate()
+	,Estatus_Registro_Id = 3
+WHERE
+	Puesto_Id= @Puesto_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" roles="Administrators,rhAdmin,ArhAdmin" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE
+	APP.Puesto
+SET
+	Actualizado_Por_Id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion =GetDate()
+	,Estatus_Registro_Id = 3
+WHERE
+	Puesto_Id= @Puesto_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE
+	APP.Puesto
+SET
+	Actualizado_Por_Id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion =GetDate()
+	,Estatus_Registro_Id = 3
+WHERE
+	Puesto_Id= @Puesto_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+</dataController>

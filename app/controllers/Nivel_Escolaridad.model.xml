@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Nivel_Escolaridad" alias="Nivel_Escolaridad" created="2018-05-19T20:25:15" modified="2019-02-05T15:19:13" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="405" y="20">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="cp" parentTableSchema="dbo" parentTableName="Usuario_V" x="420" y="158">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="ap" parentTableSchema="dbo" parentTableName="Usuario_V" x="427" y="388">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Color" parentTableSchema="APP" parentTableName="Color" x="774" y="48">
+      <foreignKeyColumn columnName="Color_Texto_Id" parentColumnName="Color_Id" />
+    </foreignKey>
+    <foreignKey id="Color1" parentTableSchema="APP" parentTableName="Color" x="791" y="375">
+      <foreignKeyColumn columnName="Color_Fondo_Id" parentColumnName="Color_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Nivel_Escolaridad_Id" fieldName="Nivel_Escolaridad_Id" label="Nivel Escolaridad Id" />
+    <column name="Nivel_Escolaridad" fieldName="Nivel_Escolaridad" label="Nivel de Escolaridad" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+    <column name="Es_Nivel_Licenciatura" fieldName="Es_Nivel_Licenciatura" label="¿Es Nivel Licenciatura?" />
+    <column name="Es_Nivel_Posgrado" fieldName="Es_Nivel_Posgrado" label="¿Es Nivel Posgrado?" />
+    <column name="Es_Nivel_Bachillerato" fieldName="Es_Nivel_Bachillerato" label="¿Es Nivel Bachillerato?" />
+    <column name="Es_Nivel_Secundaria" fieldName="Es_Nivel_Secundaria" label="¿Es Nivel Secundaria?" />
+    <column name="Es_Nivel_Primaria" fieldName="Es_Nivel_Primaria" label="¿Es Nivel Primaria?" />
+    <column name="Es_Nivel_Diplomado" fieldName="Es_Nivel_Diplomado" label="¿Es Nivel Diplomado?" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cp" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="ap" />
+    <column name="Es_Nivel_Carrera_Tecnica" fieldName="Es_Nivel_Carrera_Tecnica" label="¿Es Nivel Carrera Técnica?" />
+    <column name="Color_Texto_Id" fieldName="Color_Texto_Id" label="Color Texto Id" aliasColumnName="Color" aliasForeignKey="Color" />
+    <column name="Color" fieldName="Color_Texto" label="Color de Texto" foreignKey="Color" />
+    <column name="Color_Fondo_Id" fieldName="Color_Fondo_Id" label="Color Fondo Id" aliasColumnName="Color" aliasForeignKey="Color1" />
+    <column name="Color" fieldName="Color_Fondo" label="Color Fondo" foreignKey="Color1" />
+    <column name="Valor_Inicio" fieldName="ValorInicio" label="Valor Inicio" />
+    <column name="Valor_Fin" fieldName="ValorFin" label="Valor Fin" />
+    <column name="Valor_Cuantitativo" fieldName="ValorCuantitativo" label="Valor Cuantitativo" />
+  </columns>
+</dataModel>

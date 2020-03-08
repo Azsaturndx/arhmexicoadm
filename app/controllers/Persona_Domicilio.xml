@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Persona_Domicilio" conflictDetection="overwriteChanges" label="Persona Domicilio" handler="arhmexico.Rules.Persona_DomicilioBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Persona_Domicilio"."Persona_Domicilio_Id" "Persona_Domicilio_Id"
+	,"Persona_Domicilio"."Persona_Id" "Persona_Id"
+	,"Persona_"."Nombre" "Persona_Nombre"
+	,"Persona_"."Apellido_Paterno" "PersonaApellidoPaterno"
+	,"Persona_"."Apellido_Materno" "PersonaApellidoMaterno"
+	,"Persona_"."Segundo_Nombre" "PersonaSegundoNombre"
+	,"Persona_Domicilio"."Domicilio_Id" "Domicilio_Id"
+	,"Domicilio_"."Calle" "Domicilio_Calle"
+	,"Domicilio_Ciudad_"."Ciudad" "Domicilio_Ciudad_Ciudad"
+	,"Persona_Domicilio"."Tipo_Domicilio_Id" "Tipo_Domicilio_Id"
+	,"Tipo_Domicilio_"."Tipo_Domicilio" "Tipo_Domicilio_Tipo_Domicilio"
+	,"Persona_Domicilio"."Fecha_Creacion" "Fecha_Creacion"
+	,"Persona_Domicilio"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Persona_Domicilio"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Entidad_Pais"."Entidad_Pais" "EntidadPaisentidadPais"
+	,"Pais"."Pais" "Pais"
+	,"cp"."UserName" "cpUserName"
+	,"ap"."UserName" "apUserName"
+	,"Persona_Domicilio"."Es_Domicilio_Principal" "Es_Domicilio_Principal"
+from "APP"."Persona_Domicilio" "Persona_Domicilio"
+	left join "APP"."Persona" "Persona_" on "Persona_Domicilio"."Persona_Id" = "Persona_"."Persona_Id"
+	left join "APP"."Domicilio" "Domicilio_" on "Persona_Domicilio"."Domicilio_Id" = "Domicilio_"."Domicilio_Id"
+	left join "APP"."Ciudad" "Domicilio_Ciudad_" on "Domicilio_"."Ciudad_Id" = "Domicilio_Ciudad_"."Ciudad_Id"
+	left join "APP"."Entidad_Pais" "Entidad_Pais" on "Domicilio_Ciudad_"."Entidad_Pais_Id" = "Entidad_Pais"."Entidad_Pais_Id"
+	left join "APP"."Pais" "Pais" on "Entidad_Pais"."Pais_Id" = "Pais"."Pais_Id"
+	left join "APP"."Tipo_Domicilio" "Tipo_Domicilio_" on "Persona_Domicilio"."Tipo_Domicilio_Id" = "Tipo_Domicilio_"."Tipo_Domicilio_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Persona_Domicilio"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cp" on "Persona_Domicilio"."Creado_Por_Id" = "cp"."UserId"
+	left join "dbo"."Usuario_V" "ap" on "Persona_Domicilio"."Actualizado_Por_Id" = "ap"."UserId"
+]]></text>
+    </command>
+    <command id="Persona_Domicilio_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Persona_Domicilio_Id" />
+      </output>
+    </command>
+    <command type="Text" id="Grid_Persona_Domicilio" custom="false" tableName="APP.Persona_Domicilio">
+      <text><![CDATA[SELECT Persona_Domicilio_Id
+      ,Persona_Id
+      ,Persona_Nombre
+      ,PersonaNombre
+      ,PersonaSegundoNombre
+      ,PersonaApellidoPaterno
+      ,PersonaApellidoMaterno
+      ,Domicilio_Id
+      ,Calle
+      ,Domicilio_Calle
+      ,Numero_Interior
+      ,Numero_Exterior
+      ,Colonia
+      ,Ciudad_Id
+      ,Ciudad_Ciudad
+      ,Domicilio_Ciudad_Ciudad
+      ,Ciudad_Etiqueta
+      ,Domicilio_Etiqueta
+      ,Codigo_Postal_Id
+      ,Entre_Calles
+      ,Latitud
+      ,Longitud
+      ,Estatus_Registro_Id
+      ,Fecha_Creacion
+      ,Fecha_Ultima_Actualizacion
+      ,Ciudad_Entidad_Pais_Entidad_Pais
+      ,Ciudad_Entidad_Pais_Pais_Pais
+      ,EntidadPaisentidadPais
+      ,Pais
+      ,Nombre_Completo
+      ,cpUserName
+      ,apUserName
+      ,Estatus_Registro_Estatus_Registro
+      ,Tipo_Domicilio_Id
+      ,Tipo_Domicilio_Tipo_Domicilio
+	  ,Es_Domicilio_Principal
+		,Custom_Domicilio_Calle
+		,Custom_Domicilio_Numero_Interior
+		,Custom_Domicilio_Numero_Exterior
+		,Custom_Domicilio_Colonia
+		,Custom_Domicilio_Ciudad_Id
+		,Custom_Domicilio_Ciudad_Nombre
+		,Custom_Domicilio_Ciudad_Nombre_Etiqueta
+		,Custom_Domicilio_Etiqueta
+		,Custom_Domicilio_Codigo_Postal_Id
+		,Custom_Domicilio_Entre_Calles
+		,Custom_Domicilio_Latitud
+		,Custom_Domicilio_Longitud	  
+  FROM dbo.Grid_Persona_Domicilio_V
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  ]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Persona_Domicilio_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Persona Domicilio Id" readOnly="true" />
+    <field name="Persona_Id" type="Int32" allowNulls="false" label="Persona Id" showInSummary="true">
+      <items style="Lookup" dataController="Persona" newDataView="createForm1" dataValueField="Persona_Id" dataTextField="Nombre_Completo" dataView="Persona_LookUp_List" />
+    </field>
+    <field name="Persona_Nombre" type="String" readOnly="true" label="Primer Nombre" length="150" />
+    <field name="PersonaApellidoPaterno" type="String" readOnly="true" label="Apellido Paterno" length="150" />
+    <field name="PersonaApellidoMaterno" type="String" readOnly="true" label="Apellido Materno" length="150" />
+    <field name="PersonaSegundoNombre" type="String" readOnly="true" label="Segundo Nombre" length="150" />
+    <field name="Domicilio_Id" type="Int32" label="Domicilio Id" showInSummary="true" contextFields="Persona_Id=Persona_Id" />
+    <field name="Domicilio_Calle" type="String" readOnly="true" label="Calle" length="250" />
+    <field name="Domicilio_Ciudad_Ciudad" type="String" readOnly="true" label="Ciudad" length="150" />
+    <field name="Tipo_Domicilio_Id" type="Int32" allowNulls="false" default="((1))" label="Tipo Domicilio Id" showInSummary="true">
+      <items style="Lookup" dataController="Tipo_Domicilio" newDataView="createForm1" dataValueField="Tipo_Domicilio_Id" dataTextField="Tipo_Domicilio" dataView="Tipo_Domicilio_Persona_LookUp_List" />
+    </field>
+    <field name="Tipo_Domicilio_Tipo_Domicilio" type="String" readOnly="true" label="Tipo de Domicilio" length="150" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" showInSummary="true" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" showInSummary="true" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="EntidadPaisentidadPais" type="String" readOnly="true" label="Estado de la República" length="150" />
+    <field name="Pais" type="String" readOnly="true" label="País" length="150" />
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Es_Domicilio_Principal" type="Boolean" allowNulls="false" default="((1))" label="¿Es Domicilio Principal?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Nombre_Completo" type="String" readOnly="true" label="Persona" length="604" />
+    <field name="Domicilio_Etiqueta" type="String" readOnly="true" label="Domicilio" length="1000" />
+    <field name="Custom_Domicilio_Calle" type="String" allowNulls="false" label="Calle" length="250" />
+    <field name="Custom_Domicilio_Numero_Interior" type="String" label="Número Interior" length="50" />
+    <field name="Custom_Domicilio_Numero_Exterior" type="String" allowNulls="false" label="Número Exterior" length="50" />
+    <field name="Custom_Domicilio_Colonia" type="String" allowNulls="false" label="Colonia" length="250" />
+    <field name="Custom_Domicilio_Ciudad_Id" type="Int32" label="Custom Domicilio Ciudad Id" allowNulls="false">
+      <items style="Lookup" dataController="Ciudad" dataView="Ciudad_LookUp_List" dataTextField="Ciudad_Etiqueta" dataValueField="Ciudad_Id" newDataView="createForm1" copy="Custom_Domicilio_Ciudad_Nombre=Ciudad_Etiqueta" />
+    </field>
+    <field name="Custom_Domicilio_Ciudad_Nombre" type="String" label="Ciudad" length="250" readOnly="true" allowNulls="false" />
+    <field name="Custom_Domicilio_Codigo_Postal_Id" type="Int32" allowNulls="false" label="Código Postal" />
+    <field name="Custom_Domicilio_Entre_Calles" type="String" label="Entre Calles" length="250" />
+    <field name="Custom_Domicilio_Latitud" type="Int32" label="Latitud" />
+    <field name="Custom_Domicilio_Longitud" type="Int32" label="Longitud" />
+    <field name="Custom_Domicilio_Ciudad_Nombre_Etiqueta" type="String" readOnly="true" label="Custom Domicilio Ciudad Nombre Etiqueta" />
+    <field name="Custom_Domicilio_Etiqueta" type="String" readOnly="true" label="Custom Domicilio Etiqueta" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="Grid_Persona_Domicilio" label="Domicilio" filter="Estatus_Registro_Id &lt;&gt; 0" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Persona_Nombre,PersonaSegundoNombre,PersonaApellidoPaterno,PersonaApellidoMaterno">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Persona_Domicilio_Id" columns="15" hidden="true" />
+        <dataField fieldName="Persona_Id" aliasFieldName="Nombre_Completo" />
+        <dataField fieldName="Domicilio_Id" aliasFieldName="Domicilio_Etiqueta" />
+        <dataField fieldName="Tipo_Domicilio_Id" aliasFieldName="Tipo_Domicilio_Tipo_Domicilio" />
+        <dataField fieldName="Es_Domicilio_Principal" />
+        <dataField fieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Persona_Nombre" rows="5" hidden="true" />
+        <dataField fieldName="PersonaApellidoPaterno" rows="5" hidden="true" />
+        <dataField fieldName="PersonaApellidoMaterno" rows="5" hidden="true" />
+        <dataField fieldName="PersonaSegundoNombre" rows="5" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="Grid_Persona_Domicilio" label="Actualizar Domicilio" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Domicilio" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Persona_Id" aliasFieldName="Nombre_Completo" />
+            <dataField fieldName="Domicilio_Id" aliasFieldName="Domicilio_Etiqueta" />
+            <dataField fieldName="Tipo_Domicilio_Id" aliasFieldName="Tipo_Domicilio_Tipo_Domicilio" />
+            <dataField fieldName="Es_Domicilio_Principal" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="editForm_Custom" commandId="Grid_Persona_Domicilio" type="Form" label="Actualizar Domicilio" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="Domicilio_Id" hidden="true" />
+            <dataField fieldName="Persona_Domicilio_Id" columns="15" hidden="true" />
+            <dataField fieldName="Persona_Id" aliasFieldName="Nombre_Completo" />
+            <dataField fieldName="Tipo_Domicilio_Id" aliasFieldName="Tipo_Domicilio_Tipo_Domicilio" />
+            <dataField fieldName="Es_Domicilio_Principal" />
+            <dataField fieldName="Custom_Domicilio_Ciudad_Id" columns="15" aliasFieldName="Custom_Domicilio_Ciudad_Nombre" />
+            <dataField fieldName="Custom_Domicilio_Colonia" />
+            <dataField fieldName="Custom_Domicilio_Calle" />
+            <dataField fieldName="Custom_Domicilio_Numero_Interior" columns="50" />
+            <dataField fieldName="Custom_Domicilio_Numero_Exterior" columns="50" />
+            <dataField fieldName="Custom_Domicilio_Entre_Calles" />
+            <dataField fieldName="Custom_Domicilio_Codigo_Postal_Id" columns="15" />
+            <dataField fieldName="Custom_Domicilio_Latitud" columns="15" />
+            <dataField fieldName="Custom_Domicilio_Longitud" columns="15" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="Grid_Persona_Domicilio" label="Nuevo Domicilio" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Persona_Id" aliasFieldName="Nombre_Completo" />
+            <dataField fieldName="Domicilio_Id" aliasFieldName="Domicilio_Etiqueta" />
+            <dataField fieldName="Tipo_Domicilio_Id" aliasFieldName="Tipo_Domicilio_Tipo_Domicilio" />
+            <dataField fieldName="Es_Domicilio_Principal" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm_Custom" commandId="Grid_Persona_Domicilio" type="Form" label="Nuevo Domicilio" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="Persona_Domicilio_Id" columns="15" hidden="true" />
+            <dataField fieldName="Persona_Id" aliasFieldName="Nombre_Completo" />
+            <dataField fieldName="Tipo_Domicilio_Id" aliasFieldName="Tipo_Domicilio_Tipo_Domicilio" />
+            <dataField fieldName="Es_Domicilio_Principal" />
+            <dataField fieldName="Custom_Domicilio_Ciudad_Id" columns="15" aliasFieldName="Custom_Domicilio_Ciudad_Nombre" />
+            <dataField fieldName="Custom_Domicilio_Colonia" />
+            <dataField fieldName="Custom_Domicilio_Calle" />
+            <dataField fieldName="Custom_Domicilio_Numero_Interior" columns="50" />
+            <dataField fieldName="Custom_Domicilio_Numero_Exterior" columns="50" />
+            <dataField fieldName="Custom_Domicilio_Entre_Calles" />
+            <dataField fieldName="Custom_Domicilio_Codigo_Postal_Id" columns="15" />
+            <dataField fieldName="Custom_Domicilio_Latitud" columns="15" />
+            <dataField fieldName="Custom_Domicilio_Longitud" columns="15" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm_Custom" />
+      <action id="a2" commandName="Edit" commandArgument="editForm_Custom" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Persona_Domicilio
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Domicilio_Id = @Persona_Domicilio_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm_Custom" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm_Custom" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" commandArgument="editForm_Custom" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Persona_Domicilio
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Domicilio_Id = @Persona_Domicilio_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Custom" commandArgument="EXECCS02" headerText="Guardar" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Custom" commandArgument="EXECCS01" headerText="Guardar">
+        <data />
+      </action>
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="SQL" whenLastCommandArgument="Save" whenView="createForm_Custom" commandName="Select" commandArgument="editForm_Custom" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm_Custom" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm_Custom" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm_Custom" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Persona_Domicilio
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Domicilio_Id = @Persona_Domicilio_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm_Custom" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm_Custom" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Persona_Domicilio
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Domicilio_Id = @Persona_Domicilio_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r105" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+DECLARE @Mensaje_Sistema VARCHAR(250)
+SET @Existe = 0
+
+SELECT
+TOP 1 @Existe = 1
+FROM
+APP.Persona_Domicilio
+WHERE
+Persona_Id= @Persona_Id
+AND Domicilio_Id=@Domicilio_Id
+
+IF @Existe = 1
+BEGIN
+   SET @Mensaje_Sistema = 'Ya existe en la base de datos la relación entre la persona capturada y el domicilio seleccionado, favor de corregir'
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage =@Mensaje_Sistema
+   SET @Result_ShowAlert = @Mensaje_Sistema
+   RETURN
+END
+
+SELECT
+TOP 1 @Existe = 1
+FROM
+APP.Persona_Domicilio
+WHERE
+Persona_Id= @Persona_Id
+AND Es_Domicilio_Principal = 1
+
+IF @Existe = 1
+BEGIN
+   SET @Mensaje_Sistema = 'Ya existe en la base de datos un domicilio marcado como prinicipal, favor de corregir'
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage =@Mensaje_Sistema
+   SET @Result_ShowAlert = @Mensaje_Sistema
+   RETURN
+END
+
+]]></rule>
+    <rule id="r101" commandName="Custom" type="Code" phase="After" commandArgument="EXECCS01" />
+    <rule id="r100" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+DECLARE @Mensaje_Sistema VARCHAR(250)
+SET @Existe = 0
+
+SELECT
+TOP 1 @Existe = 1
+FROM
+APP.Persona_Domicilio
+WHERE
+Persona_Id= @Persona_Id
+AND Domicilio_Id=@Domicilio_Id
+AND Persona_Documento_Id <> @Persona_Domicilio_Id
+
+IF @Existe = 1
+BEGIN
+   SET @Mensaje_Sistema = 'Ya existe en la base de datos la relación entre la persona capturada y el domicilio seleccionado, favor de corregir'
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage =@Mensaje_Sistema
+   SET @Result_ShowAlert = @Mensaje_Sistema
+   RETURN
+END
+
+
+
+SELECT
+TOP 1 @Existe = 1
+FROM
+APP.Persona_Domicilio
+WHERE
+Persona_Id= @Persona_Id
+AND Es_Domicilio_Principal = 1
+AND Persona_Documento_Id <> @Persona_Domicilio_Id
+
+IF @Existe = 1
+BEGIN
+   SET @Mensaje_Sistema = 'Ya existe en la base de datos un domicilio marcado como prinicipal, favor de corregir'
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage =@Mensaje_Sistema
+   SET @Result_ShowAlert = @Mensaje_Sistema
+   RETURN
+END
+]]></rule>
+    <rule id="r102" commandName="Custom" type="Code" phase="After" commandArgument="EXECCS02" />
+  </businessRules>
+</dataController>

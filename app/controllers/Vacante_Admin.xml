@@ -1,0 +1,497 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Vacante_Admin" label="Vacante_Admin" conflictDetection="overwriteChanges" handler="arhmexico.Rules.Vacante_AdminBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Vacante"."Vacante_Id" "Vacante_Id"
+	,"Vacante"."Cliente_Id" "Cliente_Id"
+	,"Cliente_"."Cliente" "Cliente_Cliente"
+	,"Vacante"."Vacante" "Vacante"
+	,"Vacante"."Numero_Posiciones_A_Cubrir" "Numero_Posiciones_A_Cubrir"
+	,"Vacante"."Fecha_Limite_Cubrir_Vacante" "Fecha_Limite_Cubrir_Vacante"
+	,"Vacante"."Notas" "Notas"
+	,"Vacante"."Documento_Perfil_Id" "Documento_Perfil_Id"
+	,"Documento_Perfil_"."Documento" "Documento_Perfil_Documento"
+	,"Vacante"."Fecha_Creacion" "Fecha_Creacion"
+	,"Vacante"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Vacante"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"cp"."UserName" "cpUserName"
+	,"ap"."UserName" "apUserName"
+	,"Contratante"."Contratante" "Contratante"
+	,"Vacante"."Contratante_Id" "Contratante_Id"
+	,"Vacante"."Contratante_Puesto_Id" "Contratante_Puesto_Id"
+	,"Puesto"."Puesto" "Puesto"
+	,"Vacante"."Fecha_Limite_Publicacion" "Fecha_Limite_Publicacion"
+	,"Vacante"."Telefono_RRHH" "Telefono_RRHH"
+	,"Vacante"."Correo_RRHH" "Correo_RRHH"
+	,"Vacante"."Telefono_Encargado" "Telefono_Encargado"
+	,"Vacante"."Correo_Encargado" "Correo_Encargado"
+	,"Vacante"."Correo_Reclutamiento" "Correo_Reclutamiento"
+	,"Vacante"."Telefono_Reclutamiento" "Telefono_Reclutamiento"
+	,"Vacante"."Publicar" "Publicar"
+	,"Vacante"."Estatus_Vacante_Id" "Estatus_Vacante_Id"
+	,"Estatus_Vacante"."Estatus_Vacante" "Estatus_Vacante"
+	,"Vacante"."Domicilio_Reclutamiento_Id" "DomicilioReclutamientoId"
+	,"Grid_Domicilio_V"."Domicilio_Etiqueta" "GridDomicilioVDomicilioEtiqueta"
+	,"Grid_Contratado_V"."Nombre_Completo" "GridContratadoVNombreCompleto"
+	,"Vacante"."Contratado_Encargado_Reclutamiento_Id" "ContratadoEncargadoReclutamientoId"
+	,"Vacante"."Encargado_Reclutamiento" "EncargadoReclutamiento"
+	,"Vacante"."Layout_HTML_Publicacion_Vacante_Id" "LayoutHtmlPublicacionVacanteId"
+	,"Layout_HTML"."Layout_HTML_Nombre" "LayoutHtmlLayoutHtmlNombre"
+	,"Vacante"."Transaccion_Id" "TransaccionId"
+from "APP"."Vacante" "Vacante"
+	left join "APP"."Cliente" "Cliente_" on "Vacante"."Cliente_Id" = "Cliente_"."Cliente_Id"
+	left join "APP"."Documento" "Documento_Perfil_" on "Vacante"."Documento_Perfil_Id" = "Documento_Perfil_"."Documento_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Vacante"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cp" on "Vacante"."Creado_Por_Id" = "cp"."UserId"
+	left join "dbo"."Usuario_V" "ap" on "Vacante"."Actualizado_Por_Id" = "ap"."UserId"
+	left join "APP"."Contratante" "Contratante" on "Vacante"."Contratante_Id" = "Contratante"."Contratante_Id"
+	left join "APP"."Puesto" "Puesto" on "Vacante"."Contratante_Puesto_Id" = "Puesto"."Puesto_Id"
+	left join "APP"."Estatus_Vacante" "Estatus_Vacante" on "Vacante"."Estatus_Vacante_Id" = "Estatus_Vacante"."Estatus_Vacante_Id"
+	left join "dbo"."Grid_Domicilio_V" "Grid_Domicilio_V" on "Vacante"."Domicilio_Reclutamiento_Id" = "Grid_Domicilio_V"."Domicilio_Id"
+	left join "dbo"."Grid_Contratado_V" "Grid_Contratado_V" on "Vacante"."Contratado_Encargado_Reclutamiento_Id" = "Grid_Contratado_V"."Contratado_Id"
+	left join "dbo"."Layout_HTML" "Layout_HTML" on "Vacante"."Layout_HTML_Publicacion_Vacante_Id" = "Layout_HTML"."Layout_HTML_Id"
+]]></text>
+    </command>
+    <command id="Vacante_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Vacante_Id" />
+      </output>
+    </command>
+    <command type="Text" id="Grid_Vacante" tableName="APP.Vacante" custom="false">
+      <text><![CDATA[SELECT Vacante_Id
+      ,Vacante
+      ,Vacante_Etiqueta
+	   ,Contratante_Id
+	  ,Contratante
+      ,Numero_Posiciones_A_Cubrir
+      ,Fecha_Limite_Cubrir_Vacante
+      ,Notas
+      ,Estatus_Registro_Id
+      ,Fecha_Creacion
+      ,Fecha_Ultima_Actualizacion
+      ,Estatus_Registro_Estatus_Registro
+      ,cpUserName
+      ,apUserName
+	  ,Cliente_Id
+      ,Cliente_Cliente
+      ,Documento_Perfil_Id
+      ,Documento_Perfil_Documento
+	  ,UserId
+  FROM dbo.Grid_Vacante_V]]></text>
+    </command>
+    <command type="Text" id="Grid_Vacante_Admin" custom="false" tableName="APP.Vacante">
+      <text><![CDATA[SELECT Vacante_Id
+      ,Vacante
+      ,Vacante_Etiqueta
+	  ,Contratante_Id
+	  ,Contratante
+      ,Numero_Posiciones_A_Cubrir
+      ,Fecha_Limite_Cubrir_Vacante
+      ,Notas
+      ,Estatus_Registro_Id
+      ,Fecha_Creacion
+      ,Fecha_Ultima_Actualizacion
+      ,Estatus_Registro_Estatus_Registro
+      ,cpUserName
+      ,apUserName
+	  ,Cliente_Id
+      ,Cliente_Cliente
+      ,Documento_Perfil_Id
+      ,Documento_Perfil_Documento
+  FROM dbo.Grid_Vacante_V]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Vacante_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Vacante Id" readOnly="true" />
+    <field name="Cliente_Id" type="Int32" allowNulls="false" default="((0))" label="Cliente Id" showInSummary="true">
+      <items style="Lookup" dataController="Cliente" newDataView="createForm1" dataValueField="Cliente_Id" dataTextField="Cliente" dataView="Cliente_Admin_LookUp_List" />
+    </field>
+    <field name="Cliente_Cliente" type="String" readOnly="true" label="Cliente" length="150" />
+    <field name="Vacante" type="String" allowNulls="false" label="Vacante" length="150" showInSummary="true" />
+    <field name="Numero_Posiciones_A_Cubrir" type="Int32" allowNulls="false" label="Número de Posiciones A Cubrir" showInSummary="true" />
+    <field name="Fecha_Limite_Cubrir_Vacante" type="DateTime" allowNulls="false" dataFormatString="d" label="Fecha Límite para Cubrir Vacante" showInSummary="true" />
+    <field name="Notas" type="String" allowQBE="false" allowSorting="false" label="Notas" showInSummary="true" />
+    <field name="Documento_Perfil_Id" type="Int32" allowNulls="false" default="((0))" label="Documento Perfil Id">
+      <items style="Lookup" dataController="Documento" newDataView="createForm1" dataValueField="Documento_Id" dataTextField="Documento" dataView="Documento_LookUp_List" />
+    </field>
+    <field name="Documento_Perfil_Documento" type="String" readOnly="true" label="Documento de Perfil" length="250" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Contratante" type="String" readOnly="true" label="Contratante" length="150" />
+    <field name="Contratante_Id" type="Int32" allowNulls="false" default="((0))" label="Contratante Id">
+      <items style="Lookup" dataController="Contratante" newDataView="createForm1" dataValueField="Contratante_Id" dataTextField="Contratante_Id" copy="Contratante=Contratante&#xD;&#xA;Cliente_Id=Cliente_Id" dataView="Contratante_Admin_LookUp_List" />
+    </field>
+    <field name="Contratante_Puesto_Id" type="Int32" allowNulls="false" default="((0))" label="Contratante Puesto Id">
+      <items style="Lookup" dataController="Puesto" newDataView="createForm1" dataValueField="Puesto_Id" dataTextField="Puesto" />
+    </field>
+    <field name="Puesto" type="String" readOnly="true" label="Puesto" length="150" />
+    <field name="Fecha_Limite_Publicacion" type="DateTime" allowNulls="false" dataFormatString="d" default="('9999/01/01')" label="Fecha Limite de Publicación" />
+    <field name="Telefono_RRHH" type="String" allowNulls="false" default="('')" label="Telefono RRHH" length="15" />
+    <field name="Correo_RRHH" type="String" allowNulls="false" default="('')" label="Correo RRHH" length="50" />
+    <field name="Telefono_Encargado" type="String" allowNulls="false" default="('')" label="Teléfono de Encargado" length="15" />
+    <field name="Correo_Encargado" type="String" allowNulls="false" default="('')" label="Correo de Encargado" length="50" />
+    <field name="Correo_Reclutamiento" type="String" allowNulls="false" default="('')" label="Correo de Reclutamiento" length="50" />
+    <field name="Telefono_Reclutamiento" type="String" allowNulls="false" default="('')" label="Telefono de Reclutamiento" length="15" />
+    <field name="Publicar" type="Boolean" allowNulls="false" default="((0))" label="Publicar" />
+    <field name="Estatus_Vacante_Id" type="Int32" allowNulls="false" default="((0))" label="Estatus Vacante Id">
+      <items style="Lookup" dataController="Estatus_Vacante" newDataView="createForm1" dataValueField="Estatus_Vacante_Id" dataTextField="Estatus_Vacante" />
+    </field>
+    <field name="Estatus_Vacante" type="String" readOnly="true" label="Estatus de Vacante" length="250" />
+    <field name="DomicilioReclutamientoId" type="Int32" allowNulls="false" default="((0))" label="Domicilio Reclutamiento Id" />
+    <field name="GridDomicilioVDomicilioEtiqueta" type="String" label="Domicilio Reclutamiento" readOnly="true" length="1096" />
+    <field name="GridContratadoVNombreCompleto" type="String" label="Encargado de Reclutamiento" readOnly="true" length="603" />
+    <field name="ContratadoEncargadoReclutamientoId" type="Int32" allowNulls="false" default="((0))" label="Encargado Reclutamiento Id" />
+    <field name="EncargadoReclutamiento" type="String" allowNulls="false" default="('')" label="Encargado de Reclutamiento" length="600" />
+    <field name="LayoutHtmlPublicacionVacanteId" type="Int32" allowNulls="false" default="((0))" label="Layout Html Id">
+      <items style="Lookup" dataController="Layout_HTML" newDataView="createForm1" dataValueField="Layout_HTML_Id" dataTextField="Layout_HTML_Nombre" />
+    </field>
+    <field name="LayoutHtmlLayoutHtmlNombre" type="String" readOnly="true" label="Layout Html" length="150" />
+    <field name="TransaccionId" type="String" allowNulls="false" default="(newid())" label="Transaccion Id" length="50" />
+    <field name="Vacante_Etiqueta" type="String" readOnly="true" label="Vacante" length="150" />
+  </fields>
+  <views>
+    <view id="gridAdmin" type="Grid" commandId="Grid_Vacante_Admin" label="Vacante" sortExpression="Vacante" filter="Estatus_Registro_Id &lt;&gt; 0" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Vacante" />
+        <dataField fieldName="Contratante_Id" columns="15" aliasFieldName="Contratante" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" />
+        <dataField fieldName="Numero_Posiciones_A_Cubrir" columns="15" />
+        <dataField fieldName="Fecha_Limite_Cubrir_Vacante" columns="20" />
+        <dataField fieldName="Notas" rows="5" />
+        <dataField fieldName="Documento_Perfil_Id" aliasFieldName="Documento_Perfil_Documento" />
+        <dataField fieldName="Contratante_Puesto_Id" aliasFieldName="Puesto" />
+        <dataField fieldName="Fecha_Limite_Publicacion" columns="10" />
+        <dataField fieldName="Telefono_RRHH" columns="15" />
+        <dataField fieldName="Correo_RRHH" columns="50" />
+        <dataField fieldName="Telefono_Encargado" columns="15" />
+        <dataField fieldName="Correo_Encargado" columns="50" />
+        <dataField fieldName="Correo_Reclutamiento" columns="50" />
+        <dataField fieldName="Telefono_Reclutamiento" columns="15" />
+        <dataField fieldName="Publicar" />
+        <dataField fieldName="Estatus_Vacante_Id" aliasFieldName="Estatus_Vacante" />
+        <dataField fieldName="DomicilioReclutamientoId" aliasFieldName="GridDomicilioVDomicilioEtiqueta" />
+        <dataField fieldName="GridContratadoVNombreCompleto" />
+        <dataField fieldName="ContratadoEncargadoReclutamientoId" columns="15" />
+        <dataField fieldName="EncargadoReclutamiento" />
+        <dataField fieldName="LayoutHtmlPublicacionVacanteId" aliasFieldName="LayoutHtmlLayoutHtmlNombre" />
+        <dataField fieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="TransaccionId" columns="50" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="Grid_Vacante_Admin" label="Edición Vacante" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Vacante" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Vacante" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" hidden="true" />
+            <dataField fieldName="Contratante_Id" columns="15" aliasFieldName="Contratante" />
+            <dataField fieldName="Numero_Posiciones_A_Cubrir" columns="15" />
+            <dataField fieldName="Fecha_Limite_Cubrir_Vacante" columns="20" />
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Documento_Perfil_Id" aliasFieldName="Documento_Perfil_Documento" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="Contratante_Puesto_Id" aliasFieldName="Puesto" />
+            <dataField fieldName="Fecha_Limite_Publicacion" columns="10" />
+            <dataField fieldName="Telefono_RRHH" columns="15" />
+            <dataField fieldName="Correo_RRHH" columns="50" />
+            <dataField fieldName="Telefono_Encargado" columns="15" />
+            <dataField fieldName="Correo_Encargado" columns="50" />
+            <dataField fieldName="Correo_Reclutamiento" columns="50" />
+            <dataField fieldName="Telefono_Reclutamiento" columns="15" />
+            <dataField fieldName="Publicar" />
+            <dataField fieldName="Estatus_Vacante_Id" aliasFieldName="Estatus_Vacante" />
+            <dataField fieldName="DomicilioReclutamientoId" aliasFieldName="GridDomicilioVDomicilioEtiqueta" />
+            <dataField fieldName="GridContratadoVNombreCompleto" />
+            <dataField fieldName="ContratadoEncargadoReclutamientoId" columns="15" />
+            <dataField fieldName="EncargadoReclutamiento" />
+            <dataField fieldName="LayoutHtmlPublicacionVacanteId" aliasFieldName="LayoutHtmlLayoutHtmlNombre" />
+            <dataField fieldName="TransaccionId" columns="50" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="Grid_Vacante_Admin" label="Nueva Vacante" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Vacante" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Vacante" />
+            <dataField fieldName="Contratante_Id" columns="15" aliasFieldName="Contratante" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" hidden="true" />
+            <dataField fieldName="Numero_Posiciones_A_Cubrir" columns="15" />
+            <dataField fieldName="Fecha_Limite_Cubrir_Vacante" columns="20" />
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Documento_Perfil_Id" aliasFieldName="Documento_Perfil_Documento" />
+            <dataField fieldName="Contratante_Puesto_Id" aliasFieldName="Puesto" />
+            <dataField fieldName="Fecha_Limite_Publicacion" columns="10" />
+            <dataField fieldName="Telefono_RRHH" columns="15" />
+            <dataField fieldName="Correo_RRHH" columns="50" />
+            <dataField fieldName="Telefono_Encargado" columns="15" />
+            <dataField fieldName="Correo_Encargado" columns="50" />
+            <dataField fieldName="Correo_Reclutamiento" columns="50" />
+            <dataField fieldName="Telefono_Reclutamiento" columns="15" />
+            <dataField fieldName="Publicar" />
+            <dataField fieldName="Estatus_Vacante_Id" aliasFieldName="Estatus_Vacante" />
+            <dataField fieldName="DomicilioReclutamientoId" aliasFieldName="GridDomicilioVDomicilioEtiqueta" />
+            <dataField fieldName="GridContratadoVNombreCompleto" />
+            <dataField fieldName="ContratadoEncargadoReclutamientoId" columns="15" />
+            <dataField fieldName="EncargadoReclutamiento" />
+            <dataField fieldName="LayoutHtmlPublicacionVacanteId" aliasFieldName="LayoutHtmlLayoutHtmlNombre" />
+            <dataField fieldName="TransaccionId" columns="50" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Vacante_Admin_LookUp_List" type="Grid" commandId="Grid_Vacante_Admin" label="Vacante" sortExpression="Vacante" filter="Estatus_Registro_Id IN (1,0)" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Vacante" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" />
+        <dataField fieldName="Contratante_Id" columns="15" aliasFieldName="Contratante" />
+        <dataField fieldName="Numero_Posiciones_A_Cubrir" columns="15" hidden="true" />
+        <dataField fieldName="Fecha_Limite_Cubrir_Vacante" columns="20" hidden="true" />
+        <dataField fieldName="Contratante_Puesto_Id" aliasFieldName="Puesto" />
+        <dataField fieldName="Fecha_Limite_Publicacion" columns="10" />
+        <dataField fieldName="Telefono_RRHH" columns="15" />
+        <dataField fieldName="Correo_RRHH" columns="50" />
+        <dataField fieldName="Telefono_Encargado" columns="15" />
+        <dataField fieldName="Correo_Encargado" columns="50" />
+        <dataField fieldName="Correo_Reclutamiento" columns="50" />
+        <dataField fieldName="Telefono_Reclutamiento" columns="15" />
+        <dataField fieldName="Publicar" />
+        <dataField fieldName="Estatus_Vacante_Id" aliasFieldName="Estatus_Vacante" />
+        <dataField fieldName="DomicilioReclutamientoId" aliasFieldName="GridDomicilioVDomicilioEtiqueta" />
+        <dataField fieldName="GridContratadoVNombreCompleto" />
+        <dataField fieldName="ContratadoEncargadoReclutamientoId" columns="15" />
+        <dataField fieldName="EncargadoReclutamiento" />
+        <dataField fieldName="LayoutHtmlPublicacionVacanteId" aliasFieldName="LayoutHtmlLayoutHtmlNombre" />
+        <dataField fieldName="TransaccionId" columns="50" />
+        <dataField fieldName="Vacante_Etiqueta" rows="5" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Vacante_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Vacante_Descripcion_Puesto" type="Grid" commandId="Grid_Vacante_Admin" label="Vacante" sortExpression="Vacante" filter="Estatus_Registro_Id IN (1,0)" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Vacante" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" />
+        <dataField fieldName="Contratante_Id" columns="15" aliasFieldName="Contratante" />
+        <dataField fieldName="Numero_Posiciones_A_Cubrir" columns="15" hidden="true" />
+        <dataField fieldName="Fecha_Limite_Cubrir_Vacante" columns="20" hidden="true" />
+        <dataField fieldName="Contratante_Puesto_Id" aliasFieldName="Puesto" />
+        <dataField fieldName="Fecha_Limite_Publicacion" columns="10" />
+        <dataField fieldName="Telefono_RRHH" columns="15" />
+        <dataField fieldName="Correo_RRHH" columns="50" />
+        <dataField fieldName="Telefono_Encargado" columns="15" />
+        <dataField fieldName="Correo_Encargado" columns="50" />
+        <dataField fieldName="Correo_Reclutamiento" columns="50" />
+        <dataField fieldName="Telefono_Reclutamiento" columns="15" />
+        <dataField fieldName="Publicar" />
+        <dataField fieldName="Estatus_Vacante_Id" aliasFieldName="Estatus_Vacante" />
+        <dataField fieldName="DomicilioReclutamientoId" aliasFieldName="GridDomicilioVDomicilioEtiqueta" hidden="true" />
+        <dataField fieldName="GridContratadoVNombreCompleto" hidden="true" />
+        <dataField fieldName="ContratadoEncargadoReclutamientoId" columns="15" hidden="true" />
+        <dataField fieldName="EncargadoReclutamiento" hidden="true" />
+        <dataField fieldName="LayoutHtmlPublicacionVacanteId" aliasFieldName="LayoutHtmlLayoutHtmlNombre" />
+        <dataField fieldName="TransaccionId" columns="50" hidden="true" />
+        <dataField fieldName="Vacante_Etiqueta" rows="5" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Vacante_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Vacante
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Vacante_Id = @Vacante_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Vacante
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Vacante_Id = @Vacante_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Vacante
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Vacante_Id = @Vacante_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Vacante
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Vacante_Id = @Vacante_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Vacante
+	WHERE
+		REPLACE(UPPER(Vacante),' ','') = REPLACE(UPPER(@Vacante),' ','')
+		AND Cliente_Id = @Cliente_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe esta vacante para este contratante en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe esta vacante para este contratante en la base de datos, favor de corregir.'
+   RETURN
+END
+
+]]></rule>
+    <rule id="r103" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Vacante
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+	,Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()	
+WHERE
+	Vacante_Id = @Vacante_Id]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Vacante
+	WHERE
+  		REPLACE(UPPER(Vacante),' ','') = REPLACE(UPPER(@Vacante),' ','')
+		AND Cliente_Id = @Cliente_Id
+		AND Vacante_Id <> @Vacante_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe esta vacante para este contratante en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya existe esta vacante para este contratante en la base de datos, favor de corregir.'
+   RETURN
+END
+
+
+
+]]></rule>
+    <rule id="r102" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Vacante
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Vacante_Id = @Vacante_Id]]></rule>
+    <rule id="r104" commandName="New" type="Sql" phase="Execute"><![CDATA[SELECT
+@Documento_Perfil_Id=Documento_Id
+,@Documento_Perfil_Documento = Documento
+FROM
+APP.Documento
+WHERE
+Documento_Id=0]]></rule>
+  </businessRules>
+</dataController>

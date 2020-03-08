@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Contratante" alias="Contratante" created="2018-06-28T11:44:08" modified="2019-08-16T11:42:27" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Cliente_" parentTableSchema="APP" parentTableName="Cliente" x="416" y="41">
+      <foreignKeyColumn columnName="Cliente_Id" parentColumnName="Cliente_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="470" y="239">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Usuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="740" y="597">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Usuario_V1" parentTableSchema="dbo" parentTableName="Usuario_V" x="38" y="745">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Contratado" parentTableSchema="APP" parentTableName="Contratado" x="1068" y="49">
+      <foreignKeyColumn columnName="Contratado_Encargado_RH_Id" parentColumnName="Contratado_Id" />
+    </foreignKey>
+    <foreignKey id="Persona_V" parentTableSchema="dbo" parentTableName="Persona_V" x="1151" y="352" baseForeignKey="Contratado">
+      <foreignKeyColumn columnName="Contratado_Id" parentColumnName="Contratado_Id" />
+    </foreignKey>
+    <foreignKey id="Layout_Correo_Electronico" parentTableSchema="APP" parentTableName="Layout_Correo_Electronico" x="1019" y="252">
+      <foreignKeyColumn columnName="Layout_Correo_Electronico_Contratado_Id" parentColumnName="Layout_Correo_Electronico_Id" />
+    </foreignKey>
+    <foreignKey id="Layout_Correo_Electronico1" parentTableSchema="APP" parentTableName="Layout_Correo_Electronico" x="1180" y="451">
+      <foreignKeyColumn columnName="Layout_Correo_Electronico_Jefe_Id" parentColumnName="Layout_Correo_Electronico_Id" />
+    </foreignKey>
+    <foreignKey id="Layout_Correo_Electronico2" parentTableSchema="APP" parentTableName="Layout_Correo_Electronico" x="1141" y="431">
+      <foreignKeyColumn columnName="Layout_Correo_Electronico_RH_Solicitud_Vacaciones_Id" parentColumnName="Layout_Correo_Electronico_Id" />
+    </foreignKey>
+    <foreignKey id="Layout_Correo_Electronico3" parentTableSchema="APP" parentTableName="Layout_Correo_Electronico" x="600" y="390">
+      <foreignKeyColumn columnName="Layout_Correo_Electronico_RH_Respuesta_Solicitud_Vacaciones_Id" parentColumnName="Layout_Correo_Electronico_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Contratante_Id" fieldName="Contratante_Id" label="Contratante Id" />
+    <column name="Contratante" fieldName="Contratante" label="Contratante" />
+    <column name="Contratante_Razon_Social" fieldName="Contratante_Razon_Social" label="Contratante Razon Social" />
+    <column name="Contratante_Descripcion" fieldName="Contratante_Descripcion" label="Contratante Descripcion" />
+    <column name="Cliente_Id" fieldName="Cliente_Id" label="Cliente Id" aliasColumnName="Cliente" aliasForeignKey="Cliente_" />
+    <column name="Cliente" fieldName="Cliente_Cliente" label="Cliente" foreignKey="Cliente_" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V" />
+    <column name="UserName" fieldName="cpUserName" label="Usuario V Username" foreignKey="Usuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha Creacion" format="g" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V1" />
+    <column name="UserName" fieldName="apUserName" label="ap User Name" foreignKey="Usuario_V1" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha Ultima Actualizacion" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+    <column name="Persona_Nombre" fieldName="Persona_Nombre" label="Encargado RH" foreignKey="Persona_V" />
+    <column name="Contratado_Encargado_RH_Id" fieldName="Contratado_Encargado_RH_Id" label="Contratado Encargado RH Id" />
+    <column name="Clave_Contratante" fieldName="Clave_Contratante" label="Clave de Contratante" />
+    <column name="Vigencia_Dias" fieldName="Vigencia_Dias" label="Vigencia en Días" />
+    <column name="Nombre_Dominio" fieldName="Nombre_Dominio" label="Nombre de Dominio" />
+    <column name="Mostrar_Religion_A_Aspirante" fieldName="Mostrar_Religion_A_Aspirante" label="¿Mostrar Religión A Aspirante?" />
+    <column name="Mostrar_Orientacion_Sexual_A_Aspirante" fieldName="Mostrar_Orientacion_Sexual_A_Aspirante" label="¿Mostrar Orientación Sexual A Aspirante?" />
+    <column name="Mostrar_Senas_Particulares_A_Aspirante" fieldName="Mostrar_Senas_Particulares_A_Aspirante" label="¿Mostrar Señas Particulares A Aspirante?" />
+    <column name="Permite_Cancelar_Solicitud_Vacaciones" fieldName="Permite_Cancelar_Solicitud_Vacaciones" label="¿Permitir Cancelar Solicitudes de Vacaciones?" />
+    <column name="Layout_Correo_Electronico_Contratado_Id" fieldName="Layout_Correo_Electronico_Contratado_Id" label="Layout Correo Electronico Contratado Id" aliasColumnName="Layout_Correo_Electronico" aliasForeignKey="Layout_Correo_Electronico" />
+    <column name="Layout_Correo_Electronico" fieldName="LayoutCorreoElectronicoContratado" label="Layout de Correo Electrónico para Contratado" foreignKey="Layout_Correo_Electronico" />
+    <column name="Layout_Correo_Electronico_Jefe_Id" fieldName="Layout_Correo_Electronico_Jefe_Id" label="Layout Correo Electronico Jefe Id" aliasColumnName="Layout_Correo_Electronico" aliasForeignKey="Layout_Correo_Electronico1" />
+    <column name="Layout_Correo_Electronico" fieldName="LayoutCorreoElectronicoJefe" label="Layout de Correo Electrónico para Jefe" foreignKey="Layout_Correo_Electronico1" />
+    <column name="Layout_Correo_Electronico_RH_Respuesta_Solicitud_Vacaciones_Id" fieldName="Layout_Correo_Electronico_RH_Respuesta_Solicitud_Vacaciones_Id" label="Layout Correo Electronico RH Respuesta Solicitud Vacaciones Id" aliasColumnName="Layout_Correo_Electronico" aliasForeignKey="Layout_Correo_Electronico3" />
+    <column name="Layout_Correo_Electronico" fieldName="LayoutCorreoElectronicoRHRespuestaSolicitudVacaciones" label="Layout de Correo Electrónico RH para respuesta de Solicitud de Vacaciones" foreignKey="Layout_Correo_Electronico3" />
+    <column name="Layout_Correo_Electronico_RH_Solicitud_Vacaciones_Id" fieldName="Layout_Correo_Electronico_RH_Solicitud_Vacaciones_Id" label="Layout Correo Electronico RH Solicitud Vacaciones Id" aliasColumnName="Layout_Correo_Electronico" aliasForeignKey="Layout_Correo_Electronico2" />
+    <column name="Layout_Correo_Electronico" fieldName="LayoutCorreoElectronico2layoutCorreoElectronico" label="Layout Correo Electronico 2layout Correo Electronico" foreignKey="Layout_Correo_Electronico2" />
+    <column name="Generar_Usuario_Generico" fieldName="GenerarUsuarioGenerico" label="Generar Usuario Generico" />
+    <column name="Permitir_Solicitar_Gastos" fieldName="PermitirSolicitarGastos" label="¿Permitir Solicitar Gastos?" />
+    <column name="Numero_Telefono" fieldName="NumeroTelefono" label="Número de Teléfono" />
+    <column name="Permite_Enviar_Correo_Recibo_Nomina" fieldName="PermiteEnviarCorreoReciboNomina" label="¿Permite Enviar Correo Recibo Nomina?" />
+    <column name="Permite_Solicitar_Prestamos" fieldName="PermiteSolicitarPrestamos" label="¿Permite Solicitar Prestamos?" />
+    <column name="Contratado_Encargado_Prestamos_Id" fieldName="ContratadoEncargadoPrestamosId" label="Contratado Encargado Prestamos Id" />
+    <column name="Antiguedad_Minima_Pedir_Prestamo" fieldName="AntiguedadMinimaPedirPrestamo" label="Antiguedad Minima Pedir Prestamo" />
+    <column name="Layout_Correo_Electronico_Contratado_Solicitud_Prestamo_Id" fieldName="LayoutCorreoElectronicoContratadoSolicitudPrestamoId" label="Layout Correo Electronico Contratado Solicitud Prestamo Id" />
+    <column name="Layout_Correo_Electronico_Encargado_Prestamo_Id" fieldName="LayoutCorreoElectronicoEncargadoPrestamoId" label="Layout Correo Electronico Encargado Prestamo Id" />
+    <column name="Layout_Correo_Electronico_RH_Solicitud_Prestamo_Id" fieldName="LayoutCorreoElectronicoRHSolicitudPrestamoId" label="Layout Correo Electronico RH Solicitud Prestamo Id" />
+    <column name="Layout_Correo_Electronico_RH_Respuesta_Solicitud_Prestamo_Id" fieldName="LayoutCorreoElectronicoRHRespuestaSolicitudPrestamoId" label="Layout Correo Electronico RH Respuesta Solicitud Prestamo Id" />
+    <column name="Layout_Correo_Electronico_Jefe_Notificacion_Cancelacion_Id" fieldName="LayoutCorreoElectronicoJefeNotificacionCancelacionId" label="Layout Correo Electronico Jefe Notificacion Cancelacion Id" />
+    <column name="Validar_Vacaciones_Al_Pasado" fieldName="ValidarVacacionesAlPasado" label="Validar Vacaciones Al Pasado" />
+    <column name="Validar_Vacaciones_Dia_Actual" fieldName="ValidarVacacionesDiaActual" label="Validar Vacaciones Dia Actual" />
+  </columns>
+</dataModel>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Estatus_Contratado" alias="Estatus_Contratado" created="2018-06-27T21:52:59" modified="2018-06-27T21:55:08" x="20" y="27" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="639" y="399">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Usuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="614" y="20">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Usuario_V1" parentTableSchema="dbo" parentTableName="Usuario_V" x="985" y="224">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Estatus_Contratado_Id" fieldName="Estatus_Contratado_Id" label="Estatus Contratado Id" />
+    <column name="Estatus_Contratado" fieldName="Estatus_Contratado" label="Estatus Contratado" />
+    <column name="Significa_Activo" fieldName="Significa_Activo" label="Significa Activo" />
+    <column name="Significa_Relacion_Terminada_Por_Diferencias" fieldName="Significa_Relacion_Terminada_Por_Diferencias" label="Significa Relacion Terminada Por Diferencias" />
+    <column name="Significa_Relacion_Terminada_Por_Fin_Contrato" fieldName="Significa_Relacion_Terminada_Por_Fin_Contrato" label="Significa Relacion Terminada Por Fin Contrato" />
+    <column name="Significa_Incapacitado" fieldName="Significa_Incapacitado" label="Significa Incapacitado" />
+    <column name="Significa_Con_Permiso_Ausencia_Indefinida" fieldName="Significa_Con_Permiso_Ausencia_Indefinida" label="Significa Con Permiso Ausencia Indefinida" />
+    <column name="Significa_Jubilado" fieldName="Significa_Jubilado" label="Significa Jubilado" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V" />
+    <column name="UserName" fieldName="UsuarioVUsername" label="Usuario V Username" foreignKey="Usuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha Creacion" format="g" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V1" />
+    <column name="UserName" fieldName="apUserName" label="ap User Name" foreignKey="Usuario_V1" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha Ultima Actualizacion" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+  </columns>
+</dataModel>

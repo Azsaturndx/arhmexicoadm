@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Rango_Valor" alias="Rango_Valor" created="2019-02-05T15:45:45" modified="2019-02-05T16:03:57" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="405" y="20">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Color" parentTableSchema="APP" parentTableName="Color" x="595" y="166">
+      <foreignKeyColumn columnName="Color_Texto_Id" parentColumnName="Color_Id" />
+    </foreignKey>
+    <foreignKey id="Color1" parentTableSchema="APP" parentTableName="Color" x="976" y="223">
+      <foreignKeyColumn columnName="Color_Fondo_Id" parentColumnName="Color_Id" />
+    </foreignKey>
+    <foreignKey id="Metrica" parentTableSchema="APP" parentTableName="Metrica" x="501" y="501">
+      <foreignKeyColumn columnName="Metrica_Id" parentColumnName="Metrica_Id" />
+    </foreignKey>
+    <foreignKey id="Usuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="925" y="38">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Usuario_V1" parentTableSchema="dbo" parentTableName="Usuario_V" x="149" y="422">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Rango_Valor_Id" fieldName="Rango_Valor_Id" label="Rango Valor Id" />
+    <column name="Metrica_Id" fieldName="Metrica_Id" label="Metrica Id" aliasColumnName="Aplica_Para_Religion" aliasForeignKey="Metrica" />
+    <column name="Aplica_Para_Religion" fieldName="AplicaParaReligion" label="Aplica Para Religion" foreignKey="Metrica" />
+    <column name="Aplica_Para_Orientacion_Sexual" fieldName="AplicaParaOrientacionSexual" label="Aplica Para Orientacion Sexual" foreignKey="Metrica" />
+    <column name="Aplica_Para_Disposicion_A_Movilidad" fieldName="AplicaParaDisposicionAMovilidad" label="Aplica Para Disposicion A Movilidad" foreignKey="Metrica" />
+    <column name="Aplica_Para_Disposicion_A_Cambio_De_Domicilio" fieldName="AplicaParaDisposicionACambioDeDomicilio" label="Aplica Para Disposicion A Cambio De Domicilio" foreignKey="Metrica" />
+    <column name="Aplica_Para_Edad" fieldName="AplicaParaEdad" label="Aplica Para Edad" foreignKey="Metrica" />
+    <column name="Aplica_Para_Color_Piel" fieldName="AplicaParaColorPiel" label="Aplica Para Color Piel" foreignKey="Metrica" />
+    <column name="Aplica_Para_Estatura" fieldName="AplicaParaEstatura" label="Aplica Para Estatura" foreignKey="Metrica" />
+    <column name="Aplica_Para_Peso" fieldName="AplicaParaPeso" label="Aplica Para Peso" foreignKey="Metrica" />
+    <column name="Aplica_Para_Complexion_Fisica" fieldName="AplicaParaComplexionFisica" label="Aplica Para Complexion Fisica" foreignKey="Metrica" />
+    <column name="Aplica_Para_Tatuajes_Admitidos" fieldName="AplicaParaTatuajesAdmitidos" label="Aplica Para Tatuajes Admitidos" foreignKey="Metrica" />
+    <column name="Aplica_Para_Tatuajes_Visibilidad" fieldName="AplicaParaTatuajesVisibilidad" label="Aplica Para Tatuajes Visibilidad" foreignKey="Metrica" />
+    <column name="Aplica_Para_Tipo_Tatuajes" fieldName="AplicaParaTipoTatuajes" label="Aplica Para Tipo Tatuajes" foreignKey="Metrica" />
+    <column name="Aplica_Para_Sena_Particular" fieldName="AplicaParaSenaParticular" label="Aplica Para Sena Particular" foreignKey="Metrica" />
+    <column name="Aplica_Para_Estado_Salud_Aparente" fieldName="AplicaParaEstadoSaludAparente" label="Aplica Para Estado Salud Aparente" foreignKey="Metrica" />
+    <column name="Aplica_Para_Estado_Salud_Sufre_Diabetes" fieldName="AplicaParaEstadoSaludSufreDiabetes" label="Aplica Para Estado Salud Sufre Diabetes" foreignKey="Metrica" />
+    <column name="Aplica_Para_Estado_Salud_Problemas_Presion_Artereal" fieldName="AplicaParaEstadoSaludProblemasPresionArtereal" label="Aplica Para Estado Salud Problemas Presion Artereal" foreignKey="Metrica" />
+    <column name="Aplica_Para_Estado_Salud_Sufre_Sobrepeso" fieldName="AplicaParaEstadoSaludSufreSobrepeso" label="Aplica Para Estado Salud Sufre Sobrepeso" foreignKey="Metrica" />
+    <column name="Aplica_Para_Estado_Salud_Consumo_Estupefacientes" fieldName="AplicaParaEstadoSaludConsumoEstupefacientes" label="Aplica Para Estado Salud Consumo Estupefacientes" foreignKey="Metrica" />
+    <column name="Aplica_Para_Estado_Salud_Padece_Discapacidad" fieldName="AplicaParaEstadoSaludPadeceDiscapacidad" label="Aplica Para Estado Salud Padece Discapacidad" foreignKey="Metrica" />
+    <column name="Aplica_Para_Estado_Salud_Tipo_Discapacidad" fieldName="AplicaParaEstadoSaludTipoDiscapacidad" label="Aplica Para Estado Salud Tipo Discapacidad" foreignKey="Metrica" />
+    <column name="Aplica_Para_Experiencia_Periodo" fieldName="AplicaParaExperienciaPeriodo" label="Aplica Para Experiencia Periodo" foreignKey="Metrica" />
+    <column name="Aplica_Para_Tipo_Contribucion" fieldName="AplicaParaTipoContribucion" label="Aplica Para Tipo Contribucion" foreignKey="Metrica" />
+    <column name="Aplica_Para_Nivel_Conocimiento" fieldName="AplicaParaNivelConocimiento" label="Aplica Para Nivel Conocimiento" foreignKey="Metrica" />
+    <column name="Aplica_Para_Nivel_Habilidad" fieldName="AplicaParaNivelHabilidad" label="Aplica Para Nivel Habilidad" foreignKey="Metrica" />
+    <column name="Aplica_Para_Anios_Uso" fieldName="AplicaParaAniosUso" label="Aplica Para Anios Uso" foreignKey="Metrica" />
+    <column name="Aplica_Para_Es_Titulado" fieldName="AplicaParaEsTitulado" label="Aplica Para Es Titulado" foreignKey="Metrica" />
+    <column name="Aplica_Para_Es_Becado" fieldName="AplicaParaEsBecado" label="Aplica Para Es Becado" foreignKey="Metrica" />
+    <column name="Aplica_Para_Es_Certificado" fieldName="AplicaParaEsCertificado" label="Aplica Para Es Certificado" foreignKey="Metrica" />
+    <column name="Metrica" fieldName="Metrica" label="Métrica" foreignKey="Metrica" />
+    <column name="Valor_Inicio" fieldName="Valor_Inicio" label="Valor de Inicio" />
+    <column name="Valor_Fin" fieldName="Valor_Fin" label="Valor de Fin" />
+    <column name="Valor_Cualitativo" fieldName="Valor_Cualitativo" label="Valor Cualitativo" />
+    <column name="Valor_Cuantitativo" fieldName="Valor_Cuantitativo" label="Valor Cuantitativo" />
+    <column name="Color_Texto_Id" fieldName="Color_Texto_Id" label="Color Texto Id" aliasColumnName="Color" aliasForeignKey="Color" />
+    <column name="Color" fieldName="Color_Texto" label="Color de Texto" foreignKey="Color" />
+    <column name="Color_Fondo_Id" fieldName="Color_Fondo_Id" label="Color Fondo Id" aliasColumnName="Color" aliasForeignKey="Color1" />
+    <column name="Color" fieldName="Color_Fondo" label="Color de Fondo" foreignKey="Color1" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V" />
+    <column name="UserName" fieldName="Creado_Por" label="Creado Por" foreignKey="Usuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V1" />
+    <column name="UserName" fieldName="Actualizado_Por" label="Actualizado Por" foreignKey="Usuario_V1" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+  </columns>
+</dataModel>

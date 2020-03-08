@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Bitacora_Proceso_Evaluacion_Descripcion_Puesto" conflictDetection="overwriteChanges" label="Bitacora Proceso Evaluacion Descripcion Puesto" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Bitacora_Proceso_Evaluacion_Descripcion_Puesto_Id" "Bitacora_Proceso_Evaluacion_Descripcion_Puesto_Id"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Descripcion_Puesto_Id" "Descripcion_Puesto_Id"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Descripcion_Puesto" "Descripcion_Puesto"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Persona_Id" "Persona_Id"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Nombre_Completo" "Nombre_Completo"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Estatus_Registro_Persona_Id" "Estatus_Registro_Persona_Id"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Estatus_Registro_Persona" "Estatus_Registro_Persona"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Fue_Ko" "Fue_Ko"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Tipo_KO_Id" "Tipo_KO_Id"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Tipo_KO" "Tipo_KO"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."No_Cumple_Informacion_Minima" "No_Cumple_Informacion_Minima"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Fecha_Nacimiento" "Fecha_Nacimiento"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Genero_Persona_Id" "Genero_Persona_Id"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Genero" "Genero"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Estado_Civil_Id" "Estado_Civil_Id"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Estado_Civil" "Estado_Civil"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Calificacion_Por_Debajo_Minima" "Calificacion_Por_Debajo_Minima"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Calificacion_Obtenida" "Calificacion_Obtenida"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."No_Aplica_Por_Estatus_Persona" "No_Aplica_Por_Estatus_Persona"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Estatus_Persona_Id" "Estatus_Persona_Id"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Estatus_Persona" "Estatus_Persona"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Es_Candidato_Para_Puesto" "Es_Candidato_Para_Puesto"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Transaccion_Id" "Transaccion_Id"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Creado_Por_Id" "Creado_Por_Id"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Fecha_Creacion" "Fecha_Creacion"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+from "dbo"."Bitacora_Proceso_Evaluacion_Descripcion_Puesto" "Bitacora_Proceso_Evaluacion_Descripcion_Puesto"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Bitacora_Proceso_Evaluacion_Descripcion_Puesto"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+]]></text>
+    </command>
+    <command id="Bitacora_Proceso_Evaluacion_Descripcion_Puesto_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Bitacora_Proceso_Evaluacion_Descripcion_Puesto_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Bitacora_Proceso_Evaluacion_Descripcion_Puesto_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Bitacora Proceso Evaluacion Descripcion Puesto Id" readOnly="true" />
+    <field name="Descripcion_Puesto_Id" type="Int32" allowNulls="false" default="((0))" label="Descripcion Puesto Id" showInSummary="true" />
+    <field name="Descripcion_Puesto" type="String" allowNulls="false" default="('')" label="Descripción de Puesto" length="250" showInSummary="true" />
+    <field name="Persona_Id" type="Int32" allowNulls="false" default="((0))" label="Persona Id" showInSummary="true" />
+    <field name="Nombre_Completo" type="String" default="('')" label="Nombre Completo" length="1000" showInSummary="true" />
+    <field name="Estatus_Registro_Persona_Id" type="Int32" allowNulls="false" default="((0))" label="Estatus Registro Persona Id" showInSummary="true" />
+    <field name="Estatus_Registro_Persona" type="String" allowNulls="false" default="('')" label="Estatus de Registro de Persona" length="150" />
+    <field name="Fue_Ko" type="Boolean" allowNulls="false" default="((0))" label="¿Fue Ko?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Tipo_KO_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo KO Id" />
+    <field name="Tipo_KO" type="String" allowNulls="false" default="('')" label="Tipo KO" length="150" />
+    <field name="No_Cumple_Informacion_Minima" type="Boolean" allowNulls="false" default="((0))" label="¿No Cumple Información Mínima?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Fecha_Nacimiento" type="DateTime" allowNulls="false" dataFormatString="D" default="('01-01-1900')" label="Fecha de Nacimiento" />
+    <field name="Genero_Persona_Id" type="Int32" allowNulls="false" default="((0))" label="Genero Persona Id" />
+    <field name="Genero" type="String" allowNulls="false" default="('')" label="Género" length="250" />
+    <field name="Estado_Civil_Id" type="Int32" allowNulls="false" default="((0))" label="Estado Civil Id" />
+    <field name="Estado_Civil" type="String" allowNulls="false" default="('')" label="Estado Civil" length="250" />
+    <field name="Calificacion_Por_Debajo_Minima" type="Boolean" allowNulls="false" default="((0))" label="¿Calificación Por Debajo Mínima?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Calificacion_Obtenida" type="Decimal" allowNulls="false" default="((0))" label="Calificación Obtenida" />
+    <field name="No_Aplica_Por_Estatus_Persona" type="Boolean" allowNulls="false" default="((0))" label="¿No Aplica Por Estatus Persona?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Estatus_Persona_Id" type="Int32" allowNulls="false" default="((0))" label="Estatus Persona Id" />
+    <field name="Estatus_Persona" type="String" allowNulls="false" default="('')" label="Estatus de Persona" length="250" />
+    <field name="Es_Candidato_Para_Puesto" type="Boolean" allowNulls="false" default="((0))" label="¿Es Candidato Para Puesto?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transaccion Id" length="50" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha Creacion" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha Ultima Actualizacion" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus Registro" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Reporte de Evaluaciones de Puestos">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Descripcion_Puesto_Id" columns="15" aliasFieldName="Descripcion_Puesto" />
+        <dataField fieldName="Persona_Id" columns="15" aliasFieldName="Nombre_Completo" />
+        <dataField fieldName="No_Cumple_Informacion_Minima" />
+        <dataField fieldName="Fecha_Nacimiento" columns="20" />
+        <dataField fieldName="Genero_Persona_Id" columns="15" aliasFieldName="Genero" />
+        <dataField fieldName="Estado_Civil_Id" columns="15" aliasFieldName="Estado_Civil" />
+        <dataField fieldName="No_Aplica_Por_Estatus_Persona" />
+        <dataField fieldName="Estatus_Persona_Id" columns="15" aliasFieldName="Estatus_Persona" />
+        <dataField fieldName="Fue_Ko" />
+        <dataField fieldName="Tipo_KO_Id" columns="15" aliasFieldName="Tipo_KO" />
+        <dataField fieldName="Calificacion_Por_Debajo_Minima" />
+        <dataField fieldName="Calificacion_Obtenida" columns="15" />
+        <dataField fieldName="Es_Candidato_Para_Puesto" />
+        <dataField fieldName="Estatus_Registro_Persona_Id" columns="15" aliasFieldName="Estatus_Registro_Persona" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+  </actions>
+</dataController>

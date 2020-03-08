@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Contratado_Solicitud_Prestamo" conflictDetection="overwriteChanges" label="Contratado Solicitud Prestamo" handler="arhmexico.Rules.Contratado_Solicitud_PrestamoBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Contratado_Solicitud_Prestamo"."Contratado_Solicitud_Prestamo_Id" "Contratado_Solicitud_Prestamo_Id"
+	,"Contratado_Solicitud_Prestamo"."Contratado_Id" "Contratado_Id"
+	,"Contratado_"."Identificador_Unico" "Contratado_Identificador_Unico"
+	,"Contratado_Solicitud_Prestamo"."Notas_Solicitud" "Notas_Solicitud"
+	,"Contratado_Solicitud_Prestamo"."Solicitud_Prestamo_Key" "Solicitud_Prestamo_Key"
+	,"Contratado_Solicitud_Prestamo"."Fecha_Solicitud" "Fecha_Solicitud"
+	,"Contratado_Solicitud_Prestamo"."Estatus_Solicitud_Id" "Estatus_Solicitud_Id"
+	,"Estatus_Solicitud_"."Estatus_Solicitud" "Estatus_Solicitud_Estatus_Solicitud"
+	,"Contratado_Solicitud_Prestamo"."Fecha_Autorizacion_Rechazo" "Fecha_Autorizacion_Rechazo"
+	,"Autorizado_Por"."UserName" "AutorizadoPorusername"
+	,"Contratado_Solicitud_Prestamo"."Notas_Autorizacion_Rechazo" "Notas_Autorizacion_Rechazo"
+	,"Contratado_Solicitud_Prestamo"."Transaccion_Id" "Transaccion_Id"
+	,"Creado_Por"."UserName" "CreadoPorusername"
+	,"Contratado_Solicitud_Prestamo"."Fecha_Creacion" "Fecha_Creacion"
+	,"Actualizado_Por"."UserName" "ActualizadoPorusername"
+	,"Contratado_Solicitud_Prestamo"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Contratado_Solicitud_Prestamo"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Contratado_Solicitud_Prestamo"."Monto_Solicitado" "MontoSolicitado"
+	,"Contratado_Solicitud_Prestamo"."Monto_Prestado" "MontoPrestado"
+from "APP"."Contratado_Solicitud_Prestamo" "Contratado_Solicitud_Prestamo"
+	left join "APP"."Contratado" "Contratado_" on "Contratado_Solicitud_Prestamo"."Contratado_Id" = "Contratado_"."Contratado_Id"
+	left join "APP"."Estatus_Solicitud" "Estatus_Solicitud_" on "Contratado_Solicitud_Prestamo"."Estatus_Solicitud_Id" = "Estatus_Solicitud_"."Estatus_Solicitud_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Contratado_Solicitud_Prestamo"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Creado_Por" on "Contratado_Solicitud_Prestamo"."Creado_Por_Id" = "Creado_Por"."UserId"
+	left join "dbo"."Usuario_V" "Autorizado_Por" on "Contratado_Solicitud_Prestamo"."Autorizado_Rechazado_Por_Id" = "Autorizado_Por"."UserId"
+	left join "dbo"."Usuario_V" "Actualizado_Por" on "Contratado_Solicitud_Prestamo"."Actualizado_Por_Id" = "Actualizado_Por"."UserId"
+]]></text>
+    </command>
+    <command id="Contratado_Solicitud_Prestamo_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Contratado_Solicitud_Prestamo_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Contratado_Solicitud_Prestamo_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Contratado Solicitud Prestamo Id" readOnly="true" />
+    <field name="Contratado_Id" type="Int32" allowNulls="false" default="((0))" label="Contratado Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratado" dataValueField="Contratado_Id" dataTextField="Persona_Nombre" dataView="Contratado_Admin_LookUp_List" />
+    </field>
+    <field name="Contratado_Identificador_Unico" type="String" readOnly="true" label="Contratado Identificador Unico" length="50" />
+    <field name="Notas_Solicitud" type="String" label="Notas de Solicitud" length="1000" showInSummary="true" />
+    <field name="Solicitud_Prestamo_Key" type="Guid" allowNulls="false" default="(newid())" label="Solicitud Prestamo Key" showInSummary="true" />
+    <field name="Fecha_Solicitud" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Solicitud" showInSummary="true" />
+    <field name="Estatus_Solicitud_Id" type="Int32" allowNulls="false" default="((0))" label="Estatus Solicitud Id" showInSummary="true" readOnly="true">
+      <items style="Lookup" dataController="Estatus_Solicitud" dataValueField="Estatus_Solicitud_Id" dataTextField="Estatus_Solicitud" dataView="Estatus_Solicitud_LookUp_List" />
+    </field>
+    <field name="Estatus_Solicitud_Estatus_Solicitud" type="String" readOnly="true" label="Estatus de Solicitud" length="150" />
+    <field name="Fecha_Autorizacion_Rechazo" type="DateTime" dataFormatString="g" label="Fecha de Autorización/Rechazo" />
+    <field name="AutorizadoPorusername" type="String" readOnly="true" label="Autorizado/Rechazado Por" length="256" />
+    <field name="Notas_Autorizacion_Rechazo" type="String" allowQBE="false" allowSorting="false" label="Notas de Autorización/Rechazo" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transaccion Id" length="50" />
+    <field name="CreadoPorusername" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Creación" />
+    <field name="ActualizadoPorusername" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Última Actualización" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus Registro" length="150" />
+    <field name="MontoSolicitado" type="Decimal" allowNulls="false" default="((0))" label="Monto Solicitado" dataFormatString="c" />
+    <field name="MontoPrestado" type="Decimal" allowNulls="false" default="((0))" label="Monto Prestado" dataFormatString="c" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Solicitudes de Préstamo" showInSelector="false" filter="Estatus_Registro_Id&lt;&gt;0">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Contratado_Id" aliasFieldName="Contratado_Identificador_Unico" />
+        <dataField fieldName="Estatus_Solicitud_Id" aliasFieldName="Estatus_Solicitud_Estatus_Solicitud" />
+        <dataField fieldName="Fecha_Autorizacion_Rechazo" columns="20" />
+        <dataField fieldName="Notas_Autorizacion_Rechazo" rows="5" />
+        <dataField fieldName="Fecha_Solicitud" columns="20" />
+        <dataField fieldName="Notas_Solicitud" />
+        <dataField fieldName="Solicitud_Prestamo_Key" columns="15" hidden="true" />
+        <dataField fieldName="AutorizadoPorusername" />
+        <dataField fieldName="Transaccion_Id" columns="50" hidden="true" />
+        <dataField fieldName="CreadoPorusername" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="ActualizadoPorusername" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="MontoSolicitado" columns="15" />
+        <dataField fieldName="MontoPrestado" columns="15" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Revisar Solicitud de Préstamo" showInSelector="false">
+      <headerText>Después de que su solicitud esté en revisión puede ir descargando los formularios y subiendolos firmados, es necesario entregarlos en original el día que se le apruebe su préstamo.</headerText>
+      <categories>
+        <category id="c1" headerText="Solicitudes de Préstamo" flow="NewColumn">
+          <description><![CDATA[$DefaultEditViewDescription
+]]></description>
+          <dataFields>
+            <dataField fieldName="Contratado_Id" aliasFieldName="Contratado_Identificador_Unico" />
+            <dataField fieldName="MontoSolicitado" columns="15">
+              <footerText>*Sujeto a ingresos</footerText>
+            </dataField>
+            <dataField fieldName="Notas_Solicitud" />
+            <dataField fieldName="Fecha_Solicitud" columns="20" />
+            <dataField fieldName="Estatus_Solicitud_Id" aliasFieldName="Estatus_Solicitud_Estatus_Solicitud" />
+            <dataField fieldName="Fecha_Autorizacion_Rechazo" columns="20" />
+            <dataField fieldName="AutorizadoPorusername" />
+            <dataField fieldName="Notas_Autorizacion_Rechazo" rows="5" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="MontoPrestado" columns="15" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nueva Solicitud de Préstamo" showInSelector="false">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Contratado_Id" aliasFieldName="Contratado_Identificador_Unico" />
+            <dataField fieldName="MontoSolicitado" columns="15">
+              <footerText>*Sujeto a ingresos</footerText>
+            </dataField>
+            <dataField fieldName="Notas_Solicitud" rows="4" />
+            <dataField fieldName="Fecha_Solicitud" columns="20" hidden="true" />
+            <dataField fieldName="MontoPrestado" columns="15" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Contratado_Solicitud_Prestamo
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+        ,Estatus_Registro_Id = 3
+WHERE
+	Contratado_Solicitud_Prestamo_Id= @Contratado_Solicitud_Prestamo_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action commandName="Custom" headerText="Generar Solicitud" id="a100" commandArgument="ExecCS01" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Contratado_Solicitud_Prestamo
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+        ,Estatus_Registro_Id = 3
+WHERE
+	Contratado_Solicitud_Prestamo_Id= @Contratado_Solicitud_Prestamo_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag101" scope="ActionBar" headerText="Agregar Documentos Obligatorios" flat="true">
+      <action commandName="Navigate" commandArgument="_blank:DocumentoPrestamo?_commandName=New&amp;_commandArgument=createForm1&amp;_controller=Documento1&amp;Contratado_Id={Contratado_Id}" headerText="Agregar Documentos Obligatorios" id="a100" whenKeySelected="true" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag102" scope="ActionBar" headerText="Ver Documentos" flat="true">
+      <action commandName="Navigate" headerText="Ver Documentos" id="a100" commandArgument="_blank:DocumentoPrestamo?_commandName=Select&amp;_commandArgument=grid1&amp;_controller=Documento1&amp;Contratado_Id={Contratado_Id}" whenKeySelected="true" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag100" scope="ActionBar" headerText="Formularios" flat="false">
+      <action commandName="Navigate" commandArgument="_blank:https://arhcloud.com.mx/formulariosprestamos/Requisitos.pdf" headerText="Requisitos" id="a100" whenKeySelected="true" whenClientScript="[Estatus_Solicitud_Id]!=1 || [Estatus_Solicitud_Id]!=0 ||&#xD;&#xA;[Estatus_Solicitud_Id]!=3 || [Estatus_Solicitud_Id]!=4 ||&#xD;&#xA;[Estatus_Solicitud_Id]!=5   " roles="Administrators,ArhAdmin" />
+      <action commandName="Navigate" commandArgument="_blank:https://arhcloud.com.mx/formulariosprestamos/Consentimiento.pdf" headerText="Consentimiento" whenKeySelected="true" id="a101" whenClientScript="[Estatus_Solicitud_Id]!=1 || [Estatus_Solicitud_Id]!=0 ||&#xD;&#xA;[Estatus_Solicitud_Id]!=3 || [Estatus_Solicitud_Id]!=4 ||&#xD;&#xA;[Estatus_Solicitud_Id]!=5   " roles="Administrators,ArhAdmin" />
+      <action commandName="Navigate" commandArgument="_blank:https://arhcloud.com.mx/formulariosprestamos/CARATULA.pdf" headerText="Carátula" whenKeySelected="true" id="a102" whenClientScript="[Estatus_Solicitud_Id]!=1 || [Estatus_Solicitud_Id]!=0 ||&#xD;&#xA;[Estatus_Solicitud_Id]!=3 || [Estatus_Solicitud_Id]!=4 ||&#xD;&#xA;[Estatus_Solicitud_Id]!=5   " roles="Administrators,ArhAdmin" />
+      <action commandName="Navigate" commandArgument="_blank:https://arhcloud.com.mx/formulariosprestamos/Carta_Instruccion_De_Pago.pdf" headerText="Carta Instrucción De Pago" whenKeySelected="true" id="a103" whenClientScript="[Estatus_Solicitud_Id]!=1 || [Estatus_Solicitud_Id]!=0 ||&#xD;&#xA;[Estatus_Solicitud_Id]!=3 || [Estatus_Solicitud_Id]!=4 ||&#xD;&#xA;[Estatus_Solicitud_Id]!=5   " roles="Administrators,ArhAdmin" />
+      <action commandName="Navigate" commandArgument="_blank:https://arhcloud.com.mx/formulariosprestamos/Solicitud_Credinomina.pdf" headerText="Solicitud Credinomina" whenKeySelected="true" id="a104" whenClientScript="[Estatus_Solicitud_Id]!=1 || [Estatus_Solicitud_Id]!=0 ||&#xD;&#xA;[Estatus_Solicitud_Id]!=3 || [Estatus_Solicitud_Id]!=4 ||&#xD;&#xA;[Estatus_Solicitud_Id]!=5   " roles="Administrators,ArhAdmin" />
+      <action commandName="Navigate" commandArgument="_blank:https://arhcloud.com.mx/formulariosprestamos/Autorizacion_Reporte_Credito.pdf" headerText="Autorización Reporte de Crédito" whenKeySelected="true" id="a105" whenClientScript="[Estatus_Solicitud_Id]!=1 || [Estatus_Solicitud_Id]!=0 ||&#xD;&#xA;[Estatus_Solicitud_Id]!=3 || [Estatus_Solicitud_Id]!=4 ||&#xD;&#xA;[Estatus_Solicitud_Id]!=5   " roles="Administrators,ArhAdmin" />
+      <action commandName="Navigate" commandArgument="_blank:https://arhcloud.com.mx/formulariosprestamos/Declaratoria_Persona_Politicamente_Expuesta.pdf" headerText="Declaratoria Persona Politicamente Expuesta" whenKeySelected="true" id="a106" whenClientScript="[Estatus_Solicitud_Id]!=1 || [Estatus_Solicitud_Id]!=0 ||&#xD;&#xA;[Estatus_Solicitud_Id]!=3 || [Estatus_Solicitud_Id]!=4 ||&#xD;&#xA;[Estatus_Solicitud_Id]!=5   " roles="Administrators,ArhAdmin" />
+      <action commandName="Navigate" commandArgument="_blank:https://arhcloud.com.mx/formulariosprestamos/Pagare_Prestamo_Amigo.pdf" headerText="Pagaré Prestamo Amigo" id="a107" whenKeySelected="true" whenClientScript="[Estatus_Solicitud_Id]!=1 || [Estatus_Solicitud_Id]!=0 ||&#xD;&#xA;[Estatus_Solicitud_Id]!=3 || [Estatus_Solicitud_Id]!=4 ||&#xD;&#xA;[Estatus_Solicitud_Id]!=5   " roles="Administrators,ArhAdmin" />
+      <action commandName="Navigate" commandArgument="_blank:https://arhcloud.com.mx/formulariosprestamos/Carta_Instruccion_Credito_Finiquito.pdf" headerText="Carta Instrucción Crédito Finiquito" whenKeySelected="true" id="a108" whenClientScript="[Estatus_Solicitud_Id]!=1 || [Estatus_Solicitud_Id]!=0 ||&#xD;&#xA;[Estatus_Solicitud_Id]!=3 || [Estatus_Solicitud_Id]!=4 ||&#xD;&#xA;[Estatus_Solicitud_Id]!=5   " roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Contratado_Solicitud_Prestamo
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+        ,Estatus_Registro_Id = 3
+WHERE
+	Contratado_Solicitud_Prestamo_Id= @Contratado_Solicitud_Prestamo_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Contratado_Solicitud_Prestamo
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+        ,Estatus_Registro_Id = 3
+WHERE
+	Contratado_Solicitud_Prestamo_Id= @Contratado_Solicitud_Prestamo_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+SET @Existe = 0
+
+SELECT 
+												TOP 1 1
+											FROM 
+												[APP].Contratado_Solicitud_Prestamo csp
+											WHERE
+												csp.Contratado_Id = @Contratado_Id
+												AND csp.Fecha_Solicitud <= DATEADD(DD,30,GetDate())
+												AND csp.Estatus_Registro_Id = 1
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un registro para esta solicitud de préstamo en la base de datos, favor de corregir o esperar el tiempo indicado para realizar otra solicitud'
+   SET @Result_ShowAlert = 'Ya existe un registro para esta solicitud de préstamo en la base de datos, favor de corregir o esperar el tiempo indicado para realizar otra solicitud'
+   RETURN
+END
+
+DECLARE @Contratante_Permite_Solicitar_Prestamo BIT
+SET @Contratante_Permite_Solicitar_Prestamo = 0
+
+SET @Contratante_Permite_Solicitar_Prestamo = IsNull((
+      SELECT 
+  			top 1 1
+ 	 FROM 
+		APP.Contratado cc 
+	JOIN APP.Contratante c ON cc.Contratante_Id = c.Contratante_Id
+	WHERE
+		cc.Contratado_Id = @Contratado_Id
+		AND c.Permite_Solicitar_Prestamos = 1
+		AND c.Estatus_Registro_Id = 1
+		AND cc.Estatus_Registro_Id = 1
+),0)
+
+IF(@Contratante_Permite_Solicitar_Prestamo = 0)
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'El contratante no tiene permitido solicitar préstamos, por favor corrija en Contratante si es necesario'
+   SET @Result_ShowAlert = 'El contratante no tiene permitido solicitar préstamos, por favor corrija en Contratante si es necesario'
+   RETURN
+END
+
+DECLARE @Contratado_Permite_Solicitar_Prestamo BIT
+SET @Contratado_Permite_Solicitar_Prestamo = 0
+
+SET @Contratado_Permite_Solicitar_Prestamo = IsNull((
+      SELECT 
+  			top 1 1
+ 	 FROM 
+		APP.Contratado cc 
+	
+	WHERE
+		cc.Contratado_Id = @Contratado_Id
+		AND cc.Apto_Para_Prestamo = 1
+		AND cc.Estatus_Registro_Id = 1
+),0)
+
+IF(@Contratado_Permite_Solicitar_Prestamo = 0)
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'El contratado no tiene permitido solicitar préstamos, por favor corrija en Contratado si es necesario'
+   SET @Result_ShowAlert = 'El contratado no tiene permitido solicitar préstamos, por favor corrija en Contratado si es necesario'
+   RETURN
+END]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+SET @Existe = 0
+
+SELECT 
+												TOP 1 1
+											FROM 
+												[APP].Contratado_Solicitud_Prestamo csp
+											WHERE
+												csp.Contratado_Id = @Contratado_Id
+												AND csp.Fecha_Solicitud <= DATEADD(DD,30,GetDate())
+												AND csp.Estatus_Registro_Id = 1
+                                                                                                AND Contratado_Solicitud_Prestamo_Id<>@Contratado_Solicitud_Prestamo_Id
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un registro para esta solicitud de préstamo en la base de datos, favor de corregir o esperar el tiempo indicado para realizar otra solicitud'
+   SET @Result_ShowAlert = 'Ya existe un registro para esta solicitud de préstamo en la base de datos, favor de corregir o esperar el tiempo indicado para realizar otra solicitud'
+   RETURN
+END]]></rule>
+    <rule id="r102" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Contratado_Solicitud_Prestamo
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Contratado_Solicitud_Prestamo_Id= @Contratado_Solicitud_Prestamo_Id
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Contratado_Solicitud_Prestamo
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Contratado_Solicitud_Prestamo_Id= @Contratado_Solicitud_Prestamo_Id]]></rule>
+    <rule id="r104" commandName="Custom" commandArgument="ExecCS01" type="Code" phase="After" />
+  </businessRules>
+</dataController>

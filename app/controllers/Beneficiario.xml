@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Beneficiario" conflictDetection="overwriteChanges" label="Beneficiario" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Beneficiario"."Beneficiario_Id" "Beneficiario_Id"
+	,"Beneficiario"."Persona_Beneficiario_Id" "Persona_Beneficiario_Id"
+	,"Persona_Beneficiario_"."Nombre" "Persona_Beneficiario_Nombre"
+	,"Beneficiario"."Persona_Titular_Id" "Persona_Titular_Id"
+	,"Persona_Titular_"."Nombre" "Persona_Titular_Nombre"
+	,"Beneficiario"."Parentesco_Id" "Parentesco_Id"
+	,"Parentesco_"."Parentesco" "Parentesco_Parentesco"
+	,"Beneficiario"."Transaccion_Id" "Transaccion_Id"
+	,"Creado_Por"."UserName" "CreadoPorusername"
+	,"Beneficiario"."Fecha_Creacion" "Fecha_Creacion"
+	,"Actualizado_Por"."UserName" "ActualizadoPorusername"
+	,"Beneficiario"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Beneficiario"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+from "APP"."Beneficiario" "Beneficiario"
+	left join "APP"."Persona" "Persona_Beneficiario_" on "Beneficiario"."Persona_Beneficiario_Id" = "Persona_Beneficiario_"."Persona_Id"
+	left join "APP"."Persona" "Persona_Titular_" on "Beneficiario"."Persona_Titular_Id" = "Persona_Titular_"."Persona_Id"
+	left join "APP"."Parentesco" "Parentesco_" on "Beneficiario"."Parentesco_Id" = "Parentesco_"."Parentesco_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Beneficiario"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Creado_Por" on "Beneficiario"."Creado_Por_Id" = "Creado_Por"."UserId"
+	left join "dbo"."Usuario_V" "Actualizado_Por" on "Beneficiario"."Actualizado_Por_Id" = "Actualizado_Por"."UserId"
+]]></text>
+    </command>
+    <command id="Beneficiario_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Beneficiario_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Beneficiario_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Beneficiario Id" readOnly="true" />
+    <field name="Persona_Beneficiario_Id" type="Int32" allowNulls="false" default="((0))" label="Persona Beneficiario Id" showInSummary="true">
+      <items style="Lookup" dataController="Persona" newDataView="createForm1" dataValueField="Persona_Id" dataTextField="Nombre" dataView="Persona_LookUp_List" />
+    </field>
+    <field name="Persona_Beneficiario_Nombre" type="String" readOnly="true" label="Nombre Beneficiario" length="150" />
+    <field name="Persona_Titular_Id" type="Int32" allowNulls="false" default="((0))" label="Persona Titular Id" showInSummary="true">
+      <items style="Lookup" dataController="Persona" newDataView="createForm1" dataValueField="Persona_Id" dataTextField="Nombre" dataView="Persona_LookUp_List" />
+    </field>
+    <field name="Persona_Titular_Nombre" type="String" readOnly="true" label="Nombre Titular" length="150" />
+    <field name="Parentesco_Id" type="Int32" allowNulls="false" default="((0))" label="Parentesco Id" showInSummary="true">
+      <items style="Lookup" dataController="Parentesco" newDataView="createForm1" dataValueField="Parentesco_Id" dataTextField="Parentesco" dataView="Parentesco_LookUp_List" />
+    </field>
+    <field name="Parentesco_Parentesco" type="String" readOnly="true" label="Parentesco" length="150" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transaccion Id" length="50" showInSummary="true" />
+    <field name="CreadoPorusername" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Creación" showInSummary="true" />
+    <field name="ActualizadoPorusername" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Última Actualización" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus Registro" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Beneficiario" showInSelector="false" filter="Estatus_Registro_Id&lt;&gt;0" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Persona_Beneficiario_Id" aliasFieldName="Persona_Beneficiario_Nombre" />
+        <dataField fieldName="Persona_Titular_Id" aliasFieldName="Persona_Titular_Nombre" />
+        <dataField fieldName="Parentesco_Id" aliasFieldName="Parentesco_Parentesco" />
+        <dataField fieldName="CreadoPorusername" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="ActualizadoPorusername" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Beneficiario" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Persona_Beneficiario_Id" aliasFieldName="Persona_Beneficiario_Nombre" />
+            <dataField fieldName="Persona_Titular_Id" aliasFieldName="Persona_Titular_Nombre" />
+            <dataField fieldName="Parentesco_Id" aliasFieldName="Parentesco_Parentesco" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nuevo Beneficiario" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Persona_Beneficiario_Id" aliasFieldName="Persona_Beneficiario_Nombre" />
+            <dataField fieldName="Persona_Titular_Id" aliasFieldName="Persona_Titular_Nombre" />
+            <dataField fieldName="Parentesco_Id" aliasFieldName="Parentesco_Parentesco" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Beneficiario_LookUp_List" type="Grid" commandId="command1" label="Beneficiario" showInSelector="false" filter="Estatus_Registro_Id IN (0,1)" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Persona_Beneficiario_Id" aliasFieldName="Persona_Beneficiario_Nombre" />
+        <dataField fieldName="Persona_Titular_Id" aliasFieldName="Persona_Titular_Nombre" />
+        <dataField fieldName="Parentesco_Id" aliasFieldName="Parentesco_Parentesco" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE APP.Beneficiario SET Estatus_Registro_Id=3 WHERE Beneficiario_Id=@Beneficiario_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE APP.Beneficiario SET Estatus_Registro_Id=3 WHERE Beneficiario_Id=@Beneficiario_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" roles="Administrators,ArhAdmin" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" roles="Administrators,ArhAdmin" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" roles="Administrators,ArhAdmin" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" roles="Administrators,ArhAdmin" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" roles="Administrators,ArhAdmin" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" roles="Administrators,ArhAdmin" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" roles="Administrators,ArhAdmin" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" roles="Administrators,ArhAdmin" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" roles="Administrators,ArhAdmin" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE APP.Beneficiario SET Estatus_Registro_Id=3 WHERE Beneficiario_Id=@Beneficiario_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Grid" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" roles="Administrators,ArhAdmin" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" roles="Administrators,ArhAdmin" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" roles="Administrators,ArhAdmin" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" roles="Administrators,ArhAdmin" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" roles="Administrators,ArhAdmin" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE APP.Beneficiario SET Estatus_Registro_Id=3 WHERE Beneficiario_Id=@Beneficiario_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+SET @Existe = 0
+
+SELECT
+	TOP 1 @Existe=1
+FROM
+	APP.Beneficiario
+WHERE
+	Persona_Beneficiario_Id = @Persona_Beneficiario_Id
+        AND Persona_Titular_Id = @Persona_Titular_Id
+
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un registro para este beneficiario y titular en la base de datos, favor de corregir'
+   SET @Result_ShowAlert = 'Ya existe un registro para este beneficiario y titular en la base de datos, favor de corregir'
+   RETURN
+END
+]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+SET @Existe = 0
+
+SELECT
+	TOP 1 @Existe=1
+FROM
+	APP.Beneficiario
+WHERE
+	Persona_Beneficiario_Id = @Persona_Beneficiario_Id
+        AND Persona_Titular_Id = @Persona_Titular_Id
+        AND Beneficiario_Id = @Beneficiario_Id
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un registro para este beneficiario y titular en la base de datos, favor de corregir'
+   SET @Result_ShowAlert = 'Ya existe un registro para este beneficiario y titular en la base de datos, favor de corregir'
+   RETURN
+END
+]]></rule>
+    <rule id="r102" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Beneficiario
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Beneficiario_Id= @Beneficiario_Id
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Beneficiario
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Beneficiario_Id= @Beneficiario_Id
+]]></rule>
+  </businessRules>
+</dataController>

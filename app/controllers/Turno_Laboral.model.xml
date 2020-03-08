@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Turno_Laboral" alias="Turno_Laboral" created="2018-06-30T01:44:41" modified="2019-02-22T13:31:23" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Horario_Laboral_Lunes_" parentTableSchema="APP" parentTableName="Horario_Laboral" x="423" y="20">
+      <foreignKeyColumn columnName="Horario_Laboral_Lunes_Id" parentColumnName="Horario_Laboral_Id" />
+    </foreignKey>
+    <foreignKey id="Horario_Laboral_Martes_" parentTableSchema="APP" parentTableName="Horario_Laboral" x="423" y="250">
+      <foreignKeyColumn columnName="Horario_Laboral_Martes_Id" parentColumnName="Horario_Laboral_Id" />
+    </foreignKey>
+    <foreignKey id="Horario_Laboral_Miercoles_" parentTableSchema="APP" parentTableName="Horario_Laboral" x="423" y="480">
+      <foreignKeyColumn columnName="Horario_Laboral_Miercoles_Id" parentColumnName="Horario_Laboral_Id" />
+    </foreignKey>
+    <foreignKey id="Horario_Laboral_Jueves_" parentTableSchema="APP" parentTableName="Horario_Laboral" x="423" y="726">
+      <foreignKeyColumn columnName="Horario_Laboral_Jueves_Id" parentColumnName="Horario_Laboral_Id" />
+    </foreignKey>
+    <foreignKey id="Horario_Laboral_Viernes_" parentTableSchema="APP" parentTableName="Horario_Laboral" x="423" y="956">
+      <foreignKeyColumn columnName="Horario_Laboral_Viernes_Id" parentColumnName="Horario_Laboral_Id" />
+    </foreignKey>
+    <foreignKey id="Horario_Laboral_Sabado_" parentTableSchema="APP" parentTableName="Horario_Laboral" x="823" y="20">
+      <foreignKeyColumn columnName="Horario_Laboral_Sabado_Id" parentColumnName="Horario_Laboral_Id" />
+    </foreignKey>
+    <foreignKey id="Horario_Laboral_Domingo_" parentTableSchema="APP" parentTableName="Horario_Laboral" x="823" y="250">
+      <foreignKeyColumn columnName="Horario_Laboral_Domingo_Id" parentColumnName="Horario_Laboral_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="823" y="496">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Turno_Laboral_Id" fieldName="Turno_Laboral_Id" label="Turno Laboral Id" />
+    <column name="Turno_Laboral" fieldName="Turno_Laboral" label="Turno Laboral" />
+    <column name="Es_Lunes_Dia_Laboral" fieldName="Es_Lunes_Dia_Laboral" label="Es Lunes Dia Laboral" />
+    <column name="Horario_Laboral_Lunes_Id" fieldName="Horario_Laboral_Lunes_Id" label="Horario Laboral Lunes Id" aliasColumnName="Horario_Laboral" aliasForeignKey="Horario_Laboral_Lunes_" />
+    <column name="Horario_Laboral" fieldName="Horario_Laboral_Lunes_Horario_Laboral" label="Horario Laboral Lunes Horario Laboral" foreignKey="Horario_Laboral_Lunes_" />
+    <column name="Es_Martes_Dia_Laboral" fieldName="Es_Martes_Dia_Laboral" label="Es Martes Dia Laboral" />
+    <column name="Horario_Laboral_Martes_Id" fieldName="Horario_Laboral_Martes_Id" label="Horario Laboral Martes Id" aliasColumnName="Horario_Laboral" aliasForeignKey="Horario_Laboral_Martes_" />
+    <column name="Horario_Laboral" fieldName="Horario_Laboral_Martes_Horario_Laboral" label="Horario Laboral Martes Horario Laboral" foreignKey="Horario_Laboral_Martes_" />
+    <column name="Es_Miercoles_Dia_Laboral" fieldName="Es_Miercoles_Dia_Laboral" label="Es Miercoles Dia Laboral" />
+    <column name="Horario_Laboral_Miercoles_Id" fieldName="Horario_Laboral_Miercoles_Id" label="Horario Laboral Miercoles Id" aliasColumnName="Horario_Laboral" aliasForeignKey="Horario_Laboral_Miercoles_" />
+    <column name="Horario_Laboral" fieldName="Horario_Laboral_Miercoles_Horario_Laboral" label="Horario Laboral Miercoles Horario Laboral" foreignKey="Horario_Laboral_Miercoles_" />
+    <column name="Horario_Laboral_Jueves_Id" fieldName="Horario_Laboral_Jueves_Id" label="Horario Laboral Jueves Id" aliasColumnName="Horario_Laboral" aliasForeignKey="Horario_Laboral_Jueves_" />
+    <column name="Horario_Laboral" fieldName="Horario_Laboral_Jueves_Horario_Laboral" label="Horario Laboral Jueves Horario Laboral" foreignKey="Horario_Laboral_Jueves_" />
+    <column name="Es_Viernes_Dia_Laboral" fieldName="Es_Viernes_Dia_Laboral" label="Es Viernes Dia Laboral" />
+    <column name="Horario_Laboral_Viernes_Id" fieldName="Horario_Laboral_Viernes_Id" label="Horario Laboral Viernes Id" aliasColumnName="Horario_Laboral" aliasForeignKey="Horario_Laboral_Viernes_" />
+    <column name="Horario_Laboral" fieldName="Horario_Laboral_Viernes_Horario_Laboral" label="Horario Laboral Viernes Horario Laboral" foreignKey="Horario_Laboral_Viernes_" />
+    <column name="Es_Sabado_Dia_Laboral" fieldName="Es_Sabado_Dia_Laboral" label="Es Sabado Dia Laboral" />
+    <column name="Horario_Laboral_Sabado_Id" fieldName="Horario_Laboral_Sabado_Id" label="Horario Laboral Sabado Id" aliasColumnName="Horario_Laboral" aliasForeignKey="Horario_Laboral_Sabado_" />
+    <column name="Horario_Laboral" fieldName="Horario_Laboral_Sabado_Horario_Laboral" label="Horario Laboral Sabado Horario Laboral" foreignKey="Horario_Laboral_Sabado_" />
+    <column name="Es_Domingo_Dia_Laboral" fieldName="Es_Domingo_Dia_Laboral" label="Es Domingo Dia Laboral" />
+    <column name="Horario_Laboral_Domingo_Id" fieldName="Horario_Laboral_Domingo_Id" label="Horario Laboral Domingo Id" aliasColumnName="Horario_Laboral" aliasForeignKey="Horario_Laboral_Domingo_" />
+    <column name="Horario_Laboral" fieldName="Horario_Laboral_Domingo_Horario_Laboral" label="Horario Laboral Domingo Horario Laboral" foreignKey="Horario_Laboral_Domingo_" />
+    <column name="Es_Default" fieldName="Es_Default" label="Es Default" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha Creacion" format="g" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha Ultima Actualizacion" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+    <column name="Es_Jueves_Dia_Laboral" fieldName="EsJuevesDiaLaboral" label="Es Jueves Dia Laboral" />
+  </columns>
+</dataModel>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Metrica" alias="Metrica" created="2019-02-05T15:29:26" modified="2019-02-05T15:45:10" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="557" y="20">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Usuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="932" y="118">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Usuario_V1" parentTableSchema="dbo" parentTableName="Usuario_V" x="593" y="269">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Metrica_Id" fieldName="Metrica_Id" label="Metrica Id" />
+    <column name="Metrica" fieldName="Metrica" label="Métrica" />
+    <column name="Aplica_Para_Religion" fieldName="Aplica_Para_Religion" label="¿Aplica Para Religión?" />
+    <column name="Aplica_Para_Orientacion_Sexual" fieldName="Aplica_Para_Orientacion_Sexual" label="¿Aplica Para Orientacion Sexual?" />
+    <column name="Aplica_Para_Disposicion_A_Movilidad" fieldName="Aplica_Para_Disposicion_A_Movilidad" label="¿Aplica Para Disposición A Movilidad?" />
+    <column name="Aplica_Para_Disposicion_A_Cambio_De_Domicilio" fieldName="Aplica_Para_Disposicion_A_Cambio_De_Domicilio" label="¿Aplica Para Disposición A Cambio De Domicilio?" />
+    <column name="Aplica_Para_Edad" fieldName="Aplica_Para_Edad" label="¿Aplica Para Edad?" />
+    <column name="Aplica_Para_Color_Piel" fieldName="Aplica_Para_Color_Piel" label="¿Aplica Para Color Piel?" />
+    <column name="Aplica_Para_Estatura" fieldName="Aplica_Para_Estatura" label="¿Aplica Para Estatura?" />
+    <column name="Aplica_Para_Peso" fieldName="Aplica_Para_Peso" label="¿Aplica Para Peso?" />
+    <column name="Aplica_Para_Complexion_Fisica" fieldName="Aplica_Para_Complexion_Fisica" label="¿Aplica Para Complexión Fisica?" />
+    <column name="Aplica_Para_Tatuajes_Admitidos" fieldName="Aplica_Para_Tatuajes_Admitidos" label="¿Aplica Para Tatuajes Admitidos?" />
+    <column name="Aplica_Para_Tatuajes_Visibilidad" fieldName="Aplica_Para_Tatuajes_Visibilidad" label="¿Aplica Para Tatuajes Visibilidad?" />
+    <column name="Aplica_Para_Tipo_Tatuajes" fieldName="Aplica_Para_Tipo_Tatuajes" label="¿Aplica Para Tipo de Tatuajes?" />
+    <column name="Aplica_Para_Sena_Particular" fieldName="Aplica_Para_Sena_Particular" label="¿Aplica Para Seña Particular?" />
+    <column name="Aplica_Para_Estado_Salud_Aparente" fieldName="Aplica_Para_Estado_Salud_Aparente" label="¿Aplica Para Estado de Salud Aparente?" />
+    <column name="Aplica_Para_Estado_Salud_Sufre_Diabetes" fieldName="Aplica_Para_Estado_Salud_Sufre_Diabetes" label="¿Aplica Para Estado de Salud Sufre Diabetes?" />
+    <column name="Aplica_Para_Estado_Salud_Problemas_Presion_Artereal" fieldName="Aplica_Para_Estado_Salud_Problemas_Presion_Artereal" label="¿Aplica Para Estado de Salud Problemas Presión Artereal?" />
+    <column name="Aplica_Para_Estado_Salud_Sufre_Sobrepeso" fieldName="Aplica_Para_Estado_Salud_Sufre_Sobrepeso" label="¿Aplica Para Estado de Salud Sufre Sobrepeso?" />
+    <column name="Aplica_Para_Estado_Salud_Consumo_Estupefacientes" fieldName="Aplica_Para_Estado_Salud_Consumo_Estupefacientes" label="¿Aplica Para Estado de Salud de Consumo de Estupefacientes?" />
+    <column name="Aplica_Para_Estado_Salud_Padece_Discapacidad" fieldName="Aplica_Para_Estado_Salud_Padece_Discapacidad" label="¿Aplica Para Estado de Salud Padece Discapacidad?" />
+    <column name="Aplica_Para_Estado_Salud_Tipo_Discapacidad" fieldName="Aplica_Para_Estado_Salud_Tipo_Discapacidad" label="¿Aplica Para Estado de Salud Tipo de Discapacidad?" />
+    <column name="Aplica_Para_Experiencia_Periodo" fieldName="Aplica_Para_Experiencia_Periodo" label="¿Aplica Para Experiencia de Período" />
+    <column name="Aplica_Para_Tipo_Contribucion" fieldName="Aplica_Para_Tipo_Contribucion" label="¿Aplica Para Tipo de Contribución?" />
+    <column name="Aplica_Para_Nivel_Conocimiento" fieldName="Aplica_Para_Nivel_Conocimiento" label="¿Aplica Para Nivel de Conocimiento?" />
+    <column name="Aplica_Para_Nivel_Habilidad" fieldName="Aplica_Para_Nivel_Habilidad" label="¿Aplica Para Nivel de Habilidad?" />
+    <column name="Aplica_Para_Anios_Uso" fieldName="Aplica_Para_Anios_Uso" label="¿Aplica Para Años de Uso?" />
+    <column name="Aplica_Para_Es_Titulado" fieldName="Aplica_Para_Es_Titulado" label="¿Aplica Para Es Titulado?" />
+    <column name="Aplica_Para_Es_Becado" fieldName="Aplica_Para_Es_Becado" label="¿Aplica Para Es Becado?" />
+    <column name="Aplica_Para_Es_Certificado" fieldName="Aplica_Para_Es_Certificado" label="¿Aplica Para Es Certificado?" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V1" />
+    <column name="UserName" fieldName="Creado_Por" label="Creado Por" foreignKey="Usuario_V1" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V" />
+    <column name="UserName" fieldName="Actualizado_Por" label="Actualizado Por" foreignKey="Usuario_V" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+  </columns>
+</dataModel>

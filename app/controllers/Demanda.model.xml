@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Demanda" alias="Demanda" created="2018-09-27T16:55:30" modified="2018-10-26T14:44:53" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Contratante_" parentTableSchema="APP" parentTableName="Contratante" x="863" y="104">
+      <foreignKeyColumn columnName="Contratante_Id" parentColumnName="Contratante_Id" />
+    </foreignKey>
+    <foreignKey id="Cliente_" parentTableSchema="APP" parentTableName="Cliente" x="439" y="207">
+      <foreignKeyColumn columnName="Cliente_Id" parentColumnName="Cliente_Id" />
+    </foreignKey>
+    <foreignKey id="Ciudad_Contratado_" parentTableSchema="APP" parentTableName="Ciudad" x="453" y="402">
+      <foreignKeyColumn columnName="Ciudad_Contratado_Id" parentColumnName="Ciudad_Id" />
+    </foreignKey>
+    <foreignKey id="Etapa_Demanda_" parentTableSchema="APP" parentTableName="Etapa_Demanda" x="455" y="617">
+      <foreignKeyColumn columnName="Etapa_Demanda_Id" parentColumnName="Etapa_Demanda_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Demanda_" parentTableSchema="APP" parentTableName="Estatus_Demanda" x="447" y="818">
+      <foreignKeyColumn columnName="Estatus_Demanda_Id" parentColumnName="Estatus_Demanda_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="401" y="1036">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="cpUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="35" y="984">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="apUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="38" y="1126">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Contratado" parentTableSchema="APP" parentTableName="Contratado" x="814" y="314">
+      <foreignKeyColumn columnName="Contratado_Id" parentColumnName="Contratado_Id" />
+    </foreignKey>
+    <foreignKey id="Persona_V" parentTableSchema="dbo" parentTableName="Persona_V" x="1302" y="320" baseForeignKey="Contratado">
+      <foreignKeyColumn columnName="Persona_Id" parentColumnName="Persona_Id" />
+    </foreignKey>
+    <foreignKey id="Lugar_Audiencia" parentTableSchema="APP" parentTableName="Lugar_Audiencia" x="29" y="1348">
+      <foreignKeyColumn columnName="Lugar_Audiencia_Id" parentColumnName="Lugar_Audiencia_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Lugar_Audiencia" fieldName="Lugar_Audiencia" label="Lugar Audiencia" foreignKey="Lugar_Audiencia" />
+    <column name="Demanda_Id" fieldName="Demanda_Id" label="Demanda Id" />
+    <column name="Contratado_Id" fieldName="Contratado_Id" label="Contratado Id" />
+    <column name="Contratante_Id" fieldName="Contratante_Id" label="Contratante Id" aliasColumnName="Contratante" aliasForeignKey="Contratante_" />
+    <column name="Contratante" fieldName="Contratante_Contratante" label="Contratante" foreignKey="Contratante_" />
+    <column name="Cliente_Id" fieldName="Cliente_Id" label="Cliente Id" aliasColumnName="Cliente" aliasForeignKey="Cliente_" />
+    <column name="Cliente" fieldName="Cliente" label="Cliente" foreignKey="Cliente_" />
+    <column name="Numero_Expediente" fieldName="Numero_Expediente" label="Número de Expediente" />
+    <column name="Ciudad_Contratado_Id" fieldName="Ciudad_Contratado_Id" label="Ciudad Contratado Id" aliasColumnName="Ciudad" aliasForeignKey="Ciudad_Contratado_" />
+    <column name="Ciudad" fieldName="Ciudad_Contratado_Ciudad" label="Ciudad de Radicación del Contratado" foreignKey="Ciudad_Contratado_" />
+    <column name="Notas" fieldName="Notas" label="Notas" />
+    <column name="Es_Demanda_Nueva" fieldName="Es_Demanda_Nueva" label="¿Es Demanda Nueva?" />
+    <column name="Etapa_Demanda_Id" fieldName="Etapa_Demanda_Id" label="Etapa Demanda Id" aliasColumnName="Etapa_Demanda" aliasForeignKey="Etapa_Demanda_" />
+    <column name="Etapa_Demanda" fieldName="Etapa_Demanda_Etapa_Demanda" label="Etapa de Demanda" foreignKey="Etapa_Demanda_" />
+    <column name="Notas_Etapa" fieldName="Notas_Etapa" label="Notas Etapa" />
+    <column name="Estatus_Demanda_Id" fieldName="Estatus_Demanda_Id" label="Estatus Demanda Id" aliasColumnName="Estatus_Demanda" aliasForeignKey="Estatus_Demanda_" />
+    <column name="Estatus_Demanda" fieldName="Estatus_Demanda_Estatus_Demanda" label="Estatus de Demanda" foreignKey="Estatus_Demanda_" />
+    <column name="Otras_Notas" fieldName="Otras_Notas" label="Otras Notas" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transación Id" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación UTC 0" format="g" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización UTC 0" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cpUsuario_V" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="apUsuario_V" />
+    <column name="Persona_Nombre" fieldName="Contratado_Persona_Nombre_Completo" label="Contratado" foreignKey="Persona_V" />
+    <column name="Lugar_Audiencia_Id" fieldName="Lugar_Audiencia_Id" label="Lugar Audiencia Id" aliasColumnName="Lugar_Audiencia" aliasForeignKey="Lugar_Audiencia" />
+    <column name="Monto_Demanda" fieldName="Monto_Demanda" label="Monto de Demanda" />
+    <column name="Finiquito_Id" fieldName="Finiquito_Id" label="Finiquito Id" />
+    <column name="Fecha_Y_Hora_Audiencia" fieldName="Fecha_Y_Hora_Audiencia" label="Fecha y Hora de Audiencia" format="g" />
+    <column name="Monto_Convenio" fieldName="Monto_Convenio" label="Monto Convenio" format="c2" />
+    <column name="Salario_Demanda" fieldName="Salario_Demanda" label="Salario Demanda" format="c2" />
+    <column name="Salario_Caido" fieldName="Salario_Caido" label="Salario Caido" format="c2" />
+    <column name="Vacaciones" fieldName="Vacaciones" label="Vacaciones" format="c2" />
+    <column name="Prima_Vacacional" fieldName="Prima_Vacacional" label="Prima Vacacional" format="c2" />
+    <column name="Prima_Antiguedad" fieldName="Prima_Antiguedad" label="Prima Antiguedad" format="c2" />
+    <column name="Aguinaldo" fieldName="Aguinaldo" label="Aguinaldo" format="c2" />
+    <column name="Tiempo_Extra" fieldName="Tiempo_Extra" label="Tiempo Extra" format="c2" />
+    <column name="Fondo_Ahorro" fieldName="Fondo_Ahorro" label="Fondo Ahorro" format="c2" />
+    <column name="Utilidades" fieldName="Utilidades" label="Utilidades" format="c2" />
+    <column name="Septimo_Dia" fieldName="Septimo_Dia" label="Séptimo Día" format="c2" />
+    <column name="Premio_De_Asistencia_Y_Puntualidad" fieldName="Premio_De_Asistencia_Y_Puntualidad" label="Premio de Asistencia y Puntualidad" format="c2" />
+    <column name="Pago_Dia_Festivo" fieldName="Pago_Dia_Festivo" label="Pago de Día Festivo" format="c2" />
+    <column name="Monto_Contingencia_Laboral" fieldName="Monto_Contingencia_Laboral" label="Monto de Contingencia Laboral" format="c2" />
+    <column name="Porcentaje_Ahorro" fieldName="Porcentaje_Ahorro" label="Porcentaje de Ahorro" />
+    <column name="Otros" fieldName="Otros" label="Otros" format="c2" />
+    <column name="Fecha_Demanda" fieldName="Fecha_Demanda" label="Fecha de Demanda" format="d" />
+    <column name="Paga_Cliente" fieldName="Paga_Cliente" label="Paga Cliente" />
+  </columns>
+</dataModel>

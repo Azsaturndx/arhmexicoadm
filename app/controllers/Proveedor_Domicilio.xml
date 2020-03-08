@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Proveedor_Domicilio" conflictDetection="overwriteChanges" label="Proveedor Domicilio" handler="arhmexico.Rules.Proveedor_DomicilioBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Proveedor_Domicilio"."Proveedor_Domicilio_Id" "Proveedor_Domicilio_Id"
+	,"Proveedor_Domicilio"."Proveedor_Id" "Proveedor_Id"
+	,"Proveedor_"."Proveedor" "Proveedor_Proveedor"
+	,"Proveedor_Domicilio"."Domicilio_Id" "Domicilio_Id"
+	,"Domicilio_"."Calle" "Domicilio_Calle"
+	,"Proveedor_Domicilio"."Transaccion_Id" "Transaccion_Id"
+	,"Proveedor_Domicilio"."Creado_Por_Id" "Creado_Por_Id"
+	,"cpUsuario_V"."UserName" "cpUserName"
+	,"Proveedor_Domicilio"."Fecha_Creacion" "Fecha_Creacion"
+	,"Proveedor_Domicilio"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"apUsuario_V"."UserName" "apUserName"
+	,"Proveedor_Domicilio"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Proveedor_Domicilio"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+from "APP"."Proveedor_Domicilio" "Proveedor_Domicilio"
+	left join "APP"."Proveedor" "Proveedor_" on "Proveedor_Domicilio"."Proveedor_Id" = "Proveedor_"."Proveedor_Id"
+	left join "APP"."Domicilio" "Domicilio_" on "Proveedor_Domicilio"."Domicilio_Id" = "Domicilio_"."Domicilio_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Proveedor_Domicilio"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cpUsuario_V" on "Proveedor_Domicilio"."Creado_Por_Id" = "cpUsuario_V"."UserId"
+	left join "dbo"."Usuario_V" "apUsuario_V" on "Proveedor_Domicilio"."Actualizado_Por_Id" = "apUsuario_V"."UserId"
+]]></text>
+    </command>
+    <command id="Proveedor_Domicilio_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Proveedor_Domicilio_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Proveedor_Domicilio_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Proveedor Domicilio Id" readOnly="true" />
+    <field name="Proveedor_Id" type="Int32" allowNulls="false" default="((0))" label="Proveedor Id" showInSummary="true">
+      <items style="Lookup" dataController="Proveedor" newDataView="createForm1" dataValueField="Proveedor_Id" dataTextField="Proveedor" dataView="Proveedor_LookUp_List" />
+    </field>
+    <field name="Proveedor_Proveedor" type="String" readOnly="true" label="Proveedor" length="150" />
+    <field name="Domicilio_Id" type="Int32" allowNulls="false" default="((0))" label="Domicilio Id" showInSummary="true">
+      <items style="Lookup" dataController="Domicilio" newDataView="createForm1" dataValueField="Domicilio_Id" dataTextField="Calle" dataView="Domicilio_LookUp_List" />
+    </field>
+    <field name="Domicilio_Calle" type="String" readOnly="true" label="Domicilio Calle" length="250" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transacción Id" length="50" showInSummary="true" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id" showInSummary="true">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" showInSummary="true" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Domicilio de Proveedor" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" filter="Estatus_Registro_Id &lt;&gt; 0">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Proveedor_Id" aliasFieldName="Proveedor_Proveedor" />
+        <dataField fieldName="Domicilio_Id" aliasFieldName="Domicilio_Calle" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Proveedor_Domicilio_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Domicilio de Proveedor" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Proveedor_Id" aliasFieldName="Proveedor_Proveedor" />
+            <dataField fieldName="Domicilio_Id" aliasFieldName="Domicilio_Calle" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="Proveedor_Domicilio_Id" columns="15" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nuevo Domicilio de Proveedor" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Proveedor_Id" aliasFieldName="Proveedor_Proveedor" />
+            <dataField fieldName="Domicilio_Id" aliasFieldName="Domicilio_Calle" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Proveedor_Domicilio_LookUp_List" commandId="command1" type="Grid" label="Domicilio de Proveedor" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" filter="Estatus_Registro_Id &lt;&gt; 0">
+      <dataFields>
+        <dataField fieldName="Proveedor_Domicilio_Id" columns="15" hidden="true" />
+        <dataField fieldName="Proveedor_Id" columns="15" aliasFieldName="Proveedor_Proveedor" />
+        <dataField fieldName="Domicilio_Id" columns="15" aliasFieldName="Domicilio_Calle" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+  <actions />
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Proveedor_Domicilio
+	WHERE
+		Proveedor_Id = @Proveedor_Id
+  		AND Domicilio_Id = @Domicilio_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe este domicilio para este proveedor en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe este domicilio para este proveedor en la base de datos, favor de corregir.'
+   RETURN
+END
+]]></rule>
+    <rule id="r101" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Proveedor_Domicilio
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Proveedor_Domicilio_Id= @Proveedor_Domicilio_Id]]></rule>
+    <rule id="r102" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Proveedor_Domicilio
+	WHERE
+		Proveedor_Id = @Proveedor_Id
+  		AND Domicilio_Id = @Domicilio_Id
+  		AND Proveedor_Domicilio_Id <> @Proveedor_Domicilio_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe este domicilio para este proveedor en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe este domicilio para este proveedor en la base de datos, favor de corregir.'
+   RETURN
+END]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Proveedor_Domicilio
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Proveedor_Domicilio_Id= @Proveedor_Domicilio_Id]]></rule>
+  </businessRules>
+</dataController>

@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Documento" conflictDetection="overwriteChanges" label="Documento" handler="arhmexico.Rules.DocumentoBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Documento"."Documento_Id" "Documento_Id"
+	,"Documento"."Tipo_Documento_Id" "Tipo_Documento_Id"
+	,"Tipo_Documento_"."Tipo_Documento" "Tipo_Documento_Tipo_Documento"
+	,"Documento"."Documento" "Documento"
+	,"Documento"."Picture" "Picture"
+	,"Documento"."PictureFileName" "PictureFileName"
+	,"Documento"."PictureContentType" "PictureContentType"
+	,"Documento"."PictureLength" "PictureLength"
+	,"Documento"."Notas" "Notas"
+	,"Documento"."Fecha_Creacion" "Fecha_Creacion"
+	,"Documento"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Documento"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"cp"."UserName" "cpUserName"
+	,"ap"."UserName" "apUserName"
+	,"Documento"."Persona_Id" "Persona_Id"
+	,"Documento"."Persona_Conocimiento_Id" "Persona_Conocimiento_Id"
+	,"Documento"."Cliente_Id" "Cliente_Id"
+from "APP"."Documento" "Documento"
+	left join "APP"."Tipo_Documento" "Tipo_Documento_" on "Documento"."Tipo_Documento_Id" = "Tipo_Documento_"."Tipo_Documento_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Documento"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cp" on "Documento"."Creado_Por_Id" = "cp"."UserId"
+	left join "dbo"."Usuario_V" "ap" on "Documento"."Actualizado_Por_Id" = "ap"."UserId"
+]]></text>
+    </command>
+    <command id="Documento_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Documento_Id" />
+      </output>
+    </command>
+    <command type="Text" id="Grid_Documento" tableName="APP.Documento" custom="false">
+      <text><![CDATA[SELECT Documento_Id
+      ,Documento
+      ,PictureFileName
+      ,PictureContentType
+      ,PictureLength
+      ,Notas
+      ,Estatus_Registro_Id
+      ,Fecha_Creacion
+      ,Fecha_Ultima_Actualizacion
+      ,Estatus_Registro_Estatus_Registro
+      ,cpUserName
+      ,apUserName
+	  ,Tipo_Documento_Id
+	  ,Tipo_Documento_Tipo_Documento
+  FROM dbo.Grid_Documento_V]]></text>
+    </command>
+    <command type="Text" id="gridDocumentoV" custom="false">
+      <text><![CDATA[SELECT Documento_Id
+      ,Documento
+      ,PictureFileName
+      ,PictureContentType
+      ,PictureLength
+      ,Notas
+      ,Estatus_Registro_Id
+      ,Fecha_Creacion
+      ,Fecha_Ultima_Actualizacion
+      ,Estatus_Registro_Estatus_Registro
+      ,cpUserName
+      ,apUserName
+	  ,Tipo_Documento_Id
+	  ,Tipo_Documento_Tipo_Documento
+	  ,Persona_Id
+  FROM dbo.Grid_Documento_V]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Documento_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Documento Id" readOnly="true" />
+    <field name="Tipo_Documento_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo Documento Id" showInSummary="true" contextFields="Es_De_Persona=Es_De_Persona">
+      <items style="Lookup" dataController="Tipo_Documento" newDataView="createForm1" dataValueField="Tipo_Documento_Id" dataTextField="Tipo_Documento" dataView="Tipo_Documento_LookUp_List" />
+    </field>
+    <field name="Tipo_Documento_Tipo_Documento" type="String" readOnly="true" label="Tipo de Documento" length="150" />
+    <field name="Documento" type="String" allowNulls="false" label="Nombre de Documento" length="250" showInSummary="true" />
+    <field name="Picture" type="Byte[]" onDemand="true" sourceFields="Documento_Id" onDemandHandler="DPicture" onDemandStyle="Thumbnail" allowQBE="false" allowSorting="false" label="Documento" showInSummary="true" />
+    <field name="PictureFileName" type="String" label="Nombre Archivo" length="250" showInSummary="true" />
+    <field name="PictureContentType" type="String" label="Tipo de Archivo" length="250" showInSummary="true" />
+    <field name="PictureLength" type="Int32" label="Tamaño Archivo" />
+    <field name="Notas" type="String" allowQBE="false" allowSorting="false" label="Notas" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Persona_Id" type="Int32" allowNulls="false" default="((0))" label="Persona Id" />
+    <field name="Persona_Conocimiento_Id" type="Int32" allowNulls="false" default="((0))" label="Persona Conocimiento Id" />
+    <field name="Cliente_Id" type="Int32" allowNulls="false" default="((0))" label="Cliente Id" />
+    <field name="Es_De_Persona" type="Boolean" readOnly="true" label="¿Es De Persona?" allowNulls="false">
+      <items style="CheckBox" />
+    </field>
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="Grid_Documento" label="Documento" sortExpression="Documento" filter="Estatus_Registro_Id &lt;&gt; 0" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Tipo_Documento_Id" aliasFieldName="Tipo_Documento_Tipo_Documento" />
+        <dataField fieldName="Documento" />
+        <dataField fieldName="PictureFileName" />
+        <dataField fieldName="PictureContentType" />
+        <dataField fieldName="PictureLength" columns="15" />
+        <dataField fieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Persona_Conocimiento_Id" columns="15" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Documento" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Tipo_Documento_Id" aliasFieldName="Tipo_Documento_Tipo_Documento" />
+            <dataField fieldName="Documento" />
+            <dataField fieldName="Picture" columns="15" />
+            <dataField fieldName="PictureFileName">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="PictureContentType">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="PictureLength" columns="15">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nuevo Documento" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Tipo_Documento_Id" aliasFieldName="Tipo_Documento_Tipo_Documento" />
+            <dataField fieldName="Documento" />
+            <dataField fieldName="Picture" columns="15" />
+            <dataField fieldName="PictureFileName">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="PictureContentType">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="PictureLength" columns="15">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Es_De_Persona" hidden="true" />
+            <dataField fieldName="Persona_Id" columns="15" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Documento_LookUp_List" type="Grid" commandId="gridDocumentoV" label="Documento" sortExpression="Documento" filter="Estatus_Registro_Id IN (1,0)" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Documento" />
+        <dataField fieldName="Tipo_Documento_Id" aliasFieldName="Tipo_Documento_Tipo_Documento" hidden="true" />
+        <dataField fieldName="PictureFileName" hidden="true" />
+        <dataField fieldName="PictureContentType" hidden="true" />
+        <dataField fieldName="PictureLength" columns="15" hidden="true" />
+        <dataField fieldName="Persona_Id" columns="15" hidden="true" />
+        <dataField fieldName="Persona_Conocimiento_Id" columns="15" hidden="true" />
+        <dataField fieldName="Cliente_Id" columns="15" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="personaDocumentoCreateForm" type="Form" commandId="command1" label="Nuevo Documento" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Tipo_Documento_Id" aliasFieldName="Tipo_Documento_Tipo_Documento" />
+            <dataField fieldName="Documento" />
+            <dataField fieldName="Picture" columns="15" />
+            <dataField fieldName="PictureFileName">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="PictureContentType">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="PictureLength" columns="15">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Es_De_Persona" hidden="true" />
+            <dataField fieldName="Persona_Id" columns="15" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Documento
+SET 
+	Estatus_Registro_Id=3
+	,Actualizado_Por_Id = @BusinessRules_UserId
+    ,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Documento_Id = @Documento_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Documento
+SET 
+	Estatus_Registro_Id=3
+	,Actualizado_Por_Id = @BusinessRules_UserId
+    ,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Documento_Id = @Documento_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" whenView="grid1" roles="Hidden" />
+      <action commandName="New" commandArgument="personaDocumentoCreateForm" id="a100" headerText="Agregar" whenView="Documento_LookUp_List" roles="Hidden" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Documento
+SET 
+	Estatus_Registro_Id=3
+	,Actualizado_Por_Id = @BusinessRules_UserId
+    ,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Documento_Id = @Documento_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Documento
+SET 
+	Estatus_Registro_Id=3
+	,Actualizado_Por_Id = @BusinessRules_UserId
+    ,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Documento_Id = @Documento_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Documento
+	WHERE
+		REPLACE(UPPER(Documento),' ','') = REPLACE(UPPER(@Documento),' ','')
+  		AND Tipo_Documento_Id = @Tipo_Documento_Id
+  
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un documento con el mismo nombre en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe un documento con el mismo nombre en la base de datos, favor de corregir.'
+   RETURN
+END
+
+
+]]></rule>
+    <rule id="r103" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Documento
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Documento_Id= @Documento_Id]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Documento
+	WHERE
+  		REPLACE(UPPER(Documento),' ','') = REPLACE(UPPER(@Documento),' ','')
+  		AND Tipo_Documento_Id = @Tipo_Documento_Id
+		AND Documento_Id <> @Documento_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un documento con el mismo nombre en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe un documento con el mismo nombre en la base de datos, favor de corregir.'
+   RETURN
+END
+
+UPDATE
+	APP.Documento
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Documento_Id = @Documento_Id]]></rule>
+    <rule id="r102" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Documento
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Documento_Id= @Documento_Id]]></rule>
+    <rule id="r104" commandName="New" view="personaDocumentoCreateForm" type="Sql" phase="Execute"><![CDATA[SET @Es_De_Persona = 1]]></rule>
+  </businessRules>
+</dataController>

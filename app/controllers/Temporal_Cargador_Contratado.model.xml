@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Temporal_Cargador_Contratado" alias="Temporal_Cargador_Contratado" created="2019-04-02T13:05:11" modified="2019-04-04T11:12:44" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="445" y="20">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Procesamiento" parentTableSchema="dbo" parentTableName="Estatus_Procesamiento" x="1006" y="438">
+      <foreignKeyColumn columnName="Estatus_Procesamiento_Id" parentColumnName="Estatus_Procesamiento_Id" />
+    </foreignKey>
+    <foreignKey id="Mensaje_Sistema" parentTableSchema="dbo" parentTableName="Mensaje_Sistema" x="976" y="780">
+      <foreignKeyColumn columnName="Mensaje_Sistema_Id" parentColumnName="Mensaje_Sistema_Id" />
+    </foreignKey>
+    <foreignKey id="Creado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="499" y="681">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Actualizado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="522" y="1003">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Temporal_Cargador_Contratado_Id" fieldName="Temporal_Cargador_Contratado_Id" label="Temporal Cargador Contratado Id" />
+    <column name="Nombre" fieldName="Nombre" label="Nombre" />
+    <column name="Segundo_Nombre" fieldName="Segundo_Nombre" label="Segundo Nombre" />
+    <column name="Apellido_Paterno" fieldName="Apellido_Paterno" label="Apellido Paterno" />
+    <column name="Apellido_Materno" fieldName="Apellido_Materno" label="Apellido Materno" />
+    <column name="Fecha_Nacimiento" fieldName="Fecha_Nacimiento" label="Fecha de Nacimiento" format="g" />
+    <column name="Genero" fieldName="Genero" label="Género" />
+    <column name="RFC" fieldName="RFC" label="RFC" />
+    <column name="Correo_Electronico_Personal" fieldName="Correo_Electronico_Personal" label="Correo Electrónico Personal" />
+    <column name="Correo_Electronico_Trabajo" fieldName="Correo_Electronico_Trabajo" label="Correo Electrónico de Trabajo" />
+    <column name="Acceso_APP_Por_Kiosco" fieldName="Acceso_APP_Por_Kiosco" label="Acceso APP Por Kiosco" />
+    <column name="Identificador_Unico_Ordinario" fieldName="Identificador_Unico_Ordinario" label="Identificador Único Ordinario" />
+    <column name="Identificador_Unico_Asimilable" fieldName="Identificador_Unico_Asimilable" label="Identificador Único Asimilable" />
+    <column name="Tipo_Contratado" fieldName="Tipo_Contratado" label="Tipo de Contratado" />
+    <column name="Tipo_Empleado" fieldName="Tipo_Empleado" label="Tipo de Empleado" />
+    <column name="Turno_Laboral" fieldName="Turno_Laboral" label="Turno Laboral" />
+    <column name="Fecha_Contratacion" fieldName="Fecha_Contratacion" label="Fecha de Contratación" format="g" />
+    <column name="Fecha_Antiguedad" fieldName="Fecha_Antiguedad" label="Fecha de Antigüedad" format="g" />
+    <column name="Vigencia_Contrato" fieldName="Vigencia_Contrato" label="Vigencia de Contrato" format="g" />
+    <column name="Notas_Contratacion" fieldName="Notas_Contratacion" label="Notas de Contratación" />
+    <column name="Estatus_Contratado" fieldName="Estatus_Contratado" label="Estatus del Contratado" />
+    <column name="Cliente" fieldName="Cliente" label="Cliente" />
+    <column name="Clave_Cliente" fieldName="Clave_Cliente" label="Clave Cliente(Si no existe el cliente)" />
+    <column name="Contratante" fieldName="Contratante" label="Contratante" />
+    <column name="Clave_Contratante" fieldName="Clave_Contratante" label="Clave Contratante(Si no existe el contratante)" />
+    <column name="Nombre_Dominio" fieldName="Nombre_Dominio" label="Nombre Dominio" />
+    <column name="Tipo_Estructura_Organizacional" fieldName="Tipo_Estructura_Organizacional" label="Tipo de Estructura Organizacional" />
+    <column name="Estructura_Organizacional" fieldName="Estructura_Organizacional" label="Estructura Organizacional" />
+    <column name="Permitir_Asociar_Personal" fieldName="Permitir_Asociar_Personal" label="Permitir Asociar Personal" />
+    <column name="Estructura_Organizacional_PADRE" fieldName="Estructura_Organizacional_PADRE" label="Estructura Organizacional PADRE" />
+    <column name="Contratante_Puesto" fieldName="Contratante_Puesto" label="Contratante Puesto" />
+    <column name="Contratante_Puesto_PADRE" fieldName="Contratante_Puesto_PADRE" label="Contratante Puesto PADRE" />
+    <column name="Anio_Id" fieldName="Anio_Id" label="Año" />
+    <column name="Fecha_Inicio" fieldName="Fecha_Inicio" label="Fecha de Inicio Saldo Vacaciones" format="g" />
+    <column name="Fecha_Fin" fieldName="Fecha_Fin" label="Fecha de Fin Saldo Vacaciones" format="g" />
+    <column name="Saldo_Vacaciones" fieldName="Saldo_Vacaciones" label="Saldo Vacaciones" />
+    <column name="Dias_Pendientes_Por_Tomar" fieldName="Dias_Pendientes_Por_Tomar" label="Dias Pendientes Por Tomar" />
+    <column name="Notas" fieldName="Notas" label="Notas" />
+    <column name="Tipo_Operacion_Id" fieldName="Tipo_Operacion_Id" label="Tipo Operacion Id" />
+    <column name="Mensaje_Sistema_Id" fieldName="Mensaje_Sistema_Id" label="Mensaje Sistema Id" aliasColumnName="Mensaje_Amigable_Usuario" aliasForeignKey="Mensaje_Sistema" />
+    <column name="Mensaje_Amigable_Usuario" fieldName="MensajeSistemamensajeAmigableUsuario" label="Mensaje Sistemamensaje Amigable Usuario" foreignKey="Mensaje_Sistema" />
+    <column name="Estatus_Procesamiento_Id" fieldName="Estatus_Procesamiento_Id" label="Estatus Procesamiento Id" aliasColumnName="Estatus_Procesamiento" aliasForeignKey="Estatus_Procesamiento" />
+    <column name="Estatus_Procesamiento" fieldName="EstatusProcesamientoestatusProcesamiento" label="Estatus de Procesamiento" foreignKey="Estatus_Procesamiento" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="UserName" fieldName="CreadoPorusername" label="Creado Porusername" foreignKey="Creado_Por" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="UserName" fieldName="ActualizadoPorusername" label="Actualizado Por" foreignKey="Actualizado_Por" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+  </columns>
+</dataModel>

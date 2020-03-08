@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Temporal_Cargador_Contratado" conflictDetection="overwriteChanges" label="Temporal Cargador Contratado" handler="arhmexico.Rules.Temporal_Cargador_ContratadoBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text" custom="false" tableName="APP.Temporal_Cargador_Contratado">
+      <text><![CDATA[select
+	"Temporal_Cargador_Contratado"."Temporal_Cargador_Contratado_Id" "Temporal_Cargador_Contratado_Id"
+	,"Temporal_Cargador_Contratado"."Nombre" "Nombre"
+	,"Temporal_Cargador_Contratado"."Segundo_Nombre" "Segundo_Nombre"
+	,"Temporal_Cargador_Contratado"."Apellido_Paterno" "Apellido_Paterno"
+	,"Temporal_Cargador_Contratado"."Apellido_Materno" "Apellido_Materno"
+	,"Temporal_Cargador_Contratado"."Fecha_Nacimiento" "Fecha_Nacimiento"
+	,"Temporal_Cargador_Contratado"."Genero" "Genero"
+	,"Temporal_Cargador_Contratado"."RFC" "RFC"
+	,"Temporal_Cargador_Contratado"."Correo_Electronico_Personal" "Correo_Electronico_Personal"
+	,"Temporal_Cargador_Contratado"."Correo_Electronico_Trabajo" "Correo_Electronico_Trabajo"
+	,"Temporal_Cargador_Contratado"."Acceso_APP_Por_Kiosco" "Acceso_APP_Por_Kiosco"
+	,"Temporal_Cargador_Contratado"."Identificador_Unico_Ordinario" "Identificador_Unico_Ordinario"
+	,"Temporal_Cargador_Contratado"."Identificador_Unico_Asimilable" "Identificador_Unico_Asimilable"
+	,"Temporal_Cargador_Contratado"."Tipo_Contratado" "Tipo_Contratado"
+	,"Temporal_Cargador_Contratado"."Tipo_Empleado" "Tipo_Empleado"
+	,"Temporal_Cargador_Contratado"."Turno_Laboral" "Turno_Laboral"
+	,"Temporal_Cargador_Contratado"."Fecha_Contratacion" "Fecha_Contratacion"
+	,"Temporal_Cargador_Contratado"."Fecha_Antiguedad" "Fecha_Antiguedad"
+	,"Temporal_Cargador_Contratado"."Vigencia_Contrato" "Vigencia_Contrato"
+	,"Temporal_Cargador_Contratado"."Notas_Contratacion" "Notas_Contratacion"
+	,"Temporal_Cargador_Contratado"."Estatus_Contratado" "Estatus_Contratado"
+	,"Temporal_Cargador_Contratado"."Cliente" "Cliente"
+	,"Temporal_Cargador_Contratado"."Clave_Cliente" "Clave_Cliente"
+	,"Temporal_Cargador_Contratado"."Contratante" "Contratante"
+	,"Temporal_Cargador_Contratado"."Clave_Contratante" "Clave_Contratante"
+	,"Temporal_Cargador_Contratado"."Nombre_Dominio" "Nombre_Dominio"
+	,"Temporal_Cargador_Contratado"."Tipo_Estructura_Organizacional" "Tipo_Estructura_Organizacional"
+	,"Temporal_Cargador_Contratado"."Estructura_Organizacional" "Estructura_Organizacional"
+	,"Temporal_Cargador_Contratado"."Permitir_Asociar_Personal" "Permitir_Asociar_Personal"
+	,"Temporal_Cargador_Contratado"."Estructura_Organizacional_PADRE" "Estructura_Organizacional_PADRE"
+	,"Temporal_Cargador_Contratado"."Contratante_Puesto" "Contratante_Puesto"
+	,"Temporal_Cargador_Contratado"."Contratante_Puesto_PADRE" "Contratante_Puesto_PADRE"
+	,"Temporal_Cargador_Contratado"."Anio_Id" "Anio_Id"
+	,"Temporal_Cargador_Contratado"."Fecha_Inicio" "Fecha_Inicio"
+	,"Temporal_Cargador_Contratado"."Fecha_Fin" "Fecha_Fin"
+	,"Temporal_Cargador_Contratado"."Saldo_Vacaciones" "Saldo_Vacaciones"
+	,"Temporal_Cargador_Contratado"."Dias_Pendientes_Por_Tomar" "Dias_Pendientes_Por_Tomar"
+	,"Temporal_Cargador_Contratado"."Notas" "Notas"
+	,"Temporal_Cargador_Contratado"."Tipo_Operacion_Id" "Tipo_Operacion_Id"
+	,"Temporal_Cargador_Contratado"."Mensaje_Sistema_Id" "Mensaje_Sistema_Id"
+	,"Mensaje_Sistema"."Mensaje_Amigable_Usuario" "MensajeSistemamensajeAmigableUsuario"
+	,"Temporal_Cargador_Contratado"."Estatus_Procesamiento_Id" "Estatus_Procesamiento_Id"
+	,"Estatus_Procesamiento"."Estatus_Procesamiento" "EstatusProcesamientoestatusProcesamiento"
+	,"Temporal_Cargador_Contratado"."Transaccion_Id" "Transaccion_Id"
+	,"Temporal_Cargador_Contratado"."Generar_Usuario_Acceso" "Generar_Usuario_Acceso"
+	,"Creado_Por"."UserName" "CreadoPorusername"
+	,"Temporal_Cargador_Contratado"."Fecha_Creacion" "Fecha_Creacion"
+	,"Actualizado_Por"."UserName" "ActualizadoPorusername"
+	,"Temporal_Cargador_Contratado"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Temporal_Cargador_Contratado"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+
+from "APP"."Temporal_Cargador_Contratado" "Temporal_Cargador_Contratado"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Temporal_Cargador_Contratado"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Estatus_Procesamiento" "Estatus_Procesamiento" on "Temporal_Cargador_Contratado"."Estatus_Procesamiento_Id" = "Estatus_Procesamiento"."Estatus_Procesamiento_Id"
+	left join "dbo"."Mensaje_Sistema" "Mensaje_Sistema" on "Temporal_Cargador_Contratado"."Mensaje_Sistema_Id" = "Mensaje_Sistema"."Mensaje_Sistema_Id"
+	left join "dbo"."Usuario_V" "Creado_Por" on "Temporal_Cargador_Contratado"."Creado_Por_Id" = "Creado_Por"."UserId"
+	left join "dbo"."Usuario_V" "Actualizado_Por" on "Temporal_Cargador_Contratado"."Actualizado_Por_Id" = "Actualizado_Por"."UserId"
+]]></text>
+    </command>
+    <command id="Temporal_Cargador_Contratado_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Temporal_Cargador_Contratado_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Temporal_Cargador_Contratado_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Temporal Cargador Contratado Id" readOnly="true" />
+    <field name="Nombre" type="String" allowNulls="false" label="Nombre" length="150" showInSummary="true" />
+    <field name="Segundo_Nombre" type="String" label="Segundo Nombre" length="150" showInSummary="true" />
+    <field name="Apellido_Paterno" type="String" allowNulls="false" label="Apellido Paterno" length="150" showInSummary="true" />
+    <field name="Apellido_Materno" type="String" label="Apellido Materno" length="150" showInSummary="true" />
+    <field name="Fecha_Nacimiento" type="DateTime" allowNulls="false" dataFormatString="d" label="Fecha de Nacimiento" showInSummary="true" />
+    <field name="Genero" type="String" allowNulls="false" label="Género" length="150" />
+    <field name="RFC" type="String" allowNulls="false" label="RFC" length="150" />
+    <field name="Correo_Electronico_Personal" type="String" label="Correo Electrónico Personal" length="150" />
+    <field name="Correo_Electronico_Trabajo" type="String" label="Correo Electrónico de Trabajo" length="150" />
+    <field name="Acceso_APP_Por_Kiosco" type="Boolean" allowNulls="false" default="((0))" label="Acceso APP Por Kiosco" />
+    <field name="Identificador_Unico_Ordinario" type="String" allowNulls="false" label="Identificador Único Ordinario" length="50" />
+    <field name="Identificador_Unico_Asimilable" type="String" label="Identificador Único Asimilable" length="50" />
+    <field name="Tipo_Contratado" type="String" allowNulls="false" label="Tipo de Contratado" length="150" />
+    <field name="Tipo_Empleado" type="String" allowNulls="false" label="Tipo de Empleado" length="150" />
+    <field name="Turno_Laboral" type="String" allowNulls="false" label="Turno Laboral" length="150" />
+    <field name="Fecha_Contratacion" type="DateTime" allowNulls="false" dataFormatString="d" label="Fecha de Contratación" />
+    <field name="Fecha_Antiguedad" type="DateTime" allowNulls="false" dataFormatString="d" label="Fecha de Antigüedad" />
+    <field name="Vigencia_Contrato" type="DateTime" allowNulls="false" dataFormatString="d" label="Vigencia de Contrato" />
+    <field name="Notas_Contratacion" type="String" label="Notas de Contratación" length="250" />
+    <field name="Estatus_Contratado" type="String" allowNulls="false" label="Estatus del Contratado" length="150" />
+    <field name="Cliente" type="String" allowNulls="false" label="Cliente" length="150" />
+    <field name="Clave_Cliente" type="String" allowNulls="false" label="Clave Cliente(Si no existe el cliente)" length="4" />
+    <field name="Contratante" type="String" allowNulls="false" label="Contratante" length="150" />
+    <field name="Clave_Contratante" type="String" allowNulls="false" label="Clave Contratante(Si no existe el contratante)" length="3" />
+    <field name="Nombre_Dominio" type="String" allowNulls="false" label="Nombre Dominio" length="150" />
+    <field name="Tipo_Estructura_Organizacional" type="String" allowNulls="false" label="Tipo de Estructura Organizacional" length="150" />
+    <field name="Estructura_Organizacional" type="String" allowNulls="false" label="Estructura Organizacional" length="150" />
+    <field name="Permitir_Asociar_Personal" type="Boolean" allowNulls="false" default="((0))" label="Permitir Asociar Personal" />
+    <field name="Estructura_Organizacional_PADRE" type="String" allowNulls="false" label="Estructura Organizacional PADRE" length="150" />
+    <field name="Contratante_Puesto" type="String" allowNulls="false" label="Contratante Puesto" length="150" />
+    <field name="Contratante_Puesto_PADRE" type="String" allowNulls="false" label="Contratante Puesto PADRE" length="150" />
+    <field name="Anio_Id" type="Int32" allowNulls="false" label="Año" />
+    <field name="Fecha_Inicio" type="DateTime" allowNulls="false" dataFormatString="d" label="Fecha de Inicio Saldo Vacaciones" />
+    <field name="Fecha_Fin" type="DateTime" allowNulls="false" dataFormatString="d" label="Fecha de Fin Saldo Vacaciones" />
+    <field name="Saldo_Vacaciones" type="Int32" allowNulls="false" label="Saldo Vacaciones" />
+    <field name="Dias_Pendientes_Por_Tomar" type="Int32" allowNulls="false" default="((0))" label="Dias Pendientes Por Tomar" />
+    <field name="Notas" type="String" label="Notas" length="250" />
+    <field name="Tipo_Operacion_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo Operacion Id" />
+    <field name="Mensaje_Sistema_Id" type="Int32" allowNulls="false" default="((0))" label="Mensaje Sistema Id">
+      <items style="Lookup" dataController="Mensaje_Sistema" newDataView="createForm1" dataValueField="Mensaje_Sistema_Id" dataTextField="Mensaje_Amigable_Usuario" />
+    </field>
+    <field name="MensajeSistemamensajeAmigableUsuario" type="String" readOnly="true" label="Mensaje de Sistema" length="250" />
+    <field name="Estatus_Procesamiento_Id" type="Int32" allowNulls="false" default="((0))" label="Estatus Procesamiento Id">
+      <items style="Lookup" dataController="Estatus_Procesamiento" newDataView="createForm1" dataValueField="Estatus_Procesamiento_Id" dataTextField="Estatus_Procesamiento" />
+    </field>
+    <field name="EstatusProcesamientoestatusProcesamiento" type="String" readOnly="true" label="Estatus de Procesamiento" length="150" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transaccion Id" length="50" />
+    <field name="CreadoPorusername" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Creación" />
+    <field name="ActualizadoPorusername" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Última Actualización" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus Registro" length="150" />
+    <field name="Generar_Usuario_Acceso" type="Boolean" label="Generar Usuario Acceso(Contestar con True o False)" default="1" allowNulls="false" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Cargador Contratado" filter="Estatus_Registro_Id&lt;&gt;0 AND Mensaje_Sistema_Id=780" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" reportTemplate="true">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Mensaje_Sistema_Id" aliasFieldName="MensajeSistemamensajeAmigableUsuario" />
+        <dataField fieldName="Nombre" />
+        <dataField fieldName="Segundo_Nombre" />
+        <dataField fieldName="Apellido_Paterno" />
+        <dataField fieldName="Apellido_Materno" />
+        <dataField fieldName="Fecha_Nacimiento" columns="20" />
+        <dataField fieldName="Genero" />
+        <dataField fieldName="RFC" />
+        <dataField fieldName="Correo_Electronico_Personal" />
+        <dataField fieldName="Correo_Electronico_Trabajo" />
+        <dataField fieldName="Acceso_APP_Por_Kiosco" />
+        <dataField fieldName="Generar_Usuario_Acceso" />
+        <dataField fieldName="Identificador_Unico_Ordinario" columns="50" />
+        <dataField fieldName="Identificador_Unico_Asimilable" columns="50" />
+        <dataField fieldName="Tipo_Contratado" />
+        <dataField fieldName="Tipo_Empleado" />
+        <dataField fieldName="Turno_Laboral" />
+        <dataField fieldName="Fecha_Contratacion" columns="20" />
+        <dataField fieldName="Fecha_Antiguedad" columns="20" />
+        <dataField fieldName="Vigencia_Contrato" columns="20" />
+        <dataField fieldName="Notas_Contratacion" />
+        <dataField fieldName="Estatus_Contratado" />
+        <dataField fieldName="Cliente" />
+        <dataField fieldName="Clave_Cliente" columns="10" />
+        <dataField fieldName="Contratante" />
+        <dataField fieldName="Clave_Contratante" columns="10" />
+        <dataField fieldName="Nombre_Dominio" />
+        <dataField fieldName="Tipo_Estructura_Organizacional" />
+        <dataField fieldName="Estructura_Organizacional" />
+        <dataField fieldName="Permitir_Asociar_Personal" />
+        <dataField fieldName="Estructura_Organizacional_PADRE" />
+        <dataField fieldName="Contratante_Puesto" />
+        <dataField fieldName="Contratante_Puesto_PADRE" />
+        <dataField fieldName="Anio_Id" columns="15" />
+        <dataField fieldName="Fecha_Inicio" columns="20" />
+        <dataField fieldName="Fecha_Fin" columns="20" />
+        <dataField fieldName="Saldo_Vacaciones" columns="15" />
+        <dataField fieldName="Dias_Pendientes_Por_Tomar" columns="15" />
+        <dataField fieldName="Notas" />
+        <dataField fieldName="Tipo_Operacion_Id" columns="15" />
+        <dataField fieldName="Estatus_Procesamiento_Id" aliasFieldName="EstatusProcesamientoestatusProcesamiento" />
+        <dataField fieldName="Transaccion_Id" columns="50" hidden="true" />
+        <dataField fieldName="CreadoPorusername" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="ActualizadoPorusername" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+    <view id="gridErrores" type="Grid" commandId="command1" label="Registros Procesados" filter="Estatus_Registro_Id&lt;&gt;0 AND Mensaje_Sistema_Id&lt;&gt;780" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Temporal_Cargador_Contratado_Id DESC">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Estatus_Procesamiento_Id" aliasFieldName="EstatusProcesamientoestatusProcesamiento" />
+        <dataField fieldName="Mensaje_Sistema_Id" aliasFieldName="MensajeSistemamensajeAmigableUsuario" />
+        <dataField fieldName="Nombre" />
+        <dataField fieldName="Segundo_Nombre" />
+        <dataField fieldName="Apellido_Paterno" />
+        <dataField fieldName="Apellido_Materno" />
+        <dataField fieldName="Fecha_Nacimiento" columns="20" />
+        <dataField fieldName="Genero" />
+        <dataField fieldName="RFC" />
+        <dataField fieldName="Correo_Electronico_Personal" />
+        <dataField fieldName="Correo_Electronico_Trabajo" />
+        <dataField fieldName="Acceso_APP_Por_Kiosco" />
+        <dataField fieldName="Generar_Usuario_Acceso" />
+        <dataField fieldName="Identificador_Unico_Ordinario" columns="50" />
+        <dataField fieldName="Identificador_Unico_Asimilable" columns="50" />
+        <dataField fieldName="Tipo_Contratado" />
+        <dataField fieldName="Tipo_Empleado" />
+        <dataField fieldName="Turno_Laboral" />
+        <dataField fieldName="Fecha_Contratacion" columns="20" />
+        <dataField fieldName="Fecha_Antiguedad" columns="20" />
+        <dataField fieldName="Vigencia_Contrato" columns="20" />
+        <dataField fieldName="Notas_Contratacion" />
+        <dataField fieldName="Estatus_Contratado" />
+        <dataField fieldName="Cliente" />
+        <dataField fieldName="Clave_Cliente" columns="10" />
+        <dataField fieldName="Contratante" />
+        <dataField fieldName="Clave_Contratante" columns="10" />
+        <dataField fieldName="Nombre_Dominio" />
+        <dataField fieldName="Tipo_Estructura_Organizacional" />
+        <dataField fieldName="Estructura_Organizacional" />
+        <dataField fieldName="Permitir_Asociar_Personal" />
+        <dataField fieldName="Estructura_Organizacional_PADRE" />
+        <dataField fieldName="Contratante_Puesto" />
+        <dataField fieldName="Contratante_Puesto_PADRE" />
+        <dataField fieldName="Anio_Id" columns="15" />
+        <dataField fieldName="Fecha_Inicio" columns="20" />
+        <dataField fieldName="Fecha_Fin" columns="20" />
+        <dataField fieldName="Saldo_Vacaciones" columns="15" />
+        <dataField fieldName="Dias_Pendientes_Por_Tomar" columns="15" />
+        <dataField fieldName="Notas" />
+        <dataField fieldName="Tipo_Operacion_Id" columns="15" />
+        <dataField fieldName="Transaccion_Id" columns="50" hidden="true" />
+        <dataField fieldName="CreadoPorusername" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="ActualizadoPorusername" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Review Temporal Cargador Contratado">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Temporal Cargador Contratado" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Nombre" />
+            <dataField fieldName="Segundo_Nombre" />
+            <dataField fieldName="Apellido_Paterno" />
+            <dataField fieldName="Apellido_Materno" />
+            <dataField fieldName="Fecha_Nacimiento" columns="20" />
+            <dataField fieldName="Genero" />
+            <dataField fieldName="RFC" />
+            <dataField fieldName="Correo_Electronico_Personal" />
+            <dataField fieldName="Correo_Electronico_Trabajo" />
+            <dataField fieldName="Acceso_APP_Por_Kiosco" />
+            <dataField fieldName="Generar_Usuario_Acceso" />
+            <dataField fieldName="Identificador_Unico_Ordinario" columns="50" />
+            <dataField fieldName="Identificador_Unico_Asimilable" columns="50" />
+            <dataField fieldName="Tipo_Contratado" />
+            <dataField fieldName="Tipo_Empleado" />
+            <dataField fieldName="Turno_Laboral" />
+            <dataField fieldName="Fecha_Contratacion" columns="20" />
+            <dataField fieldName="Fecha_Antiguedad" columns="20" />
+            <dataField fieldName="Vigencia_Contrato" columns="20" />
+            <dataField fieldName="Notas_Contratacion" />
+            <dataField fieldName="Estatus_Contratado" />
+            <dataField fieldName="Cliente" />
+            <dataField fieldName="Clave_Cliente" columns="10" />
+            <dataField fieldName="Contratante" />
+            <dataField fieldName="Clave_Contratante" columns="10" />
+            <dataField fieldName="Nombre_Dominio" />
+            <dataField fieldName="Tipo_Estructura_Organizacional" />
+            <dataField fieldName="Estructura_Organizacional" />
+            <dataField fieldName="Permitir_Asociar_Personal" />
+            <dataField fieldName="Estructura_Organizacional_PADRE" />
+            <dataField fieldName="Contratante_Puesto" />
+            <dataField fieldName="Contratante_Puesto_PADRE" />
+            <dataField fieldName="Anio_Id" columns="15" />
+            <dataField fieldName="Fecha_Inicio" columns="20" />
+            <dataField fieldName="Fecha_Fin" columns="20" />
+            <dataField fieldName="Saldo_Vacaciones" columns="15" />
+            <dataField fieldName="Dias_Pendientes_Por_Tomar" columns="15" />
+            <dataField fieldName="Notas" />
+            <dataField fieldName="Tipo_Operacion_Id" columns="15" />
+            <dataField fieldName="Mensaje_Sistema_Id" aliasFieldName="MensajeSistemamensajeAmigableUsuario" />
+            <dataField fieldName="Estatus_Procesamiento_Id" aliasFieldName="EstatusProcesamientoestatusProcesamiento" />
+            <dataField fieldName="Transaccion_Id" columns="50" />
+            <dataField fieldName="CreadoPorusername" />
+            <dataField fieldName="Fecha_Creacion" columns="20" />
+            <dataField fieldName="ActualizadoPorusername" />
+            <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="New Temporal Cargador Contratado">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Nombre" />
+            <dataField fieldName="Segundo_Nombre" />
+            <dataField fieldName="Apellido_Paterno" />
+            <dataField fieldName="Apellido_Materno" />
+            <dataField fieldName="Fecha_Nacimiento" columns="20" />
+            <dataField fieldName="Genero" />
+            <dataField fieldName="RFC" />
+            <dataField fieldName="Correo_Electronico_Personal" />
+            <dataField fieldName="Correo_Electronico_Trabajo" />
+            <dataField fieldName="Acceso_APP_Por_Kiosco" />
+            <dataField fieldName="Generar_Usuario_Acceso" />
+            <dataField fieldName="Identificador_Unico_Ordinario" columns="50" />
+            <dataField fieldName="Identificador_Unico_Asimilable" columns="50" />
+            <dataField fieldName="Tipo_Contratado" />
+            <dataField fieldName="Tipo_Empleado" />
+            <dataField fieldName="Turno_Laboral" />
+            <dataField fieldName="Fecha_Contratacion" columns="20" />
+            <dataField fieldName="Fecha_Antiguedad" columns="20" />
+            <dataField fieldName="Vigencia_Contrato" columns="20" />
+            <dataField fieldName="Notas_Contratacion" />
+            <dataField fieldName="Estatus_Contratado" />
+            <dataField fieldName="Cliente" />
+            <dataField fieldName="Clave_Cliente" columns="10" />
+            <dataField fieldName="Contratante" />
+            <dataField fieldName="Clave_Contratante" columns="10" />
+            <dataField fieldName="Nombre_Dominio" />
+            <dataField fieldName="Tipo_Estructura_Organizacional" />
+            <dataField fieldName="Estructura_Organizacional" />
+            <dataField fieldName="Permitir_Asociar_Personal" />
+            <dataField fieldName="Estructura_Organizacional_PADRE" />
+            <dataField fieldName="Contratante_Puesto" />
+            <dataField fieldName="Contratante_Puesto_PADRE" />
+            <dataField fieldName="Anio_Id" columns="15" />
+            <dataField fieldName="Fecha_Inicio" columns="20" />
+            <dataField fieldName="Fecha_Fin" columns="20" />
+            <dataField fieldName="Saldo_Vacaciones" columns="15" />
+            <dataField fieldName="Dias_Pendientes_Por_Tomar" columns="15" />
+            <dataField fieldName="Notas" />
+            <dataField fieldName="Tipo_Operacion_Id" columns="15" />
+            <dataField fieldName="Mensaje_Sistema_Id" aliasFieldName="MensajeSistemamensajeAmigableUsuario" />
+            <dataField fieldName="Estatus_Procesamiento_Id" aliasFieldName="EstatusProcesamientoestatusProcesamiento" />
+            <dataField fieldName="Transaccion_Id" columns="50" />
+            <dataField fieldName="CreadoPorusername" />
+            <dataField fieldName="Fecha_Creacion" columns="20" />
+            <dataField fieldName="ActualizadoPorusername" />
+            <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="Edit" roles="hidden" />
+      <action id="a3" commandName="Delete" roles="hidden" />
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="hidden" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="hidden" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="hidden" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="hidden" />
+      <action id="a2" commandName="Delete" roles="hidden" />
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="hidden" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Hidden" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="hidden" />
+      <action id="a2" whenKeySelected="true" commandName="Delete" cssClass="DeleteIcon" whenView="grid1" roles="hidden" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a101" commandName="ReportAsExcel" cssClass="material-icon-get_app" headerText="Descargar Archivo" roles="Administrators,ArhAdmin" />
+      <action id="a1" commandName="ExportCsv" roles="Hidden" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Hidden" />
+      <action id="a4" commandName="ExportRss" roles="Hidden" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+      <action commandName="Custom" headerText="Procesar Información" id="a100" commandArgument="ExecCS01" cssClass="material-icon-collections_bookmark" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Hidden" />
+      <action id="a2" commandName="ReportAsImage" roles="Hidden" />
+      <action id="a3" commandName="ReportAsExcel" roles="Hidden" />
+      <action id="a4" commandName="ReportAsWord" roles="Hidden" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="Delete" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Custom" commandArgument="ExecCS01" type="Code" phase="After" />
+  </businessRules>
+</dataController>

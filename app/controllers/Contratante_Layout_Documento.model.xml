@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Contratante_Layout_Documento" alias="Contratante_Layout_Documento" created="2019-05-28T09:46:43" modified="2019-05-29T11:03:18" x="20" y="35" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="635" y="291">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Contratante" parentTableSchema="APP" parentTableName="Contratante" x="1175" y="170">
+      <foreignKeyColumn columnName="Contratante_Id" parentColumnName="Contratante_Id" />
+    </foreignKey>
+    <foreignKey id="Layout_HTML" parentTableSchema="dbo" parentTableName="Layout_HTML" x="783" y="93">
+      <foreignKeyColumn columnName="Layout_Documento_Id" parentColumnName="Layout_HTML_Id" />
+    </foreignKey>
+    <foreignKey id="Creado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="448" y="127">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Actualizado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="738" y="404">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Definicion_Solicitud_Documento" parentTableSchema="APP" parentTableName="Definicion_Solicitud_Documento" x="1057" y="20">
+      <foreignKeyColumn columnName="Definicion_Solicitud_Documento_Id" parentColumnName="Definicion_Solicitud_Documento_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Contratante_Layout_Documento_Id" fieldName="Contratante_Layout_Documento_Id" label="Contratante Layout Documento Id" />
+    <column name="Contratante_Id" fieldName="Contratante_Id" label="Contratante Id" aliasColumnName="Contratante" aliasForeignKey="Contratante" />
+    <column name="Contratante" fieldName="Contratante" label="Contratante" foreignKey="Contratante" />
+    <column name="Layout_Documento_Id" fieldName="Layout_Documento_Id" label="Layout Documento Id" aliasColumnName="Layout_HTML_Nombre" aliasForeignKey="Layout_HTML" />
+    <column name="Layout_HTML_Nombre" fieldName="LayoutHtmlLayoutHtmlNombre" label="Layout de Documento" foreignKey="Layout_HTML" />
+    <column name="Encabezado" fieldName="Encabezado" label="Encabezado" />
+    <column name="Pie_Pagina" fieldName="Pie_Pagina" label="Pie de Página" />
+    <column name="Color_Texto" fieldName="Color_Texto" label="Color de Texto" />
+    <column name="Color_Fondo" fieldName="Color_Fondo" label="Color de Fondo" />
+    <column name="Url_Logo" fieldName="Url_Logo" label="Url Logo" />
+    <column name="Picture" fieldName="Picture" label="Picture" />
+    <column name="PictureFileName" fieldName="PictureFileName" label="Picture File Name" />
+    <column name="PictureContentType" fieldName="PictureContentType" label="Picture Content Type" />
+    <column name="PictureLength" fieldName="PictureLength" label="Picture Length" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="UserName" fieldName="CreadoPorusername" label="Creado Por" foreignKey="Creado_Por" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+    <column name="UserName" fieldName="ActualizadoPorusername" label="Actualizado Por" foreignKey="Actualizado_Por" />
+    <column name="Definicion_Solicitud_Documento_Id" fieldName="DefinicionSolicitudDocumentoId" label="Definicion Solicitud Documento Id" aliasColumnName="Definicion_Solicitud_Documento" aliasForeignKey="Definicion_Solicitud_Documento" />
+    <column name="Definicion_Solicitud_Documento" fieldName="DefinicionSolicitudDocumentodefinicionSolicitudDocumento" label="Definicion Solicitud Documentodefinicion Solicitud Documento" foreignKey="Definicion_Solicitud_Documento" />
+  </columns>
+</dataModel>

@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Contratado_Recibo_Nomina" conflictDetection="overwriteChanges" label="Contratado Recibo Nomina" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Contratado_Recibo_Nomina"."Contratado_Recibo_Nomina_Id" "Contratado_Recibo_Nomina_Id"
+	,"Contratado_Recibo_Nomina"."Contratado_Id" "Contratado_Id"
+	,"Contratado_"."Identificador_Unico" "Contratado_Identificador_Unico"
+	,"Contratado_Recibo_Nomina"."Cliente_Id" "Cliente_Id"
+	,"Cliente_"."Cliente" "Cliente_Cliente"
+	,"Contratado_Recibo_Nomina"."Anio_Id" "Anio_Id"
+	,"Anio_"."Anio" "Anio_Anio"
+	,"Contratado_Recibo_Nomina"."Mes_Id" "Mes_Id"
+	,"Mes_"."Mes" "Mes_Mes"
+	,"Contratado_Recibo_Nomina"."Periodo_Nomina_Id" "Periodo_Nomina_Id"
+	,"Periodo_Nomina_"."Periodo_Nomina" "Periodo_Nomina_Periodo_Nomina"
+	,"Contratado_Recibo_Nomina"."Tipo_Recibo_Nomina_Id" "Tipo_Recibo_Nomina_Id"
+	,"Tipo_Recibo_Nomina_"."Tipo_Recibo_Nomina" "Tipo_Recibo_Nomina_Tipo_Recibo_Nomina"
+	,"Contratado_Recibo_Nomina"."Identificador_Unico" "Identificador_Unico"
+	,"Contratado_Recibo_Nomina"."Nombre_Archivo_Recibo_Nomina" "Nombre_Archivo_Recibo_Nomina"
+	,"Contratado_Recibo_Nomina"."Url_Storage" "Url_Storage"
+	,"Contratado_Recibo_Nomina"."Transaccion_Id" "Transaccion_Id"
+	,"cpUsuario_V"."UserName" "cpUserName"
+	,"Contratado_Recibo_Nomina"."Fecha_Creacion" "Fecha_Creacion"
+	,"apUsuario_V1"."UserName" "apUserName"
+	,"Contratado_Recibo_Nomina"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Contratado_Recibo_Nomina"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Contratado_Recibo_Nomina"."Tipo_Archivo_Recibo_Nomina_Id" "Tipo_Archivo_Recibo_Nomina_Id"
+	,"Tipo_Archivo_Recibo_Nomina"."Tipo_Archivo_Recibo_Nomina" "Tipo_Archivo_Recibo_Nomina"
+from "dbo"."Contratado_Recibo_Nomina" "Contratado_Recibo_Nomina"
+	left join "APP"."Contratado" "Contratado_" on "Contratado_Recibo_Nomina"."Contratado_Id" = "Contratado_"."Contratado_Id"
+	left join "APP"."Cliente" "Cliente_" on "Contratado_Recibo_Nomina"."Cliente_Id" = "Cliente_"."Cliente_Id"
+	left join "APP"."Anio" "Anio_" on "Contratado_Recibo_Nomina"."Anio_Id" = "Anio_"."Anio_Id"
+	left join "APP"."Mes" "Mes_" on "Contratado_Recibo_Nomina"."Mes_Id" = "Mes_"."Mes_Id"
+	left join "APP"."Periodo_Nomina" "Periodo_Nomina_" on "Contratado_Recibo_Nomina"."Periodo_Nomina_Id" = "Periodo_Nomina_"."Periodo_Nomina_Id"
+	left join "dbo"."Tipo_Recibo_Nomina" "Tipo_Recibo_Nomina_" on "Contratado_Recibo_Nomina"."Tipo_Recibo_Nomina_Id" = "Tipo_Recibo_Nomina_"."Tipo_Recibo_Nomina_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Contratado_Recibo_Nomina"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cpUsuario_V" on "Contratado_Recibo_Nomina"."Creado_Por_Id" = "cpUsuario_V"."UserId"
+	left join "dbo"."Usuario_V" "apUsuario_V1" on "Contratado_Recibo_Nomina"."Actualizado_Por_Id" = "apUsuario_V1"."UserId"
+	left join "dbo"."Tipo_Archivo_Recibo_Nomina" "Tipo_Archivo_Recibo_Nomina" on "Contratado_Recibo_Nomina"."Tipo_Archivo_Recibo_Nomina_Id" = "Tipo_Archivo_Recibo_Nomina"."Tipo_Archivo_Recibo_Nomina_Id"
+]]></text>
+    </command>
+    <command id="Contratado_Recibo_Nomina_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Contratado_Recibo_Nomina_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Contratado_Recibo_Nomina_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Contratado Recibo Nomina Id" readOnly="true" />
+    <field name="Contratado_Id" type="Int32" allowNulls="false" default="((0))" label="Contratado Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratado" newDataView="createForm1" dataValueField="Contratado_Id" dataTextField="Identificador_Unico" dataView="Contratado_Admin_LookUp_List" />
+    </field>
+    <field name="Contratado_Identificador_Unico" type="String" readOnly="true" label="Contratado Identificador Unico" length="50" />
+    <field name="Cliente_Id" type="Int32" allowNulls="false" default="((0))" label="Cliente Id" showInSummary="true">
+      <items style="Lookup" dataController="Cliente" newDataView="createForm1" dataValueField="Cliente_Id" dataTextField="Cliente" dataView="Cliente_Admin_LookUp_List" />
+    </field>
+    <field name="Cliente_Cliente" type="String" readOnly="true" label="Cliente" length="150" />
+    <field name="Anio_Id" type="Int32" allowNulls="false" default="((0))" label="Anio Id" showInSummary="true">
+      <items style="Lookup" dataController="Anio" newDataView="createForm1" dataValueField="Anio_Id" dataTextField="Anio" dataView="Anio_LookUp_List" />
+    </field>
+    <field name="Anio_Anio" type="String" readOnly="true" label="Año" length="150" />
+    <field name="Mes_Id" type="Int32" allowNulls="false" default="((0))" label="Mes Id" showInSummary="true">
+      <items style="Lookup" dataController="Mes" newDataView="createForm1" dataValueField="Mes_Id" dataTextField="Mes" dataView="Mes_LookUp_List" />
+    </field>
+    <field name="Mes_Mes" type="String" readOnly="true" label="Mes" length="150" />
+    <field name="Periodo_Nomina_Id" type="Int32" allowNulls="false" default="((0))" label="Periodo Nomina Id" showInSummary="true">
+      <items style="Lookup" dataController="Periodo_Nomina" newDataView="createForm1" dataValueField="Periodo_Nomina_Id" dataTextField="Periodo_Nomina" />
+    </field>
+    <field name="Periodo_Nomina_Periodo_Nomina" type="String" readOnly="true" label="Periodo de Nómina" length="150" />
+    <field name="Tipo_Recibo_Nomina_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo Recibo Nomina Id">
+      <items style="Lookup" dataController="Tipo_Recibo_Nomina" newDataView="createForm1" dataValueField="Tipo_Recibo_Nomina_Id" dataTextField="Tipo_Recibo_Nomina" dataView="Tipo_Recibo_Nomina_LookUp_List" />
+    </field>
+    <field name="Tipo_Recibo_Nomina_Tipo_Recibo_Nomina" type="String" readOnly="true" label="Tipo de Recibo de Nómina" length="150" />
+    <field name="Identificador_Unico" type="String" allowNulls="false" label="Identificador Único" length="50" />
+    <field name="Nombre_Archivo_Recibo_Nomina" type="String" allowNulls="false" label="Nombre Archivo Recibo Nomina" length="50" />
+    <field name="Url_Storage" type="String" allowNulls="false" allowQBE="false" allowSorting="false" label="Url Storage" htmlEncode="false" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transaccion Id" length="50" />
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha Creacion" />
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha Ultima Actualizacion" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus Registro" length="150" />
+    <field name="Tipo_Archivo_Recibo_Nomina_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo Archivo Recibo Nomina Id">
+      <items style="Lookup" dataController="Tipo_Archivo_Recibo_Nomina" newDataView="createForm1" dataValueField="Tipo_Archivo_Recibo_Nomina_Id" dataTextField="Tipo_Archivo_Recibo_Nomina" dataView="Tipo_Archivo_Recibo_Nomina_LookUp_List" />
+    </field>
+    <field name="Tipo_Archivo_Recibo_Nomina" type="String" readOnly="true" label="Tipo Archivo Recibo Nomina" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Recibos de Nómina" filter="Estatus_Registro_Id &lt;&gt; 0" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Contratado_Id" aliasFieldName="Contratado_Identificador_Unico" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" />
+        <dataField fieldName="Anio_Id" aliasFieldName="Anio_Anio" />
+        <dataField fieldName="Mes_Id" aliasFieldName="Mes_Mes" />
+        <dataField fieldName="Periodo_Nomina_Id" aliasFieldName="Periodo_Nomina_Periodo_Nomina" />
+        <dataField fieldName="Tipo_Recibo_Nomina_Id" aliasFieldName="Tipo_Recibo_Nomina_Tipo_Recibo_Nomina" />
+        <dataField fieldName="Identificador_Unico" columns="50" />
+        <dataField fieldName="Nombre_Archivo_Recibo_Nomina" columns="50" />
+        <dataField fieldName="Url_Storage" rows="5" />
+        <dataField fieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Tipo_Archivo_Recibo_Nomina_Id" aliasFieldName="Tipo_Archivo_Recibo_Nomina" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" />
+      <action id="a2" commandName="Edit" roles="Hidden" />
+      <action id="a3" commandName="Delete" roles="Hidden" />
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Hidden" />
+      <action id="a8" commandName="Duplicate" roles="Hidden" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Hidden" />
+      <action id="a2" commandName="Delete" roles="Hidden" />
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" roles="Hidden" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" roles="Hidden" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" roles="Hidden" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" roles="Hidden" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" commandName="Select" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" roles="Hidden" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" cssClass="NewIcon" roles="Hidden" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" cssClass="EditIcon" whenView="grid1" roles="Hidden" />
+      <action id="a2" whenKeySelected="true" commandName="Delete" cssClass="DeleteIcon" whenView="grid1" roles="Hidden" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" roles="Hidden" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" roles="Hidden" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" roles="Hidden" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" roles="Hidden" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" roles="Hidden" />
+      <action id="a2" commandName="Delete" roles="Hidden" />
+    </actionGroup>
+  </actions>
+</dataController>

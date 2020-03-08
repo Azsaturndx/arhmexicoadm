@@ -1,0 +1,1615 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Contratado_Solicitud_Documento" conflictDetection="overwriteChanges" label="Contratado Solicitud Documento" handler="arhmexico.Rules.Contratado_Solicitud_DocumentoBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Contratado_Solicitud_Documento"."Contratado_Solicitud_Documento_Id" "Contratado_Solicitud_Documento_Id"
+	,"Contratado_Solicitud_Documento"."Definicion_Solicitud_Documento_Id" "Definicion_Solicitud_Documento_Id"
+	,"Definicion_Solicitud_Documento_"."Definicion_Solicitud_Documento" "Definicion_Solicitud_Documento_Definicion_Solicitud_Documento"
+	,"Contratado_Solicitud_Documento"."Contratado_Id" "Contratado_Id"
+	,"Contratado_"."Identificador_Unico" "Contratado_Identificador_Unico"
+	,"Contratado_Solicitud_Documento"."Layout_HTML_Id" "Layout_HTML_Id"
+	,"Layout_HTML_"."Layout_HTML_Nombre" "Layout_HTML_Layout_HTML_Nombre"
+	,"Contratado_Solicitud_Documento"."Fecha_Emision_Documento" "Fecha_Emision_Documento"
+	,"Contratado_Solicitud_Documento"."Layout_Documento" "Layout_Documento"
+	,"Contratado_Solicitud_Documento"."Pagadora_Id" "Pagadora_Id"
+	,"Pagadora_"."Pagadora" "Pagadora_Pagadora"
+	,"Contratado_Solicitud_Documento"."Leyenda_Sindicato" "Leyenda_Sindicato"
+	,"Contratado_Solicitud_Documento"."Destinatario" "Destinatario"
+	,"Contratado_Solicitud_Documento"."Sueldo_Empleado_Valor_Letra" "Sueldo_Empleado_Valor_Letra"
+	,"Contratado_Solicitud_Documento"."Domicilio_Contratante" "Domicilio_Contratante"
+	,"Contratado_Solicitud_Documento"."Ciudad_Emision" "Ciudad_Emision"
+	,"Contratado_Solicitud_Documento"."Fecha_Ingreso_Empleado" "Fecha_Ingreso_Empleado"
+	,"Contratado_Solicitud_Documento"."Fecha_Termino_Labores_Empleado" "Fecha_Termino_Labores_Empleado"
+	,"Contratado_Solicitud_Documento"."Picture" "Picture"
+	,"Contratado_Solicitud_Documento"."PictureFileName" "PictureFileName"
+	,"Contratado_Solicitud_Documento"."PictureContentType" "PictureContentType"
+	,"Contratado_Solicitud_Documento"."PictureLength" "PictureLength"
+	,"Contratado_Solicitud_Documento"."Picture2" "Picture2"
+	,"Contratado_Solicitud_Documento"."Picture2FileName" "Picture2FileName"
+	,"Contratado_Solicitud_Documento"."Picture2ContentType" "Picture2ContentType"
+	,"Contratado_Solicitud_Documento"."Picture2Length" "Picture2Length"
+	,"Contratado_Solicitud_Documento"."Solicitud_Documento_Key" "Solicitud_Documento_Key"
+	,"Contratado_Solicitud_Documento"."Fecha_Solicitud" "Fecha_Solicitud"
+	,"Contratado_Solicitud_Documento"."Estatus_Solicitud_Id" "Estatus_Solicitud_Id"
+	,"Estatus_Solicitud_"."Estatus_Solicitud" "Estatus_Solicitud_Estatus_Solicitud"
+	,"Contratado_Solicitud_Documento"."Fecha_Autorizacion_Rechazo" "Fecha_Autorizacion_Rechazo"
+	,"Autorizado_Rechazado_Por"."UserName" "AutorizadoRechazadoPorusername"
+	,"Contratado_Solicitud_Documento"."Notas_Autorizacion_Rechazo" "Notas_Autorizacion_Rechazo"
+	,"Contratado_Solicitud_Documento"."Transaccion_Id" "Transaccion_Id"
+	,"Creado_Por"."UserName" "CreadoPorusername"
+	,"Contratado_Solicitud_Documento"."Fecha_Creacion" "Fecha_Creacion"
+	,"Actualizado_Por"."UserName" "ActualizadoPorusername"
+	,"Contratado_Solicitud_Documento"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Contratado_Solicitud_Documento"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Contratado_Solicitud_Documento"."Nombre_Completo_Contratado" "Nombre_Completo_Contratado"
+	,"Contratado_Solicitud_Documento"."Emisor" "Emisor"
+	,"Contratado_Solicitud_Documento"."Jefe_Sindicato" "Jefe_Sindicato"
+	,"Contratado_Solicitud_Documento"."Fecha_Inicio_Vacaciones" "Fecha_Inicio_Vacaciones"
+	,"Contratado_Solicitud_Documento"."Fecha_Fin_Vacaciones" "Fecha_Fin_Vacaciones"
+	,"Contratado_Solicitud_Documento"."Dias_Descanso" "Dias_Descanso"
+	,"Contratado_Solicitud_Documento"."Nombre_Menor_Guarderia" "Nombre_Menor_Guarderia"
+	,"Contratado_Solicitud_Documento"."Matricula_Persona" "Matricula_Persona"
+	,"Contratado_Solicitud_Documento"."Carrera_Universitaria" "Carrera_Universitaria"
+	,"Contratado_Solicitud_Documento"."Horas_Trabajadas" "Horas_Trabajadas"
+	,"Contratado_Solicitud_Documento"."Departamento_Emisor" "Departamento_Emisor"
+	,"Contratado_Solicitud_Documento"."Registro_Patronal" "Registro_Patronal"
+	,"Contratado_Solicitud_Documento"."Codigo_Postal_Contratante" "Codigo_Postal_Contratante"
+	,"Contratado_Solicitud_Documento"."Numero_Telefonico_Contratante" "Numero_Telefonico_Contratante"
+	,"Contratado_Solicitud_Documento"."Finalidad_Documento_Guarderia_Id" "Finalidad_Documento_Guarderia_Id"
+from "APP"."Contratado_Solicitud_Documento" "Contratado_Solicitud_Documento"
+	left join "APP"."Definicion_Solicitud_Documento" "Definicion_Solicitud_Documento_" on "Contratado_Solicitud_Documento"."Definicion_Solicitud_Documento_Id" = "Definicion_Solicitud_Documento_"."Definicion_Solicitud_Documento_Id"
+	left join "APP"."Contratado" "Contratado_" on "Contratado_Solicitud_Documento"."Contratado_Id" = "Contratado_"."Contratado_Id"
+	left join "dbo"."Layout_HTML" "Layout_HTML_" on "Contratado_Solicitud_Documento"."Layout_HTML_Id" = "Layout_HTML_"."Layout_HTML_Id"
+	left join "APP"."Pagadora" "Pagadora_" on "Contratado_Solicitud_Documento"."Pagadora_Id" = "Pagadora_"."Pagadora_Id"
+	left join "APP"."Estatus_Solicitud" "Estatus_Solicitud_" on "Contratado_Solicitud_Documento"."Estatus_Solicitud_Id" = "Estatus_Solicitud_"."Estatus_Solicitud_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Contratado_Solicitud_Documento"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Creado_Por" on "Contratado_Solicitud_Documento"."Creado_Por_Id" = "Creado_Por"."UserId"
+	left join "dbo"."Usuario_V" "Actualizado_Por" on "Contratado_Solicitud_Documento"."Actualizado_Por_Id" = "Actualizado_Por"."UserId"
+	left join "dbo"."Usuario_V" "Autorizado_Rechazado_Por" on "Contratado_Solicitud_Documento"."Autorizado_Rechazado_Por_Id" = "Autorizado_Rechazado_Por"."UserId"
+]]></text>
+    </command>
+    <command id="Contratado_Solicitud_Documento_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Contratado_Solicitud_Documento_Id" />
+      </output>
+    </command>
+    <command type="Text" id="command3" custom="false">
+      <text><![CDATA[select
+	"Contratado_Solicitud_Documento"."Contratado_Solicitud_Documento_Id" "Contratado_Solicitud_Documento_Id"
+	,"Contratado_Solicitud_Documento"."Definicion_Solicitud_Documento_Id" "Definicion_Solicitud_Documento_Id"
+	,"Definicion_Solicitud_Documento_"."Definicion_Solicitud_Documento" "Definicion_Solicitud_Documento_Definicion_Solicitud_Documento"
+	,"Contratado_Solicitud_Documento"."Contratado_Id" "Contratado_Id"
+	,"Contratado_"."Identificador_Unico" "Contratado_Identificador_Unico"
+	,"Contratado_Solicitud_Documento"."Layout_HTML_Id" "Layout_HTML_Id"
+	,"Layout_HTML_"."Layout_HTML_Nombre" "Layout_HTML_Layout_HTML_Nombre"
+	,"Contratado_Solicitud_Documento"."Fecha_Emision_Documento" "Fecha_Emision_Documento"
+	,"Contratado_Solicitud_Documento"."Layout_Documento" "Layout_Documento"
+	,"Contratado_Solicitud_Documento"."Pagadora_Id" "Pagadora_Id"
+	,"Pagadora_"."Pagadora" "Pagadora_Pagadora"
+	,"Contratado_Solicitud_Documento"."Leyenda_Sindicato" "Leyenda_Sindicato"
+	,"Contratado_Solicitud_Documento"."Destinatario" "Destinatario"
+	,"Contratado_Solicitud_Documento"."Sueldo_Empleado_Valor_Letra" "Sueldo_Empleado_Valor_Letra"
+	,"Contratado_Solicitud_Documento"."Domicilio_Contratante" "Domicilio_Contratante"
+	,"Contratado_Solicitud_Documento"."Ciudad_Emision" "Ciudad_Emision"
+	,"Contratado_Solicitud_Documento"."Fecha_Ingreso_Empleado" "Fecha_Ingreso_Empleado"
+	,"Contratado_Solicitud_Documento"."Fecha_Termino_Labores_Empleado" "Fecha_Termino_Labores_Empleado"
+	,"Contratado_Solicitud_Documento"."Picture" "Picture"
+	,"Contratado_Solicitud_Documento"."PictureFileName" "PictureFileName"
+	,"Contratado_Solicitud_Documento"."PictureContentType" "PictureContentType"
+	,"Contratado_Solicitud_Documento"."PictureLength" "PictureLength"
+	,"Contratado_Solicitud_Documento"."Picture2" "Picture2"
+	,"Contratado_Solicitud_Documento"."Picture2FileName" "Picture2FileName"
+	,"Contratado_Solicitud_Documento"."Picture2ContentType" "Picture2ContentType"
+	,"Contratado_Solicitud_Documento"."Picture2Length" "Picture2Length"
+	,"Contratado_Solicitud_Documento"."Solicitud_Documento_Key" "Solicitud_Documento_Key"
+	,"Contratado_Solicitud_Documento"."Fecha_Solicitud" "Fecha_Solicitud"
+	,"Contratado_Solicitud_Documento"."Estatus_Solicitud_Id" "Estatus_Solicitud_Id"
+	,"Estatus_Solicitud_"."Estatus_Solicitud" "Estatus_Solicitud_Estatus_Solicitud"
+	,"Contratado_Solicitud_Documento"."Fecha_Autorizacion_Rechazo" "Fecha_Autorizacion_Rechazo"
+	,"Autorizado_Rechazado_Por"."UserName" "AutorizadoRechazadoPorusername"
+	,"Contratado_Solicitud_Documento"."Notas_Autorizacion_Rechazo" "Notas_Autorizacion_Rechazo"
+	,"Contratado_Solicitud_Documento"."Transaccion_Id" "Transaccion_Id"
+	,"Creado_Por"."UserName" "CreadoPorusername"
+	,"Contratado_Solicitud_Documento"."Fecha_Creacion" "Fecha_Creacion"
+	,"Actualizado_Por"."UserName" "ActualizadoPorusername"
+	,"Contratado_Solicitud_Documento"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Contratado_Solicitud_Documento"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Persona"."Nombre" "Nombre"
+	,"Persona"."Segundo_Nombre" "Segundo_Nombre"
+	,"Persona"."Apellido_Paterno" "Apellido_Paterno"
+	,"Persona"."Apellido_Materno" "Apellido_Materno"
+from "APP"."Contratado_Solicitud_Documento" "Contratado_Solicitud_Documento"
+	left join "APP"."Definicion_Solicitud_Documento" "Definicion_Solicitud_Documento_" on "Contratado_Solicitud_Documento"."Definicion_Solicitud_Documento_Id" = "Definicion_Solicitud_Documento_"."Definicion_Solicitud_Documento_Id"
+	left join "APP"."Contratado" "Contratado_" on "Contratado_Solicitud_Documento"."Contratado_Id" = "Contratado_"."Contratado_Id"
+	left join "dbo"."Layout_HTML" "Layout_HTML_" on "Contratado_Solicitud_Documento"."Layout_HTML_Id" = "Layout_HTML_"."Layout_HTML_Id"
+	left join "APP"."Pagadora" "Pagadora_" on "Contratado_Solicitud_Documento"."Pagadora_Id" = "Pagadora_"."Pagadora_Id"
+	left join "APP"."Estatus_Solicitud" "Estatus_Solicitud_" on "Contratado_Solicitud_Documento"."Estatus_Solicitud_Id" = "Estatus_Solicitud_"."Estatus_Solicitud_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Contratado_Solicitud_Documento"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Creado_Por" on "Contratado_Solicitud_Documento"."Creado_Por_Id" = "Creado_Por"."UserId"
+	left join "dbo"."Usuario_V" "Actualizado_Por" on "Contratado_Solicitud_Documento"."Actualizado_Por_Id" = "Actualizado_Por"."UserId"
+	left join "dbo"."Usuario_V" "Autorizado_Rechazado_Por" on "Contratado_Solicitud_Documento"."Autorizado_Rechazado_Por_Id" = "Autorizado_Rechazado_Por"."UserId"
+	left join "APP"."Persona" "Persona" on "Persona"."Persona_Id" = "Contratado_"."Persona_Id"]]></text>
+    </command>
+    <command type="Text" id="command2" custom="false">
+      <text><![CDATA[select
+	"Contratado_Solicitud_Documento"."Contratado_Solicitud_Documento_Id" "Contratado_Solicitud_Documento_Id"
+	,"Contratado_Solicitud_Documento"."Definicion_Solicitud_Documento_Id" "Definicion_Solicitud_Documento_Id"
+	,"Definicion_Solicitud_Documento_"."Definicion_Solicitud_Documento" "Definicion_Solicitud_Documento_Definicion_Solicitud_Documento"
+	,"Contratado_Solicitud_Documento"."Contratado_Id" "Contratado_Id"
+	,"Contratado_"."Identificador_Unico" "Contratado_Identificador_Unico"
+	,"Contratado_Solicitud_Documento"."Layout_HTML_Id" "Layout_HTML_Id"
+	,"Layout_HTML_"."Layout_HTML_Nombre" "Layout_HTML_Layout_HTML_Nombre"
+	,"Contratado_Solicitud_Documento"."Fecha_Emision_Documento" "Fecha_Emision_Documento"
+	,"Contratado_Solicitud_Documento"."Layout_Documento" "Layout_Documento"
+	,"Contratado_Solicitud_Documento"."Pagadora_Id" "Pagadora_Id"
+	,"Pagadora_"."Pagadora" "Pagadora_Pagadora"
+	,"Contratado_Solicitud_Documento"."Leyenda_Sindicato" "Leyenda_Sindicato"
+	,"Contratado_Solicitud_Documento"."Destinatario" "Destinatario"
+	,"Contratado_Solicitud_Documento"."Sueldo_Empleado_Valor_Letra" "Sueldo_Empleado_Valor_Letra"
+	,"Contratado_Solicitud_Documento"."Domicilio_Contratante" "Domicilio_Contratante"
+	,"Contratado_Solicitud_Documento"."Ciudad_Emision" "Ciudad_Emision"
+	,"Contratado_Solicitud_Documento"."Fecha_Ingreso_Empleado" "Fecha_Ingreso_Empleado"
+	,"Contratado_Solicitud_Documento"."Fecha_Termino_Labores_Empleado" "Fecha_Termino_Labores_Empleado"
+	,"Contratado_Solicitud_Documento"."Picture" "Picture"
+	,"Contratado_Solicitud_Documento"."PictureFileName" "PictureFileName"
+	,"Contratado_Solicitud_Documento"."PictureContentType" "PictureContentType"
+	,"Contratado_Solicitud_Documento"."PictureLength" "PictureLength"
+	,"Contratado_Solicitud_Documento"."Picture2" "Picture2"
+	,"Contratado_Solicitud_Documento"."Picture2FileName" "Picture2FileName"
+	,"Contratado_Solicitud_Documento"."Picture2ContentType" "Picture2ContentType"
+	,"Contratado_Solicitud_Documento"."Picture2Length" "Picture2Length"
+	,"Contratado_Solicitud_Documento"."Solicitud_Documento_Key" "Solicitud_Documento_Key"
+	,"Contratado_Solicitud_Documento"."Fecha_Solicitud" "Fecha_Solicitud"
+	,"Contratado_Solicitud_Documento"."Estatus_Solicitud_Id" "Estatus_Solicitud_Id"
+	,"Estatus_Solicitud_"."Estatus_Solicitud" "Estatus_Solicitud_Estatus_Solicitud"
+	,"Contratado_Solicitud_Documento"."Fecha_Autorizacion_Rechazo" "Fecha_Autorizacion_Rechazo"
+	,"Autorizado_Rechazado_Por"."UserName" "AutorizadoRechazadoPorusername"
+	,"Contratado_Solicitud_Documento"."Notas_Autorizacion_Rechazo" "Notas_Autorizacion_Rechazo"
+	,"Contratado_Solicitud_Documento"."Transaccion_Id" "Transaccion_Id"
+	,"Creado_Por"."UserName" "CreadoPorusername"
+	,"Contratado_Solicitud_Documento"."Fecha_Creacion" "Fecha_Creacion"
+	,"Actualizado_Por"."UserName" "ActualizadoPorusername"
+	,"Contratado_Solicitud_Documento"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Contratado_Solicitud_Documento"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Persona"."Nombre"
+					+ (CASE WHEN "Persona"."Segundo_Nombre" IS NOT NULL THEN ' ' + "Persona"."Segundo_Nombre" ELSE '' END) 
+					+ ' ' + "Persona"."Apellido_Paterno"
+					+ (CASE WHEN "Persona"."Apellido_Materno" IS NOT NULL THEN ' ' + "Persona"."Apellido_Materno" ELSE '' END) as Persona_Nombre
+	,"Contratado_Solicitud_Documento"."Emisor" "Emisor"
+	,"Contratado_Solicitud_Documento"."Nombre_Completo_Contratado" "Nombre_Completo_Contratado"
+from "APP"."Contratado_Solicitud_Documento" "Contratado_Solicitud_Documento"
+	left join "APP"."Definicion_Solicitud_Documento" "Definicion_Solicitud_Documento_" on "Contratado_Solicitud_Documento"."Definicion_Solicitud_Documento_Id" = "Definicion_Solicitud_Documento_"."Definicion_Solicitud_Documento_Id"
+	left join "APP"."Contratado" "Contratado_" on "Contratado_Solicitud_Documento"."Contratado_Id" = "Contratado_"."Contratado_Id"
+	left join "dbo"."Layout_HTML" "Layout_HTML_" on "Contratado_Solicitud_Documento"."Layout_HTML_Id" = "Layout_HTML_"."Layout_HTML_Id"
+	left join "APP"."Pagadora" "Pagadora_" on "Contratado_Solicitud_Documento"."Pagadora_Id" = "Pagadora_"."Pagadora_Id"
+	left join "APP"."Estatus_Solicitud" "Estatus_Solicitud_" on "Contratado_Solicitud_Documento"."Estatus_Solicitud_Id" = "Estatus_Solicitud_"."Estatus_Solicitud_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Contratado_Solicitud_Documento"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Creado_Por" on "Contratado_Solicitud_Documento"."Creado_Por_Id" = "Creado_Por"."UserId"
+	left join "dbo"."Usuario_V" "Actualizado_Por" on "Contratado_Solicitud_Documento"."Actualizado_Por_Id" = "Actualizado_Por"."UserId"
+	left join "dbo"."Usuario_V" "Autorizado_Rechazado_Por" on "Contratado_Solicitud_Documento"."Autorizado_Rechazado_Por_Id" = "Autorizado_Rechazado_Por"."UserId"
+	left join "APP"."Persona" "Persona" on "Persona"."Persona_Id" = "Contratado_"."Persona_Id"]]></text>
+    </command>
+    <command type="Text" id="gridContratadoSolicitudDocumentoV" custom="false" tableName="APP.Contratado_Solicitud_Documento">
+      <text><![CDATA[SELECT [Contratado_Solicitud_Documento_Id]
+      ,[Definicion_Solicitud_Documento_Id]
+      ,[Definicion_Solicitud_Documento_Definicion_Solicitud_Documento]
+      ,[Contratado_Id]
+      ,[Contratado_Identificador_Unico]
+      ,[Layout_HTML_Id]
+      ,[Layout_HTML_Layout_HTML_Nombre]
+      ,[Fecha_Emision_Documento]
+      ,[Layout_Documento]
+      ,[Pagadora_Id]
+      ,[Pagadora_Pagadora]
+      ,[Leyenda_Sindicato]
+      ,[Destinatario]
+      ,[Sueldo_Empleado_Valor_Letra]
+      ,[Domicilio_Contratante]
+      ,[Ciudad_Emision]
+      ,[Fecha_Ingreso_Empleado]
+      ,[Fecha_Termino_Labores_Empleado]
+      ,[Picture]
+      ,[PictureFileName]
+      ,[PictureContentType]
+      ,[PictureLength]
+      ,[Picture2]
+      ,[Picture2FileName]
+      ,[Picture2ContentType]
+      ,[Picture2Length]
+      ,[Solicitud_Documento_Key]
+      ,[Fecha_Solicitud]
+      ,[Estatus_Solicitud_Id]
+      ,[Estatus_Solicitud_Estatus_Solicitud]
+      ,[Fecha_Autorizacion_Rechazo]
+      ,[AutorizadoRechazadoPorusername]
+      ,[Notas_Autorizacion_Rechazo]
+      ,[Transaccion_Id]
+      ,[CreadoPorusername]
+      ,[Fecha_Creacion]
+      ,[ActualizadoPorusername]
+      ,[Fecha_Ultima_Actualizacion]
+      ,[Estatus_Registro_Id]
+      ,[Estatus_Registro_Estatus_Registro]
+      ,[Nombre_Completo_Contratado]
+      ,[Emisor]
+      ,[Jefe_Sindicato]
+      ,[Fecha_Inicio_Vacaciones]
+      ,[Fecha_Fin_Vacaciones]
+      ,[Dias_Descanso]
+      ,[Nombre_Menor_Guarderia]
+      ,[Matricula_Persona]
+      ,[Carrera_Universitaria]
+      ,[Horas_Trabajadas]
+      ,[Departamento_Emisor]
+      ,[Registro_Patronal]
+      ,[Codigo_Postal_Contratante]
+      ,[Numero_Telefonico_Contratante]
+      ,[Nombre_Contratado]
+      ,[AtributoId1]
+      ,[Atributo1]
+      ,[ValorAtributoId1]
+      ,[ValorAtributo1]
+      ,[AtributoId2]
+      ,[Atributo2]
+      ,[ValorAtributoId2]
+      ,[ValorAtributo2]
+      ,[AtributoId3]
+      ,[Atributo3]
+      ,[ValorAtributoId3]
+      ,[ValorAtributo3]
+      ,[AtributoId4]
+      ,[Atributo4]
+      ,[ValorAtributoId4]
+      ,[ValorAtributo4]
+      ,[AtributoId5]
+      ,[Atributo5]
+      ,[ValorAtributoId5]
+      ,[ValorAtributo5]
+      ,[AtributoId6]
+      ,[Atributo6]
+      ,[ValorAtributoId6]
+      ,[ValorAtributo6]
+      ,[AtributoId7]
+      ,[Atributo7]
+      ,[ValorAtributoId7]
+      ,[ValorAtributo7]
+      ,[AtributoId8]
+      ,[Atributo8]
+      ,[ValorAtributoId8]
+      ,[ValorAtributo8]
+      ,[AtributoId9]
+      ,[Atributo9]
+      ,[ValorAtributoId9]
+      ,[ValorAtributo9]
+      ,[AtributoId10]
+      ,[Atributo10]
+      ,[ValorAtributoId10]
+      ,[ValorAtributo10]
+	  ,[Finalidad_Documento_Guarderia_Id]
+  FROM [dbo].[Contratado_Solicitud_Documento_V]
+]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Contratado_Solicitud_Documento_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Contratado Solicitud Documento Id" readOnly="true" />
+    <field name="Definicion_Solicitud_Documento_Id" type="Int32" allowNulls="false" default="((0))" label="Definicion Solicitud Documento Id" showInSummary="true" causesCalculate="true">
+      <items style="Lookup" dataController="Definicion_Solicitud_Documento" newDataView="createForm1" dataValueField="Definicion_Solicitud_Documento_Id" dataTextField="Definicion_Solicitud_Documento" dataView="Definicion_Solicitud_Documento_LookUp_List" copy="Layout_HTML_Id=Layout_HTML_Id&#xD;&#xA;Layout_HTML_Layout_HTML_Nombre=Layout_HTML_Layout_HTML_Nombre" />
+    </field>
+    <field name="Definicion_Solicitud_Documento_Definicion_Solicitud_Documento" type="String" readOnly="true" label="Definición de Documento" length="150" />
+    <field name="Contratado_Id" type="Int32" allowNulls="false" default="((0))" label="Contratado Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratado" dataValueField="Contratado_Id" dataTextField="Contratado_Persona_Nombre" dataView="Contratado_LookUp_List" />
+    </field>
+    <field name="Contratado_Identificador_Unico" type="String" readOnly="true" label="Contratado Identificador Unico" length="50" />
+    <field name="Layout_HTML_Id" type="Int32" allowNulls="false" default="((0))" label="Layout HTML Id" showInSummary="true">
+      <items style="Lookup" dataController="Layout_HTML" dataValueField="Layout_HTML_Id" dataTextField="Layout_HTML_Nombre" dataView="Layout_HTML_LookUp_List_Documento" />
+    </field>
+    <field name="Layout_HTML_Layout_HTML_Nombre" type="String" readOnly="true" label="Layout HTML" length="150" />
+    <field name="Fecha_Emision_Documento" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Emisión de Documento" showInSummary="true" />
+    <field name="Layout_Documento" type="String" allowQBE="false" allowSorting="false" label="Layout de Documento" showInSummary="true" />
+    <field name="Pagadora_Id" type="Int32" allowNulls="false" default="((0))" label="Pagadora Id">
+      <items style="Lookup" dataController="Pagadora" newDataView="createForm1" dataValueField="Pagadora_Id" dataTextField="Pagadora" dataView="Pagadora_Sindicato_LookUp_List" />
+    </field>
+    <field name="Pagadora_Pagadora" type="String" readOnly="true" label="Sindicato" length="150" />
+    <field name="Leyenda_Sindicato" type="String" label="Leyenda Sindicato" length="1500" />
+    <field name="Destinatario" type="String" label="Destinatario" length="300" />
+    <field name="Sueldo_Empleado_Valor_Letra" type="String" default="('')" label="Sueldo Empleado Valor Letra" length="1500" />
+    <field name="Domicilio_Contratante" type="String" label="Domicilio" length="1500" />
+    <field name="Ciudad_Emision" type="String" label="Ciudad de Emisión" length="1500" />
+    <field name="Fecha_Ingreso_Empleado" type="DateTime" dataFormatString="g" label="Fecha Ingreso de Empleado" />
+    <field name="Fecha_Termino_Labores_Empleado" type="DateTime" dataFormatString="g" label="Fecha Termino Labores Empleado" />
+    <field name="Picture" type="Byte[]" onDemand="true" sourceFields="Contratado_Solicitud_Documento_Id" onDemandHandler="Contratado_Solicitud_DocumentoPicture" onDemandStyle="Thumbnail" allowQBE="false" allowSorting="false" label="Archivo" />
+    <field name="PictureFileName" type="String" label="Nombre del Archivo" length="250" />
+    <field name="PictureContentType" type="String" label="Tipo de Archivo" length="250" />
+    <field name="PictureLength" type="Int32" label="Tamaño del Archivo" />
+    <field name="Picture2" type="Byte[]" onDemand="true" sourceFields="Contratado_Solicitud_Documento_Id" onDemandHandler="Contratado_Solicitud_DocumentoPicture2" onDemandStyle="Thumbnail" allowQBE="false" allowSorting="false" label="Archivo" />
+    <field name="Picture2FileName" type="String" label="Nombre del Archivo" length="250" />
+    <field name="Picture2ContentType" type="String" label="Tipo de Archivo" length="250" />
+    <field name="Picture2Length" type="Int32" label="Tamaño de Archivo" />
+    <field name="Solicitud_Documento_Key" type="Guid" allowNulls="false" default="(newid())" label="Solicitud Documento Key" />
+    <field name="Fecha_Solicitud" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Solicitud" />
+    <field name="Estatus_Solicitud_Id" type="Int32" allowNulls="false" default="((0))" label="Estatus Solicitud Id">
+      <items style="Lookup" dataController="Estatus_Solicitud" dataValueField="Estatus_Solicitud_Id" dataTextField="Estatus_Solicitud" dataView="Estatus_Solicitud_LookUp_List" />
+    </field>
+    <field name="Estatus_Solicitud_Estatus_Solicitud" type="String" readOnly="true" label="Estatus de Solicitud" length="150" />
+    <field name="Fecha_Autorizacion_Rechazo" type="DateTime" dataFormatString="g" label="Fecha de Autorización o Rechazo" readOnly="true" />
+    <field name="AutorizadoRechazadoPorusername" type="String" readOnly="true" label="Autorizado Rechazado Por" length="256" />
+    <field name="Notas_Autorizacion_Rechazo" type="String" allowQBE="false" allowSorting="false" label="Notas de Autorización o Rechazo" readOnly="true" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transaccion Id" length="50" />
+    <field name="CreadoPorusername" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Creación" />
+    <field name="ActualizadoPorusername" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Última Actualización" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="Nombre_Completo_Contratado" type="String" label="Nombre Completo Contratado" length="250" />
+    <field name="Emisor" type="String" label="Emisor" length="300" />
+    <field name="Jefe_Sindicato" type="String" label="Jefe Sindicato" length="150" />
+    <field name="Fecha_Inicio_Vacaciones" type="DateTime" dataFormatString="g" label="Fecha Inicio Vacaciones/Fecha Inicio Prácticas" />
+    <field name="Fecha_Fin_Vacaciones" type="DateTime" dataFormatString="g" label="Fecha Fin Vacaciones/Fecha Fin Prácticas" />
+    <field name="Dias_Descanso" type="String" label="Dias Descanso" length="50" />
+    <field name="Nombre_Menor_Guarderia" type="String" label="Nombre Menor Guarderia" length="150" />
+    <field name="Matricula_Persona" type="String" label="Matricula Persona" length="50" />
+    <field name="Carrera_Universitaria" type="String" label="Carrera Universitaria" length="150" />
+    <field name="Horas_Trabajadas" type="Int32" label="Horas Trabajadas" />
+    <field name="Departamento_Emisor" type="String" label="Departamento Emisor" length="300" />
+    <field name="Registro_Patronal" type="String" label="Registro Patronal" length="50" />
+    <field name="Codigo_Postal_Contratante" type="String" label="Código Postal Contratante" length="5" />
+    <field name="Numero_Telefonico_Contratante" type="String" label="Numero Telefonico Contratante" length="20" />
+    <field name="Finalidad_Documento_Guarderia_Id" type="Int32" default="((0))" label="Finalidad del Documento">
+      <items style="DropDownList">
+        <item value="1" text="Servicios de Guardería" />
+        <item value="2" text="Servicios de Estancia" />
+      </items>
+    </field>
+    <field name="Nombre_Contratado" type="String" allowNulls="false" label="Nombre Contratado" length="150" isVirtual="true">
+      <formula />
+    </field>
+    <field name="Atributo1" type="String" label="Atributo 1" length="150" readOnly="true" />
+    <field name="ValorAtributo1" type="String" label="Valor Atributo 1" length="150" isVirtual="true" />
+    <field name="Atributo2" type="String" label="Atributo 1" length="150" readOnly="true" />
+    <field name="ValorAtributo2" type="String" label="Valor Atributo 1" length="150" isVirtual="true" />
+    <field name="Atributo3" type="String" label="Atributo 1" length="150" readOnly="true" />
+    <field name="ValorAtributo3" type="String" label="Valor Atributo 1" length="150" isVirtual="true" />
+    <field name="Atributo4" type="String" label="Atributo 1" length="150" readOnly="true" />
+    <field name="ValorAtributo4" type="String" label="Valor Atributo 1" length="150" isVirtual="true" />
+    <field name="Atributo5" type="String" label="Atributo 1" length="150" readOnly="true" />
+    <field name="ValorAtributo5" type="String" label="Valor Atributo 1" length="150" isVirtual="true" />
+    <field name="Atributo6" type="String" label="Atributo 1" length="150" readOnly="true" />
+    <field name="ValorAtributo6" type="String" label="Valor Atributo 1" length="150" isVirtual="true" />
+    <field name="Atributo7" type="String" label="Atributo 1" length="150" readOnly="true" />
+    <field name="ValorAtributo7" type="String" label="Valor Atributo 1" length="150" isVirtual="true" />
+    <field name="Atributo8" type="String" label="Atributo 1" length="150" readOnly="true" />
+    <field name="ValorAtributo8" type="String" label="Valor Atributo 1" length="150" isVirtual="true" />
+    <field name="Atributo9" type="String" label="Atributo 1" length="150" readOnly="true" />
+    <field name="ValorAtributo9" type="String" label="Valor Atributo 1" length="150" isVirtual="true" />
+    <field name="Atributo10" type="String" label="Atributo 1" length="150" readOnly="true" />
+    <field name="ValorAtributo10" type="String" label="Valor Atributo 1" length="150" isVirtual="true" />
+    <field name="AtributoId1" type="Int32" label="Atributo Id 1" />
+    <field name="AtributoId2" type="Int32" label="Atributo Id 2" />
+    <field name="AtributoId3" type="Int32" label="Atributo Id 3" />
+    <field name="AtributoId4" type="Int32" label="Atributo Id 4" />
+    <field name="AtributoId5" type="Int32" label="Atributo Id 5" />
+    <field name="AtributoId6" type="Int32" label="Atributo Id 6" />
+    <field name="AtributoId7" type="Int32" label="Atributo Id 7" />
+    <field name="AtributoId8" type="Int32" label="Atributo Id 8" />
+    <field name="AtributoId9" type="Int32" label="Atributo Id 9" />
+    <field name="AtributoId10" type="Int32" label="Atributo Id 10" />
+    <field name="ValorAtributoId1" type="Int32" label="Valor Atributo Id 1" />
+    <field name="ValorAtributoId2" type="Int32" label="Valor Atributo Id 2" />
+    <field name="ValorAtributoId3" type="Int32" label="Valor Atributo Id 3" />
+    <field name="ValorAtributoId4" type="Int32" label="Valor Atributo Id 4" />
+    <field name="ValorAtributoId5" type="Int32" label="Valor Atributo Id 5" />
+    <field name="ValorAtributoId6" type="Int32" label="Valor Atributo Id 6" />
+    <field name="ValorAtributoId7" type="Int32" label="Valor Atributo Id 7" />
+    <field name="ValorAtributoId8" type="Int32" label="Valor Atributo Id 8" />
+    <field name="ValorAtributoId9" type="Int32" label="Valor Atributo 9" />
+    <field name="ValorAtributoId10" type="Int32" label="Valor Atributo Id 10" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" label="Solicitud de Documento" showInSelector="false" filter="Estatus_Registro_Id&lt;&gt;0" commandId="gridContratadoSolicitudDocumentoV">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Definicion_Solicitud_Documento_Id" aliasFieldName="Definicion_Solicitud_Documento_Definicion_Solicitud_Documento" />
+        <dataField fieldName="Nombre_Contratado" rows="5" />
+        <dataField fieldName="Contratado_Id" aliasFieldName="Contratado_Identificador_Unico" hidden="true" />
+        <dataField fieldName="Layout_HTML_Id" aliasFieldName="Layout_HTML_Layout_HTML_Nombre" />
+        <dataField fieldName="Fecha_Emision_Documento" columns="20" />
+        <dataField fieldName="Estatus_Solicitud_Id" aliasFieldName="Estatus_Solicitud_Estatus_Solicitud" />
+        <dataField fieldName="Fecha_Solicitud" columns="20" />
+        <dataField fieldName="Fecha_Autorizacion_Rechazo" columns="20" />
+        <dataField fieldName="AutorizadoRechazadoPorusername" />
+        <dataField fieldName="Notas_Autorizacion_Rechazo" rows="5" />
+        <dataField fieldName="Layout_Documento" rows="5" hidden="true" />
+        <dataField fieldName="Pagadora_Id" aliasFieldName="Pagadora_Pagadora" />
+        <dataField fieldName="Leyenda_Sindicato" />
+        <dataField fieldName="Destinatario" />
+        <dataField fieldName="Sueldo_Empleado_Valor_Letra" />
+        <dataField fieldName="Domicilio_Contratante" />
+        <dataField fieldName="Ciudad_Emision" />
+        <dataField fieldName="Fecha_Ingreso_Empleado" columns="20" />
+        <dataField fieldName="Fecha_Termino_Labores_Empleado" columns="20" />
+        <dataField fieldName="Picture" columns="15" hidden="true" />
+        <dataField fieldName="PictureFileName" hidden="true" />
+        <dataField fieldName="PictureContentType" hidden="true" />
+        <dataField fieldName="PictureLength" columns="15" hidden="true" />
+        <dataField fieldName="Picture2" columns="15" />
+        <dataField fieldName="Picture2FileName" />
+        <dataField fieldName="Picture2ContentType" />
+        <dataField fieldName="Picture2Length" columns="15" />
+        <dataField fieldName="Solicitud_Documento_Key" columns="15" hidden="true" />
+        <dataField fieldName="Transaccion_Id" columns="50" hidden="true" />
+        <dataField fieldName="CreadoPorusername" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="ActualizadoPorusername" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Nombre_Completo_Contratado" />
+        <dataField fieldName="Emisor" />
+        <dataField fieldName="Jefe_Sindicato" />
+        <dataField fieldName="Fecha_Inicio_Vacaciones" columns="20" />
+        <dataField fieldName="Fecha_Fin_Vacaciones" columns="20" />
+        <dataField fieldName="Dias_Descanso" columns="50" />
+        <dataField fieldName="Nombre_Menor_Guarderia" />
+        <dataField fieldName="Matricula_Persona" columns="50" />
+        <dataField fieldName="Carrera_Universitaria" />
+        <dataField fieldName="Horas_Trabajadas" columns="15" />
+        <dataField fieldName="Departamento_Emisor" />
+        <dataField fieldName="Registro_Patronal" columns="50" />
+        <dataField fieldName="Codigo_Postal_Contratante" columns="5" />
+        <dataField fieldName="Numero_Telefonico_Contratante" columns="20" />
+        <dataField fieldName="Finalidad_Documento_Guarderia_Id" columns="15" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" label="Revisar Solicitud de Documento" showInSelector="false" commandId="gridContratadoSolicitudDocumentoV">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" tab="Datos Generales" headerText="Generales" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Definicion_Solicitud_Documento_Id" aliasFieldName="Definicion_Solicitud_Documento_Definicion_Solicitud_Documento" />
+            <dataField fieldName="Contratado_Id" aliasFieldName="Nombre_Contratado" />
+            <dataField fieldName="Layout_HTML_Id" aliasFieldName="Layout_HTML_Layout_HTML_Nombre" hidden="true" />
+            <dataField fieldName="Fecha_Emision_Documento" columns="20">
+              <footerText>Es la fecha que aparecerá en el documento.</footerText>
+            </dataField>
+            <dataField fieldName="Layout_Documento" rows="5" hidden="true" />
+            <dataField fieldName="Pagadora_Id" aliasFieldName="Pagadora_Pagadora" />
+            <dataField fieldName="Leyenda_Sindicato">
+              <footerText>Sólo en caso de que se quiera una leyenda diferente a la escrita en la tabla de sindicatos.</footerText>
+            </dataField>
+            <dataField fieldName="Emisor">
+              <footerText>Sólo en caso de que se requiera un nombre diferente al encargado de RH o si se requiere agregarle una titulación al emisor, ejemplo: C.P. + nombre del emisor</footerText>
+            </dataField>
+            <dataField fieldName="Solicitud_Documento_Key" columns="15" hidden="true" />
+            <dataField fieldName="Fecha_Solicitud" columns="20" />
+            <dataField fieldName="Estatus_Solicitud_Id" aliasFieldName="Estatus_Solicitud_Estatus_Solicitud" hidden="true" />
+            <dataField fieldName="Fecha_Autorizacion_Rechazo" columns="20" />
+            <dataField fieldName="Notas_Autorizacion_Rechazo" rows="5" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="Destinatario">
+              <footerText>Sólo en caso de que se requiera un destinatario, de lo contrario el documento comenzará con "Presente"</footerText>
+            </dataField>
+            <dataField fieldName="Ciudad_Emision">
+              <footerText>Sólo en caso de que la ciudad de emisión sea diferente al de la empresa contratante.</footerText>
+            </dataField>
+            <dataField fieldName="Jefe_Sindicato" />
+            <dataField fieldName="Fecha_Inicio_Vacaciones" columns="20" />
+            <dataField fieldName="Fecha_Fin_Vacaciones" columns="20" />
+            <dataField fieldName="Dias_Descanso" columns="50" />
+            <dataField fieldName="Nombre_Menor_Guarderia" />
+            <dataField fieldName="Matricula_Persona" columns="50" />
+            <dataField fieldName="Carrera_Universitaria" />
+            <dataField fieldName="Horas_Trabajadas" columns="15" />
+            <dataField fieldName="Departamento_Emisor" />
+            <dataField fieldName="Registro_Patronal" columns="50" />
+            <dataField fieldName="Codigo_Postal_Contratante" columns="5" />
+            <dataField fieldName="Numero_Telefonico_Contratante" columns="20" />
+            <dataField fieldName="Finalidad_Documento_Guarderia_Id" columns="15" />
+          </dataFields>
+        </category>
+        <category headerText="Shipping info" id="c3">
+          <visibility>
+            <expression test="[Definicion_Solicitud_Documento_Id]==3" type="ClientScript" />
+          </visibility>
+        </category>
+        <category headerText="Carta de Prácticas y Servicio Social" id="c4">
+          <visibility>
+            <expression test="[Definicion_Solicitud_Documento_Id]==5" type="ClientScript" />
+          </visibility>
+        </category>
+        <category headerText="Del Contratado" tab="Del Contratado" id="c5">
+          <dataFields>
+            <dataField fieldName="Nombre_Completo_Contratado">
+              <footerText>Sólo en caso de que se requiera un nombre diferente al del Contratado</footerText>
+            </dataField>
+            <dataField fieldName="Sueldo_Empleado_Valor_Letra">
+              <footerText>Sólo en caso de que el documento necesite el salario del contratado, debe escribirse tal como se necesite en el documento, ejemplo: 11.05 (Once pesos 00/05 M.N.)</footerText>
+            </dataField>
+            <dataField fieldName="Fecha_Ingreso_Empleado" columns="20">
+              <footerText>Sólo en caso de que se requiera una fecha de ingreso diferente a la que tiene configurada el contratado.</footerText>
+            </dataField>
+            <dataField fieldName="Fecha_Termino_Labores_Empleado" columns="20">
+              <footerText>Sólo en caso de que se requiera una fecha de término de labores en el documento.</footerText>
+            </dataField>
+          </dataFields>
+        </category>
+        <category headerText="Del Contratante" tab="Del Contratante" id="c6">
+          <dataFields>
+            <dataField fieldName="Domicilio_Contratante">
+              <footerText>Sólo en caso de que se requiera un domicilio diferente al que tiene configurado el contratante.</footerText>
+            </dataField>
+          </dataFields>
+        </category>
+        <category id="c2" tab="Otros" headerText="Otros">
+          <dataFields>
+            <dataField fieldName="Atributo1" rows="1" />
+            <dataField fieldName="ValorAtributo1" rows="5">
+              <visibility>
+                <expression test="[Atributo1]!=null" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Atributo2" rows="1">
+              <visibility>
+                <expression test="[Atributo2]!=null" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="ValorAtributo2" rows="5">
+              <visibility>
+                <expression test="[Atributo2]!=null" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Atributo3" rows="1" />
+            <dataField fieldName="ValorAtributo3" rows="5">
+              <visibility>
+                <expression test="[Atributo3]!=null" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Atributo4" rows="1" />
+            <dataField fieldName="ValorAtributo4" rows="5">
+              <visibility>
+                <expression test="[Atributo4]!=null" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Atributo5" rows="1" />
+            <dataField fieldName="ValorAtributo5" rows="5">
+              <visibility>
+                <expression test="[Atributo5]!=null" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Atributo6" rows="1" />
+            <dataField fieldName="ValorAtributo6" rows="5">
+              <visibility>
+                <expression test="[Atributo6]!=null" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Atributo7" rows="1" />
+            <dataField fieldName="ValorAtributo7" rows="5">
+              <visibility>
+                <expression test="[Atributo7]!=null" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Atributo8" rows="1" />
+            <dataField fieldName="ValorAtributo8" rows="5">
+              <visibility>
+                <expression test="[Atributo8]!=null" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Atributo9" rows="1" />
+            <dataField fieldName="ValorAtributo9" rows="5">
+              <visibility>
+                <expression test="[Atributo9]!=null" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Atributo10" rows="1" />
+            <dataField fieldName="ValorAtributo10" rows="5">
+              <visibility>
+                <expression test="[Atributo10]!=null" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="AtributoId1" columns="15" hidden="true" />
+            <dataField fieldName="AtributoId2" columns="15" hidden="true" />
+            <dataField fieldName="AtributoId3" columns="15" hidden="true" />
+            <dataField fieldName="AtributoId4" columns="15" hidden="true" />
+            <dataField fieldName="AtributoId5" columns="15" hidden="true" />
+            <dataField fieldName="AtributoId6" columns="15" hidden="true" />
+            <dataField fieldName="AtributoId7" columns="15" hidden="true" />
+            <dataField fieldName="AtributoId8" columns="15" hidden="true" />
+            <dataField fieldName="AtributoId9" columns="15" hidden="true" />
+            <dataField fieldName="AtributoId10" columns="15" hidden="true" />
+            <dataField fieldName="ValorAtributoId1" columns="15" hidden="true" />
+            <dataField fieldName="ValorAtributoId2" columns="15" hidden="true" />
+            <dataField fieldName="ValorAtributoId3" columns="15" hidden="true" />
+            <dataField fieldName="ValorAtributoId4" columns="15" hidden="true" />
+            <dataField fieldName="ValorAtributoId5" columns="15" hidden="true" />
+            <dataField fieldName="ValorAtributoId6" columns="15" hidden="true" />
+            <dataField fieldName="ValorAtributoId7" columns="15" hidden="true" />
+            <dataField fieldName="ValorAtributoId8" columns="15" hidden="true" />
+            <dataField fieldName="ValorAtributoId9" columns="15" hidden="true" />
+            <dataField fieldName="ValorAtributoId10" columns="15" hidden="true" />
+          </dataFields>
+        </category>
+        <category headerText="Subir Archivo" tab="Subir Archivo" id="c7">
+          <dataFields>
+            <dataField fieldName="Picture" columns="15" hidden="true" />
+            <dataField fieldName="PictureFileName" hidden="true" />
+            <dataField fieldName="PictureContentType" hidden="true" />
+            <dataField fieldName="PictureLength" columns="15" hidden="true" />
+            <dataField fieldName="Picture2" columns="15" />
+            <dataField fieldName="Picture2FileName" />
+            <dataField fieldName="Picture2ContentType" />
+            <dataField fieldName="Picture2Length" columns="15" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nueva Solicitud de Documento" showInSelector="false">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" tab="Datos Generales" headerText="Generales" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Definicion_Solicitud_Documento_Id" aliasFieldName="Definicion_Solicitud_Documento_Definicion_Solicitud_Documento" />
+            <dataField fieldName="Contratado_Id" aliasFieldName="Nombre_Contratado">
+              <footerText>Si esta en la cejilla del contratado no es necesario llenar este campo</footerText>
+            </dataField>
+            <dataField fieldName="Layout_HTML_Id" aliasFieldName="Layout_HTML_Layout_HTML_Nombre" hidden="true" />
+            <dataField fieldName="Fecha_Emision_Documento" columns="20">
+              <footerText>Es la fecha que aparecerá en el documento.</footerText>
+            </dataField>
+            <dataField fieldName="Layout_Documento" rows="5" hidden="true" />
+            <dataField fieldName="Pagadora_Id" aliasFieldName="Pagadora_Pagadora" />
+            <dataField fieldName="Leyenda_Sindicato">
+              <footerText>Sólo en caso de que se quiera una leyenda diferente a la escrita en la tabla de sindicatos.</footerText>
+            </dataField>
+            <dataField fieldName="Emisor">
+              <footerText>Sólo en caso de que se requiera un nombre diferente al encargado de RH o si se requiere agregarle una titulación al emisor, ejemplo: C.P. + nombre del emisor</footerText>
+            </dataField>
+            <dataField fieldName="Solicitud_Documento_Key" columns="15" hidden="true" />
+            <dataField fieldName="Fecha_Solicitud" columns="20" />
+            <dataField fieldName="Estatus_Solicitud_Id" aliasFieldName="Estatus_Solicitud_Estatus_Solicitud" hidden="true" />
+            <dataField fieldName="Fecha_Autorizacion_Rechazo" columns="20" />
+            <dataField fieldName="Notas_Autorizacion_Rechazo" rows="5" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="Destinatario">
+              <footerText>Sólo en caso de que se requiera un destinatario, de lo contrario el documento comenzará con "Presente"</footerText>
+            </dataField>
+            <dataField fieldName="Ciudad_Emision">
+              <footerText>Sólo en caso de que la ciudad de emisión sea diferente al de la empresa contratante.</footerText>
+            </dataField>
+            <dataField fieldName="Jefe_Sindicato" />
+            <dataField fieldName="Fecha_Inicio_Vacaciones" columns="20" />
+            <dataField fieldName="Fecha_Fin_Vacaciones" columns="20" />
+            <dataField fieldName="Dias_Descanso" columns="50" />
+            <dataField fieldName="Nombre_Menor_Guarderia" />
+            <dataField fieldName="Matricula_Persona" columns="50" />
+            <dataField fieldName="Carrera_Universitaria" />
+            <dataField fieldName="Horas_Trabajadas" columns="15" />
+            <dataField fieldName="Departamento_Emisor" />
+            <dataField fieldName="Registro_Patronal" columns="50" />
+            <dataField fieldName="Codigo_Postal_Contratante" columns="5" />
+            <dataField fieldName="Numero_Telefonico_Contratante" columns="20" />
+            <dataField fieldName="Finalidad_Documento_Guarderia_Id" columns="15" />
+          </dataFields>
+        </category>
+        <category headerText="Datos de Guardería" id="c3">
+          <visibility>
+            <expression test="[Definicion_Solicitud_Documento_Id]==3" type="ClientScript" />
+          </visibility>
+        </category>
+        <category headerText="Carta de Prácticas y Servicio Social" id="c4">
+          <visibility>
+            <expression test="[Definicion_Solicitud_Documento_Id]==5" type="ClientScript" />
+          </visibility>
+        </category>
+        <category headerText="Del Contratado" tab="Del Contratado" id="c5">
+          <dataFields>
+            <dataField fieldName="Nombre_Completo_Contratado" />
+            <dataField fieldName="Sueldo_Empleado_Valor_Letra">
+              <footerText>Sólo en caso de que el documento necesite el salario del contratado, debe escribirse tal como se necesite en el documento, ejemplo: 11.05 (Once pesos 00/05 M.N.)</footerText>
+            </dataField>
+            <dataField fieldName="Fecha_Ingreso_Empleado" columns="20">
+              <footerText>Sólo en caso de que se requiera una fecha de ingreso diferente a la que tiene configurada el contratado.</footerText>
+            </dataField>
+            <dataField fieldName="Fecha_Termino_Labores_Empleado" columns="20">
+              <footerText>Sólo en caso de que se requiera una fecha de término de labores en el documento.</footerText>
+            </dataField>
+          </dataFields>
+        </category>
+        <category headerText="Del Contratante" tab="Del Contratante" id="c6">
+          <dataFields>
+            <dataField fieldName="Domicilio_Contratante">
+              <footerText>Sólo en caso de que se requiera un domicilio diferente al que tiene configurado el contratante.</footerText>
+            </dataField>
+          </dataFields>
+        </category>
+        <category id="c2" tab="Otros" headerText="Otros">
+          <dataFields>
+            <dataField fieldName="Atributo1" rows="1" />
+            <dataField fieldName="ValorAtributo1" rows="5">
+              <visibility>
+                <expression test="[Atributo1]!=null" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Atributo2" rows="1">
+              <visibility>
+                <expression test="[Atributo2]!=null" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="ValorAtributo2" rows="5">
+              <visibility>
+                <expression test="[Atributo2]!=null" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Atributo3" rows="1" />
+            <dataField fieldName="ValorAtributo3" rows="5">
+              <visibility>
+                <expression test="[Atributo3]!=null" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Atributo4" rows="1" />
+            <dataField fieldName="ValorAtributo4" rows="5">
+              <visibility>
+                <expression test="[Atributo4]!=null" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Atributo5" rows="1" />
+            <dataField fieldName="ValorAtributo5" rows="5">
+              <visibility>
+                <expression test="[Atributo5]!=null" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Atributo6" rows="1" />
+            <dataField fieldName="ValorAtributo6" rows="5">
+              <visibility>
+                <expression test="[Atributo6]!=null" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Atributo7" rows="1" />
+            <dataField fieldName="ValorAtributo7" rows="5">
+              <visibility>
+                <expression test="[Atributo7]!=null" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Atributo8" rows="1" />
+            <dataField fieldName="ValorAtributo8" rows="5">
+              <visibility>
+                <expression test="[Atributo8]!=null" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Atributo9" rows="1" />
+            <dataField fieldName="ValorAtributo9" rows="5">
+              <visibility>
+                <expression test="[Atributo9]!=null" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Atributo10" rows="1" />
+            <dataField fieldName="ValorAtributo10" rows="5">
+              <visibility>
+                <expression test="[Atributo10]!=null" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="AtributoId1" columns="15" hidden="true" />
+            <dataField fieldName="AtributoId2" columns="15" hidden="true" />
+            <dataField fieldName="AtributoId3" columns="15" hidden="true" />
+            <dataField fieldName="AtributoId4" columns="15" hidden="true" />
+            <dataField fieldName="AtributoId5" columns="15" hidden="true" />
+            <dataField fieldName="AtributoId6" columns="15" hidden="true" />
+            <dataField fieldName="AtributoId7" columns="15" hidden="true" />
+            <dataField fieldName="AtributoId8" columns="15" hidden="true" />
+            <dataField fieldName="AtributoId9" columns="15" hidden="true" />
+            <dataField fieldName="AtributoId10" columns="15" hidden="true" />
+            <dataField fieldName="ValorAtributoId1" columns="15" hidden="true" />
+            <dataField fieldName="ValorAtributoId2" columns="15" hidden="true" />
+            <dataField fieldName="ValorAtributoId3" columns="15" hidden="true" />
+            <dataField fieldName="ValorAtributoId4" columns="15" hidden="true" />
+            <dataField fieldName="ValorAtributoId5" columns="15" hidden="true" />
+            <dataField fieldName="ValorAtributoId6" columns="15" hidden="true" />
+            <dataField fieldName="ValorAtributoId7" columns="15" hidden="true" />
+            <dataField fieldName="ValorAtributoId8" columns="15" hidden="true" />
+            <dataField fieldName="ValorAtributoId9" columns="15" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Hidden" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Desea borrar el registro?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Contratado_Solicitud_Documento
+SET
+        Estatus_Registro_Id = 3
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Contratado_Solicitud_Documento_Id= @Contratado_Solicitud_Documento_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Hidden" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Hidden" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Hidden" />
+      <action commandName="Custom" commandArgument="ExecCS01" headerText="Generar PDF" id="a100" roles="Hidden" />
+      <action commandName="Custom" headerText="Solicitar Documento (Sólo en el caso que la solicitud la haya creado un administrador)" id="a102" commandArgument="ExecCS01" whenKeySelected="true" whenClientScript="[Estatus_Solicitud_Documento_Id]!=2 || [Estatus_Solicitud_Documento_Id]!=3 ||&#xD;&#xA;[Estatus_Solicitud_Documento_Id]!=4 ||&#xD;&#xA;[Estatus_Solicitud_Documento_Id]!=5" roles="Administrators,ArhAdmin" />
+      <action commandName="Navigate" id="a101" commandArgument="_blank:Generacion_PDF?solicitudKey={Solicitud_Documento_Key}" headerText="Generar PDF" whenKeySelected="true" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Desea borrar el registro?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Contratado_Solicitud_Documento
+SET
+        Estatus_Registro_Id = 3
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Contratado_Solicitud_Documento_Id= @Contratado_Solicitud_Documento_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" roles="Hidden" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Desea borrar el registro?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Contratado_Solicitud_Documento
+SET
+        Estatus_Registro_Id = 3
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Contratado_Solicitud_Documento_Id= @Contratado_Solicitud_Documento_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Desea borrar el registro?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Contratado_Solicitud_Documento
+SET
+        Estatus_Registro_Id = 3
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Contratado_Solicitud_Documento_Id= @Contratado_Solicitud_Documento_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+SET @Existe = 0
+
+SELECT
+	TOP 1 @Existe=1
+FROM
+	APP.Contratado_Solicitud_Documento
+WHERE
+       Contratado_Id = @Contratado_Id
+       AND Definicion_Solicitud_Documento_Id = @Definicion_Solicitud_Documento_Id
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe una solicitud para este documento en la base de datos, favor de corregir'
+   SET @Result_ShowAlert = 'Ya existe una solicitud para este documento en la base de datos, favor de corregir'
+   RETURN
+END]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+SET @Existe = 0
+
+SELECT
+	TOP 1 @Existe=1
+FROM
+	APP.Contratado_Solicitud_Documento
+WHERE
+       Contratado_Id = @Contratado_Id
+       AND Definicion_Solicitud_Documento_Id = @Definicion_Solicitud_Documento_Id
+       AND Contratado_Solicitud_Documento_Id<>@Contratado_Solicitud_Documento_Id
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe una solicitud para este documento en la base de datos, favor de corregir'
+   SET @Result_ShowAlert = 'Ya existe una solicitud para este documento en la base de datos, favor de corregir'
+   RETURN
+END]]></rule>
+    <rule id="r102" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Contratado_Solicitud_Documento
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Contratado_Solicitud_Documento_Id= @Contratado_Solicitud_Documento_Id
+	
+--Atributos
+IF(IsNull(@AtributoId1,0)<>0) AND (IsNull(@ValorAtributo1,'')<>'')
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		1--@Tipo_Operacion_Id 
+		,0--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId1--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo1--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- 
+		,0--@Mostrar_Tablas_Sistema BIT -- 
+		,1--@Mensaje_Sistema_Id INT OUT -- 
+			-- 
+		,0--@Simular BIT -- 
+		,''--@Trace VARCHAR(MAX) OUT -- 
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+IF(IsNull(@AtributoId2,0)<>0) AND (IsNull(@ValorAtributo2,'')<>'')
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		1--@Tipo_Operacion_Id 
+		,0--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId2--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo2--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- 
+		,0--@Mostrar_Tablas_Sistema BIT -- 
+		,1--@Mensaje_Sistema_Id INT OUT -- 
+			-- 
+		,0--@Simular BIT -- 
+		,''--@Trace VARCHAR(MAX) OUT -- 
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo2,0)<>0) AND (IsNull(@ValorAtributo2,0)<>0)
+
+IF(IsNull(@AtributoId3,0)<>0) AND (IsNull(@ValorAtributo3,'')<>'')
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		1--@Tipo_Operacion_Id 
+		,0--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId3--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo3--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- 
+		,0--@Mostrar_Tablas_Sistema BIT -- 
+		,1--@Mensaje_Sistema_Id INT OUT -- 
+			-- 
+		,0--@Simular BIT -- 
+		,''--@Trace VARCHAR(MAX) OUT -- 
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+IF(IsNull(@AtributoId4,0)<>0) AND (IsNull(@ValorAtributo4,'')<>'')
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		1--@Tipo_Operacion_Id 
+		,0--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId4--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo4--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- 
+		,0--@Mostrar_Tablas_Sistema BIT -- 
+		,1--@Mensaje_Sistema_Id INT OUT -- 
+			-- 
+		,0--@Simular BIT -- 
+		,''--@Trace VARCHAR(MAX) OUT -- 
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+IF(IsNull(@AtributoId5,0)<>0) AND (IsNull(@ValorAtributo5,'')<>'')
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		1--@Tipo_Operacion_Id 
+		,0--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId5--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo5--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- 
+		,0--@Mostrar_Tablas_Sistema BIT -- 
+		,1--@Mensaje_Sistema_Id INT OUT -- 
+			-- 
+		,0--@Simular BIT -- 
+		,''--@Trace VARCHAR(MAX) OUT -- 
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+IF(IsNull(@AtributoId6,0)<>0) AND (IsNull(@ValorAtributo6,'')<>'')
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		1--@Tipo_Operacion_Id 
+		,0--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId6--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo6--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- 
+		,0--@Mostrar_Tablas_Sistema BIT -- 
+		,1--@Mensaje_Sistema_Id INT OUT -- 
+			-- 
+		,0--@Simular BIT -- 
+		,''--@Trace VARCHAR(MAX) OUT -- 
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+IF(IsNull(@AtributoId7,0)<>0) AND (IsNull(@ValorAtributo7,'')<>'')
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		1--@Tipo_Operacion_Id 
+		,0--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId7--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo7--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- 
+		,0--@Mostrar_Tablas_Sistema BIT -- 
+		,1--@Mensaje_Sistema_Id INT OUT -- 
+			-- 
+		,0--@Simular BIT -- 
+		,''--@Trace VARCHAR(MAX) OUT -- 
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+IF(IsNull(@AtributoId8,0)<>0) AND (IsNull(@ValorAtributo8,'')<>'')
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		1--@Tipo_Operacion_Id 
+		,0--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId8--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo8--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- 
+		,0--@Mostrar_Tablas_Sistema BIT -- 
+		,1--@Mensaje_Sistema_Id INT OUT -- 
+			-- 
+		,0--@Simular BIT -- 
+		,''--@Trace VARCHAR(MAX) OUT -- 
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+IF(IsNull(@AtributoId9,0)<>0) AND (IsNull(@ValorAtributo9,'')<>'')
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		1--@Tipo_Operacion_Id 
+		,0--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId9--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo9--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- 
+		,0--@Mostrar_Tablas_Sistema BIT -- 
+		,1--@Mensaje_Sistema_Id INT OUT -- 
+			-- 
+		,0--@Simular BIT -- 
+		,''--@Trace VARCHAR(MAX) OUT -- 
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+IF(IsNull(@AtributoId10,0)<>0) AND (IsNull(@ValorAtributo10,'')<>'')
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		1--@Tipo_Operacion_Id 
+		,0--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId10--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo10--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- 
+		,0--@Mostrar_Tablas_Sistema BIT -- 
+		,1--@Mensaje_Sistema_Id INT OUT -- 
+			-- 
+		,0--@Simular BIT -- 
+		,''--@Trace VARCHAR(MAX) OUT -- 
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[/*UPDATE
+	APP.Contratado_Solicitud_Documento
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Contratado_Solicitud_Documento_Id= @Contratado_Solicitud_Documento_Id
+	*/
+	
+--Atributos
+IF((IsNull(@AtributoId1,0)<>0) AND (IsNull(@ValorAtributo1,'')<>'') AND (IsNull(@ValorAtributoId1,0)=0))
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		1--@Tipo_Operacion_Id 
+		,0--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId1--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo1--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- 
+		,0--@Mostrar_Tablas_Sistema BIT -- 
+		,1--@Mensaje_Sistema_Id INT OUT -- 
+			-- 
+		,0--@Simular BIT -- 
+		,''--@Trace VARCHAR(MAX) OUT -- 
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+IF(IsNull(@ValorAtributoId1,0)<>0) AND (@ValorAtributo1 <> (SELECT Objeto_Atributo_Valor FROM APP.Objeto_Atributo_Valor WHERE Objeto_Atributo_Valor_Id = @ValorAtributoId1))
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		2--@Tipo_Operacion_Id 
+		,@ValorAtributoId1--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId1--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo1--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- Poner 1 si se desea guardar las operaciones y resultados del SP a la tabla de dbo.Bitacora_Sistema
+		,0--@Mostrar_Tablas_Sistema BIT -- Poner 1 si se desea presentar a pantalla tablas o consultas, para uso del Desarrollador
+		,1--@Mensaje_Sistema_Id INT OUT -- Parametro de Entrada y/o salida, Sirve para regresas las claves de errores, advertencias o mensajes. Inicializar en 0
+			-- Parametro de Entrada y/o salida, Sirve para regresas las claves de errores, advertencias o mensajes. Inicializar en 0
+		,0--@Simular BIT -- Poner 1 si se desea proceder con todas las operaciones del SP pero al final "deshacer" todo lo que se hizo
+		,''--@Trace VARCHAR(MAX) OUT -- Variable para dejar "rastro" de donde "paso" las instrucciones del SP
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+IF((IsNull(@AtributoId2,0)<>0) AND (IsNull(@ValorAtributo2,'')<>'') AND (IsNull(@ValorAtributoId2,0)=0))
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		1--@Tipo_Operacion_Id 
+		,0--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId2--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo2--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- 
+		,0--@Mostrar_Tablas_Sistema BIT -- 
+		,1--@Mensaje_Sistema_Id INT OUT -- 
+			-- 
+		,0--@Simular BIT -- 
+		,''--@Trace VARCHAR(MAX) OUT -- 
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo2,0)<>0) AND (IsNull(@ValorAtributo2,0)<>0)
+
+IF(IsNull(@ValorAtributoId2,0)<>0) AND (@ValorAtributo2 <> (SELECT Objeto_Atributo_Valor FROM APP.Objeto_Atributo_Valor WHERE Objeto_Atributo_Valor_Id = @ValorAtributoId2))
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		2--@Tipo_Operacion_Id 
+		,@ValorAtributoId2--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId2--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo2--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- Poner 1 si se desea guardar las operaciones y resultados del SP a la tabla de dbo.Bitacora_Sistema
+		,0--@Mostrar_Tablas_Sistema BIT -- Poner 1 si se desea presentar a pantalla tablas o consultas, para uso del Desarrollador
+		,1--@Mensaje_Sistema_Id INT OUT -- Parametro de Entrada y/o salida, Sirve para regresas las claves de errores, advertencias o mensajes. Inicializar en 0
+			-- Parametro de Entrada y/o salida, Sirve para regresas las claves de errores, advertencias o mensajes. Inicializar en 0
+		,0--@Simular BIT -- Poner 1 si se desea proceder con todas las operaciones del SP pero al final "deshacer" todo lo que se hizo
+		,''--@Trace VARCHAR(MAX) OUT -- Variable para dejar "rastro" de donde "paso" las instrucciones del SP
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+IF((IsNull(@AtributoId3,0)<>0) AND (IsNull(@ValorAtributo3,'')<>'')AND (IsNull(@ValorAtributoId3,0)=0))
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		1--@Tipo_Operacion_Id 
+		,0--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId3--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo3--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- 
+		,0--@Mostrar_Tablas_Sistema BIT -- 
+		,1--@Mensaje_Sistema_Id INT OUT -- 
+			-- 
+		,0--@Simular BIT -- 
+		,''--@Trace VARCHAR(MAX) OUT -- 
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+
+
+IF(IsNull(@ValorAtributoId3,0)<>0) AND (@ValorAtributo3 <> (SELECT Objeto_Atributo_Valor FROM APP.Objeto_Atributo_Valor WHERE Objeto_Atributo_Valor_Id = @ValorAtributoId3))
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		2--@Tipo_Operacion_Id 
+		,@ValorAtributoId3--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId3--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo3--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- Poner 1 si se desea guardar las operaciones y resultados del SP a la tabla de dbo.Bitacora_Sistema
+		,0--@Mostrar_Tablas_Sistema BIT -- Poner 1 si se desea presentar a pantalla tablas o consultas, para uso del Desarrollador
+		,1--@Mensaje_Sistema_Id INT OUT -- Parametro de Entrada y/o salida, Sirve para regresas las claves de errores, advertencias o mensajes. Inicializar en 0
+			-- Parametro de Entrada y/o salida, Sirve para regresas las claves de errores, advertencias o mensajes. Inicializar en 0
+		,0--@Simular BIT -- Poner 1 si se desea proceder con todas las operaciones del SP pero al final "deshacer" todo lo que se hizo
+		,''--@Trace VARCHAR(MAX) OUT -- Variable para dejar "rastro" de donde "paso" las instrucciones del SP
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+IF((IsNull(@AtributoId4,0)<>0) AND (IsNull(@ValorAtributo4,'')<>'')AND (IsNull(@ValorAtributoId4,0)=0))
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		1--@Tipo_Operacion_Id 
+		,0--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId4--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo4--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- 
+		,0--@Mostrar_Tablas_Sistema BIT -- 
+		,1--@Mensaje_Sistema_Id INT OUT -- 
+			-- 
+		,0--@Simular BIT -- 
+		,''--@Trace VARCHAR(MAX) OUT -- 
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+IF((IsNull(@AtributoId5,0)<>0) AND (IsNull(@ValorAtributo5,'')<>'')AND (IsNull(@ValorAtributoId5,0)=0))
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		1--@Tipo_Operacion_Id 
+		,0--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId5--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo5--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- 
+		,0--@Mostrar_Tablas_Sistema BIT -- 
+		,1--@Mensaje_Sistema_Id INT OUT -- 
+			-- 
+		,0--@Simular BIT -- 
+		,''--@Trace VARCHAR(MAX) OUT -- 
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+IF((IsNull(@AtributoId6,0)<>0) AND (IsNull(@ValorAtributo6,'')<>'')AND (IsNull(@ValorAtributoId6,0)=0))
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		1--@Tipo_Operacion_Id 
+		,0--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId6--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo6--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- 
+		,0--@Mostrar_Tablas_Sistema BIT -- 
+		,1--@Mensaje_Sistema_Id INT OUT -- 
+			-- 
+		,0--@Simular BIT -- 
+		,''--@Trace VARCHAR(MAX) OUT -- 
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+IF((IsNull(@AtributoId7,0)<>0) AND (IsNull(@ValorAtributo7,'')<>'')AND (IsNull(@ValorAtributoId7,0)=0))
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		1--@Tipo_Operacion_Id 
+		,0--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId7--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo7--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- 
+		,0--@Mostrar_Tablas_Sistema BIT -- 
+		,1--@Mensaje_Sistema_Id INT OUT -- 
+			-- 
+		,0--@Simular BIT -- 
+		,''--@Trace VARCHAR(MAX) OUT -- 
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+IF((IsNull(@AtributoId8,0)<>0) AND (IsNull(@ValorAtributo8,'')<>'')AND (IsNull(@ValorAtributoId8,0)=0))
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		1--@Tipo_Operacion_Id 
+		,0--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId8--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo8--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- 
+		,0--@Mostrar_Tablas_Sistema BIT -- 
+		,1--@Mensaje_Sistema_Id INT OUT -- 
+			-- 
+		,0--@Simular BIT -- 
+		,''--@Trace VARCHAR(MAX) OUT -- 
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+IF((IsNull(@AtributoId9,0)<>0) AND (IsNull(@ValorAtributo9,'')<>'')AND (IsNull(@ValorAtributoId9,0)=0))
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		1--@Tipo_Operacion_Id 
+		,0--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId9--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo9--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- 
+		,0--@Mostrar_Tablas_Sistema BIT -- 
+		,1--@Mensaje_Sistema_Id INT OUT -- 
+			-- 
+		,0--@Simular BIT -- 
+		,''--@Trace VARCHAR(MAX) OUT -- 
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+IF((IsNull(@AtributoId10,0)<>0) AND (IsNull(@ValorAtributo10,'')<>'')AND (IsNull(@ValorAtributoId10,0)=0))
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		1--@Tipo_Operacion_Id 
+		,0--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId10--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo10--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- 
+		,0--@Mostrar_Tablas_Sistema BIT -- 
+		,1--@Mensaje_Sistema_Id INT OUT -- 
+			-- 
+		,0--@Simular BIT -- 
+		,''--@Trace VARCHAR(MAX) OUT -- 
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+
+IF(IsNull(@ValorAtributoId4,0)<>0) AND (@ValorAtributo4 <> (SELECT Objeto_Atributo_Valor FROM APP.Objeto_Atributo_Valor WHERE Objeto_Atributo_Valor_Id = @ValorAtributoId4))
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		2--@Tipo_Operacion_Id 
+		,@ValorAtributoId4--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId4--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo4--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- Poner 1 si se desea guardar las operaciones y resultados del SP a la tabla de dbo.Bitacora_Sistema
+		,0--@Mostrar_Tablas_Sistema BIT -- Poner 1 si se desea presentar a pantalla tablas o consultas, para uso del Desarrollador
+		,1--@Mensaje_Sistema_Id INT OUT -- Parametro de Entrada y/o salida, Sirve para regresas las claves de errores, advertencias o mensajes. Inicializar en 0
+			-- Parametro de Entrada y/o salida, Sirve para regresas las claves de errores, advertencias o mensajes. Inicializar en 0
+		,0--@Simular BIT -- Poner 1 si se desea proceder con todas las operaciones del SP pero al final "deshacer" todo lo que se hizo
+		,''--@Trace VARCHAR(MAX) OUT -- Variable para dejar "rastro" de donde "paso" las instrucciones del SP
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+IF(IsNull(@ValorAtributoId5,0)<>0) AND (@ValorAtributo5 <> (SELECT Objeto_Atributo_Valor FROM APP.Objeto_Atributo_Valor WHERE Objeto_Atributo_Valor_Id = @ValorAtributoId5))
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		2--@Tipo_Operacion_Id 
+		,@ValorAtributoId5--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId5--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo5--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- Poner 1 si se desea guardar las operaciones y resultados del SP a la tabla de dbo.Bitacora_Sistema
+		,0--@Mostrar_Tablas_Sistema BIT -- Poner 1 si se desea presentar a pantalla tablas o consultas, para uso del Desarrollador
+		,1--@Mensaje_Sistema_Id INT OUT -- Parametro de Entrada y/o salida, Sirve para regresas las claves de errores, advertencias o mensajes. Inicializar en 0
+			-- Parametro de Entrada y/o salida, Sirve para regresas las claves de errores, advertencias o mensajes. Inicializar en 0
+		,0--@Simular BIT -- Poner 1 si se desea proceder con todas las operaciones del SP pero al final "deshacer" todo lo que se hizo
+		,''--@Trace VARCHAR(MAX) OUT -- Variable para dejar "rastro" de donde "paso" las instrucciones del SP
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+IF(IsNull(@ValorAtributoId6,0)<>0) AND (@ValorAtributo6 <> (SELECT Objeto_Atributo_Valor FROM APP.Objeto_Atributo_Valor WHERE Objeto_Atributo_Valor_Id = @ValorAtributoId6))
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		2--@Tipo_Operacion_Id 
+		,@ValorAtributoId6--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId6--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo6--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- Poner 1 si se desea guardar las operaciones y resultados del SP a la tabla de dbo.Bitacora_Sistema
+		,0--@Mostrar_Tablas_Sistema BIT -- Poner 1 si se desea presentar a pantalla tablas o consultas, para uso del Desarrollador
+		,1--@Mensaje_Sistema_Id INT OUT -- Parametro de Entrada y/o salida, Sirve para regresas las claves de errores, advertencias o mensajes. Inicializar en 0
+			-- Parametro de Entrada y/o salida, Sirve para regresas las claves de errores, advertencias o mensajes. Inicializar en 0
+		,0--@Simular BIT -- Poner 1 si se desea proceder con todas las operaciones del SP pero al final "deshacer" todo lo que se hizo
+		,''--@Trace VARCHAR(MAX) OUT -- Variable para dejar "rastro" de donde "paso" las instrucciones del SP
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+
+IF(IsNull(@ValorAtributoId7,0)<>0) AND (@ValorAtributo7 <> (SELECT Objeto_Atributo_Valor FROM APP.Objeto_Atributo_Valor WHERE Objeto_Atributo_Valor_Id = @ValorAtributoId7))
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		2--@Tipo_Operacion_Id 
+		,@ValorAtributoId7--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId7--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo7--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- Poner 1 si se desea guardar las operaciones y resultados del SP a la tabla de dbo.Bitacora_Sistema
+		,0--@Mostrar_Tablas_Sistema BIT -- Poner 1 si se desea presentar a pantalla tablas o consultas, para uso del Desarrollador
+		,1--@Mensaje_Sistema_Id INT OUT -- Parametro de Entrada y/o salida, Sirve para regresas las claves de errores, advertencias o mensajes. Inicializar en 0
+			-- Parametro de Entrada y/o salida, Sirve para regresas las claves de errores, advertencias o mensajes. Inicializar en 0
+		,0--@Simular BIT -- Poner 1 si se desea proceder con todas las operaciones del SP pero al final "deshacer" todo lo que se hizo
+		,''--@Trace VARCHAR(MAX) OUT -- Variable para dejar "rastro" de donde "paso" las instrucciones del SP
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+
+IF(IsNull(@ValorAtributoId8,0)<>0) AND (@ValorAtributo8 <> (SELECT Objeto_Atributo_Valor FROM APP.Objeto_Atributo_Valor WHERE Objeto_Atributo_Valor_Id = @ValorAtributoId8))
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		2--@Tipo_Operacion_Id 
+		,@ValorAtributoId8--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId8--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo8--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- Poner 1 si se desea guardar las operaciones y resultados del SP a la tabla de dbo.Bitacora_Sistema
+		,0--@Mostrar_Tablas_Sistema BIT -- Poner 1 si se desea presentar a pantalla tablas o consultas, para uso del Desarrollador
+		,1--@Mensaje_Sistema_Id INT OUT -- Parametro de Entrada y/o salida, Sirve para regresas las claves de errores, advertencias o mensajes. Inicializar en 0
+			-- Parametro de Entrada y/o salida, Sirve para regresas las claves de errores, advertencias o mensajes. Inicializar en 0
+		,0--@Simular BIT -- Poner 1 si se desea proceder con todas las operaciones del SP pero al final "deshacer" todo lo que se hizo
+		,''--@Trace VARCHAR(MAX) OUT -- Variable para dejar "rastro" de donde "paso" las instrucciones del SP
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+
+IF(IsNull(@ValorAtributoId9,0)<>0) AND (@ValorAtributo9 <> (SELECT Objeto_Atributo_Valor FROM APP.Objeto_Atributo_Valor WHERE Objeto_Atributo_Valor_Id = @ValorAtributoId9))
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		2--@Tipo_Operacion_Id 
+		,@ValorAtributoId9--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId9--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo9--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- Poner 1 si se desea guardar las operaciones y resultados del SP a la tabla de dbo.Bitacora_Sistema
+		,0--@Mostrar_Tablas_Sistema BIT -- Poner 1 si se desea presentar a pantalla tablas o consultas, para uso del Desarrollador
+		,1--@Mensaje_Sistema_Id INT OUT -- Parametro de Entrada y/o salida, Sirve para regresas las claves de errores, advertencias o mensajes. Inicializar en 0
+			-- Parametro de Entrada y/o salida, Sirve para regresas las claves de errores, advertencias o mensajes. Inicializar en 0
+		,0--@Simular BIT -- Poner 1 si se desea proceder con todas las operaciones del SP pero al final "deshacer" todo lo que se hizo
+		,''--@Trace VARCHAR(MAX) OUT -- Variable para dejar "rastro" de donde "paso" las instrucciones del SP
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+
+IF(IsNull(@ValorAtributoId10,0)<>0) AND (@ValorAtributo10 <> (SELECT Objeto_Atributo_Valor FROM APP.Objeto_Atributo_Valor WHERE Objeto_Atributo_Valor_Id = @ValorAtributoId10))
+BEGIN
+	EXEC [dbo].[sp_Insertar_Atributo_Documento]
+		2--@Tipo_Operacion_Id 
+		,@ValorAtributoId10--@Objeto_Atributo_Valor_Id INT
+		,@Contratado_Solicitud_Documento_Id 
+		,@AtributoId10--@Layout_HTML_Objeto_Atributo_Id INT
+		,@ValorAtributo10--@Objeto_Atributo_Valor VARCHAR(250)
+		----- DE CONTROL DE SP ----
+		,@BusinessRules_UserId	--@Creado_Por_Id UNIQUEIDENTIFIER
+		,''--@Transaccion_Id VARCHAR(50) OUT
+		,1--@Fijar_Bitacora BIT-- Poner 1 si se desea guardar las operaciones y resultados del SP a la tabla de dbo.Bitacora_Sistema
+		,0--@Mostrar_Tablas_Sistema BIT -- Poner 1 si se desea presentar a pantalla tablas o consultas, para uso del Desarrollador
+		,1--@Mensaje_Sistema_Id INT OUT -- Parametro de Entrada y/o salida, Sirve para regresas las claves de errores, advertencias o mensajes. Inicializar en 0
+			-- Parametro de Entrada y/o salida, Sirve para regresas las claves de errores, advertencias o mensajes. Inicializar en 0
+		,0--@Simular BIT -- Poner 1 si se desea proceder con todas las operaciones del SP pero al final "deshacer" todo lo que se hizo
+		,''--@Trace VARCHAR(MAX) OUT -- Variable para dejar "rastro" de donde "paso" las instrucciones del SP
+		,0--@Debug BIT  -- Poner 
+END--IF(IsNull(@Atributo1,0)<>0) AND (IsNull(@ValorAtributo1,0)<>0)
+
+
+
+
+
+
+]]></rule>
+    <rule id="r104" commandName="Custom" commandArgument="ExecCS01" type="Code" phase="After" />
+  </businessRules>
+</dataController>

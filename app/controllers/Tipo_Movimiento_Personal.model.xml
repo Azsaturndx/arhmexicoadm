@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Tipo_Movimiento_Personal" alias="Tipo_Movimiento_Personal" created="2018-10-14T00:19:30" modified="2019-05-30T11:44:52" x="20" y="37" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="391" y="376">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="apUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="873" y="20">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="cpUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="872" y="285">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Tipo_Movimiento_Personal_Id" fieldName="Tipo_Movimiento_Personal_Id" label="Tipo Movimiento Personal Id" />
+    <column name="Tipo_Movimiento_Personal" fieldName="Tipo_Movimiento_Personal" label="Tipo de Movimiento Personal" />
+    <column name="Genera_Finiquito" fieldName="Genera_Finiquito" label="¿Genera Finiquito?" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transacción Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="apUsuario_V" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="apUsuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación UTC 0" format="d" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="cpUsuario_V" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="cpUsuario_V" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización UTC 0" format="d" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+    <column name="Mostrar_En_Historial" fieldName="Mostrar_En_Historial" label="¿Mostrar En Historial?" />
+    <column name="Es_Alta" fieldName="EsAlta" label="¿Es Alta?" />
+    <column name="Es_Baja" fieldName="EsBaja" label="¿Es Baja?" />
+    <column name="Es_Cambio" fieldName="EsCambio" label="Es Cambio" />
+  </columns>
+</dataModel>

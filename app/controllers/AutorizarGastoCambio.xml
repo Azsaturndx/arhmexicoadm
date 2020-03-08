@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="AutorizarGastoCambio" label="AutorizarGastoCambio" conflictDetection="overwriteChanges" handler="arhmexico.Rules.AutorizarGastoCambioBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <fields>
+    <field name="Fecha_Gasto" type="DateTime" readOnly="true" label="Fecha de Gasto" />
+    <field name="Monto_Solicitado" type="Decimal" label="Monto Solicitado" dataFormatString="c" readOnly="true" />
+    <field name="Monto_Autorizado" type="Decimal" label="Monto Autorizado" dataFormatString="c" allowNulls="false" />
+    <field name="Notas" type="String" label="Notas" length="500" />
+  </fields>
+  <views>
+    <view id="editForm1" type="Form" label="Autorizar Gasto con Cambios">
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="Fecha_Gasto" columns="10" />
+            <dataField fieldName="Monto_Solicitado" columns="15" />
+            <dataField fieldName="Monto_Autorizado" columns="15" />
+            <dataField fieldName="Notas" rows="5" columns="10" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+</dataController>

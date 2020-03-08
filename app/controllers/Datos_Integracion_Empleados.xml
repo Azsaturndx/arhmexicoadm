@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Datos_Integracion_Empleados" conflictDetection="overwriteChanges" label="Datos_Integracion_Empleados" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text" tableName="dbo.Datos_Integracion_Empleados" custom="true">
+      <text><![CDATA[SELECT
+	 die.Datos_Integracion_Empleados_Id
+	,die.Contratado_Id
+	,c.Contratado_Persona_Nombre
+	,die.Id_mes
+	,die.Sueldo
+	,die.Sdi
+	,die.Tipo_Periodo
+	,die.Id_Nomina	
+	,die.Periodo_Pago
+	,die.Factor_Antiguedad
+	,die.Retencion_Credito_Infonavit
+	,die.Aportacion_Patronal
+	,die.Porcentaje_Impuesto_Sobre_Nomina
+	,die.Dias_Incapacidad
+	,die.Cuenta_Infonavit
+	,die.Factor_Infonavit
+	,die.Transaccion_Id
+	,die.Creado_Por_Id
+	,cp.UserName Creado_Por
+	,die.Fecha_Creacion
+	,die.Actualizado_Por_Id
+	,ap.UserName Actualizado_Por
+	,die.Fecha_Ultima_Actualizacion
+	,die.Estatus_Registro_Id
+	,er.Estatus_Registro
+
+FROM
+	dbo.Datos_Integracion_Empleados die
+	LEFT JOIN dbo.Estatus_Registro er on die.Estatus_Registro_Id = er.Estatus_Registro_Id
+	LEFT JOIN dbo.Usuario_V cp on die.Creado_Por_Id = cp.UserId
+	LEFT JOIN dbo.Usuario_V ap on die.Actualizado_Por_Id = ap.UserId
+	LEFT JOIN dbo.Grid_Contratado_Admin_V c ON die.Contratado_Id=c.Contratado_Id]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Datos_Integracion_Empleados_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Datos Integracion Empleados#" readOnly="true" />
+    <field name="Contratado_Id" type="Int32" allowNulls="false" label="Contratado#" showInSummary="true">
+      <items style="Lookup" dataController="Contratado" dataView="grid1" dataTextField="Contratado_Persona_Nombre" dataValueField="Contratado_Id" />
+    </field>
+    <field name="Contratado_Persona_Nombre" type="String" label="Contratado" length="603" showInSummary="true" isVirtual="true" />
+    <field name="Id_mes" type="Int32" allowNulls="false" label="Periodo Mes" showInSummary="true" />
+    <field name="Sueldo" type="Double" allowNulls="false" label="Sueldo" showInSummary="true" />
+    <field name="Sdi" type="Double" allowNulls="false" label="SDI" showInSummary="true" />
+    <field name="Tipo_Periodo" type="String" allowNulls="false" label="Tipo de Periodo" length="500" />
+    <field name="Id_Nomina" type="Int32" allowNulls="false" label="Nomina" />
+    <field name="Periodo_Pago" type="String" allowNulls="false" label="Periodo de Pago" length="500" />
+    <field name="Factor_Antiguedad" type="Double" allowNulls="false" label="Factor de Antigüedad" />
+    <field name="Retencion_Credito_Infonavit" type="Double" allowNulls="false" label="Retencion de Crédito Infonavit" />
+    <field name="Aportacion_Patronal" type="Double" allowNulls="false" label="Aportación Patronal" />
+    <field name="Porcentaje_Impuesto_Sobre_Nomina" type="Double" allowNulls="false" label="Porcentaje de Impuesto Sobre Nomina" />
+    <field name="Dias_Incapacidad" type="Int32" allowNulls="false" label="Dias de Incapacidad" />
+    <field name="Cuenta_Infonavit" type="String" label="Cuenta de Infonavit" length="500" />
+    <field name="Factor_Infonavit" type="Decimal" label="Factor de Infonavit" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" label="Transaccion#" length="50" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" label="Creado Por#">
+      <items style="Lookup" dataController="Usuario_V" dataView="Usuario_LookUp_List" dataTextField="UserName" dataValueField="UserId" />
+    </field>
+    <field name="Creado_Por" type="String" label="Creado Por" length="256" isVirtual="true" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" label="Fecha Creacion" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" label="Actualizado Por#">
+      <items style="Lookup" dataController="Usuario_V" dataView="Usuario_LookUp_List" dataTextField="UserName" dataValueField="UserId" />
+    </field>
+    <field name="Actualizado_Por" type="String" label="Actualizado Por" length="256" isVirtual="true" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" label="Fecha Ultima Actualizacion" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" label="Estatus Registro#" />
+    <field name="Estatus_Registro" type="String" label="Estatus Registro" length="150" isVirtual="true" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="dbo Datos Integracion Empleados">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Contratado_Persona_Nombre" />
+        <dataField fieldName="Id_mes" columns="15" />
+        <dataField fieldName="Sueldo" columns="15" />
+        <dataField fieldName="Sdi" columns="15" />
+        <dataField fieldName="Tipo_Periodo" />
+        <dataField fieldName="Id_Nomina" columns="15" />
+        <dataField fieldName="Periodo_Pago" />
+        <dataField fieldName="Factor_Antiguedad" columns="15" />
+        <dataField fieldName="Retencion_Credito_Infonavit" columns="15" />
+        <dataField fieldName="Aportacion_Patronal" columns="15" />
+        <dataField fieldName="Porcentaje_Impuesto_Sobre_Nomina" columns="15" />
+        <dataField fieldName="Dias_Incapacidad" columns="15" />
+        <dataField fieldName="Cuenta_Infonavit" />
+        <dataField fieldName="Factor_Infonavit" dataFormatString="c" columns="15" />
+        <dataField fieldName="Creado_Por_Id" columns="15" aliasFieldName="Creado_Por" />
+        <dataField fieldName="Fecha_Creacion" columns="10" />
+        <dataField fieldName="Actualizado_Por_Id" columns="15" aliasFieldName="Actualizado_Por" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="10" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" aliasFieldName="Estatus_Registro" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Review dbo Datos Integracion Empleados">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="dbo Datos Integracion Empleados" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Contratado_Persona_Nombre" />
+            <dataField fieldName="Id_mes" columns="15" />
+            <dataField fieldName="Sueldo" columns="15" />
+            <dataField fieldName="Sdi" columns="15" />
+            <dataField fieldName="Tipo_Periodo" />
+            <dataField fieldName="Id_Nomina" columns="15" />
+            <dataField fieldName="Periodo_Pago" />
+            <dataField fieldName="Factor_Antiguedad" columns="15" />
+            <dataField fieldName="Retencion_Credito_Infonavit" columns="15" />
+            <dataField fieldName="Aportacion_Patronal" columns="15" />
+            <dataField fieldName="Porcentaje_Impuesto_Sobre_Nomina" columns="15" />
+            <dataField fieldName="Dias_Incapacidad" columns="15" />
+            <dataField fieldName="Cuenta_Infonavit" />
+            <dataField fieldName="Factor_Infonavit" dataFormatString="c" columns="15" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="New dbo Datos Integracion Empleados">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="New dbo Datos Integracion Empleados" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Contratado_Persona_Nombre" />
+            <dataField fieldName="Id_mes" columns="15" />
+            <dataField fieldName="Sueldo" columns="15" />
+            <dataField fieldName="Sdi" columns="15" />
+            <dataField fieldName="Tipo_Periodo" />
+            <dataField fieldName="Id_Nomina" columns="15" />
+            <dataField fieldName="Periodo_Pago" />
+            <dataField fieldName="Factor_Antiguedad" columns="15" />
+            <dataField fieldName="Retencion_Credito_Infonavit" columns="15" />
+            <dataField fieldName="Aportacion_Patronal" columns="15" />
+            <dataField fieldName="Porcentaje_Impuesto_Sobre_Nomina" columns="15" />
+            <dataField fieldName="Dias_Incapacidad" columns="15" />
+            <dataField fieldName="Cuenta_Infonavit" />
+            <dataField fieldName="Factor_Infonavit" dataFormatString="c" columns="15" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" />
+      <action id="a3" commandName="Delete" />
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="Delete" />
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Delete" />
+      <action id="a6" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenKeySelected="true" whenClientScript="this.hasDetails()" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a100" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	dbo.Datos_Integracion_Empleados
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Datos_Integracion_Empleados_Id= @Datos_Integracion_Empleados_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" />
+      <action id="a2" commandName="Delete" />
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	dbo.Datos_Integracion_Empleados
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Datos_Integracion_Empleados_Id = @Datos_Integracion_Empleados_Id]]></rule>
+  </businessRules>
+</dataController>

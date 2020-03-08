@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Contacto" conflictDetection="overwriteChanges" label="Contacto" handler="arhmexico.Rules.ContactoBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Contacto"."Contacto_Id" "Contacto_Id"
+	,"Contacto"."Persona_Id" "Persona_Id"
+	,"Persona_"."Nombre" "Persona_Nombre"
+	,"Persona_"."Apellido_Paterno" "PersonaApellidoPaterno"
+	,"Persona_"."Apellido_Materno" "PersonaApellidoMaterno"
+	,"Persona_"."Segundo_Nombre" "PersonaSegundoNombre"
+	,"Persona_"."Cliente_Id" "Persona_Cliente_Id"
+	,"Contacto"."Tipo_Contacto_Id" "Tipo_Contacto_Id"
+	,"Tipo_Contacto_"."Tipo_Contacto" "Tipo_Contacto_Tipo_Contacto"
+	,"Contacto"."Contacto" "Contacto"
+	,"Contacto"."Fecha_Creacion" "Fecha_Creacion"
+	,"Contacto"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Contacto"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"cp"."UserName" "cpUserName"
+	,"ap"."UserName" "apUserName"
+	,"Contacto"."Es_Contacto_Principal" "Es_Contacto_Principal"
+from "APP"."Contacto" "Contacto"
+	left join "APP"."Persona" "Persona_" on "Contacto"."Persona_Id" = "Persona_"."Persona_Id"
+ and "Contacto"."Actualizado_Por_Id" = "Persona_"."Creado_Por_Id"
+	left join "APP"."Tipo_Contacto" "Tipo_Contacto_" on "Contacto"."Tipo_Contacto_Id" = "Tipo_Contacto_"."Tipo_Contacto_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Contacto"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cp" on "Contacto"."Creado_Por_Id" = "cp"."UserId"
+	left join "dbo"."Usuario_V" "ap" on "Contacto"."Actualizado_Por_Id" = "ap"."UserId"
+]]></text>
+    </command>
+    <command id="Contacto_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Contacto_Id" />
+      </output>
+    </command>
+    <command type="Text" id="Grid_Contacto" tableName="APP.Contacto" custom="false">
+      <text><![CDATA[SELECT 
+	  Contacto_Id
+	  ,Persona_Id
+      ,Persona_Nombre
+      ,PersonaSegundoNombre
+      ,PersonaApellidoPaterno
+      ,PersonaApellidoMaterno
+      ,Tipo_Contacto_Id
+      ,Contacto
+      ,Tipo_Contacto_Tipo_Contacto
+      ,Nombre_Completo
+      ,cpUserName
+      ,apUserName
+      ,Estatus_Registro_Id
+      ,Estatus_Registro_Estatus_Registro
+      ,Fecha_Creacion
+      ,Fecha_Ultima_Actualizacion
+	  ,Es_Contacto_Principal
+  FROM dbo.Grid_Contacto_V]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Contacto_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Contacto Id" readOnly="true" />
+    <field name="Persona_Id" type="Int32" allowNulls="false" label="Persona Id" showInSummary="true">
+      <items style="Lookup" dataController="Persona" newDataView="createForm1" dataValueField="Persona_Id" dataTextField="Nombre_Completo" copy="Actualizado_Por_Id=Creado_Por_Id, PersonaApellidoPaterno=Apellido_Paterno, PersonaApellidoMaterno=Apellido_Materno, PersonaSegundoNombre=Segundo_Nombre, Persona_Cliente_Id=Cliente_Id" dataView="Persona_LookUp_List" />
+    </field>
+    <field name="Persona_Nombre" type="String" readOnly="true" label="Primer Nombre" length="150" />
+    <field name="PersonaApellidoPaterno" type="String" readOnly="true" label="Apellido Paterno" length="150" />
+    <field name="PersonaApellidoMaterno" type="String" readOnly="true" label="Apellido Materno" length="150" />
+    <field name="PersonaSegundoNombre" type="String" readOnly="true" label="Segundo Nombre" length="150" />
+    <field name="Persona_Cliente_Id" type="Int32" readOnly="true" label="Cliente" />
+    <field name="Tipo_Contacto_Id" type="Int32" allowNulls="false" label="Tipo Contacto Id" showInSummary="true">
+      <items style="Lookup" dataController="Tipo_Contacto" newDataView="createForm1" dataValueField="Tipo_Contacto_Id" dataTextField="Tipo_Contacto" dataView="Tipo_Contacto_LookUp_List" />
+    </field>
+    <field name="Tipo_Contacto_Tipo_Contacto" type="String" readOnly="true" label="Tipo de Contacto" length="150" />
+    <field name="Contacto" type="String" allowNulls="false" allowQBE="false" allowSorting="false" label="Contacto" length="5000" showInSummary="true" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" showInSummary="true" />
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" showInSummary="true" />
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="Es_Contacto_Principal" type="Boolean" allowNulls="false" default="((0))" label="¿Es Contacto Principal?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Nombre_Completo" type="String" readOnly="true" label="Nombre Completo" length="604" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="Grid_Contacto" label="Contacto" sortExpression="Persona_Nombre,PersonaSegundoNombre,PersonaApellidoPaterno,PersonaApellidoMaterno,Tipo_Contacto_Tipo_Contacto" filter="Estatus_Registro_Id &lt;&gt; 0" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Contacto_Id" columns="15" hidden="true" />
+        <dataField fieldName="Persona_Id" aliasFieldName="Persona_Nombre" />
+        <dataField fieldName="PersonaSegundoNombre" />
+        <dataField fieldName="PersonaApellidoPaterno" />
+        <dataField fieldName="PersonaApellidoMaterno" />
+        <dataField fieldName="Persona_Cliente_Id" columns="15" />
+        <dataField fieldName="Tipo_Contacto_Id" aliasFieldName="Tipo_Contacto_Tipo_Contacto" />
+        <dataField fieldName="Contacto" rows="5" />
+        <dataField fieldName="Es_Contacto_Principal" />
+        <dataField fieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="Grid_Contacto" label="Actualizar Contacto" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Contacto_Id" columns="15" hidden="true" />
+            <dataField fieldName="Persona_Id" aliasFieldName="Nombre_Completo" />
+            <dataField fieldName="Persona_Cliente_Id" columns="15" />
+            <dataField fieldName="Tipo_Contacto_Id" aliasFieldName="Tipo_Contacto_Tipo_Contacto" />
+            <dataField fieldName="Contacto" rows="5" />
+            <dataField fieldName="Es_Contacto_Principal" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="Grid_Contacto" label="Nuevo Contacto" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Persona_Id" aliasFieldName="Nombre_Completo" />
+            <dataField fieldName="Persona_Cliente_Id" columns="15" />
+            <dataField fieldName="Tipo_Contacto_Id" aliasFieldName="Tipo_Contacto_Tipo_Contacto" />
+            <dataField fieldName="Contacto" rows="5" />
+            <dataField fieldName="Es_Contacto_Principal" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Contacto_LookUp_List" commandId="command1" type="Grid" label="Contacto" showInSelector="false" sortExpression="Nombre_Completo,Contacto" filter="Estatus_Registro_Id IN (0,1)" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <dataFields>
+        <dataField fieldName="Contacto_Id" columns="15" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Nombre_Completo" rows="5" />
+        <dataField fieldName="Contacto" rows="5" />
+        <dataField fieldName="Persona_Id" columns="15" hidden="true" />
+        <dataField fieldName="Persona_Cliente_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Contacto_Telefonico_Persona_Finiquito_LookUp_List" commandId="Grid_Contacto" type="Grid" label="Contacto" showInSelector="false" sortExpression="Nombre_Completo,Contacto" filter="Estatus_Registro_Id IN (0,1) AND Tipo_Contacto_Id = 1" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <dataFields>
+        <dataField fieldName="Contacto_Id" columns="15" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Nombre_Completo" rows="5" />
+        <dataField fieldName="Contacto" rows="5" />
+        <dataField fieldName="Persona_Id" columns="15" hidden="true" />
+        <dataField fieldName="Persona_Cliente_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Contacto_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Contacto
+SET 
+	Estatus_Registro_Id=3
+	,Actualizado_Por_Id = @BusinessRules_UserId
+    ,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Contacto_Id = @Contacto_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Contacto
+SET 
+	Estatus_Registro_Id=3
+	,Actualizado_Por_Id = @BusinessRules_UserId
+    ,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Contacto_Id = @Contacto_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Contacto
+SET 
+	Estatus_Registro_Id=3
+	,Actualizado_Por_Id = @BusinessRules_UserId
+    ,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Contacto_Id = @Contacto_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Contacto
+SET 
+	Estatus_Registro_Id=3
+	,Actualizado_Por_Id = @BusinessRules_UserId
+    ,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Contacto_Id = @Contacto_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Contacto
+	WHERE
+  		REPLACE(UPPER(Contacto),' ','') = REPLACE(UPPER(@Contacto),' ','')
+  		AND Tipo_Contacto_Id = @Tipo_Contacto_Id
+		AND Persona_Id = @Persona_Id
+  		
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un contacto con el mismo nombre en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe un contacto con el mismo nombre en la base de datos, favor de corregir.'
+   RETURN
+END
+
+
+
+
+
+
+]]></rule>
+    <rule id="r102" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Contacto
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Contacto_Id= @Contacto_Id]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Contacto
+	WHERE
+  		REPLACE(UPPER(Contacto),' ','') = REPLACE(UPPER(@Contacto),' ','')
+  		AND Persona_Id = @Persona_Id
+  		AND Tipo_Contacto_Id = @Tipo_Contacto_Id
+		AND Contacto_Id <> @Contacto_Id  				 
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un contacto con el mismo nombre en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe un contacto con el mismo nombre en la base de datos, favor de corregir.'
+   RETURN
+END
+
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Contacto
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Contacto_Id = @Contacto_Id]]></rule>
+  </businessRules>
+</dataController>

@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Reporte_Saldo_Vacaciones_Admin_V" conflictDetection="overwriteChanges" label="Reporte Saldo Vacaciones Admin V" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Reporte_Saldo_Vacaciones_Admin_V"."Id" "Id"
+	,"Reporte_Saldo_Vacaciones_Admin_V"."Nombre" "Nombre"
+	,"Reporte_Saldo_Vacaciones_Admin_V"."Segundo_Nombre" "Segundo_Nombre"
+	,"Reporte_Saldo_Vacaciones_Admin_V"."Apellido_Paterno" "Apellido_Paterno"
+	,"Reporte_Saldo_Vacaciones_Admin_V"."Apellido_Materno" "Apellido_Materno"
+	,"Reporte_Saldo_Vacaciones_Admin_V"."Cliente" "Cliente"
+	,"Reporte_Saldo_Vacaciones_Admin_V"."Contratante" "Contratante"
+	,"Reporte_Saldo_Vacaciones_Admin_V"."Fecha_Antiguedad" "Fecha_Antiguedad"
+	,"Reporte_Saldo_Vacaciones_Admin_V"."Estatus_Contratado" "Estatus_Contratado"
+	,"Reporte_Saldo_Vacaciones_Admin_V"."Estatus_Persona" "Estatus_Persona"
+	,"Reporte_Saldo_Vacaciones_Admin_V"."Estructura_Organizacional" "Estructura_Organizacional"
+	,"Reporte_Saldo_Vacaciones_Admin_V"."Contratante_Puesto" "Contratante_Puesto"
+	,"Reporte_Saldo_Vacaciones_Admin_V"."Contratado_Saldo_Vacaciones_Id" "Contratado_Saldo_Vacaciones_Id"
+	,"Reporte_Saldo_Vacaciones_Admin_V"."Anio" "Anio"
+	,"Reporte_Saldo_Vacaciones_Admin_V"."Fecha_Inicio_Saldo" "Fecha_Inicio_Saldo"
+	,"Reporte_Saldo_Vacaciones_Admin_V"."Fecha_Fin_Saldo" "Fecha_Fin_Saldo"
+	,"Reporte_Saldo_Vacaciones_Admin_V"."Saldo_Vacaciones" "Saldo_Vacaciones"
+	,"Reporte_Saldo_Vacaciones_Admin_V"."Saldo_Vacaciones_Anio_Anterior" "Saldo_Vacaciones_Anio_Anterior"
+	,"Reporte_Saldo_Vacaciones_Admin_V"."Dias_Pendientes_Por_Tomar" "Dias_Pendientes_Por_Tomar"
+	,"Reporte_Saldo_Vacaciones_Admin_V"."Notas" "Notas"
+from "dbo"."Reporte_Saldo_Vacaciones_Admin_V" "Reporte_Saldo_Vacaciones_Admin_V"
+]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Id" type="String" allowNulls="false" label="Id" length="50" showInSummary="true" />
+    <field name="Nombre" type="String" allowNulls="false" label="Nombre" length="150" showInSummary="true" />
+    <field name="Segundo_Nombre" type="String" allowNulls="false" label="Segundo Nombre" readOnly="true" length="150" showInSummary="true" />
+    <field name="Apellido_Paterno" type="String" allowNulls="false" label="Apellido Paterno" length="150" showInSummary="true" />
+    <field name="Apellido_Materno" type="String" allowNulls="false" label="Apellido Materno" readOnly="true" length="150" showInSummary="true" />
+    <field name="Cliente" type="String" allowNulls="false" label="Cliente" length="150" />
+    <field name="Contratante" type="String" allowNulls="false" label="Contratante" length="150" />
+    <field name="Fecha_Antiguedad" type="DateTime" allowNulls="false" dataFormatString="d" label="Fecha de Antigüedad" />
+    <field name="Estatus_Contratado" type="String" allowNulls="false" label="Estatus Contratado" length="150" />
+    <field name="Estatus_Persona" type="String" allowNulls="false" label="Estatus Persona" length="250" />
+    <field name="Estructura_Organizacional" type="String" allowNulls="false" label="Estructura Organizacional" length="150" />
+    <field name="Contratante_Puesto" type="String" allowNulls="false" label="Contratante Puesto" length="150" />
+    <field name="Contratado_Saldo_Vacaciones_Id" type="Int32" allowNulls="false" label="Contratado Saldo Vacaciones Id" />
+    <field name="Anio" type="Int32" allowNulls="false" label="Anio" />
+    <field name="Fecha_Inicio_Saldo" type="DateTime" allowNulls="false" dataFormatString="d" label="Fecha Inicio de Saldo" />
+    <field name="Fecha_Fin_Saldo" type="DateTime" allowNulls="false" dataFormatString="d" label="Fecha Fin de Saldo" />
+    <field name="Saldo_Vacaciones" type="Int16" allowNulls="false" label="Saldo Vacaciones" />
+    <field name="Saldo_Vacaciones_Anio_Anterior" type="Int16" allowNulls="false" label="Saldo Vacaciones Anio Anterior" />
+    <field name="Dias_Pendientes_Por_Tomar" type="Int16" allowNulls="false" label="Dias Pendientes Por Tomar" />
+    <field name="Notas" type="String" allowNulls="false" allowQBE="false" allowSorting="false" label="Notas" readOnly="true" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Reporte General de Saldos de Vacaciones" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Id">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Id" columns="50" />
+        <dataField fieldName="Nombre" />
+        <dataField fieldName="Segundo_Nombre" />
+        <dataField fieldName="Apellido_Paterno" />
+        <dataField fieldName="Apellido_Materno" />
+        <dataField fieldName="Cliente" />
+        <dataField fieldName="Contratante" />
+        <dataField fieldName="Fecha_Antiguedad" columns="20" />
+        <dataField fieldName="Estatus_Contratado" />
+        <dataField fieldName="Estatus_Persona" />
+        <dataField fieldName="Estructura_Organizacional" />
+        <dataField fieldName="Contratante_Puesto" />
+        <dataField fieldName="Contratado_Saldo_Vacaciones_Id" columns="15" />
+        <dataField fieldName="Anio" columns="15" />
+        <dataField fieldName="Fecha_Inicio_Saldo" columns="20" />
+        <dataField fieldName="Fecha_Fin_Saldo" columns="20" />
+        <dataField fieldName="Saldo_Vacaciones" columns="15" />
+        <dataField fieldName="Saldo_Vacaciones_Anio_Anterior" columns="15" />
+        <dataField fieldName="Dias_Pendientes_Por_Tomar" columns="15" />
+        <dataField fieldName="Notas" rows="5" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Review Reporte Saldo Vacaciones Admin V">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Reporte Saldo Vacaciones Admin V" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Id" columns="50" />
+            <dataField fieldName="Nombre" />
+            <dataField fieldName="Segundo_Nombre" />
+            <dataField fieldName="Apellido_Paterno" />
+            <dataField fieldName="Apellido_Materno" />
+            <dataField fieldName="Cliente" />
+            <dataField fieldName="Contratante" />
+            <dataField fieldName="Fecha_Antiguedad" columns="20" />
+            <dataField fieldName="Estatus_Contratado" />
+            <dataField fieldName="Estatus_Persona" />
+            <dataField fieldName="Estructura_Organizacional" />
+            <dataField fieldName="Contratante_Puesto" />
+            <dataField fieldName="Contratado_Saldo_Vacaciones_Id" columns="15" />
+            <dataField fieldName="Anio" columns="15" />
+            <dataField fieldName="Fecha_Inicio_Saldo" columns="20" />
+            <dataField fieldName="Fecha_Fin_Saldo" columns="20" />
+            <dataField fieldName="Saldo_Vacaciones" columns="15" />
+            <dataField fieldName="Saldo_Vacaciones_Anio_Anterior" columns="15" />
+            <dataField fieldName="Dias_Pendientes_Por_Tomar" columns="15" />
+            <dataField fieldName="Notas" rows="5" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="New Reporte Saldo Vacaciones Admin V">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Id" columns="50" />
+            <dataField fieldName="Nombre" />
+            <dataField fieldName="Segundo_Nombre" />
+            <dataField fieldName="Apellido_Paterno" />
+            <dataField fieldName="Apellido_Materno" />
+            <dataField fieldName="Cliente" />
+            <dataField fieldName="Contratante" />
+            <dataField fieldName="Fecha_Antiguedad" columns="20" />
+            <dataField fieldName="Estatus_Contratado" />
+            <dataField fieldName="Estatus_Persona" />
+            <dataField fieldName="Estructura_Organizacional" />
+            <dataField fieldName="Contratante_Puesto" />
+            <dataField fieldName="Contratado_Saldo_Vacaciones_Id" columns="15" />
+            <dataField fieldName="Anio" columns="15" />
+            <dataField fieldName="Fecha_Inicio_Saldo" columns="20" />
+            <dataField fieldName="Fecha_Fin_Saldo" columns="20" />
+            <dataField fieldName="Saldo_Vacaciones" columns="15" />
+            <dataField fieldName="Saldo_Vacaciones_Anio_Anterior" columns="15" />
+            <dataField fieldName="Dias_Pendientes_Por_Tomar" columns="15" />
+            <dataField fieldName="Notas" rows="5" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="Delete" />
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+  </actions>
+</dataController>

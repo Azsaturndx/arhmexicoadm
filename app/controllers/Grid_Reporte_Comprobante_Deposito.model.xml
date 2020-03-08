@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Grid_Reporte_Comprobante_Deposito" alias="Grid_Reporte_Comprobante_Deposito" created="2019-02-26T11:58:43" modified="2019-02-26T11:59:01" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="Folio" fieldName="Folio" label="Folio" />
+    <column name="Número de Factura" fieldName="NmerodeFactura" label="Número de Factura" />
+    <column name="Tipo de depósito" fieldName="Tipodedepsito" label="Tipo de depósito" />
+    <column name="Tipo de Archivo" fieldName="TipodeArchivo" label="Tipo de Archivo" />
+    <column name="Estado" fieldName="Estado" label="Estado" />
+    <column name="Liga" fieldName="Liga" label="Liga" />
+    <column name="Beneficiario" fieldName="Beneficiario" label="Beneficiario" />
+    <column name="Cliente" fieldName="Cliente" label="Cliente" />
+    <column name="Empresa Pagadora" fieldName="EmpresaPagadora" label="Empresa Pagadora" />
+    <column name="Banco" fieldName="Banco" label="Banco" />
+    <column name="Monto" fieldName="Monto" label="Monto" />
+    <column name="Monto Total" fieldName="MontoTotal" label="Monto Total" />
+    <column name="Año" fieldName="Ao" label="Año" />
+    <column name="Mes" fieldName="Mes" label="Mes" />
+    <column name="Día" fieldName="Da" label="Día" />
+  </columns>
+</dataModel>

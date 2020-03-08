@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Tipo_Arrendamiento1" label="Tipo_Arrendamiento1" conflictDetection="overwriteChanges" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command type="Text" id="gridTipoArrendamientoV" custom="false">
+      <text><![CDATA[SELECT [Tipo_Arrendamiento_Id]
+      ,[Tipo_Arrendamiento]
+      ,[Clave_Tipo_Arrendamiento]
+      ,[Es_Bodega]
+      ,[Es_Oficina]
+      ,[Es_Casa]
+      ,[Transaccion_Id]
+      ,[Creado_Por_Id]
+      ,[Creado_Por]
+      ,[Fecha_Creacion]
+      ,[Actualizado_Por]
+      ,[Fecha_Ultima_Actualizacion]
+      ,[Estatus_Registro_Id]
+      ,[Estatus_Registro_Estatus_Registro]
+  FROM [dbo].[Grid_Tipo_Arrendamiento_V]]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Tipo_Arrendamiento_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Tipo Arrendamiento V" />
+    <field name="Tipo_Arrendamiento" type="String" allowNulls="false" label="Tipo Arrendamiento" length="150" />
+    <field name="Clave_Tipo_Arrendamiento" type="String" allowNulls="false" label="Clave Tipo Arrendamiento" length="50" />
+    <field name="Es_Bodega" type="Boolean" allowNulls="false" label="Es Bodega" />
+    <field name="Es_Oficina" type="Boolean" allowNulls="false" label="Es Oficina" />
+    <field name="Es_Casa" type="Boolean" allowNulls="false" label="Es Casa" />
+    <field name="Creado_Por" type="String" allowNulls="false" label="Creado Por" length="150" />
+    <field name="Actualizado_Por" type="String" allowNulls="false" label="Actualizado Por" length="150" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" label="Fecha de Creación" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" label="Fecha de Última Actualización" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataView="Estatus_Registro_LookUp_List" dataTextField="Estatus_Registro" dataValueField="Estatus_Registro_ID" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" allowNulls="false" label="Estatus Registro Estatus Registro" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" label="Tipo de Arrendamiento" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" filter="Estatus_Registro_Id IN (0,1)" commandId="gridTipoArrendamientoV">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Tipo_Arrendamiento" rows="5" />
+        <dataField fieldName="Clave_Tipo_Arrendamiento" columns="50" />
+        <dataField fieldName="Es_Bodega" />
+        <dataField fieldName="Es_Oficina" />
+        <dataField fieldName="Es_Casa" />
+        <dataField fieldName="Creado_Por" rows="5" />
+        <dataField fieldName="Fecha_Creacion" columns="10" />
+        <dataField fieldName="Actualizado_Por" rows="5" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="10" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+  </views>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+SET @Existe = 0
+
+SELECT
+	TOP 1 @Existe=1
+FROM
+	APP.Tipo_Arrendamiento
+WHERE
+	REPLACE(UPPER(Tipo_Arrendamiento),' ','') = REPLACE(UPPER(@Tipo_Arrendamiento),' ','')
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un registro para este tipo de arrendamiento en la base de datos, favor de corregir'
+   SET @Result_ShowAlert = 'Ya existe un registro para este tipo de arrendamiento en la base de datos, favor de corregir'
+   RETURN
+END
+]]></rule>
+  </businessRules>
+</dataController>

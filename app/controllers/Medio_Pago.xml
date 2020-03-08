@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Medio_Pago" label="Medio_Pago" conflictDetection="overwriteChanges" handler="arhmexico.Rules.Medio_PagoBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Medio_Pago
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+WHERE
+	Medio_Pago_Id = @Medio_Pago_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Medio_Pago
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+WHERE
+	Medio_Pago_Id = @Medio_Pago_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Medio_Pago
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+WHERE
+	Medio_Pago_Id = @Medio_Pago_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+  </actions>
+  <fields>
+    <field name="Medio_Pago_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Medio Pago Id" readOnly="true" />
+    <field name="Medio_Pago" type="String" allowNulls="false" label="Medio de Pago" length="150" />
+    <field name="Es_Transferencia" type="Boolean" label="¿Es Transferencia?" default="0">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Cheque" type="Boolean" label="¿Es Cheque?" default="0">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Efectivo" type="Boolean" label="¿Es Efectivo?" default="0">
+      <items style="CheckBox" />
+    </field>
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transacción Id" length="50" showInSummary="true" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id" showInSummary="true">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" showInSummary="true" />
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="cpUserName" type="String" label="Creado Por" length="150" readOnly="true" />
+  </fields>
+  <commands>
+    <command type="Text" id="Medio_Pago_IdIdentityCommand" event="Inserted" custom="false">
+      <text><![CDATA[select @@identity]]></text>
+    </command>
+    <command type="Text" id="command1" custom="false" tableName="APP.Medio_Pago">
+      <text><![CDATA[select
+	"Medio_Pago"."Medio_Pago_Id" "Medio_Pago_Id"
+	,"Medio_Pago"."Medio_Pago" "Medio_Pago"
+	,"Medio_Pago"."Es_Transferencia" "Es_Transferencia"
+	,"Medio_Pago"."Es_Cheque" "Es_Cheque"
+	,"Medio_Pago"."Es_Efectivo" "Es_Efectivo"
+	,"Medio_Pago"."Transaccion_Id" "Transaccion_Id"
+	,"Medio_Pago"."Creado_Por_Id" "Creado_Por_Id"
+	,"cpUsuario_V"."UserName" "cpUserName"
+	,"Medio_Pago"."Fecha_Creacion" "Fecha_Creacion"
+	,"Medio_Pago"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"apUsuario_V"."UserName" "apUserName"
+	,"Medio_Pago"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Medio_Pago"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+from "APP"."Medio_Pago" "Medio_Pago"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Medio_Pago"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cpUsuario_V" on "Medio_Pago"."Creado_Por_Id" = "cpUsuario_V"."UserId"
+	left join "dbo"."Usuario_V" "apUsuario_V" on "Medio_Pago"."Actualizado_Por_Id" = "apUsuario_V"."UserId"
+]]></text>
+    </command>
+  </commands>
+  <views>
+    <view id="grid1" commandId="command1" type="Grid" label="Medio de Pago" showInSelector="false" filter="Estatus_Registro_Id&lt;&gt;0">
+      <dataFields>
+        <dataField fieldName="Medio_Pago_Id" columns="15" hidden="true" />
+        <dataField fieldName="Medio_Pago" rows="5" />
+        <dataField fieldName="Es_Transferencia" />
+        <dataField fieldName="Es_Cheque" />
+        <dataField fieldName="Es_Efectivo" />
+        <dataField fieldName="Transaccion_Id" columns="50" hidden="true" />
+        <dataField fieldName="cpUserName" rows="5" />
+        <dataField fieldName="Fecha_Creacion" columns="10" />
+        <dataField fieldName="apUserName" rows="5" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="10" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+    <view id="editForm1" commandId="command1" type="Form" label="Actualizar Medio de Pago" showInSelector="false">
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="Medio_Pago" rows="5" />
+            <dataField fieldName="Es_Transferencia" />
+            <dataField fieldName="Es_Cheque" />
+            <dataField fieldName="Es_Efectivo" />
+            <dataField fieldName="Estatus_Registro_Id" columns="15" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" commandId="command1" type="Form" label="Crear Medio de Pago" showInSelector="false">
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="Medio_Pago" rows="5" />
+            <dataField fieldName="Es_Transferencia" />
+            <dataField fieldName="Es_Cheque" />
+            <dataField fieldName="Es_Efectivo" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Medio_Pago_LookUp_List" commandId="command1" type="Grid" label="Medio de Pago" showInSelector="false" filter="Estatus_Registro_Id IN (0,1)" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <dataFields>
+        <dataField fieldName="Medio_Pago_Id" columns="15" hidden="true" />
+        <dataField fieldName="Medio_Pago" rows="5" />
+        <dataField fieldName="Es_Transferencia" />
+        <dataField fieldName="Es_Cheque" />
+        <dataField fieldName="Es_Efectivo" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" aliasFieldName="Estatus_Registro_Estatus_Registro" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+SET @Existe = 0
+
+SELECT
+	TOP 1 @Existe=1
+FROM
+	APP.Medio_Pago
+WHERE
+	REPLACE(UPPER(Medio_Pago),' ','') = REPLACE(UPPER(@Medio_Pago),' ','')
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un registro para este medio de pago en la base de datos, favor de corregir'
+   SET @Result_ShowAlert = 'Ya existe un registro para este medio de pago en la base de datos, favor de corregir'
+   RETURN
+END]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+SET @Existe = 0
+
+SELECT
+	TOP 1 @Existe=1
+FROM
+	APP.Medio_Pago
+WHERE
+	REPLACE(UPPER(Medio_Pago),' ','') = REPLACE(UPPER(@Medio_Pago),' ','')
+        AND Medio_Pago_Id<>@Medio_Pago_Id
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un registro para este medio de pago en la base de datos, favor de corregir'
+   SET @Result_ShowAlert = 'Ya existe un registro para este medio de pago en la base de datos, favor de corregir'
+   RETURN
+END]]></rule>
+    <rule id="r102" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Medio_Pago
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+        ,Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+        ,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Medio_Pago_Id= @Medio_Pago_Id]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Medio_Pago
+SET
+	Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+        ,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Medio_Pago_Id= @Medio_Pago_Id]]></rule>
+  </businessRules>
+</dataController>

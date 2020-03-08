@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Temporal_Persona" conflictDetection="overwriteChanges" label="Temporal Persona" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Temporal_Persona"."Temporal_Persona_Id" "Temporal_Persona_Id"
+	,"Temporal_Persona"."Persona_Id" "Persona_Id"
+	,"Temporal_Persona"."Nombre_Persona" "Nombre_Persona"
+	,"Temporal_Persona"."Segundo_Nombre_Persona" "Segundo_Nombre_Persona"
+	,"Temporal_Persona"."Apellido_Paterno" "Apellido_Paterno"
+	,"Temporal_Persona"."Apellido_Materno" "Apellido_Materno"
+	,"Temporal_Persona"."Fecha_Nacimiento" "Fecha_Nacimiento"
+	,"Temporal_Persona"."Edad" "Edad"
+	,"Temporal_Persona"."Estado_Civil" "Estado_Civil"
+	,"Temporal_Persona"."Genero_Persona" "Genero_Persona"
+	,"Temporal_Persona"."RFC_Id" "RFC_Id"
+	,"Temporal_Persona"."CURP_Id" "CURP_Id"
+	,"Temporal_Persona"."Domicilio_Calle" "Domicilio_Calle"
+	,"Temporal_Persona"."Domicilio_Numero_Interior" "Domicilio_Numero_Interior"
+	,"Temporal_Persona"."Domicilio_Numero_Exterior" "Domicilio_Numero_Exterior"
+	,"Temporal_Persona"."Domicilio_Colonia" "Domicilio_Colonia"
+	,"Temporal_Persona"."Domicilio_Ciudad" "Domicilio_Ciudad"
+	,"Temporal_Persona"."Domicilio_Pais" "Domicilio_Pais"
+	,"Temporal_Persona"."Domicilio_CP" "Domicilio_CP"
+	,"Temporal_Persona"."Domicilio_Entre_Calles" "Domicilio_Entre_Calles"
+	,"Temporal_Persona"."Latitud" "Latitud"
+	,"Temporal_Persona"."Longitud" "Longitud"
+	,"Temporal_Persona"."Tipo_Domicilio" "Tipo_Domicilio"
+	,"Temporal_Persona"."Maximo_Nivel_Escolaridad" "Maximo_Nivel_Escolaridad"
+	,"Temporal_Persona"."Institucion_Educativa" "Institucion_Educativa"
+	,"Temporal_Persona"."Programa_Curso" "Programa_Curso"
+	,"Temporal_Persona"."Conocimiento" "Conocimiento"
+	,"Temporal_Persona"."Contacto" "Contacto"
+	,"Temporal_Persona"."Longitud_Tipo_Contacto" "Longitud_Tipo_Contacto"
+	,"Temporal_Persona"."Notas" "Notas"
+	,"Temporal_Persona"."Mensaje_Sistema_Id" "Mensaje_Sistema_Id"
+	,"Temporal_Persona"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Temporal_Persona"."Ciudad_Nacimiento" "Ciudad_Nacimiento"
+	,"Temporal_Persona"."Estado_Nacimiento" "Estado_Nacimiento"
+	,"Temporal_Persona"."Pais_Nacimiento" "Pais_Nacimiento"
+	,"Temporal_Persona"."Tipo_Domicilio_Identificador" "Tipo_Domicilio_Identificador"
+	,"Temporal_Persona"."Tipo_Institucion_Educativa" "Tipo_Institucion_Educativa"
+	,"Temporal_Persona"."Lista_Tipo_Conocimiento_Id" "Lista_Tipo_Conocimiento_Id"
+	,"Temporal_Persona"."Tipo_Conocimiento" "Tipo_Conocimiento"
+	,"Temporal_Persona"."Nivel_Conocimiento" "Nivel_Conocimiento"
+	,"Temporal_Persona"."Tipo_Contacto" "Tipo_Contacto"
+from "dbo"."Temporal_Persona" "Temporal_Persona"
+]]></text>
+    </command>
+    <command id="Temporal_Persona_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Temporal_Persona_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Temporal_Persona_Id" type="Int32" allowNulls="false" label="Temporal Persona Id" readOnly="true" showInSummary="true" />
+    <field name="Persona_Id" type="Int32" allowNulls="false" default="((0))" label="Persona Id" showInSummary="true" />
+    <field name="Nombre_Persona" type="String" allowNulls="false" default="('Sin Nombre')" label="Nombre Persona" length="150" showInSummary="true" />
+    <field name="Segundo_Nombre_Persona" type="String" allowNulls="false" default="('Sin Segundo Nombre')" label="Segundo Nombre Persona" length="150" showInSummary="true" />
+    <field name="Apellido_Paterno" type="String" allowNulls="false" default="('Sin Apellido Paterno')" label="Apellido Paterno" length="150" showInSummary="true" />
+    <field name="Apellido_Materno" type="String" allowNulls="false" default="('Sin Apellido Materno')" label="Apellido Materno" length="150" />
+    <field name="Fecha_Nacimiento" type="DateTime" dataFormatString="g" label="Fecha Nacimiento" />
+    <field name="Edad" type="Int32" allowNulls="false" default="((0))" label="Edad" />
+    <field name="Estado_Civil" type="String" allowNulls="false" default="('Sin Estado Civil')" label="Estado Civil" length="150" />
+    <field name="Genero_Persona" type="String" allowNulls="false" default="('Sin Genero')" label="Genero Persona" length="150" />
+    <field name="RFC_Id" type="String" allowNulls="false" default="('Sin RFC')" label="RFC Id" length="13" />
+    <field name="CURP_Id" type="String" allowNulls="false" default="('Sin CURP')" label="CURP Id" length="18" />
+    <field name="Domicilio_Calle" type="String" default="('Sin Calle')" label="Domicilio Calle" length="150" />
+    <field name="Domicilio_Numero_Interior" type="String" default="('0')" label="Domicilio Numero Interior" length="6" />
+    <field name="Domicilio_Numero_Exterior" type="String" default="('0')" label="Domicilio Numero Exterior" length="6" />
+    <field name="Domicilio_Colonia" type="String" default="('Sin Colonia')" label="Domicilio Colonia" length="150" />
+    <field name="Domicilio_Ciudad" type="String" default="('Sin Ciudad')" label="Domicilio Ciudad" length="150" />
+    <field name="Domicilio_Pais" type="String" default="('Sin Pais')" label="Domicilio Pais" length="150" />
+    <field name="Domicilio_CP" type="String" default="('0')" label="Domicilio CP" length="6" />
+    <field name="Domicilio_Entre_Calles" type="String" default="('Sin Entre Calles')" label="Domicilio Entre Calles" length="250" />
+    <field name="Latitud" type="Int32" default="((0))" label="Latitud" />
+    <field name="Longitud" type="Int32" default="((0))" label="Longitud" />
+    <field name="Tipo_Domicilio" type="String" default="('Sin Tipo Domicilio')" label="Tipo Domicilio" length="150" />
+    <field name="Maximo_Nivel_Escolaridad" type="String" allowNulls="false" default="('Sin Nivel de Escolaridad')" label="Maximo Nivel Escolaridad" length="150" />
+    <field name="Institucion_Educativa" type="String" allowNulls="false" default="('Sin Institución Educativa')" label="Institucion Educativa" length="150" />
+    <field name="Programa_Curso" type="String" default="('Sin Programa o Curso')" label="Programa Curso" length="150" />
+    <field name="Conocimiento" type="String" default="('Sin Tipo de Conocimiento')" label="Conocimiento" length="250" />
+    <field name="Contacto" type="String" default="('Sin Contacto')" allowQBE="false" allowSorting="false" label="Contacto" length="5000" />
+    <field name="Longitud_Tipo_Contacto" type="Byte" default="((0))" label="Longitud Tipo Contacto" />
+    <field name="Notas" type="String" default="('Sin Notas')" allowQBE="false" allowSorting="false" label="Notas" />
+    <field name="Mensaje_Sistema_Id" type="Int32" allowNulls="false" default="((0))" label="Mensaje Sistema Id" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id" />
+    <field name="Ciudad_Nacimiento" type="String" allowNulls="false" default="('Sin Lugar Nacimiento')" label="Ciudad Nacimiento" length="150" />
+    <field name="Estado_Nacimiento" type="String" allowNulls="false" default="('Sin Estado Nacimiento')" label="Estado Nacimiento" length="150" />
+    <field name="Pais_Nacimiento" type="String" allowNulls="false" default="('Sin Pais Nacimiento')" label="Pais Nacimiento" length="150" />
+    <field name="Tipo_Domicilio_Identificador" type="String" allowNulls="false" default="('Sin Tipo de Domicilio')" label="Tipo Domicilio Identificador" length="150" />
+    <field name="Tipo_Institucion_Educativa" type="String" allowNulls="false" default="('Sin Tipo de Institución')" label="Tipo Institucion Educativa" length="150" />
+    <field name="Lista_Tipo_Conocimiento_Id" type="String" default="('Sin lista')" label="Lista Tipo Conocimiento Id" length="150" />
+    <field name="Tipo_Conocimiento" type="String" allowNulls="false" default="('Sin Tipo Conocimiento')" label="Tipo Conocimiento" length="150" />
+    <field name="Nivel_Conocimiento" type="String" allowNulls="false" default="('Sin Lista Elemento')" label="Nivel Conocimiento" length="1500" />
+    <field name="Tipo_Contacto" type="String" allowNulls="false" default="('Sin Tipo de Contacto')" label="Tipo Contacto" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Temporal Persona" filter="Estatus_Registro_Id &lt;&gt; 0" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" sortExpression="Nombre_Persona,Segundo_Nombre_Persona,Apellido_Paterno,Apellido_Materno">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Temporal_Persona_Id" columns="15" />
+        <dataField fieldName="Persona_Id" columns="15" />
+        <dataField fieldName="Nombre_Persona" />
+        <dataField fieldName="Segundo_Nombre_Persona" />
+        <dataField fieldName="Apellido_Paterno" />
+        <dataField fieldName="Apellido_Materno" />
+        <dataField fieldName="Fecha_Nacimiento" columns="20" />
+        <dataField fieldName="Edad" columns="15" />
+        <dataField fieldName="Estado_Civil" />
+        <dataField fieldName="Genero_Persona" />
+        <dataField fieldName="RFC_Id" columns="13" />
+        <dataField fieldName="CURP_Id" columns="18" />
+        <dataField fieldName="Domicilio_Calle" />
+        <dataField fieldName="Domicilio_Numero_Interior" columns="6" />
+        <dataField fieldName="Domicilio_Numero_Exterior" columns="6" />
+        <dataField fieldName="Domicilio_Colonia" />
+        <dataField fieldName="Domicilio_Ciudad" />
+        <dataField fieldName="Domicilio_Pais" />
+        <dataField fieldName="Domicilio_CP" columns="6" />
+        <dataField fieldName="Domicilio_Entre_Calles" />
+        <dataField fieldName="Latitud" columns="15" />
+        <dataField fieldName="Longitud" columns="15" />
+        <dataField fieldName="Tipo_Domicilio" />
+        <dataField fieldName="Maximo_Nivel_Escolaridad" />
+        <dataField fieldName="Institucion_Educativa" />
+        <dataField fieldName="Programa_Curso" />
+        <dataField fieldName="Conocimiento" />
+        <dataField fieldName="Contacto" rows="5" />
+        <dataField fieldName="Longitud_Tipo_Contacto" columns="15" />
+        <dataField fieldName="Notas" rows="5" />
+        <dataField fieldName="Mensaje_Sistema_Id" columns="15" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" />
+        <dataField fieldName="Ciudad_Nacimiento" />
+        <dataField fieldName="Estado_Nacimiento" />
+        <dataField fieldName="Pais_Nacimiento" />
+        <dataField fieldName="Tipo_Domicilio_Identificador" />
+        <dataField fieldName="Tipo_Institucion_Educativa" />
+        <dataField fieldName="Lista_Tipo_Conocimiento_Id" />
+        <dataField fieldName="Tipo_Conocimiento" />
+        <dataField fieldName="Nivel_Conocimiento" />
+        <dataField fieldName="Tipo_Contacto" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Edición Temporal Persona" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Temporal Persona" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Temporal_Persona_Id" columns="15" />
+            <dataField fieldName="Persona_Id" columns="15" />
+            <dataField fieldName="Nombre_Persona" />
+            <dataField fieldName="Segundo_Nombre_Persona" />
+            <dataField fieldName="Apellido_Paterno" />
+            <dataField fieldName="Apellido_Materno" />
+            <dataField fieldName="Fecha_Nacimiento" columns="20" />
+            <dataField fieldName="Edad" columns="15" />
+            <dataField fieldName="Estado_Civil" />
+            <dataField fieldName="Genero_Persona" />
+            <dataField fieldName="RFC_Id" columns="13" />
+            <dataField fieldName="CURP_Id" columns="18" />
+            <dataField fieldName="Domicilio_Calle" />
+            <dataField fieldName="Domicilio_Numero_Interior" columns="6" />
+            <dataField fieldName="Domicilio_Numero_Exterior" columns="6" />
+            <dataField fieldName="Domicilio_Colonia" />
+            <dataField fieldName="Domicilio_Ciudad" />
+            <dataField fieldName="Domicilio_Pais" />
+            <dataField fieldName="Domicilio_CP" columns="6" />
+            <dataField fieldName="Domicilio_Entre_Calles" />
+            <dataField fieldName="Latitud" columns="15" />
+            <dataField fieldName="Longitud" columns="15" />
+            <dataField fieldName="Tipo_Domicilio" />
+            <dataField fieldName="Maximo_Nivel_Escolaridad" />
+            <dataField fieldName="Institucion_Educativa" />
+            <dataField fieldName="Programa_Curso" />
+            <dataField fieldName="Conocimiento" />
+            <dataField fieldName="Contacto" rows="5" />
+            <dataField fieldName="Longitud_Tipo_Contacto" columns="15" />
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Mensaje_Sistema_Id" columns="15" />
+            <dataField fieldName="Estatus_Registro_Id" columns="15" />
+            <dataField fieldName="Ciudad_Nacimiento" />
+            <dataField fieldName="Estado_Nacimiento" />
+            <dataField fieldName="Pais_Nacimiento" />
+            <dataField fieldName="Tipo_Domicilio_Identificador" />
+            <dataField fieldName="Tipo_Institucion_Educativa" />
+            <dataField fieldName="Lista_Tipo_Conocimiento_Id" />
+            <dataField fieldName="Tipo_Conocimiento" />
+            <dataField fieldName="Nivel_Conocimiento" />
+            <dataField fieldName="Tipo_Contacto" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nuevo Temporal Persona" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Temporal_Persona_Id" columns="15" />
+            <dataField fieldName="Persona_Id" columns="15" />
+            <dataField fieldName="Nombre_Persona" />
+            <dataField fieldName="Segundo_Nombre_Persona" />
+            <dataField fieldName="Apellido_Paterno" />
+            <dataField fieldName="Apellido_Materno" />
+            <dataField fieldName="Fecha_Nacimiento" columns="20" />
+            <dataField fieldName="Edad" columns="15" />
+            <dataField fieldName="Estado_Civil" />
+            <dataField fieldName="Genero_Persona" />
+            <dataField fieldName="RFC_Id" columns="13" />
+            <dataField fieldName="CURP_Id" columns="18" />
+            <dataField fieldName="Domicilio_Calle" />
+            <dataField fieldName="Domicilio_Numero_Interior" columns="6" />
+            <dataField fieldName="Domicilio_Numero_Exterior" columns="6" />
+            <dataField fieldName="Domicilio_Colonia" />
+            <dataField fieldName="Domicilio_Ciudad" />
+            <dataField fieldName="Domicilio_Pais" />
+            <dataField fieldName="Domicilio_CP" columns="6" />
+            <dataField fieldName="Domicilio_Entre_Calles" />
+            <dataField fieldName="Latitud" columns="15" />
+            <dataField fieldName="Longitud" columns="15" />
+            <dataField fieldName="Tipo_Domicilio" />
+            <dataField fieldName="Maximo_Nivel_Escolaridad" />
+            <dataField fieldName="Institucion_Educativa" />
+            <dataField fieldName="Programa_Curso" />
+            <dataField fieldName="Conocimiento" />
+            <dataField fieldName="Contacto" rows="5" />
+            <dataField fieldName="Longitud_Tipo_Contacto" columns="15" />
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Mensaje_Sistema_Id" columns="15" />
+            <dataField fieldName="Estatus_Registro_Id" columns="15" />
+            <dataField fieldName="Ciudad_Nacimiento" />
+            <dataField fieldName="Estado_Nacimiento" />
+            <dataField fieldName="Pais_Nacimiento" />
+            <dataField fieldName="Tipo_Domicilio_Identificador" />
+            <dataField fieldName="Tipo_Institucion_Educativa" />
+            <dataField fieldName="Lista_Tipo_Conocimiento_Id" />
+            <dataField fieldName="Tipo_Conocimiento" />
+            <dataField fieldName="Nivel_Conocimiento" />
+            <dataField fieldName="Tipo_Contacto" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" />
+      <action id="a3" commandName="Delete" />
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="Delete" />
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="Delete" cssClass="DeleteIcon" whenView="grid1" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" />
+      <action id="a2" commandName="Delete" />
+    </actionGroup>
+  </actions>
+</dataController>

@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+  <siteMapNode title="^SiteHome^Home^SiteHome^" description="" url="~/index.html">
+    <siteMapNode title="^HomePath^Home^HomePath^" description="^HomeDesc^Application home page^HomeDesc^" url="~/pages/home" roles="Administrators,ArhAdmin,ArhDirGral,ArhBi" cssClass="material-icon-home">
+      <siteMapNode title="BI" description="" url="~/pages/bi" roles="Administrators,ArhAdmin,ArhDirGral,ArhBi">
+        <siteMapNode title="Reportes BI" description="" url="~/pages/reportes-bi" roles="Administrators,ArhAdmin,ArhDirGral,ArhBi">
+          <siteMapNode title="Previos a Procesamiento" description="" url="~/pages/previosa-procesamiento" roles="Administrators,ArhAdmin,ArhDirGral,ArhBi">
+            <siteMapNode title="SUA" description="" url="~/pages/sua" roles="Administrators,ArhAdmin,ArhDirGral,ArhBi">
+              <siteMapNode title="Mensual" description="View Imss Mensual Sua" url="~/pages/imss_mensual_sua" roles="Administrators,ArhAdmin,ArhDirGral,ArhBi" />
+              <siteMapNode title="Bimestral" description="View Imss Bimestral Sua" url="~/pages/imss_bimestral_sua" roles="Administrators,ArhAdmin,ArhDirGral,ArhBi" />
+            </siteMapNode>
+          </siteMapNode>
+        </siteMapNode>
+      </siteMapNode>
+    </siteMapNode>
+    <siteMapNode title="Aspirantes" description="" url="~/pages/aspirante" roles="Administrators,ArhAdmin" cssClass="material-icon-perm_identity">
+      <siteMapNode title="Área de Interés" description="" url="~/pages/persona_area_interes" roles="Hidden" />
+      <siteMapNode title="Conocimientos" description="" url="~/pages/persona_conocimiento" roles="hidden" />
+      <siteMapNode title="Contacto" description="" url="~/pages/contacto" roles="hidden" />
+      <siteMapNode title="Domicilios" description="" url="~/pages/persona_domicilio" roles="hidden" />
+      <siteMapNode title="Educación" description="" url="~/pages/persona_educacion" roles="hidden" />
+      <siteMapNode title="Expediente" description="" url="~/pages/persona_documento" roles="hidden" />
+      <siteMapNode title="Experiencia Laboral" description="" url="~/pages/experiencia_laboral" roles="Hidden" />
+      <siteMapNode title="Pasatiempos" description="" url="~/pages/persona_pasatiempo" roles="Hidden" />
+    </siteMapNode>
+    <siteMapNode title="Administración de Clientes" description="" url="~/pages/admin-clientes" roles="Administrators,ArhAdmin,ITARH,ArhVacaciones,ArhTesoreria,ArhContabilidad,ARHOperaciones">
+      <siteMapNode title="Contratantes" description="" url="~/pages/contratantes" roles="Administrators,ArhAdmin,ArhContabilidad,ArhTesoreria,ARHOperaciones">
+        <siteMapNode title="Contratados" description="" url="~/pages/contratados" roles="Administrators,ArhAdmin">
+          <siteMapNode title="Integración Nómina Plus" description="" url="~/pages/integracion_nomina_plus" roles="Administrators,ArhAdmin">
+            <siteMapNode title="Reporte de Integración" description="" url="~/pages/reporte_nomina_plus" roles="Administrators,ArhAdmin" />
+            <siteMapNode title="Contratados de nómina plus" description="" url="~/pages/contratados_nomina_plus" roles="Administrators,ArhAdmin" />
+          </siteMapNode>
+        </siteMapNode>
+        <siteMapNode title="Cargador Contratados" description="View Temporal Cargador Contratado" url="~/pages/temporal_cargador_contratado" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Reportes" description="" url="~/pages/reportes" roles="Administrators,ArhAdmin,ArhContabilidad,ArhTesoreria">
+          <siteMapNode title="Reporte Comprobante Depósito" description="" url="~/pages/grid_reporte_comprobante_deposito" roles="Administrators,ArhAdmin,ArhTesoreria" />
+          <siteMapNode title="Reporte Recibo de Nómina" description="" url="~/pages/grid_reporte_recibo_nomina" roles="Administrators,ArhAdmin,ArhContabilidad" />
+          <siteMapNode title="Reloj Checador" description="" url="~/pages/reporte_reloj_checador_v" roles="Administrators,ArhAdmin" />
+          <siteMapNode title="Reporte de Información No Capturada Por Contratado" description="" url="~/pages/grid_reporte_informacion_no_capturada_contratado_v" roles="Administrators,ArhAdmin" />
+          <siteMapNode title="Reporte de Información Capturada Por Contratado" description="" url="~/pages/grid_reporte_informacion_capturada_contratado_v" roles="Administrators,ArhAdmin" />
+          <siteMapNode title="Reporte de Usuarios con Problemas para Solicitar Vacaciones" description="" url="~/pages/grid_reporte_problemas_solicitar_vacaciones_v" roles="Administrators,ArhAdmin" />
+        </siteMapNode>
+        <siteMapNode title="Vacantes" description="" url="~/pages/vacantes" roles="Administrators,ArhAdmin">
+          <siteMapNode title="Candidatos" description="" url="~/pages/candidatos" roles="Administrators,ArhAdmin" />
+        </siteMapNode>
+      </siteMapNode>
+      <siteMapNode title="Reporte Recibo de Nómina" description="" url="~/pages/reporte_recibo_nomina" roles="Hidden" />
+    </siteMapNode>
+    <siteMapNode title="Contabilidad" description="" url="~/pages/contabilidad" roles="Administrators,ArhAdmin,ArhTesoreria">
+      <siteMapNode title="Reportes Contabilidad" description="" url="~/pages/reportes-contabilidad" roles="Administrators,ArhAdmin,ArhTesoreria">
+        <siteMapNode title="Reporte Comprobantes de Deposito" description="" url="~/pages/reporte-comprobantes-deposito-contabilidad" roles="Administrators,ArhAdmin,ArhTesoreria" />
+      </siteMapNode>
+    </siteMapNode>
+    <siteMapNode title="Fiscal" description="" url="~/pages/fiscal" roles="Administrators,ArhAdmin,ArhFiscal">
+      <siteMapNode title="Documentos de Clientes" description="" url="~/pages/cliente_documento" roles="Administrators,ArhAdmin,ArhFiscal" />
+      <siteMapNode title="Documentos de Sociedad" description="View Sociedad Documento" url="~/pages/sociedad_documento" roles="Administrators,ArhAdmin,ArhFiscal" />
+      <siteMapNode title="Documentos de Cuadros Accionarios" description="View Sociedad Cuadro Accionario Documento" url="~/pages/sociedad_cuadro_accionario_documento" roles="Administrators,ArhAdmin,ArhFiscal" />
+      <siteMapNode title="Documentos de Accionista" description="View Accionista Documento" url="~/pages/accionista_documento" roles="Administrators,ArhAdmin,ArhFiscal" />
+      <siteMapNode title="Sociedad" description="" url="~/pages/sociedades" roles="Administrators,ArhAdmin,ArhFiscal">
+        <siteMapNode title="Pagadoras" description="" url="~/pages/pagadoras" roles="Administrators,ArhAdmin,ArhFiscal" />
+      </siteMapNode>
+      <siteMapNode title="Accionista" description="View Accionista" url="~/pages/accionista" roles="Administrators,ArhAdmin,ArhFiscal" />
+      <siteMapNode title="Sociedad Cuadro Accionario" description="" url="~/pages/sociedad_cuadro_accionario" roles="Administrators,ArhAdmin,ArhFiscal" />
+      <siteMapNode title="Pagadora Cuadro Accionario" description="" url="~/pages/pagadora_cuadro_accionario" roles="hidden" />
+      <siteMapNode title="Pagadora Cuadro Accionario Documento" description="" url="~/pages/pagadora_cuadro_accionario_documento" roles="hidden" />
+      <siteMapNode title="Pagadora Cuadro Accionario Remuneración" description="" url="~/pages/pagadora_cuadro_accionario_remuneracion" roles="hidden" />
+      <siteMapNode title="Pagadora Documento" description="" url="~/pages/pagadora_documento" roles="hidden" />
+      <siteMapNode title="Receptora Cuadro Accionario" description="" url="~/pages/receptora_cuadro_accionario" roles="hidden" />
+      <siteMapNode title="Receptora Cuadro Accionario Documento" description="" url="~/pages/receptora_cuadro_accionario_documento" roles="hidden" />
+      <siteMapNode title="Receptora Cuadro Accionario Remuneración" description="" url="~/pages/receptora_cuadro_accionario_remuneracion" roles="hidden" />
+      <siteMapNode title="Receptora Documento" description="" url="~/pages/receptora_documento" roles="hidden" />
+      <siteMapNode title="Tipo de Arrendamiento" description="" url="~/pages/tipo_arrendamiento" roles="Administrators,ArhAdmin,ArhFiscal" />
+      <siteMapNode title="Proveedor Arrendamiento" description="View Proveedor Arrendamiento" url="~/pages/proveedor_arrendamiento" roles="Administrators,ArhAdmin,ArhFiscal" />
+    </siteMapNode>
+    <siteMapNode title="Laboral" description="" url="~/pages/laboral" roles="Administrators,ArhAdmin">
+      <siteMapNode title="Finiquito" description="" url="~/pages/finiquito" roles="Administrators,ArhAdmin" />
+    </siteMapNode>
+    <siteMapNode title="Tesorería" description="" url="~/pages/tesoreria" roles="Administrators,ArhAdmin,ArhTesoreria,ArhContabilidad">
+      <siteMapNode title="Reportes Tesorería" description="" url="~/pages/reportes-t" roles="Administrators,ArhAdmin,ArhTesoreria,ArhContabilidad">
+        <siteMapNode title="Reporte Comprobantes de Depósito" description="" url="~/pages/grid_reporte_comprobante_deposito_t" roles="Administrators,ArhAdmin,ArhTesoreria,ArhContabilidad" />
+      </siteMapNode>
+    </siteMapNode>
+    <siteMapNode title="Asignación de Herramientas" description="" url="~/pages/herramienta_trabajo_asignada" roles="Administrators,ArhAdmin" />
+    <siteMapNode title="Administración del Gasto" description="" url="~/pages/administraciondel-gasto" roles="Administrators,ArhAdmin,ArhFiscal">
+      <siteMapNode title="Responsable de Autorización de Gasto" description="Responsable de Autorización de Gasto" url="~/pages/responsable_autorizacion_gasto" roles="Hidden" />
+      <siteMapNode title="Contratados" description="" url="~/pages/gastos-contratados" roles="Administrators,ArhAdmin" />
+      <siteMapNode title="Contratantes" description="" url="~/pages/gastos-contratante" roles="Hidden" />
+      <siteMapNode title="Sociedades" description="" url="~/pages/gastos-sociedades" roles="Administrators,ArhAdmin" />
+      <siteMapNode title="Cuadros Accionarios" description="" url="~/pages/gastos-cuadros-accionarios" roles="Administrators,ArhAdmin,ArhLaboral" />
+      <siteMapNode title="Pagos a Proveedores" description="" url="~/pages/pagos-proveedores" roles="Hidden" />
+    </siteMapNode>
+    <siteMapNode title="Organigrama" description="" url="~/pages/organigrama_v" roles="Administrators,ArhAdmin" />
+    <siteMapNode title="Organigrama Estructura" description="" url="~/pages/organigrama_estructura_v" roles="hidden" />
+    <siteMapNode title="Organigrama Puesto" description="" url="~/pages/organigrama_puesto_v" roles="hidden" />
+    <siteMapNode title="Estructura Datos" description="" url="~/pages/estructura_datos_v" roles="hidden" />
+    <siteMapNode title="Perfil Persona V" description="" url="~/pages/perfil_persona_v" roles="hidden" />
+    <siteMapNode title="Organigrama Cliente V" description="View Organigrama Cliente V" url="~/pages/organigrama_cliente_v" roles="hidden" />
+    <siteMapNode title="Organigrama Contratante V" description="View Organigrama Contratante V" url="~/pages/organigrama_contratante_v" roles="hidden" />
+    <siteMapNode title="Catálogos APP" description="" url="~/pages/catalogos-app" roles="Administrators,ArhAdmin,ArhContabilidad" cssClass="material-icon-settings_applications">
+      <siteMapNode title="Comprobante de Depósito" description="" url="~/pages/comprobantede-deposito" roles="Administrators,ArhAdmin">
+        <siteMapNode title="Archivo Liga" description="" url="~/pages/archivo_liga" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Bancos" description="" url="~/pages/banco" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Folio" description="" url="~/pages/folio" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Solicitud Creacion Folio" description="" url="~/pages/solicitud_creacion_folio" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Tipo Archivo Recibo Nomina" description="" url="~/pages/tipo_archivo_recibo_nomina" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Tipo Deposito" description="" url="~/pages/tipo_deposito" roles="Administrators,ArhAdmin" />
+      </siteMapNode>
+      <siteMapNode title="De Contratación" description="" url="~/pages/de-contratacion" roles="Administrators,ArhAdmin">
+        <siteMapNode title="Estatus Contratado" description="" url="~/pages/estatus_contratado" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Tipos de Contratado" description="" url="~/pages/tipo_contratado" roles="Administrators,ArhAdmin" />
+      </siteMapNode>
+      <siteMapNode title="De Educación" description="" url="~/pages/de-educacion" roles="Administrators,ArhAdmin">
+        <siteMapNode title="Institución Educativa" description="" url="~/pages/institucion_educativa" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Nivel de Escolaridad" description="" url="~/pages/nivel_escolaridad" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Programa o Curso" description="" url="~/pages/programa_curso" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Tipos de Conocimientos" description="" url="~/pages/tipo_conocimiento" roles="Administrators,ArhAdmin" />
+      </siteMapNode>
+      <siteMapNode title="De Estructura" description="" url="~/pages/de-estructura" roles="Administrators,ArhAdmin">
+        <siteMapNode title="Estructura Organizacional" description="" url="~/pages/estructura-organizacional" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Nivel Organizacional" description="" url="~/pages/nivel_organizacional" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Tipos de Empleados" description="" url="~/pages/tipo_empleado" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Tipos de Estructura Organizacional" description="" url="~/pages/tipo_estructura_organizacional" roles="Administrators,ArhAdmin" />
+      </siteMapNode>
+      <siteMapNode title="De Finiquito" description="" url="~/pages/catalogos_laboral" roles="Administrators,ArhAdmin">
+        <siteMapNode title="Estatus de Demanda" description="" url="~/pages/estatus_demanda" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Estatus de Finiquito" description="" url="~/pages/estatus_finiquito" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Etapa de Demanda" description="" url="~/pages/etapa_demanda" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Lugar de Audiencia" description="" url="~/pages/lugar_audiencia" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Tipo de Finiquito" description="" url="~/pages/tipo_finiquito" roles="Administrators,ArhAdmin" />
+      </siteMapNode>
+      <siteMapNode title="De Fiscal" description="" url="~/pages/de_fiscal" roles="Administrators,ArhAdmin">
+        <siteMapNode title="Tipo Remuneracion" description="" url="~/pages/tipo_remuneracion" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Estatus Receptora" description="" url="~/pages/estatus_receptora" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Periodicidad Renta" description="" url="~/pages/periodicidad_renta" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Proveedor Pago Renta" description="" url="~/pages/proveedor_pago_renta" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Receptora" description="" url="~/pages/receptora" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Proveedor" description="" url="~/pages/proveedor" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Tipo Sociedad" description="" url="~/pages/tipo_sociedad" roles="Administrators,ArhAdmin">
+          <siteMapNode title="Sociedad" description="View Sociedad" url="~/pages/sociedad" roles="Administrators,ArhAdmin" />
+        </siteMapNode>
+      </siteMapNode>
+      <siteMapNode title="De Gastos" description="" url="~/pages/de-gasto" roles="Administrators,ArhAdmin">
+        <siteMapNode title="Estatus de Gasto" description="" url="~/pages/estatus_gasto" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Gastos Frecuentes" description="" url="~/pages/gastos_frecuentes" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Servicio" description="" url="~/pages/servicio" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Tipo de Gasto" description="" url="~/pages/tipo_gasto" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Medio de Pago" description="" url="~/pages/medio_pago" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Motivo de Pago" description="View Motivo Pago" url="~/pages/motivo_pago" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Tipo Comprobante" description="View Tipo Comprobante" url="~/pages/tipo_comprobante" roles="Administrators,ArhAdmin" />
+      </siteMapNode>
+      <siteMapNode title="De Herramientas de Trabajo" description="" url="~/pages/de-herramientas-trabajo" roles="Administrators,ArhAdmin">
+        <siteMapNode title="Marca" description="" url="~/pages/marca" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Documentos de Herramienta" description="" url="~/pages/herramienta_documento" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Tipo de Herramienta" description="" url="~/pages/tipo_herramienta" roles="Administrators,ArhAdmin" />
+      </siteMapNode>
+      <siteMapNode title="De Laboral" description="" url="~/pages/de-laboral" roles="Administrators,ArhAdmin,ArhContabilidad">
+        <siteMapNode title="Área Laboral" description="" url="~/pages/area_laboral" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Horario Laboral" description="" url="~/pages/horario_laboral" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Organización" description="" url="~/pages/organizacion" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Puesto" description="" url="~/pages/puesto" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Tipo Recibo Nómina" description="View Tipo Recibo Nomina" url="~/pages/tipo_recibo_nomina" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Periodo de Nómina" description="Ver Periodo Nomina" url="~/pages/periodo_nomina" roles="Administrators,ArhAdmin,ArhContabilidad" />
+        <siteMapNode title="Turno Laboral" description="" url="~/pages/turno_laboral" roles="Administrators,ArhAdmin" />
+      </siteMapNode>
+      <siteMapNode title="De Movimientos de Personal" description="" url="~/pages/movimiento-personal" roles="Administrators,ArhAdmin">
+        <siteMapNode title="Motivo de Movimiento de Personal" description="" url="~/pages/motivo_movimiento_personal" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Movimiento de Personal" description="" url="~/pages/movimiento_personal" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Tipo de Movimiento de Personal" description="" url="~/pages/tipo_movimiento_personal" roles="Administrators,ArhAdmin" />
+      </siteMapNode>
+      <siteMapNode title="De Pagos" description="" url="~/pages/pagos" roles="Administrators,ArhAdmin">
+        <siteMapNode title="Estatus Pagadora" description="Estatus Pagadora" url="~/pages/estatus_pagadora" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Pagadoras" description="Pagadora" url="~/pages/pagadora" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Relación Pagadora Vs Banco" description="Pagadora Banco" url="~/pages/pagadora_banco" roles="Administrators,ArhAdmin" />
+      </siteMapNode>
+      <siteMapNode title="De Persona" description="" url="~/pages/de-persona" roles="Administrators,ArhAdmin">
+        <siteMapNode title="Estado Civil" description="" url="~/pages/estado_civil" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Estatus de Persona" description="" url="~/pages/estatus_persona" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Género" description="" url="~/pages/genero" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Pasatiempo" description="" url="~/pages/pasatiempo" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Tipos de Contactos" description="" url="~/pages/tipo_contacto" roles="Administrators,ArhAdmin" />
+      </siteMapNode>
+      <siteMapNode title="De Prestación" description="" url="~/pages/de-prestaci_n" roles="Administrators,ArhAdmin">
+        <siteMapNode title="Tipos de Prestaciones" description="" url="~/pages/tipo_prestacion" roles="Administrators,ArhAdmin" />
+      </siteMapNode>
+      <siteMapNode title="De Tiempo" description="" url="~/pages/de-tiempo" roles="Administrators,ArhAdmin">
+        <siteMapNode title="Año" description="" url="~/pages/anio" roles="Administrators,ArhAdmin">
+          <siteMapNode title="Mes" description="" url="~/pages/mes" roles="Administrators,ArhAdmin">
+            <siteMapNode title="Semana" description="" url="~/pages/semana" roles="Administrators,ArhAdmin" />
+            <siteMapNode title="Día" description="View Dia" url="~/pages/dia" roles="Administrators,ArhAdmin" />
+          </siteMapNode>
+        </siteMapNode>
+        <siteMapNode title="Días Asueto" description="" url="~/pages/dias_asueto" roles="Administrators,ArhAdmin" />
+      </siteMapNode>
+      <siteMapNode title="De Ubicación" description="" url="~/pages/de-ubicacion" roles="Administrators,ArhAdmin">
+        <siteMapNode title="Domicilio" description="" url="~/pages/catalogo_domicilio" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="País" description="" url="~/pages/pais" roles="Administrators,ArhAdmin">
+          <siteMapNode title="Estado de la República" description="" url="~/pages/entidad_pais" roles="Administrators,ArhAdmin">
+            <siteMapNode title="Ciudad" description="" url="~/pages/ciudad" roles="Administrators,ArhAdmin" />
+          </siteMapNode>
+        </siteMapNode>
+        <siteMapNode title="Proveedor Domicilio" description="" url="~/pages/proveedor_domicilio" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Tipos de Domicilios" description="" url="~/pages/tipo_domicilio" roles="Administrators,ArhAdmin" />
+      </siteMapNode>
+      <siteMapNode title="De Vacaciones" description="" url="~/pages/de-vacaciones" roles="Administrators,ArhAdmin">
+        <siteMapNode title="Estatus de Solicitud" description="" url="~/pages/estatus_solicitud" roles="Administrators" />
+      </siteMapNode>
+      <siteMapNode title="De Conceptos ARH" description="" url="~/pages/de-conceptos-arh" roles="Administrators,ArhAdmin">
+        <siteMapNode title="Unidad" description="View Unidad" url="~/pages/unidad" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Entidad Pagadora" description="View Entidad Pagadora" url="~/pages/entidad_pagadora" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Concepto ARH" description="View Concepto ARH" url="~/pages/concepto_arh" roles="Administrators,ArhAdmonServicios" />
+      </siteMapNode>
+      <siteMapNode title="Documentos" description="" url="~/pages/documento" roles="Administrators,ArhAdmin">
+        <siteMapNode title="Tipos de Documentos" description="" url="~/pages/tipo_documento" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Definicion Solicitud Documento" description="Definición Solicitud de Documento" url="~/pages/definicion_solicitud_documento" roles="Administrators,ArhAdmin" />
+      </siteMapNode>
+      <siteMapNode title="Listas" description="" url="~/pages/listas" roles="Administrators,ArhAdmin">
+        <siteMapNode title="Elementos de Lista" description="" url="~/pages/lista_elemento" roles="Administrators,ArhAdmin" />
+      </siteMapNode>
+      <siteMapNode title="Otros" description="" url="~/pages/otros" roles="Administrators,ArhAdmin">
+        <siteMapNode title="Color" description="" url="~/pages/color" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Companía Telefónica" description="" url="~/pages/compania_telefonica" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Layout HTML" description="" url="~/pages/layout_html" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Motivo Movimiento" description="" url="~/pages/motivo_movimiento" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Servicio ARH" description="View Servicio ARH" url="~/pages/servicio_arh" roles="Administrators,ArhAdmin" />
+      </siteMapNode>
+    </siteMapNode>
+    <siteMapNode title="Descripción de Puesto" description="Descripción de Puesto" url="~/pages/descripcion_puesto" roles="Administrators,ArhAdmin">
+      <siteMapNode title="Estatus de Descripción de Puesto" description="Ver Estatus de Descripción de Puesto" url="~/pages/estatus_descripcion_puesto" roles="Administrators,ArhAdmin" />
+      <siteMapNode title="Métrica" description="Métrica" url="~/pages/metrica" roles="Administrators,ArhAdmin" />
+      <siteMapNode title="Rango Valor" description="Rango Valor" url="~/pages/rango_valor" roles="Administrators,ArhAdmin" />
+      <siteMapNode title="Esquema de Pago" description="Esquema de Pago" url="~/pages/esquema_pago" roles="Administrators,ArhAdmin" />
+      <siteMapNode title="Reporte de Evaluaciones de Puestos" description="" url="~/pages/bitacora_proceso_evaluacion_descripcion_puesto" roles="Administrators,ArhAdmin" />
+    </siteMapNode>
+    <siteMapNode title="Sistema" description="" url="~/pages/sistema" roles="Administrators,ArhAdmin" cssClass="material-icon-build">
+      <siteMapNode title="Catálogos de Sistema" description="" url="~/pages/catalogosde-sistema" roles="Administrators,ArhAdmin">
+        <siteMapNode title="Bitacora de Movimiento Personal" description="" url="~/pages/bitacora_movimiento_personal" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Buzón de Correo Electronico" description="" url="~/pages/buzon_correo_electronico" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Buzón de Mensaje SMS" description="" url="~/pages/buzon_mensaje_sms" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Categoría de Configuración de Sistema" description="" url="~/pages/categoria_configuracion_sistema" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Configuración de Sistema" description="" url="~/pages/configuracion_sistema" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Estatus de Buzon SMS" description="" url="~/pages/estatus_buzon_sms_1" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Estatus de Contratado Motivo Movimiento" description="" url="~/pages/estatus_contratado_motivo_movimiento_1" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Estatus de Estructura Organizacional" description="" url="~/pages/estatus_estructura_organizacional" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Estatus de Persona" description="" url="~/pages/estatus_persona_1" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Estatus de Procesamiento" description="" url="~/pages/estatus_procesamiento" roles="Administrators" />
+        <siteMapNode title="Estatus de Puesto" description="" url="~/pages/estatus_puesto_1" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Estatus de Registro" description="" url="~/pages/estatus-registro" roles="Administrators" />
+        <siteMapNode title="Estatus de Solicitud de Creación de Folio" description="" url="~/pages/estatus_solicitud_creacion_folio" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Estatus de Vacante" description="" url="~/pages/estatus_vacante_1" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Proceso de Sistema" description="" url="~/pages/proceso_sistema" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Tipo Mensaje de Sistema" description="" url="~/pages/tipo_mensaje_sistema" roles="Administrators,ArhAdmin">
+          <siteMapNode title="Mensaje de Sistema" description="" url="~/pages/mensaje_sistema" roles="Administrators,ArhAdmin" />
+        </siteMapNode>
+      </siteMapNode>
+      <siteMapNode title="Usuarios de Sistema" description="" url="~/pages/administracion-usuariosde-aplicacion" roles="Administrators,ArhAdmin">
+        <siteMapNode title="Usuarios de Contratante" description="" url="~/pages/contratante_usuario_aplicacion" roles="Administrators,ArhAdmin" />
+      </siteMapNode>
+      <siteMapNode title="Tipo Periodo Tiempo" description="Tipo Periodo Tiempo" url="~/pages/tipo_periodo_tiempo" roles="Administrators,ArhAdmin" />
+      <siteMapNode title="Usuarios de Aplicación" description="" url="~/pages/usuarios-app" roles="Administrators,ArhAdmin">
+        <siteMapNode title="Contratantes" description="" url="~/pages/contratantes_3" roles="Administrators,ArhAdmin">
+          <siteMapNode title="Contratados" description="" url="~/pages/contratados_3" roles="Administrators,ArhAdmin" />
+          <siteMapNode title="Cargador Contratados" description="View Temporal Cargador Contratado" url="~/pages/temporal_cargador_contratado_2" roles="Administrators,ArhAdmin" />
+          <siteMapNode title="Reportes" description="" url="~/pages/reportes_2" roles="Administrators,ArhAdmin">
+            <siteMapNode title="Reporte Comprobante Depósito" description="" url="~/pages/grid_reporte_comprobante_deposito_2" roles="Administrators,ArhAdmin" />
+            <siteMapNode title="Reporte Recibo de Nómina" description="" url="~/pages/grid_reporte_recibo_nomina_2" roles="Administrators,ArhAdmin" />
+            <siteMapNode title="Reloj Checador" description="" url="~/pages/reporte_reloj_checador_v_2" roles="Administrators,ArhAdmin" />
+            <siteMapNode title="Reporte de Información No Capturada Por Contratado" description="" url="~/pages/grid_reporte_informacion_no_capturada_contratado_v_2" roles="Administrators,ArhAdmin" />
+            <siteMapNode title="Reporte de Información Capturada Por Contratado" description="" url="~/pages/grid_reporte_informacion_capturada_contratado_v_2" roles="Administrators,ArhAdmin" />
+            <siteMapNode title="Reporte de Usuarios con Problemas para Solicitar Vacaciones" description="Reporte de Usuarios con Problemas para Solicitar Vacaciones" url="~/pages/grid_reporte_problemas_solicitar_vacaciones_v_2" roles="Administrators,ArhAdmin" />
+          </siteMapNode>
+          <siteMapNode title="Vacantes" description="" url="~/pages/vacantes_2" roles="Administrators,ArhAdmin">
+            <siteMapNode title="Candidatos" description="" url="~/pages/candidatos_2" roles="Administrators,ArhAdmin" />
+          </siteMapNode>
+        </siteMapNode>
+        <siteMapNode title="Relación de Usuario y Contraseña Por Contratado" description="Relación de Usuario y Contraseña Por Contratado" url="~/pages/reporte_relacion_usuario_contrasena_por_contratado_1" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Usuarios de Contratante" description="" url="~/pages/contratante_usuario_aplicacion_1" roles="Administrators,ArhAdmin" />
+        <siteMapNode title="Relación Personas Vs. Usuario de Aplicación" description="" url="~/pages/persona_usuario_aplicacion_1" roles="Administrators,ArhAdmin" />
+      </siteMapNode>
+    </siteMapNode>
+    <siteMapNode title="SGMM-SV" description="" url="~/pages/sgmm_sv" roles="Administrators,ArhAdmin">
+      <siteMapNode title="Periodicidad" description="View Periodicidad" url="~/pages/periodicidad" roles="Administrators,ArhAdmin" />
+      <siteMapNode title="Parentesco" description="View Parentesco" url="~/pages/parentesco" roles="Administrators,ArhAdmin" />
+      <siteMapNode title="Beneficiario" description="View Beneficiario" url="~/pages/beneficiario" roles="Administrators,ArhAdmin" />
+      <siteMapNode title="Categoria Seguro" description="View Categoria Seguro" url="~/pages/categoria_seguro" roles="Administrators,ArhAdmin" />
+      <siteMapNode title="Tipo Seguro" description="View Tipo Seguro" url="~/pages/tipo_seguro" roles="Administrators,ArhAdmin" />
+      <siteMapNode title="Tipo Asegurado" description="View Tipo Asegurado" url="~/pages/tipo_asegurado" roles="Administrators,ArhAdmin" />
+      <siteMapNode title="Aseguradora" description="View Aseguradora" url="~/pages/aseguradora" roles="Administrators,ArhAdmin" />
+      <siteMapNode title="Forma Recuperacion" description="View Forma Recuperacion" url="~/pages/forma_recuperacion" roles="Administrators,ArhAdmin" />
+      <siteMapNode title="Tipo Movimiento" description="View Tipo Movimiento" url="~/pages/tipo_movimiento" roles="Administrators,ArhAdmin" />
+      <siteMapNode title="Tipo Registro" description="View Tipo Registro" url="~/pages/tipo_registro" roles="Administrators,ArhAdmin" />
+      <siteMapNode title="Carga SGMM y SV" description="View Temporal Seguro" url="~/pages/sgmmsv" roles="Administrators,ArhAdmin" />
+      <siteMapNode title="Carga SGMMen" description="View Temporal Seguro1" url="~/pages/sgmmen" roles="Administrators,ArhAdmin" />
+    </siteMapNode>
+    <siteMapNode title="Grid Reporte Informacion Capturada Contratado Cliente V" description="View Grid Reporte Informacion Capturada Contratado Cliente V" url="~/pages/grid_reporte_informacion_capturada_contratado_cliente_v" roles="hidden" />
+    <siteMapNode title="Solicitud de Documento" description="View Contratado Solicitud Documento" url="~/pages/contratado_solicitud_documento" roles="Hidden" />
+    <siteMapNode title="Seguro" description="View Seguro" url="~/pages/seguro" roles="Hidden" />
+    <siteMapNode title="Periodicidad1" description="View Periodicidad1" url="~/pages/periodicidad-1" roles="Hidden" />
+    <siteMapNode title="Contratante Layout Documento" description="View Contratante Layout Documento" url="~/pages/contratante_layout_documento" roles="Hidden" />
+    <siteMapNode title="Layout HTML Objeto Atributo" description="View Layout HTML Objeto Atributo" url="~/pages/layout_html_objeto_atributo" roles="Hidden" />
+    <siteMapNode title="Objeto Atributo Valor" description="View Objeto Atributo Valor" url="~/pages/objeto_atributo_valor" roles="Hidden" />
+    <siteMapNode title="Contratado Solicitud Prestamo" description="View Contratado Solicitud Prestamo" url="~/pages/contratado_solicitud_prestamo" roles="Hidden" />
+    <siteMapNode title="Documento Solicitud Prestamo" description="View Documento Solicitud Prestamo" url="~/pages/documento_solicitud_prestamo" roles="Hidden" />
+    <siteMapNode title="Contratante Pagadora" description="View Contratante Pagadora" url="~/pages/contratante_pagadora" roles="Hidden" />
+    <siteMapNode title="Cliente Documento1" description="View Cliente Documento1" url="~/pages/cliente_documento-1" roles="Hidden" />
+    <siteMapNode title="Estatus Ausentismo" description="View Estatus Ausentismo" url="~/pages/estatus_ausentismo" roles="hidden" />
+    <siteMapNode title="Tipo Ausentismo" description="View Tipo Ausentismo" url="~/pages/tipo_ausentismo" roles="hidden" />
+    <siteMapNode title="Ausentismo" description="View Ausentismo" url="~/pages/ausentismo" roles="hidden" />
+    <siteMapNode title="Publicación Vacante" description="" url="~/pages/publicacion-vacante" roles="Hidden">
+      <siteMapNode title="Tipo Accion Servicio" description="" url="~/pages/tipo_accion_servicio" roles="Hidden" />
+      <siteMapNode title="Tipo Servicio" description="" url="~/pages/tipo_servicio" roles="Hidden" />
+      <siteMapNode title="Servicio Integracion" description="" url="~/pages/servicio_integracion" roles="Hidden" />
+      <siteMapNode title="Canal Publicacion" description="" url="~/pages/canal_publicacion" roles="Hidden" />
+      <siteMapNode title="Publicacion Vacante" description="" url="~/pages/publicacion_vacante" roles="Hidden" />
+    </siteMapNode>
+    <siteMapNode title="Human Board" description="" url="~/pages/human-board" roles="*" />
+  </siteMapNode>
+</siteMap>

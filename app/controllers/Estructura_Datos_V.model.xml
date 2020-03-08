@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Estructura_Datos_V" alias="Estructura_Datos_V" created="2018-07-23T11:28:59" modified="2018-07-23T11:29:04" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="Estructura_Id" fieldName="Estructura_Id" label="Estructura Id" />
+    <column name="Contratante_Estructura_Organizacional_Id" fieldName="Contratante_Estructura_Organizacional_Id" label="Contratante Estructura Organizacional Id" />
+    <column name="Estructura_Organizacional" fieldName="Estructura_Organizacional" label="Estructura Organizacional" />
+    <column name="Tipo_Estructura_Organizacional" fieldName="Tipo_Estructura_Organizacional" label="Tipo Estructura Organizacional" />
+    <column name="Estructura_Organizacional_Descripcion" fieldName="Estructura_Organizacional_Descripcion" label="Estructura Organizacional Descripcion" />
+    <column name="Estructura_Padre" fieldName="Estructura_Padre" label="Estructura Padre" />
+  </columns>
+</dataModel>

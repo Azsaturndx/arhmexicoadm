@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Actividad" conflictDetection="overwriteChanges" label="Actividad" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Actividad"."Actividad_Id" "Actividad_Id"
+	,"Actividad"."Actividad" "Actividad"
+	,"Actividad"."Tipo_Actividad_Id" "Tipo_Actividad_Id"
+	,"Tipo_Actividad_"."Tipo_Actividad" "Tipo_Actividad_Tipo_Actividad"
+	,"Actividad"."Actividad_Completada" "Actividad_Completada"
+	,"Actividad"."Notas_Actividad" "Notas_Actividad"
+	,"Actividad"."Estatus_Actividad_Id" "Estatus_Actividad_Id"
+	,"Estatus_Actividad_"."Estatus_Actividad" "Estatus_Actividad_Estatus_Actividad"
+	,"Actividad"."Fecha_Inicio_Actividad" "Fecha_Inicio_Actividad"
+	,"Actividad"."Fecha_Limite_Cumplimiento" "Fecha_Limite_Cumplimiento"
+	,"Actividad"."Porcentaje_Avance" "Porcentaje_Avance"
+	,"Actividad"."Persona_Usuario_Aplicacion_Key" "Persona_Usuario_Aplicacion_Key"
+	,"Actividad"."Restringe_Acceso" "Restringe_Acceso"
+	,"Actividad"."Numero_Recordatorios" "Numero_Recordatorios"
+	,"Actividad"."Entrevista_Id" "Entrevista_Id"
+	,"Entrevista_"."Transaccion_Id" "Entrevista_Transaccion_Id"
+	,"Actividad"."Entrevista_Key" "Entrevista_Key"
+	,"Actividad"."Examen_Medico_Id" "Examen_Medico_Id"
+	,"Examen_Medico_"."Transaccion_Id" "Examen_Medico_Transaccion_Id"
+	,"Actividad"."Examen_Medico_Key" "Examen_Medico_Key"
+	,"Actividad"."Domicilio_Actividad_RyS_Id" "Domicilio_Actividad_RyS_Id"
+	,"Domicilio_Actividad_RyS_"."Calle" "Domicilio_Actividad_RyS_Calle"
+	,"Actividad"."Es_Encargado_Personal_Interno" "Es_Encargado_Personal_Interno"
+	,"Actividad"."Persona_Encargada_Id" "Persona_Encargada_Id"
+	,"Actividad"."Nombre_Completo_Encargado_Entrevista" "Nombre_Completo_Encargado_Entrevista"
+	,"Actividad"."Numero_Telefonico_Encargado_Entrevista" "Numero_Telefonico_Encargado_Entrevista"
+	,"Actividad"."Nombre_Completo_Encargado_Examen_Medico" "Nombre_Completo_Encargado_Examen_Medico"
+	,"Actividad"."Numero_Telefonico_Encargado_Examen_Medico" "Numero_Telefonico_Encargado_Examen_Medico"
+	,"Actividad"."Proveedor_Usuario_Aplicacion_Key" "Proveedor_Usuario_Aplicacion_Key"
+	,"Actividad"."Vacante_Id" "Vacante_Id"
+	,"Vacante_"."Vacante" "Vacante_Vacante"
+	,"Actividad"."Persona_Id" "Persona_Id"
+	,"Actividad"."Contratado_Id" "Contratado_Id"
+	,"Contratado_"."Identificador_Unico" "Contratado_Identificador_Unico"
+	,"Actividad"."Contratante_Id" "Contratante_Id"
+	,"Contratante_"."Contratante" "Contratante_Contratante"
+	,"Actividad"."Cliente_Id" "Cliente_Id"
+	,"Cliente_"."Cliente" "Cliente_Cliente"
+	,"Actividad"."Transaccion_Id" "Transaccion_Id"
+	,"Actividad"."Creado_Por_Id" "Creado_Por_Id"
+	,"cpUsuario_V"."UserName" "cpUserName"
+	,"Actividad"."Fecha_Creacion" "Fecha_Creacion"
+	,"Actividad"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"apUsuario_V"."UserName" "apUserName"
+	,"Actividad"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Actividad"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Actividad"."Actividad_RyS_Id" "Actividad_RyS_Id"
+	,"Actividad"."Actividad_RyS_Key" "Actividad_RyS_Key"
+	,"Actividad"."Tipo_Actividad_RyS_Id" "Tipo_Actividad_RyS_Id"
+	,"Tipo_Actividad_RyS_"."Tipo_Actividad_RyS" "Tipo_Actividad_RyS_Tipo_Actividad_RyS"
+	,"Actividad"."Nombre_Completo_Encargado_Visita_Domiciliaria" "Nombre_Completo_Encargado_Visita_Domiciliaria"
+	,"Actividad"."Numero_Telefonico_Encargado_Visita_Domiciliaria" "Numero_Telefonico_Encargado_Visita_Domiciliaria"
+	,"Persona_V"."Persona_Nombre" "PersonaVPersonaNombre"
+from "APP"."Actividad" "Actividad"
+	left join "APP"."Tipo_Actividad" "Tipo_Actividad_" on "Actividad"."Tipo_Actividad_Id" = "Tipo_Actividad_"."Tipo_Actividad_Id"
+	left join "APP"."Estatus_Actividad" "Estatus_Actividad_" on "Actividad"."Estatus_Actividad_Id" = "Estatus_Actividad_"."Estatus_Actividad_Id"
+	left join "APP"."Actividad_RyS" "Entrevista_" on "Actividad"."Entrevista_Id" = "Entrevista_"."Actividad_RyS_Id"
+	left join "APP"."Actividad_RyS" "Examen_Medico_" on "Actividad"."Examen_Medico_Id" = "Examen_Medico_"."Actividad_RyS_Id"
+	left join "APP"."Domicilio" "Domicilio_Actividad_RyS_" on "Actividad"."Domicilio_Actividad_RyS_Id" = "Domicilio_Actividad_RyS_"."Domicilio_Id"
+	left join "APP"."Persona" "Persona_Encargada_" on "Actividad"."Persona_Encargada_Id" = "Persona_Encargada_"."Persona_Id"
+	left join "dbo"."Persona_V" "Persona_V" on "Persona_Encargada_"."Persona_Id" = "Persona_V"."Persona_Id"
+	left join "APP"."Vacante" "Vacante_" on "Actividad"."Vacante_Id" = "Vacante_"."Vacante_Id"
+	left join "APP"."Contratado" "Contratado_" on "Actividad"."Contratado_Id" = "Contratado_"."Contratado_Id"
+	left join "APP"."Contratante" "Contratante_" on "Actividad"."Contratante_Id" = "Contratante_"."Contratante_Id"
+	left join "APP"."Cliente" "Cliente_" on "Actividad"."Cliente_Id" = "Cliente_"."Cliente_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Actividad"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "APP"."Tipo_Actividad_RyS" "Tipo_Actividad_RyS_" on "Actividad"."Tipo_Actividad_RyS_Id" = "Tipo_Actividad_RyS_"."Tipo_Actividad_RyS_Id"
+	left join "dbo"."Usuario_V" "cpUsuario_V" on "Actividad"."Creado_Por_Id" = "cpUsuario_V"."UserId"
+	left join "dbo"."Usuario_V" "apUsuario_V" on "Actividad"."Actualizado_Por_Id" = "apUsuario_V"."UserId"
+]]></text>
+    </command>
+    <command id="Actividad_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Actividad_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Actividad_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Actividad Id" readOnly="true" />
+    <field name="Actividad" type="String" allowNulls="false" allowQBE="false" allowSorting="false" label="Actividad" showInSummary="true" />
+    <field name="Tipo_Actividad_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo Actividad Id" showInSummary="true">
+      <items style="Lookup" dataController="Tipo_Actividad" newDataView="createForm1" dataValueField="Tipo_Actividad_Id" dataTextField="Tipo_Actividad" />
+    </field>
+    <field name="Tipo_Actividad_Tipo_Actividad" type="String" readOnly="true" label="Tipo de Actividad" length="150" />
+    <field name="Actividad_Completada" type="Boolean" allowNulls="false" default="((0))" label="Actividad Completada" showInSummary="true" />
+    <field name="Notas_Actividad" type="String" allowQBE="false" allowSorting="false" label="Notas de Actividad" showInSummary="true" />
+    <field name="Estatus_Actividad_Id" type="Int32" allowNulls="false" default="((0))" label="Estatus Actividad Id" showInSummary="true">
+      <items style="Lookup" dataController="Estatus_Actividad" newDataView="createForm1" dataValueField="Estatus_Actividad_Id" dataTextField="Estatus_Actividad" />
+    </field>
+    <field name="Estatus_Actividad_Estatus_Actividad" type="String" readOnly="true" label="Estatus de Actividad" length="150" />
+    <field name="Fecha_Inicio_Actividad" type="DateTime" allowNulls="false" dataFormatString="g" label="Fecha de Inicio de Actividad" />
+    <field name="Fecha_Limite_Cumplimiento" type="DateTime" allowNulls="false" dataFormatString="g" label="Fecha Límite de Cumplimiento" />
+    <field name="Porcentaje_Avance" type="Int32" allowNulls="false" default="((0))" label="Porcentaje de Avance" />
+    <field name="Persona_Usuario_Aplicacion_Key" type="String" allowNulls="false" label="Persona Usuario Aplicacion Key" length="50" />
+    <field name="Restringe_Acceso" type="Boolean" allowNulls="false" default="((0))" label="Restringe Acceso" />
+    <field name="Numero_Recordatorios" type="Int32" allowNulls="false" default="((0))" label="Número de Recordatorios" />
+    <field name="Entrevista_Id" type="Int32" allowNulls="false" default="((0))" label="Entrevista Id">
+      <items style="Lookup" dataController="Actividad_RyS" newDataView="createForm1" dataValueField="Actividad_RyS_Id" dataTextField="Transaccion_Id" />
+    </field>
+    <field name="Entrevista_Transaccion_Id" type="String" readOnly="true" label="Entrevista Transaccion Id" length="50" />
+    <field name="Entrevista_Key" type="String" allowNulls="false" label="Entrevista Key" length="50" />
+    <field name="Examen_Medico_Id" type="Int32" allowNulls="false" default="((0))" label="Examen Medico Id">
+      <items style="Lookup" dataController="Actividad_RyS" newDataView="createForm1" dataValueField="Actividad_RyS_Id" dataTextField="Transaccion_Id" />
+    </field>
+    <field name="Examen_Medico_Transaccion_Id" type="String" readOnly="true" label="Examen Médico Transaccion Id" length="50" />
+    <field name="Examen_Medico_Key" type="String" allowNulls="false" label="Examen Médico Key" length="50" />
+    <field name="Domicilio_Actividad_RyS_Id" type="Int32" allowNulls="false" default="((0))" label="Domicilio Actividad Ry S Id">
+      <items style="Lookup" dataController="Domicilio" newDataView="createForm1" dataValueField="Domicilio_Id" dataTextField="Calle" />
+    </field>
+    <field name="Domicilio_Actividad_RyS_Calle" type="String" readOnly="true" label="Domicilio Actividad RyS Calle" length="250" />
+    <field name="Es_Encargado_Personal_Interno" type="Boolean" allowNulls="false" default="((0))" label="¿Es Encargado Personal Interno?" />
+    <field name="Persona_Encargada_Id" type="Int32" allowNulls="false" default="((0))" label="Persona Encargada Id">
+      <items style="Lookup" dataController="Persona" newDataView="createForm1" dataValueField="Persona_Id" dataTextField="Persona_Id" copy="" />
+    </field>
+    <field name="Nombre_Completo_Encargado_Entrevista" type="String" label="Nombre Completo Encargado Entrevista" length="250" />
+    <field name="Numero_Telefonico_Encargado_Entrevista" type="String" label="Número Telefónico Encargado Entrevista" length="15" />
+    <field name="Nombre_Completo_Encargado_Examen_Medico" type="String" label="Nombre Completo Encargado Examen Médico" length="250" />
+    <field name="Numero_Telefonico_Encargado_Examen_Medico" type="String" label="Número Telefónico Encargado Examen Médico" length="15" />
+    <field name="Proveedor_Usuario_Aplicacion_Key" type="String" label="Proveedor Usuario Aplicacion Key" length="50" />
+    <field name="Vacante_Id" type="Int32" allowNulls="false" default="((0))" label="Vacante Id">
+      <items style="Lookup" dataController="Vacante" newDataView="createForm1" dataValueField="Vacante_Id" dataTextField="Vacante" />
+    </field>
+    <field name="Vacante_Vacante" type="String" readOnly="true" label="Vacante" length="150" />
+    <field name="Persona_Id" type="Int32" allowNulls="false" default="((0))" label="Persona Id" />
+    <field name="Contratado_Id" type="Int32" allowNulls="false" default="((0))" label="Contratado Id">
+      <items style="Lookup" dataController="Contratado" newDataView="createForm1" dataValueField="Contratado_Id" dataTextField="Identificador_Unico" />
+    </field>
+    <field name="Contratado_Identificador_Unico" type="String" readOnly="true" label="Contratado Identificador Unico" length="50" />
+    <field name="Contratante_Id" type="Int32" allowNulls="false" default="((0))" label="Contratante Id">
+      <items style="Lookup" dataController="Contratante" newDataView="createForm1" dataValueField="Contratante_Id" dataTextField="Contratante" />
+    </field>
+    <field name="Contratante_Contratante" type="String" readOnly="true" label="Contratante" length="150" />
+    <field name="Cliente_Id" type="Int32" allowNulls="false" default="((0))" label="Cliente Id">
+      <items style="Lookup" dataController="Cliente" newDataView="createForm1" dataValueField="Cliente_Id" dataTextField="Cliente" />
+    </field>
+    <field name="Cliente_Cliente" type="String" readOnly="true" label="Cliente" length="150" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transacción Id" length="50" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((0))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="Actividad_RyS_Id" type="Int32" allowNulls="false" default="((0))" label="Actividad Ry S Id" />
+    <field name="Actividad_RyS_Key" type="String" allowNulls="false" default="('')" label="Actividad RyS Key" length="50" />
+    <field name="Tipo_Actividad_RyS_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo Actividad Ry S Id">
+      <items style="Lookup" dataController="Tipo_Actividad_RyS" newDataView="createForm1" dataValueField="Tipo_Actividad_RyS_Id" dataTextField="Tipo_Actividad_RyS" />
+    </field>
+    <field name="Tipo_Actividad_RyS_Tipo_Actividad_RyS" type="String" readOnly="true" label="Tipo de Actividad RyS" length="150" />
+    <field name="Nombre_Completo_Encargado_Visita_Domiciliaria" type="String" label="Nombre Completo Encargado Visita Domiciliaria" length="250" />
+    <field name="Numero_Telefonico_Encargado_Visita_Domiciliaria" type="String" label="Número Telefónico Encargado Visita Domiciliaria" length="15" />
+    <field name="PersonaVPersonaNombre" type="String" readOnly="true" label="Persona Nombre" length="603" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Actividad">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Actividad" rows="5" />
+        <dataField fieldName="Tipo_Actividad_Id" aliasFieldName="Tipo_Actividad_Tipo_Actividad" />
+        <dataField fieldName="Actividad_Completada" />
+        <dataField fieldName="Notas_Actividad" rows="5" />
+        <dataField fieldName="Estatus_Actividad_Id" aliasFieldName="Estatus_Actividad_Estatus_Actividad" />
+        <dataField fieldName="Fecha_Inicio_Actividad" columns="20" />
+        <dataField fieldName="Fecha_Limite_Cumplimiento" columns="20" />
+        <dataField fieldName="Porcentaje_Avance" columns="15" />
+        <dataField fieldName="Persona_Usuario_Aplicacion_Key" columns="50" />
+        <dataField fieldName="Restringe_Acceso" />
+        <dataField fieldName="Numero_Recordatorios" columns="15" />
+        <dataField fieldName="Entrevista_Id" aliasFieldName="Entrevista_Transaccion_Id" />
+        <dataField fieldName="Entrevista_Key" columns="50" />
+        <dataField fieldName="Examen_Medico_Id" aliasFieldName="Examen_Medico_Transaccion_Id" />
+        <dataField fieldName="Examen_Medico_Key" columns="50" />
+        <dataField fieldName="Domicilio_Actividad_RyS_Id" aliasFieldName="Domicilio_Actividad_RyS_Calle" />
+        <dataField fieldName="Es_Encargado_Personal_Interno" />
+        <dataField fieldName="Persona_Encargada_Id" columns="15" />
+        <dataField fieldName="Nombre_Completo_Encargado_Entrevista" />
+        <dataField fieldName="Numero_Telefonico_Encargado_Entrevista" columns="15" />
+        <dataField fieldName="Nombre_Completo_Encargado_Examen_Medico" />
+        <dataField fieldName="Numero_Telefonico_Encargado_Examen_Medico" columns="15" />
+        <dataField fieldName="Proveedor_Usuario_Aplicacion_Key" columns="50" />
+        <dataField fieldName="Vacante_Id" aliasFieldName="Vacante_Vacante" />
+        <dataField fieldName="Persona_Id" columns="15" />
+        <dataField fieldName="Contratado_Id" aliasFieldName="Contratado_Identificador_Unico" />
+        <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" />
+        <dataField fieldName="Transaccion_Id" columns="50" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Actividad_RyS_Id" columns="15" />
+        <dataField fieldName="Actividad_RyS_Key" columns="50" />
+        <dataField fieldName="Tipo_Actividad_RyS_Id" aliasFieldName="Tipo_Actividad_RyS_Tipo_Actividad_RyS" />
+        <dataField fieldName="Nombre_Completo_Encargado_Visita_Domiciliaria" />
+        <dataField fieldName="Numero_Telefonico_Encargado_Visita_Domiciliaria" columns="15" />
+        <dataField fieldName="PersonaVPersonaNombre" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Review Actividad">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Actividad" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Actividad" rows="5" />
+            <dataField fieldName="Tipo_Actividad_Id" aliasFieldName="Tipo_Actividad_Tipo_Actividad" />
+            <dataField fieldName="Actividad_Completada" />
+            <dataField fieldName="Notas_Actividad" rows="5" />
+            <dataField fieldName="Estatus_Actividad_Id" aliasFieldName="Estatus_Actividad_Estatus_Actividad" />
+            <dataField fieldName="Fecha_Inicio_Actividad" columns="20" />
+            <dataField fieldName="Fecha_Limite_Cumplimiento" columns="20" />
+            <dataField fieldName="Porcentaje_Avance" columns="15" />
+            <dataField fieldName="Persona_Usuario_Aplicacion_Key" columns="50" />
+            <dataField fieldName="Restringe_Acceso" />
+            <dataField fieldName="Numero_Recordatorios" columns="15" />
+            <dataField fieldName="Entrevista_Id" aliasFieldName="Entrevista_Transaccion_Id" />
+            <dataField fieldName="Entrevista_Key" columns="50" />
+            <dataField fieldName="Examen_Medico_Id" aliasFieldName="Examen_Medico_Transaccion_Id" />
+            <dataField fieldName="Examen_Medico_Key" columns="50" />
+            <dataField fieldName="Domicilio_Actividad_RyS_Id" aliasFieldName="Domicilio_Actividad_RyS_Calle" />
+            <dataField fieldName="Es_Encargado_Personal_Interno" />
+            <dataField fieldName="Persona_Encargada_Id" columns="15" />
+            <dataField fieldName="Nombre_Completo_Encargado_Entrevista" />
+            <dataField fieldName="Numero_Telefonico_Encargado_Entrevista" columns="15" />
+            <dataField fieldName="Nombre_Completo_Encargado_Examen_Medico" />
+            <dataField fieldName="Numero_Telefonico_Encargado_Examen_Medico" columns="15" />
+            <dataField fieldName="Proveedor_Usuario_Aplicacion_Key" columns="50" />
+            <dataField fieldName="Vacante_Id" aliasFieldName="Vacante_Vacante" />
+            <dataField fieldName="Persona_Id" columns="15" />
+            <dataField fieldName="Contratado_Id" aliasFieldName="Contratado_Identificador_Unico" />
+            <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" />
+            <dataField fieldName="Transaccion_Id" columns="50" />
+            <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+            <dataField fieldName="Fecha_Creacion" columns="20" />
+            <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+            <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="Actividad_RyS_Id" columns="15" />
+            <dataField fieldName="Actividad_RyS_Key" columns="50" />
+            <dataField fieldName="Tipo_Actividad_RyS_Id" aliasFieldName="Tipo_Actividad_RyS_Tipo_Actividad_RyS" />
+            <dataField fieldName="Nombre_Completo_Encargado_Visita_Domiciliaria" />
+            <dataField fieldName="Numero_Telefonico_Encargado_Visita_Domiciliaria" columns="15" />
+            <dataField fieldName="PersonaVPersonaNombre" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="New Actividad">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Actividad" rows="5" />
+            <dataField fieldName="Tipo_Actividad_Id" aliasFieldName="Tipo_Actividad_Tipo_Actividad" />
+            <dataField fieldName="Actividad_Completada" />
+            <dataField fieldName="Notas_Actividad" rows="5" />
+            <dataField fieldName="Estatus_Actividad_Id" aliasFieldName="Estatus_Actividad_Estatus_Actividad" />
+            <dataField fieldName="Fecha_Inicio_Actividad" columns="20" />
+            <dataField fieldName="Fecha_Limite_Cumplimiento" columns="20" />
+            <dataField fieldName="Porcentaje_Avance" columns="15" />
+            <dataField fieldName="Persona_Usuario_Aplicacion_Key" columns="50" />
+            <dataField fieldName="Restringe_Acceso" />
+            <dataField fieldName="Numero_Recordatorios" columns="15" />
+            <dataField fieldName="Entrevista_Id" aliasFieldName="Entrevista_Transaccion_Id" />
+            <dataField fieldName="Entrevista_Key" columns="50" />
+            <dataField fieldName="Examen_Medico_Id" aliasFieldName="Examen_Medico_Transaccion_Id" />
+            <dataField fieldName="Examen_Medico_Key" columns="50" />
+            <dataField fieldName="Domicilio_Actividad_RyS_Id" aliasFieldName="Domicilio_Actividad_RyS_Calle" />
+            <dataField fieldName="Es_Encargado_Personal_Interno" />
+            <dataField fieldName="Persona_Encargada_Id" columns="15" />
+            <dataField fieldName="Nombre_Completo_Encargado_Entrevista" />
+            <dataField fieldName="Numero_Telefonico_Encargado_Entrevista" columns="15" />
+            <dataField fieldName="Nombre_Completo_Encargado_Examen_Medico" />
+            <dataField fieldName="Numero_Telefonico_Encargado_Examen_Medico" columns="15" />
+            <dataField fieldName="Proveedor_Usuario_Aplicacion_Key" columns="50" />
+            <dataField fieldName="Vacante_Id" aliasFieldName="Vacante_Vacante" />
+            <dataField fieldName="Persona_Id" columns="15" />
+            <dataField fieldName="Contratado_Id" aliasFieldName="Contratado_Identificador_Unico" />
+            <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" />
+            <dataField fieldName="Transaccion_Id" columns="50" />
+            <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+            <dataField fieldName="Fecha_Creacion" columns="20" />
+            <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+            <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="Actividad_RyS_Id" columns="15" />
+            <dataField fieldName="Actividad_RyS_Key" columns="50" />
+            <dataField fieldName="Tipo_Actividad_RyS_Id" aliasFieldName="Tipo_Actividad_RyS_Tipo_Actividad_RyS" />
+            <dataField fieldName="Nombre_Completo_Encargado_Visita_Domiciliaria" />
+            <dataField fieldName="Numero_Telefonico_Encargado_Visita_Domiciliaria" columns="15" />
+            <dataField fieldName="PersonaVPersonaNombre" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" />
+      <action id="a3" commandName="Delete" />
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="Delete" />
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="Delete" cssClass="DeleteIcon" whenView="grid1" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" />
+      <action id="a2" commandName="Delete" />
+    </actionGroup>
+  </actions>
+</dataController>

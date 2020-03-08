@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Contratado_Documento" conflictDetection="overwriteChanges" label="Contratado Documento" handler="arhmexico.Rules.Contratado_DocumentoBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Contratado_Documento"."Contratado_Documento_Id" "Contratado_Documento_Id"
+	,"Contratado_Documento"."Contratado_Id" "Contratado_Id"
+	,"Contratado_Documento"."Tipo_Documento_Id" "Tipo_Documento_Id"
+	,"Tipo_Documento_"."Tipo_Documento" "Tipo_Documento_Tipo_Documento"
+	,"Contratado_Documento"."Documento" "Documento"
+	,"Contratado_Documento"."Picture" "Picture"
+	,"Contratado_Documento"."PictureFileName" "PictureFileName"
+	,"Contratado_Documento"."PictureContentType" "PictureContentType"
+	,"Contratado_Documento"."PictureLength" "PictureLength"
+	,"Contratado_Documento"."Notas" "Notas"
+	,"Contratado_Documento"."Creado_Por_Id" "Creado_Por_Id"
+	,"cp"."UserName" "cpUserName"
+	,"Contratado_Documento"."Fecha_Creacion" "Fecha_Creacion"
+	,"Contratado_Documento"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"ap"."UserName" "apUserName"
+	,"Contratado_Documento"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Contratado_Documento"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Persona_Nombre_Completo_V"."Persona_Nombre" "Persona_Nombre"
+	,"Contratado_Documento"."Contratante_Id" "Contratante_Id"
+	,"Contratante"."Contratante" "Contratante"
+	,"Contratado_Documento"."Pagadora_Id" "Pagadora_Id"
+	,"Pagadora"."Pagadora" "Pagadora"
+from "APP"."Contratado_Documento" "Contratado_Documento"
+	left join "APP"."Contratado" "Contratado_" on "Contratado_Documento"."Contratado_Id" = "Contratado_"."Contratado_Id"
+	left join "dbo"."Persona_Nombre_Completo_V" "Persona_Nombre_Completo_V" on "Contratado_"."Persona_Id" = "Persona_Nombre_Completo_V"."Persona_Id"
+	left join "APP"."Tipo_Documento" "Tipo_Documento_" on "Contratado_Documento"."Tipo_Documento_Id" = "Tipo_Documento_"."Tipo_Documento_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Contratado_Documento"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cp" on "Contratado_Documento"."Creado_Por_Id" = "cp"."UserId"
+	left join "dbo"."Usuario_V" "ap" on "Contratado_Documento"."Actualizado_Por_Id" = "ap"."UserId"
+	left join "APP"."Pagadora" "Pagadora" on "Contratado_Documento"."Pagadora_Id" = "Pagadora"."Pagadora_Id"
+	left join "APP"."Contratante" "Contratante" on "Contratado_Documento"."Contratante_Id" = "Contratante"."Contratante_Id"
+]]></text>
+    </command>
+    <command id="Contratado_Documento_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Contratado_Documento_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Contratado_Documento_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Contratado Documento Id" readOnly="true" />
+    <field name="Contratado_Id" type="Int32" allowNulls="false" default="((0))" label="Contratado Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratado" dataValueField="Contratado_Id" dataTextField="Persona_Nombre" copy="" dataView="Contratado_LookUp_List" />
+    </field>
+    <field name="Tipo_Documento_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo Documento Id" showInSummary="true">
+      <items style="Lookup" dataController="Tipo_Documento" newDataView="createForm1" dataValueField="Tipo_Documento_Id" dataTextField="Tipo_Documento" dataView="Tipo_Documento_Contratado_LookUp_List" />
+    </field>
+    <field name="Tipo_Documento_Tipo_Documento" type="String" readOnly="true" label="Tipo de Documento" length="150" />
+    <field name="Documento" type="String" allowNulls="false" label="Documento" length="250" showInSummary="true" />
+    <field name="Picture" type="Byte[]" onDemand="true" sourceFields="Contratado_Documento_Id" onDemandHandler="Contratado_DocumentoPicture" onDemandStyle="Thumbnail" allowQBE="false" allowSorting="false" label="Archivo" showInSummary="true" />
+    <field name="PictureFileName" type="String" label="Nombre Archivo" length="250" showInSummary="true" />
+    <field name="PictureContentType" type="String" label="Tipo de Archivo" length="250" />
+    <field name="PictureLength" type="Int32" label="Tamaño de Archivo" />
+    <field name="Notas" type="String" allowQBE="false" allowSorting="false" label="Notas" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Creación" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Última Actualización" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="Persona_Nombre" type="String" label="Contratado" readOnly="true" length="603" />
+    <field name="Contratante_Id" type="Int32" allowNulls="false" default="((0))" label="Contratante Id">
+      <items style="Lookup" dataController="Contratante" dataValueField="Contratante_Id" dataTextField="Contratante" dataView="Contratante_Admin_LookUp_List" />
+    </field>
+    <field name="Contratante" type="String" readOnly="true" label="Contratante" length="150" />
+    <field name="Pagadora_Id" type="Int32" allowNulls="false" default="((0))" label="Pagadora Id">
+      <items style="Lookup" dataController="Pagadora" dataValueField="Pagadora_Id" dataTextField="Pagadora" dataView="Pagadora_LookUp_List" newDataView="createForm1" />
+    </field>
+    <field name="Pagadora" type="String" readOnly="true" label="Pagadora" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Documento de Contratado" tags="view-style-grid, &#xD;&#xA;view-style-list, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" sortExpression="Tipo_Documento_Tipo_Documento" filter="Estatus_Registro_Id &lt;&gt; 0">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Persona_Nombre" />
+        <dataField fieldName="Contratante_Id" aliasFieldName="Contratante" />
+        <dataField fieldName="Pagadora_Id" aliasFieldName="Pagadora" />
+        <dataField fieldName="Tipo_Documento_Id" aliasFieldName="Tipo_Documento_Tipo_Documento" />
+        <dataField fieldName="Documento" />
+        <dataField fieldName="Picture" columns="15" />
+        <dataField fieldName="Notas" rows="5" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Documento de Contratado">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Documento de Contratado" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Contratado_Id" columns="15" />
+            <dataField fieldName="Contratante_Id" aliasFieldName="Contratante" />
+            <dataField fieldName="Pagadora_Id" aliasFieldName="Pagadora" />
+            <dataField fieldName="Tipo_Documento_Id" aliasFieldName="Tipo_Documento_Tipo_Documento" />
+            <dataField fieldName="Documento" />
+            <dataField fieldName="Picture" columns="15" />
+            <dataField fieldName="PictureFileName">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="PictureContentType">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="PictureLength" columns="15">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nuevo Documento de Contratado">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Documento de Contratado" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Contratado_Id" columns="15" />
+            <dataField fieldName="Contratante_Id" aliasFieldName="Contratante" />
+            <dataField fieldName="Pagadora_Id" aliasFieldName="Pagadora" />
+            <dataField fieldName="Tipo_Documento_Id" aliasFieldName="Tipo_Documento_Tipo_Documento" />
+            <dataField fieldName="Documento" />
+            <dataField fieldName="Picture" columns="15" />
+            <dataField fieldName="PictureFileName">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="PictureContentType">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="PictureLength" columns="15">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Notas" rows="5" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+APP.Contratado_Documento
+SET
+Estatus_Registro_Id= 3
+,Fecha_Ultima_Actualizacion=GetDate()
+,Actualizado_Por_Id=@BusinessRules_UserId
+WHERE
+Contratado_Documento_Id=@Contratado_Documento_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+APP.Contratado_Documento
+SET
+Estatus_Registro_Id= 3
+,Fecha_Ultima_Actualizacion=GetDate()
+,Actualizado_Por_Id=@BusinessRules_UserId
+WHERE
+Contratado_Documento_Id=@Contratado_Documento_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+APP.Contratado_Documento
+SET
+Estatus_Registro_Id= 3
+,Fecha_Ultima_Actualizacion=GetDate()
+,Actualizado_Por_Id=@BusinessRules_UserId
+WHERE
+Contratado_Documento_Id=@Contratado_Documento_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+APP.Contratado_Documento
+SET
+Estatus_Registro_Id= 3
+,Fecha_Ultima_Actualizacion=GetDate()
+,Actualizado_Por_Id=@BusinessRules_UserId
+WHERE
+Contratado_Documento_Id=@Contratado_Documento_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+</dataController>

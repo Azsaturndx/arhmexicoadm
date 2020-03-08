@@ -1,0 +1,15 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mis Datos de Cliente</title>
+  </head>
+  <body data-authorize-roles="rhAdmin,rhUsuario">
+    <div data-flow="row">
+      <div id="view1" data-controller="Cliente" data-view="grid1" data-show-in-summary="true" data-selection-mode="multiple" data-tag="view-style-grid, &#xD;&#xA;view-style-list,&#xD;&#xA;view-style-cards,&#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-calendar-disabled"> </div>
+      <div data-activator="Tab|Contratantes">
+        <div id="view2" data-controller="Contratante" data-view="grid1" data-filter-source="view1" data-filter-fields="Cliente_Id" data-selection-mode="multiple" data-show-description="false" data-show-details-in-list-mode="false"> </div>
+      </div>
+    </div>
+  </body>
+</html>

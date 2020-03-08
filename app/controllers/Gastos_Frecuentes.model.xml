@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Gastos_Frecuentes" alias="Gastos_Frecuentes" created="2018-10-10T19:59:31" modified="2018-11-09T14:16:12" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Contratado_" parentTableSchema="APP" parentTableName="Contratado" x="706" y="22">
+      <foreignKeyColumn columnName="Contratado_Id" parentColumnName="Contratado_Id" />
+    </foreignKey>
+    <foreignKey id="Tipo_Gasto_" parentTableSchema="APP" parentTableName="Tipo_Gasto" x="406" y="117">
+      <foreignKeyColumn columnName="Tipo_Gasto_Id" parentColumnName="Tipo_Gasto_Id" />
+    </foreignKey>
+    <foreignKey id="Ciudad_Origen_" parentTableSchema="APP" parentTableName="Ciudad" x="1157" y="457">
+      <foreignKeyColumn columnName="Ciudad_Origen_Id" parentColumnName="Ciudad_Id" />
+    </foreignKey>
+    <foreignKey id="Ciudad_Destino_" parentTableSchema="APP" parentTableName="Ciudad" x="774" y="470">
+      <foreignKeyColumn columnName="Ciudad_Destino_Id" parentColumnName="Ciudad_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="28" y="712">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Persona_V" parentTableSchema="dbo" parentTableName="Persona_V" x="1153" y="26" baseForeignKey="Contratado_">
+      <foreignKeyColumn columnName="Persona_Id" parentColumnName="Persona_Id" />
+    </foreignKey>
+    <foreignKey id="hServicio" parentTableSchema="APP" parentTableName="Servicio" x="1165" y="711">
+      <foreignKeyColumn columnName="Servicio_Hospedaje_Id" parentColumnName="Servicio_Id" />
+    </foreignKey>
+    <foreignKey id="aServicio" parentTableSchema="APP" parentTableName="Servicio" x="803" y="719">
+      <foreignKeyColumn columnName="Servicio_Alimentos_Id" parentColumnName="Servicio_Id" />
+    </foreignKey>
+    <foreignKey id="tServicio" parentTableSchema="APP" parentTableName="Servicio" x="409" y="525">
+      <foreignKeyColumn columnName="Servicio_Transportacion_Id" parentColumnName="Servicio_Id" />
+    </foreignKey>
+    <foreignKey id="cpUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="32" y="825">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="apUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="34" y="923">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="vServicio" parentTableSchema="APP" parentTableName="Servicio" x="501" y="722">
+      <foreignKeyColumn columnName="Servicio_Vuelo_Id" parentColumnName="Servicio_Id" />
+    </foreignKey>
+    <foreignKey id="gServicio" parentTableSchema="APP" parentTableName="Servicio" x="812" y="922">
+      <foreignKeyColumn columnName="Servicio_Gasolina_Id" parentColumnName="Servicio_Id" />
+    </foreignKey>
+    <foreignKey id="oServicio" parentTableSchema="APP" parentTableName="Servicio" x="415" y="941">
+      <foreignKeyColumn columnName="Servicio_Otro_Id" parentColumnName="Servicio_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Gastos_Frecuentes_Id" fieldName="Gastos_Frecuentes_Id" label="Gastos Frecuentes Id" />
+    <column name="Gastos_Frecuentes" fieldName="Gastos_Frecuentes" label="Gasto Frecuente" />
+    <column name="Contratado_Id" fieldName="Contratado_Id" label="Contratado Id" />
+    <column name="Tipo_Gasto_Id" fieldName="Tipo_Gasto_Id" label="Tipo Gasto Id" aliasColumnName="Tipo_Gasto" aliasForeignKey="Tipo_Gasto_" />
+    <column name="Tipo_Gasto" fieldName="Tipo_Gasto_Tipo_Gasto" label="Tipo de Gasto" foreignKey="Tipo_Gasto_" />
+    <column name="Ciudad_Origen_Id" fieldName="Ciudad_Origen_Id" label="Ciudad Origen Id" aliasColumnName="Ciudad" aliasForeignKey="Ciudad_Origen_" />
+    <column name="Ciudad" fieldName="Ciudad_Origen_Ciudad" label="Ciudad de Origen" foreignKey="Ciudad_Origen_" />
+    <column name="Ciudad_Destino_Id" fieldName="Ciudad_Destino_Id" label="Ciudad Destino Id" aliasColumnName="Ciudad" aliasForeignKey="Ciudad_Destino_" />
+    <column name="Ciudad" fieldName="Ciudad_Destino_Ciudad" label="Ciudad de Destino" foreignKey="Ciudad_Destino_" />
+    <column name="Direccion_Origen" fieldName="Direccion_Origen" label="Dirección de Origen" />
+    <column name="Direccion_Destino" fieldName="Direccion_Destino" label="Dirección de Destino" />
+    <column name="Viaje_Redondo" fieldName="Viaje_Redondo" label="¿Es Viaje Redondo?" />
+    <column name="Servicio_Hospedaje_Id" fieldName="Servicio_Hospedaje_Id" label="Servicio Hospedaje Id" aliasColumnName="Servicio" aliasForeignKey="hServicio" />
+    <column name="Servicio" fieldName="Servicio_Hospedaje" label="Servicio de Hospedaje" foreignKey="hServicio" />
+    <column name="Servicio_Alimentos_Id" fieldName="Servicio_Alimentos_Id" label="Servicio Alimentos Id" aliasColumnName="Servicio" aliasForeignKey="aServicio" />
+    <column name="Servicio" fieldName="Servicio_Alimento" label="Servicio de Alimentos" foreignKey="aServicio" />
+    <column name="Servicio_Transportacion_Id" fieldName="Servicio_Transportacion_Id" label="Servicio Transportacion Id" aliasColumnName="Servicio" aliasForeignKey="tServicio" />
+    <column name="Servicio" fieldName="Servicio_Transportacion" label="Servicio de Transportación" foreignKey="tServicio" />
+    <column name="Latitud" fieldName="Latitud" label="Latitud" />
+    <column name="Longitud" fieldName="Longitud" label="Longitud" />
+    <column name="Kilometraje" fieldName="Kilometraje" label="Kilometraje" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transacción Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="cpUsuario_V" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cpUsuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación UTC 0" format="d" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="apUsuario_V" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="apUsuario_V" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="d" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+    <column name="Persona_Nombre" fieldName="Persona_Nombre" label="Contratante" foreignKey="Persona_V" />
+    <column name="Monto_Historico" fieldName="Monto_Historico" label="Monto Historico" />
+    <column name="Servicio_Vuelo_Id" fieldName="Servicio_Vuelo_Id" label="Servicio Vuelo Id" aliasColumnName="Servicio" aliasForeignKey="vServicio" />
+    <column name="Servicio" fieldName="Servicio_Vuelo" label="Servicio Vuelo" foreignKey="vServicio" />
+    <column name="Servicio_Gasolina_Id" fieldName="Servicio_Gasolina_Id" label="Servicio Gasolina Id" aliasColumnName="Servicio" aliasForeignKey="gServicio" />
+    <column name="Servicio" fieldName="Servicio_Gasolina" label="Servicio Gasolina" foreignKey="gServicio" />
+    <column name="Servicio_Otro_Id" fieldName="Servicio_Otro_Id" label="Servicio Otro Id" aliasColumnName="Servicio" aliasForeignKey="oServicio" />
+    <column name="Servicio" fieldName="Servicio_Otro" label="Servicio Otro" foreignKey="oServicio" />
+  </columns>
+</dataModel>

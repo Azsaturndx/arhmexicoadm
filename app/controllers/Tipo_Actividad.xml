@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Tipo_Actividad" conflictDetection="overwriteChanges" label="Tipo Actividad" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Tipo_Actividad"."Tipo_Actividad_Id" "Tipo_Actividad_Id"
+	,"Tipo_Actividad"."Tipo_Actividad" "Tipo_Actividad"
+	,"Tipo_Actividad"."Aplica_Vigencia" "Aplica_Vigencia"
+	,"Tipo_Actividad"."Dias_Vigencia" "Dias_Vigencia"
+	,"Tipo_Actividad"."Es_Para_Registro_Inicial" "Es_Para_Registro_Inicial"
+	,"Tipo_Actividad"."Es_Evento_Actualizacion" "Es_Evento_Actualizacion"
+	,"Tipo_Actividad"."Es_Actividad_RyS" "Es_Actividad_RyS"
+	,"Tipo_Actividad"."Tipo_Actividad_RyS_Id" "Tipo_Actividad_RyS_Id"
+	,"Tipo_Actividad_RyS_"."Tipo_Actividad_RyS" "Tipo_Actividad_RyS_Tipo_Actividad_RyS"
+	,"Tipo_Actividad"."Es_Match_Candidato_Potencial" "Es_Match_Candidato_Potencial"
+	,"Tipo_Actividad"."Numero_Recordatorios_Limite" "Numero_Recordatorios_Limite"
+	,"Tipo_Actividad"."Enviar_Notificacion" "Enviar_Notificacion"
+	,"Tipo_Actividad"."Layout_Correo_Notificacion_Id" "Layout_Correo_Notificacion_Id"
+	,"Layout_Correo_Notificacion_"."Layout_Correo_Electronico" "Layout_Correo_Notificacion_Layout_Correo_Electronico"
+	,"Tipo_Actividad"."Enviar_Notificacion_No_Cumplimiento" "Enviar_Notificacion_No_Cumplimiento"
+	,"Tipo_Actividad"."Layout_Correo_Notificacion_No_Cumplimiento_Id" "Layout_Correo_Notificacion_No_Cumplimiento_Id"
+	,"Layout_Correo_Notificacion_No_Cumplimiento_"."Layout_Correo_Electronico" "Layout_Correo_Notificacion_No_Cumplimiento_Layout_Correo_Electronico"
+	,"Tipo_Actividad"."Enviar_Notificacion_Cumplimiento" "Enviar_Notificacion_Cumplimiento"
+	,"Tipo_Actividad"."Layout_Correo_Notificacion_Cumplimiento_Id" "Layout_Correo_Notificacion_Cumplimiento_Id"
+	,"Layout_Correo_Notificacion_Cumplimiento_"."Layout_Correo_Electronico" "Layout_Correo_Notificacion_Cumplimiento_Layout_Correo_Electronico"
+	,"Tipo_Actividad"."Validar_Via_SQL" "Validar_Via_SQL"
+	,"Tipo_Actividad"."Sentencia_SQL_A_Validar" "Sentencia_SQL_A_Validar"
+	,"Tipo_Actividad"."Numero_Dias_Previos_Para_Notificacion" "Numero_Dias_Previos_Para_Notificacion"
+	,"Tipo_Actividad"."Validar_Manualmente" "Validar_Manualmente"
+	,"Tipo_Actividad"."Url_Pagina_Actividad" "Url_Pagina_Actividad"
+	,"Tipo_Actividad"."Es_Logic_APP" "Es_Logic_APP"
+	,"Tipo_Actividad"."Obligatoria" "Obligatoria"
+	,"Tipo_Actividad"."Url_Pagina" "Url_Pagina"
+	,"Tipo_Actividad"."Controlador" "Controlador"
+	,"Tipo_Actividad"."Nombre_Comando" "Nombre_Comando"
+	,"Tipo_Actividad"."Nombre_Vista_COT" "Nombre_Vista_COT"
+	,"Tipo_Actividad"."Rol_Actividad_Id" "Rol_Actividad_Id"
+	,"Rol_Actividad_"."Rol_Actividad" "Rol_Actividad_Rol_Actividad"
+	,"Tipo_Actividad"."Transaccion_Id" "Transaccion_Id"
+	,"Tipo_Actividad"."Creado_Por_Id" "Creado_Por_Id"
+	,"cpUsuario_V"."UserName" "cpUserName"
+	,"Tipo_Actividad"."Fecha_Creacion" "Fecha_Creacion"
+	,"Tipo_Actividad"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"apUsuario_V"."UserName" "apUserName"
+	,"Tipo_Actividad"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Tipo_Actividad"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Tipo_Actividad"."Enviar_Notificacion_Encargado" "Enviar_Notificacion_Encargado"
+	,"Tipo_Actividad"."Layout_Correo_Notificacion_Encargado_Id" "Layout_Correo_Notificacion_Encargado_Id"
+	,"Tipo_Actividad"."Aplica_Mensaje_Creado_Manualmente" "AplicaMensajeCreadoManualmente"
+	,"Tipo_Actividad"."Es_Envio_Correo_Electronico" "EsEnvioCorreoElectronico"
+	,"Tipo_Actividad"."Es_Envio_Mensaje_SMS" "EsEnvioMensajeSms"
+	,"Tipo_Actividad"."Layout_Mensaje_SMS_Notificacion_Id" "LayoutMensajeSmsNotificacionId"
+	,"Tipo_Actividad"."Layout_Mensaje_SMS_Notificacion_Encargado_Id" "LayoutMensajeSmsNotificacionEncargadoId"
+	,"Tipo_Actividad"."Layout_Mensaje_SMS_Notificacion_No_Cumplimiento_Id" "LayoutMensajeSmsNotificacionNoCumplimientoId"
+	,"Tipo_Actividad"."Layout_Mensaje_SMS_Notificacion_Cumplimiento_Id" "LayoutMensajeSmsNotificacionCumplimientoId"
+	,"Tipo_Actividad"."Aplica_Descripcion_Puesto" "Aplica_Descripcion_Puesto"
+from "APP"."Tipo_Actividad" "Tipo_Actividad"
+	left join "APP"."Tipo_Actividad_RyS" "Tipo_Actividad_RyS_" on "Tipo_Actividad"."Tipo_Actividad_RyS_Id" = "Tipo_Actividad_RyS_"."Tipo_Actividad_RyS_Id"
+	left join "APP"."Layout_Correo_Electronico" "Layout_Correo_Notificacion_" on "Tipo_Actividad"."Layout_Correo_Notificacion_Id" = "Layout_Correo_Notificacion_"."Layout_Correo_Electronico_Id"
+	left join "APP"."Layout_Correo_Electronico" "Layout_Correo_Notificacion_No_Cumplimiento_" on "Tipo_Actividad"."Layout_Correo_Notificacion_No_Cumplimiento_Id" = "Layout_Correo_Notificacion_No_Cumplimiento_"."Layout_Correo_Electronico_Id"
+	left join "APP"."Layout_Correo_Electronico" "Layout_Correo_Notificacion_Cumplimiento_" on "Tipo_Actividad"."Layout_Correo_Notificacion_Cumplimiento_Id" = "Layout_Correo_Notificacion_Cumplimiento_"."Layout_Correo_Electronico_Id"
+	left join "dbo"."Rol_Actividad" "Rol_Actividad_" on "Tipo_Actividad"."Rol_Actividad_Id" = "Rol_Actividad_"."Rol_Actividad_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Tipo_Actividad"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cpUsuario_V" on "Tipo_Actividad"."Creado_Por_Id" = "cpUsuario_V"."UserId"
+	left join "dbo"."Usuario_V" "apUsuario_V" on "Tipo_Actividad"."Actualizado_Por_Id" = "apUsuario_V"."UserId"
+]]></text>
+    </command>
+    <command id="Tipo_Actividad_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Tipo_Actividad_Id" />
+      </output>
+    </command>
+    <command type="Text" id="Tipo_Actividad_Descripcion_Puesto" custom="false">
+      <text><![CDATA[select
+	"Tipo_Actividad"."Tipo_Actividad_Id" "Tipo_Actividad_Id"
+	,"Tipo_Actividad"."Tipo_Actividad" "Tipo_Actividad"
+	,"Tipo_Actividad"."Aplica_Vigencia" "Aplica_Vigencia"
+	,"Tipo_Actividad"."Dias_Vigencia" "Dias_Vigencia"
+	,"Tipo_Actividad"."Es_Para_Registro_Inicial" "Es_Para_Registro_Inicial"
+	,"Tipo_Actividad"."Es_Evento_Actualizacion" "Es_Evento_Actualizacion"
+	,"Tipo_Actividad"."Es_Actividad_RyS" "Es_Actividad_RyS"
+	,"Tipo_Actividad"."Tipo_Actividad_RyS_Id" "Tipo_Actividad_RyS_Id"
+	,"Tipo_Actividad_RyS_"."Tipo_Actividad_RyS" "Tipo_Actividad_RyS_Tipo_Actividad_RyS"
+	,"Tipo_Actividad"."Es_Match_Candidato_Potencial" "Es_Match_Candidato_Potencial"
+	,"Tipo_Actividad"."Numero_Recordatorios_Limite" "Numero_Recordatorios_Limite"
+	,"Tipo_Actividad"."Enviar_Notificacion" "Enviar_Notificacion"
+	,"Tipo_Actividad"."Layout_Correo_Notificacion_Id" "Layout_Correo_Notificacion_Id"
+	,"Layout_Correo_Notificacion_"."Layout_Correo_Electronico" "Layout_Correo_Notificacion_Layout_Correo_Electronico"
+	,"Tipo_Actividad"."Enviar_Notificacion_No_Cumplimiento" "Enviar_Notificacion_No_Cumplimiento"
+	,"Tipo_Actividad"."Layout_Correo_Notificacion_No_Cumplimiento_Id" "Layout_Correo_Notificacion_No_Cumplimiento_Id"
+	,"Layout_Correo_Notificacion_No_Cumplimiento_"."Layout_Correo_Electronico" "Layout_Correo_Notificacion_No_Cumplimiento_Layout_Correo_Electronico"
+	,"Tipo_Actividad"."Enviar_Notificacion_Cumplimiento" "Enviar_Notificacion_Cumplimiento"
+	,"Tipo_Actividad"."Layout_Correo_Notificacion_Cumplimiento_Id" "Layout_Correo_Notificacion_Cumplimiento_Id"
+	,"Layout_Correo_Notificacion_Cumplimiento_"."Layout_Correo_Electronico" "Layout_Correo_Notificacion_Cumplimiento_Layout_Correo_Electronico"
+	,"Tipo_Actividad"."Validar_Via_SQL" "Validar_Via_SQL"
+	,"Tipo_Actividad"."Sentencia_SQL_A_Validar" "Sentencia_SQL_A_Validar"
+	,"Tipo_Actividad"."Numero_Dias_Previos_Para_Notificacion" "Numero_Dias_Previos_Para_Notificacion"
+	,"Tipo_Actividad"."Validar_Manualmente" "Validar_Manualmente"
+	,"Tipo_Actividad"."Url_Pagina_Actividad" "Url_Pagina_Actividad"
+	,"Tipo_Actividad"."Es_Logic_APP" "Es_Logic_APP"
+	,"Tipo_Actividad"."Obligatoria" "Obligatoria"
+	,"Tipo_Actividad"."Url_Pagina" "Url_Pagina"
+	,"Tipo_Actividad"."Controlador" "Controlador"
+	,"Tipo_Actividad"."Nombre_Comando" "Nombre_Comando"
+	,"Tipo_Actividad"."Nombre_Vista_COT" "Nombre_Vista_COT"
+	,"Tipo_Actividad"."Rol_Actividad_Id" "Rol_Actividad_Id"
+	,"Rol_Actividad_"."Rol_Actividad" "Rol_Actividad_Rol_Actividad"
+	,"Tipo_Actividad"."Transaccion_Id" "Transaccion_Id"
+	,"Tipo_Actividad"."Creado_Por_Id" "Creado_Por_Id"
+	,"cpUsuario_V"."UserName" "cpUserName"
+	,"Tipo_Actividad"."Fecha_Creacion" "Fecha_Creacion"
+	,"Tipo_Actividad"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"apUsuario_V"."UserName" "apUserName"
+	,"Tipo_Actividad"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Tipo_Actividad"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Tipo_Actividad"."Enviar_Notificacion_Encargado" "Enviar_Notificacion_Encargado"
+	,"Tipo_Actividad"."Layout_Correo_Notificacion_Encargado_Id" "Layout_Correo_Notificacion_Encargado_Id"
+	,"Tipo_Actividad"."Aplica_Mensaje_Creado_Manualmente" "AplicaMensajeCreadoManualmente"
+	,"Tipo_Actividad"."Es_Envio_Correo_Electronico" "EsEnvioCorreoElectronico"
+	,"Tipo_Actividad"."Es_Envio_Mensaje_SMS" "EsEnvioMensajeSms"
+	,"Tipo_Actividad"."Layout_Mensaje_SMS_Notificacion_Id" "LayoutMensajeSmsNotificacionId"
+	,"Tipo_Actividad"."Layout_Mensaje_SMS_Notificacion_Encargado_Id" "LayoutMensajeSmsNotificacionEncargadoId"
+	,"Tipo_Actividad"."Layout_Mensaje_SMS_Notificacion_No_Cumplimiento_Id" "LayoutMensajeSmsNotificacionNoCumplimientoId"
+	,"Tipo_Actividad"."Layout_Mensaje_SMS_Notificacion_Cumplimiento_Id" "LayoutMensajeSmsNotificacionCumplimientoId"
+	,"Tipo_Actividad"."Aplica_Descripcion_Puesto" "Aplica_Descripcion_Puesto"
+from "APP"."Tipo_Actividad" "Tipo_Actividad"
+	left join "APP"."Tipo_Actividad_RyS" "Tipo_Actividad_RyS_" on "Tipo_Actividad"."Tipo_Actividad_RyS_Id" = "Tipo_Actividad_RyS_"."Tipo_Actividad_RyS_Id"
+	left join "APP"."Layout_Correo_Electronico" "Layout_Correo_Notificacion_" on "Tipo_Actividad"."Layout_Correo_Notificacion_Id" = "Layout_Correo_Notificacion_"."Layout_Correo_Electronico_Id"
+	left join "APP"."Layout_Correo_Electronico" "Layout_Correo_Notificacion_No_Cumplimiento_" on "Tipo_Actividad"."Layout_Correo_Notificacion_No_Cumplimiento_Id" = "Layout_Correo_Notificacion_No_Cumplimiento_"."Layout_Correo_Electronico_Id"
+	left join "APP"."Layout_Correo_Electronico" "Layout_Correo_Notificacion_Cumplimiento_" on "Tipo_Actividad"."Layout_Correo_Notificacion_Cumplimiento_Id" = "Layout_Correo_Notificacion_Cumplimiento_"."Layout_Correo_Electronico_Id"
+	left join "dbo"."Rol_Actividad" "Rol_Actividad_" on "Tipo_Actividad"."Rol_Actividad_Id" = "Rol_Actividad_"."Rol_Actividad_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Tipo_Actividad"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cpUsuario_V" on "Tipo_Actividad"."Creado_Por_Id" = "cpUsuario_V"."UserId"
+	left join "dbo"."Usuario_V" "apUsuario_V" on "Tipo_Actividad"."Actualizado_Por_Id" = "apUsuario_V"."UserId"
+where
+"Tipo_Actividad"."Aplica_Descripcion_Puesto" = 1]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Tipo_Actividad_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Tipo Actividad Id" readOnly="true" />
+    <field name="Tipo_Actividad" type="String" allowNulls="false" label="Tipo de Actividad" length="150" showInSummary="true" />
+    <field name="Aplica_Vigencia" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Vigencia?" showInSummary="true" />
+    <field name="Dias_Vigencia" type="Int32" allowNulls="false" default="((0))" label="Días de Vigencia" showInSummary="true" />
+    <field name="Es_Para_Registro_Inicial" type="Boolean" allowNulls="false" default="((0))" label="¿Es Para Registro Inicial?" showInSummary="true" />
+    <field name="Es_Evento_Actualizacion" type="Boolean" allowNulls="false" default="((0))" label="¿Es Evento Actualización?" showInSummary="true" />
+    <field name="Es_Actividad_RyS" type="Boolean" allowNulls="false" default="((0))" label="¿Es Actividad RyS?" />
+    <field name="Tipo_Actividad_RyS_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo Actividad Ry S Id">
+      <items style="Lookup" dataController="Tipo_Actividad_RyS" newDataView="createForm1" dataValueField="Tipo_Actividad_RyS_Id" dataTextField="Tipo_Actividad_RyS" />
+    </field>
+    <field name="Tipo_Actividad_RyS_Tipo_Actividad_RyS" type="String" readOnly="true" label="Tipo Actividad RyS" length="150" />
+    <field name="Es_Match_Candidato_Potencial" type="Boolean" allowNulls="false" default="((0))" label="¿Es Match Candidato Potencial?" />
+    <field name="Numero_Recordatorios_Limite" type="Int32" allowNulls="false" default="((0))" label="Número Recordatorios Límite" />
+    <field name="Enviar_Notificacion" type="Boolean" allowNulls="false" default="((0))" label="¿Enviar Notificación?" />
+    <field name="Layout_Correo_Notificacion_Id" type="Int32" allowNulls="false" default="((0))" label="Layout Correo Notificacion Id">
+      <items style="Lookup" dataController="Layout_Correo_Electronico" newDataView="createForm1" dataValueField="Layout_Correo_Electronico_Id" dataTextField="Layout_Correo_Electronico" />
+    </field>
+    <field name="Layout_Correo_Notificacion_Layout_Correo_Electronico" type="String" readOnly="true" label="Layout Correo Notificación" length="450" />
+    <field name="Enviar_Notificacion_No_Cumplimiento" type="Boolean" allowNulls="false" default="((0))" label="Enviar Notificacion No Cumplimiento" />
+    <field name="Layout_Correo_Notificacion_No_Cumplimiento_Id" type="Int32" allowNulls="false" default="((0))" label="Layout Correo Notificacion No Cumplimiento Id">
+      <items style="Lookup" dataController="Layout_Correo_Electronico" newDataView="createForm1" dataValueField="Layout_Correo_Electronico_Id" dataTextField="Layout_Correo_Electronico" />
+    </field>
+    <field name="Layout_Correo_Notificacion_No_Cumplimiento_Layout_Correo_Electronico" type="String" readOnly="true" label="Layout Correo Notificación No Cumplimiento" length="450" />
+    <field name="Enviar_Notificacion_Cumplimiento" type="Boolean" allowNulls="false" default="((0))" label="Enviar Notificación Cumplimiento" />
+    <field name="Layout_Correo_Notificacion_Cumplimiento_Id" type="Int32" allowNulls="false" default="((0))" label="Layout Correo Notificacion Cumplimiento Id">
+      <items style="Lookup" dataController="Layout_Correo_Electronico" newDataView="createForm1" dataValueField="Layout_Correo_Electronico_Id" dataTextField="Layout_Correo_Electronico" />
+    </field>
+    <field name="Layout_Correo_Notificacion_Cumplimiento_Layout_Correo_Electronico" type="String" readOnly="true" label="Layout Correo Notificación Cumplimiento" length="450" />
+    <field name="Validar_Via_SQL" type="Boolean" allowNulls="false" default="((0))" label="Validar Via SQL" />
+    <field name="Sentencia_SQL_A_Validar" type="String" allowQBE="false" allowSorting="false" label="Sentencia SQL a Validar" />
+    <field name="Numero_Dias_Previos_Para_Notificacion" type="Int32" allowNulls="false" default="((0))" label="Número de Días Previos Para Notificación" />
+    <field name="Validar_Manualmente" type="Boolean" allowNulls="false" default="((0))" label="Validar Manualmente" />
+    <field name="Url_Pagina_Actividad" type="String" label="URL Página Actividad" length="500" />
+    <field name="Es_Logic_APP" type="Boolean" allowNulls="false" default="((0))" label="¿Es Logic APP?" />
+    <field name="Obligatoria" type="Boolean" allowNulls="false" default="((0))" label="¿Obligatoria?" />
+    <field name="Url_Pagina" type="String" label="URL de Página" length="150" />
+    <field name="Controlador" type="String" label="Controlador" length="150" />
+    <field name="Nombre_Comando" type="String" label="Nombre Comando" length="150" />
+    <field name="Nombre_Vista_COT" type="String" label="Nombre Vista COT" length="150" />
+    <field name="Rol_Actividad_Id" type="Int32" allowNulls="false" default="((0))" label="Rol Actividad Id">
+      <items style="Lookup" dataController="Rol_Actividad" newDataView="createForm1" dataValueField="Rol_Actividad_Id" dataTextField="Rol_Actividad" />
+    </field>
+    <field name="Rol_Actividad_Rol_Actividad" type="String" readOnly="true" label="Rol Actividad" length="150" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transacción Id" length="50" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="Enviar_Notificacion_Encargado" type="Boolean" allowNulls="false" default="((0))" label="¿Enviar Notificación Encargado?" />
+    <field name="Layout_Correo_Notificacion_Encargado_Id" type="Int32" allowNulls="false" default="((0))" label="Layout Correo Notificacion Encargado Id" />
+    <field name="AplicaMensajeCreadoManualmente" type="Boolean" allowNulls="false" default="((0))" label="Aplica Mensaje Creado Manualmente" />
+    <field name="EsEnvioCorreoElectronico" type="Boolean" allowNulls="false" default="((0))" label="Es Envio Correo Electronico" />
+    <field name="EsEnvioMensajeSms" type="Boolean" allowNulls="false" default="((0))" label="Es Envio Mensaje Sms" />
+    <field name="LayoutMensajeSmsNotificacionId" type="Int32" allowNulls="false" default="((0))" label="Layout Mensaje Sms Notificacion Id" />
+    <field name="LayoutMensajeSmsNotificacionEncargadoId" type="Int32" allowNulls="false" default="((0))" label="Layout Mensaje Sms Notificacion Encargado Id" />
+    <field name="LayoutMensajeSmsNotificacionNoCumplimientoId" type="Int32" allowNulls="false" default="((0))" label="Layout Mensaje Sms Notificacion No Cumplimiento Id" />
+    <field name="LayoutMensajeSmsNotificacionCumplimientoId" type="Int32" allowNulls="false" default="((0))" label="Layout Mensaje Sms Notificacion Cumplimiento Id" />
+    <field name="Aplica_Descripcion_Puesto" type="Boolean" allowNulls="false" default="((0))" label="Aplica Descripcion Puesto" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Tipo Actividad">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Tipo_Actividad" />
+        <dataField fieldName="Aplica_Vigencia" />
+        <dataField fieldName="Dias_Vigencia" columns="15" />
+        <dataField fieldName="Es_Para_Registro_Inicial" />
+        <dataField fieldName="Es_Evento_Actualizacion" />
+        <dataField fieldName="Es_Actividad_RyS" />
+        <dataField fieldName="Tipo_Actividad_RyS_Id" aliasFieldName="Tipo_Actividad_RyS_Tipo_Actividad_RyS" />
+        <dataField fieldName="Es_Match_Candidato_Potencial" />
+        <dataField fieldName="Numero_Recordatorios_Limite" columns="15" />
+        <dataField fieldName="Enviar_Notificacion" />
+        <dataField fieldName="Layout_Correo_Notificacion_Id" aliasFieldName="Layout_Correo_Notificacion_Layout_Correo_Electronico" />
+        <dataField fieldName="Enviar_Notificacion_No_Cumplimiento" />
+        <dataField fieldName="Layout_Correo_Notificacion_No_Cumplimiento_Id" aliasFieldName="Layout_Correo_Notificacion_No_Cumplimiento_Layout_Correo_Electronico" />
+        <dataField fieldName="Enviar_Notificacion_Cumplimiento" />
+        <dataField fieldName="Layout_Correo_Notificacion_Cumplimiento_Id" aliasFieldName="Layout_Correo_Notificacion_Cumplimiento_Layout_Correo_Electronico" />
+        <dataField fieldName="Validar_Via_SQL" />
+        <dataField fieldName="Sentencia_SQL_A_Validar" rows="5" />
+        <dataField fieldName="Numero_Dias_Previos_Para_Notificacion" columns="15" />
+        <dataField fieldName="Validar_Manualmente" />
+        <dataField fieldName="Url_Pagina_Actividad" />
+        <dataField fieldName="Es_Logic_APP" />
+        <dataField fieldName="Obligatoria" />
+        <dataField fieldName="Url_Pagina" />
+        <dataField fieldName="Controlador" />
+        <dataField fieldName="Nombre_Comando" />
+        <dataField fieldName="Nombre_Vista_COT" />
+        <dataField fieldName="Rol_Actividad_Id" aliasFieldName="Rol_Actividad_Rol_Actividad" />
+        <dataField fieldName="Transaccion_Id" columns="50" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Enviar_Notificacion_Encargado" />
+        <dataField fieldName="Layout_Correo_Notificacion_Encargado_Id" columns="15" />
+        <dataField fieldName="AplicaMensajeCreadoManualmente" />
+        <dataField fieldName="EsEnvioCorreoElectronico" />
+        <dataField fieldName="EsEnvioMensajeSms" />
+        <dataField fieldName="LayoutMensajeSmsNotificacionId" columns="15" />
+        <dataField fieldName="LayoutMensajeSmsNotificacionEncargadoId" columns="15" />
+        <dataField fieldName="LayoutMensajeSmsNotificacionNoCumplimientoId" columns="15" />
+        <dataField fieldName="LayoutMensajeSmsNotificacionCumplimientoId" columns="15" />
+        <dataField fieldName="Aplica_Descripcion_Puesto" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Review Tipo Actividad">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Tipo Actividad" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Tipo_Actividad" />
+            <dataField fieldName="Aplica_Vigencia" />
+            <dataField fieldName="Dias_Vigencia" columns="15" />
+            <dataField fieldName="Es_Para_Registro_Inicial" />
+            <dataField fieldName="Es_Evento_Actualizacion" />
+            <dataField fieldName="Es_Actividad_RyS" />
+            <dataField fieldName="Tipo_Actividad_RyS_Id" aliasFieldName="Tipo_Actividad_RyS_Tipo_Actividad_RyS" />
+            <dataField fieldName="Es_Match_Candidato_Potencial" />
+            <dataField fieldName="Numero_Recordatorios_Limite" columns="15" />
+            <dataField fieldName="Enviar_Notificacion" />
+            <dataField fieldName="Layout_Correo_Notificacion_Id" aliasFieldName="Layout_Correo_Notificacion_Layout_Correo_Electronico" />
+            <dataField fieldName="Enviar_Notificacion_No_Cumplimiento" />
+            <dataField fieldName="Layout_Correo_Notificacion_No_Cumplimiento_Id" aliasFieldName="Layout_Correo_Notificacion_No_Cumplimiento_Layout_Correo_Electronico" />
+            <dataField fieldName="Enviar_Notificacion_Cumplimiento" />
+            <dataField fieldName="Layout_Correo_Notificacion_Cumplimiento_Id" aliasFieldName="Layout_Correo_Notificacion_Cumplimiento_Layout_Correo_Electronico" />
+            <dataField fieldName="Validar_Via_SQL" />
+            <dataField fieldName="Sentencia_SQL_A_Validar" rows="5" />
+            <dataField fieldName="Numero_Dias_Previos_Para_Notificacion" columns="15" />
+            <dataField fieldName="Validar_Manualmente" />
+            <dataField fieldName="Url_Pagina_Actividad" />
+            <dataField fieldName="Es_Logic_APP" />
+            <dataField fieldName="Obligatoria" />
+            <dataField fieldName="Url_Pagina" />
+            <dataField fieldName="Controlador" />
+            <dataField fieldName="Nombre_Comando" />
+            <dataField fieldName="Nombre_Vista_COT" />
+            <dataField fieldName="Rol_Actividad_Id" aliasFieldName="Rol_Actividad_Rol_Actividad" />
+            <dataField fieldName="Transaccion_Id" columns="50" />
+            <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+            <dataField fieldName="Fecha_Creacion" columns="20" />
+            <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+            <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="Enviar_Notificacion_Encargado" />
+            <dataField fieldName="Layout_Correo_Notificacion_Encargado_Id" columns="15" />
+            <dataField fieldName="AplicaMensajeCreadoManualmente" />
+            <dataField fieldName="EsEnvioCorreoElectronico" />
+            <dataField fieldName="EsEnvioMensajeSms" />
+            <dataField fieldName="LayoutMensajeSmsNotificacionId" columns="15" />
+            <dataField fieldName="LayoutMensajeSmsNotificacionEncargadoId" columns="15" />
+            <dataField fieldName="LayoutMensajeSmsNotificacionNoCumplimientoId" columns="15" />
+            <dataField fieldName="LayoutMensajeSmsNotificacionCumplimientoId" columns="15" />
+            <dataField fieldName="Aplica_Descripcion_Puesto" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="New Tipo Actividad">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Tipo_Actividad" />
+            <dataField fieldName="Aplica_Vigencia" />
+            <dataField fieldName="Dias_Vigencia" columns="15" />
+            <dataField fieldName="Es_Para_Registro_Inicial" />
+            <dataField fieldName="Es_Evento_Actualizacion" />
+            <dataField fieldName="Es_Actividad_RyS" />
+            <dataField fieldName="Tipo_Actividad_RyS_Id" aliasFieldName="Tipo_Actividad_RyS_Tipo_Actividad_RyS" />
+            <dataField fieldName="Es_Match_Candidato_Potencial" />
+            <dataField fieldName="Numero_Recordatorios_Limite" columns="15" />
+            <dataField fieldName="Enviar_Notificacion" />
+            <dataField fieldName="Layout_Correo_Notificacion_Id" aliasFieldName="Layout_Correo_Notificacion_Layout_Correo_Electronico" />
+            <dataField fieldName="Enviar_Notificacion_No_Cumplimiento" />
+            <dataField fieldName="Layout_Correo_Notificacion_No_Cumplimiento_Id" aliasFieldName="Layout_Correo_Notificacion_No_Cumplimiento_Layout_Correo_Electronico" />
+            <dataField fieldName="Enviar_Notificacion_Cumplimiento" />
+            <dataField fieldName="Layout_Correo_Notificacion_Cumplimiento_Id" aliasFieldName="Layout_Correo_Notificacion_Cumplimiento_Layout_Correo_Electronico" />
+            <dataField fieldName="Validar_Via_SQL" />
+            <dataField fieldName="Sentencia_SQL_A_Validar" rows="5" />
+            <dataField fieldName="Numero_Dias_Previos_Para_Notificacion" columns="15" />
+            <dataField fieldName="Validar_Manualmente" />
+            <dataField fieldName="Url_Pagina_Actividad" />
+            <dataField fieldName="Es_Logic_APP" />
+            <dataField fieldName="Obligatoria" />
+            <dataField fieldName="Url_Pagina" />
+            <dataField fieldName="Controlador" />
+            <dataField fieldName="Nombre_Comando" />
+            <dataField fieldName="Nombre_Vista_COT" />
+            <dataField fieldName="Rol_Actividad_Id" aliasFieldName="Rol_Actividad_Rol_Actividad" />
+            <dataField fieldName="Transaccion_Id" columns="50" />
+            <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+            <dataField fieldName="Fecha_Creacion" columns="20" />
+            <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+            <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="Enviar_Notificacion_Encargado" />
+            <dataField fieldName="Layout_Correo_Notificacion_Encargado_Id" columns="15" />
+            <dataField fieldName="AplicaMensajeCreadoManualmente" />
+            <dataField fieldName="EsEnvioCorreoElectronico" />
+            <dataField fieldName="EsEnvioMensajeSms" />
+            <dataField fieldName="LayoutMensajeSmsNotificacionId" columns="15" />
+            <dataField fieldName="LayoutMensajeSmsNotificacionEncargadoId" columns="15" />
+            <dataField fieldName="LayoutMensajeSmsNotificacionNoCumplimientoId" columns="15" />
+            <dataField fieldName="LayoutMensajeSmsNotificacionCumplimientoId" columns="15" />
+            <dataField fieldName="Aplica_Descripcion_Puesto" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Tipo_Actividad_Descripcion_Puesto_LookUp_List" type="Grid" commandId="Tipo_Actividad_Descripcion_Puesto" label="Tipo de Actividad" filter="Estatus_Registro_Id = 1 AND Aplica_Descripcion_Puesto = 1" showInSelector="false">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Tipo_Actividad_Id" hidden="true" textMode="Text" />
+        <dataField fieldName="Tipo_Actividad" />
+        <dataField fieldName="Aplica_Descripcion_Puesto" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" />
+      <action id="a3" commandName="Delete" />
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="Delete" />
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="Delete" cssClass="DeleteIcon" whenView="grid1" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" />
+      <action id="a2" commandName="Delete" />
+    </actionGroup>
+  </actions>
+</dataController>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Documento_Solicitud_Prestamo" alias="Documento_Solicitud_Prestamo" created="2019-07-31T10:48:36" modified="2019-07-31T10:50:25" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Tipo_Documento_" parentTableSchema="APP" parentTableName="Tipo_Documento" x="443" y="20">
+      <foreignKeyColumn columnName="Tipo_Documento_Id" parentColumnName="Tipo_Documento_Id" />
+    </foreignKey>
+    <foreignKey id="Contratado_Solicitud_Prestamo_" parentTableSchema="APP" parentTableName="Contratado_Solicitud_Prestamo" x="1089" y="183">
+      <foreignKeyColumn columnName="Contratado_Solicitud_Prestamo_Id" parentColumnName="Contratado_Solicitud_Prestamo_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="443" y="498">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Creado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="899" y="43">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Actualizado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="624" y="249">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Documento_Solicitud_Prestamo_Id" fieldName="Documento_Solicitud_Prestamo_Id" label="Documento Solicitud Prestamo Id" />
+    <column name="Tipo_Documento_Id" fieldName="Tipo_Documento_Id" label="Tipo Documento Id" aliasColumnName="Tipo_Documento" aliasForeignKey="Tipo_Documento_" />
+    <column name="Tipo_Documento" fieldName="Tipo_Documento_Tipo_Documento" label="Tipo Documento" foreignKey="Tipo_Documento_" />
+    <column name="Documento_Solicitud_Prestamo" fieldName="Documento_Solicitud_Prestamo" label="Documento Solicitud Prestamo" />
+    <column name="Picture" fieldName="Picture" label="Archivo" />
+    <column name="PictureFileName" fieldName="PictureFileName" label="Nombre del Archivo" />
+    <column name="PictureContentType" fieldName="PictureContentType" label="Picture Content Type" />
+    <column name="PictureLength" fieldName="PictureLength" label="Picture Length" />
+    <column name="Notas" fieldName="Notas" label="Notas" />
+    <column name="Contratado_Solicitud_Prestamo_Id" fieldName="Contratado_Solicitud_Prestamo_Id" label="Contratado Solicitud Prestamo Id" aliasColumnName="Transaccion_Id" aliasForeignKey="Contratado_Solicitud_Prestamo_" />
+    <column name="Transaccion_Id" fieldName="Contratado_Solicitud_Prestamo_Transaccion_Id" label="Contratado Solicitud Prestamo Transaccion Id" foreignKey="Contratado_Solicitud_Prestamo_" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="UserName" fieldName="CreadoPorusername" label="Creado Por" foreignKey="Creado_Por" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="UserName" fieldName="ActualizadoPorusername" label="Actualizado Por" foreignKey="Actualizado_Por" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+  </columns>
+</dataModel>

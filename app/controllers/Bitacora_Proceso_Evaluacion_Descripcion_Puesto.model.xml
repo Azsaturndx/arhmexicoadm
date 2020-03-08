@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Bitacora_Proceso_Evaluacion_Descripcion_Puesto" alias="Bitacora_Proceso_Evaluacion_Descripcion_Puesto" created="2019-08-15T17:39:50" modified="2019-08-15T17:40:02" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="541" y="20">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Bitacora_Proceso_Evaluacion_Descripcion_Puesto_Id" fieldName="Bitacora_Proceso_Evaluacion_Descripcion_Puesto_Id" label="Bitacora Proceso Evaluacion Descripcion Puesto Id" />
+    <column name="Descripcion_Puesto_Id" fieldName="Descripcion_Puesto_Id" label="Descripcion Puesto Id" />
+    <column name="Descripcion_Puesto" fieldName="Descripcion_Puesto" label="Descripcion Puesto" />
+    <column name="Persona_Id" fieldName="Persona_Id" label="Persona Id" />
+    <column name="Nombre_Completo" fieldName="Nombre_Completo" label="Nombre Completo" />
+    <column name="Estatus_Registro_Persona_Id" fieldName="Estatus_Registro_Persona_Id" label="Estatus Registro Persona Id" />
+    <column name="Estatus_Registro_Persona" fieldName="Estatus_Registro_Persona" label="Estatus Registro Persona" />
+    <column name="Fue_Ko" fieldName="Fue_Ko" label="Fue Ko" />
+    <column name="Tipo_KO_Id" fieldName="Tipo_KO_Id" label="Tipo KO Id" />
+    <column name="Tipo_KO" fieldName="Tipo_KO" label="Tipo KO" />
+    <column name="No_Cumple_Informacion_Minima" fieldName="No_Cumple_Informacion_Minima" label="No Cumple Informacion Minima" />
+    <column name="Fecha_Nacimiento" fieldName="Fecha_Nacimiento" label="Fecha Nacimiento" format="g" />
+    <column name="Genero_Persona_Id" fieldName="Genero_Persona_Id" label="Genero Persona Id" />
+    <column name="Genero" fieldName="Genero" label="Genero" />
+    <column name="Estado_Civil_Id" fieldName="Estado_Civil_Id" label="Estado Civil Id" />
+    <column name="Estado_Civil" fieldName="Estado_Civil" label="Estado Civil" />
+    <column name="Calificacion_Por_Debajo_Minima" fieldName="Calificacion_Por_Debajo_Minima" label="Calificacion Por Debajo Minima" />
+    <column name="Calificacion_Obtenida" fieldName="Calificacion_Obtenida" label="Calificacion Obtenida" />
+    <column name="No_Aplica_Por_Estatus_Persona" fieldName="No_Aplica_Por_Estatus_Persona" label="No Aplica Por Estatus Persona" />
+    <column name="Estatus_Persona_Id" fieldName="Estatus_Persona_Id" label="Estatus Persona Id" />
+    <column name="Estatus_Persona" fieldName="Estatus_Persona" label="Estatus Persona" />
+    <column name="Es_Candidato_Para_Puesto" fieldName="Es_Candidato_Para_Puesto" label="Es Candidato Para Puesto" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha Creacion" format="g" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha Ultima Actualizacion" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+  </columns>
+</dataModel>

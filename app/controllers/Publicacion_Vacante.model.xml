@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Publicacion_Vacante" alias="Publicacion_Vacante" created="2019-01-22T14:38:42" modified="2019-02-26T13:00:33" x="20" y="37" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Canal_Publicacion_" parentTableSchema="APP" parentTableName="Canal_Publicacion" x="431" y="165">
+      <foreignKeyColumn columnName="Canal_Publicacion_Id" parentColumnName="Canal_Publicacion_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Procesamiento_" parentTableSchema="dbo" parentTableName="Estatus_Procesamiento" x="434" y="454">
+      <foreignKeyColumn columnName="Estatus_Procesamiento_Id" parentColumnName="Estatus_Procesamiento_Id" />
+    </foreignKey>
+    <foreignKey id="Mensaje_Sistema_" parentTableSchema="dbo" parentTableName="Mensaje_Sistema" x="426" y="585">
+      <foreignKeyColumn columnName="Mensaje_Sistema_Id" parentColumnName="Mensaje_Sistema_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="26" y="470">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="cpUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="25" y="589">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="apUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="29" y="682">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Vacante" parentTableSchema="APP" parentTableName="Vacante" x="955" y="20">
+      <foreignKeyColumn columnName="Vacante_Id" parentColumnName="Vacante_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Publicacion_Vacante_Id" fieldName="Publicacion_Vacante_Id" label="Publicacion Vacante Id" />
+    <column name="Publicacion_HTML" fieldName="Publicacion_HTML" label="Publicación HTML" />
+    <column name="Liga_Publicacion" fieldName="Liga_Publicacion" label="Liga de Publicación" />
+    <column name="Canal_Publicacion_Id" fieldName="Canal_Publicacion_Id" label="Canal Publicacion Id" aliasColumnName="Canal_Publicacion" aliasForeignKey="Canal_Publicacion_" />
+    <column name="Canal_Publicacion" fieldName="Canal_Publicacion" label="Canal de Publicación" foreignKey="Canal_Publicacion_" />
+    <column name="Fecha_Publicacion" fieldName="Fecha_Publicacion" label="Fecha de Publicación" format="d" />
+    <column name="Estatus_Procesamiento_Id" fieldName="Estatus_Procesamiento_Id" label="Estatus Procesamiento Id" aliasColumnName="Estatus_Procesamiento" aliasForeignKey="Estatus_Procesamiento_" />
+    <column name="Estatus_Procesamiento" fieldName="Estatus_Procesamiento_Estatus_Procesamiento" label="Estatus de Procesamiento" foreignKey="Estatus_Procesamiento_" />
+    <column name="Numero_Intentos" fieldName="Numero_Intentos" label="Número de Intentos" />
+    <column name="Mensaje_Sistema_Id" fieldName="Mensaje_Sistema_Id" label="Mensaje Sistema Id" aliasColumnName="Mensaje_Sistema" aliasForeignKey="Mensaje_Sistema_" />
+    <column name="Mensaje_Sistema" fieldName="Mensaje_Sistema_Mensaje_Sistema" label="Mensaje de Sistema" foreignKey="Mensaje_Sistema_" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="cpUsuario_V" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cpUsuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="d" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="apUsuario_V" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="apUsuario_V" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="d" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+    <column name="Vacante_Id" fieldName="VacanteId" label="Vacante Id" aliasColumnName="Vacante" aliasForeignKey="Vacante" />
+    <column name="Vacante" fieldName="Vacante" label="Vacante" foreignKey="Vacante" />
+    <column name="Publicacion_Texto" fieldName="Publicacion_Texto" label="Publicación" />
+    <column name="Publicacion_Vacante_Key" fieldName="PublicacionVacanteKey" label="Publicacion Vacante Key" />
+  </columns>
+</dataModel>

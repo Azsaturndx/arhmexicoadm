@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Grid_Reporte_Factura_Ingreso" conflictDetection="overwriteChanges" label="Grid Reporte Factura Ingreso" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Grid_Reporte_Factura_Ingreso"."Folio" "Folio"
+	,"Grid_Reporte_Factura_Ingreso"."Número de Factura" "NmerodeFactura"
+	,"Grid_Reporte_Factura_Ingreso"."Tipo de depósito" "Tipodedepsito"
+	,"Grid_Reporte_Factura_Ingreso"."Tipo de Archivo" "TipodeArchivo"
+	,"Grid_Reporte_Factura_Ingreso"."Estado" "Estado"
+	,"Grid_Reporte_Factura_Ingreso"."Liga" "Liga"
+	,"Grid_Reporte_Factura_Ingreso"."Beneficiario" "Beneficiario"
+	,"Grid_Reporte_Factura_Ingreso"."Empresa Pagadora" "EmpresaPagadora"
+	,"Grid_Reporte_Factura_Ingreso"."Banco Origen" "BancoOrigen"
+	,"Grid_Reporte_Factura_Ingreso"."Banco Destino" "BancoDestino"
+	,"Grid_Reporte_Factura_Ingreso"."Cuenta Bancaria" "CuentaBancaria"
+	,"Grid_Reporte_Factura_Ingreso"."Monto Total" "MontoTotal"
+	,"Grid_Reporte_Factura_Ingreso"."Año" "Ao"
+	,"Grid_Reporte_Factura_Ingreso"."Mes" "Mes"
+	,"Grid_Reporte_Factura_Ingreso"."Día" "Da"
+from "dbo"."Grid_Reporte_Factura_Ingreso" "Grid_Reporte_Factura_Ingreso"
+]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Folio" type="Int32" allowNulls="false" label="Folio" showInSummary="true" />
+    <field name="NmerodeFactura" type="String" allowNulls="false" label="Númerode Factura" length="10" showInSummary="true" />
+    <field name="Tipodedepsito" type="String" label="Tipodedepósito" length="150" showInSummary="true" />
+    <field name="TipodeArchivo" type="String" label="Tipode Archivo" length="150" showInSummary="true" />
+    <field name="Estado" type="String" label="Estado" readOnly="true" length="21" showInSummary="true" />
+    <field name="Liga" type="String" allowQBE="false" allowSorting="false" label="Liga" readOnly="true" htmlEncode="false" />
+    <field name="Beneficiario" type="String" label="Beneficiario" readOnly="true" length="100" />
+    <field name="EmpresaPagadora" type="String" label="Empresa Pagadora" length="150" />
+    <field name="BancoOrigen" type="String" label="Banco Origen" length="150" />
+    <field name="BancoDestino" type="String" label="Banco Destino" length="150" />
+    <field name="CuentaBancaria" type="String" allowNulls="false" label="Cuenta Bancaria" length="100" />
+    <field name="MontoTotal" type="String" label="Monto Total" readOnly="true" length="100" />
+    <field name="Ao" type="String" label="Año" length="150" />
+    <field name="Mes" type="Byte" label="Mes" />
+    <field name="Da" type="Byte" label="Día" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Grid Reporte Factura Ingreso">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Folio" columns="15" />
+        <dataField fieldName="NmerodeFactura" columns="10" />
+        <dataField fieldName="Tipodedepsito" />
+        <dataField fieldName="TipodeArchivo" />
+        <dataField fieldName="Estado" columns="21" />
+        <dataField fieldName="Liga" rows="5" />
+        <dataField fieldName="Beneficiario" />
+        <dataField fieldName="EmpresaPagadora" />
+        <dataField fieldName="BancoOrigen" />
+        <dataField fieldName="BancoDestino" />
+        <dataField fieldName="CuentaBancaria" />
+        <dataField fieldName="MontoTotal" />
+        <dataField fieldName="Ao" />
+        <dataField fieldName="Mes" columns="15" />
+        <dataField fieldName="Da" columns="15" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Review Grid Reporte Factura Ingreso">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Grid Reporte Factura Ingreso" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Folio" columns="15" />
+            <dataField fieldName="NmerodeFactura" columns="10" />
+            <dataField fieldName="Tipodedepsito" />
+            <dataField fieldName="TipodeArchivo" />
+            <dataField fieldName="Estado" columns="21" />
+            <dataField fieldName="Liga" rows="5" />
+            <dataField fieldName="Beneficiario" />
+            <dataField fieldName="EmpresaPagadora" />
+            <dataField fieldName="BancoOrigen" />
+            <dataField fieldName="BancoDestino" />
+            <dataField fieldName="CuentaBancaria" />
+            <dataField fieldName="MontoTotal" />
+            <dataField fieldName="Ao" />
+            <dataField fieldName="Mes" columns="15" />
+            <dataField fieldName="Da" columns="15" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="New Grid Reporte Factura Ingreso">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Folio" columns="15" />
+            <dataField fieldName="NmerodeFactura" columns="10" />
+            <dataField fieldName="Tipodedepsito" />
+            <dataField fieldName="TipodeArchivo" />
+            <dataField fieldName="Estado" columns="21" />
+            <dataField fieldName="Liga" rows="5" />
+            <dataField fieldName="Beneficiario" />
+            <dataField fieldName="EmpresaPagadora" />
+            <dataField fieldName="BancoOrigen" />
+            <dataField fieldName="BancoDestino" />
+            <dataField fieldName="CuentaBancaria" />
+            <dataField fieldName="MontoTotal" />
+            <dataField fieldName="Ao" />
+            <dataField fieldName="Mes" columns="15" />
+            <dataField fieldName="Da" columns="15" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="Delete" />
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+  </actions>
+</dataController>

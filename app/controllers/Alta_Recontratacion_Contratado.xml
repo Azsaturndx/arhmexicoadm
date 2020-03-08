@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Alta_Recontratacion_Contratado" label="Alta_Recontratacion_Contratado" conflictDetection="overwriteChanges" handler="arhmexico.Rules.Alta_Recontratacion_ContratadoBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <fields>
+    <field name="Fecha_Movimiento_Personal" type="DateTime" label="Fecha de Movimiento" />
+    <field name="Motivo_Movimiento_Personal_Id" type="Int32" label="Motivo de Movimiento">
+      <items style="Lookup" dataController="Motivo_Movimiento_Personal" dataView="Motivo_Movimiento_Personal_LookUp_List_Cambio" dataTextField="Motivo_Movimiento_Personal" dataValueField="Motivo_Movimiento_Personal_Id" newDataView="createForm1" />
+    </field>
+    <field name="Cliente_Id" type="Int32" label="Nuevo Cliente" allowNulls="false">
+      <items style="Lookup" dataController="Cliente" dataView="Cliente_LookUp_List" dataTextField="Cliente" dataValueField="Cliente_Id" newDataView="createForm1" />
+    </field>
+    <field name="Contratante_Id" type="Int32" label="Nuevo Contratante" contextFields="Cliente_Id=Cliente_Id" allowNulls="false">
+      <items style="Lookup" dataController="Contratante" dataView="Contratante_Admin_LookUp_List" dataTextField="Contratante" dataValueField="Contratante_Id" newDataView="createForm1" />
+    </field>
+    <field name="Contratante_Puesto" type="Int32" label="Nuevo Puesto" contextFields="Contratante_Id=Contratante_Id,Contratante_Estructura_Organizacional_Id=Estructura_Organizacional_Id" allowNulls="false">
+      <items style="Lookup" dataController="Contratante_Puesto" dataView="Contratante_Puesto_Aun_Sin_Asignar_LookUp_List" dataTextField="Contratante_Puesto" dataValueField="Contratante_Puesto_Id" newDataView="createForm1" />
+    </field>
+    <field name="Pagadora_Id" type="Int32" label="Nueva Pagadora" contextFields="Contratante_Id=Contratante_Id" allowNulls="false">
+      <items style="Lookup" dataController="Pagadora" dataView="Pagadora_LookUp_List_Solo_Pagadora" dataTextField="Pagadora" dataValueField="Pagadora_Id" newDataView="createForm1" />
+    </field>
+    <field name="Estructura_Organizacional_Id" type="Int32" label="Nueva Estructura Organizacional" contextFields="Contratante_Id=Contratante_Id" allowNulls="false">
+      <items style="Lookup" dataController="Contratante_Estructura_Organizacional" dataView="Contratante_Estructura_Organizacional_Vigente_LookUp_list" dataValueField="Contratante_Estructura_Organizacional_Id" dataTextField="Estructura_Organizacional" newDataView="createForm1" />
+    </field>
+    <field name="Fecha_Contratacion" type="DateTime" label="Fecha de Contratación" dataFormatString="d" />
+    <field name="Fecha_Antiguedad" type="DateTime" label="Fecha de Antigüedad" dataFormatString="d" />
+    <field name="Tipo_Contratado_Id" type="Int32" label="Tipo de Contratado">
+      <items style="Lookup" dataController="Tipo_Contratado" dataView="Tipo_Contratado_LookUp_List" dataTextField="Tipo_Contratado" dataValueField="Tipo_Contratado_Id" />
+    </field>
+    <field name="Tipo_Empleado_Id" type="Int32" label="Tipo de Empleado">
+      <items style="Lookup" dataController="Tipo_Empleado" dataView="Tipo_Empleado_LookUp_List" dataTextField="Tipo_Empleado" dataValueField="Tipo_Empleado_Id" newDataView="createForm1" />
+    </field>
+    <field name="Turno_Laboral_Id" type="Int32" label="Turno Laboral">
+      <items style="Lookup" dataController="Turno_Laboral" dataView="Turno_Laboral_LookUp_List" dataTextField="Turno_Laboral" dataValueField="Turno_Laboral_Id" />
+    </field>
+    <field name="Tipo_Contratado" type="String" label="Tipo Contratado" length="150" />
+  </fields>
+  <views>
+    <view id="editForm1" type="Form" label="Recontratación" showInSelector="false">
+      <categories>
+        <category id="c1" headerText="Recontratación" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="Fecha_Movimiento_Personal" columns="10" hidden="true" />
+            <dataField fieldName="Motivo_Movimiento_Personal_Id" columns="15" />
+            <dataField fieldName="Tipo_Contratado_Id" columns="15" />
+            <dataField fieldName="Tipo_Empleado_Id" columns="15" />
+            <dataField fieldName="Fecha_Contratacion" columns="10" />
+            <dataField fieldName="Fecha_Antiguedad" columns="10" />
+            <dataField fieldName="Cliente_Id" columns="15" />
+            <dataField fieldName="Contratante_Id" columns="15">
+              <footerText />
+            </dataField>
+            <dataField fieldName="Estructura_Organizacional_Id" columns="15" />
+            <dataField fieldName="Contratante_Puesto" columns="15" />
+            <dataField fieldName="Turno_Laboral_Id" columns="15" />
+            <dataField fieldName="Pagadora_Id" columns="15" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+</dataController>

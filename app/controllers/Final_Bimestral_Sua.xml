@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Final_Bimestral_Sua" conflictDetection="overwriteChanges" label="Final Bimestral Sua" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Final_Bimestral_Sua"."Final_Bimestral_Id" "Final_Bimestral_Id"
+	,"Final_Bimestral_Sua"."Actividad" "Actividad"
+	,"Final_Bimestral_Sua"."Aportacion_patronal" "Aportacion_patronal"
+	,"Final_Bimestral_Sua"."Area_geografica" "Area_geografica"
+	,"Final_Bimestral_Sua"."Bimestre_proceso" "Bimestre_proceso"
+	,"Final_Bimestral_Sua"."Codigo_postal" "Codigo_postal"
+	,"Final_Bimestral_Sua"."Convenio_reembolso" "Convenio_reembolso"
+	,"Final_Bimestral_Sua"."Delegacion_imss" "Delegacion_imss"
+	,"Final_Bimestral_Sua"."Subdelegacion_imss" "Subdelegacion_imss"
+	,"Final_Bimestral_Sua"."Domicilio" "Domicilio"
+	,"Final_Bimestral_Sua"."Entidad" "Entidad"
+	,"Final_Bimestral_Sua"."Fecha_proceso" "Fecha_proceso"
+	,"Final_Bimestral_Sua"."Razon_social" "Razon_social"
+	,"Final_Bimestral_Sua"."Municipio_delegacion" "Municipio_delegacion"
+	,"Final_Bimestral_Sua"."Registro_patronal" "Registro_patronal"
+	,"Final_Bimestral_Sua"."Rfc" "Rfc"
+	,"Final_Bimestral_Sua"."Amortizacion" "Amortizacion"
+	,"Final_Bimestral_Sua"."Aportacion_patron" "Aportacion_patron"
+	,"Final_Bimestral_Sua"."Clave" "Clave"
+	,"Final_Bimestral_Sua"."Clave_ubicacion" "Clave_ubicacion"
+	,"Final_Bimestral_Sua"."Nombre" "Nombre"
+	,"Final_Bimestral_Sua"."RFC_curp" "RFC_curp"
+	,"Final_Bimestral_Sua"."Aus" "Aus"
+	,"Final_Bimestral_Sua"."Cred_vivienda" "Cred_vivienda"
+	,"Final_Bimestral_Sua"."tipo_fecha_mto_cred" "tipo_fecha_mto_cred"
+	,"Final_Bimestral_Sua"."Dias" "Dias"
+	,"Final_Bimestral_Sua"."Fd" "Fd"
+	,"Final_Bimestral_Sua"."Fecha_alta" "Fecha_alta"
+	,"Final_Bimestral_Sua"."Fecha_baja" "Fecha_baja"
+	,"Final_Bimestral_Sua"."Inc" "Inc"
+	,"Final_Bimestral_Sua"."Obrera" "Obrera"
+	,"Final_Bimestral_Sua"."Suma1" "Suma1"
+	,"Final_Bimestral_Sua"."Patronal" "Patronal"
+	,"Final_Bimestral_Sua"."Suma2" "Suma2"
+	,"Final_Bimestral_Sua"."Retiro" "Retiro"
+	,"Final_Bimestral_Sua"."SDI" "SDI"
+	,"Final_Bimestral_Sua"."Carga_Id" "Carga_Id"
+	,"Final_Bimestral_Sua"."Fecha_Creacion" "Fecha_Creacion"
+	,"Final_Bimestral_Sua"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Final_Bimestral_Sua"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Final_Bimestral_Sua"."Estatus_Procesamiento_Id" "Estatus_Procesamiento_Id"
+	,"Estatus_Procesamiento"."Estatus_Procesamiento" "Estatus_Procesamiento_Estatus_Procesamiento"
+	,"cp"."UserName" "cpUserName"
+	,"ap"."UserName" "apUserName"
+from "dbo"."Final_Bimestral_Sua" "Final_Bimestral_Sua"
+	left join "dbo"."Usuario_V" "cp" on "Final_Bimestral_Sua"."Creado_Por_Id" = "cp"."UserId"
+	left join "dbo"."Usuario_V" "ap" on "Final_Bimestral_Sua"."Actualizado_Por_Id" = "ap"."UserId"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro" on "Final_Bimestral_Sua"."Estatus_Procesamiento_Id" = "Estatus_Registro"."Estatus_Registro_Id"
+	left join "dbo"."Estatus_Procesamiento" "Estatus_Procesamiento" on "Final_Bimestral_Sua"."Estatus_Procesamiento_Id" = "Estatus_Procesamiento"."Estatus_Procesamiento_Id"
+]]></text>
+    </command>
+    <command id="Final_Bimestral_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Final_Bimestral_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Final_Bimestral_Id" type="Int32" allowNulls="false" label="Final Bimestral Id" readOnly="true" showInSummary="true" />
+    <field name="Actividad" type="String" allowNulls="false" label="Actividad" length="100" showInSummary="true" />
+    <field name="Aportacion_patronal" type="String" allowNulls="false" label="Aportación Patronal" length="100" showInSummary="true" />
+    <field name="Area_geografica" type="String" allowNulls="false" label="Área Geográfica" length="100" showInSummary="true" />
+    <field name="Bimestre_proceso" type="String" allowNulls="false" label="Bimestre Proceso" length="100" showInSummary="true" />
+    <field name="Codigo_postal" type="String" allowNulls="false" label="Código Postal" length="100" />
+    <field name="Convenio_reembolso" type="String" allowNulls="false" label="Convenio Rembolso" length="100" />
+    <field name="Delegacion_imss" type="String" allowNulls="false" label="Delegación IMSS" length="100" />
+    <field name="Subdelegacion_imss" type="String" allowNulls="false" label="Sub Delegación IMSS" length="100" />
+    <field name="Domicilio" type="String" allowNulls="false" label="Domicilio" length="100" />
+    <field name="Entidad" type="String" allowNulls="false" label="Entidad" length="100" />
+    <field name="Fecha_proceso" type="String" allowNulls="false" label="Fecha Proceso" length="100" />
+    <field name="Razon_social" type="String" allowNulls="false" label="Razón Social" length="100" />
+    <field name="Municipio_delegacion" type="String" allowNulls="false" label="Municio o Delegación" length="100" />
+    <field name="Registro_patronal" type="String" allowNulls="false" label="Registro Patronal" length="100" />
+    <field name="Rfc" type="String" allowNulls="false" label="Rfc" length="100" />
+    <field name="Amortizacion" type="String" allowNulls="false" label="Amortización" length="100" />
+    <field name="Aportacion_patron" type="String" allowNulls="false" label="Aportación Patrón" length="100" />
+    <field name="Clave" type="String" allowNulls="false" label="Clave" length="100" />
+    <field name="Clave_ubicacion" type="String" allowNulls="false" label="Clave Ubicación" length="100" />
+    <field name="Nombre" type="String" allowNulls="false" label="Nombre" length="100" />
+    <field name="RFC_curp" type="String" allowNulls="false" label="RFC Curp" length="100" />
+    <field name="Aus" type="String" allowNulls="false" label="Aus" length="100" />
+    <field name="Cred_vivienda" type="String" allowNulls="false" label="Crédito Vivienda" length="100" />
+    <field name="tipo_fecha_mto_cred" type="String" allowNulls="false" label="Tipo Fecha Mto Cred" length="100" />
+    <field name="Dias" type="String" allowNulls="false" label="Días" length="100" />
+    <field name="Fd" type="String" allowNulls="false" label="Fd" length="100" />
+    <field name="Fecha_alta" type="String" allowNulls="false" label="Fecha Alta" length="100" />
+    <field name="Fecha_baja" type="String" allowNulls="false" label="Fecha Baja" length="100" />
+    <field name="Inc" type="String" allowNulls="false" label="Inc" length="100" />
+    <field name="Obrera" type="String" allowNulls="false" label="Obrera" length="100" />
+    <field name="Suma1" type="String" allowNulls="false" label="Suma1" length="100" />
+    <field name="Patronal" type="String" allowNulls="false" label="Patronal" length="100" />
+    <field name="Suma2" type="String" allowNulls="false" label="Suma2" length="100" />
+    <field name="Retiro" type="String" allowNulls="false" label="Retiro" length="100" />
+    <field name="SDI" type="String" allowNulls="false" label="Sdi" length="100" />
+    <field name="Carga_Id" type="Int32" allowNulls="false" label="Carga Id" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Creación" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Última Actualización" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id" />
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="Estatus_Procesamiento_Id" type="Int32" allowNulls="false" default="((0))" label="Estatus Procesamiento Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" copy="Estatus_Registro_Estatus_Registro=Estatus_Registro" />
+    </field>
+    <field name="Estatus_Procesamiento_Estatus_Procesamiento" type="String" readOnly="true" label="Estatus de Procesamiento" length="150" />
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Final Bimestral SUA" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Actividad" />
+        <dataField fieldName="Aportacion_patronal" />
+        <dataField fieldName="Area_geografica" />
+        <dataField fieldName="Bimestre_proceso" />
+        <dataField fieldName="Codigo_postal" />
+        <dataField fieldName="Convenio_reembolso" />
+        <dataField fieldName="Delegacion_imss" />
+        <dataField fieldName="Subdelegacion_imss" />
+        <dataField fieldName="Domicilio" />
+        <dataField fieldName="Entidad" />
+        <dataField fieldName="Fecha_proceso" />
+        <dataField fieldName="Razon_social" />
+        <dataField fieldName="Municipio_delegacion" />
+        <dataField fieldName="Registro_patronal" />
+        <dataField fieldName="Rfc" />
+        <dataField fieldName="Amortizacion" />
+        <dataField fieldName="Aportacion_patron" />
+        <dataField fieldName="Clave" />
+        <dataField fieldName="Clave_ubicacion" />
+        <dataField fieldName="Nombre" />
+        <dataField fieldName="RFC_curp" />
+        <dataField fieldName="Aus" />
+        <dataField fieldName="Cred_vivienda" />
+        <dataField fieldName="tipo_fecha_mto_cred" />
+        <dataField fieldName="Dias" />
+        <dataField fieldName="Fd" />
+        <dataField fieldName="Fecha_alta" />
+        <dataField fieldName="Fecha_baja" />
+        <dataField fieldName="Inc" />
+        <dataField fieldName="Obrera" />
+        <dataField fieldName="Suma1" />
+        <dataField fieldName="Patronal" />
+        <dataField fieldName="Suma2" />
+        <dataField fieldName="Retiro" />
+        <dataField fieldName="SDI" />
+        <dataField fieldName="Carga_Id" columns="15" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Estatus_Procesamiento_Id" aliasFieldName="Estatus_Procesamiento_Estatus_Procesamiento" />
+        <dataField fieldName="cpUserName" />
+        <dataField fieldName="apUserName" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Review Final Bimestral Sua">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Final Bimestral Sua" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Final_Bimestral_Id" columns="15" />
+            <dataField fieldName="Actividad" />
+            <dataField fieldName="Aportacion_patronal" />
+            <dataField fieldName="Area_geografica" />
+            <dataField fieldName="Bimestre_proceso" />
+            <dataField fieldName="Codigo_postal" />
+            <dataField fieldName="Convenio_reembolso" />
+            <dataField fieldName="Delegacion_imss" />
+            <dataField fieldName="Subdelegacion_imss" />
+            <dataField fieldName="Domicilio" />
+            <dataField fieldName="Entidad" />
+            <dataField fieldName="Fecha_proceso" />
+            <dataField fieldName="Razon_social" />
+            <dataField fieldName="Municipio_delegacion" />
+            <dataField fieldName="Registro_patronal" />
+            <dataField fieldName="Rfc" />
+            <dataField fieldName="Amortizacion" />
+            <dataField fieldName="Aportacion_patron" />
+            <dataField fieldName="Clave" />
+            <dataField fieldName="Clave_ubicacion" />
+            <dataField fieldName="Nombre" />
+            <dataField fieldName="RFC_curp" />
+            <dataField fieldName="Aus" />
+            <dataField fieldName="Cred_vivienda" />
+            <dataField fieldName="tipo_fecha_mto_cred" />
+            <dataField fieldName="Dias" />
+            <dataField fieldName="Fd" />
+            <dataField fieldName="Fecha_alta" />
+            <dataField fieldName="Fecha_baja" />
+            <dataField fieldName="Inc" />
+            <dataField fieldName="Obrera" />
+            <dataField fieldName="Suma1" />
+            <dataField fieldName="Patronal" />
+            <dataField fieldName="Suma2" />
+            <dataField fieldName="Retiro" />
+            <dataField fieldName="SDI" />
+            <dataField fieldName="Carga_Id" columns="15" />
+            <dataField fieldName="Fecha_Creacion" columns="20" />
+            <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="Estatus_Procesamiento_Id" aliasFieldName="Estatus_Procesamiento_Estatus_Procesamiento" />
+            <dataField fieldName="cpUserName" />
+            <dataField fieldName="apUserName" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="New Final Bimestral Sua">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Final_Bimestral_Id" columns="15" />
+            <dataField fieldName="Actividad" />
+            <dataField fieldName="Aportacion_patronal" />
+            <dataField fieldName="Area_geografica" />
+            <dataField fieldName="Bimestre_proceso" />
+            <dataField fieldName="Codigo_postal" />
+            <dataField fieldName="Convenio_reembolso" />
+            <dataField fieldName="Delegacion_imss" />
+            <dataField fieldName="Subdelegacion_imss" />
+            <dataField fieldName="Domicilio" />
+            <dataField fieldName="Entidad" />
+            <dataField fieldName="Fecha_proceso" />
+            <dataField fieldName="Razon_social" />
+            <dataField fieldName="Municipio_delegacion" />
+            <dataField fieldName="Registro_patronal" />
+            <dataField fieldName="Rfc" />
+            <dataField fieldName="Amortizacion" />
+            <dataField fieldName="Aportacion_patron" />
+            <dataField fieldName="Clave" />
+            <dataField fieldName="Clave_ubicacion" />
+            <dataField fieldName="Nombre" />
+            <dataField fieldName="RFC_curp" />
+            <dataField fieldName="Aus" />
+            <dataField fieldName="Cred_vivienda" />
+            <dataField fieldName="tipo_fecha_mto_cred" />
+            <dataField fieldName="Dias" />
+            <dataField fieldName="Fd" />
+            <dataField fieldName="Fecha_alta" />
+            <dataField fieldName="Fecha_baja" />
+            <dataField fieldName="Inc" />
+            <dataField fieldName="Obrera" />
+            <dataField fieldName="Suma1" />
+            <dataField fieldName="Patronal" />
+            <dataField fieldName="Suma2" />
+            <dataField fieldName="Retiro" />
+            <dataField fieldName="SDI" />
+            <dataField fieldName="Carga_Id" columns="15" />
+            <dataField fieldName="Fecha_Creacion" columns="20" />
+            <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="Estatus_Procesamiento_Id" aliasFieldName="Estatus_Procesamiento_Estatus_Procesamiento" />
+            <dataField fieldName="cpUserName" />
+            <dataField fieldName="apUserName" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="Delete" />
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+  </actions>
+</dataController>

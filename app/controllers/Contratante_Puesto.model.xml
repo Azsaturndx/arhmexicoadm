@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Contratante_Puesto" alias="Contratante_Puesto" created="2018-06-28T12:49:25" modified="2019-04-05T15:41:49" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="528" y="20">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Usuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="523" y="178">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Usuario_V1" parentTableSchema="dbo" parentTableName="Usuario_V" x="451" y="383">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Estatus_Puesto" parentTableSchema="APP" parentTableName="Estatus_Puesto" x="901" y="243">
+      <foreignKeyColumn columnName="Estatus_Puesto_Id" parentColumnName="Estatus_Puesto_Id" />
+    </foreignKey>
+    <foreignKey id="Contratante_Estructura_Organizacional" parentTableSchema="APP" parentTableName="Contratante_Estructura_Organizacional" x="937" y="87">
+      <foreignKeyColumn columnName="Contratante_Estructura_Organizacional_Id" parentColumnName="Contratante_Estructura_Organizacional_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Contratante_Puesto_Id" fieldName="Contratante_Puesto_Id" label="Contratante Puesto Id" />
+    <column name="Contratante_Puesto" fieldName="Contratante_Puesto" label="Contratante Puesto" />
+    <column name="Contratante_Id" fieldName="Contratante_Id" label="Contratante Id" />
+    <column name="Contratante_Puesto_Padre_Id" fieldName="Contratante_Puesto_Padre_Id" label="Contratante Puesto Padre Id" />
+    <column name="Contratante_Puesto_Descripcion" fieldName="Contratante_Puesto_Descripcion" label="Contratante Puesto Descripcion" />
+    <column name="Cliente_Id" fieldName="Cliente_Id" label="Cliente Id" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V" />
+    <column name="UserName" fieldName="cpUserName" label="Usuario V Username" foreignKey="Usuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha Creacion" format="g" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V1" />
+    <column name="UserName" fieldName="apUserName" label="ap User Name" foreignKey="Usuario_V1" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha Ultima Actualizacion" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+    <column name="Estatus_Puesto" fieldName="Estatus_Puesto_Estatus_Puesto" label="Estatus Puesto Estatus Puesto" foreignKey="Estatus_Puesto" />
+    <column name="Estatus_Puesto_Id" fieldName="Estatus_Puesto_Id" label="Estatus Puesto Id" />
+    <column name="Contratante_Estructura_Organizacional_Id" fieldName="Contratante_Estructura_Organizacional_Id" label="Contratante Estructura Organizacional Id" aliasColumnName="Estructura_Organizacional" aliasForeignKey="Contratante_Estructura_Organizacional" />
+    <column name="Estructura_Organizacional" fieldName="Contratante_Estructura_Organizacional" label="Contratante Estructura Organizacional" foreignKey="Contratante_Estructura_Organizacional" />
+    <column name="Consecutivo_Contratante_Puesto_Id" fieldName="ConsecutivoContratantePuestoId" label="Consecutivo Puesto" />
+  </columns>
+</dataModel>

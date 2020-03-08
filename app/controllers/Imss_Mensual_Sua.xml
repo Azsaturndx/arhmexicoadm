@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Imss_Mensual_Sua" conflictDetection="overwriteChanges" label="Imss Mensual Sua" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Imss_Mensual_Sua"."Id" "Id"
+	,"Imss_Mensual_Sua"."Actividad" "Actividad"
+	,"Imss_Mensual_Sua"."Area_geografica" "Area_geografica"
+	,"Imss_Mensual_Sua"."Codigo_postal" "Codigo_postal"
+	,"Imss_Mensual_Sua"."Delegacion_imss" "Delegacion_imss"
+	,"Imss_Mensual_Sua"."Subdelegacion_imss" "Subdelegacion_imss"
+	,"Imss_Mensual_Sua"."Domicilio" "Domicilio"
+	,"Imss_Mensual_Sua"."Entidad" "Entidad"
+	,"Imss_Mensual_Sua"."Fecha_proceso" "Fecha_proceso"
+	,"Imss_Mensual_Sua"."Razon_social" "Razon_social"
+	,"Imss_Mensual_Sua"."Periodo_proceso" "Periodo_proceso"
+	,"Imss_Mensual_Sua"."Municipio_delegacion" "Municipio_delegacion"
+	,"Imss_Mensual_Sua"."Prima_rt" "Prima_rt"
+	,"Imss_Mensual_Sua"."Registro_patronal" "Registro_patronal"
+	,"Imss_Mensual_Sua"."Rfc" "Rfc"
+	,"Imss_Mensual_Sua"."Clave" "Clave"
+	,"Imss_Mensual_Sua"."Clave_ubicacion" "Clave_ubicacion"
+	,"Imss_Mensual_Sua"."Nombre" "Nombre"
+	,"Imss_Mensual_Sua"."RFC_curp" "RFC_curp"
+	,"Imss_Mensual_Sua"."Aus" "Aus"
+	,"Imss_Mensual_Sua"."CF" "CF"
+	,"Imss_Mensual_Sua"."Dias" "Dias"
+	,"Imss_Mensual_Sua"."Exc_Obr" "Exc_Obr"
+	,"Imss_Mensual_Sua"."Exc_Pat" "Exc_Pat"
+	,"Imss_Mensual_Sua"."Fecha_alta" "Fecha_alta"
+	,"Imss_Mensual_Sua"."Fecha_baja" "Fecha_baja"
+	,"Imss_Mensual_Sua"."GMP_Obr" "GMP_Obr"
+	,"Imss_Mensual_Sua"."GMP_Pat" "GMP_Pat"
+	,"Imss_Mensual_Sua"."GPS" "GPS"
+	,"Imss_Mensual_Sua"."IV_Obr" "IV_Obr"
+	,"Imss_Mensual_Sua"."IV_Pat" "IV_Pat"
+	,"Imss_Mensual_Sua"."Inc" "Inc"
+	,"Imss_Mensual_Sua"."Obrera" "Obrera"
+	,"Imss_Mensual_Sua"."Patronal" "Patronal"
+	,"Imss_Mensual_Sua"."PD_Pat" "PD_Pat"
+	,"Imss_Mensual_Sua"."PD_Obr" "PD_Obr"
+	,"Imss_Mensual_Sua"."RT" "RT"
+	,"Imss_Mensual_Sua"."SDI" "SDI"
+	,"Imss_Mensual_Sua"."Subtotal" "Subtotal"
+	,"Imss_Mensual_Sua"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Imss_Mensual_Sua"."Fecha_Creacion" "FechaCreacion"
+from "dbo"."Imss_Mensual_Sua" "Imss_Mensual_Sua"
+]]></text>
+    </command>
+    <command id="IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Id" />
+      </output>
+    </command>
+    <command type="Text" id="Imss_Mensual_Sua_V" custom="true">
+      <text><![CDATA[SELECT 
+		Id
+	   ,Clave
+      ,Clave_ubicacion
+      ,Nombre
+      ,Fecha_Alta
+      ,Fecha_baja
+      ,Dias
+      ,SDI
+      ,Inc
+      ,Aus
+      ,CF
+      ,Exc_Pat
+      ,Exc_Obr
+      ,PD_Pat
+      ,PD_Obr
+      ,GMP_Pat
+      ,GMP_Obr
+      ,rt
+      ,IV_Pat
+      ,IV_Obr
+      ,GPS
+      ,Patronal
+      ,Obrera
+      ,Subtotal
+      ,RFC_curp
+      ,Razon_social
+      ,Registro_patronal
+      ,Cliente
+	  ,Periodo_proceso
+	  ,Cuenta_Infonavit
+  FROM 
+	dbo.Imss_Mensual_Sua_V]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Id" type="Int32" allowNulls="false" label="Id" readOnly="true" showInSummary="true" isPrimaryKey="true" />
+    <field name="Actividad" type="String" label="Actividad" length="100" showInSummary="true" />
+    <field name="Area_geografica" type="String" label="Areageografica" length="100" showInSummary="true" />
+    <field name="Codigo_postal" type="String" label="Codigopostal" length="100" showInSummary="true" />
+    <field name="Delegacion_imss" type="String" label="Delegacionimss" length="100" showInSummary="true" />
+    <field name="Subdelegacion_imss" type="String" label="Subdelegacionimss" length="100" />
+    <field name="Domicilio" type="String" label="Domicilio" length="100" />
+    <field name="Entidad" type="String" label="Entidad" length="100" />
+    <field name="Fecha_proceso" type="String" label="Fechaproceso" length="100" />
+    <field name="Razon_social" type="String" label="Razon Social" length="100" />
+    <field name="Periodo_proceso" type="String" label="Periodo Proceso" length="100" />
+    <field name="Municipio_delegacion" type="String" label="Municipiodelegacion" length="100" />
+    <field name="Prima_rt" type="String" label="Primart" length="100" />
+    <field name="Registro_patronal" type="String" label="Registropatronal" length="100" />
+    <field name="Rfc" type="String" label="Rfc" length="100" />
+    <field name="Clave" type="String" label="Clave" length="100" />
+    <field name="Clave_ubicacion" type="String" label="Claveubicacion" length="100" />
+    <field name="Nombre" type="String" label="Nombre" length="100" />
+    <field name="RFC_curp" type="String" label="RF Ccurp" length="100" />
+    <field name="Aus" type="Decimal" label="Aus" />
+    <field name="CF" type="Decimal" label="Cf" />
+    <field name="Dias" type="Decimal" label="Dias" />
+    <field name="Exc_Obr" type="Decimal" label="Exc Obr" />
+    <field name="Exc_Pat" type="Decimal" label="Exc Pat" />
+    <field name="Fecha_alta" type="String" label="Fechaalta" length="100" />
+    <field name="Fecha_baja" type="String" label="Fechabaja" length="100" />
+    <field name="GMP_Obr" type="Decimal" label="GMP Obr" />
+    <field name="GMP_Pat" type="Decimal" label="GMP Pat" />
+    <field name="GPS" type="Decimal" label="Gps" />
+    <field name="IV_Obr" type="Decimal" label="IV Obr" />
+    <field name="IV_Pat" type="Decimal" label="IV Pat" />
+    <field name="Inc" type="Decimal" label="Inc" />
+    <field name="Obrera" type="Decimal" label="Obrera" />
+    <field name="Patronal" type="Decimal" label="Patronal" />
+    <field name="PD_Pat" type="Decimal" label="PD Pat" />
+    <field name="PD_Obr" type="Decimal" label="PD Obr" />
+    <field name="RT" type="Decimal" label="Rt" />
+    <field name="SDI" type="Decimal" label="Sdi" />
+    <field name="Subtotal" type="Decimal" label="Subtotal" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="g" label="Fecha Ultima Actualizacion" />
+    <field name="FechaCreacion" type="DateTime" allowNulls="false" dataFormatString="g" label="Fecha Creacion" />
+    <field name="Cliente" type="String" label="Cliente" length="150" />
+    <field name="Cuenta_Infonavit" type="String" label="Cuenta Infonavit" length="50" />
+  </fields>
+  <views>
+    <view id="Imss_Mensual_Sua" commandId="Imss_Mensual_Sua_V" type="Grid" label="IMSS Mensual SUA - ARH">
+      <dataFields>
+        <dataField fieldName="Clave" />
+        <dataField fieldName="Clave_ubicacion" />
+        <dataField fieldName="Nombre" />
+        <dataField fieldName="Fecha_alta" />
+        <dataField fieldName="Fecha_baja" />
+        <dataField fieldName="Dias" />
+        <dataField fieldName="SDI" />
+        <dataField fieldName="Inc" />
+        <dataField fieldName="Aus" />
+        <dataField fieldName="CF" />
+        <dataField fieldName="Exc_Pat" />
+        <dataField fieldName="Exc_Obr" />
+        <dataField fieldName="PD_Pat" />
+        <dataField fieldName="PD_Obr" />
+        <dataField fieldName="GMP_Pat" />
+        <dataField fieldName="GMP_Obr" />
+        <dataField fieldName="RT" />
+        <dataField fieldName="IV_Pat" />
+        <dataField fieldName="IV_Obr" />
+        <dataField fieldName="GPS" />
+        <dataField fieldName="Patronal" />
+        <dataField fieldName="Obrera" />
+        <dataField fieldName="Subtotal" />
+        <dataField fieldName="RFC_curp" />
+        <dataField fieldName="Razon_social" />
+        <dataField fieldName="Registro_patronal" />
+        <dataField fieldName="Periodo_proceso" rows="5" />
+        <dataField fieldName="Cliente" rows="5" />
+        <dataField fieldName="Cuenta_Infonavit" columns="50" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Review Imss Mensual Sua">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Imss Mensual Sua" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Id" columns="15" />
+            <dataField fieldName="Actividad" />
+            <dataField fieldName="Area_geografica" />
+            <dataField fieldName="Codigo_postal" />
+            <dataField fieldName="Delegacion_imss" />
+            <dataField fieldName="Subdelegacion_imss" />
+            <dataField fieldName="Domicilio" />
+            <dataField fieldName="Entidad" />
+            <dataField fieldName="Fecha_proceso" />
+            <dataField fieldName="Razon_social" />
+            <dataField fieldName="Periodo_proceso" />
+            <dataField fieldName="Municipio_delegacion" />
+            <dataField fieldName="Prima_rt" />
+            <dataField fieldName="Registro_patronal" />
+            <dataField fieldName="Rfc" />
+            <dataField fieldName="Clave" />
+            <dataField fieldName="Clave_ubicacion" />
+            <dataField fieldName="Nombre" />
+            <dataField fieldName="RFC_curp" />
+            <dataField fieldName="Aus" />
+            <dataField fieldName="CF" />
+            <dataField fieldName="Dias" />
+            <dataField fieldName="Exc_Obr" />
+            <dataField fieldName="Exc_Pat" />
+            <dataField fieldName="Fecha_alta" />
+            <dataField fieldName="Fecha_baja" />
+            <dataField fieldName="GMP_Obr" />
+            <dataField fieldName="GMP_Pat" />
+            <dataField fieldName="GPS" />
+            <dataField fieldName="IV_Obr" />
+            <dataField fieldName="IV_Pat" />
+            <dataField fieldName="Inc" />
+            <dataField fieldName="Obrera" />
+            <dataField fieldName="Patronal" />
+            <dataField fieldName="PD_Pat" />
+            <dataField fieldName="PD_Obr" />
+            <dataField fieldName="RT" />
+            <dataField fieldName="SDI" />
+            <dataField fieldName="Subtotal" />
+            <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+            <dataField fieldName="FechaCreacion" columns="20" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="New Imss Mensual Sua">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Id" columns="15" />
+            <dataField fieldName="Actividad" />
+            <dataField fieldName="Area_geografica" />
+            <dataField fieldName="Codigo_postal" />
+            <dataField fieldName="Delegacion_imss" />
+            <dataField fieldName="Subdelegacion_imss" />
+            <dataField fieldName="Domicilio" />
+            <dataField fieldName="Entidad" />
+            <dataField fieldName="Fecha_proceso" />
+            <dataField fieldName="Razon_social" />
+            <dataField fieldName="Periodo_proceso" />
+            <dataField fieldName="Municipio_delegacion" />
+            <dataField fieldName="Prima_rt" />
+            <dataField fieldName="Registro_patronal" />
+            <dataField fieldName="Rfc" />
+            <dataField fieldName="Clave" />
+            <dataField fieldName="Clave_ubicacion" />
+            <dataField fieldName="Nombre" />
+            <dataField fieldName="RFC_curp" />
+            <dataField fieldName="Aus" />
+            <dataField fieldName="CF" />
+            <dataField fieldName="Dias" />
+            <dataField fieldName="Exc_Obr" />
+            <dataField fieldName="Exc_Pat" />
+            <dataField fieldName="Fecha_alta" />
+            <dataField fieldName="Fecha_baja" />
+            <dataField fieldName="GMP_Obr" />
+            <dataField fieldName="GMP_Pat" />
+            <dataField fieldName="GPS" />
+            <dataField fieldName="IV_Obr" />
+            <dataField fieldName="IV_Pat" />
+            <dataField fieldName="Inc" />
+            <dataField fieldName="Obrera" />
+            <dataField fieldName="Patronal" />
+            <dataField fieldName="PD_Pat" />
+            <dataField fieldName="PD_Obr" />
+            <dataField fieldName="RT" />
+            <dataField fieldName="SDI" />
+            <dataField fieldName="Subtotal" />
+            <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+            <dataField fieldName="FechaCreacion" columns="20" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+  </actions>
+</dataController>

@@ -1,0 +1,42 @@
+    rowa {
+        border-top: solid 0px #e5e5e5 !important;
+        padding-top: 1em !important;
+    }
+
+    .labela {
+        color: black !important;
+        text-align: right !important;
+        padding: 0px !important;
+        min-width: 0px !important;
+    }
+
+    .fielda {
+        color: black !important;
+        min-width: 2px !important;
+    }
+
+    .ia1 {
+        font-size: 15px !important;
+        color: red !important;
+    }
+
+    .fa-fwa {
+        text-align: center;
+        display: inline-flex;
+    }
+
+    .remove-border{
+        border: 0px !important;
+    }
+
+    .accordion-title{
+        color:#5f5f5f !important;
+    }
+
+    .data-container-fix{
+        min-width: 300px;
+    }
+
+    .column-fix{
+        min-width: 600px;
+    }

@@ -1,0 +1,29 @@
+﻿
+<!-- 
+    This section provides a sample markup for Desktop user inteface.
+<!doctype html>
+<html>
+<body>
+    <div style="margin:2px;border: solid 1px silver;padding:8px;">uc:OrganigramaARH
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+--&gt;
+<!-- 
+    This section provides a sample markup for Touch UI user interface. 
+-->
+<div id="OrganigramaARH" data-app-role="page" data-activator="Button|OrganigramaARH" xmlns:codedom="http://www.codeontime.com/2008/codedom-compiler" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:c="urn:schemas-codeontime-com:data-aquarium" xmlns:asp="urn:asp.net" xmlns:aquarium="urn:data-aquarium">
+  <p>
+            Markup of <i>OrganigramaARH</i> custom user control for Touch UI.
+          </p>
+</div>
+        
+<script type="text/javascript">
+    (function() {
+        if ($app.touch)
+            $(document).one('start.app', function () {
+                // The page of Touch UI application is ready to be configured
+        });
+    })();
+</script>

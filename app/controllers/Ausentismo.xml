@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Ausentismo" conflictDetection="overwriteChanges" label="Ausentismo" handler="arhmexico.Rules.AusentismoBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text" custom="false">
+      <text><![CDATA[select
+	"Ausentismo"."Ausentismo_Id" "Ausentismo_Id"
+	,"Ausentismo"."Ausentismo" "Ausentismo"
+	,"Ausentismo"."Tipo_Ausentismo_Id" "Tipo_Ausentismo_Id"
+	,"Tipo_Ausentismo_"."Tipo_Ausentismo" "Tipo_Ausentismo"
+	,"Ausentismo"."Contratado_Id" "Contratado_Id"
+	,"Contratado_"."Identificador_Unico" "Contratado_Identificador_Unico"
+	,"Ausentismo"."Fecha_Solicitud_Ausentismo" "Fecha_Solicitud_Ausentismo"
+	,"Ausentismo"."Fecha_Inicio_Ausentismo" "Fecha_Inicio_Ausentismo"
+	,"Ausentismo"."Fecha_Fin_Ausentismo" "Fecha_Fin_Ausentismo"
+	,"Ausentismo"."Dias_Ausentismo_Solicitados" "Dias_Ausentismo_Solicitados"
+	,"Ausentismo"."Motivo_Ausentismo" "Motivo_Ausentismo"
+	,"Ausentismo"."Estatus_Ausentismo_Id" "Estatus_Ausentismo_Id"
+	,"Estatus_Ausentismo_"."Estatus_Ausentismo" "Estatus_Ausentismo"
+	,"Ausentismo"."Fecha_Autorizacion_Rechazo" "Fecha_Autorizacion_Rechazo"
+	,"Ausentismo"."Autorizado_Rechazado_Por_Id" "Autorizado_Rechazado_Por_Id"
+	,"Ausentismo"."Notas_Autorizacion_Rechazo" "Notas_Autorizacion_Rechazo"
+	,"Ausentismo"."Dias_Autorizados" "Dias_Autorizados"
+	,"Ausentismo"."Ausentismo_Key" "Ausentismo_Key"
+	,"Ausentismo"."Contratante_Id" "Contratante_Id"
+	,"Contratante_"."Contratante" "Contratante_Contratante"
+	,"Ausentismo"."Cliente_Id" "Cliente_Id"
+	,"Cliente_"."Cliente" "Cliente_Cliente"
+	,"Ausentismo"."Transaccion_Id" "Transaccion_Id"
+	,"Ausentismo"."Creado_Por_Id" "Creado_Por_Id"
+	,"Creado_Por"."UserName" "Creado_Por"
+	,"Ausentismo"."Fecha_Creacion" "Fecha_Creacion"
+	,"Ausentismo"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"Actualizado_Por"."UserName" "Actualizado_Por"
+	,"Ausentismo"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Ausentismo"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+from "APP"."Ausentismo" "Ausentismo"
+	left join "APP"."Tipo_Ausentismo" "Tipo_Ausentismo_" on "Ausentismo"."Tipo_Ausentismo_Id" = "Tipo_Ausentismo_"."Tipo_Ausentismo_Id"
+	left join "APP"."Contratado" "Contratado_" on "Ausentismo"."Contratado_Id" = "Contratado_"."Contratado_Id"
+	left join "APP"."Estatus_Ausentismo" "Estatus_Ausentismo_" on "Ausentismo"."Estatus_Ausentismo_Id" = "Estatus_Ausentismo_"."Estatus_Ausentismo_Id"
+	left join "APP"."Contratante" "Contratante_" on "Ausentismo"."Contratante_Id" = "Contratante_"."Contratante_Id"
+	left join "APP"."Cliente" "Cliente_" on "Ausentismo"."Cliente_Id" = "Cliente_"."Cliente_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Ausentismo"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Creado_Por" on "Ausentismo"."Creado_Por_Id" = "Creado_Por"."UserId"
+	left join "dbo"."Usuario_V" "Actualizado_Por" on "Ausentismo"."Actualizado_Por_Id" = "Actualizado_Por"."UserId"
+]]></text>
+    </command>
+    <command id="Ausentismo_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Ausentismo_Id" />
+      </output>
+    </command>
+    <command type="Text" id="Grid_Ausentismo_V" tableName="APP.Ausentismo" custom="false">
+      <text><![CDATA[SELECT Ausentismo_Id
+      ,Ausentismo
+      ,Tipo_Ausentismo_Id
+      ,Tipo_Ausentismo
+      ,Es_Solicitud_Vacaciones
+      ,Contratado_Id
+      ,Contratado_Jefe_Id
+      ,Fecha_Solicitud_Ausentismo
+      ,Fecha_Inicio_Ausentismo
+      ,Fecha_Fin_Ausentismo
+      ,Dias_Ausentismo_Solicitados
+      ,Motivo_Ausentismo
+      ,Estatus_Ausentismo_Id
+      ,Estatus_Ausentismo
+      ,Fecha_Autorizacion_Rechazo
+      ,Autorizado_Rechazado_Por_Id
+	  ,Autorizado_Rechazado_Por
+      ,Notas_Autorizacion_Rechazo
+      ,Dias_Autorizados
+      ,Ausentismo_Key
+      ,Contratante_Id
+      ,Cliente_Id
+      ,Transaccion_Id
+      ,Creado_Por_Id
+      ,Fecha_Creacion
+      ,Actualizado_Por_Id
+      ,Fecha_Ultima_Actualizacion
+      ,Estatus_Registro_Id
+      ,Nombre_Completo_Contratado
+      ,Identificador_Unico
+      ,Fecha_Regreso_Vacaciones
+      ,Correo_Electronico_Contratado
+      ,Usuario_Aplicacion_Contratado_Id
+      ,Puesto_Contratado
+      ,Nombre_Completo_Jefe
+      ,Persona_Usuario_Aplicacion_Key_Jefe
+      ,Correo_Electronico_Jefe
+      ,Contratado_Solicitud_Vacaciones_Id
+      ,Solicitud_Vacaciones_Key
+      ,Saldo_Dias_Pendientes_Por_Tomar
+  FROM dbo.Grid_Ausentismo_V
+]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Ausentismo_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Ausentismo Id" readOnly="true" />
+    <field name="Ausentismo" type="String" allowNulls="false" default="('')" label="Ausentismo" length="150" showInSummary="true" />
+    <field name="Tipo_Ausentismo_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo Ausentismo Id" showInSummary="true">
+      <items style="Lookup" dataController="Tipo_Ausentismo" newDataView="createForm1" dataValueField="Tipo_Ausentismo_Id" dataTextField="Tipo_Ausentismo" />
+    </field>
+    <field name="Tipo_Ausentismo" type="String" readOnly="true" label="Tipo de Ausentismo" length="150" />
+    <field name="Contratado_Id" type="Int32" allowNulls="false" default="((0))" label="Contratado Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratado" newDataView="createForm1" dataValueField="Contratado_Id" dataTextField="Identificador_Unico" />
+    </field>
+    <field name="Contratado_Identificador_Unico" type="String" readOnly="true" label="Contratado Identificador Unico" length="50" />
+    <field name="Fecha_Solicitud_Ausentismo" type="DateTime" allowNulls="false" dataFormatString="d" default="('01-01-1900')" label="Fecha de Solicitud" showInSummary="true" />
+    <field name="Fecha_Inicio_Ausentismo" type="DateTime" allowNulls="false" dataFormatString="d" default="('01-01-1900')" label="Iniciando el Día" showInSummary="true" />
+    <field name="Fecha_Fin_Ausentismo" type="DateTime" allowNulls="false" dataFormatString="d" default="('01-01-1900')" label="Hasta el Día" />
+    <field name="Dias_Ausentismo_Solicitados" type="Byte" allowNulls="false" default="((0))" label="Días Solicitados" />
+    <field name="Motivo_Ausentismo" type="String" allowQBE="false" allowSorting="false" label="Motivo Ausentismo" />
+    <field name="Estatus_Ausentismo_Id" type="Int32" allowNulls="false" default="((0))" label="Estatus Ausentismo Id">
+      <items style="Lookup" dataController="Estatus_Ausentismo" newDataView="createForm1" dataValueField="Estatus_Ausentismo_Id" dataTextField="Estatus_Ausentismo" />
+    </field>
+    <field name="Estatus_Ausentismo" type="String" readOnly="true" label="Estatus de Solicitud" length="150" />
+    <field name="Fecha_Autorizacion_Rechazo" type="DateTime" dataFormatString="d" label="Fecha Autorización o Rechazo" />
+    <field name="Autorizado_Rechazado_Por_Id" type="Guid" label="Autorizado Rechazado Por Id" />
+    <field name="Notas_Autorizacion_Rechazo" type="String" allowQBE="false" allowSorting="false" label="Notas de Autorización o Rechazo" />
+    <field name="Dias_Autorizados" type="Byte" label="Días Autorizados" />
+    <field name="Ausentismo_Key" type="String" allowNulls="false" default="(newid())" label="Ausentismo Key" length="50" />
+    <field name="Contratante_Id" type="Int32" allowNulls="false" default="((0))" label="Contratante Id">
+      <items style="Lookup" dataController="Contratante" newDataView="createForm1" dataValueField="Contratante_Id" dataTextField="Contratante" />
+    </field>
+    <field name="Contratante_Contratante" type="String" readOnly="true" label="Contratante" length="150" />
+    <field name="Cliente_Id" type="Int32" allowNulls="false" default="((0))" label="Cliente Id">
+      <items style="Lookup" dataController="Cliente" newDataView="createForm1" dataValueField="Cliente_Id" dataTextField="Cliente" />
+    </field>
+    <field name="Cliente_Cliente" type="String" readOnly="true" label="Cliente" length="150" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transaccion Id" length="50" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="Creado_Por" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Creación" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="Actualizado_Por" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha Última Actualización" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="Contratado_Solicitud_Vacaciones_Id" type="Int32" readOnly="true" label="Contratado Solicitud Vacaciones Id" />
+    <field name="Solicitud_Vacaciones_Key" type="String" readOnly="true" label="Solicitud Vacaciones Key" length="50" />
+    <field name="Es_Solicitud_Vacaciones" type="Boolean" label="Es Solicitud Vacaciones" />
+    <field name="Fecha_Regreso_Vacaciones" type="DateTime" readOnly="true" label="Regresando a trabajar el día" dataFormatString="d" />
+    <field name="Autorizado_Rechazado_Por" type="String" readOnly="true" label="Autorizado Rechazado Por" length="500" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="Grid_Ausentismo_V" label="Ausentismo" filter="Estatus_Registro_Id &lt;&gt; 0">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Ausentismo" hidden="true" />
+        <dataField fieldName="Tipo_Ausentismo_Id" aliasFieldName="Tipo_Ausentismo" />
+        <dataField fieldName="Dias_Ausentismo_Solicitados" columns="15" />
+        <dataField fieldName="Contratado_Id" aliasFieldName="Contratado_Identificador_Unico" />
+        <dataField fieldName="Fecha_Solicitud_Ausentismo" columns="20" />
+        <dataField fieldName="Fecha_Inicio_Ausentismo" columns="20" />
+        <dataField fieldName="Fecha_Fin_Ausentismo" columns="20" />
+        <dataField fieldName="Fecha_Regreso_Vacaciones" columns="10" />
+        <dataField fieldName="Motivo_Ausentismo" rows="5" hidden="true" />
+        <dataField fieldName="Estatus_Ausentismo_Id" aliasFieldName="Estatus_Ausentismo" />
+        <dataField fieldName="Fecha_Autorizacion_Rechazo" columns="20" />
+        <dataField fieldName="Autorizado_Rechazado_Por_Id" columns="15" aliasFieldName="Autorizado_Rechazado_Por" />
+        <dataField fieldName="Notas_Autorizacion_Rechazo" rows="5" />
+        <dataField fieldName="Dias_Autorizados" columns="15" />
+        <dataField fieldName="Ausentismo_Key" columns="50" hidden="true" />
+        <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" hidden="true" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" hidden="true" />
+        <dataField fieldName="Transaccion_Id" columns="50" hidden="true" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="Creado_Por" hidden="true" />
+        <dataField fieldName="Fecha_Creacion" columns="20" hidden="true" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="Actualizado_Por" hidden="true" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" hidden="true" />
+        <dataField fieldName="Contratado_Solicitud_Vacaciones_Id" columns="15" hidden="true" />
+        <dataField fieldName="Solicitud_Vacaciones_Key" columns="50" hidden="true" />
+        <dataField fieldName="Es_Solicitud_Vacaciones" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="Grid_Ausentismo_V" label="Actualizar Ausentismo">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Ausentismo" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Ausentismo" hidden="true" />
+            <dataField fieldName="Tipo_Ausentismo_Id" aliasFieldName="Tipo_Ausentismo">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Contratado_Id" aliasFieldName="Contratado_Identificador_Unico" />
+            <dataField fieldName="Fecha_Solicitud_Ausentismo" columns="20" />
+            <dataField fieldName="Fecha_Inicio_Ausentismo" columns="20" />
+            <dataField fieldName="Fecha_Fin_Ausentismo" columns="20" />
+            <dataField fieldName="Dias_Ausentismo_Solicitados" columns="15" />
+            <dataField fieldName="Motivo_Ausentismo" rows="5" hidden="true" />
+            <dataField fieldName="Estatus_Ausentismo_Id" aliasFieldName="Estatus_Ausentismo" />
+            <dataField fieldName="Fecha_Autorizacion_Rechazo" columns="20">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Autorizado_Rechazado_Por_Id" columns="15" aliasFieldName="Autorizado_Rechazado_Por">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Notas_Autorizacion_Rechazo" rows="5">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Dias_Autorizados" columns="15">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Ausentismo_Key" columns="50" hidden="true" />
+            <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" hidden="true" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" hidden="true" />
+            <dataField fieldName="Transaccion_Id" columns="50" hidden="true" />
+            <dataField fieldName="Creado_Por_Id" aliasFieldName="Creado_Por" hidden="true" />
+            <dataField fieldName="Fecha_Creacion" columns="20" hidden="true" />
+            <dataField fieldName="Actualizado_Por_Id" aliasFieldName="Actualizado_Por" hidden="true" />
+            <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" hidden="true" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nuevo Ausentismo">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Ausentismo" hidden="true" />
+            <dataField fieldName="Tipo_Ausentismo_Id" aliasFieldName="Tipo_Ausentismo">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Contratado_Id" aliasFieldName="Contratado_Identificador_Unico" />
+            <dataField fieldName="Fecha_Solicitud_Ausentismo" columns="20" hidden="true" />
+            <dataField fieldName="Fecha_Inicio_Ausentismo" columns="20" />
+            <dataField fieldName="Fecha_Fin_Ausentismo" columns="20" hidden="true" />
+            <dataField fieldName="Dias_Ausentismo_Solicitados" columns="15" hidden="true" />
+            <dataField fieldName="Motivo_Ausentismo" rows="5" hidden="true" />
+            <dataField fieldName="Estatus_Ausentismo_Id" aliasFieldName="Estatus_Ausentismo" hidden="true" />
+            <dataField fieldName="Fecha_Autorizacion_Rechazo" columns="20" hidden="true" />
+            <dataField fieldName="Autorizado_Rechazado_Por_Id" columns="15" hidden="true" />
+            <dataField fieldName="Notas_Autorizacion_Rechazo" rows="5" hidden="true" />
+            <dataField fieldName="Dias_Autorizados" columns="15" hidden="true" />
+            <dataField fieldName="Ausentismo_Key" columns="50" hidden="true" />
+            <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" hidden="true" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Ausentismo
+SET 
+	Estatus_Registro_Id=3
+	,Actualizado_Por_Id = @BusinessRules_UserId
+    ,Fecha_Ultima_Actualizacion = dbo.fn_Convertir_UTC_A_Fecha_Hora_Local(Getdate(),-6)
+WHERE
+	Ausentismo_Id = @Ausentismo_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action commandName="Custom" commandArgument="ExecCS01" headerText="Autorizar" whenClientScript="[Es_Solicitud_Vacaciones] == 0 &amp;&amp; ([Estatus_Ausentismo_Id]==3 || [Estatus_Ausentismo_Id]==0)" id="a100" />
+      <action commandName="Custom" commandArgument="ExecCS02" headerText="Rechazar" whenClientScript="[Es_Solicitud_Vacaciones] == 0 &amp;&amp; ([Estatus_Ausentismo_Id]==3 || [Estatus_Ausentismo_Id]==0)" id="a101" />
+      <action commandName="Custom" commandArgument="ExecCS03" headerText="Cancelar" whenClientScript="[Es_Solicitud_Vacaciones] == 0" id="a102" />
+      <action commandName="Custom" commandArgument="ExecCS06" headerText="Autorizar Vacaciones" id="a103" whenClientScript="[Es_Solicitud_Vacaciones] == 1 &amp;&amp; ([Estatus_Ausentismo_Id]==3 || [Estatus_Ausentismo_Id]==0)" />
+      <action commandName="Custom" commandArgument="ExecCS07" headerText="Rechazar Vacaciones" whenClientScript="[Es_Solicitud_Vacaciones] == 1 &amp;&amp; ([Estatus_Ausentismo_Id]==3 || [Estatus_Ausentismo_Id]==0)" id="a104" />
+      <action commandName="Custom" commandArgument="ExecCS08" headerText="Cancelar Solicitud de Vacaciones" whenClientScript="[Es_Solicitud_Vacaciones] == 1" id="a105" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Ausentismo
+SET 
+	Estatus_Registro_Id=3
+	,Actualizado_Por_Id = @BusinessRules_UserId
+    ,Fecha_Ultima_Actualizacion = dbo.fn_Convertir_UTC_A_Fecha_Hora_Local(Getdate(),-6)
+WHERE
+	Ausentismo_Id = @Ausentismo_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Custom" commandArgument="ExecCS04" headerText="Guardar" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" headerText="Solicitar Día de Descanso" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Ausentismo
+SET 
+	Estatus_Registro_Id=3
+	,Actualizado_Por_Id = @BusinessRules_UserId
+    ,Fecha_Ultima_Actualizacion = dbo.fn_Convertir_UTC_A_Fecha_Hora_Local(Getdate(),-6)
+WHERE
+	Ausentismo_Id = @Ausentismo_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Ausentismo
+SET 
+	Estatus_Registro_Id=3
+	,Actualizado_Por_Id = @BusinessRules_UserId
+    ,Fecha_Ultima_Actualizacion = dbo.fn_Convertir_UTC_A_Fecha_Hora_Local(Getdate(),-6)
+WHERE
+	Ausentismo_Id = @Ausentismo_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag100" scope="ActionBar" headerText="Solicitar Vacaciones" flat="true">
+      <action commandName="Custom" commandArgument="ExecCS05" headerText="Solicitar Vacaciones" confirmation="_controller=Solicitud_Vacaciones&#xD;&#xA;_title=Solicitud de Vacaciones&#xD;&#xA;_width=500" id="a100" />
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Custom" commandArgument="ExecCS01" type="Sql" phase="Execute"><![CDATA[SET @Notas_Autorizacion_Rechazo = ''--@Parameters_Notas_Autorizacion_Rechazo
+SET @Fecha_Autorizacion_Rechazo = dbo.fn_Convertir_UTC_A_Fecha_Hora_Local(Getdate(),-6)
+]]></rule>
+    <rule id="r101" commandName="Custom" commandArgument="ExecCS02" type="Sql" phase="Execute"><![CDATA[SET @Notas_Autorizacion_Rechazo = ''--@Parameters_Notas_Autorizacion_Rechazo
+SET @Fecha_Autorizacion_Rechazo = dbo.fn_Convertir_UTC_A_Fecha_Hora_Local(Getdate(),-6)
+]]></rule>
+    <rule id="r102" commandName="Custom" commandArgument="ExecCS05" type="Sql" phase="Execute"><![CDATA[SET @Fecha_Inicio_Ausentismo = @Parameters_Fecha_Inicio_Vacaciones
+SET @Fecha_Fin_Ausentismo = @Parameters_Fecha_Fin_Vacaciones
+SET @Contratado_Id = dbo.fn_Obtener_Contratado(@BusinessRules_UserId)
+SET @Dias_Ausentismo_Solicitados = dbo.fn_Calcular_Dias_Vacaciones
+(
+	@Contratado_Id 
+	,@Fecha_Inicio_Ausentismo 
+	,@Fecha_Fin_Ausentismo 
+)
+SET @Fecha_Solicitud_Ausentismo = dbo.fn_Convertir_UTC_A_Fecha_Hora_Local(Getdate(),-6)
+]]></rule>
+    <rule id="r103" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+APP.Ausentismo
+SET
+Creado_Por_Id = @BusinessRules_UserId
+,Fecha_Creacion = dbo.fn_Convertir_UTC_A_Fecha_Hora_Local(Getdate(),-6)
+,Actualizado_Por_Id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = dbo.fn_Convertir_UTC_A_Fecha_Hora_Local(Getdate(),-6)
+WHERE
+Ausentismo_Id=@Ausentismo_Id]]></rule>
+    <rule id="r104" commandName="Insert" type="Sql" phase="Before"><![CDATA[SET @Contratante_Id = IsNull((SELECT Contratante_Id FROM APP.Contratado WHERE Contratado_Id = @Contratado_Id),0)
+SET @Cliente_Id = IsNull((SELECT Cliente_Id FROM APP.Contratante WHERE Contratante_Id = @Contratante_Id),0)
+]]></rule>
+    <rule id="r105" commandName="New" type="Sql" phase="Execute"><![CDATA[SET @Contratante_Id = 0
+SET @Cliente_Id =0
+SET @Contratado_Id = dbo.fn_Obtener_Contratado(@BusinessRules_UserId)
+SET @Fecha_Solicitud_Ausentismo = dbo.fn_Convertir_UTC_A_Fecha_Hora_Local(Getdate(),-6)
+SET @Dias_Ausentismo_Solicitados = 1
+SET @Tipo_Ausentismo_Id = IsNull((SELECT TOP 1 Tipo_Ausentismo_Id FROM APP.Tipo_Ausentismo WHERE Es_Permiso=1),0)
+SET @Tipo_Ausentismo = IsNull((SELECT TOP 1 Tipo_Ausentismo FROM APP.Tipo_Ausentismo WHERE Tipo_Ausentismo_Id = @Tipo_Ausentismo_Id),'')
+SET @Motivo_Ausentismo = @Tipo_Ausentismo
+SET @Estatus_Ausentismo_Id = IsNull((SELECT TOP 1 Estatus_Ausentismo_Id FROM APP.Estatus_Ausentismo WHERE Significa_Pendiente_Por_Autorizar = 1),0)
+
+
+]]></rule>
+    <rule id="r106" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+APP.Ausentismo
+SET
+Fecha_Ultima_Actualizacion = dbo.fn_Convertir_UTC_A_Fecha_Hora_Local(Getdate(),-6)
+,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+Ausentismo_Id=@Ausentismo_Id]]></rule>
+    <rule id="r107" commandName="Update" type="Sql" phase="Before"><![CDATA[SET @Contratante_Id = IsNull((SELECT Contratante_Id FROM APP.Contratado WHERE Contratado_Id = @Contratado_Id),0)
+SET @Cliente_Id = IsNull((SELECT Cliente_Id FROM APP.Contratante WHERE Contratante_Id = @Contratante_Id),0)]]></rule>
+    <rule id="r108" commandName="Custom" commandArgument="ExecCS01" type="Code" phase="After" name="Autorizar" />
+    <rule id="r109" commandName="Custom" commandArgument="ExecCS02" type="Code" phase="After" name="Rechazar" />
+    <rule id="r110" commandName="Custom" commandArgument="ExecCS03" type="Code" phase="After" name="Cancelar" />
+    <rule id="r111" commandName="Custom" commandArgument="ExecCS04" type="Code" phase="After" name="Crear_Ausentismo" />
+    <rule id="r112" commandName="Custom" commandArgument="ExecCS05" type="Code" phase="After" name="Solicitar_Vacaciones" />
+    <rule id="r113" commandName="Custom" commandArgument="ExecCS06" type="Code" phase="After" name="Autorizar_Solicitud_Vacaciones" />
+    <rule id="r114" commandName="Custom" commandArgument="ExecCS07" type="Code" phase="After" name="Rechazar_Solicitud_Vacaciones" />
+    <rule id="r115" commandName="Custom" commandArgument="ExecCS08" type="Code" phase="After" name="Cancelar_Solicitud_Vacaciones" />
+  </businessRules>
+</dataController>

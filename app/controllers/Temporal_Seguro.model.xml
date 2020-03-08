@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Temporal_Seguro" alias="Temporal_Seguro" created="2019-01-09T12:03:26" modified="2019-01-09T13:02:21" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="408" y="20">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Temporal_Seguro_Id" fieldName="Temporal_Seguro_Id" label="Temporal Seguro Id" />
+    <column name="Seguro_Id" fieldName="Seguro_Id" label="Seguro Id" />
+    <column name="Contratado_Id" fieldName="Contratado_Id" label="Contratado Id" />
+    <column name="Persona_Id" fieldName="Persona_Id" label="Persona Id" />
+    <column name="Es_Titular" fieldName="Es_Titular" label="Es Titular" />
+    <column name="Beneficiario_Id" fieldName="Beneficiario_Id" label="Beneficiario Id" />
+    <column name="Parentesco_Id" fieldName="Parentesco_Id" label="Parentesco Id" />
+    <column name="Genero_Id" fieldName="Genero_Id" label="Genero Id" />
+    <column name="Categoria_Seguro_Id" fieldName="Categoria_Seguro_Id" label="Categoria Seguro Id" />
+    <column name="Sociedad_Id" fieldName="Sociedad_Id" label="Sociedad Id" />
+    <column name="Cliente_Id" fieldName="Cliente_Id" label="Cliente Id" />
+    <column name="Tipo_Seguro_Id" fieldName="Tipo_Seguro_Id" label="Tipo Seguro Id" />
+    <column name="Aseguradora_Id" fieldName="Aseguradora_Id" label="Aseguradora Id" />
+    <column name="Tipo_Asegurado_Id" fieldName="Tipo_Asegurado_Id" label="Tipo Asegurado Id" />
+    <column name="Periodicidad_Id" fieldName="Periodicidad_Id" label="Periodicidad Id" />
+    <column name="Anio_Id" fieldName="Anio_Id" label="Anio Id" />
+    <column name="Proveedor_Id" fieldName="Proveedor_Id" label="Proveedor Id" />
+    <column name="Certificado" fieldName="Certificado" label="Certificado" />
+    <column name="Tipo_Seguro" fieldName="Tipo_Seguro" label="Tipo Seguro" />
+    <column name="Aseguradora" fieldName="Aseguradora" label="Aseguradora" />
+    <column name="Categoria_Seguro" fieldName="Categoria_Seguro" label="Categoria Seguro" />
+    <column name="Clave_Categoria_Seguro" fieldName="Clave_Categoria_Seguro" label="Clave Categoria Seguro" />
+    <column name="Parentesco" fieldName="Parentesco" label="Parentesco" />
+    <column name="Clave_Parentesco" fieldName="Clave_Parentesco" label="Clave Parentesco" />
+    <column name="Genero" fieldName="Genero" label="Genero" />
+    <column name="Clave_Genero" fieldName="Clave_Genero" label="Clave Genero" />
+    <column name="Fecha_Movimiento" fieldName="Fecha_Movimiento" label="Fecha Movimiento" />
+    <column name="Numero_Movimiento" fieldName="Numero_Movimiento" label="Numero Movimiento" />
+    <column name="Tipo_Asegurado" fieldName="Tipo_Asegurado" label="Tipo Asegurado" />
+    <column name="Clave_Tipo_Asegurado" fieldName="Clave_Tipo_Asegurado" label="Clave Tipo Asegurado" />
+    <column name="Fecha_Calculo" fieldName="Fecha_Calculo" label="Fecha Calculo" />
+    <column name="Prima_Tarifa" fieldName="Prima_Tarifa" label="Prima Tarifa" />
+    <column name="Recargo" fieldName="Recargo" label="Recargo" />
+    <column name="Gastos_Expedicion" fieldName="Gastos_Expedicion" label="Gastos Expedicion" />
+    <column name="IVA" fieldName="IVA" label="Iva" />
+    <column name="Subsecuente" fieldName="Subsecuente" label="Subsecuente" />
+    <column name="Complemento" fieldName="Complemento" label="Complemento" />
+    <column name="Solo_Complemento" fieldName="Solo_Complemento" label="Solo Complemento" />
+    <column name="Porcentaje_Suma_Asegurada" fieldName="Porcentaje_Suma_Asegurada" label="Porcentaje Suma Asegurada" />
+    <column name="Periodicidad" fieldName="Periodicidad" label="Periodicidad" />
+    <column name="Anio" fieldName="Anio" label="Anio" />
+    <column name="Fecha_Alta" fieldName="Fecha_Alta" label="Fecha Alta" />
+    <column name="Fecha_Inicio" fieldName="Fecha_Inicio" label="Fecha Inicio" />
+    <column name="Fecha_Fin" fieldName="Fecha_Fin" label="Fecha Fin" />
+    <column name="Importe" fieldName="Importe" label="Importe" />
+    <column name="Apellido_Paterno" fieldName="Apellido_Paterno" label="Apellido Paterno" />
+    <column name="Nombre" fieldName="Nombre" label="Nombre" />
+    <column name="Sociedad" fieldName="Sociedad" label="Sociedad" />
+    <column name="Cliente" fieldName="Cliente" label="Cliente" />
+    <column name="Tipo_Operacion" fieldName="Tipo_Operacion" label="Tipo Operacion" />
+    <column name="Estatus_Procesamiento_Id" fieldName="Estatus_Procesamiento_Id" label="Estatus Procesamiento Id" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha Creacion" format="g" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha Ultima Actualizacion" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+    <column name="Suma" fieldName="Suma" label="Suma" />
+    <column name="Nombre_Completo" fieldName="Nombre_Completo" label="Nombre Completo" />
+    <column name="Proveedor" fieldName="Proveedor" label="Proveedor" />
+    <column name="Tipo_Movimiento" fieldName="Tipo_Movimiento" label="Tipo Movimiento" />
+    <column name="Tipo_Registro" fieldName="Tipo_Registro" label="Tipo Registro" />
+    <column name="Forma_Recuperacion" fieldName="Forma_Recuperacion" label="Forma Recuperacion" />
+    <column name="Apellido_Materno" fieldName="Apellido_Materno" label="Apellido Materno" />
+    <column name="Mensaje_Sistema_Id" fieldName="MensajeSistemaId" label="Mensaje Sistema Id" />
+  </columns>
+</dataModel>

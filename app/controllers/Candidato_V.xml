@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Candidato_V" label="Candidato_V" conflictDetection="overwriteChanges" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command type="Text" id="Candidato_V" custom="false">
+      <text><![CDATA[SELECT 
+Persona_Id
+,Persona_Nombre 
+,Candidato_Id
+FROM 
+dbo.Candidato_V]]></text>
+    </command>
+  </commands>
+  <views>
+    <view id="Candidato_V" commandId="Candidato_V" type="Grid" label="Candidato" showInSelector="false">
+      <dataFields>
+        <dataField fieldName="Candidato_Id" columns="15" hidden="true" />
+        <dataField fieldName="Persona_Id" columns="15" hidden="true" />
+        <dataField fieldName="Persona_Nombre" rows="5" />
+      </dataFields>
+    </view>
+  </views>
+  <fields>
+    <field name="Candidato_Id" type="Int32" label="Candidato Id" isPrimaryKey="true" allowNulls="false" />
+    <field name="Persona_Id" type="Int32" label="Persona Id" allowNulls="false" />
+    <field name="Persona_Nombre" type="String" label="Persona_Nombre" allowNulls="false" />
+  </fields>
+</dataController>

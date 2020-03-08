@@ -1,0 +1,16 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vacantes</title>
+  </head>
+  <body data-authorize-roles="Administrators,ArhAdmin">
+    <!--The contents of this page will be overwritten by app generator. Set page property "Generate" to "First Time Only" to preserve changes.-->
+    <div data-flow="row">
+      <div id="view1" data-controller="Vacante_Admin" data-view="gridAdmin"> </div>
+      <div data-activator="Tab|Candidatos">
+        <div id="view2" data-controller="Candidato_Admin" data-view="gridAdmin" data-filter-source="view1" data-filter-fields="Vacante_Id"> </div>
+      </div>
+    </div>
+  </body>
+</html>

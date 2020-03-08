@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Proveedor_Pago_Renta" conflictDetection="overwriteChanges" label="Proveedor Pago Renta" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Proveedor_Pago_Renta"."Proveedor_Pago_Renta_Id" "Proveedor_Pago_Renta_Id"
+	,"Proveedor_Pago_Renta"."Proveedor_Id" "Proveedor_Id"
+	,"Proveedor"."Proveedor" "Proveedor"
+	,"Proveedor_Pago_Renta"."Anio_Id" "Anio_Id"
+	,"Anio_"."Anio" "Anio_Anio"
+	,"Proveedor_Pago_Renta"."Mes_Id" "Mes_Id"
+	,"Mes_"."Mes" "Mes_Mes"
+	,"Proveedor_Pago_Renta"."Fecha_Pago" "Fecha_Pago"
+	,"Proveedor_Pago_Renta"."Monto_Pagado" "Monto_Pagado"
+	,"Proveedor_Pago_Renta"."Notas" "Notas"
+	,"Proveedor_Pago_Renta"."Transaccion_Id" "Transaccion_Id"
+	,"Proveedor_Pago_Renta"."Creado_Por_Id" "Creado_Por_Id"
+	,"cpUsuario_V"."UserName" "cpUserName"
+	,"Proveedor_Pago_Renta"."Fecha_Creacion" "Fecha_Creacion"
+	,"Proveedor_Pago_Renta"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"apUsuario_V"."UserName" "apUserName"
+	,"Proveedor_Pago_Renta"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Proveedor_Pago_Renta"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+from "APP"."Proveedor_Pago_Renta" "Proveedor_Pago_Renta"
+	left join "APP"."Anio" "Anio_" on "Proveedor_Pago_Renta"."Anio_Id" = "Anio_"."Anio_Id"
+	left join "APP"."Mes" "Mes_" on "Proveedor_Pago_Renta"."Mes_Id" = "Mes_"."Mes_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Proveedor_Pago_Renta"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "APP"."Proveedor" "Proveedor" on "Proveedor_Pago_Renta"."Proveedor_Id" = "Proveedor"."Proveedor_Id"
+	left join "dbo"."Usuario_V" "cpUsuario_V" on "Proveedor_Pago_Renta"."Creado_Por_Id" = "cpUsuario_V"."UserId"
+	left join "dbo"."Usuario_V" "apUsuario_V" on "Proveedor_Pago_Renta"."Actualizado_Por_Id" = "apUsuario_V"."UserId"
+]]></text>
+    </command>
+    <command id="Proveedor_Pago_Renta_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Proveedor_Pago_Renta_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Proveedor_Pago_Renta_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Proveedor Pago Renta Id" readOnly="true" />
+    <field name="Proveedor_Id" type="Int32" allowNulls="false" default="((0))" label="Proveedor Id" showInSummary="true">
+      <items style="Lookup" dataController="Proveedor" newDataView="createForm1" dataValueField="Proveedor_Id" dataTextField="Proveedor" dataView="Proveedor_LookUp_List" />
+    </field>
+    <field name="Proveedor" type="String" readOnly="true" label="Proveedor" length="150" />
+    <field name="Anio_Id" type="Int32" allowNulls="false" default="((0))" label="Anio Id" showInSummary="true">
+      <items style="Lookup" dataController="Anio" newDataView="createForm1" dataValueField="Anio_Id" dataTextField="Anio" dataView="Anio_LookUp_List" />
+    </field>
+    <field name="Anio_Anio" type="String" readOnly="true" label="Año" length="150" />
+    <field name="Mes_Id" type="Int32" allowNulls="false" default="((0))" label="Mes Id" showInSummary="true">
+      <items style="Lookup" dataController="Mes" newDataView="createForm1" dataValueField="Mes_Id" dataTextField="Mes" dataView="Mes_LookUp_List" />
+    </field>
+    <field name="Mes_Mes" type="String" readOnly="true" label="Mes" length="150" />
+    <field name="Fecha_Pago" type="DateTime" allowNulls="false" dataFormatString="d" label="Fecha de Pago UTC 0" showInSummary="true" />
+    <field name="Monto_Pagado" type="Decimal" allowNulls="false" label="Monto Pagado" showInSummary="true" />
+    <field name="Notas" type="String" allowQBE="false" allowSorting="false" label="Notas" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transacción Id" length="50" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Proveedor Pago Renta" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Proveedor_Pago_Renta_Id" columns="15" hidden="true" />
+        <dataField fieldName="Proveedor_Id" aliasFieldName="Proveedor" />
+        <dataField fieldName="Anio_Id" aliasFieldName="Anio_Anio" />
+        <dataField fieldName="Mes_Id" aliasFieldName="Mes_Mes" />
+        <dataField fieldName="Fecha_Pago" columns="10" />
+        <dataField fieldName="Monto_Pagado" columns="15" />
+        <dataField fieldName="Notas" rows="5" />
+        <dataField fieldName="Transaccion_Id" columns="50" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="10" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="10" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Proveedor Pago Renta" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Proveedor_Pago_Renta_Id" columns="15" hidden="true" />
+            <dataField fieldName="Proveedor_Id" aliasFieldName="Proveedor" />
+            <dataField fieldName="Anio_Id" aliasFieldName="Anio_Anio" />
+            <dataField fieldName="Mes_Id" aliasFieldName="Mes_Mes" />
+            <dataField fieldName="Fecha_Pago" columns="10" />
+            <dataField fieldName="Monto_Pagado" columns="15" />
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Transaccion_Id" columns="50" />
+            <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+            <dataField fieldName="Fecha_Creacion" columns="10" />
+            <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+            <dataField fieldName="Fecha_Ultima_Actualizacion" columns="10" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nuevo Proveedor Pago Renta" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Proveedor_Id" aliasFieldName="Proveedor" />
+            <dataField fieldName="Anio_Id" aliasFieldName="Anio_Anio" />
+            <dataField fieldName="Mes_Id" aliasFieldName="Mes_Mes" />
+            <dataField fieldName="Fecha_Pago" columns="10" />
+            <dataField fieldName="Monto_Pagado" columns="15" />
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Transaccion_Id" columns="50" />
+            <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+            <dataField fieldName="Fecha_Creacion" columns="10" />
+            <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+            <dataField fieldName="Fecha_Ultima_Actualizacion" columns="10" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+APP.Proveedor_Pago_Renta
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Proveedor_Pago_Renta_Id = @Proveedor_Pago_Renta_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+APP.Proveedor_Pago_Renta
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Proveedor_Pago_Renta_Id = @Proveedor_Pago_Renta_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+APP.Proveedor_Pago_Renta
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Proveedor_Pago_Renta_Id = @Proveedor_Pago_Renta_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+APP.Proveedor_Pago_Renta
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Proveedor_Pago_Renta_Id = @Proveedor_Pago_Renta_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Proveedor_Pago_Renta
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Proveedor_Pago_Renta_Id= @Proveedor_Pago_Renta_Id]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Proveedor_Pago_Renta
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Proveedor_Pago_Renta_Id= @Proveedor_Pago_Renta_Id]]></rule>
+  </businessRules>
+</dataController>

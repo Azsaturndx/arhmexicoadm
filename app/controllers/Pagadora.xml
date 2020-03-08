@@ -1,0 +1,451 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Pagadora" conflictDetection="overwriteChanges" label="Pagadora" handler="arhmexico.Rules.PagadoraBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Pagadora"."Pagadora_Id" "Pagadora_Id"
+	,"Pagadora"."Pagadora" "Pagadora"
+	,"Pagadora"."Pagadora_Razon_Social" "Pagadora_Razon_Social"
+	,"Pagadora"."Clave_Pagadora" "Clave_Pagadora"
+	,"Pagadora"."Cliente_Id" "Cliente_Id"
+	,"Cliente"."Cliente" "Cliente"
+	,"Pagadora"."Contratante_Id" "Contratante_Id"
+	,"Contratante_"."Contratante" "Contratante_Contratante"
+	,"Pagadora"."Estatus_Pagadora_Id" "Estatus_Pagadora_Id"
+	,"Estatus_Pagadora_"."Estatus_Pagadora" "Estatus_Pagadora_Estatus_Pagadora"
+	,"cpUsuario_V"."UserName" "cpUserName"
+	,"Pagadora"."Fecha_Creacion" "Fecha_Creacion"
+	,"apUsuario_V"."UserName" "apUserName"
+	,"Pagadora"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Pagadora"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Pagadora"."Nombre_Base_Datos" "Nombre_Base_Datos"
+	,"Sociedad"."Sociedad" "Sociedad"
+	,"Pagadora"."Sociedad_Id" "Sociedad_Id"
+	,"Pagadora"."Es_Sindicato" "EsSindicato"
+	,"Pagadora"."Leyenda_Sindicato" "LeyendaSindicato"
+	,"Pagadora"."Registro_Patronal" "RegistroPatronal"
+from "APP"."Pagadora" "Pagadora"
+	left join "APP"."Contratante" "Contratante_" on "Pagadora"."Contratante_Id" = "Contratante_"."Contratante_Id"
+	left join "APP"."Estatus_Pagadora" "Estatus_Pagadora_" on "Pagadora"."Estatus_Pagadora_Id" = "Estatus_Pagadora_"."Estatus_Pagadora_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Pagadora"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "apUsuario_V" on "Pagadora"."Actualizado_Por_Id" = "apUsuario_V"."UserId"
+	left join "dbo"."Usuario_V" "cpUsuario_V" on "Pagadora"."Creado_Por_Id" = "cpUsuario_V"."UserId"
+	left join "APP"."Cliente" "Cliente" on "Pagadora"."Cliente_Id" = "Cliente"."Cliente_Id"
+	left join "APP"."Sociedad" "Sociedad" on "Pagadora"."Sociedad_Id" = "Sociedad"."Sociedad_Id"
+]]></text>
+    </command>
+    <command id="Pagadora_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Pagadora_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Pagadora_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Pagadora Id" readOnly="true" />
+    <field name="Pagadora" type="String" allowNulls="false" label="Pagadora" length="150" showInSummary="true" />
+    <field name="Pagadora_Razon_Social" type="String" allowNulls="false" label="Pagadora Razón Social" length="150" showInSummary="true" />
+    <field name="Clave_Pagadora" type="String" allowNulls="false" label="Clave de Pagadora" length="4" showInSummary="true" />
+    <field name="Cliente_Id" type="Int32" allowNulls="false" default="((0))" label="Cliente Id" showInSummary="true">
+      <items style="Lookup" dataController="Cliente" newDataView="createForm1" dataValueField="Cliente_Id" dataTextField="Cliente" dataView="Cliente_Admin_LookUp_List" />
+    </field>
+    <field name="Cliente" type="String" readOnly="true" label="Cliente" length="150" />
+    <field name="Contratante_Id" type="Int32" allowNulls="false" default="((0))" label="Contratante Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratante" newDataView="createForm1" dataValueField="Contratante_Id" dataTextField="Contratante" dataView="Contratante_Admin_LookUp_List" copy="Cliente_Id=Cliente_Id,&#xD;&#xA;Cliente=Cliente_Cliente" />
+    </field>
+    <field name="Contratante_Contratante" type="String" readOnly="true" label="Contratante" length="150" />
+    <field name="Estatus_Pagadora_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Pagadora Id">
+      <items style="Lookup" dataController="Estatus_Pagadora" newDataView="createForm1" dataValueField="Estatus_Pagadora_Id" dataTextField="Estatus_Pagadora" dataView="Estatus_Pagadora_LookUp_List" />
+    </field>
+    <field name="Estatus_Pagadora_Estatus_Pagadora" type="String" readOnly="true" label="Estatus de Pagadora" length="150" />
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="Nombre_Base_Datos" type="String" default="('')" label="Nombre de Base Datos Comercial" length="150" roles="Administrators,ArhAdmin" writeRoles="Administrators" allowNulls="false" />
+    <field name="Sociedad" type="String" readOnly="true" label="Sociedad" length="250" />
+    <field name="Sociedad_Id" type="Int32" allowNulls="false" default="((0))" label="Sociedad Id">
+      <items style="Lookup" dataController="Sociedad" newDataView="createForm1" dataValueField="Sociedad_Id" dataTextField="Sociedad_Id" copy="Sociedad=Sociedad" dataView="Sociedad_LookUp_List" />
+    </field>
+    <field name="EsSindicato" type="Boolean" default="((0))" label="¿Es Sindicato?" />
+    <field name="LeyendaSindicato" type="String" label="Leyenda Sindicato" length="500" />
+    <field name="RegistroPatronal" type="String" label="Registro Patronal" length="11" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Pagadora" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" sortExpression="Pagadora" filter="Estatus_Registro_Id&lt;&gt; 0">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Pagadora_Id" hidden="true" textMode="Text" />
+        <dataField fieldName="Pagadora" />
+        <dataField fieldName="Pagadora_Razon_Social" />
+        <dataField fieldName="Clave_Pagadora" columns="4" />
+        <dataField fieldName="Nombre_Base_Datos" />
+        <dataField fieldName="EsSindicato" />
+        <dataField fieldName="LeyendaSindicato" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" hidden="true" />
+        <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" hidden="true" />
+        <dataField fieldName="Sociedad_Id" columns="15" aliasFieldName="Sociedad" />
+        <dataField fieldName="RegistroPatronal" columns="11" />
+        <dataField fieldName="Estatus_Pagadora_Id" aliasFieldName="Estatus_Pagadora_Estatus_Pagadora" />
+        <dataField fieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Pagadora" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Pagadora_Id" columns="15" hidden="true" />
+            <dataField fieldName="Pagadora" />
+            <dataField fieldName="Pagadora_Razon_Social" />
+            <dataField fieldName="Clave_Pagadora" columns="4" />
+            <dataField fieldName="Nombre_Base_Datos" />
+            <dataField fieldName="EsSindicato" />
+            <dataField fieldName="LeyendaSindicato">
+              <footerText>Esta leyenda es para la generación de las solicitudes de documentos.</footerText>
+            </dataField>
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" hidden="true" />
+            <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" hidden="true" />
+            <dataField fieldName="Sociedad_Id" columns="15" aliasFieldName="Sociedad" />
+            <dataField fieldName="RegistroPatronal" columns="11" />
+            <dataField fieldName="Estatus_Pagadora_Id" aliasFieldName="Estatus_Pagadora_Estatus_Pagadora" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nueva Pagadora" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Pagadora" />
+            <dataField fieldName="Pagadora_Razon_Social" />
+            <dataField fieldName="Clave_Pagadora" columns="4" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" hidden="true" />
+            <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" hidden="true" />
+            <dataField fieldName="Sociedad_Id" columns="15" aliasFieldName="Sociedad" />
+            <dataField fieldName="Nombre_Base_Datos" />
+            <dataField fieldName="EsSindicato" />
+            <dataField fieldName="LeyendaSindicato">
+              <footerText>Esta leyenda es para la generación de las solicitudes de documentos.</footerText>
+            </dataField>
+            <dataField fieldName="RegistroPatronal" columns="11" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Pagadora_LookUp_List" type="Grid" commandId="command1" label="Pagadora" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" sortExpression="Pagadora" filter="Estatus_Registro_Id = 1 AND Estatus_Pagadora_Id = 1">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Pagadora" />
+        <dataField fieldName="Pagadora_Razon_Social" hidden="true" />
+        <dataField fieldName="Clave_Pagadora" columns="4" hidden="true" />
+        <dataField fieldName="Sociedad" />
+        <dataField fieldName="Sociedad_Id" columns="15" aliasFieldName="Sociedad" />
+        <dataField fieldName="EsSindicato" />
+        <dataField fieldName="LeyendaSindicato" />
+        <dataField fieldName="RegistroPatronal" columns="11" />
+        <dataField fieldName="Cliente_Id" columns="15" aliasFieldName="Cliente" hidden="true" />
+        <dataField fieldName="Pagadora_Id" columns="15" hidden="true" />
+        <dataField fieldName="Contratante_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Pagadora_Sindicato_LookUp_List" type="Grid" commandId="command1" label="Pagadora" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" sortExpression="Pagadora" filter="Estatus_Registro_Id&lt;&gt; 0 AND EsSindicato=1">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Pagadora_Id" hidden="true" textMode="Text" />
+        <dataField fieldName="Pagadora" />
+        <dataField fieldName="Pagadora_Razon_Social" />
+        <dataField fieldName="Clave_Pagadora" columns="4" />
+        <dataField fieldName="Nombre_Base_Datos" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" hidden="true" />
+        <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" hidden="true" />
+        <dataField fieldName="Sociedad_Id" columns="15" aliasFieldName="Sociedad" />
+        <dataField fieldName="Estatus_Pagadora_Id" aliasFieldName="Estatus_Pagadora_Estatus_Pagadora" />
+        <dataField fieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="EsSindicato" />
+        <dataField fieldName="LeyendaSindicato" />
+        <dataField fieldName="RegistroPatronal" columns="11" />
+      </dataFields>
+    </view>
+    <view id="Pagadora_LookUp_List_Solo_Pagadora" type="Grid" commandId="command1" label="Pagadora" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" sortExpression="Pagadora" filter="Estatus_Registro_Id&lt;&gt; 0 AND EsSindicato=0">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Pagadora_Id" hidden="true" textMode="Text" />
+        <dataField fieldName="Pagadora" />
+        <dataField fieldName="Pagadora_Razon_Social" />
+        <dataField fieldName="Clave_Pagadora" columns="4" />
+        <dataField fieldName="Nombre_Base_Datos" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" hidden="true" />
+        <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" hidden="true" />
+        <dataField fieldName="Sociedad_Id" columns="15" aliasFieldName="Sociedad" />
+        <dataField fieldName="Estatus_Pagadora_Id" aliasFieldName="Estatus_Pagadora_Estatus_Pagadora" />
+        <dataField fieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="EsSindicato" />
+        <dataField fieldName="LeyendaSindicato" />
+        <dataField fieldName="RegistroPatronal" columns="11" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE
+	APP.Pagadora
+SET
+	Actualizado_Por_Id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion =GetDate()
+	,Estatus_Registro_Id = 3
+WHERE
+	Pagadora_Id= @Pagadora_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE
+	APP.Pagadora
+SET
+	Actualizado_Por_Id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion =GetDate()
+	,Estatus_Registro_Id = 3
+WHERE
+	Pagadora_Id= @Pagadora_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE
+	APP.Pagadora
+SET
+	Actualizado_Por_Id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion =GetDate()
+	,Estatus_Registro_Id = 3
+WHERE
+	Pagadora_Id= @Pagadora_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE
+	APP.Pagadora
+SET
+	Actualizado_Por_Id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion =GetDate()
+	,Estatus_Registro_Id = 3
+WHERE
+	Pagadora_Id= @Pagadora_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r104" commandName="New" type="Sql" phase="Execute"><![CDATA[SELECT
+@Cliente_Id = Cliente_Id
+,@Cliente = Cliente
+FROM
+APP.Cliente
+WHERE
+Cliente_Id=0
+
+SELECT
+@Contratante_Id=Contratante_Id
+,@Contratante_Contratante = Contratante
+FROM
+APP.Contratante
+WHERE
+Contratante_Id = 0]]></rule>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Pagadora
+	WHERE
+		REPLACE(UPPER(Pagadora),' ','') = REPLACE(UPPER(@Pagadora),' ','')
+  
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe este registro de pagadora en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe este registro de pagadora en la base de datos, favor de corregir.'
+   RETURN
+END
+
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Pagadora
+	WHERE
+		REPLACE(UPPER(Clave_Pagadora),' ','') = REPLACE(UPPER(@Clave_Pagadora),' ','')
+  
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe una clave de pagadora similar en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe una clave de pagadora similar en la base de datos, favor de corregir.'
+   RETURN
+END
+
+IF (IsNull(@Nombre_Base_Datos,'')='')
+BEGIN
+SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Es necesario agregar una base de datos, en caso de que no exista notificar o escribir "No existe base de datos"'
+   SET @Result_ShowAlert =  'Es necesario agregar una base de datos, en caso de que no exista notificar o escribir "No existe base de datos"'
+   RETURN
+END]]></rule>
+    <rule id="r101" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Pagadora
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Actualizado_Por_Id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Fecha_Creacion = GetDate()
+	,Estatus_Pagadora_Id = 1
+WHERE
+	Pagadora_Id= @Pagadora_Id]]></rule>
+    <rule id="r102" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Pagadora
+	WHERE
+  		REPLACE(UPPER(Pagadora),' ','') = REPLACE(UPPER(@Pagadora),' ','')
+		AND Pagadora_Id <> @Pagadora_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe este registro de pagadora en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya existe este registro de pagadora en la base de datos, favor de corregir.'
+   RETURN
+END
+
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Pagadora
+	WHERE
+		REPLACE(UPPER(Clave_Pagadora),' ','') = REPLACE(UPPER(@Clave_Pagadora),' ','')
+    AND Pagadora_Id <> @Pagadora_Id
+  
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe una clave de pagadora similar en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe una clave de pagadora similar en la base de datos, favor de corregir.'
+   RETURN
+END
+
+
+IF (IsNull(@Nombre_Base_Datos,'')='')
+BEGIN
+SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Es necesario agregar una base de datos, en caso de que no exista notificar o escribir "No existe base de datos"'
+   SET @Result_ShowAlert =  'Es necesario agregar una base de datos, en caso de que no exista notificar o escribir "No existe base de datos"'
+   RETURN
+END
+
+
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Pagadora
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Pagadora_Id = @Pagadora_Id]]></rule>
+  </businessRules>
+</dataController>

@@ -1,0 +1,480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Tipo_Domicilio" conflictDetection="overwriteChanges" label="Tipo Domicilio" handler="arhmexico.Rules.Tipo_DomicilioBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Tipo_Domicilio"."Tipo_Domicilio_Id" "Tipo_Domicilio_Id"
+	,"Tipo_Domicilio"."Tipo_Domicilio" "Tipo_Domicilio"
+	,"Tipo_Domicilio"."Es_Default" "Es_Default"
+	,"Tipo_Domicilio"."Es_Domicilio_Propio" "Es_Domicilio_Propio"
+	,"Tipo_Domicilio"."Es_Domicilio_Rentado" "Es_Domicilio_Rentado"
+	,"Tipo_Domicilio"."Es_Domicilio_Familiar" "Es_Domicilio_Familiar"
+	,"Tipo_Domicilio"."Es_Domicilio_Trabajo" "Es_Domicilio_Trabajo"
+	,"Tipo_Domicilio"."Es_Domicilio_Fiscal" "Es_Domicilio_Fiscal"
+	,"Tipo_Domicilio"."Es_Domicilio_Empresa" "Es_Domicilio_Empresa"
+	,"Tipo_Domicilio"."Es_Sucursal" "Es_Sucursal"
+	,"Tipo_Domicilio"."Es_Matriz" "Es_Matriz"
+	,"Tipo_Domicilio"."Fecha_Creacion" "Fecha_Creacion"
+	,"Tipo_Domicilio"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Tipo_Domicilio"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"cp"."UserName" "cpUserName"
+	,"ap"."UserName" "apUserName"
+	,"Tipo_Domicilio"."Aplica_Persona" "Aplica_Persona"
+	,"Tipo_Domicilio"."Aplica_Contratante" "Aplica_Contratante"
+from "APP"."Tipo_Domicilio" "Tipo_Domicilio"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Tipo_Domicilio"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cp" on "Tipo_Domicilio"."Creado_Por_Id" = "cp"."UserId"
+	left join "dbo"."Usuario_V" "ap" on "Tipo_Domicilio"."Actualizado_Por_Id" = "ap"."UserId"
+]]></text>
+    </command>
+    <command id="Tipo_Domicilio_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Tipo_Domicilio_Id" />
+      </output>
+    </command>
+    <command type="Text" id="Persona_Tipo_Domicilio_LookUp_List" custom="false">
+      <text><![CDATA[SELECT 
+	Tipo_Domicilio_Id
+	,Tipo_Domicilio
+	,Es_Default
+	,Es_Domicilio_Propio
+	,Es_Domicilio_Rentado
+	,Es_Domicilio_Familiar
+	,Es_Domicilio_Trabajo
+	,Es_Domicilio_Fiscal
+	,Es_Domicilio_Empresa
+	,Es_Sucursal
+	,Es_Matriz
+	,Aplica_Persona
+	,Aplica_Contratante
+	,Estatus_Registro_Id
+FROM dbo.Persona_Tipo_Domicilio_V]]></text>
+    </command>
+    <command type="Text" id="Contratante_Tipo_Domicilio_LookUp_List" custom="false">
+      <text><![CDATA[SELECT 
+	Tipo_Domicilio_Id
+	,Tipo_Domicilio
+	,Es_Default
+	,Es_Domicilio_Propio
+	,Es_Domicilio_Rentado
+	,Es_Domicilio_Familiar
+	,Es_Domicilio_Trabajo
+	,Es_Domicilio_Fiscal
+	,Es_Domicilio_Empresa
+	,Es_Sucursal
+	,Es_Matriz
+	,Aplica_Persona
+	,Aplica_Contratante
+	,Estatus_Registro_Id
+FROM dbo.Contratante_Tipo_Domicilio_V]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Tipo_Domicilio_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Tipo Domicilio Id" readOnly="true" />
+    <field name="Tipo_Domicilio" type="String" allowNulls="false" label="Tipo de Domicilio" length="150" showInSummary="true" />
+    <field name="Es_Default" type="Boolean" allowNulls="false" default="((0))" label="¿Es Default?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Domicilio_Propio" type="Boolean" allowNulls="false" default="((0))" label="¿Es Domicilio Propio?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Domicilio_Rentado" type="Boolean" allowNulls="false" default="((0))" label="¿Es Domicilio Rentado?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Domicilio_Familiar" type="Boolean" allowNulls="false" default="((0))" label="¿Es Domicilio Familia?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Domicilio_Trabajo" type="Boolean" allowNulls="false" default="((0))" label="¿Es Domicilio Trabajo?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Domicilio_Fiscal" type="Boolean" allowNulls="false" default="((0))" label="¿Es Domicilio Fiscal?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Domicilio_Empresa" type="Boolean" allowNulls="false" default="((0))" label="¿Es Domicilio Empresa?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Sucursal" type="Boolean" allowNulls="false" default="((0))" label="¿Es Sucursal?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Matriz" type="Boolean" allowNulls="false" default="((0))" label="¿Es Matriz?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Aplica_Persona" type="Boolean" allowNulls="false" default="((0))" label="Aplica Persona">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Contratante" type="Boolean" allowNulls="false" default="((0))" label="Aplica Contratante">
+      <items style="CheckBox" />
+    </field>
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Tipo de Domicilio" sortExpression="Tipo_Domicilio" filter="Estatus_Registro_Id &lt;&gt; 0" reportLabel="Tipos de Domicilios" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Tipo_Domicilio" />
+        <dataField fieldName="Es_Default" />
+        <dataField fieldName="Es_Domicilio_Propio" />
+        <dataField fieldName="Es_Domicilio_Rentado" />
+        <dataField fieldName="Es_Domicilio_Familiar" />
+        <dataField fieldName="Es_Domicilio_Trabajo" />
+        <dataField fieldName="Es_Domicilio_Fiscal" />
+        <dataField fieldName="Es_Domicilio_Empresa" />
+        <dataField fieldName="Es_Sucursal" />
+        <dataField fieldName="Es_Matriz" />
+        <dataField fieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Aplica_Persona" />
+        <dataField fieldName="Aplica_Contratante" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Edición Tipo de Domicilio" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Tipo_Domicilio" />
+            <dataField fieldName="Es_Default" />
+            <dataField fieldName="Aplica_Persona" />
+            <dataField fieldName="Aplica_Contratante" />
+            <dataField fieldName="Es_Domicilio_Propio">
+              <readOnly>
+                <expression test="[Aplica_Persona]==false || [Aplica_Contratante]==true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Es_Domicilio_Rentado">
+              <readOnly>
+                <expression test="[Aplica_Persona]==false || [Aplica_Contratante]==true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Es_Domicilio_Familiar">
+              <readOnly>
+                <expression test="[Aplica_Persona]==false || [Aplica_Contratante]==true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Es_Domicilio_Trabajo">
+              <readOnly>
+                <expression test="[Aplica_Persona]==false || [Aplica_Contratante]==true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Es_Domicilio_Fiscal">
+              <readOnly>
+                <expression test="[Aplica_Persona]==false || [Aplica_Contratante]==true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Es_Domicilio_Empresa">
+              <readOnly>
+                <expression test="[Aplica_Persona]==true || [Aplica_Contratante]==false" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Es_Sucursal">
+              <readOnly>
+                <expression test="[Aplica_Persona]==true || [Aplica_Contratante]==false" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Es_Matriz">
+              <readOnly>
+                <expression test="[Aplica_Persona]==true || [Aplica_Contratante]==false" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nuevo Tipo de Domicilio" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Tipo_Domicilio" />
+            <dataField fieldName="Es_Default" />
+            <dataField fieldName="Aplica_Persona" />
+            <dataField fieldName="Aplica_Contratante" />
+            <dataField fieldName="Es_Domicilio_Propio">
+              <readOnly>
+                <expression test="[Aplica_Persona]==false || [Aplica_Contratante]==true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Es_Domicilio_Rentado">
+              <readOnly>
+                <expression test="[Aplica_Persona]==false || [Aplica_Contratante]==true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Es_Domicilio_Familiar">
+              <readOnly>
+                <expression test="[Aplica_Persona]==false || [Aplica_Contratante]==true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Es_Domicilio_Trabajo">
+              <readOnly>
+                <expression test="[Aplica_Persona]==false || [Aplica_Contratante]==true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Es_Domicilio_Fiscal">
+              <readOnly>
+                <expression test="[Aplica_Persona]==false || [Aplica_Contratante]==true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Es_Domicilio_Empresa">
+              <readOnly>
+                <expression test="[Aplica_Persona]==true || [Aplica_Contratante]==false" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Es_Sucursal">
+              <readOnly>
+                <expression test="[Aplica_Persona]==true || [Aplica_Contratante]==false" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Es_Matriz">
+              <readOnly>
+                <expression test="[Aplica_Persona]==true || [Aplica_Contratante]==false" type="ClientScript" />
+              </readOnly>
+            </dataField>
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Tipo_Domicilio_LookUp_List" type="Grid" commandId="command1" label="Tipo de Domicilio" sortExpression="Tipo_Domicilio" filter="Estatus_Registro_Id IN (1,0)" reportLabel="Tipos de Domicilios" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Tipo_Domicilio" />
+        <dataField fieldName="Es_Default" hidden="true" />
+        <dataField fieldName="Es_Domicilio_Propio" hidden="true" />
+        <dataField fieldName="Es_Domicilio_Rentado" hidden="true" />
+        <dataField fieldName="Es_Domicilio_Familiar" hidden="true" />
+        <dataField fieldName="Es_Domicilio_Trabajo" hidden="true" />
+        <dataField fieldName="Es_Domicilio_Fiscal" hidden="true" />
+        <dataField fieldName="Es_Domicilio_Empresa" hidden="true" />
+        <dataField fieldName="Es_Sucursal" hidden="true" />
+        <dataField fieldName="Es_Matriz" hidden="true" />
+        <dataField fieldName="Aplica_Persona" hidden="true" />
+        <dataField fieldName="Aplica_Contratante" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Domicilio_Persona_LookUp_List" commandId="Persona_Tipo_Domicilio_LookUp_List" type="Grid" label="Tipo Domicilio" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Tipo_Domicilio" filter="Estatus_Registro_Id IN (1,0)">
+      <dataFields>
+        <dataField fieldName="Tipo_Domicilio_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Domicilio" rows="5" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Domicilio_Contratante_LookUp_List" commandId="Contratante_Tipo_Domicilio_LookUp_List" type="Grid" label="Tipo Domicilio" sortExpression="Tipo_Domicilio" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" filter="Estatus_Registro_Id IN (1,0)">
+      <dataFields>
+        <dataField fieldName="Tipo_Domicilio_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Domicilio" rows="5" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Tipo_Domicilio
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Tipo_Domicilio_Id = @Tipo_Domicilio_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Tipo_Domicilio
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Tipo_Domicilio_Id = @Tipo_Domicilio_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Tipo_Domicilio
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Tipo_Domicilio_Id = @Tipo_Domicilio_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Tipo_Domicilio
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Tipo_Domicilio_Id = @Tipo_Domicilio_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Tipo_Domicilio
+	WHERE
+		REPLACE(UPPER(Tipo_Domicilio),' ','') = REPLACE(UPPER(@Tipo_Domicilio),' ','')
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe este tipo de domicilio en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe este tipo de domicilio en la base de datos, favor de corregir.'
+   RETURN
+END
+
+IF @Aplica_Persona=1
+BEGIN
+	SET @Es_Domicilio_Empresa=0
+	SET @Es_Sucursal=0
+	SET @Es_Matriz=0
+END--IF @Aplica_Persona=1
+
+IF @Aplica_Contratante=1
+BEGIN
+	SET @Es_Domicilio_Propio=0
+	SET @Es_Domicilio_Rentado=0
+	SET @Es_Domicilio_Familiar=0
+	SET @Es_Domicilio_Trabajo=0
+	SET @Es_Domicilio_Fiscal=0
+END--IF @Aplica_Persona=1]]></rule>
+    <rule id="r102" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Tipo_Domicilio
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Actualizado_Por_Id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Fecha_Creacion = GetDate()
+WHERE
+	Tipo_Domicilio_Id= @Tipo_Domicilio_Id]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Tipo_Domicilio
+	WHERE
+  		REPLACE(UPPER(Tipo_Domicilio),' ','') = REPLACE(UPPER(@Tipo_Domicilio),' ','')
+		AND Tipo_Domicilio_Id <> @Tipo_Domicilio_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe este tipo de domicilio en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya existe este tipo de domicilio en la base de datos, favor de corregir.'
+   RETURN
+END
+
+IF @Aplica_Persona=1
+BEGIN
+	SET @Es_Domicilio_Empresa=0
+	SET @Es_Sucursal=0
+	SET @Es_Matriz=0
+END--IF @Aplica_Persona=1
+
+IF @Aplica_Contratante=1
+BEGIN
+	SET @Es_Domicilio_Propio=0
+	SET @Es_Domicilio_Rentado=0
+	SET @Es_Domicilio_Familiar=0
+	SET @Es_Domicilio_Trabajo=0
+	SET @Es_Domicilio_Fiscal=0
+END--IF @Aplica_Persona=1
+
+
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Tipo_Domicilio
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Tipo_Domicilio_Id = @Tipo_Domicilio_Id]]></rule>
+  </businessRules>
+</dataController>

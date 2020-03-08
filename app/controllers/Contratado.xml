@@ -1,0 +1,820 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Contratado" conflictDetection="overwriteChanges" label="Contratado" handler="arhmexico.Rules.ContratadoBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Contratado"."Contratado_Id" "Contratado_Id"
+	,"Contratado"."Contratante_Id" "Contratante_Id"
+	,"Contratante_"."Contratante" "Contratante_Contratante"
+	,"Contratado"."Persona_Id" "Persona_Id"
+	,"Persona"."Numero_Imss" "PersonanumeroImss"
+	,"Persona"."Curp_Id" "PersonacurpId"
+	,"Persona"."Registro_Federal_Causante_Id" "PersonaregistroFederalCausanteId"
+	,"Persona"."Fecha_Nacimiento" "PersonafechaNacimiento"
+	,"Persona"."Picture" "PersonaPicture"
+	,"Grid_Contacto_V"."Contacto" "Persona_Contacto_Etiqueta"
+	,"Grid_Contacto_V"."Contacto_Id" "Persona_Contacto_iD"
+	,"Grid_Persona_Domicilio_V"."Domicilio_Etiqueta" "Persona_Domicilio_Etiqueta"
+	,"Grid_Persona_Domicilio_V"."Domicilio_Id" "Persona_Domicilio_Etiqueta_Id"
+	,"Contratado"."Candidato_Id" "Candidato_Id"
+	,"Contratado"."Identificador_Unico" "Identificador_Unico"
+	,"Contratado"."Tipo_Contratado_Id" "Tipo_Contratado_Id"
+	,"Tipo_Contratado_"."Tipo_Contratado" "Tipo_Contratado_Tipo_Contratado"
+	,"Contratado"."Tipo_Empleado_Id" "Tipo_Empleado_Id"
+	,"Tipo_Empleado_"."Tipo_Empleado" "Tipo_Empleado_Tipo_Empleado"
+	,"Contratado"."Contratante_Estructura_Organizacional_Id" "Contratante_Estructura_Organizacional_Id"
+	,"Contratante_Estructura_Organizacional_"."Estructura_Organizacional" "Contratante_Estructura_Organizacional_Estructura_Organizacional"
+	,"Contratado"."Contratante_Puesto_Id" "Contratante_Puesto_Id"
+	,"Contratante_Puesto_"."Contratante_Puesto" "Contratante_Puesto_Contratante_Puesto"
+	,"Contratado"."Turno_Laboral_Id" "Turno_Laboral_Id"
+	,"Turno_Laboral_"."Turno_Laboral" "Turno_Laboral_Turno_Laboral"
+	,"Contratado"."Fecha_Contratacion" "Fecha_Contratacion"
+	,"Contratado"."Fecha_Antiguedad" "Fecha_Antiguedad"
+	,"Contratado"."Vigencia_Contrato" "Vigencia_Contrato"
+	,"Contratado"."Documento_Contrato_Id" "Documento_Contrato_Id"
+	,"Documento_Contrato_"."Documento" "Documento_Contrato_Documento"
+	,"Contratado"."Notas_Contratacion" "Notas_Contratacion"
+	,"Contratado"."Estatus_Contratado_Id" "Estatus_Contratado_Id"
+	,"Estatus_Contratado_"."Estatus_Contratado" "Estatus_Contratado_Estatus_Contratado"
+	,"Contratado"."Contratado_Key" "Contratado_Key"
+	,"Contratado"."Cliente_Id" "Cliente_Id"
+	,"Usuario_V"."UserName" "cpUserName"
+	,"Contratado"."Fecha_Creacion" "Fecha_Creacion"
+	,"Usuario_V1"."UserName" "apUserName"
+	,"Contratado"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Contratado"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Vacante"."Vacante" "Vacante"
+	,"Contratado"."Nivel_Organizacional_Id" "Nivel_Organizacional_Id"
+	,"Nivel_Organizacional"."Nivel_Organizacional" "NivelOrganizacionalnivelOrganizacional"
+	,"Contratado"."Identificador_Unico_A" "Identificador_Unico_A"
+	,"Contratado"."Acceso_App_Por_Kiosko" "Acceso_App_Por_Kiosko"
+	,"Genero"."Genero" "Genero"
+	,"Estado_Civil"."Estado_Civil" "EstadoCivilestadoCivil"
+	,"Estatus_Persona"."Estatus_Persona" "EstatusPersonaestatusPersona"
+	,"Nivel_Escolaridad"."Nivel_Escolaridad" "NivelEscolaridadnivelEscolaridad"
+	,"Ciudad"."Ciudad" "Ciudad"
+from "APP"."Contratado" "Contratado"
+	left join "APP"."Contratante" "Contratante_" on "Contratado"."Contratante_Id" = "Contratante_"."Contratante_Id"
+	left join "APP"."Tipo_Contratado" "Tipo_Contratado_" on "Contratado"."Tipo_Contratado_Id" = "Tipo_Contratado_"."Tipo_Contratado_Id"
+	left join "APP"."Tipo_Empleado" "Tipo_Empleado_" on "Contratado"."Tipo_Empleado_Id" = "Tipo_Empleado_"."Tipo_Empleado_Id"
+	left join "APP"."Contratante_Estructura_Organizacional" "Contratante_Estructura_Organizacional_" on "Contratado"."Persona_Id" = "Contratante_Estructura_Organizacional_"."Tipo_Estructura_Organizacional_Id"
+	left join "APP"."Contratante_Puesto" "Contratante_Puesto_" on "Contratado"."Contratante_Puesto_Id" = "Contratante_Puesto_"."Contratante_Puesto_Id"
+	left join "APP"."Turno_Laboral" "Turno_Laboral_" on "Contratado"."Turno_Laboral_Id" = "Turno_Laboral_"."Turno_Laboral_Id"
+	left join "APP"."Documento" "Documento_Contrato_" on "Contratado"."Documento_Contrato_Id" = "Documento_Contrato_"."Documento_Id"
+	left join "APP"."Estatus_Contratado" "Estatus_Contratado_" on "Contratado"."Estatus_Contratado_Id" = "Estatus_Contratado_"."Estatus_Contratado_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Contratado"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Usuario_V" on "Contratado"."Creado_Por_Id" = "Usuario_V"."UserId"
+	left join "dbo"."Usuario_V" "Usuario_V1" on "Contratado"."Actualizado_Por_Id" = "Usuario_V1"."UserId"
+	left join "APP"."Candidato" "Candidato" on "Contratado"."Persona_Id" = "Candidato"."Candidato_Id"
+	left join "APP"."Vacante" "Vacante" on "Candidato"."Vacante_Id" = "Vacante"."Vacante_Id"
+	left join "dbo"."Grid_Persona_Domicilio_V" "Grid_Persona_Domicilio_V" on "Contratado"."Persona_Id" = "Grid_Persona_Domicilio_V"."Persona_Id"
+	left join "dbo"."Grid_Contacto_V" "Grid_Contacto_V" on "Contratado"."Persona_Id" = "Grid_Contacto_V"."Persona_Id"
+	left join "APP"."Nivel_Organizacional" "Nivel_Organizacional" on "Contratado"."Nivel_Organizacional_Id" = "Nivel_Organizacional"."Nivel_Organizacional_Id"
+	left join "APP"."Persona" "Persona" on "Contratado"."Persona_Id" = "Persona"."Persona_Id"
+	left join "APP"."Genero" "Genero" on "Persona"."Genero_Persona_Id" = "Genero"."Genero_Id"
+	left join "APP"."Estado_Civil" "Estado_Civil" on "Persona"."Estado_Civil_Id" = "Estado_Civil"."Estado_Civil_Id"
+	left join "APP"."Estatus_Persona" "Estatus_Persona" on "Persona"."Estatus_Persona_Id" = "Estatus_Persona"."Estatus_Persona_Id"
+	left join "APP"."Nivel_Escolaridad" "Nivel_Escolaridad" on "Persona"."Maximo_Nivel_Escolaridad_Id" = "Nivel_Escolaridad"."Nivel_Escolaridad_Id"
+	left join "APP"."Ciudad" "Ciudad" on "Persona"."Lugar_Nacimiento_Id" = "Ciudad"."Ciudad_Id"
+]]></text>
+    </command>
+    <command id="Contratado_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Contratado_Id" />
+      </output>
+    </command>
+    <command type="Text" id="Contratado_LookUp_List" custom="false">
+      <text><![CDATA[SELECT Contratado_Id      
+      ,Persona_Id
+      ,Candidato_Id
+      ,Persona_Nombre
+      ,Identificador_Unico
+      ,UserId
+	  ,Persona_Domicilio_Etiqueta_Id
+	  ,Persona_Domicilio_Etiqueta
+	  ,Persona_Contacto_iD
+	  ,Persona_Contacto_Etiqueta
+	  ,Contratante_Puesto_Id
+	  ,Contratante_Puesto_Contratante_Puesto
+  FROM dbo.Grid_Contratado_Segun_Usuario_V]]></text>
+    </command>
+    <command type="Text" id="Grid_Contratado" tableName="APP.Contratado" custom="false">
+      <text><![CDATA[SELECT Contratado_Id
+      ,Contratante_Id
+      ,Contratante_Contratante
+      ,Persona_Id
+      ,Candidato_Id
+      ,Candidato_V_Persona_Id
+      ,Candidato_V_Persona_Nombre
+      ,Contratado_Persona_Nombre
+      ,Candidato_V_Candidato_Id
+      ,Identificador_Unico
+      ,Tipo_Contratado_Id
+      ,Tipo_Contratado_Tipo_Contratado
+      ,Tipo_Empleado_Id
+      ,Tipo_Empleado_Tipo_Empleado
+      ,Contratante_Estructura_Organizacional_Id
+      ,Contratante_Estructura_Organizacional_Estructura_Organizacional
+      ,Contratante_Puesto_Id
+      ,Contratante_Puesto_Contratante_Puesto
+      ,Turno_Laboral_Id
+      ,Turno_Laboral_Turno_Laboral
+      ,Fecha_Contratacion
+      ,Fecha_Antiguedad
+      ,Vigencia_Contrato
+      ,Documento_Contrato_Id
+      ,Documento_Contrato_Documento
+      ,Notas_Contratacion
+      ,Estatus_Contratado_Id
+      ,Estatus_Contratado_Estatus_Contratado
+      ,Contratado_Key
+      ,Cliente_Id
+      ,Transaccion_Id
+      ,Creado_Por_Id
+      ,cpUserName
+      ,Fecha_Creacion
+      ,Actualizado_Por_Id
+      ,apUserName
+      ,Fecha_Ultima_Actualizacion
+      ,Estatus_Registro_Id
+      ,Estatus_Registro_Estatus_Registro
+	  ,Vacante
+      ,UserId
+  FROM dbo.Grid_Contratado_Segun_Usuario_V
+  ]]></text>
+    </command>
+    <command type="Text" id="Grid_Contratado_Admin" tableName="APP.Contratado" custom="false">
+      <text><![CDATA[SELECT Contratado_Id
+      ,Contratante_Id
+      ,Contratante_Contratante
+      ,Persona_Id
+      ,Candidato_Id
+      ,Candidato_V_Persona_Id
+      ,Candidato_V_Persona_Nombre
+      ,Contratado_Persona_Nombre
+      ,Candidato_V_Candidato_Id
+      ,Identificador_Unico
+      ,Tipo_Contratado_Id
+      ,Tipo_Contratado_Tipo_Contratado
+      ,Tipo_Empleado_Id
+      ,Tipo_Empleado_Tipo_Empleado
+      ,Contratante_Estructura_Organizacional_Id
+      ,Contratante_Estructura_Organizacional_Estructura_Organizacional
+      ,Contratante_Puesto_Id
+      ,Contratante_Puesto_Contratante_Puesto
+      ,Turno_Laboral_Id
+      ,Turno_Laboral_Turno_Laboral
+      ,Fecha_Contratacion
+      ,Fecha_Antiguedad
+      ,Vigencia_Contrato
+      ,Documento_Contrato_Id
+      ,Documento_Contrato_Documento
+      ,Notas_Contratacion
+      ,Estatus_Contratado_Id
+      ,Estatus_Contratado_Estatus_Contratado
+      ,Contratado_Key
+      ,Cliente_Id
+      ,Transaccion_Id
+      ,Creado_Por_Id
+      ,cpUserName
+      ,Fecha_Creacion
+      ,Actualizado_Por_Id
+      ,apUserName
+      ,Fecha_Ultima_Actualizacion
+      ,Estatus_Registro_Id
+      ,Estatus_Registro_Estatus_Registro
+	  ,Vacante
+	  ,Cliente_Cliente
+  FROM dbo.Grid_Contratado_Admin_V]]></text>
+    </command>
+    <command type="Text" id="Encargado_RH_LookUp_List" custom="false">
+      <text><![CDATA[SELECT
+       Contratado_Id      
+      ,Persona_Id
+      ,Candidato_Id
+      ,Persona_Nombre
+      ,Identificador_Unico
+	  ,UserId
+FROM
+dbo.Contratante_Encargado_RH_Segun_Usuario_V]]></text>
+    </command>
+    <command type="Text" id="Grid_Contratado_Cliente_V" tableName="APP.Contratado" custom="false">
+      <text><![CDATA[SELECT 
+	Contratado_Id
+	,Contratante_Id
+	,Contratante_Contratante
+	,Persona_Id
+	,Candidato_Id
+	,Identificador_Unico
+	,Tipo_Contratado_Id
+	,Tipo_Contratado_Tipo_Contratado
+	,Tipo_Empleado_Id
+	,Tipo_Empleado_Tipo_Empleado
+	,Contratante_Estructura_Organizacional_Id
+	,Contratante_Estructura_Organizacional_Estructura_Organizacional
+	,Contratante_Puesto_Id
+	,Contratante_Puesto_Contratante_Puesto
+	,Turno_Laboral_Id
+	,Turno_Laboral_Turno_Laboral
+	,Fecha_Contratacion
+	,Fecha_Antiguedad
+	,Vigencia_Contrato
+	,Documento_Contrato_Id
+	,Documento_Contrato_Documento
+	,Notas_Contratacion
+	,Estatus_Contratado_Id
+	,Estatus_Contratado_Estatus_Contratado
+	,Contratado_Key
+	,Cliente_Id
+	,Fecha_Creacion
+	,cpUserName
+	,Fecha_Ultima_Actualizacion
+	,apUserName
+	,Estatus_Registro_Id
+	,Estatus_Registro_Estatus_Registro
+	,Vacante
+	,Nivel_Organizacional_Id
+	,Contratado_Persona_Nombre
+	,UserId
+FROM
+	dbo.Grid_Contratado_Cliente_V]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Contratado_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Contratado Id" readOnly="true" />
+    <field name="Contratante_Id" type="Int32" allowNulls="false" default="((0))" label="Contratante Id" showInSummary="true" contextFields="Cliente_Id=Cliente_Id">
+      <items style="Lookup" dataController="Contratante" newDataView="createForm1" dataValueField="Contratante_Id" dataTextField="Contratante" dataView="Contratante_Admin_LookUp_List" />
+    </field>
+    <field name="Contratante_Contratante" type="String" readOnly="true" label="Contratante" length="150" />
+    <field name="Persona_Id" type="Int32" allowNulls="false" default="((0))" label="Persona Id" showInSummary="true">
+      <items style="Lookup" dataController="Persona" dataValueField="Persona_Id" dataView="Persona_LookUp_List" dataTextField="Nombre_Completo" newDataView="createForm1" />
+    </field>
+    <field name="PersonanumeroImss" type="String" readOnly="true" label="Número IMSS" length="11" />
+    <field name="PersonacurpId" type="String" readOnly="true" label="CURP" length="18" />
+    <field name="PersonaregistroFederalCausanteId" type="String" readOnly="true" label="RFC" length="13" />
+    <field name="PersonafechaNacimiento" type="DateTime" readOnly="true" dataFormatString="d" label="Fecha de Nacimiento" />
+    <field name="PersonaPicture" type="Byte[]" readOnly="true" onDemand="true" sourceFields="Persona_Id" onDemandHandler="PersonaPicture" onDemandStyle="Thumbnail" allowQBE="false" allowSorting="false" label="Imagen" />
+    <field name="Persona_Contacto_Etiqueta" type="String" readOnly="true" allowQBE="false" allowSorting="false" label="Contratado Contacto" length="5000" />
+    <field name="Persona_Contacto_iD" type="Int32" readOnly="true" label="Contratado Contacto Id" />
+    <field name="Persona_Domicilio_Etiqueta" type="String" label="Domicilio" readOnly="true" length="1096" />
+    <field name="Persona_Domicilio_Etiqueta_Id" type="Int32" readOnly="true" label="Grid Persona Domicilio V Domicilio Id" />
+    <field name="Candidato_Id" type="Int32" default="((0))" label="Candidato Id" showInSummary="true" allowNulls="false">
+      <items style="Lookup" dataController="Candidato_Admin" dataView="Candidato_LookUp_List" dataTextField="Persona_Nombre" dataValueField="Candidato_Id" newDataView="createForm1" />
+    </field>
+    <field name="Identificador_Unico" type="String" allowNulls="false" label="Identificador Unico" length="50" showInSummary="true" />
+    <field name="Tipo_Contratado_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo de Contratado" showInSummary="true">
+      <items style="Lookup" dataController="Tipo_Contratado" dataValueField="Tipo_Contratado_Id" dataTextField="Tipo_Contratado" dataView="Tipo_Contratado_LookUp_List" />
+    </field>
+    <field name="Tipo_Contratado_Tipo_Contratado" type="String" readOnly="true" label="Tipo de Contratado" length="150" />
+    <field name="Tipo_Empleado_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo de Empleado">
+      <items style="Lookup" dataController="Tipo_Empleado" newDataView="createForm1" dataValueField="Tipo_Empleado_Id" dataTextField="Tipo_Empleado" dataView="Tipo_Empleado_LookUp_List" />
+    </field>
+    <field name="Tipo_Empleado_Tipo_Empleado" type="String" readOnly="true" label="Tipo de Empleado" length="150" />
+    <field name="Contratante_Estructura_Organizacional_Id" type="Int32" allowNulls="false" default="((0))" label="Estructura Organizacional" contextFields="Contratante_Id=Contratante_Id">
+      <items dataView="Contratante_Estructura_Organizacional_LookUp_List" style="Lookup" dataController="Contratante_Estructura_Organizacional" dataTextField="Estatus_Estructura_Organizacional_Etiqueta" dataValueField="Contratante_Estructura_Organizacional_Id" />
+    </field>
+    <field name="Contratante_Estructura_Organizacional_Estructura_Organizacional" type="String" readOnly="true" label="Estructura Organizacional" length="150" />
+    <field name="Contratante_Puesto_Id" type="Int32" allowNulls="false" default="((0))" label="Puesto de Contratante" contextFields="Contratante_Id = Contratante_Id">
+      <items style="Lookup" dataController="Contratante_Puesto" dataValueField="Contratante_Puesto_Id" dataTextField="Contratante_Puesto" dataView="Contratante_Puesto_Aun_Sin_Asignar_LookUp_List" newDataView="createForm1" />
+    </field>
+    <field name="Contratante_Puesto_Contratante_Puesto" type="String" readOnly="true" label="Puesto" length="150" />
+    <field name="Turno_Laboral_Id" type="Int32" allowNulls="false" default="((0))" label="Turno Laboral">
+      <items style="Lookup" dataController="Turno_Laboral" dataValueField="Turno_Laboral_Id" dataTextField="Turno_Laboral" dataView="Turno_Laboral_LookUp_List" />
+    </field>
+    <field name="Turno_Laboral_Turno_Laboral" type="String" readOnly="true" label="Turno Laboral" length="150" />
+    <field name="Fecha_Contratacion" type="DateTime" allowNulls="false" dataFormatString="d" default="('01/01/1900')" label="Fecha de Contratación" />
+    <field name="Fecha_Antiguedad" type="DateTime" allowNulls="false" dataFormatString="d" default="('01/01/1900')" label="Fecha de Antiguedad" />
+    <field name="Vigencia_Contrato" type="DateTime" allowNulls="false" dataFormatString="d" default="('12/31/9999')" label="Vigencia de Contrato" />
+    <field name="Documento_Contrato_Id" type="Int32" allowNulls="false" default="((0))" label="Documento de Contrato">
+      <items style="Lookup" dataController="Documento" dataValueField="Documento_Id" dataTextField="Documento" dataView="Documento_LookUp_List" />
+    </field>
+    <field name="Documento_Contrato_Documento" type="String" readOnly="true" label="Documento de Contrato" length="250" />
+    <field name="Notas_Contratacion" type="String" allowQBE="false" allowSorting="false" label="Notas" />
+    <field name="Estatus_Contratado_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Contratado Id" roles="Administrators,ArhAdmin" writeRoles="Administrators,ArhAdmin">
+      <items style="Lookup" dataController="Estatus_Contratado" dataValueField="Estatus_Contratado_Id" dataTextField="Estatus_Contratado" dataView="Estatus_Contratado_LookUp_List" newDataView="createForm1" />
+    </field>
+    <field name="Estatus_Contratado_Estatus_Contratado" type="String" readOnly="true" label="Estatus Contratado" length="150" />
+    <field name="Contratado_Key" type="String" allowNulls="false" default="(newid())" label="Contratado Key" length="50" />
+    <field name="Cliente_Id" type="Int32" allowNulls="false" default="((0))" label="Cliente Id">
+      <items style="Lookup" dataController="Cliente" dataView="Cliente_Admin_LookUp_List" dataTextField="Cliente" dataValueField="Cliente_Id" newDataView="createForm1" />
+    </field>
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="Vacante" type="String" readOnly="true" label="Vacante" length="150" />
+    <field name="Nivel_Organizacional_Id" type="Int32" allowNulls="false" default="((0))" label="Nivel Organizacional Id">
+      <items style="Lookup" dataController="Nivel_Organizacional" newDataView="createForm1" dataValueField="Nivel_Organizacional_Id" dataTextField="Nivel_Organizacional" dataView="Nivel_Organizacional_LookUp_List" copy="Nivel_Organizacional_Etiqueta=Nivel_Organizacional" />
+    </field>
+    <field name="NivelOrganizacionalnivelOrganizacional" type="String" readOnly="true" label="Nivel Organizacional" length="150" />
+    <field name="Identificador_Unico_A" type="String" label="Identificador Unico A" length="50" />
+    <field name="Acceso_App_Por_Kiosko" type="Boolean" default="((0))" label="¿Acceso a App Por Kiosko?" allowNulls="false">
+      <items style="CheckBox" />
+    </field>
+    <field name="Genero" type="String" readOnly="true" label="Genero" length="150" />
+    <field name="EstadoCivilestadoCivil" type="String" readOnly="true" label="Estado Civil" length="150" />
+    <field name="EstatusPersonaestatusPersona" type="String" readOnly="true" label="Estatus de Persona" length="250" />
+    <field name="NivelEscolaridadnivelEscolaridad" type="String" readOnly="true" label="Máximo Nivel de Escolaridad" length="150" />
+    <field name="Ciudad" type="String" readOnly="true" label="Lugar de Nacimiento" length="150" />
+    <field name="Contratado_Persona_Nombre" type="String" label="Nombre Contratado" readOnly="true" />
+    <field name="Persona_Nombre" type="String" label="Persona Nombre" />
+    <field name="Nivel_Organizacional_Etiqueta" type="String" readOnly="true" label="Nivel Organizacional" />
+    <field name="UserId" type="String" label="User Id" length="50" />
+    <field name="Cliente_Cliente" type="String" readOnly="true" label="Cliente" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="Grid_Contratado" label="Contratado" filter="Estatus_Registro_Id &lt;&gt; 0" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Contratado_Persona_Nombre">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Persona_Id" aliasFieldName="Contratado_Persona_Nombre" />
+        <dataField fieldName="Genero" />
+        <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" />
+        <dataField fieldName="PersonacurpId" columns="18" />
+        <dataField fieldName="PersonaregistroFederalCausanteId" columns="13" />
+        <dataField fieldName="PersonafechaNacimiento" columns="10" />
+        <dataField fieldName="EstadoCivilestadoCivil" />
+        <dataField fieldName="Ciudad" />
+        <dataField fieldName="PersonaPicture" columns="15" />
+        <dataField fieldName="Persona_Contacto_Etiqueta" rows="5" />
+        <dataField fieldName="Persona_Contacto_iD" columns="15" />
+        <dataField fieldName="Persona_Domicilio_Etiqueta" />
+        <dataField fieldName="Persona_Domicilio_Etiqueta_Id" columns="15" />
+        <dataField fieldName="Candidato_Id" columns="15" aliasFieldName="Vacante" />
+        <dataField fieldName="Identificador_Unico" columns="50" />
+        <dataField fieldName="Tipo_Contratado_Id" aliasFieldName="Tipo_Contratado_Tipo_Contratado" />
+        <dataField fieldName="Tipo_Empleado_Id" aliasFieldName="Tipo_Empleado_Tipo_Empleado" />
+        <dataField fieldName="Contratante_Estructura_Organizacional_Id" aliasFieldName="Contratante_Estructura_Organizacional_Estructura_Organizacional" />
+        <dataField fieldName="Contratante_Puesto_Id" aliasFieldName="Contratante_Puesto_Contratante_Puesto" />
+        <dataField fieldName="Nivel_Organizacional_Id" aliasFieldName="Nivel_Organizacional_Etiqueta" />
+        <dataField fieldName="Turno_Laboral_Id" aliasFieldName="Turno_Laboral_Turno_Laboral" />
+        <dataField fieldName="Fecha_Contratacion" columns="20" />
+        <dataField fieldName="Fecha_Antiguedad" columns="20" />
+        <dataField fieldName="Vigencia_Contrato" columns="20" />
+        <dataField fieldName="Documento_Contrato_Id" aliasFieldName="Documento_Contrato_Documento" />
+        <dataField fieldName="NivelEscolaridadnivelEscolaridad" />
+        <dataField fieldName="Identificador_Unico_A" columns="50" />
+        <dataField fieldName="Acceso_App_Por_Kiosko" />
+        <dataField fieldName="Notas_Contratacion" rows="5" />
+        <dataField fieldName="Estatus_Contratado_Id" aliasFieldName="Estatus_Contratado_Estatus_Contratado" />
+        <dataField fieldName="EstatusPersonaestatusPersona" />
+        <dataField fieldName="Contratado_Key" columns="50" hidden="true" />
+        <dataField fieldName="Cliente_Id" columns="15" hidden="true" />
+        <dataField fieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" hidden="true" />
+        <dataField fieldName="UserId" columns="50" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="gridAdmin" type="Grid" commandId="Grid_Contratado_Admin" label="Contratado (Admin)" filter="Estatus_Registro_Id &lt;&gt; 0" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Contratado_Persona_Nombre">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Persona_Id" aliasFieldName="Contratado_Persona_Nombre" />
+        <dataField fieldName="Genero" />
+        <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" />
+        <dataField fieldName="PersonacurpId" columns="18" />
+        <dataField fieldName="PersonaregistroFederalCausanteId" columns="13" />
+        <dataField fieldName="PersonafechaNacimiento" columns="10" />
+        <dataField fieldName="EstadoCivilestadoCivil" />
+        <dataField fieldName="NivelEscolaridadnivelEscolaridad" />
+        <dataField fieldName="Ciudad" />
+        <dataField fieldName="PersonaPicture" columns="15" />
+        <dataField fieldName="Persona_Contacto_Etiqueta" rows="5" />
+        <dataField fieldName="Persona_Contacto_iD" columns="15" />
+        <dataField fieldName="Persona_Domicilio_Etiqueta" />
+        <dataField fieldName="Persona_Domicilio_Etiqueta_Id" columns="15" />
+        <dataField fieldName="Candidato_Id" columns="15" aliasFieldName="Vacante" />
+        <dataField fieldName="Identificador_Unico" columns="50" />
+        <dataField fieldName="Tipo_Contratado_Id" aliasFieldName="Tipo_Contratado_Tipo_Contratado" />
+        <dataField fieldName="Tipo_Empleado_Id" aliasFieldName="Tipo_Empleado_Tipo_Empleado" />
+        <dataField fieldName="Contratante_Estructura_Organizacional_Id" aliasFieldName="Contratante_Estructura_Organizacional_Estructura_Organizacional" />
+        <dataField fieldName="Contratante_Puesto_Id" aliasFieldName="Contratante_Puesto_Contratante_Puesto" />
+        <dataField fieldName="Nivel_Organizacional_Id" aliasFieldName="Nivel_Organizacional_Etiqueta" />
+        <dataField fieldName="Turno_Laboral_Id" aliasFieldName="Turno_Laboral_Turno_Laboral" />
+        <dataField fieldName="Fecha_Contratacion" columns="20" />
+        <dataField fieldName="Fecha_Antiguedad" columns="20" />
+        <dataField fieldName="Vigencia_Contrato" columns="20" />
+        <dataField fieldName="Documento_Contrato_Id" aliasFieldName="Documento_Contrato_Documento" />
+        <dataField fieldName="Identificador_Unico_A" columns="50" />
+        <dataField fieldName="Acceso_App_Por_Kiosko" />
+        <dataField fieldName="Notas_Contratacion" rows="5" />
+        <dataField fieldName="Estatus_Contratado_Id" aliasFieldName="Estatus_Contratado_Estatus_Contratado" />
+        <dataField fieldName="EstatusPersonaestatusPersona" />
+        <dataField fieldName="Contratado_Key" columns="50" hidden="true" />
+        <dataField fieldName="Cliente_Id" columns="15" hidden="true" />
+        <dataField fieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="Grid_Contratado_Admin" label="Actualizar Contratado" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Datos Generales" tab="Datos Contratado" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Persona_Id" aliasFieldName="Contratado_Persona_Nombre" />
+            <dataField fieldName="Persona_Contacto_Etiqueta" rows="5" />
+            <dataField fieldName="Persona_Contacto_iD" columns="15" />
+            <dataField fieldName="Persona_Domicilio_Etiqueta" />
+            <dataField fieldName="Persona_Domicilio_Etiqueta_Id" columns="15" />
+            <dataField fieldName="Candidato_Id" columns="15" aliasFieldName="Vacante" />
+            <dataField fieldName="Identificador_Unico" columns="50" />
+            <dataField fieldName="Fecha_Contratacion" columns="20" />
+            <dataField fieldName="Fecha_Antiguedad" columns="20" />
+            <dataField fieldName="Vigencia_Contrato" columns="20" />
+            <dataField fieldName="Documento_Contrato_Id" aliasFieldName="Documento_Contrato_Documento" hidden="true" />
+            <dataField fieldName="Vacante" hidden="true" />
+            <dataField fieldName="Identificador_Unico_A" columns="50" />
+            <dataField fieldName="Acceso_App_Por_Kiosko" />
+            <dataField fieldName="Contratado_Key" columns="50" hidden="true" />
+            <dataField fieldName="Estatus_Contratado_Id" columns="15" aliasFieldName="Estatus_Contratado_Estatus_Contratado" />
+          </dataFields>
+        </category>
+        <category headerText="Datos Personales" tab="Datos Personales" id="c4">
+          <dataFields>
+            <dataField fieldName="PersonaPicture" columns="15" />
+            <dataField fieldName="PersonacurpId" columns="18" />
+            <dataField fieldName="PersonaregistroFederalCausanteId" columns="13" />
+            <dataField fieldName="PersonafechaNacimiento" columns="10" />
+            <dataField fieldName="Genero" />
+            <dataField fieldName="EstadoCivilestadoCivil" />
+            <dataField fieldName="NivelEscolaridadnivelEscolaridad" />
+            <dataField fieldName="Ciudad" />
+            <dataField fieldName="EstatusPersonaestatusPersona" />
+          </dataFields>
+        </category>
+        <category headerText="Asignación" tab="Asignación" id="c2">
+          <dataFields>
+            <dataField fieldName="Cliente_Id" columns="15" hidden="true" aliasFieldName="Cliente_Cliente" />
+            <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" />
+            <dataField fieldName="Tipo_Contratado_Id" aliasFieldName="Tipo_Contratado_Tipo_Contratado" />
+            <dataField fieldName="Tipo_Empleado_Id" aliasFieldName="Tipo_Empleado_Tipo_Empleado" />
+            <dataField fieldName="Contratante_Estructura_Organizacional_Id" aliasFieldName="Contratante_Estructura_Organizacional_Estructura_Organizacional" />
+            <dataField fieldName="Contratante_Puesto_Id" aliasFieldName="Contratante_Puesto_Contratante_Puesto" />
+            <dataField fieldName="Nivel_Organizacional_Id" aliasFieldName="Nivel_Organizacional_Etiqueta" />
+            <dataField fieldName="Turno_Laboral_Id" aliasFieldName="Turno_Laboral_Turno_Laboral" />
+          </dataFields>
+        </category>
+        <category headerText="Otros" tab="Otros" id="c3">
+          <dataFields>
+            <dataField fieldName="Notas_Contratacion" rows="5" />
+            <dataField fieldName="cpUserName">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="apUserName">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="Grid_Contratado_Admin" label="Nuevo Contratado" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Datos Generales" tab="Datos Generales" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Persona_Id" aliasFieldName="Contratado_Persona_Nombre" />
+            <dataField fieldName="Candidato_Id" columns="15" aliasFieldName="Vacante" />
+            <dataField fieldName="Persona_Contacto_Etiqueta" rows="5" />
+            <dataField fieldName="Persona_Contacto_iD" columns="15" />
+            <dataField fieldName="Persona_Domicilio_Etiqueta" />
+            <dataField fieldName="Persona_Domicilio_Etiqueta_Id" columns="15" />
+            <dataField fieldName="Identificador_Unico" columns="50" />
+            <dataField fieldName="Fecha_Contratacion" columns="20" dataFormatString="g" />
+            <dataField fieldName="Fecha_Antiguedad" columns="20" dataFormatString="HH:mm tt" />
+            <dataField fieldName="Vigencia_Contrato" columns="20" dataFormatString="HH:mm tt" />
+            <dataField fieldName="Documento_Contrato_Id" aliasFieldName="Documento_Contrato_Documento" hidden="true" />
+            <dataField fieldName="Vacante" hidden="true" />
+            <dataField fieldName="Identificador_Unico_A" columns="50" />
+            <dataField fieldName="Acceso_App_Por_Kiosko" />
+            <dataField fieldName="Estatus_Contratado_Id" aliasFieldName="Estatus_Contratado_Estatus_Contratado" hidden="true" />
+          </dataFields>
+        </category>
+        <category headerText="Asignación" tab="Asignación" id="c2">
+          <dataFields>
+            <dataField fieldName="Cliente_Id" columns="15" hidden="true" aliasFieldName="Cliente_Cliente" />
+            <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" />
+            <dataField fieldName="Tipo_Contratado_Id" aliasFieldName="Tipo_Contratado_Tipo_Contratado" />
+            <dataField fieldName="Tipo_Empleado_Id" aliasFieldName="Tipo_Empleado_Tipo_Empleado" />
+            <dataField fieldName="Contratante_Estructura_Organizacional_Id" aliasFieldName="Contratante_Estructura_Organizacional_Estructura_Organizacional" />
+            <dataField fieldName="Contratante_Puesto_Id" aliasFieldName="Contratante_Puesto_Contratante_Puesto" />
+            <dataField fieldName="Nivel_Organizacional_Id" aliasFieldName="Nivel_Organizacional_Etiqueta" />
+            <dataField fieldName="Turno_Laboral_Id" aliasFieldName="Turno_Laboral_Turno_Laboral" />
+          </dataFields>
+        </category>
+        <category headerText="Otros" tab="Otros" id="c3">
+          <dataFields>
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="Notas_Contratacion" rows="5" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Contratado_LookUp_List" commandId="Contratado_LookUp_List" type="Grid" label="Contratado" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Persona_Nombre" filter="Estatus_Registro_Id IN (1,0) AND UserId = @BusinessRules_UserId" showInSelector="false">
+      <dataFields>
+        <dataField fieldName="Contratado_Id" columns="15" hidden="true" />
+        <dataField fieldName="Identificador_Unico" columns="50" hidden="true" />
+        <dataField fieldName="Persona_Id" columns="15" hidden="true" />
+        <dataField fieldName="Persona_Nombre" rows="5" />
+        <dataField fieldName="UserId" columns="50" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Persona_Domicilio_Etiqueta" rows="5" hidden="true" />
+        <dataField fieldName="Persona_Domicilio_Etiqueta_Id" columns="15" hidden="true" />
+        <dataField fieldName="Persona_Contacto_Etiqueta" rows="5" hidden="true" />
+        <dataField fieldName="Persona_Contacto_iD" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Contratado_Admin_LookUp_List" commandId="Contratado_LookUp_List" type="Grid" label="Contratado" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Persona_Nombre" filter="Estatus_Registro_Id IN (1,0)" showInSelector="false">
+      <dataFields>
+        <dataField fieldName="Contratado_Id" columns="15" hidden="true" />
+        <dataField fieldName="Identificador_Unico" columns="50" hidden="true" />
+        <dataField fieldName="Persona_Id" columns="15" hidden="true" />
+        <dataField fieldName="Persona_Nombre" rows="5" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Persona_Domicilio_Etiqueta" rows="5" hidden="true" />
+        <dataField fieldName="Persona_Domicilio_Etiqueta_Id" columns="15" hidden="true" />
+        <dataField fieldName="Persona_Contacto_Etiqueta" rows="5" hidden="true" />
+        <dataField fieldName="Persona_Contacto_iD" columns="15" hidden="true" />
+        <dataField fieldName="Contratante_Id" columns="15" hidden="true" />
+        <dataField fieldName="Contratante_Puesto_Id" columns="15" />
+        <dataField fieldName="Contratante_Puesto_Contratante_Puesto" rows="5" />
+      </dataFields>
+    </view>
+    <view id="Encargado_RH_LookUp_List" commandId="Encargado_RH_LookUp_List" type="Grid" label="Contratado" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Persona_Nombre" filter="Estatus_Registro_Id IN (1,0)" showInSelector="false">
+      <dataFields>
+        <dataField fieldName="Contratado_Id" columns="15" hidden="true" />
+        <dataField fieldName="Identificador_Unico" columns="50" hidden="true" />
+        <dataField fieldName="Persona_Id" columns="15" hidden="true" />
+        <dataField fieldName="Persona_Nombre" rows="5" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm2" commandId="command1" type="Form" label="editForm2">
+      <categories>
+        <category id="c1" headerText="Contratado" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="Contratante_Puesto_Id" columns="15" aliasFieldName="Contratante_Puesto_Contratante_Puesto" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Contratado_Sin_Puesto_LookUp_List" commandId="Grid_Contratado_Admin" type="Grid" label="Contratado_Sin_Puesto_LookUp_List" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" filter="Estatus_Registro_Id = 1 AND Contratante_Puesto_Id = 0" sortExpression="Contratado_Persona_Nombre" showInSelector="false">
+      <dataFields>
+        <dataField fieldName="Contratado_Persona_Nombre" textMode="Text" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Contratado
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Contratado_Id = @Contratado_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE 
+	APP.Contratado
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Contratado_Id = @Contratado_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE 
+	APP.Contratado
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Contratado_Id = @Contratado_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Contratado
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Contratado_Id = @Contratado_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r102" commandName="New" type="Sql" phase="Execute"><![CDATA[SET @Candidato_Id = 0
+SET @Estatus_Contratado_Id=1
+SET @Vigencia_Contrato = DateAdd(day,30,DateAdd(month,11,DateAdd(year,8099,'01/01/1900')))
+SET @Acceso_App_Por_Kiosko = 0
+
+SELECT
+	@Candidato_Id = c.Candidato_Id
+	,@Vacante = v.Vacante
+FROM
+	APP.Candidato c
+	,APP.Vacante v
+WHERE
+	c.Candidato_Id = 0
+	AND v.Vacante_Id = 0]]></rule>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+DECLARE @Puesto_Asignado BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Contratado
+	WHERE
+		Persona_Id = @Persona_Id
+  		AND Contratante_Id = @Contratante_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya esta registrado este contratado en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya esta registrado este contratado en la base de datos, favor de corregir.'
+   RETURN
+END
+
+SET @Puesto_Asignado = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Contratado c
+  		,APP.Estatus_Contratado ec
+	WHERE
+		c.Contratante_Puesto_Id = @Contratante_Puesto_Id
+  		AND c.Estatus_Registro_Id = 1
+  		AND ec.Estatus_Contratado_Id = c.Estatus_Contratado_Id
+  		AND (
+			ec.Significa_Activo = 1
+  			OR ec.Significa_Incapacitado  = 1
+  			OR ec.Significa_Con_Permiso_Ausencia_Indefinida = 1
+		)
+),0)
+
+IF @Puesto_Asignado=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya esta asignado este puesto a otro contratado, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya esta asignado este puesto a otro contratado, favor de corregir.'
+   RETURN
+END
+
+
+	]]></rule>
+    <rule id="r103" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Contratado
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Contratado_Id= @Contratado_Id]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+DECLARE @Puesto_Asignado BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Contratado
+	WHERE
+		Persona_Id = @Persona_Id
+  		AND Contratante_Id = @Contratante_Id
+		AND Contratado_Id <> @Contratado_Id
+        AND Estatus_Registro_Id = 1
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya esta registrado este contratado en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya esta registrado este contratado en la base de datos, favor de corregir.'
+   RETURN
+END
+
+SET @Puesto_Asignado = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Contratado c
+  		,APP.Estatus_Contratado ec
+	WHERE
+		c.Contratante_Puesto_Id = @Contratante_Puesto_Id
+  		AND c.Contratado_Id <> @Contratado_Id
+  		AND c.Estatus_Registro_Id = 1
+  		AND ec.Estatus_Contratado_Id = c.Estatus_Contratado_Id
+  		AND (
+			ec.Significa_Activo = 1
+  			OR ec.Significa_Incapacitado  = 1
+  			OR ec.Significa_Con_Permiso_Ausencia_Indefinida = 1
+		) 		
+),0)
+
+IF @Puesto_Asignado=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya esta asignado este puesto a otro contratado, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya esta asignado este puesto a otro contratado, favor de corregir.'
+   RETURN
+END
+
+]]></rule>
+    <rule id="r104" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Contratado
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Contratado_Id = @Contratado_Id]]></rule>
+  </businessRules>
+</dataController>

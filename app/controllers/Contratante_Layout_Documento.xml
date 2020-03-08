@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Contratante_Layout_Documento" conflictDetection="overwriteChanges" label="Contratante Layout Documento" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Contratante_Layout_Documento"."Contratante_Layout_Documento_Id" "Contratante_Layout_Documento_Id"
+	,"Contratante_Layout_Documento"."Contratante_Id" "Contratante_Id"
+	,"Contratante"."Contratante" "Contratante"
+	,"Contratante_Layout_Documento"."Layout_Documento_Id" "Layout_Documento_Id"
+	,"Layout_HTML"."Layout_HTML_Nombre" "LayoutHtmlLayoutHtmlNombre"
+	,"Contratante_Layout_Documento"."Encabezado" "Encabezado"
+	,"Contratante_Layout_Documento"."Pie_Pagina" "Pie_Pagina"
+	,"Contratante_Layout_Documento"."Color_Texto" "Color_Texto"
+	,"Contratante_Layout_Documento"."Color_Fondo" "Color_Fondo"
+	,"Contratante_Layout_Documento"."Url_Logo" "Url_Logo"
+	,"Contratante_Layout_Documento"."Picture" "Picture"
+	,"Contratante_Layout_Documento"."PictureFileName" "PictureFileName"
+	,"Contratante_Layout_Documento"."PictureContentType" "PictureContentType"
+	,"Contratante_Layout_Documento"."PictureLength" "PictureLength"
+	,"Contratante_Layout_Documento"."Transaccion_Id" "Transaccion_Id"
+	,"Creado_Por"."UserName" "CreadoPorusername"
+	,"Contratante_Layout_Documento"."Fecha_Creacion" "Fecha_Creacion"
+	,"Contratante_Layout_Documento"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Contratante_Layout_Documento"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Actualizado_Por"."UserName" "ActualizadoPorusername"
+	,"Contratante_Layout_Documento"."Definicion_Solicitud_Documento_Id" "Definicion_Solicitud_Documento_Id"
+	,"Definicion_Solicitud_Documento"."Definicion_Solicitud_Documento" "DefinicionSolicitud_Documento_definicion_Solicitud_Documento"
+from "APP"."Contratante_Layout_Documento" "Contratante_Layout_Documento"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Contratante_Layout_Documento"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "APP"."Contratante" "Contratante" on "Contratante_Layout_Documento"."Contratante_Id" = "Contratante"."Contratante_Id"
+	left join "dbo"."Layout_HTML" "Layout_HTML" on "Contratante_Layout_Documento"."Layout_Documento_Id" = "Layout_HTML"."Layout_HTML_Id"
+	left join "dbo"."Usuario_V" "Creado_Por" on "Contratante_Layout_Documento"."Creado_Por_Id" = "Creado_Por"."UserId"
+	left join "dbo"."Usuario_V" "Actualizado_Por" on "Contratante_Layout_Documento"."Actualizado_Por_Id" = "Actualizado_Por"."UserId"
+	left join "APP"."Definicion_Solicitud_Documento" "Definicion_Solicitud_Documento" on "Contratante_Layout_Documento"."Definicion_Solicitud_Documento_Id" = "Definicion_Solicitud_Documento"."Definicion_Solicitud_Documento_Id"
+]]></text>
+    </command>
+    <command id="Contratante_Layout_Documento_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Contratante_Layout_Documento_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Contratante_Layout_Documento_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Contratante Layout Documento Id" readOnly="true" />
+    <field name="Contratante_Id" type="Int32" allowNulls="false" default="((0))" label="Contratante Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratante" dataValueField="Contratante_Id" dataTextField="Contratante" dataView="Contratante_LookUp_List" />
+    </field>
+    <field name="Contratante" type="String" readOnly="true" label="Contratante" length="150" />
+    <field name="Layout_Documento_Id" type="Int32" allowNulls="false" default="((0))" label="Layout Documento Id" showInSummary="true">
+      <items style="Lookup" dataController="Layout_HTML" dataValueField="Layout_HTML_Id" dataTextField="Layout_HTML_Nombre" dataView="Layout_HTML_LookUp_List_Documento" newDataView="createForm1" />
+    </field>
+    <field name="LayoutHtmlLayoutHtmlNombre" type="String" readOnly="true" label="Layout de Documento" length="150" />
+    <field name="Encabezado" type="String" allowNulls="false" default="('')" allowQBE="false" allowSorting="false" label="Encabezado" showInSummary="true" />
+    <field name="Pie_Pagina" type="String" allowNulls="false" default="('')" allowQBE="false" allowSorting="false" label="Pie de Página" showInSummary="true" />
+    <field name="Color_Texto" type="String" default="('')" label="Color de Texto" length="150" showInSummary="true" />
+    <field name="Color_Fondo" type="String" default="('')" label="Color de Fondo" length="150" />
+    <field name="Url_Logo" type="String" default="('')" label="Url Logo" length="150" />
+    <field name="Picture" type="Byte[]" onDemand="true" sourceFields="Contratante_Layout_Documento_Id" onDemandHandler="Contratante_Layout_DocumentoPicture" onDemandStyle="Thumbnail" allowQBE="false" allowSorting="false" label="Picture" />
+    <field name="PictureFileName" type="String" label="Picture File Name" length="100" />
+    <field name="PictureContentType" type="String" label="Picture Content Type" length="100" />
+    <field name="PictureLength" type="Int32" label="Picture Length" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transaccion Id" length="50" />
+    <field name="CreadoPorusername" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Creación" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Última Actualización" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus Registro" length="150" />
+    <field name="ActualizadoPorusername" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Definicion_Solicitud_Documento_Id" type="Int32" allowNulls="false" default="((0))" label="Definicion Solicitud Documento Id">
+      <items style="Lookup" dataController="Definicion_Solicitud_Documento" newDataView="createForm1" dataValueField="Definicion_Solicitud_Documento_Id" dataTextField="Definicion_Solicitud_Documento" dataView="Definicion_Solicitud_Documento_LookUp_List" />
+    </field>
+    <field name="DefinicionSolicitud_Documento_definicion_Solicitud_Documento" type="String" readOnly="true" label="Definición de Documento" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Layout de Documento" showInSelector="false">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Contratante_Id" aliasFieldName="Contratante" />
+        <dataField fieldName="Layout_Documento_Id" aliasFieldName="LayoutHtmlLayoutHtmlNombre" />
+        <dataField fieldName="Encabezado" rows="5" />
+        <dataField fieldName="Pie_Pagina" rows="5" />
+        <dataField fieldName="Color_Texto" />
+        <dataField fieldName="Color_Fondo" />
+        <dataField fieldName="Url_Logo" />
+        <dataField fieldName="Picture" columns="15" hidden="true" />
+        <dataField fieldName="PictureFileName" hidden="true" />
+        <dataField fieldName="PictureContentType" hidden="true" />
+        <dataField fieldName="PictureLength" columns="15" hidden="true" />
+        <dataField fieldName="Transaccion_Id" columns="50" hidden="true" />
+        <dataField fieldName="CreadoPorusername" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="ActualizadoPorusername" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Definicion_Solicitud_Documento_Id" aliasFieldName="DefinicionSolicitud_Documento_definicion_Solicitud_Documento" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Revisar Layout de Documento" showInSelector="false">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Layout de Documento" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Contratante_Id" aliasFieldName="Contratante" />
+            <dataField fieldName="Layout_Documento_Id" aliasFieldName="LayoutHtmlLayoutHtmlNombre" />
+            <dataField fieldName="Encabezado" rows="5" />
+            <dataField fieldName="Pie_Pagina" rows="5" />
+            <dataField fieldName="Color_Texto" />
+            <dataField fieldName="Color_Fondo" />
+            <dataField fieldName="Url_Logo" />
+            <dataField fieldName="Picture" columns="15" hidden="true" />
+            <dataField fieldName="PictureFileName" hidden="true" />
+            <dataField fieldName="PictureContentType" hidden="true" />
+            <dataField fieldName="PictureLength" columns="15" hidden="true" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="Definicion_Solicitud_Documento_Id" aliasFieldName="DefinicionSolicitud_Documento_definicion_Solicitud_Documento" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nuevo Layout de Documento" showInSelector="false">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Contratante_Id" aliasFieldName="Contratante" />
+            <dataField fieldName="Definicion_Solicitud_Documento_Id" aliasFieldName="DefinicionSolicitud_Documento_definicion_Solicitud_Documento" />
+            <dataField fieldName="Layout_Documento_Id" aliasFieldName="LayoutHtmlLayoutHtmlNombre" />
+            <dataField fieldName="Encabezado" rows="5" />
+            <dataField fieldName="Pie_Pagina" rows="5" />
+            <dataField fieldName="Color_Texto">
+              <footerText>El color debe estar en hexadecimal, ejemplo: Negro: #000000</footerText>
+            </dataField>
+            <dataField fieldName="Color_Fondo">
+              <footerText>El color debe estar en hexadecimal, ejemplo: Negro: #000000</footerText>
+            </dataField>
+            <dataField fieldName="Url_Logo" />
+            <dataField fieldName="Picture" columns="15" hidden="true" />
+            <dataField fieldName="PictureFileName" hidden="true" />
+            <dataField fieldName="PictureContentType" hidden="true" />
+            <dataField fieldName="PictureLength" columns="15" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE
+	APP.Contratante_Layout_Documento
+SET
+        Estatus_Registro_Id=3
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Contratante_Layout_Documento_Id= @Contratante_Layout_Documento_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE
+	APP.Contratante_Layout_Documento
+SET
+        Estatus_Registro_Id=3
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Contratante_Layout_Documento_Id= @Contratante_Layout_Documento_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE
+	APP.Contratante_Layout_Documento
+SET
+        Estatus_Registro_Id=3
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Contratante_Layout_Documento_Id= @Contratante_Layout_Documento_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE
+	APP.Contratante_Layout_Documento
+SET
+        Estatus_Registro_Id=3
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Contratante_Layout_Documento_Id= @Contratante_Layout_Documento_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+SET @Existe = 0
+
+SELECT
+	TOP 1 @Existe=1
+FROM
+	APP.Contratante_Layout_Documento
+WHERE
+	Contratante_Id = @Contratante_Id
+    AND Layout_Documento_Id = @Layout_Documento_Id
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un registro para este layout en la base de datos, favor de corregir'
+   SET @Result_ShowAlert = 'Ya existe un registro para este layout en la base de datos, favor de corregir'
+   RETURN
+END]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+SET @Existe = 0
+
+SELECT
+	TOP 1 @Existe=1
+FROM
+	APP.Contratante_Layout_Documento
+WHERE
+	Contratante_Id = @Contratante_Id
+        AND Layout_Documento_Id = @Layout_Documento_Id
+        AND Contratante_Layout_Documento_Id <> @Contratante_Layout_Documento_Id
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un registro para este layout en la base de datos, favor de corregir'
+   SET @Result_ShowAlert = 'Ya existe un registro para este layout en la base de datos, favor de corregir'
+   RETURN
+END]]></rule>
+    <rule id="r102" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Contratante_Layout_Documento
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Contratante_Layout_Documento_Id= @Contratante_Layout_Documento_Id
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Contratante_Layout_Documento
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Contratante_Layout_Documento_Id= @Contratante_Layout_Documento_Id]]></rule>
+  </businessRules>
+</dataController>

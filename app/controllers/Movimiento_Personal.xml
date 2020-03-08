@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Movimiento_Personal" conflictDetection="overwriteChanges" label="Movimiento Personal" handler="arhmexico.Rules.Movimiento_PersonalBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Movimiento_Personal"."Movimiento_Personal_Id" "Movimiento_Personal_Id"
+	,"Movimiento_Personal"."Tipo_Movimiento_Personal_Id" "Tipo_Movimiento_Personal_Id"
+	,"Tipo_Movimiento_Personal_"."Tipo_Movimiento_Personal" "TipoMovimientoPersonalTipoMovimientoPersonal"
+	,"Movimiento_Personal"."Contratado_Id" "Contratado_Id"
+	,"Movimiento_Personal"."Fecha_Movimiento_Personal" "Fecha_Movimiento_Personal"
+	,"Movimiento_Personal"."Motivo_Movimiento_Personal_Id" "Motivo_Movimiento_Personal_Id"
+	,"Motivo_Movimiento_Personal_"."Motivo_Movimiento_Personal" "Motivo_Movimiento_Personal_Motivo_Movimiento_Personal"
+	,"Movimiento_Personal"."Pagadora_Id" "Pagadora_Id"
+	,"Pagadora_"."Pagadora" "Pagadora_Pagadora"
+	,"Movimiento_Personal"."Contratante_Puesto_Id" "Contratante_Puesto_Id"
+	,"Contratante_Puesto_"."Contratante_Puesto" "Contratante_Puesto_Contratante_Puesto"
+	,"Movimiento_Personal"."Contratante_Id" "Contratante_Id"
+	,"Contratante_"."Contratante" "Contratante_Contratante"
+	,"Movimiento_Personal"."Cliente_Id" "Cliente_Id"
+	,"Cliente"."Cliente" "Cliente"
+	,"Movimiento_Personal"."Transaccion_Id" "Transaccion_Id"
+	,"Movimiento_Personal"."Creado_Por_Id" "Creado_Por_Id"
+	,"cpUsuario_V"."UserName" "cpUserName"
+	,"Movimiento_Personal"."Fecha_Creacion" "Fecha_Creacion"
+	,"Movimiento_Personal"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"apUsuario_V"."UserName" "apUserName"
+	,"Movimiento_Personal"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Movimiento_Personal"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Persona_V"."Persona_Nombre" "Persona_Nombre"
+	,"Movimiento_Personal"."Persona_Id" "PersonaId"
+	,"Movimiento_Personal"."Pagadora_Nueva_Id" "Pagadora_Nueva_Id"
+	,"Pagadora"."Pagadora" "Pagadora"
+	,"Movimiento_Personal"."Contratante_Puesto_Nuevo_Id" "Contratante_Puesto_Nuevo_Id"
+	,"Contratante_Puesto"."Contratante_Puesto" "ContratantePuestocontratantePuesto"
+	,"Movimiento_Personal"."Contratante_Nuevo_Id" "Contratante_Nuevo_Id"
+	,"Contratante"."Contratante" "Contratante"
+	,"Movimiento_Personal"."Cliente_Nuevo_Id" "Cliente_Nuevo_Id"
+	,"Cliente_"."Cliente" "Cliente1"
+from "APP"."Movimiento_Personal" "Movimiento_Personal"
+	left join "APP"."Tipo_Movimiento_Personal" "Tipo_Movimiento_Personal_" on "Movimiento_Personal"."Tipo_Movimiento_Personal_Id" = "Tipo_Movimiento_Personal_"."Tipo_Movimiento_Personal_Id"
+	left join "APP"."Contratado" "Contratado_" on "Movimiento_Personal"."Contratado_Id" = "Contratado_"."Contratado_Id"
+	left join "dbo"."Persona_V" "Persona_V" on "Contratado_"."Persona_Id" = "Persona_V"."Persona_Id"
+	left join "APP"."Motivo_Movimiento_Personal" "Motivo_Movimiento_Personal_" on "Movimiento_Personal"."Motivo_Movimiento_Personal_Id" = "Motivo_Movimiento_Personal_"."Motivo_Movimiento_Personal_Id"
+	left join "APP"."Pagadora" "Pagadora_" on "Movimiento_Personal"."Pagadora_Id" = "Pagadora_"."Pagadora_Id"
+	left join "APP"."Contratante_Puesto" "Contratante_Puesto_" on "Movimiento_Personal"."Contratante_Puesto_Id" = "Contratante_Puesto_"."Contratante_Puesto_Id"
+	left join "APP"."Contratante" "Contratante_" on "Movimiento_Personal"."Contratante_Id" = "Contratante_"."Contratante_Id"
+	left join "APP"."Cliente" "Cliente_" on "Movimiento_Personal"."Cliente_Nuevo_Id" = "Cliente_"."Cliente_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Movimiento_Personal"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cpUsuario_V" on "Movimiento_Personal"."Creado_Por_Id" = "cpUsuario_V"."UserId"
+	left join "dbo"."Usuario_V" "apUsuario_V" on "Movimiento_Personal"."Actualizado_Por_Id" = "apUsuario_V"."UserId"
+	left join "APP"."Contratante" "Contratante" on "Movimiento_Personal"."Contratante_Nuevo_Id" = "Contratante"."Contratante_Id"
+	left join "APP"."Contratante_Puesto" "Contratante_Puesto" on "Movimiento_Personal"."Contratante_Puesto_Nuevo_Id" = "Contratante_Puesto"."Contratante_Puesto_Id"
+	left join "APP"."Cliente" "Cliente" on "Movimiento_Personal"."Cliente_Id" = "Cliente"."Cliente_Id"
+	left join "APP"."Pagadora" "Pagadora" on "Movimiento_Personal"."Pagadora_Nueva_Id" = "Pagadora"."Pagadora_Id"
+]]></text>
+    </command>
+    <command id="Movimiento_Personal_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Movimiento_Personal_Id" />
+      </output>
+    </command>
+    <command type="Text" id="Grid_Movimiento_Personal_V" custom="false">
+      <text><![CDATA[SELECT 
+	Movimiento_Personal_Id
+	,Tipo_Movimiento_Personal_Id
+	,Tipo_Movimiento_Personal
+	,Contratado_Id
+	,Fecha_Movimiento_Personal
+	,Motivo_Movimiento_Personal_Id
+	,Motivo_Movimiento_Personal
+	,Pagadora_Id
+	,Pagadora
+	,Contratante_Puesto_Id
+	,Contratante_Puesto_Contratante_Puesto
+	,Contratante_Id
+	,Contratante_Contratante
+	,Cliente_Id
+	,Cliente_Cliente
+	,Transaccion_Id
+	,Creado_Por_Id
+	,cpUserName
+	,Fecha_Creacion
+	,Actualizado_Por_Id
+	,apUserName
+	,Fecha_Ultima_Actualizacion
+	,Estatus_Registro_Id
+	,Estatus_Registro_Estatus_Registro
+	,Persona_Nombre
+FROM 
+	dbo.Grid_Movimiento_Personal_V]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Movimiento_Personal_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Movimiento Personal Id" readOnly="true" />
+    <field name="Tipo_Movimiento_Personal_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo Movimiento Personal Id" showInSummary="true">
+      <items style="Lookup" dataController="Tipo_Movimiento_Personal" newDataView="createForm1" dataValueField="Tipo_Movimiento_Personal_Id" dataTextField="Tipo_Movimiento_Personal" dataView="Tipo_Movimiento_Personal_LookUp_List" copy="Mostrar_En_Historial=Mostrar_En_Historial" />
+    </field>
+    <field name="TipoMovimientoPersonalTipoMovimientoPersonal" type="String" readOnly="true" label="Tipo de Movimiento" length="200" />
+    <field name="Contratado_Id" type="Int32" allowNulls="false" default="((0))" label="Contratado Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratado_Admin" newDataView="createForm1" dataValueField="Contratado_Id" dataTextField="Persona_Nombre" copy="Cliente_Id = Cliente_Id,&#xD;&#xA;Cliente_Cliente = Cliente_Cliente,&#xD;&#xA;Contratante_Id = Contratante_Id,&#xD;&#xA;Contratante_Contratante = Contratante_Contratante,&#xD;&#xA;Contratante_Puesto_Id = Puesto_Contratado_Finiquitar_Id,&#xD;&#xA;Contratante_Puesto_Contratante_Puesto = Puesto_Contratado_Finiquitar,&#xD;&#xA;Pagadora_Id=Pagadora_Id,&#xD;&#xA;Pagadora_Pagadora=Pagadora_Pagadora" dataView="Contratado_Admin_LookUp_List" />
+    </field>
+    <field name="Fecha_Movimiento_Personal" type="DateTime" allowNulls="false" dataFormatString="d" default="('1900-01-01')" label="Fecha de Movimiento " showInSummary="true" />
+    <field name="Motivo_Movimiento_Personal_Id" type="Int32" allowNulls="false" default="((0))" label="Motivo Movimiento Personal Id" showInSummary="true" contextFields="Tipo_Movimiento_Personal_Id=Tipo_Movimiento_Personal_Id">
+      <items style="Lookup" dataController="Motivo_Movimiento_Personal" newDataView="createForm1" dataValueField="Motivo_Movimiento_Personal_Id" dataTextField="Motivo_Movimiento_Personal" dataView="Motivo_Movimiento_Personal_LookUp_List" />
+    </field>
+    <field name="Motivo_Movimiento_Personal_Motivo_Movimiento_Personal" type="String" readOnly="true" label="Motivo de Movimiento " length="200" />
+    <field name="Pagadora_Id" type="Int32" allowNulls="false" default="((0))" label="Pagadora Id" showInSummary="true">
+      <items style="Lookup" dataController="Pagadora" newDataView="createForm1" dataValueField="Pagadora_Id" dataTextField="Pagadora" dataView="Pagadora_LookUp_List" />
+    </field>
+    <field name="Pagadora_Pagadora" type="String" readOnly="true" label="Pagadora" length="150" />
+    <field name="Contratante_Puesto_Id" type="Int32" allowNulls="false" default="((0))" label="Contratante Puesto Id">
+      <items style="Lookup" dataController="Contratante_Puesto" newDataView="createForm1" dataValueField="Contratante_Puesto_Id" dataTextField="Contratante_Puesto" dataView="Contratante_Puesto_LookUp_List" />
+    </field>
+    <field name="Contratante_Puesto_Contratante_Puesto" type="String" readOnly="true" label="Puesto de Contratado" length="150" />
+    <field name="Contratante_Id" type="Int32" allowNulls="false" default="((0))" label="Contratante Id">
+      <items style="Lookup" dataController="Contratante_Admin" newDataView="createForm1" dataValueField="Contratante_Id" dataTextField="Contratante" dataView="Contratante_Admin_LookUp_List" copy="Cliente_Id=Cliente_Id,&#xD;&#xA;Cliente_Cliente=Cliente_Cliente" />
+    </field>
+    <field name="Contratante_Contratante" type="String" readOnly="true" label="Contratante" length="150" />
+    <field name="Cliente_Id" type="Int32" allowNulls="false" default="((0))" label="Cliente Id">
+      <items style="Lookup" dataController="Cliente" newDataView="createForm1" dataValueField="Cliente_Id" dataTextField="Cliente" dataView="Cliente_Admin_LookUp_List" />
+    </field>
+    <field name="Cliente" type="String" readOnly="true" label="Cliente" length="150" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transacción Id" length="50" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="Persona_Nombre" type="String" readOnly="true" label="Contratado" length="603" />
+    <field name="PersonaId" type="Int32" allowNulls="false" default="((0))" label="Persona Id">
+      <items style="Lookup" dataController="Persona" dataView="Persona_LookUp_List" dataTextField="Nombre_Completo" dataValueField="Persona_Id" />
+    </field>
+    <field name="Pagadora_Nueva_Id" type="Int32" allowNulls="false" default="((0))" label="Pagadora Nueva Id">
+      <items style="Lookup" dataController="Pagadora" newDataView="createForm1" dataValueField="Pagadora_Id" dataTextField="Pagadora" />
+    </field>
+    <field name="Pagadora" type="String" readOnly="true" label="Nueva Pagadora" length="150" />
+    <field name="Contratante_Puesto_Nuevo_Id" type="Int32" allowNulls="false" default="((0))" label="Contratante Puesto Nuevo Id">
+      <items style="Lookup" dataController="Contratante_Puesto" newDataView="createForm1" dataValueField="Contratante_Puesto_Id" dataTextField="Contratante_Puesto" />
+    </field>
+    <field name="ContratantePuestocontratantePuesto" type="String" readOnly="true" label="Nuevo Puesto de Contratado" length="150" />
+    <field name="Contratante_Nuevo_Id" type="Int32" allowNulls="false" default="((0))" label="Contratante Nuevo Id">
+      <items style="Lookup" dataController="Contratante" newDataView="createForm1" dataValueField="Contratante_Id" dataTextField="Contratante" />
+    </field>
+    <field name="Contratante" type="String" readOnly="true" label="Nuevo Contratante" length="150" />
+    <field name="Cliente_Nuevo_Id" type="Int32" allowNulls="false" default="((0))" label="Cliente Nuevo Id">
+      <items style="Lookup" dataController="Cliente" newDataView="createForm1" dataValueField="Cliente_Id" dataTextField="Cliente" dataView="Cliente_LookUp_List" />
+    </field>
+    <field name="Cliente1" type="String" readOnly="true" label="Nuevo Cliente" length="150" />
+    <field name="Mostrar_En_Historial" type="Boolean" label="Tipo Movimiento Personal" allowNulls="false" default="0">
+      <items style="CheckBox" />
+    </field>
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Movimiento de Personal" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" filter="Estatus_Registro_Id &lt;&gt; 0">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Movimiento_Personal_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Movimiento_Personal_Id" aliasFieldName="TipoMovimientoPersonalTipoMovimientoPersonal" />
+        <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Persona_Nombre" />
+        <dataField fieldName="Fecha_Movimiento_Personal" columns="10" />
+        <dataField fieldName="Motivo_Movimiento_Personal_Id" aliasFieldName="Motivo_Movimiento_Personal_Motivo_Movimiento_Personal" />
+        <dataField fieldName="Pagadora_Id" aliasFieldName="Pagadora_Pagadora" />
+        <dataField fieldName="Contratante_Puesto_Id" aliasFieldName="Contratante_Puesto_Contratante_Puesto" />
+        <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" />
+        <dataField fieldName="Pagadora_Nueva_Id" aliasFieldName="Pagadora" />
+        <dataField fieldName="Contratante_Puesto_Nuevo_Id" aliasFieldName="ContratantePuestocontratantePuesto" />
+        <dataField fieldName="Contratante_Nuevo_Id" aliasFieldName="Contratante" />
+        <dataField fieldName="Cliente_Nuevo_Id" aliasFieldName="Cliente1" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="10" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="10" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Persona_Nombre" hidden="true" />
+        <dataField fieldName="PersonaId" columns="15" aliasFieldName="Persona_Nombre" hidden="true" />
+        <dataField fieldName="Mostrar_En_Historial" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="gridPestañaMovimientos" type="Grid" commandId="command1" label="Movimiento de Personal" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" filter="Estatus_Registro_Id &lt;&gt; 0 AND Mostrar_En_Historial = 1">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Movimiento_Personal_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Movimiento_Personal_Id" aliasFieldName="TipoMovimientoPersonalTipoMovimientoPersonal" />
+        <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Persona_Nombre" />
+        <dataField fieldName="Fecha_Movimiento_Personal" columns="10" />
+        <dataField fieldName="Motivo_Movimiento_Personal_Id" aliasFieldName="Motivo_Movimiento_Personal_Motivo_Movimiento_Personal" />
+        <dataField fieldName="Pagadora_Id" aliasFieldName="Pagadora_Pagadora" />
+        <dataField fieldName="Contratante_Puesto_Id" aliasFieldName="Contratante_Puesto_Contratante_Puesto" />
+        <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="10" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="10" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Persona_Nombre" />
+        <dataField fieldName="PersonaId" columns="15" />
+        <dataField fieldName="Pagadora_Nueva_Id" aliasFieldName="Pagadora" />
+        <dataField fieldName="Contratante_Puesto_Nuevo_Id" aliasFieldName="ContratantePuestocontratantePuesto" />
+        <dataField fieldName="Contratante_Nuevo_Id" aliasFieldName="Contratante" />
+        <dataField fieldName="Cliente_Nuevo_Id" aliasFieldName="Cliente1" />
+        <dataField fieldName="Mostrar_En_Historial" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Movimiento de Personal" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Movimiento_Personal_Id" columns="15" hidden="true" />
+            <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Persona_Nombre" />
+            <dataField fieldName="Tipo_Movimiento_Personal_Id" aliasFieldName="TipoMovimientoPersonalTipoMovimientoPersonal" />
+            <dataField fieldName="Contratante_Puesto_Id" aliasFieldName="Contratante_Puesto_Contratante_Puesto" />
+            <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" />
+            <dataField fieldName="Pagadora_Id" aliasFieldName="Pagadora_Pagadora" />
+            <dataField fieldName="Motivo_Movimiento_Personal_Id" aliasFieldName="Motivo_Movimiento_Personal_Motivo_Movimiento_Personal" />
+            <dataField fieldName="Fecha_Movimiento_Personal" columns="10" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="Persona_Nombre" />
+            <dataField fieldName="PersonaId" columns="15" hidden="true" />
+            <dataField fieldName="Pagadora_Nueva_Id" aliasFieldName="Pagadora" />
+            <dataField fieldName="Contratante_Puesto_Nuevo_Id" aliasFieldName="ContratantePuestocontratantePuesto" />
+            <dataField fieldName="Contratante_Nuevo_Id" aliasFieldName="Contratante" />
+            <dataField fieldName="Cliente_Nuevo_Id" aliasFieldName="Cliente1" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nuevo Movimiento de Personal" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Persona_Nombre" />
+            <dataField fieldName="Tipo_Movimiento_Personal_Id" aliasFieldName="TipoMovimientoPersonalTipoMovimientoPersonal" />
+            <dataField fieldName="Contratante_Puesto_Id" aliasFieldName="Contratante_Puesto_Contratante_Puesto" />
+            <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" />
+            <dataField fieldName="Pagadora_Id" aliasFieldName="Pagadora_Pagadora" />
+            <dataField fieldName="Motivo_Movimiento_Personal_Id" aliasFieldName="Motivo_Movimiento_Personal_Motivo_Movimiento_Personal" />
+            <dataField fieldName="Fecha_Movimiento_Personal" columns="10" />
+            <dataField fieldName="Persona_Nombre" />
+            <dataField fieldName="PersonaId" columns="15" />
+            <dataField fieldName="Pagadora_Nueva_Id" aliasFieldName="Pagadora" />
+            <dataField fieldName="Contratante_Puesto_Nuevo_Id" aliasFieldName="ContratantePuestocontratantePuesto" />
+            <dataField fieldName="Contratante_Nuevo_Id" aliasFieldName="Contratante" />
+            <dataField fieldName="Cliente_Nuevo_Id" aliasFieldName="Cliente1" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Movimiento_Personal_LookUp_List" commandId="command1" type="Grid" label="Movimiento de Personal" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" filter="Estatus_Registro_Id &lt;&gt; 0" sortExpression="Pagadora_Pagadora">
+      <dataFields>
+        <dataField fieldName="Movimiento_Personal_Id" columns="15" hidden="true" />
+        <dataField fieldName="Contratante_Id" columns="15" hidden="true" aliasFieldName="Contratante_Contratante" />
+        <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Persona_Nombre" />
+        <dataField fieldName="Cliente_Id" columns="15" hidden="true" />
+        <dataField fieldName="Pagadora_Id" columns="15" hidden="true" />
+        <dataField fieldName="Pagadora_Pagadora" rows="5" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Hidden" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Hidden">
+        <data><![CDATA[UPDATE 
+	APP.Movimiento_Personal
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Movimiento_Personal_Id = @Movimiento_Personal_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Hidden" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Hidden" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Hidden" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Hidden" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Hidden">
+        <data><![CDATA[UPDATE 
+	APP.Movimiento_Personal
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Movimiento_Personal_Id = @Movimiento_Personal_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" roles="Hidden" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" roles="Hidden" />
+      <action id="a6" whenLastCommandName="New" commandName="Custom" commandArgument="EXECCSM01" headerText="Aceptar" roles="Hidden" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" roles="Hidden" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" roles="Hidden" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" roles="Hidden" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Hidden" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Hidden" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Hidden" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Hidden">
+        <data><![CDATA[UPDATE 
+	APP.Movimiento_Personal
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Movimiento_Personal_Id = @Movimiento_Personal_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="hidden" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="hidden" />
+      <action id="a4" commandName="ExportRss" roles="hidden" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="hidden" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Hidden" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Hidden">
+        <data><![CDATA[UPDATE 
+	APP.Movimiento_Personal
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Movimiento_Personal_Id = @Movimiento_Personal_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r101" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Movimiento_Personal
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Actualizado_Por_Id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Fecha_Creacion = GetDate()
+WHERE
+	Movimiento_Personal_Id= @Movimiento_Personal_Id]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Movimiento_Personal
+SET
+	Actualizado_Por_Id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Movimiento_Personal_Id= @Movimiento_Personal_Id]]></rule>
+    <rule id="r100" commandName="Custom" type="Code" phase="After" commandArgument="EXECCSM01" />
+    <rule id="r102" commandName="New" type="Sql" phase="Execute"><![CDATA[SELECT 
+	@Cliente_Id=Cliente_Id
+FROM 
+	APP.Contratante
+WHERE
+	Contratante_Id=@Contratante_Id
+	
+SELECT
+	@Cliente_Cliente=Cliente
+FROM 
+	APP.Cliente
+WHERE
+	Cliente_Id=@Cliente_Id
+	]]></rule>
+  </businessRules>
+</dataController>

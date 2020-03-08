@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Persona_Educacion" conflictDetection="overwriteChanges" label="Persona Educacion" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Persona_Educacion"."Persona_Educacion_Id" "Persona_Educacion_Id"
+	,"Persona_Educacion"."Persona_Id" "Persona_Id"
+	,"Persona"."Nombre" "Persona_Nombre"
+	,"Persona"."Apellido_Paterno" "Persona_Apellido_Paterno"
+	,"Persona"."Apellido_Materno" "Persona_Apellido_Materno"
+	,"Persona"."Segundo_Nombre" "PersonasegundoNombre"
+	,"Persona_Educacion"."Nivel_Escolaridad_Id" "Nivel_Escolaridad_Id"
+	,"Nivel_Escolaridad_"."Nivel_Escolaridad" "Nivel_Escolaridad_Nivel_Escolaridad"
+	,"Persona_Educacion"."Fecha_Inicio" "Fecha_Inicio"
+	,"Persona_Educacion"."Fecha_Fin" "Fecha_Fin"
+	,"Persona_Educacion"."Aun_Cursando" "Aun_Cursando"
+	,"Persona_Educacion"."Fecha_Estimada_Termino" "Fecha_Estimada_Termino"
+	,"Persona_Educacion"."Institucion_Educativa_Id" "Institucion_Educativa_Id"
+	,"Institucion_Educativa_"."Institucion_Educativa" "Institucion_Educativa_Institucion_Educativa"
+	,"Persona_Educacion"."Promedio_Final" "Promedio_Final"
+	,"Persona_Educacion"."Fue_Becado" "Fue_Becado"
+	,"Persona_Educacion"."Porcentaje_Beca" "Porcentaje_Beca"
+	,"Persona_Educacion"."Fecha_Creacion" "Fecha_Creacion"
+	,"Persona_Educacion"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Persona_Educacion"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"cp"."UserName" "cpUserName"
+	,"ap"."UserName" "apUserName"
+	,"Programa_Curso"."Programa_Curso" "Programa_Curso_Programa_Curso"
+	,"Persona_Educacion"."Programa_Curso_Id" "Programa_Curso_Id"
+	,"Persona_Educacion"."Transaccion_Id" "Transaccion_Id"
+	,"Persona_Educacion"."Creado_Por_Id" "Creado_Por_Id"
+	,"Persona_Educacion"."Actualizado_Por_Id" "Actualizado_Por_Id"
+from "APP"."Persona_Educacion" "Persona_Educacion"
+	left join "APP"."Nivel_Escolaridad" "Nivel_Escolaridad_" on "Persona_Educacion"."Nivel_Escolaridad_Id" = "Nivel_Escolaridad_"."Nivel_Escolaridad_Id"
+	left join "APP"."Institucion_Educativa" "Institucion_Educativa_" on "Persona_Educacion"."Institucion_Educativa_Id" = "Institucion_Educativa_"."Institucion_Educativa_Id"
+ and "Persona_Educacion"."Actualizado_Por_Id" = "Institucion_Educativa_"."Creado_Por_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Persona_Educacion"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cp" on "Persona_Educacion"."Creado_Por_Id" = "cp"."UserId"
+	left join "dbo"."Usuario_V" "ap" on "Persona_Educacion"."Actualizado_Por_Id" = "ap"."UserId"
+	left join "APP"."Persona" "Persona" on "Persona_Educacion"."Persona_Id" = "Persona"."Persona_Id"
+	left join "APP"."Programa_Curso" "Programa_Curso" on "Persona_Educacion"."Programa_Curso_Id" = "Programa_Curso"."Programa_Curso_Id"
+]]></text>
+    </command>
+    <command id="Persona_Educacion_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Persona_Educacion_Id" />
+      </output>
+    </command>
+    <command type="Text" id="Grid_Persona_Educacion" tableName="APP.Persona_Educacion" custom="false">
+      <text><![CDATA[SELECT Persona_Id
+      ,Persona_Nombre
+      ,PersonaNombre
+      ,PersonaSegundoNombre
+      ,PersonaApellidoPaterno
+      ,PersonaApellidoMaterno
+      ,Persona_Educacion_Id
+      ,Nivel_Escolaridad_Id
+      ,Nivel_Escolaridad_Nivel_Escolaridad
+      ,Fecha_Inicio
+      ,Fecha_Fin
+      ,Aun_Cursando
+      ,Fecha_Estimada_Termino
+      ,Institucion_Educativa_Id
+      ,Promedio_Final
+      ,Fue_Becado
+      ,Porcentaje_Beca
+      ,Institucion_Educativa_Institucion_Educativa
+      ,Nivel_Escolaridad
+      ,Programa_Curso_Id
+      ,Programa_Curso_Programa_Curso
+      ,Nombre_Completo
+      ,cpUserName
+      ,apUserName
+      ,Estatus_Registro_Id
+      ,Estatus_Registro_Estatus_Registro
+      ,Fecha_Creacion
+      ,Fecha_Ultima_Actualizacion
+  FROM dbo.Grid_Persona_Educacion_V]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Persona_Educacion_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Persona Educacion Id" readOnly="true" />
+    <field name="Persona_Id" type="Int32" allowNulls="false" label="Persona Id" showInSummary="true">
+      <items style="Lookup" dataController="Persona" newDataView="createForm1" dataValueField="Persona_Id" dataTextField="Nombre" copy="Persona_Apellido_Paterno=Apellido_Paterno, Persona_Apellido_Materno=Apellido_Materno, PersonasegundoNombre=Segundo_Nombre" dataView="Persona_LookUp_List" />
+    </field>
+    <field name="Persona_Nombre" type="String" readOnly="true" label="Primer Nombre" length="150" />
+    <field name="Persona_Apellido_Paterno" type="String" readOnly="true" label="Apellido Paterno" length="150" />
+    <field name="Persona_Apellido_Materno" type="String" readOnly="true" label="Apellido Materno" length="150" />
+    <field name="PersonasegundoNombre" type="String" readOnly="true" label="Segundo Nombre" length="150" />
+    <field name="Nivel_Escolaridad_Id" type="Int32" allowNulls="false" default="((0))" label="Nivel Escolaridad Id" showInSummary="true">
+      <items style="Lookup" dataController="Nivel_Escolaridad" newDataView="createForm1" dataValueField="Nivel_Escolaridad_Id" dataTextField="Nivel_Escolaridad" dataView="Nivel_Escolaridad_LookUp_List" />
+    </field>
+    <field name="Nivel_Escolaridad_Nivel_Escolaridad" type="String" readOnly="true" label="Nivel de Escolaridad" length="150" />
+    <field name="Fecha_Inicio" type="DateTime" allowNulls="false" dataFormatString="d" label="Fecha de Inicio" showInSummary="true" />
+    <field name="Fecha_Fin" type="DateTime" dataFormatString="d" label="Fecha de Termino" showInSummary="true" />
+    <field name="Aun_Cursando" type="Boolean" allowNulls="false" default="((0))" label="¿Aún Cursando?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Fecha_Estimada_Termino" type="DateTime" dataFormatString="d" default="('12/31/9999')" label="Fecha Estimada de Termino" />
+    <field name="Institucion_Educativa_Id" type="Int32" allowNulls="false" default="((0))" label="Institucion Educativa Id">
+      <items style="Lookup" dataController="Institucion_Educativa" newDataView="createForm1" dataValueField="Institucion_Educativa_Id" dataTextField="Institucion_Educativa" copy="Actualizado_Por_Id=Actualizado_Por_Id" dataView="Institucion_Educativa_LookUp_List" />
+    </field>
+    <field name="Institucion_Educativa_Institucion_Educativa" type="String" readOnly="true" label="Institución Académica" length="150" />
+    <field name="Promedio_Final" type="Decimal" label="Promedio Final" />
+    <field name="Fue_Becado" type="Boolean" allowNulls="false" default="((0))" label="¿Fue Becado?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Porcentaje_Beca" type="Decimal" default="((0))" label="Porcentaje Beca" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Programa_Curso_Programa_Curso" type="String" readOnly="true" label="Programa o Curso" length="150" />
+    <field name="Programa_Curso_Id" type="Int32" allowNulls="false" default="((0))" label="Programa Curso Id">
+      <items style="Lookup" dataController="Programa_Curso" newDataView="createForm1" dataValueField="Programa_Curso_Id" dataTextField="Programa_Curso_Id" copy="Programa_Curso_Programa_Curso=Programa_Curso" dataView="Programa_Curso_LookUp_List" />
+    </field>
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transaccion Id" length="50" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02',(0)))" label="Creado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserId" copy="cpUserName=UserName" />
+    </field>
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02',(0)))" label="Actualizado Por Id" />
+    <field name="Nombre_Completo" type="String" label="Nombre Completo" length="604" readOnly="true" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Educación" filter="Estatus_Registro_Id &lt;&gt; 0" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" sortExpression="Persona_Nombre,PersonasegundoNombre,Persona_Apellido_Paterno,Persona_Apellido_Materno">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Persona_Id" aliasFieldName="Persona_Nombre" />
+        <dataField fieldName="PersonasegundoNombre" />
+        <dataField fieldName="Persona_Apellido_Paterno" />
+        <dataField fieldName="Persona_Apellido_Materno" />
+        <dataField fieldName="Nivel_Escolaridad_Id" aliasFieldName="Nivel_Escolaridad_Nivel_Escolaridad" />
+        <dataField fieldName="Programa_Curso_Id" columns="15" aliasFieldName="Programa_Curso_Programa_Curso" />
+        <dataField fieldName="Fecha_Inicio" columns="20" />
+        <dataField fieldName="Fecha_Fin" columns="20" />
+        <dataField fieldName="Institucion_Educativa_Id" aliasFieldName="Institucion_Educativa_Institucion_Educativa" />
+        <dataField fieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Creado_Por_Id" columns="15" />
+        <dataField fieldName="Actualizado_Por_Id" textMode="Static" columns="15" />
+        <dataField fieldName="Persona_Nombre" rows="5" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="Grid_Persona_Educacion" label="Edición Educación" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Educación" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Persona_Id" aliasFieldName="Nombre_Completo" />
+            <dataField fieldName="Persona_Apellido_Paterno" hidden="true" />
+            <dataField fieldName="Persona_Apellido_Materno" hidden="true" />
+            <dataField fieldName="Nivel_Escolaridad_Id" aliasFieldName="Nivel_Escolaridad_Nivel_Escolaridad" />
+            <dataField fieldName="Programa_Curso_Id" columns="15" aliasFieldName="Programa_Curso_Programa_Curso" />
+            <dataField fieldName="Fecha_Inicio" columns="20" />
+            <dataField fieldName="Fecha_Fin" columns="20" />
+            <dataField fieldName="Aun_Cursando" />
+            <dataField fieldName="Fecha_Estimada_Termino" columns="20" />
+            <dataField fieldName="Institucion_Educativa_Id" aliasFieldName="Institucion_Educativa_Institucion_Educativa" />
+            <dataField fieldName="Promedio_Final" columns="15" />
+            <dataField fieldName="Fue_Becado" />
+            <dataField fieldName="Porcentaje_Beca" columns="15" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="Grid_Persona_Educacion" label="Nueva Educación" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Educación" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Persona_Id" aliasFieldName="Nombre_Completo" />
+            <dataField fieldName="Persona_Apellido_Paterno" hidden="true" />
+            <dataField fieldName="Persona_Apellido_Materno" hidden="true" />
+            <dataField fieldName="Nivel_Escolaridad_Id" aliasFieldName="Nivel_Escolaridad_Nivel_Escolaridad" />
+            <dataField fieldName="Programa_Curso_Id" columns="15" aliasFieldName="Programa_Curso_Programa_Curso" />
+            <dataField fieldName="Fecha_Inicio" columns="20" />
+            <dataField fieldName="Fecha_Fin" columns="20" />
+            <dataField fieldName="Aun_Cursando" />
+            <dataField fieldName="Fecha_Estimada_Termino" columns="20" />
+            <dataField fieldName="Institucion_Educativa_Id" aliasFieldName="Institucion_Educativa_Institucion_Educativa" />
+            <dataField fieldName="Promedio_Final" columns="15" />
+            <dataField fieldName="Fue_Becado" />
+            <dataField fieldName="Porcentaje_Beca" columns="15" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Persona_Educacion
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Educacion_Id = @Persona_Educacion_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Persona_Educacion
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Educacion_Id = @Persona_Educacion_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Persona_Educacion
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Educacion_Id = @Persona_Educacion_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Persona_Educacion
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Educacion_Id = @Persona_Educacion_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Persona_Educacion
+	WHERE
+		Persona_Id = @Persona_Id
+		AND Nivel_Escolaridad_Id = @Nivel_Escolaridad_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe para esta persona este registro de nivel de escolaridad en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe para esta persona este registro de nivel de escolaridad en la base de datos, favor de corregir.'
+   RETURN
+END]]></rule>
+    <rule id="r103" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Persona_Educacion
+SET
+Creado_Por_Id = @BusinessRules_UserId
+,Actualizado_Por_Id = @BusinessRules_UserId
+,Fecha_Creacion = GetDate()
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Educacion_Id= @Persona_Educacion_Id]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Persona_Educacion
+	WHERE
+		Persona_Id = @Persona_Id
+		AND Nivel_Escolaridad_Id = @Nivel_Escolaridad_Id
+		AND Persona_Educacion_Id <> @Persona_Educacion_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe para esta persona este registro de nivel de escolaridad en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya existe para esta persona este registro de nivel de escolaridad en la base de datos, favor de corregir.'
+   RETURN
+END
+
+
+
+
+]]></rule>
+    <rule id="r102" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Persona_Educacion
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Persona_Educacion_Id = @Persona_Educacion_Id	]]></rule>
+  </businessRules>
+</dataController>

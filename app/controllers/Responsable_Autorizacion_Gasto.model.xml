@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Responsable_Autorizacion_Gasto" alias="Responsable_Autorizacion_Gasto" created="2019-03-12T11:16:17" modified="2019-08-30T10:57:18" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Tipo_Gasto" parentTableSchema="APP" parentTableName="Tipo_Gasto" x="480" y="20">
+      <foreignKeyColumn columnName="Tipo_Gasto_Id" parentColumnName="Tipo_Gasto_Id" />
+    </foreignKey>
+    <foreignKey id="Contratado_Responsable_Autorizacion_" parentTableSchema="APP" parentTableName="Contratado" x="976" y="228">
+      <foreignKeyColumn columnName="Contratado_Responsable_Autorizacion_Id" parentColumnName="Contratado_Id" />
+    </foreignKey>
+    <foreignKey id="Contratado_" parentTableSchema="APP" parentTableName="Contratado" x="450" y="587">
+      <foreignKeyColumn columnName="Contratado_Id" parentColumnName="Contratado_Id" />
+    </foreignKey>
+    <foreignKey id="Sociedad_" parentTableSchema="APP" parentTableName="Sociedad" x="1271" y="21">
+      <foreignKeyColumn columnName="Sociedad_Id" parentColumnName="Sociedad_Id" />
+    </foreignKey>
+    <foreignKey id="Sociedad_Cuadro_Accionario_" parentTableSchema="APP" parentTableName="Sociedad_Cuadro_Accionario" x="1011" y="272">
+      <foreignKeyColumn columnName="Sociedad_Cuadro_Accionario_Id" parentColumnName="Sociedad_Cuadro_Accionario_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="1011" y="564">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Creado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="575" y="380">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Actualizado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="107" y="518">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Contratado_Responsable_Autorizacion_Nombre" parentTableSchema="dbo" parentTableName="Persona_Nombre_Completo_V" x="874" y="122" baseForeignKey="Contratado_Responsable_Autorizacion_">
+      <foreignKeyColumn columnName="Persona_Id" parentColumnName="Persona_Id" />
+    </foreignKey>
+    <foreignKey id="Contratado_Nombre_Completo" parentTableSchema="dbo" parentTableName="Persona_Nombre_Completo_V" x="912" y="779" baseForeignKey="Contratado_">
+      <foreignKeyColumn columnName="Persona_Id" parentColumnName="Persona_Id" />
+    </foreignKey>
+    <foreignKey id="Cliente" parentTableSchema="APP" parentTableName="Cliente" x="1080" y="166">
+      <foreignKeyColumn columnName="Cliente_Id" parentColumnName="Cliente_Id" />
+    </foreignKey>
+    <foreignKey id="Contratante" parentTableSchema="APP" parentTableName="Contratante" x="542" y="214">
+      <foreignKeyColumn columnName="Contratante_Id" parentColumnName="Contratante_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Responsable_Autorizacion_Gasto_Id" fieldName="Responsable_Autorizacion_Gasto_Id" label="Responsable Autorizacion Gasto Id" />
+    <column name="Tipo_Gasto_Id" fieldName="Tipo_Gasto_Id" label="Tipo Gasto Id" aliasColumnName="Tipo_Gasto" aliasForeignKey="Tipo_Gasto" />
+    <column name="Tipo_Gasto" fieldName="Tipo_GastoTipo_Gasto" label="Tipo de Gasto" foreignKey="Tipo_Gasto" />
+    <column name="Contratado_Responsable_Autorizacion_Id" fieldName="Contratado_Responsable_Autorizacion_Id" label="Responsable Autorizacion Id" />
+    <column name="Contratado_Id" fieldName="Contratado_Id" label="Contratado Id" />
+    <column name="Sociedad_Id" fieldName="Sociedad_Id" label="Sociedad Id" aliasColumnName="Sociedad" aliasForeignKey="Sociedad_" />
+    <column name="Sociedad" fieldName="Sociedad_Sociedad" label="Sociedad" foreignKey="Sociedad_" />
+    <column name="Sociedad_Cuadro_Accionario_Id" fieldName="Sociedad_Cuadro_Accionario_Id" label="Sociedad Cuadro Accionario Id" aliasColumnName="Accionista" aliasForeignKey="Sociedad_Cuadro_Accionario_" />
+    <column name="Proveedor_Id" fieldName="Proveedor_Id" label="Proveedor Id" />
+    <column name="Es_Por_Jefe" fieldName="Es_Por_Jefe" label="Es Por Jefe" />
+    <column name="Aplica_CC" fieldName="Aplica_CC" label="Aplica CC" />
+    <column name="Correo_CC" fieldName="Correo_CC" label="Correo CC" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="UserName" fieldName="CreadoPorusername" label="Creado Por" foreignKey="Creado_Por" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="UserName" fieldName="ActualizadoPorusername" label="Actualizado Por" foreignKey="Actualizado_Por" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+    <column name="Persona_Nombre" fieldName="PersonaNombreCompletoVPersonaNombre" label="Responsable de Autorización" foreignKey="Contratado_Responsable_Autorizacion_Nombre" />
+    <column name="Persona_Nombre" fieldName="ContratadoNombreCompletopersonaNombre" label="Contratado Nombre Completopersona Nombre" foreignKey="Contratado_Nombre_Completo" />
+    <column name="Cliente_Id" fieldName="ClienteId" label="Cliente Id" aliasColumnName="Cliente" aliasForeignKey="Cliente" />
+    <column name="Cliente" fieldName="Cliente" label="Cliente" foreignKey="Cliente" />
+    <column name="Contratante_Id" fieldName="ContratanteId" label="Contratante Id" aliasColumnName="Contratante" aliasForeignKey="Contratante" />
+    <column name="Contratante" fieldName="Contratante" label="Contratante" foreignKey="Contratante" />
+  </columns>
+</dataModel>

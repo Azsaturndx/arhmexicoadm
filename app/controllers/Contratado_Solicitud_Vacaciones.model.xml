@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Contratado_Solicitud_Vacaciones" alias="Contratado_Solicitud_Vacaciones" created="2018-07-05T00:44:27" modified="2018-07-15T20:25:36" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Estatus_Solicitud_" parentTableSchema="APP" parentTableName="Estatus_Solicitud" x="799" y="160">
+      <foreignKeyColumn columnName="Estatus_Solicitud_Id" parentColumnName="Estatus_Solicitud_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="451" y="711">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Usuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="74" y="514">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="ApplicationId" />
+    </foreignKey>
+    <foreignKey id="Usuario_V1" parentTableSchema="dbo" parentTableName="Usuario_V" x="76" y="625">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Usuario_V2" parentTableSchema="dbo" parentTableName="Usuario_V" x="74" y="735">
+      <foreignKeyColumn columnName="Autorizado_Rechazado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Persona_V" parentTableSchema="dbo" parentTableName="Persona_V" x="557" y="31">
+      <foreignKeyColumn columnName="Contratado_Id" parentColumnName="Contratado_Id" />
+    </foreignKey>
+    <foreignKey id="Contratado" parentTableSchema="APP" parentTableName="Contratado" x="565" y="295">
+      <foreignKeyColumn columnName="Contratado_Id" parentColumnName="Contratado_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Contratado_Solicitud_Vacaciones_Id" fieldName="Contratado_Solicitud_Vacaciones_Id" label="Contratado Solicitud Vacaciones Id" />
+    <column name="Contratado_Id" fieldName="Contratado_Id" label="Contratado Id" aliasColumnName="Contratante_Id" aliasForeignKey="Contratado" />
+    <column name="Contratante_Id" fieldName="Contratante_Id" label="Contratante Id" foreignKey="Contratado" />
+    <column name="Persona_Nombre" fieldName="Persona_V_Persona_Nombre" label="Persona V Persona Nombre" foreignKey="Persona_V" />
+    <column name="Fecha_Solicitud" fieldName="Fecha_Solicitud" label="Fecha Solicitud" format="g" />
+    <column name="Dias_Solicitados" fieldName="Dias_Solicitados" label="Dias Solicitados" />
+    <column name="Fecha_Inicio_Vacaciones" fieldName="Fecha_Inicio_Vacaciones" label="Fecha Inicio Vacaciones" format="g" />
+    <column name="Fecha_Fin_Vacaciones" fieldName="Fecha_Fin_Vacaciones" label="Fecha Fin Vacaciones" format="g" />
+    <column name="Estatus_Solicitud_Id" fieldName="Estatus_Solicitud_Id" label="Estatus Solicitud Id" aliasColumnName="Estatus_Solicitud" aliasForeignKey="Estatus_Solicitud_" />
+    <column name="Estatus_Solicitud" fieldName="Estatus_Solicitud_Estatus_Solicitud" label="Estatus Solicitud" foreignKey="Estatus_Solicitud_" />
+    <column name="Fecha_Autorizacion_Rechazo" fieldName="Fecha_Autorizacion_Rechazo" label="Fecha Autorizacion Rechazo" format="g" />
+    <column name="Autorizado_Rechazado_Por_Id" fieldName="Autorizado_Rechazado_Por_Id" label="Autorizado Rechazado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V2" />
+    <column name="UserName" fieldName="arpUserName" label="Arp User Name" foreignKey="Usuario_V2" />
+    <column name="Notas_Autorizacion_Rechazo" fieldName="Notas_Autorizacion_Rechazo" label="Notas Autorizacion Rechazo" />
+    <column name="Dias_Autorizados" fieldName="Dias_Autorizados" label="Dias Autorizados" />
+    <column name="Solicitud_Vacaciones_Key" fieldName="Solicitud_Vacaciones_Key" label="Solicitud Vacaciones Key" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V" />
+    <column name="UserName" fieldName="cpUserName" label="Usuario V Username" foreignKey="Usuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha Creacion" format="g" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V1" />
+    <column name="UserName" fieldName="apUserName" label="ap User Name" foreignKey="Usuario_V1" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha Ultima Actualizacion" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+  </columns>
+</dataModel>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Solicitud_Vacaciones" label="Solicitud_Vacaciones" conflictDetection="overwriteChanges" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <fields>
+    <field name="Fecha_Inicio_Vacaciones" type="DateTime" allowNulls="false" dataFormatString="d" label="Iniciando el Día" showInSummary="true" default="(getdate())" />
+    <field name="Fecha_Fin_Vacaciones" type="DateTime" allowNulls="false" dataFormatString="d" label="Hasta el Día" showInSummary="true" default="(getdate())" />
+  </fields>
+</dataController>

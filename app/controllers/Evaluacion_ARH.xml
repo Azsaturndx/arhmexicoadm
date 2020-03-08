@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Evaluacion_ARH" conflictDetection="overwriteChanges" label="Evaluacion ARH" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Evaluacion_ARH"."Evaluacion_ARH_Id" "Evaluacion_ARH_Id"
+	,"Evaluacion_ARH"."Evaluacion_ARH" "Evaluacion_ARH"
+	,"Evaluacion_ARH"."Rol_Usuario_Id" "Rol_Usuario_Id"
+	,"Rol_Usuario_"."Rol_Actividad" "Rol_Usuario_Rol_Actividad"
+	,"Evaluacion_ARH"."Vacante_Id" "Vacante_Id"
+	,"Vacante"."Vacante" "Vacante"
+	,"Evaluacion_ARH"."Fecha_Hora_Inicio" "Fecha_Hora_Inicio"
+	,"Evaluacion_ARH"."Fecha_Hora_Fin" "Fecha_Hora_Fin"
+	,"Evaluacion_ARH"."Transaccion_Id" "Transaccion_Id"
+	,"Creado_Por"."UserName" "UsuarioVUsername"
+	,"Evaluacion_ARH"."Fecha_Creacion" "Fecha_Creacion"
+	,"Actualizado_Por"."UserName" "ActualizadoPorusername"
+	,"Evaluacion_ARH"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Evaluacion_ARH"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Evaluacion_ARH"."Directorio" "Directorio"
+	,"Evaluacion_ARH"."Evaluacion_BWDFormsAPP_Id" "Evaluacion_BWDFormsAPP_Id"
+	,"Evaluacion_ARH"."Token_Evaluacion_ARH_Id" "Token_Evaluacion_ARH_Id"
+	,"Evaluacion_ARH"."Token_Evaluacion_ARH_Anterior_Id" "Token_Evaluacion_ARH_Anterior_Id"
+	,"Evaluacion_ARH"."Anio_Id" "Anio_Id"
+	,"Anio"."Anio" "Anio"
+from "APP"."Evaluacion_ARH" "Evaluacion_ARH"
+	left join "dbo"."Rol_Actividad" "Rol_Usuario_" on "Evaluacion_ARH"."Rol_Usuario_Id" = "Rol_Usuario_"."Rol_Actividad_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Evaluacion_ARH"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Creado_Por" on "Evaluacion_ARH"."Creado_Por_Id" = "Creado_Por"."UserId"
+	left join "dbo"."Usuario_V" "Actualizado_Por" on "Evaluacion_ARH"."Actualizado_Por_Id" = "Actualizado_Por"."UserId"
+	left join "APP"."Vacante" "Vacante" on "Evaluacion_ARH"."Vacante_Id" = "Vacante"."Vacante_Id"
+	left join "APP"."Anio" "Anio" on "Evaluacion_ARH"."Anio_Id" = "Anio"."Anio_Id"
+]]></text>
+    </command>
+    <command id="Evaluacion_ARH_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Evaluacion_ARH_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Evaluacion_ARH_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Evaluacion ARH Id" readOnly="true" />
+    <field name="Evaluacion_ARH" type="String" allowNulls="false" label="Evaluacion ARH" length="150" showInSummary="true" />
+    <field name="Rol_Usuario_Id" type="Int32" allowNulls="false" default="((0))" label="Rol Usuario Id" showInSummary="true">
+      <items style="Lookup" dataController="Rol_Actividad" newDataView="createForm1" dataValueField="Rol_Actividad_Id" dataTextField="Rol_Actividad" dataView="Rol_Actividad_LookUp_List" />
+    </field>
+    <field name="Rol_Usuario_Rol_Actividad" type="String" readOnly="true" label="Rol Usuario" length="150" />
+    <field name="Vacante_Id" type="Int32" allowNulls="false" default="((0))" label="Vacante Id" showInSummary="true">
+      <items style="Lookup" dataController="Vacante_Admin" newDataView="createForm1" dataValueField="Vacante_Id" dataTextField="Vacante" dataView="Vacante_Admin_LookUp_List" />
+    </field>
+    <field name="Vacante" type="String" readOnly="true" label="Vacante" length="150" />
+    <field name="Fecha_Hora_Inicio" type="DateTime" allowNulls="false" dataFormatString="g" default="('01/01/1900 00:00:00')" label="Fecha de Inicio" showInSummary="true" />
+    <field name="Fecha_Hora_Fin" type="DateTime" allowNulls="false" dataFormatString="g" default="('12/31/9999 00:00:00')" label="Fecha de Fin" showInSummary="true" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transaccion Id" length="50" />
+    <field name="UsuarioVUsername" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Creación" />
+    <field name="ActualizadoPorusername" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Última Actualización" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus Registro" length="150" />
+    <field name="Directorio" type="String" label="Directorio" length="150" />
+    <field name="Evaluacion_BWDFormsAPP_Id" type="Int32" default="((0))" label="Encuesta BWDForms">
+      <items style="Lookup" dataController="Objeto_Encuesta_BWDForms" dataView="grid1" dataTextField="Objeto_Nombre" dataValueField="Objeto_Id" copy="Token_Evaluacion_ARH_Id=Objeto_Key &#xD;&#xA;Evaluacion_BWDForms=Objeto_Nombre" />
+    </field>
+    <field name="Token_Evaluacion_ARH_Id" type="Guid" default="(newid())" label="Token Evaluación ARH Id" readOnly="true" />
+    <field name="Token_Evaluacion_ARH_Anterior_Id" type="Int32" default="((0))" label="Token Evaluación ARH Anterior Id" readOnly="true" />
+    <field name="Anio_Id" type="Int32" default="((0))" label="Anio Id">
+      <items style="Lookup" dataController="Anio" newDataView="createForm1" dataValueField="Anio_Id" dataTextField="Anio" dataView="Anio_LookUp_List" />
+    </field>
+    <field name="Anio" type="String" readOnly="true" label="Año" length="150" />
+    <field name="Evaluacion_BWDForms" type="String" label="Evaluacion BWDForms" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Evaluación ARH" showInSelector="false" filter="Estatus_Registro_Id&lt;&gt;0">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Evaluacion_ARH" />
+        <dataField fieldName="Rol_Usuario_Id" aliasFieldName="Rol_Usuario_Rol_Actividad" />
+        <dataField fieldName="Vacante_Id" aliasFieldName="Vacante" />
+        <dataField fieldName="Fecha_Hora_Inicio" columns="20" />
+        <dataField fieldName="Fecha_Hora_Fin" columns="20" />
+        <dataField fieldName="Transaccion_Id" columns="50" hidden="true" />
+        <dataField fieldName="UsuarioVUsername" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="ActualizadoPorusername" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Directorio" />
+        <dataField fieldName="Evaluacion_BWDFormsAPP_Id" columns="15" aliasFieldName="Evaluacion_BWDForms" />
+        <dataField fieldName="Token_Evaluacion_ARH_Id" columns="15" />
+        <dataField fieldName="Token_Evaluacion_ARH_Anterior_Id" columns="15" />
+        <dataField fieldName="Anio_Id" aliasFieldName="Anio" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Revisar Configuración Evaluación ARH" showInSelector="false">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Evaluacion_ARH" />
+            <dataField fieldName="Rol_Usuario_Id" aliasFieldName="Rol_Usuario_Rol_Actividad" />
+            <dataField fieldName="Vacante_Id" aliasFieldName="Vacante" />
+            <dataField fieldName="Fecha_Hora_Inicio" columns="20" />
+            <dataField fieldName="Fecha_Hora_Fin" columns="20" />
+            <dataField fieldName="Anio_Id" aliasFieldName="Anio" />
+            <dataField fieldName="Directorio" />
+            <dataField fieldName="Evaluacion_BWDFormsAPP_Id" columns="15" aliasFieldName="Evaluacion_BWDForms" />
+            <dataField fieldName="Token_Evaluacion_ARH_Id" columns="15" />
+            <dataField fieldName="Token_Evaluacion_ARH_Anterior_Id" columns="15" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nueva Evaluación ARH" showInSelector="false">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Evaluacion_ARH" />
+            <dataField fieldName="Rol_Usuario_Id" aliasFieldName="Rol_Usuario_Rol_Actividad" />
+            <dataField fieldName="Vacante_Id" aliasFieldName="Vacante" />
+            <dataField fieldName="Fecha_Hora_Inicio" columns="20" />
+            <dataField fieldName="Fecha_Hora_Fin" columns="20" />
+            <dataField fieldName="Anio_Id" aliasFieldName="Anio" />
+            <dataField fieldName="Directorio" />
+            <dataField fieldName="Evaluacion_BWDFormsAPP_Id" columns="15" aliasFieldName="Evaluacion_BWDForms" />
+            <dataField fieldName="Token_Evaluacion_ARH_Id" columns="15" />
+            <dataField fieldName="Token_Evaluacion_ARH_Anterior_Id" columns="15" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Evaluacion_ARH_LookUp_List" type="Grid" commandId="command1" label="Evaluación ARH" showInSelector="false" filter="Estatus_Registro_Id IN (0,1)">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Evaluacion_ARH" />
+        <dataField fieldName="Rol_Usuario_Id" aliasFieldName="Rol_Usuario_Rol_Actividad" />
+        <dataField fieldName="Vacante_Id" aliasFieldName="Vacante" />
+        <dataField fieldName="Fecha_Hora_Inicio" columns="20" />
+        <dataField fieldName="Fecha_Hora_Fin" columns="20" />
+        <dataField fieldName="Transaccion_Id" columns="50" hidden="true" />
+        <dataField fieldName="UsuarioVUsername" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="ActualizadoPorusername" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Directorio" />
+        <dataField fieldName="Evaluacion_BWDFormsAPP_Id" columns="15" aliasFieldName="Evaluacion_BWDForms" />
+        <dataField fieldName="Token_Evaluacion_ARH_Id" columns="15" />
+        <dataField fieldName="Token_Evaluacion_ARH_Anterior_Id" columns="15" />
+        <dataField fieldName="Anio_Id" aliasFieldName="Anio" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" cssClass="material-icon-delete_outline">
+        <data><![CDATA[UPDATE
+	APP.Evaluacion_ARH
+SET
+	Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+        ,Estatus_Registro_Id = 3
+WHERE
+	Evaluacion_ARH_Id= @Evaluacion_ARH_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" cssClass="material-icon-delete_outline">
+        <data><![CDATA[UPDATE
+	APP.Evaluacion_ARH
+SET
+	Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+        ,Estatus_Registro_Id = 3
+WHERE
+	Evaluacion_ARH_Id= @Evaluacion_ARH_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="material-icon-delete_outline" whenView="grid1" headerText="&quot;Borrar&quot;">
+        <data><![CDATA[UPDATE
+	APP.Evaluacion_ARH
+SET
+	Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+        ,Estatus_Registro_Id = 3
+WHERE
+	Evaluacion_ARH_Id= @Evaluacion_ARH_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" cssClass="material-icon-delete_outline">
+        <data><![CDATA[UPDATE
+	APP.Evaluacion_ARH
+SET
+	Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+        ,Estatus_Registro_Id = 3
+WHERE
+	Evaluacion_ARH_Id= @Evaluacion_ARH_Id]]></data>
+      </action>
+      <action commandName="Custom" commandArgument="ExecJS02" headerText="Ver Información en BWDForms" id="a100" cssClass="material-icon-list" />
+    </actionGroup>
+    <actionGroup id="ag100" scope="ActionBar" flat="true">
+      <action commandName="Custom" commandArgument="ExecJS01" headerText="Crear Encuesta en BWDForms" id="a100" cssClass="material-icon-assignment" />
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+SET @Existe = 0
+
+SELECT
+	TOP 1 @Existe=1
+FROM
+	APP.Evaluacion_ARH
+WHERE
+	REPLACE(UPPER(Evaluacion_ARH),' ','') = REPLACE(UPPER(@Evaluacion_ARH),' ','')
+        AND Vacante_Id = @Vacante_Id
+        AND Rol_Usuario_Id = @Rol_Usuario_Id
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un registro para esta evaluación en la base de datos, favor de corregir'
+   SET @Result_ShowAlert = 'Ya existe un registro para esta evaluación en la base de datos, favor de corregir'
+   RETURN
+END]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+SET @Existe = 0
+
+SELECT
+	TOP 1 @Existe=1
+FROM
+	APP.Evaluacion_ARH
+WHERE
+	REPLACE(UPPER(Evaluacion_ARH),' ','') = REPLACE(UPPER(@Evaluacion_ARH),' ','')
+        AND Vacante_Id = @Vacante_Id
+        AND Rol_Usuario_Id = @Rol_Usuario_Id
+        AND Evaluacion_ARH_Id<>@Evaluacion_ARH_Id
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un registro para esta evaluación en la base de datos, favor de corregir'
+   SET @Result_ShowAlert = 'Ya existe un registro para esta evaluación en la base de datos, favor de corregir'
+   RETURN
+END]]></rule>
+    <rule id="r102" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Evaluacion_ARH
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+	,Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Evaluacion_ARH_Id= @Evaluacion_ARH_Id]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Evaluacion_ARH
+SET
+	Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Evaluacion_ARH_Id= @Evaluacion_ARH_Id]]></rule>
+    <rule id="r104" commandName="Custom" commandArgument="ExecJS01" type="JavaScript" phase="After"><![CDATA[window.location.href="https://bwdformsapp.azurewebsites.net/Pages/AdminEncuesta.aspx";]]></rule>
+    <rule id="r105" commandName="Custom" commandArgument="ExecJS02" type="JavaScript" phase="After"><![CDATA[window.location.href=[Url_Evaluacion];]]></rule>
+  </businessRules>
+</dataController>

@@ -1,0 +1,19 @@
+﻿{
+    "ui": {
+        "menu": {
+            "tabbar": true
+        },
+        "notify": {
+            "location": "left",
+            "transparent": true,
+            "enabled": true
+        }
+    }
+    ,"splash":{
+	"enabled":true,
+	"background":"/images/banner-01.jpg",
+      "duration": "2500"
+   
+
+   }
+}

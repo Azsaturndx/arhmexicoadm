@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Grid_Reporte_Comprobante_Deposito" conflictDetection="overwriteChanges" label="Grid Reporte Comprobante Deposito" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Grid_Reporte_Comprobante_Deposito"."Folio" "Folio"
+	,"Grid_Reporte_Comprobante_Deposito"."Número de Factura" "NmerodeFactura"
+	,"Grid_Reporte_Comprobante_Deposito"."Tipo de depósito" "Tipodedepsito"
+	,"Grid_Reporte_Comprobante_Deposito"."Tipo de Archivo" "TipodeArchivo"
+	,"Grid_Reporte_Comprobante_Deposito"."Estado" "Estado"
+	,"Grid_Reporte_Comprobante_Deposito"."Liga" "Liga"
+	,"Grid_Reporte_Comprobante_Deposito"."Beneficiario" "Beneficiario"
+	,"Grid_Reporte_Comprobante_Deposito"."Cliente" "Cliente"
+	,"Grid_Reporte_Comprobante_Deposito"."Empresa Pagadora" "EmpresaPagadora"
+	,"Grid_Reporte_Comprobante_Deposito"."Banco" "Banco"
+	,"Grid_Reporte_Comprobante_Deposito"."Monto" "Monto"
+	,"Grid_Reporte_Comprobante_Deposito"."Monto Total" "MontoTotal"
+	,"Grid_Reporte_Comprobante_Deposito"."Año" "Ao"
+	,"Grid_Reporte_Comprobante_Deposito"."Mes" "Mes"
+	,"Grid_Reporte_Comprobante_Deposito"."Día" "Da"
+from "dbo"."Grid_Reporte_Comprobante_Deposito" "Grid_Reporte_Comprobante_Deposito"
+]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Folio" type="Int32" allowNulls="false" label="Folio" showInSummary="true" />
+    <field name="NmerodeFactura" type="String" allowNulls="false" label="Número de Factura" length="10" showInSummary="true" />
+    <field name="Tipodedepsito" type="String" label="Tipo de depósito" length="150" showInSummary="true" />
+    <field name="TipodeArchivo" type="String" label="Tipo de Archivo" length="150" showInSummary="true" />
+    <field name="Estado" type="String" label="Estado" readOnly="true" length="21" showInSummary="true" />
+    <field name="Liga" type="String" allowQBE="false" allowSorting="false" label="Liga" readOnly="true" htmlEncode="false" />
+    <field name="Beneficiario" type="String" label="Beneficiario" readOnly="true" length="100" />
+    <field name="Cliente" type="String" label="Cliente" length="150" />
+    <field name="EmpresaPagadora" type="String" label="Empresa Pagadora" length="150" />
+    <field name="Banco" type="String" label="Banco" length="150" />
+    <field name="Monto" type="String" label="Monto" readOnly="true" length="100" />
+    <field name="MontoTotal" type="String" label="Monto Total" readOnly="true" length="100" />
+    <field name="Ao" type="String" label="Año" length="150" />
+    <field name="Mes" type="Byte" label="Mes" />
+    <field name="Da" type="Byte" label="Día" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Grid Reporte Comprobante Deposito">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Folio" columns="15" />
+        <dataField fieldName="NmerodeFactura" columns="10" />
+        <dataField fieldName="Tipodedepsito" />
+        <dataField fieldName="TipodeArchivo" />
+        <dataField fieldName="Estado" columns="21" />
+        <dataField fieldName="Liga" rows="5" />
+        <dataField fieldName="Beneficiario" />
+        <dataField fieldName="Cliente" />
+        <dataField fieldName="EmpresaPagadora" />
+        <dataField fieldName="Banco" />
+        <dataField fieldName="Monto" />
+        <dataField fieldName="MontoTotal" />
+        <dataField fieldName="Ao" />
+        <dataField fieldName="Mes" columns="15" />
+        <dataField fieldName="Da" columns="15" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Hidden" />
+      <action id="a2" commandName="Delete" roles="Hidden" />
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" commandName="Select" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Hidden" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Hidden" />
+      <action id="a4" commandName="ExportRss" roles="Hidden" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin,ArhTesoreria" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin,ArhTesoreria" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin,ArhTesoreria" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin,ArhTesoreria" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+  </actions>
+</dataController>

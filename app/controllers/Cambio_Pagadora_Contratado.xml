@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Cambio_Pagadora_Contratado" label="Cambio_Pagadora_Contratado" conflictDetection="overwriteChanges" handler="arhmexico.Rules.Cambio_Pagadora_ContratadoBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <fields>
+    <field name="Fecha_Movimiento_Personal" type="DateTime" label="Fecha de Movimiento" />
+    <field name="Motivo_Movimiento_Personal_Id" type="Int32" label="Motivo de Movimiento">
+      <items style="Lookup" dataController="Motivo_Movimiento_Personal" dataView="Motivo_Movimiento_Personal_LookUp_List_Cambio" dataTextField="Motivo_Movimiento_Personal" dataValueField="Motivo_Movimiento_Personal_Id" newDataView="createForm1" />
+    </field>
+    <field name="Contratante_Puesto" type="Int32" label="Nuevo Puesto" contextFields="Contratante_Id=Contratante_Id">
+      <items style="DropDownList" dataController="Contratante_Puesto" dataView="Contratante_Puesto_Aun_Sin_Asignar_LookUp_List" dataTextField="Contratante_Puesto" dataValueField="Contratante_Puesto_Id" />
+    </field>
+    <field name="Pagadora_Id" type="Int32" label="Nueva Pagadora" contextFields="Contratante_Id=Contratante_Id">
+      <items style="Lookup" dataController="Contratante_Pagadora" dataView="Contratante_Pagadora_LookUp_List" dataTextField="Pagadora_Pagadora" dataValueField="Pagadora_Id" />
+    </field>
+    <field name="Contratante_Id" type="Int32" label="Contratante Id" />
+    <field name="Cliente_Id" type="Int32" label="Cliente Id" />
+  </fields>
+  <views>
+    <view id="editForm1" type="Form" label="Cambio de Pagadora" showInSelector="false">
+      <categories>
+        <category id="c1" headerText="Nueva Pagadora" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="Fecha_Movimiento_Personal" columns="10" />
+            <dataField fieldName="Motivo_Movimiento_Personal_Id" columns="15" />
+            <dataField fieldName="Contratante_Id" columns="15" hidden="true" />
+            <dataField fieldName="Pagadora_Id" columns="15">
+              <footerText />
+            </dataField>
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <businessRules />
+</dataController>

@@ -1,0 +1,24 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Receptora</title>
+  </head>
+  <body data-authorize-roles="Administrators,ArhAdmin">
+    <div data-flow="row">
+      <div id="view1" data-controller="Receptora" data-view="grid1" data-show-in-summary="true" data-selection-mode="multiple" data-tag="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" data-show-view-selector="false"> </div>
+      <div data-activator="Tab|Cuadro Accionario">
+        <div id="view2" data-controller="Receptora_Cuadro_Accionario" data-view="grid1" data-filter-source="view1" data-filter-fields="Receptora_Id"> </div>
+      </div>
+      <div data-activator="Tab|Documentos">
+        <div id="view3" data-controller="Receptora_Documento" data-view="grid1" data-filter-source="view1"> </div>
+      </div>
+      <div data-activator="Tab|Documentos Cuadro">
+        <div id="view4" data-controller="Receptora_Cuadro_Accionario_Documento" data-view="grid1" data-filter-source="view2" data-filter-fields="Receptora_Cuadro_Accionario_Id"> </div>
+      </div>
+      <div data-activator="Tab|Remuneración Cuadro">
+        <div id="view5" data-controller="Receptora_Cuadro_Accionario_Remuneracion" data-view="grid1" data-filter-source="view2" data-filter-fields="Receptora_Cuadro_Accionario_Id"> </div>
+      </div>
+    </div>
+  </body>
+</html>

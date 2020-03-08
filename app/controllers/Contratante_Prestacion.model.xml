@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Contratante_Prestacion" alias="Contratante_Prestacion" created="2018-06-28T12:49:50" modified="2019-04-10T15:50:56" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Contratante_" parentTableSchema="APP" parentTableName="Contratante" x="470" y="20">
+      <foreignKeyColumn columnName="Contratante_Id" parentColumnName="Contratante_Id" />
+    </foreignKey>
+    <foreignKey id="Contratante_Cliente_" parentTableSchema="APP" parentTableName="Cliente" baseForeignKey="Contratante_" x="814" y="20">
+      <foreignKeyColumn columnName="Cliente_Id" parentColumnName="Cliente_Id" />
+    </foreignKey>
+    <foreignKey id="Contratante_Cliente_Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" baseForeignKey="Contratante_Cliente_" x="1158" y="20">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Contratante_Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" baseForeignKey="Contratante_" x="814" y="250">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Tipo_Prestacion_" parentTableSchema="APP" parentTableName="Tipo_Prestacion" x="1532" y="273">
+      <foreignKeyColumn columnName="Tipo_Prestacion_Id" parentColumnName="Tipo_Prestacion_Id" />
+    </foreignKey>
+    <foreignKey id="Tipo_Prestacion_Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" baseForeignKey="Tipo_Prestacion_" x="1502" y="20">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Tipo_Empleado_" parentTableSchema="APP" parentTableName="Tipo_Empleado" x="470" y="505">
+      <foreignKeyColumn columnName="Tipo_Empleado_Id" parentColumnName="Tipo_Empleado_Id" />
+    </foreignKey>
+    <foreignKey id="Tipo_Empleado_Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" baseForeignKey="Tipo_Empleado_" x="1848" y="20">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Cliente_" parentTableSchema="APP" parentTableName="Cliente" x="470" y="733">
+      <foreignKeyColumn columnName="Cliente_Id" parentColumnName="Cliente_Id" />
+    </foreignKey>
+    <foreignKey id="Cliente_Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" baseForeignKey="Cliente_" x="2190" y="20">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="470" y="964">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Usuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="33" y="450">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Usuario_V1" parentTableSchema="dbo" parentTableName="Usuario_V" x="41" y="571">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Contratante_Prestacion_Id" fieldName="Contratante_Prestacion_Id" label="Contratante Prestacion Id" />
+    <column name="Contratante_Id" fieldName="Contratante_Id" label="Contratante Id" aliasColumnName="Contratante" aliasForeignKey="Contratante_" />
+    <column name="Contratante" fieldName="Contratante_Contratante" label="Contratante" foreignKey="Contratante_" />
+    <column name="Cliente" fieldName="Contratante_Cliente_Cliente" label="Contratante Cliente" foreignKey="Contratante_Cliente_" />
+    <column name="Estatus_Registro" fieldName="Contratante_Cliente_Estatus_Registro_Estatus_Registro" label="Contratante Cliente Estatus Registro" foreignKey="Contratante_Cliente_Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Contratante_Estatus_Registro_Estatus_Registro" label="Contratante Estatus Registro" foreignKey="Contratante_Estatus_Registro_" />
+    <column name="Tipo_Prestacion_Id" fieldName="Tipo_Prestacion_Id" label="Tipo Prestacion Id" aliasColumnName="Tipo_Prestacion" aliasForeignKey="Tipo_Prestacion_" />
+    <column name="Tipo_Prestacion" fieldName="Tipo_Prestacion_Tipo_Prestacion" label="Tipo Prestacion" foreignKey="Tipo_Prestacion_" />
+    <column name="Es_Prestacion_Vacaciones" fieldName="TipoPrestacionEsPrestacionVacaciones" label="Tipo Prestacion Es Prestacion Vacaciones" foreignKey="Tipo_Prestacion_" />
+    <column name="Es_Prestacion_Aguinaldo" fieldName="TipoPrestacionEsPrestacionAguinaldo" label="Tipo Prestacion Es Prestacion Aguinaldo" foreignKey="Tipo_Prestacion_" />
+    <column name="Es_Prestacion_Tiempo_Extra" fieldName="TipoPrestacionEsPrestacionTiempoExtra" label="Tipo Prestacion Es Prestacion Tiempo Extra" foreignKey="Tipo_Prestacion_" />
+    <column name="Es_Prestacion_Jornada_Laboral" fieldName="TipoPrestacionEsPrestacionJornadaLaboral" label="Tipo Prestacion Es Prestacion Jornada Laboral" foreignKey="Tipo_Prestacion_" />
+    <column name="Estatus_Registro" fieldName="Tipo_Prestacion_Estatus_Registro_Estatus_Registro" label="Tipo Prestacion Estatus Registro" foreignKey="Tipo_Prestacion_Estatus_Registro_" />
+    <column name="Tipo_Empleado_Id" fieldName="Tipo_Empleado_Id" label="Tipo Empleado Id" aliasColumnName="Tipo_Empleado" aliasForeignKey="Tipo_Empleado_" />
+    <column name="Tipo_Empleado" fieldName="Tipo_Empleado_Tipo_Empleado" label="Tipo Empleado" foreignKey="Tipo_Empleado_" />
+    <column name="Estatus_Registro" fieldName="Tipo_Empleado_Estatus_Registro_Estatus_Registro" label="Tipo Empleado Estatus Registro" foreignKey="Tipo_Empleado_Estatus_Registro_" />
+    <column name="Aplica_Septimo_Dia" fieldName="Aplica_Septimo_Dia" label="Aplica Septimo Dia" />
+    <column name="Permitir_Acumular_Dias_VacacioneS" fieldName="Permitir_Acumular_Dias_Vacaciones" label="Permitir Acumular Dias Vacacione S" />
+    <column name="Jornada_Diurna_Horas_Trabajo_Diario" fieldName="Jornada_Diurna_Horas_Trabajo_Diario" label="Jornada Diurna Horas Trabajo Diario" />
+    <column name="Jornada_Noctura_Horas_Trabajo_Diario" fieldName="Jornada_Noctura_Horas_Trabajo_Diario" label="Jornada Noctura Horas Trabajo Diario" />
+    <column name="Jornada_Mixta_Horas_Trabajo_Diario" fieldName="Jornada_Mixta_Horas_Trabajo_Diario" label="Jornada Mixta Horas Trabajo Diario" />
+    <column name="Cliente_Id" fieldName="Cliente_Id" label="Cliente Id" aliasColumnName="Cliente" aliasForeignKey="Cliente_" />
+    <column name="Cliente" fieldName="Cliente_Cliente" label="Cliente" foreignKey="Cliente_" />
+    <column name="Estatus_Registro" fieldName="Cliente_Estatus_Registro_Estatus_Registro" label="Cliente Estatus Registro" foreignKey="Cliente_Estatus_Registro_" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V" />
+    <column name="UserName" fieldName="cpUsername" label="Usuario V Username" foreignKey="Usuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha Creacion" format="g" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V1" />
+    <column name="UserName" fieldName="apUserName" label="ap User Name" foreignKey="Usuario_V1" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha Ultima Actualizacion" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+    <column name="Numero_Dias_Previos_Para_Solicitar_Vacaciones" fieldName="NumeroDiasPreviosParaSolicitarVacaciones" label="Numero Dias Previos Para Solicitar Vacaciones" />
+    <column name="Numero_Dias_Posteriores_Para_Solicitar_Vacaciones_Despues_Vencimiento" fieldName="NumeroDiasPosterioresParaSolicitarVacacionesDespuesVencimiento" label="Numero Dias Posteriores Para Solicitar Vacaciones Despues Vencimiento" />
+    <column name="Minutos_Antes_Retardo" fieldName="MinutosAntesRetardo" label="Minutos Antes Retardo" />
+    <column name="Segundos_Para_Determinar_Si_Es_Misma_Checada" fieldName="SegundosParaDeterminarSiEsMismaChecada" label="Segundos Para Determinar Si Es Misma Checada" />
+    <column name="Jornada_Especiales_Horas_Trabajo_Diario" fieldName="JornadaEspecialesHorasTrabajoDiario" label="Jornada Especiales Horas Trabajo Diario" />
+  </columns>
+</dataModel>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Contratante_Archivo_Reloj_Checador" alias="Contratante_Archivo_Reloj_Checador" created="2018-08-27T18:20:34" modified="2018-08-27T18:36:19" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Contratante_" parentTableSchema="APP" parentTableName="Contratante" x="474" y="20">
+      <foreignKeyColumn columnName="Contratante_Id" parentColumnName="Contratante_Id" />
+    </foreignKey>
+    <foreignKey id="Cliente_" parentTableSchema="APP" parentTableName="Cliente" x="474" y="273">
+      <foreignKeyColumn columnName="Cliente_Id" parentColumnName="Cliente_Id" />
+    </foreignKey>
+    <foreignKey id="Anio_" parentTableSchema="APP" parentTableName="Anio" x="474" y="503">
+      <foreignKeyColumn columnName="Anio_Id" parentColumnName="Anio_Id" />
+    </foreignKey>
+    <foreignKey id="Mes_" parentTableSchema="APP" parentTableName="Mes" x="474" y="733">
+      <foreignKeyColumn columnName="Mes_Id" parentColumnName="Mes_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="474" y="986">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="cpUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="93" y="394">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Usuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="85" y="620">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Contratante_Archivo_Reloj_Checador_Id" fieldName="Contratante_Archivo_Reloj_Checador_Id" label="Contratante Archivo Reloj Checador Id" />
+    <column name="Contratante_Id" fieldName="Contratante_Id" label="Contratante Id" aliasColumnName="Contratante" aliasForeignKey="Contratante_" />
+    <column name="Contratante" fieldName="Contratante_Contratante" label="Contratante" foreignKey="Contratante_" />
+    <column name="Cliente_Id" fieldName="Cliente_Id" label="Cliente Id" aliasColumnName="Cliente" aliasForeignKey="Cliente_" />
+    <column name="Cliente" fieldName="Cliente_Cliente" label="Cliente" foreignKey="Cliente_" />
+    <column name="Anio_Id" fieldName="Anio_Id" label="Anio Id" aliasColumnName="Anio" aliasForeignKey="Anio_" />
+    <column name="Anio" fieldName="Anio_Anio" label="Anio" foreignKey="Anio_" />
+    <column name="Mes_Id" fieldName="Mes_Id" label="Mes Id" aliasColumnName="Mes" aliasForeignKey="Mes_" />
+    <column name="Mes" fieldName="Mes_Mes" label="Mes" foreignKey="Mes_" />
+    <column name="Nombre_Archivo_Reloj_Checador" fieldName="Nombre_Archivo_Reloj_Checador" label="Nombre Archivo Reloj Checador" />
+    <column name="Url_Storage" fieldName="Url_Storage" label="Url Storage" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cpUsuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha Creacion" format="g" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="Usuario_V" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha Ultima Actualizacion" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+  </columns>
+</dataModel>

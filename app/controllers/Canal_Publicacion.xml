@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Canal_Publicacion" conflictDetection="overwriteChanges" label="Canal Publicacion" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Canal_Publicacion"."Canal_Publicacion_Id" "Canal_Publicacion_Id"
+	,"Canal_Publicacion"."Es_OCC" "Es_OCC"
+	,"Canal_Publicacion"."Es_Indeed" "Es_Indeed"
+	,"Canal_Publicacion"."Es_Boomerang" "Es_Boomerang"
+	,"Canal_Publicacion"."Es_ArhHuman" "Es_ArhHuman"
+	,"Canal_Publicacion"."Es_Talatenca" "Es_Talatenca"
+	,"Canal_Publicacion"."Es_Gobierno" "Es_Gobierno"
+	,"Canal_Publicacion"."Es_El_Norte" "Es_El_Norte"
+	,"Canal_Publicacion"."Es_LinkedIn" "Es_LinkedIn"
+	,"Canal_Publicacion"."Es_Facebook" "Es_Facebook"
+	,"Canal_Publicacion"."Es_Twitter" "Es_Twitter"
+	,"Canal_Publicacion"."Transaccion_Id" "Transaccion_Id"
+	,"Canal_Publicacion"."Creado_Por_Id" "Creado_Por_Id"
+	,"cpUsuario_V"."UserName" "cpUserName"
+	,"Canal_Publicacion"."Fecha_Creacion" "Fecha_Creacion"
+	,"Canal_Publicacion"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"apUsuario_V"."UserName" "apUserName"
+	,"Canal_Publicacion"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Canal_Publicacion"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Canal_Publicacion"."Servicio_Integracion_Autentificacion_Id" "Servicio_Integracion_Autentificacion_Id"
+	,"Autenticacion_Servicio_Integracion"."Servicio_Integracion" "Autenticacion_Servicio_Integracion"
+	,"Canal_Publicacion"."Servicio_Integracion_Alta_Id" "Servicio_Integracion_Alta_Id"
+	,"Alta_Servicio_Integracion"."Servicio_Integracion" "Alta_Servicio_Integracion"
+	,"Canal_Publicacion"."Servicio_Integracion_Modificacion_Id" "Servicio_Integracion_Modificacion_Id"
+	,"Modificacion_Servicio_Integracion"."Servicio_Integracion" "Alta_Servicio_Modificacion"
+	,"Canal_Publicacion"."Servicio_Integracion_Baja_Id" "Servicio_Integracion_Baja_Id"
+	,"Baja_Servicio_Integracion"."Servicio_Integracion" "Servicio_Integracion_Baja"
+	,"Canal_Publicacion"."Es_Otro" "Es_Otro"
+	,"Canal_Publicacion"."Utiliza_Servicio" "Utiliza_Servicio"
+	,"Canal_Publicacion"."Canal_Publicacion" "Canal_Publicacion"
+from "APP"."Canal_Publicacion" "Canal_Publicacion"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Canal_Publicacion"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cpUsuario_V" on "Canal_Publicacion"."Creado_Por_Id" = "cpUsuario_V"."UserId"
+	left join "dbo"."Usuario_V" "apUsuario_V" on "Canal_Publicacion"."Actualizado_Por_Id" = "apUsuario_V"."UserId"
+	left join "APP"."Servicio_Integracion" "Autenticacion_Servicio_Integracion" on "Canal_Publicacion"."Servicio_Integracion_Autentificacion_Id" = "Autenticacion_Servicio_Integracion"."Servicio_Integracion_Id"
+	left join "APP"."Servicio_Integracion" "Alta_Servicio_Integracion" on "Canal_Publicacion"."Servicio_Integracion_Alta_Id" = "Alta_Servicio_Integracion"."Servicio_Integracion_Id"
+	left join "APP"."Servicio_Integracion" "Modificacion_Servicio_Integracion" on "Canal_Publicacion"."Servicio_Integracion_Modificacion_Id" = "Modificacion_Servicio_Integracion"."Servicio_Integracion_Id"
+	left join "APP"."Servicio_Integracion" "Baja_Servicio_Integracion" on "Canal_Publicacion"."Servicio_Integracion_Baja_Id" = "Baja_Servicio_Integracion"."Servicio_Integracion_Id"
+]]></text>
+    </command>
+    <command id="Canal_Publicacion_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Canal_Publicacion_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Canal_Publicacion_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Canal Publicacion Id" readOnly="true" />
+    <field name="Es_OCC" type="Boolean" allowNulls="false" default="((0))" label="¿Es OCC?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Indeed" type="Boolean" allowNulls="false" default="((0))" label="¿Es Indeed?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Boomerang" type="Boolean" allowNulls="false" default="((0))" label="¿Es Boomerang?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_ArhHuman" type="Boolean" allowNulls="false" default="((0))" label="¿Es Arh Human?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Talatenca" type="Boolean" allowNulls="false" default="((0))" label="¿Es Talatenca?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Gobierno" type="Boolean" allowNulls="false" default="((0))" label="¿Es Gobierno?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_El_Norte" type="Boolean" allowNulls="false" default="((0))" label="¿Es El Norte?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_LinkedIn" type="Boolean" allowNulls="false" default="((0))" label="¿Es Linked In?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Facebook" type="Boolean" allowNulls="false" default="((0))" label="¿Es Facebook?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Twitter" type="Boolean" allowNulls="false" default="((0))" label="¿Es Twitter?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transaccion Id" length="50" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="Servicio_Integracion_Autentificacion_Id" type="Int32" allowNulls="false" default="((0))" label="Servicio Integracion Autentificacion Id">
+      <items style="Lookup" dataController="Servicio_Integracion" newDataView="createForm1" dataValueField="Servicio_Integracion_Id" dataTextField="Servicio_Integracion" dataView="Servicio_LookUp_List" />
+    </field>
+    <field name="Autenticacion_Servicio_Integracion" type="String" readOnly="true" label="Servicio Integración Autenticación" length="150" />
+    <field name="Servicio_Integracion_Alta_Id" type="Int32" allowNulls="false" default="((0))" label="Servicio Integracion Alta Id">
+      <items style="Lookup" dataController="Servicio_Integracion" newDataView="createForm1" dataValueField="Servicio_Integracion_Id" dataTextField="Servicio_Integracion" dataView="Servicio_LookUp_List" />
+    </field>
+    <field name="Alta_Servicio_Integracion" type="String" readOnly="true" label="Servicio Integración Alta" length="150" />
+    <field name="Servicio_Integracion_Modificacion_Id" type="Int32" allowNulls="false" default="((0))" label="Servicio Integracion Modificacion Id">
+      <items style="Lookup" dataController="Servicio_Integracion" newDataView="createForm1" dataValueField="Servicio_Integracion_Id" dataTextField="Servicio_Integracion" dataView="Servicio_LookUp_List" />
+    </field>
+    <field name="Alta_Servicio_Modificacion" type="String" readOnly="true" label="Servicio Integracion Modificación" length="150" />
+    <field name="Servicio_Integracion_Baja_Id" type="Int32" allowNulls="false" default="((0))" label="Servicio Integracion Baja Id">
+      <items style="Lookup" dataController="Servicio_Integracion" newDataView="createForm1" dataValueField="Servicio_Integracion_Id" dataTextField="Servicio_Integracion" dataView="Servicio_LookUp_List" />
+    </field>
+    <field name="Servicio_Integracion_Baja" type="String" readOnly="true" label="Servicio Integracion Baja" length="150" />
+    <field name="Es_Otro" type="Boolean" allowNulls="false" default="((0))" label="¿Es Otro?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Utiliza_Servicio" type="Boolean" allowNulls="false" default="((0))" label="¿Utiliza Servicio?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Canal_Publicacion" type="String" allowNulls="false" label="Canal de Publicación" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Canal de Publicación" sortExpression="Canal_Publicacion" filter="Estatus_Registro_Id IN (0,1)" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Es_OCC" />
+        <dataField fieldName="Es_Indeed" />
+        <dataField fieldName="Es_Boomerang" />
+        <dataField fieldName="Es_ArhHuman" />
+        <dataField fieldName="Es_Talatenca" />
+        <dataField fieldName="Es_Gobierno" />
+        <dataField fieldName="Es_El_Norte" />
+        <dataField fieldName="Es_LinkedIn" />
+        <dataField fieldName="Es_Facebook" />
+        <dataField fieldName="Es_Twitter" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="10" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="10" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Servicio_Integracion_Autentificacion_Id" aliasFieldName="Autenticacion_Servicio_Integracion" />
+        <dataField fieldName="Servicio_Integracion_Alta_Id" aliasFieldName="Alta_Servicio_Integracion" />
+        <dataField fieldName="Servicio_Integracion_Modificacion_Id" aliasFieldName="Alta_Servicio_Modificacion" />
+        <dataField fieldName="Servicio_Integracion_Baja_Id" aliasFieldName="Servicio_Integracion_Baja" />
+        <dataField fieldName="Es_Otro" />
+        <dataField fieldName="Utiliza_Servicio" />
+        <dataField fieldName="Canal_Publicacion_Id" columns="15" hidden="true" />
+        <dataField fieldName="Canal_Publicacion" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Canal de Publicación" sortExpression="Canal_Publicacion" filter="Estatus_Registro_Id IN (0,1)" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Canal_Publicacion" />
+            <dataField fieldName="Es_OCC" />
+            <dataField fieldName="Es_Indeed" />
+            <dataField fieldName="Es_Boomerang" />
+            <dataField fieldName="Es_ArhHuman" />
+            <dataField fieldName="Es_Talatenca" />
+            <dataField fieldName="Es_Gobierno" />
+            <dataField fieldName="Es_El_Norte" />
+            <dataField fieldName="Es_LinkedIn" />
+            <dataField fieldName="Es_Facebook" />
+            <dataField fieldName="Es_Twitter" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="Servicio_Integracion_Autentificacion_Id" aliasFieldName="Autenticacion_Servicio_Integracion" />
+            <dataField fieldName="Servicio_Integracion_Alta_Id" aliasFieldName="Alta_Servicio_Integracion" />
+            <dataField fieldName="Servicio_Integracion_Modificacion_Id" aliasFieldName="Alta_Servicio_Modificacion" />
+            <dataField fieldName="Servicio_Integracion_Baja_Id" aliasFieldName="Servicio_Integracion_Baja" />
+            <dataField fieldName="Es_Otro" />
+            <dataField fieldName="Utiliza_Servicio" />
+            <dataField fieldName="Canal_Publicacion_Id" columns="15" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nuevo Canal de Publicación" sortExpression="Canal_Publicacion" filter="Estatus_Registro_Id IN (0,1)" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Canal_Publicacion" />
+            <dataField fieldName="Es_OCC" />
+            <dataField fieldName="Es_Indeed" />
+            <dataField fieldName="Es_Boomerang" />
+            <dataField fieldName="Es_ArhHuman" />
+            <dataField fieldName="Es_Talatenca" />
+            <dataField fieldName="Es_Gobierno" />
+            <dataField fieldName="Es_El_Norte" />
+            <dataField fieldName="Es_LinkedIn" />
+            <dataField fieldName="Es_Facebook" />
+            <dataField fieldName="Es_Twitter" />
+            <dataField fieldName="Servicio_Integracion_Autentificacion_Id" aliasFieldName="Autenticacion_Servicio_Integracion" />
+            <dataField fieldName="Servicio_Integracion_Alta_Id" aliasFieldName="Alta_Servicio_Integracion" />
+            <dataField fieldName="Servicio_Integracion_Modificacion_Id" aliasFieldName="Alta_Servicio_Modificacion" />
+            <dataField fieldName="Servicio_Integracion_Baja_Id" aliasFieldName="Servicio_Integracion_Baja" />
+            <dataField fieldName="Es_Otro" />
+            <dataField fieldName="Utiliza_Servicio" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Canal_Publicacion_LookUp_List" commandId="command1" type="Grid" label="Canal de Publicación" sortExpression="Canal_Publicacion" filter="Estatus_Registro_Id IN (0,1)" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <dataFields>
+        <dataField fieldName="Canal_Publicacion_Id" columns="15" hidden="true" />
+        <dataField fieldName="Canal_Publicacion" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE
+	APP.Canal_Publicacion
+SET
+	Estatus_Registro_Id = 3
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Canal_Publicacion_Id= @Canal_Publicacion_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE
+	APP.Canal_Publicacion
+SET
+	Estatus_Registro_Id = 3
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Canal_Publicacion_Id= @Canal_Publicacion_Id
+]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE
+	APP.Canal_Publicacion
+SET
+	Estatus_Registro_Id = 3
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Canal_Publicacion_Id= @Canal_Publicacion_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE
+	APP.Canal_Publicacion
+SET
+	Estatus_Registro_Id = 3
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Canal_Publicacion_Id= @Canal_Publicacion_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Canal_Publicacion
+	WHERE
+		REPLACE(UPPER(Canal_Publicacion),' ','') = REPLACE(UPPER(@Canal_Publicacion),' ','') 
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe este canal de publicación en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya existe este canal de publicación en la base de datos, favor de corregir.'
+   RETURN
+END]]></rule>
+    <rule id="r101" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Canal_Publicacion
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Canal_Publicacion_Id= @Canal_Publicacion_Id]]></rule>
+    <rule id="r102" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Canal_Publicacion
+	WHERE
+		REPLACE(UPPER(Canal_Publicacion),' ','') = REPLACE(UPPER(@Canal_Publicacion),' ','') 
+  		AND Canal_Publicacion_Id <> @Canal_Publicacion_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe este canal de publicación en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya existe este canal de publicación en la base de datos, favor de corregir.'
+   RETURN
+END]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Canal_Publicacion
+SET
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Canal_Publicacion_Id= @Canal_Publicacion_Id]]></rule>
+  </businessRules>
+</dataController>

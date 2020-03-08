@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Temporal_Persona" alias="Temporal_Persona" created="2018-06-04T15:45:21" modified="2018-06-07T14:03:54" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="Temporal_Persona_Id" fieldName="Temporal_Persona_Id" label="Temporal Persona Id" />
+    <column name="Persona_Id" fieldName="Persona_Id" label="Persona Id" />
+    <column name="Nombre_Persona" fieldName="Nombre_Persona" label="Nombre Persona" />
+    <column name="Segundo_Nombre_Persona" fieldName="Segundo_Nombre_Persona" label="Segundo Nombre Persona" />
+    <column name="Apellido_Paterno" fieldName="Apellido_Paterno" label="Apellido Paterno" />
+    <column name="Apellido_Materno" fieldName="Apellido_Materno" label="Apellido Materno" />
+    <column name="Fecha_Nacimiento" fieldName="Fecha_Nacimiento" label="Fecha Nacimiento" format="g" />
+    <column name="Edad" fieldName="Edad" label="Edad" />
+    <column name="Estado_Civil" fieldName="Estado_Civil" label="Estado Civil" />
+    <column name="Genero_Persona" fieldName="Genero_Persona" label="Genero Persona" />
+    <column name="RFC_Id" fieldName="RFC_Id" label="RFC Id" />
+    <column name="CURP_Id" fieldName="CURP_Id" label="CURP Id" />
+    <column name="Domicilio_Calle" fieldName="Domicilio_Calle" label="Domicilio Calle" />
+    <column name="Domicilio_Numero_Interior" fieldName="Domicilio_Numero_Interior" label="Domicilio Numero Interior" />
+    <column name="Domicilio_Numero_Exterior" fieldName="Domicilio_Numero_Exterior" label="Domicilio Numero Exterior" />
+    <column name="Domicilio_Colonia" fieldName="Domicilio_Colonia" label="Domicilio Colonia" />
+    <column name="Domicilio_Ciudad" fieldName="Domicilio_Ciudad" label="Domicilio Ciudad" />
+    <column name="Domicilio_Pais" fieldName="Domicilio_Pais" label="Domicilio Pais" />
+    <column name="Domicilio_CP" fieldName="Domicilio_CP" label="Domicilio CP" />
+    <column name="Domicilio_Entre_Calles" fieldName="Domicilio_Entre_Calles" label="Domicilio Entre Calles" />
+    <column name="Latitud" fieldName="Latitud" label="Latitud" />
+    <column name="Longitud" fieldName="Longitud" label="Longitud" />
+    <column name="Tipo_Domicilio" fieldName="Tipo_Domicilio" label="Tipo Domicilio" />
+    <column name="Maximo_Nivel_Escolaridad" fieldName="Maximo_Nivel_Escolaridad" label="Maximo Nivel Escolaridad" />
+    <column name="Institucion_Educativa" fieldName="Institucion_Educativa" label="Institucion Educativa" />
+    <column name="Programa_Curso" fieldName="Programa_Curso" label="Programa Curso" />
+    <column name="Conocimiento" fieldName="Conocimiento" label="Conocimiento" />
+    <column name="Contacto" fieldName="Contacto" label="Contacto" />
+    <column name="Longitud_Tipo_Contacto" fieldName="Longitud_Tipo_Contacto" label="Longitud Tipo Contacto" />
+    <column name="Notas" fieldName="Notas" label="Notas" />
+    <column name="Mensaje_Sistema_Id" fieldName="Mensaje_Sistema_Id" label="Mensaje Sistema Id" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" />
+    <column name="Ciudad_Nacimiento" fieldName="Ciudad_Nacimiento" label="Ciudad Nacimiento" />
+    <column name="Estado_Nacimiento" fieldName="Estado_Nacimiento" label="Estado Nacimiento" />
+    <column name="Pais_Nacimiento" fieldName="Pais_Nacimiento" label="Pais Nacimiento" />
+    <column name="Tipo_Domicilio_Identificador" fieldName="Tipo_Domicilio_Identificador" label="Tipo Domicilio Identificador" />
+    <column name="Tipo_Institucion_Educativa" fieldName="Tipo_Institucion_Educativa" label="Tipo Institucion Educativa" />
+    <column name="Lista_Tipo_Conocimiento_Id" fieldName="Lista_Tipo_Conocimiento_Id" label="Lista Tipo Conocimiento Id" />
+    <column name="Tipo_Conocimiento" fieldName="Tipo_Conocimiento" label="Tipo Conocimiento" />
+    <column name="Nivel_Conocimiento" fieldName="Nivel_Conocimiento" label="Nivel Conocimiento" />
+    <column name="Tipo_Contacto" fieldName="Tipo_Contacto" label="Tipo Contacto" />
+  </columns>
+</dataModel>

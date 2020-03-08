@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Publicacion_Vacante" conflictDetection="overwriteChanges" label="Publicacion Vacante" handler="arhmexico.Rules.Publicacion_VacanteBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Publicacion_Vacante"."Publicacion_Vacante_Id" "Publicacion_Vacante_Id"
+	,"Publicacion_Vacante"."Publicacion_HTML" "Publicacion_HTML"
+	,"Publicacion_Vacante"."Liga_Publicacion" "Liga_Publicacion"
+	,"Publicacion_Vacante"."Canal_Publicacion_Id" "Canal_Publicacion_Id"
+	,"Canal_Publicacion_"."Canal_Publicacion" "Canal_Publicacion"
+	,"Publicacion_Vacante"."Fecha_Publicacion" "Fecha_Publicacion"
+	,"Publicacion_Vacante"."Estatus_Procesamiento_Id" "Estatus_Procesamiento_Id"
+	,"Estatus_Procesamiento_"."Estatus_Procesamiento" "Estatus_Procesamiento_Estatus_Procesamiento"
+	,"Publicacion_Vacante"."Numero_Intentos" "Numero_Intentos"
+	,"Publicacion_Vacante"."Mensaje_Sistema_Id" "Mensaje_Sistema_Id"
+	,"Mensaje_Sistema_"."Mensaje_Sistema" "Mensaje_Sistema_Mensaje_Sistema"
+	,"Publicacion_Vacante"."Transaccion_Id" "Transaccion_Id"
+	,"Publicacion_Vacante"."Creado_Por_Id" "Creado_Por_Id"
+	,"cpUsuario_V"."UserName" "cpUserName"
+	,"Publicacion_Vacante"."Fecha_Creacion" "Fecha_Creacion"
+	,"Publicacion_Vacante"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"apUsuario_V"."UserName" "apUserName"
+	,"Publicacion_Vacante"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Publicacion_Vacante"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Publicacion_Vacante"."Vacante_Id" "VacanteId"
+	,"Vacante"."Vacante" "Vacante"
+	,"Publicacion_Vacante"."Publicacion_Texto" "Publicacion_Texto"
+	,"Publicacion_Vacante"."Publicacion_Vacante_Key" "PublicacionVacanteKey"
+from "dbo"."Publicacion_Vacante" "Publicacion_Vacante"
+	left join "APP"."Canal_Publicacion" "Canal_Publicacion_" on "Publicacion_Vacante"."Canal_Publicacion_Id" = "Canal_Publicacion_"."Canal_Publicacion_Id"
+	left join "dbo"."Estatus_Procesamiento" "Estatus_Procesamiento_" on "Publicacion_Vacante"."Estatus_Procesamiento_Id" = "Estatus_Procesamiento_"."Estatus_Procesamiento_Id"
+	left join "dbo"."Mensaje_Sistema" "Mensaje_Sistema_" on "Publicacion_Vacante"."Mensaje_Sistema_Id" = "Mensaje_Sistema_"."Mensaje_Sistema_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Publicacion_Vacante"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cpUsuario_V" on "Publicacion_Vacante"."Creado_Por_Id" = "cpUsuario_V"."UserId"
+	left join "dbo"."Usuario_V" "apUsuario_V" on "Publicacion_Vacante"."Actualizado_Por_Id" = "apUsuario_V"."UserId"
+	left join "APP"."Vacante" "Vacante" on "Publicacion_Vacante"."Vacante_Id" = "Vacante"."Vacante_Id"
+]]></text>
+    </command>
+    <command id="Publicacion_Vacante_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Publicacion_Vacante_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Publicacion_Vacante_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Publicacion Vacante Id" readOnly="true" />
+    <field name="Publicacion_HTML" type="String" allowNulls="false" default="('')" allowQBE="false" allowSorting="false" label="Publicación HTML" showInSummary="true" htmlEncode="false" />
+    <field name="Liga_Publicacion" type="String" allowNulls="false" default="('')" label="Liga de Publicación" length="500" showInSummary="true" />
+    <field name="Canal_Publicacion_Id" type="Int32" allowNulls="false" default="((0))" label="Canal Publicacion Id" showInSummary="true">
+      <items style="Lookup" dataController="Canal_Publicacion" newDataView="createForm1" dataValueField="Canal_Publicacion_Id" dataTextField="Canal_Publicacion" dataView="Canal_Publicacion_LookUp_List" />
+    </field>
+    <field name="Canal_Publicacion" type="String" readOnly="true" label="Canal de Publicación" length="150" />
+    <field name="Fecha_Publicacion" type="DateTime" allowNulls="false" dataFormatString="d" label="Fecha de Publicación" showInSummary="true" />
+    <field name="Estatus_Procesamiento_Id" type="Int32" allowNulls="false" default="((0))" label="Estatus Procesamiento Id" showInSummary="true">
+      <items style="Lookup" dataController="Estatus_Procesamiento" newDataView="createForm1" dataValueField="Estatus_Procesamiento_Id" dataTextField="Estatus_Procesamiento" dataView="Estatus_Procesamiento_LookUp_List" copy="Estatus_Procesamiento_Estatus_Procesamiento=Estatus_Procesamiento" />
+    </field>
+    <field name="Estatus_Procesamiento_Estatus_Procesamiento" type="String" readOnly="true" label="Estatus de Procesamiento" length="150" />
+    <field name="Numero_Intentos" type="Int32" allowNulls="false" default="((0))" label="Número de Intentos" />
+    <field name="Mensaje_Sistema_Id" type="Int32" allowNulls="false" default="((0))" label="Mensaje Sistema Id">
+      <items style="Lookup" dataController="Mensaje_Sistema" newDataView="createForm1" dataValueField="Mensaje_Sistema_Id" dataTextField="Mensaje_Sistema" dataView="Mensaje_Sistema_LookUp_List" />
+    </field>
+    <field name="Mensaje_Sistema_Mensaje_Sistema" type="String" readOnly="true" label="Mensaje de Sistema" length="250" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transaccion Id" length="50" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="VacanteId" type="Int32" allowNulls="false" default="((0))" label="Vacante Id">
+      <items style="Lookup" dataController="Vacante" newDataView="createForm1" dataValueField="Vacante_Id" dataTextField="Vacante" />
+    </field>
+    <field name="Vacante" type="String" readOnly="true" label="Vacante" length="150" />
+    <field name="Publicacion_Texto" type="String" allowNulls="false" default="('')" allowQBE="false" allowSorting="false" label="Publicación" />
+    <field name="PublicacionVacanteKey" type="Guid" allowNulls="false" default="(newid())" label="Publicacion Vacante Key" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Publicación Vacante" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" sortExpression="Vacante" filter="Estatus_Registro_Id = 1">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Publicacion_Vacante_Id" columns="15" hidden="true" />
+        <dataField fieldName="VacanteId" aliasFieldName="Vacante" />
+        <dataField fieldName="Canal_Publicacion_Id" aliasFieldName="Canal_Publicacion" />
+        <dataField fieldName="Publicacion_Texto" rows="5" hidden="true" />
+        <dataField fieldName="Publicacion_HTML" rows="5" />
+        <dataField fieldName="Fecha_Publicacion" columns="10" />
+        <dataField fieldName="Liga_Publicacion" />
+        <dataField fieldName="Estatus_Procesamiento_Id" aliasFieldName="Estatus_Procesamiento_Estatus_Procesamiento" />
+        <dataField fieldName="Numero_Intentos" columns="15" />
+        <dataField fieldName="Mensaje_Sistema_Id" aliasFieldName="Mensaje_Sistema_Mensaje_Sistema" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="10" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="10" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Vacante" rows="5" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Publicación de Vacante" sortExpression="Vacante" filter="Estatus_Registro_Id = 1" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="VacanteId" aliasFieldName="Vacante" />
+            <dataField fieldName="Canal_Publicacion_Id" aliasFieldName="Canal_Publicacion" />
+            <dataField fieldName="Publicacion_Texto" rows="5" />
+            <dataField fieldName="Publicacion_HTML" rows="5">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Fecha_Publicacion" columns="10" />
+            <dataField fieldName="Liga_Publicacion" hidden="true" />
+            <dataField fieldName="Estatus_Procesamiento_Id" aliasFieldName="Estatus_Procesamiento_Estatus_Procesamiento" hidden="true" />
+            <dataField fieldName="Numero_Intentos" columns="15" hidden="true" />
+            <dataField fieldName="Mensaje_Sistema_Id" aliasFieldName="Mensaje_Sistema_Mensaje_Sistema" hidden="true" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="PublicacionVacanteKey" columns="15" />
+            <dataField fieldName="Publicacion_Vacante_Id" columns="15" hidden="true" />
+            <dataField fieldName="Vacante" rows="5" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nueva Publicación de Vacante" filter="Estatus_Registro_Id = 1" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Publicacion_Vacante_Id" columns="15" hidden="true" />
+            <dataField fieldName="VacanteId" aliasFieldName="Vacante" />
+            <dataField fieldName="Canal_Publicacion_Id" aliasFieldName="Canal_Publicacion" />
+            <dataField fieldName="Publicacion_Texto" rows="5" />
+            <dataField fieldName="Fecha_Publicacion" columns="10" />
+            <dataField fieldName="Liga_Publicacion" hidden="true" />
+            <dataField fieldName="Estatus_Procesamiento_Id" aliasFieldName="Estatus_Procesamiento_Estatus_Procesamiento" hidden="true" />
+            <dataField fieldName="Numero_Intentos" columns="15" hidden="true" />
+            <dataField fieldName="Mensaje_Sistema_Id" aliasFieldName="Mensaje_Sistema_Mensaje_Sistema" hidden="true" />
+            <dataField fieldName="PublicacionVacanteKey" columns="15" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE
+	dbo.Publicacion_Vacante
+SET
+	Estatus_Registro_Id = 3
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Publicacion_Vacante_Id= @Publicacion_Vacante_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE
+	dbo.Publicacion_Vacante
+SET
+	Estatus_Registro_Id = 3
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Publicacion_Vacante_Id= @Publicacion_Vacante_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Custom" commandArgument="EXECSQL02" headerText="Guardar" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Custom" commandArgument="EXECSQL01" headerText="Guardar" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE
+	dbo.Publicacion_Vacante
+SET
+	Estatus_Registro_Id = 3
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Publicacion_Vacante_Id= @Publicacion_Vacante_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE
+	dbo.Publicacion_Vacante
+SET
+	Estatus_Registro_Id = 3
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Publicacion_Vacante_Id= @Publicacion_Vacante_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Custom" type="Sql" phase="Before" commandArgument="EXECSQL01"><![CDATA[DECLARE @Existe BIT
+DECLARE @Es_Twitter BIT
+DECLARE @Cantidad_Caracteres_Tweet INT
+
+SET @Existe = 0
+SET @Es_Twitter = 0
+SET @Cantidad_Caracteres_Tweet = 0
+
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		dbo.Publicacion_Vacante
+	WHERE
+  		Vacante_Id=@VacanteId
+  		AND Canal_Publicacion_Id=@Canal_Publicacion_Id
+  		AND Estatus_Procesamiento_Id=0
+),0)
+
+
+SET @Cantidad_Caracteres_Tweet = LEN(@Publicacion_Texto)
+
+SET @Es_Twitter = IsNULL((
+	SELECT
+		Es_Twitter
+	FROM
+		APP.Canal_Publicacion
+	WHERE
+		Canal_Publicacion_Id = @Canal_Publicacion_Id
+),0)
+
+IF @Es_Twitter = 1 AND @Cantidad_Caracteres_Tweet > 150
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'El tweet debe contener 150 caracteres o menos.'
+   SET @Result_ShowAlert = 'El tweet debe contener 150 caracteres o menos.'
+END
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe una publicación de esta vacante en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya existe una publicación de esta vacante en la base de datos, favor de corregir.'
+   RETURN
+END]]></rule>
+    <rule id="r101" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	dbo.Publicacion_Vacante
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Publicacion_Vacante_Id= @Publicacion_Vacante_Id]]></rule>
+    <rule id="r102" commandName="Custom" type="Sql" phase="Before" commandArgument="EXECSQL02"><![CDATA[DECLARE @Existe BIT
+DECLARE @Es_Twitter BIT
+DECLARE @Cantidad_Caracteres_Tweet INT
+
+SET @Existe = 0
+SET @Es_Twitter = 0
+SET @Cantidad_Caracteres_Tweet = 0
+
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		dbo.Publicacion_Vacante
+	WHERE
+  		Publicacion_Vacante_Id<>@Publicacion_Vacante_Id
+  		AND Vacante_Id=@VacanteId
+  		AND Canal_Publicacion_Id=@Canal_Publicacion_Id
+  		AND Estatus_Procesamiento_Id=0
+),0)
+
+SET @Cantidad_Caracteres_Tweet = LEN(@Publicacion_HTML)
+
+SET @Es_Twitter = IsNULL((
+	SELECT
+		Es_Twitter
+	FROM
+		APP.Canal_Publicacion
+	WHERE
+		Canal_Publicacion_Id = @Canal_Publicacion_Id
+),0)
+
+IF @Es_Twitter = 1 AND @Cantidad_Caracteres_Tweet > 280
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'El tweet debe contener 280 caracteres o menos.'
+   SET @Result_ShowAlert = 'El tweet debe contener 280 caracteres o menos.'
+END
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe una publicación de esta vacante en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya existe una publicación de esta vacante en la base de datos, favor de corregir.'
+   RETURN
+END]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	dbo.Publicacion_Vacante
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Publicacion_Vacante_Id= @Publicacion_Vacante_Id]]></rule>
+    <rule id="r104" commandName="Custom" commandArgument="EXECSQL01" type="Code" phase="After" />
+    <rule id="r105" commandName="Custom" commandArgument="EXECSQL02" type="Code" phase="Before" />
+  </businessRules>
+</dataController>

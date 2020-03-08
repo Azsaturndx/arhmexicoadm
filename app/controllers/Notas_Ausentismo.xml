@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Notas_Ausentismo" label="Notas_Ausentismo" conflictDetection="overwriteChanges" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <fields>
+    <field name="Notas_Autorizacion_Rechazo" type="String" label="Notas Autorización/Rechazo" length="5000" />
+  </fields>
+</dataController>

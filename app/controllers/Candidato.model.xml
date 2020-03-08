@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Candidato" alias="Candidato" created="2018-05-20T22:29:38" modified="2018-07-16T06:35:25" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Persona_" parentTableSchema="APP" parentTableName="Persona" x="405" y="20">
+      <foreignKeyColumn columnName="Persona_Id" parentColumnName="Persona_Id" />
+    </foreignKey>
+    <foreignKey id="Vacante_" parentTableSchema="APP" parentTableName="Vacante" x="405" y="342">
+      <foreignKeyColumn columnName="Vacante_Id" parentColumnName="Vacante_Id" />
+    </foreignKey>
+    <foreignKey id="Vacante_Cliente_" parentTableSchema="APP" parentTableName="Cliente" baseForeignKey="Vacante_" x="852" y="298">
+      <foreignKeyColumn columnName="Cliente_Id" parentColumnName="Cliente_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="405" y="618">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="cp" parentTableSchema="dbo" parentTableName="Usuario_V" x="37" y="394">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="ap" parentTableSchema="dbo" parentTableName="Usuario_V" x="838" y="116">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Candidato_Id" fieldName="Candidato_Id" label="Candidato Id" />
+    <column name="Persona_Id" fieldName="Persona_Id" label="Persona Id" aliasColumnName="Nombre" aliasForeignKey="Persona_" />
+    <column name="Nombre" fieldName="Persona_Nombre" label="Candidato" foreignKey="Persona_" />
+    <column name="Vacante_Id" fieldName="Vacante_Id" label="Vacante Id" aliasColumnName="Vacante" aliasForeignKey="Vacante_" />
+    <column name="Vacante" fieldName="Vacante_Vacante" label="Vacante" foreignKey="Vacante_" />
+    <column name="Cliente" fieldName="Vacante_Cliente_Cliente" label="Cliente" foreignKey="Vacante_Cliente_" />
+    <column name="Rechazado" fieldName="Rechazado" label="¿Fue Rechazado?" />
+    <column name="Candidato_Finalista" fieldName="Candidato_Finalista" label="¿Es Candidato Finalista?" />
+    <column name="Contratado" fieldName="Contratado" label="¿Fue Contratado?" />
+    <column name="Notas" fieldName="Notas" label="Notas" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cp" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="ap" />
+    <column name="Cliente_Id" fieldName="Cliente_Id" label="Cliente Id" />
+  </columns>
+</dataModel>

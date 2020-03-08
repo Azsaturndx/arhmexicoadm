@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="AutorizarRechazarGasto" label="AutorizarRechazarGasto" conflictDetection="overwriteChanges" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <fields>
+    <field name="Notas" type="String" label="Notas" length="500" />
+  </fields>
+  <views>
+    <view id="editForm1" type="Form" label="Agregar Nota">
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="Notas" rows="5" columns="5" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+</dataController>

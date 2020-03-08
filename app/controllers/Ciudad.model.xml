@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Ciudad" alias="Ciudad" created="2018-05-19T20:08:18" modified="2019-02-05T15:11:28" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Entidad_Pais_" parentTableSchema="APP" parentTableName="Entidad_Pais" x="405" y="20">
+      <foreignKeyColumn columnName="Entidad_Pais_Id" parentColumnName="Entidad_Pais_Id" />
+    </foreignKey>
+    <foreignKey id="Entidad_Pais_Pais_" parentTableSchema="APP" parentTableName="Pais" baseForeignKey="Entidad_Pais_" x="750" y="20">
+      <foreignKeyColumn columnName="Pais_Id" parentColumnName="Pais_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="405" y="273">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+      <foreignKeyColumn columnName="Color_Texto_Id" parentColumnName="Estatus_Registro_Orden" />
+    </foreignKey>
+    <foreignKey id="cp" parentTableSchema="dbo" parentTableName="Usuario_V" x="44" y="357">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="ap" parentTableSchema="dbo" parentTableName="Usuario_V" x="442" y="461">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Color" parentTableSchema="APP" parentTableName="Color" x="788" y="251">
+      <foreignKeyColumn columnName="Color_Texto_Id" parentColumnName="Color_Id" />
+    </foreignKey>
+    <foreignKey id="Color1" parentTableSchema="APP" parentTableName="Color" x="653" y="600">
+      <foreignKeyColumn columnName="Color_Fondo_Id" parentColumnName="Color_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Ciudad_Id" fieldName="Ciudad_Id" label="Ciudad Id" />
+    <column name="Ciudad" fieldName="Ciudad" label="Ciudad" />
+    <column name="Entidad_Pais_Id" fieldName="Entidad_Pais_Id" label="Entidad Pais Id" aliasColumnName="Entidad_Pais" aliasForeignKey="Entidad_Pais_" />
+    <column name="Entidad_Pais" fieldName="Entidad_Pais_Entidad_Pais" label="Estado de la República" foreignKey="Entidad_Pais_" />
+    <column name="Pais" fieldName="Entidad_Pais_Pais_Pais" label="Entidad Pais" foreignKey="Entidad_Pais_Pais_" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cp" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="ap" />
+    <column name="Valor_Inicio" fieldName="ValorInicio" label="Valor Inicio" />
+    <column name="Valor_Fin" fieldName="ValorFin" label="Valor Fin" />
+    <column name="Valor_Cuantitativo" fieldName="ValorCuantitativo" label="Valor Cuantitativo" />
+    <column name="Color_Texto_Id" fieldName="Color_Texto_Id" label="Color Texto Id" aliasColumnName="Color" aliasForeignKey="Color" />
+    <column name="Color" fieldName="Color_Texto" label="Color de Texto" foreignKey="Color" />
+    <column name="Color_Fondo_Id" fieldName="Color_Fondo_Id" label="Color Fondo Id" aliasColumnName="Color" aliasForeignKey="Color1" />
+    <column name="Color" fieldName="Color_Fondo" label="Color de Fondo" foreignKey="Color1" />
+  </columns>
+</dataModel>

@@ -1,0 +1,927 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Persona" conflictDetection="overwriteChanges" label="Persona" handler="arhmexico.Rules.PersonaBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Persona"."Persona_Id" "Persona_Id"
+	,"Persona"."Nombre" "Nombre"
+	,"Persona"."Apellido_Paterno" "Apellido_Paterno"
+	,"Persona"."Apellido_Materno" "Apellido_Materno"
+	,"Persona"."Segundo_Nombre" "Segundo_Nombre"
+	,"Persona"."Fecha_Nacimiento" "Fecha_Nacimiento"
+	,"Persona"."Lugar_Nacimiento_Id" "Lugar_Nacimiento_Id"
+	,"Lugar_Nacimiento_"."Ciudad" "Lugar_Nacimiento_Ciudad"
+	,"Lugar_Nacimiento_Entidad_Pais_"."Entidad_Pais" "Lugar_Nacimiento_Entidad_Pais_Entidad_Pais"
+	,"Lugar_Nacimiento_Entidad_Pais_Pais_"."Pais" "Lugar_Nacimiento_Entidad_Pais_Pais_Pais"
+	,"Persona"."Maximo_Nivel_Escolaridad_Id" "Maximo_Nivel_Escolaridad_Id"
+	,"Maximo_Nivel_Escolaridad_"."Nivel_Escolaridad" "Maximo_Nivel_Escolaridad_Nivel_Escolaridad"
+	,"Persona"."Estado_Civil_Id" "Estado_Civil_Id"
+	,"Estado_Civil_"."Estado_Civil" "Estado_Civil_Estado_Civil"
+	,"Persona"."Genero_Persona_Id" "Genero_Persona_Id"
+	,"Genero"."Genero" "Genero_Persona"
+	,"Persona"."Picture" "Picture"
+	,"Persona"."PictureFileName" "PictureFileName"
+	,"Persona"."PictureContentType" "PictureContentType"
+	,"Persona"."PictureLength" "PictureLength"
+	,"Persona"."Registro_Federal_Causante_Id" "Registro_Federal_Causante_Id"
+	,"Persona"."Curp_Id" "Curp_Id"
+	,"Persona"."Notas" "Notas"
+	,"Persona"."Fecha_Creacion" "Fecha_Creacion"
+	,"Persona"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Persona"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"cp"."UserName" "cpUserName"
+	,"ap"."UserName" "apUserName"
+	,"Persona"."Transaccion_Id" "Transaccion_Id"
+	,"Persona"."Creado_Por_Id" "Creado_Por_Id"
+	,"Persona"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"Persona"."Numero_Imss" "Numero_Imss"
+	,"Persona"."Cliente_Id" "Cliente_Id"
+	,"Cliente"."Cliente" "Cliente"
+	,"Persona"."Persona_Key" "Persona_Key"
+	,"Persona"."Estatus_Persona_Id" "Estatus_Persona_Id"
+	,"Estatus_Persona"."Estatus_Persona" "Estatus_Persona_Estatus_Persona"
+from "APP"."Persona" "Persona"
+	left join "APP"."Ciudad" "Lugar_Nacimiento_" on "Persona"."Lugar_Nacimiento_Id" = "Lugar_Nacimiento_"."Ciudad_Id"
+	left join "APP"."Entidad_Pais" "Lugar_Nacimiento_Entidad_Pais_" on "Lugar_Nacimiento_"."Entidad_Pais_Id" = "Lugar_Nacimiento_Entidad_Pais_"."Entidad_Pais_Id"
+	left join "APP"."Pais" "Lugar_Nacimiento_Entidad_Pais_Pais_" on "Lugar_Nacimiento_Entidad_Pais_"."Pais_Id" = "Lugar_Nacimiento_Entidad_Pais_Pais_"."Pais_Id"
+	left join "APP"."Nivel_Escolaridad" "Maximo_Nivel_Escolaridad_" on "Persona"."Maximo_Nivel_Escolaridad_Id" = "Maximo_Nivel_Escolaridad_"."Nivel_Escolaridad_Id"
+	left join "APP"."Estado_Civil" "Estado_Civil_" on "Persona"."Estado_Civil_Id" = "Estado_Civil_"."Estado_Civil_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Persona"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cp" on "Persona"."Creado_Por_Id" = "cp"."UserId"
+	left join "dbo"."Usuario_V" "ap" on "Persona"."Actualizado_Por_Id" = "ap"."UserId"
+	left join "APP"."Cliente" "Cliente" on "Persona"."Cliente_Id" = "Cliente"."Cliente_Id"
+	left join "APP"."Estatus_Persona" "Estatus_Persona" on "Persona"."Estatus_Persona_Id" = "Estatus_Persona"."Estatus_Persona_Id"
+	left join "APP"."Genero" "Genero" on "Persona"."Genero_Persona_Id" = "Genero"."Genero_Id"
+]]></text>
+    </command>
+    <command id="Persona_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Persona_Id" />
+      </output>
+    </command>
+    <command type="Text" id="Grid_Persona" custom="false" tableName="APP.Persona">
+      <text><![CDATA[SELECT Persona_Id
+      ,Nombre
+      ,Segundo_Nombre
+      ,Apellido_Paterno
+      ,Apellido_Materno
+      ,Genero_Persona_Id
+      ,Genero_Persona
+      ,Lugar_Nacimiento_Id
+      ,Lugar_Nacimiento_Ciudad
+      ,Maximo_Nivel_Escolaridad_Id
+      ,Maximo_Nivel_Escolaridad_Nivel_Escolaridad
+      ,Estado_Civil_Id
+      ,Estado_Civil_Estado_Civil
+      ,Estatus_Registro_Id
+      ,Estatus_Registro_Estatus_Registro
+      ,cpUserName
+      ,Fecha_Creacion
+      ,apUserName
+      ,Fecha_Ultima_Actualizacion
+      ,Notas
+      ,Curp_Id
+      ,Registro_Federal_Causante_Id
+      ,Fecha_Nacimiento
+      ,Lugar_Nacimiento_Entidad_Pais_Entidad_Pais
+      ,Lugar_Nacimiento_Entidad_Pais_Pais_Pais
+	  ,Estatus_Persona_Id
+	  ,Estatus_Persona_Estatus_Persona
+	  ,Picture
+	  ,PictureFileName
+	  ,PictureContentType
+	  ,PictureLength	  
+	  ,Nombre_Completo
+	  ,Lugar_Nacimiento_Ciudad
+	  ,Edad
+	  ,Cliente_Id
+	  ,Cliente
+	  ,Numero_Imss
+	  ,Persona_Key
+	  ,Significa_Vigente_Con_Interes_Por_Laborar
+	  ,Contratado
+	  ,Es_Vista_Aspirante
+		,Religion_Id
+      ,Religion
+      ,Orientacion_Sexual_Id
+      ,Orientacion_Sexual
+      ,Disposicion_A_Mobilidad
+      ,Disposicion_A_Cambio_Domicilio
+      ,Estatura
+      ,Peso
+      ,Complexion_Fisica_Id
+      ,Complexion_Fisica
+      ,Tiene_Tatuajes
+      ,Tiene_Tatuajes_Visibles
+      ,Estado_Salud_Id
+      ,Estado_Salud
+      ,Sufre_Diabetes
+      ,Problemas_Presion_Arterial_Id
+      ,Problemas_Presion_Arterial
+      ,Consumo_Estupefacientes
+      ,Padece_Discapacidad
+      ,Color_Piel_Id
+      ,Color_Piel
+      ,Mostrar_Religion_A_Aspirante
+      ,Mostrar_Orientacion_Sexual_A_Aspirante
+      ,Mostrar_Senas_Particulares_A_Aspirante
+      ,Permite_Cancelar_Solicitud_Vacaciones
+  FROM dbo.Grid_Persona_V]]></text>
+    </command>
+    <command type="Text" id="EditForm_Persona" tableName="APP.Persona" custom="false">
+      <text><![CDATA[SELECT Persona_Id
+      ,Nombre
+      ,Segundo_Nombre
+      ,Apellido_Paterno
+      ,Apellido_Materno
+      ,Genero_Persona_Id
+      ,Genero_Persona_Genero
+      ,Lugar_Nacimiento_Id
+      ,Maximo_Nivel_Escolaridad_Id
+      ,Maximo_Nivel_Escolaridad_Nivel_Escolaridad
+      ,Estado_Civil_Id
+      ,Estado_Civil_Estado_Civil
+      ,Estatus_Registro_Id
+      ,Estatus_Registro_Estatus_Registro
+      ,cpUserName
+      ,Fecha_Creacion
+      ,apUserName
+      ,Fecha_Ultima_Actualizacion
+      ,Notas
+      ,Curp_Id
+      ,Registro_Federal_Causante_Id
+      ,Fecha_Nacimiento
+      ,Lugar_Nacimiento_Entidad_Pais_Entidad_Pais
+      ,Lugar_Nacimiento_Entidad_Pais_Pais_Pais
+      ,Nombre_Completo
+      ,Lugar_Nacimiento_Ciudad
+      ,Picture
+      ,PictureFileName
+      ,PictureContentType
+      ,PictureLength
+  FROM dbo.EditForm_Persona_V]]></text>
+    </command>
+    <command type="Text" id="Persona_Cliente_V" tableName="APP.Persona" custom="false">
+      <text><![CDATA[SELECT
+	Persona_Id
+	,Nombre
+	,Apellido_Paterno
+	,Apellido_Materno
+	,Segundo_Nombre
+	,Fecha_Nacimiento
+	,Lugar_Nacimiento_Id
+	,Lugar_Nacimiento_Ciudad
+	,Lugar_Nacimiento_Entidad_Pais_Entidad_Pais
+	,Lugar_Nacimiento_Entidad_Pais_Pais_Pais
+	,Maximo_Nivel_Escolaridad_Id
+	,Maximo_Nivel_Escolaridad_Nivel_Escolaridad
+	,Estado_Civil_Id
+	,Estado_Civil_Estado_Civil
+	,Genero_Persona_Id
+	,Genero_Persona
+	,Picture
+	,PictureFileName
+	,PictureContentType
+	,PictureLength
+	,Registro_Federal_Causante_Id
+	,Curp_Id
+	,Notas
+	,Fecha_Creacion
+	,Fecha_Ultima_Actualizacion
+	,Estatus_Registro_Id
+	,Estatus_Registro_Estatus_Registro
+	,cpUserName
+	,apUserName
+	,Cliente_Id
+	,Cliente
+	,Persona_Key
+	,Estatus_Persona_Id
+	,Estatus_Persona_Estatus_Persona
+	,Nombre_Completo
+	,UserId
+	
+FROM
+	dbo.Persona_Cliente_V]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Persona_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Persona Id" readOnly="true" />
+    <field name="Nombre" type="String" allowNulls="false" label="Nombre" length="150" showInSummary="true" />
+    <field name="Apellido_Paterno" type="String" allowNulls="false" label="Apellido Paterno" length="150" showInSummary="true" />
+    <field name="Apellido_Materno" type="String" default="('')" label="Apellido Materno" length="150" showInSummary="true" />
+    <field name="Segundo_Nombre" type="String" default="('')" label="Segundo Nombre" length="150" showInSummary="true" />
+    <field name="Fecha_Nacimiento" type="DateTime" dataFormatString="d" label="Fecha de Nacimiento" showInSummary="true" />
+    <field name="Lugar_Nacimiento_Id" type="Int32" allowNulls="false" default="((0))" label="Lugar Nacimiento Id">
+      <items style="Lookup" dataController="Ciudad" newDataView="createForm1" dataValueField="Ciudad_Id" dataTextField="Ciudad" copy="Lugar_Nacimiento_Entidad_Pais_Entidad_Pais=Entidad_Pais_Entidad_Pais, Lugar_Nacimiento_Entidad_Pais_Pais_Pais=Entidad_Pais_Pais_Pais" dataView="Ciudad_LookUp_List" />
+    </field>
+    <field name="Lugar_Nacimiento_Ciudad" type="String" readOnly="true" label="Ciudad de Nacimiento" length="150" />
+    <field name="Lugar_Nacimiento_Entidad_Pais_Entidad_Pais" type="String" readOnly="true" label="País de Nacimiento" length="150" />
+    <field name="Lugar_Nacimiento_Entidad_Pais_Pais_Pais" type="String" readOnly="true" label="Estado de la República de Nacimiento" length="150" />
+    <field name="Maximo_Nivel_Escolaridad_Id" type="Int32" allowNulls="false" default="((0))" label="Maximo Nivel Escolaridad Id">
+      <items style="Lookup" dataController="Nivel_Escolaridad" newDataView="createForm1" dataValueField="Nivel_Escolaridad_Id" dataTextField="Nivel_Escolaridad" dataView="Nivel_Escolaridad_LookUp_List" />
+    </field>
+    <field name="Maximo_Nivel_Escolaridad_Nivel_Escolaridad" type="String" readOnly="true" label="Máximo Nivel de Escolaridad" length="150" />
+    <field name="Estado_Civil_Id" type="Int32" allowNulls="false" default="((0))" label="Estado Civil Id">
+      <items style="Lookup" dataController="Estado_Civil" newDataView="createForm1" dataValueField="Estado_Civil_Id" dataTextField="Estado_Civil" dataView="Estado_Civil_LookUp_List" />
+    </field>
+    <field name="Estado_Civil_Estado_Civil" type="String" readOnly="true" label="Estado Civil" length="150" />
+    <field name="Genero_Persona_Id" type="Int32" allowNulls="false" default="((0))" label="Genero Persona Id">
+      <items style="Lookup" dataController="Genero" newDataView="createForm1" dataValueField="Genero_Id" dataTextField="Genero" dataView="Genero_LookUp_List" />
+    </field>
+    <field name="Genero_Persona" type="String" readOnly="true" label="Genero de Persona" length="150" />
+    <field name="Picture" type="Byte[]" onDemand="true" sourceFields="Persona_Id" onDemandHandler="PPicture" onDemandStyle="Thumbnail" allowQBE="false" allowSorting="false" label="Fotografía" />
+    <field name="PictureFileName" type="String" label="Nombre Archivo Fotografía" length="250" />
+    <field name="PictureContentType" type="String" label="Tipo de Archivo Fotografía" length="250" />
+    <field name="PictureLength" type="Int32" label="Tamaño Fotografía" />
+    <field name="Registro_Federal_Causante_Id" type="String" default="('NA')" label="RFC" length="13" />
+    <field name="Curp_Id" type="String" default="('NA')" label="CURP" length="18" />
+    <field name="Notas" type="String" allowQBE="false" allowSorting="false" label="Notas" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Numero_Imss" type="String" label="Número de IMSS" length="11" />
+    <field name="Cliente_Id" type="Int32" allowNulls="false" default="((0))" label="Cliente Id">
+      <items style="Lookup" dataController="Cliente" newDataView="createForm1" dataValueField="Cliente_Id" dataTextField="Cliente" dataView="Cliente_Admin_LookUp_List" copy="Mostrar_Religion_A_Aspirante=Mostrar_Religion_A_Aspirante&#xD;&#xA;Mostrar_Orientacion_Sexual_A_Aspirante=Mostrar_Orientacion_Sexual_A_Aspirante&#xD;&#xA;Mostrar_Senas_Particulares_A_Aspirante=Mostrar_Senas_Particulares_A_Aspirante&#xD;&#xA;Permite_Cancelar_Solicitud_Vacaciones=Permite_Cancelar_Solicitud_Vacaciones" />
+    </field>
+    <field name="Cliente" type="String" readOnly="true" label="Cliente" length="150" />
+    <field name="Persona_Key" type="String" allowNulls="false" default="(newid())" label="Persona Key" length="50" roles="Administrators" writeRoles="Administrators" />
+    <field name="Estatus_Persona_Id" type="Int32" allowNulls="false" default="((0))" label="Estatus Persona Id">
+      <items style="Lookup" dataController="Estatus_Persona" newDataView="createForm1" dataValueField="Estatus_Persona_Id" dataTextField="Estatus_Persona" dataView="Estatus_Persona_LookUp_List" />
+    </field>
+    <field name="Estatus_Persona_Estatus_Persona" type="String" readOnly="true" label="Estatus de Persona" length="250" />
+    <field name="Nombre_Completo" type="String" readOnly="true" label="Nombre Completo" length="604" />
+    <field name="Edad" type="Int32" readOnly="true" label="Edad" />
+    <field name="Correo_Personal" type="String" label="Correo Personal" length="5000" />
+    <field name="Numero_Celular_Personal" type="String" label="Número de Celular Personal" length="150" />
+    <field name="UserId" type="String" label="User Id" length="50" />
+    <field name="PathToImage" type="String" readOnly="true" label="Imagen" computed="true" htmlEncode="false" dataFormatString="&lt;img src=&quot;../images/{0}.png&quot; style=&quot;width: 100px; border-radius: 10px;&quot;/&gt;">
+      <formula>Persona_Id</formula>
+    </field>
+    <field name="Significa_Vigente_Con_Interes_Por_Laborar" type="Boolean" label="¿Significa Vigente Con Interes Por Laborar?" allowNulls="false">
+      <items style="CheckBox" />
+    </field>
+    <field name="Contratado" type="Boolean" readOnly="true" label="¿Contratado?" allowNulls="false">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Vista_Aspirante" type="Boolean" readOnly="true" label="Es Aspirante" allowNulls="false">
+      <items style="CheckBox" />
+    </field>
+    <field name="Acceso_Servicio_ARH_Evaluaciones" type="Boolean" readOnly="true" label="Acceso Servicio ARH Evaluaciones" allowNulls="false">
+      <items style="CheckBox" />
+    </field>
+    <field name="Religion_Id" type="Int32" label="Religion Id">
+      <items style="Lookup" dataController="Rango_Valor_Religion" dataView="Rango_Valor_LookUp_List" dataTextField="Valor_Cualitativo" dataValueField="Rango_Valor_Id" newDataView="createForm1" />
+    </field>
+    <field name="Religion" type="String" readOnly="true" label="Religión" length="250" />
+    <field name="Orientacion_Sexual_Id" type="Int32" label="Orientacion Sexual Id">
+      <items style="Lookup" dataController="Rango_Valor_Orientacion_Sexual" dataView="Rango_Valor_LookUp_List" dataTextField="Valor_Cualitativo" dataValueField="Rango_Valor_Id" newDataView="createForm1" />
+    </field>
+    <field name="Orientacion_Sexual" type="String" readOnly="true" label="Orientación Sexual" length="250" />
+    <field name="Disposicion_A_Mobilidad" type="Boolean" label="¿Disposición A Mobilidad?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Disposicion_A_Cambio_Domicilio" type="Boolean" label="¿Disposición A Cambio Domicilio?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Estatura" type="Decimal" label="Estatura" />
+    <field name="Peso" type="Decimal" label="Peso" />
+    <field name="Complexion_Fisica_Id" type="Int32" label="Complexion Fisica Id">
+      <items style="Lookup" dataController="Rango_Valor_Complexion_Fisica" dataView="Rango_Valor_LookUp_List" dataTextField="Valor_Cualitativo" dataValueField="Rango_Valor_Id" newDataView="createForm1" />
+    </field>
+    <field name="Complexion_Fisica" type="String" readOnly="true" label="Complexión Fisica" length="250" />
+    <field name="Tiene_Tatuajes" type="Boolean" label="¿Tiene Tatuajes?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Tiene_Tatuajes_Visibles" type="Boolean" label="¿Tiene Tatuajes Visibles?" />
+    <field name="Estado_Salud_Id" type="Int32" label="Estado Salud Id">
+      <items style="Lookup" dataController="Rango_Valor_Estado_Salud_Aparente" dataView="Rango_Valor_LookUp_List" dataTextField="Valor_Cualitativo" dataValueField="Rango_Valor_Id" newDataView="createForm1" />
+    </field>
+    <field name="Estado_Salud" type="String" readOnly="true" label="Estado de Salud" length="250" />
+    <field name="Sufre_Diabetes" type="Boolean" label="¿Sufre Diabetes?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Problemas_Presion_Arterial_Id" type="Int32" label="Problemas Presion Arterial Id">
+      <items style="Lookup" dataController="Rango_Valor_Problemas_Presion_Artereal" dataView="Rango_Valor_LookUp_List" dataTextField="Valor_Cualitativo" dataValueField="Rango_Valor_Id" newDataView="createForm1" />
+    </field>
+    <field name="Consumo_Estupefacientes" type="Boolean" label="¿Consumo Estupefacientes?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Padece_Discapacidad" type="Boolean" label="¿Padece Discapacidad?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Color_Piel_Id" type="Int32" label="Color Piel Id">
+      <items style="Lookup" dataController="Rango_Valor_Color_Piel" dataView="Rango_Valor_LookUp_List" dataTextField="Valor_Cualitativo" dataValueField="Rango_Valor_Id" newDataView="createForm1" />
+    </field>
+    <field name="Color_Piel" type="String" readOnly="true" label="Color de Piel" length="250" />
+    <field name="Mostrar_Religion_A_Aspirante" type="Boolean" readOnly="true" label="Mostrar Religion A Aspirante" />
+    <field name="Mostrar_Orientacion_Sexual_A_Aspirante" type="Boolean" label="Mostrar Orientacion Sexual A Aspirante" readOnly="true" />
+    <field name="Mostrar_Senas_Particulares_A_Aspirante" type="Boolean" readOnly="true" label="Mostrar Senas Particulares A Aspirante" />
+    <field name="Permite_Cancelar_Solicitud_Vacaciones" type="Boolean" readOnly="true" label="Permite Cancelar Solicitud Vacaciones" />
+    <field name="Problemas_Presion_Arterial" type="String" readOnly="true" label="Problemas Presión Arterial" length="250" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="Grid_Persona" label="Personas" sortExpression="Nombre,Segundo_Nombre,Apellido_Paterno,Apellido_Materno" filter="Estatus_Registro_Id = 1" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Persona_Id" columns="15" hidden="true" />
+        <dataField fieldName="Nombre" />
+        <dataField fieldName="Segundo_Nombre" />
+        <dataField fieldName="Apellido_Paterno" />
+        <dataField fieldName="Apellido_Materno" />
+        <dataField fieldName="Fecha_Nacimiento" columns="20" />
+        <dataField fieldName="Edad" columns="15" />
+        <dataField fieldName="Maximo_Nivel_Escolaridad_Id" aliasFieldName="Maximo_Nivel_Escolaridad_Nivel_Escolaridad" />
+        <dataField fieldName="Genero_Persona_Id" aliasFieldName="Genero_Persona" />
+        <dataField fieldName="Registro_Federal_Causante_Id" columns="13" />
+        <dataField fieldName="Curp_Id" columns="18" />
+        <dataField fieldName="Numero_Imss" columns="11" />
+        <dataField fieldName="Estatus_Persona_Id" aliasFieldName="Estatus_Persona_Estatus_Persona" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" />
+        <dataField fieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Contratado" hidden="true" />
+        <dataField fieldName="Nombre_Completo" rows="5" hidden="true" />
+        <dataField fieldName="Es_Vista_Aspirante" />
+      </dataFields>
+    </view>
+    <view id="grid2" type="Grid" commandId="Grid_Persona" label="Persona ya contratada" sortExpression="Nombre,Segundo_Nombre,Apellido_Paterno,Apellido_Materno" filter="Estatus_Registro_Id &lt;&gt; 0 AND Contratado=1" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Persona_Id" columns="15" hidden="true" />
+        <dataField fieldName="Nombre" />
+        <dataField fieldName="Segundo_Nombre" />
+        <dataField fieldName="Apellido_Paterno" />
+        <dataField fieldName="Apellido_Materno" />
+        <dataField fieldName="Fecha_Nacimiento" columns="20" />
+        <dataField fieldName="Edad" columns="15" />
+        <dataField fieldName="Maximo_Nivel_Escolaridad_Id" aliasFieldName="Maximo_Nivel_Escolaridad_Nivel_Escolaridad" />
+        <dataField fieldName="Genero_Persona_Id" aliasFieldName="Genero_Persona" />
+        <dataField fieldName="Registro_Federal_Causante_Id" columns="13" />
+        <dataField fieldName="Curp_Id" columns="18" />
+        <dataField fieldName="Numero_Imss" columns="11" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" />
+        <dataField fieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Persona_Id" aliasFieldName="Estatus_Persona_Estatus_Persona" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Contratado" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="gridImagen" commandId="Grid_Persona" type="Grid" label="Mi Imagen" showInSelector="false" tags="view-style-grid-disabled, &#xD;&#xA;view-style-list, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <dataFields>
+        <dataField fieldName="Persona_Id" columns="15" hidden="true" />
+        <dataField fieldName="Picture" columns="15" tag="item-thumb" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="Grid_Persona" label="Actualizar Persona" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <categories>
+        <category id="c1" tab="Datos Generales" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Nombre" />
+            <dataField fieldName="Segundo_Nombre" />
+            <dataField fieldName="Apellido_Paterno" />
+            <dataField fieldName="Apellido_Materno" />
+            <dataField fieldName="Genero_Persona_Id" aliasFieldName="Genero_Persona" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" />
+            <dataField fieldName="Estatus_Persona_Id" aliasFieldName="Estatus_Persona_Estatus_Persona" />
+          </dataFields>
+        </category>
+        <category headerText="Demograficos" id="c5" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="Fecha_Nacimiento" columns="20" />
+            <dataField fieldName="Lugar_Nacimiento_Id" aliasFieldName="Lugar_Nacimiento_Ciudad" />
+            <dataField fieldName="Maximo_Nivel_Escolaridad_Id" aliasFieldName="Maximo_Nivel_Escolaridad_Nivel_Escolaridad" />
+            <dataField fieldName="Estado_Civil_Id" aliasFieldName="Estado_Civil_Estado_Civil" />
+          </dataFields>
+        </category>
+        <category headerText="Fotografía" tab="Fotografía" id="c2">
+          <dataFields>
+            <dataField fieldName="PictureFileName">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Picture" columns="15" />
+            <dataField fieldName="PictureContentType">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="PictureLength" columns="15">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+          </dataFields>
+        </category>
+        <category headerText="Ids" tab="Ids" id="c3">
+          <dataFields>
+            <dataField fieldName="Registro_Federal_Causante_Id" columns="13" />
+            <dataField fieldName="Curp_Id" columns="18" />
+            <dataField fieldName="Numero_Imss" columns="11" />
+          </dataFields>
+        </category>
+        <category headerText="Otros" tab="Otros" id="c4">
+          <dataFields>
+            <dataField fieldName="Religion_Id" columns="15" aliasFieldName="Religion">
+              <visibility>
+                <expression test="[Mostrar_Religion_A_Aspirante]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Orientacion_Sexual_Id" columns="15" aliasFieldName="Orientacion_Sexual">
+              <visibility>
+                <expression test="[Mostrar_Orientacion_Sexual_A_Aspirante]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Disposicion_A_Mobilidad" />
+            <dataField fieldName="Disposicion_A_Cambio_Domicilio" />
+            <dataField fieldName="Estatura" columns="15" />
+            <dataField fieldName="Peso" columns="15" />
+            <dataField fieldName="Complexion_Fisica_Id" columns="15" aliasFieldName="Complexion_Fisica" />
+            <dataField fieldName="Tiene_Tatuajes" />
+            <dataField fieldName="Tiene_Tatuajes_Visibles" />
+            <dataField fieldName="Estado_Salud_Id" columns="15" aliasFieldName="Estado_Salud" />
+            <dataField fieldName="Sufre_Diabetes" />
+            <dataField fieldName="Problemas_Presion_Arterial_Id" columns="15" />
+            <dataField fieldName="Consumo_Estupefacientes" />
+            <dataField fieldName="Padece_Discapacidad" />
+            <dataField fieldName="Color_Piel_Id" columns="15" aliasFieldName="Color_Piel" />
+            <dataField fieldName="Mostrar_Religion_A_Aspirante" hidden="true" />
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="Persona_Key" columns="50" hidden="true" />
+            <dataField fieldName="Mostrar_Orientacion_Sexual_A_Aspirante" hidden="true" />
+            <dataField fieldName="Mostrar_Senas_Particulares_A_Aspirante" hidden="true" />
+            <dataField fieldName="Permite_Cancelar_Solicitud_Vacaciones" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="editFormImagen" commandId="Grid_Persona" type="Form" label="Mi Imagen" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <categories>
+        <category headerText="Fotografía" tab="Fotografía" id="c2" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="PictureFileName">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Persona_Id" columns="15" hidden="true" />
+            <dataField fieldName="Picture" columns="15" />
+            <dataField fieldName="PictureContentType">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="PictureLength" columns="15">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Nombre" rows="5" hidden="true" />
+            <dataField fieldName="Apellido_Paterno" rows="5" hidden="true" />
+            <dataField fieldName="Apellido_Materno" rows="5" hidden="true" />
+            <dataField fieldName="Segundo_Nombre" rows="5" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="Grid_Persona" label="Nueva Persona" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Datos Generales" tab="Datos Generales" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Nombre" />
+            <dataField fieldName="Segundo_Nombre" />
+            <dataField fieldName="Apellido_Paterno" />
+            <dataField fieldName="Apellido_Materno" />
+            <dataField fieldName="Genero_Persona_Id" aliasFieldName="Genero_Persona" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" />
+          </dataFields>
+        </category>
+        <category headerText="Demograficos" id="c5" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="Fecha_Nacimiento" columns="20" />
+            <dataField fieldName="Lugar_Nacimiento_Id" aliasFieldName="Lugar_Nacimiento_Ciudad" />
+            <dataField fieldName="Maximo_Nivel_Escolaridad_Id" aliasFieldName="Maximo_Nivel_Escolaridad_Nivel_Escolaridad" />
+            <dataField fieldName="Estado_Civil_Id" aliasFieldName="Estado_Civil_Estado_Civil" />
+          </dataFields>
+        </category>
+        <category headerText="Fotografía" tab="Fotografía" id="c2">
+          <dataFields>
+            <dataField fieldName="PictureFileName">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Picture" columns="15" />
+            <dataField fieldName="PictureContentType">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="PictureLength" columns="15">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+          </dataFields>
+        </category>
+        <category headerText="Ids" tab="Ids" id="c3">
+          <dataFields>
+            <dataField fieldName="Registro_Federal_Causante_Id" columns="13" />
+            <dataField fieldName="Curp_Id" columns="18" />
+            <dataField fieldName="Numero_Imss" columns="11" />
+          </dataFields>
+        </category>
+        <category headerText="Otros" tab="Otros" id="c4">
+          <dataFields>
+            <dataField fieldName="Religion_Id" columns="15" aliasFieldName="Religion" />
+            <dataField fieldName="Orientacion_Sexual_Id" columns="15" aliasFieldName="Orientacion_Sexual" />
+            <dataField fieldName="Disposicion_A_Mobilidad" />
+            <dataField fieldName="Disposicion_A_Cambio_Domicilio" />
+            <dataField fieldName="Estatura" columns="15" />
+            <dataField fieldName="Peso" columns="15" />
+            <dataField fieldName="Complexion_Fisica_Id" columns="15" aliasFieldName="Complexion_Fisica" />
+            <dataField fieldName="Tiene_Tatuajes" />
+            <dataField fieldName="Tiene_Tatuajes_Visibles" />
+            <dataField fieldName="Estado_Salud_Id" columns="15" aliasFieldName="Estado_Salud" />
+            <dataField fieldName="Sufre_Diabetes" />
+            <dataField fieldName="Problemas_Presion_Arterial_Id" columns="15" />
+            <dataField fieldName="Consumo_Estupefacientes" />
+            <dataField fieldName="Padece_Discapacidad" />
+            <dataField fieldName="Color_Piel_Id" columns="15" aliasFieldName="Color_Piel" />
+            <dataField fieldName="Mostrar_Religion_A_Aspirante" hidden="true" />
+            <dataField fieldName="Mostrar_Orientacion_Sexual_A_Aspirante" hidden="true" />
+            <dataField fieldName="Mostrar_Senas_Particulares_A_Aspirante" hidden="true" />
+            <dataField fieldName="Permite_Cancelar_Solicitud_Vacaciones" hidden="true" />
+            <dataField fieldName="Notas" rows="5" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm2" commandId="command1" type="Form" label="Nueva Persona" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <categories>
+        <category id="c1" headerText="Datos Generales" tab="Datos Generales" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Nombre" />
+            <dataField fieldName="Segundo_Nombre" />
+            <dataField fieldName="Apellido_Paterno" />
+            <dataField fieldName="Apellido_Materno" />
+            <dataField fieldName="Genero_Persona_Id" aliasFieldName="Genero_Persona" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" />
+          </dataFields>
+        </category>
+        <category headerText="Demograficos" id="c5" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="Fecha_Nacimiento" columns="20" />
+            <dataField fieldName="Lugar_Nacimiento_Id" aliasFieldName="Lugar_Nacimiento_Ciudad" />
+            <dataField fieldName="Maximo_Nivel_Escolaridad_Id" aliasFieldName="Maximo_Nivel_Escolaridad_Nivel_Escolaridad" />
+            <dataField fieldName="Estado_Civil_Id" aliasFieldName="Estado_Civil_Estado_Civil" />
+          </dataFields>
+        </category>
+        <category headerText="Fotografía" tab="Fotografía" id="c2">
+          <dataFields>
+            <dataField fieldName="PictureFileName">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Picture" columns="15" />
+            <dataField fieldName="PictureContentType">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="PictureLength" columns="15">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+          </dataFields>
+        </category>
+        <category headerText="Ids" tab="Ids" id="c3">
+          <dataFields>
+            <dataField fieldName="Registro_Federal_Causante_Id" columns="13" />
+            <dataField fieldName="Curp_Id" columns="18" />
+            <dataField fieldName="Numero_Imss" columns="11" />
+          </dataFields>
+        </category>
+        <category headerText="Otros" tab="Otros" id="c4">
+          <dataFields>
+            <dataField fieldName="Religion_Id" columns="15" aliasFieldName="Religion">
+              <visibility>
+                <expression test="[Mostrar_Religion_A_Aspirante]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Orientacion_Sexual_Id" columns="15" aliasFieldName="Orientacion_Sexual">
+              <visibility>
+                <expression test="[Mostrar_Orientacion_Sexual_A_Aspirante]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Disposicion_A_Mobilidad" />
+            <dataField fieldName="Disposicion_A_Cambio_Domicilio" />
+            <dataField fieldName="Estatura" columns="15" />
+            <dataField fieldName="Peso" columns="15" />
+            <dataField fieldName="Complexion_Fisica_Id" columns="15" aliasFieldName="Complexion_Fisica" />
+            <dataField fieldName="Tiene_Tatuajes" />
+            <dataField fieldName="Tiene_Tatuajes_Visibles" />
+            <dataField fieldName="Estado_Salud_Id" columns="15" aliasFieldName="Estado_Salud" />
+            <dataField fieldName="Sufre_Diabetes" />
+            <dataField fieldName="Problemas_Presion_Arterial_Id" columns="15" />
+            <dataField fieldName="Consumo_Estupefacientes" />
+            <dataField fieldName="Padece_Discapacidad" />
+            <dataField fieldName="Color_Piel_Id" columns="15" aliasFieldName="Color_Piel" />
+            <dataField fieldName="Mostrar_Religion_A_Aspirante" hidden="true" />
+            <dataField fieldName="Mostrar_Orientacion_Sexual_A_Aspirante" hidden="true" />
+            <dataField fieldName="Mostrar_Senas_Particulares_A_Aspirante" hidden="true" />
+            <dataField fieldName="Permite_Cancelar_Solicitud_Vacaciones" hidden="true" />
+            <dataField fieldName="Notas" rows="5" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Persona_LookUp_List" type="Grid" commandId="Grid_Persona" label="Persona" sortExpression="Nombre_Completo" filter="Estatus_Registro_Id IN (0,1)" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Persona_Id" columns="15" aliasFieldName="Nombre_Completo" />
+        <dataField fieldName="Nombre_Completo" rows="5" hidden="true" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" hidden="true" />
+        <dataField fieldName="Estatus_Persona_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="createForm_Jefe_Directo" type="Form" commandId="Grid_Persona" label="Nueva Persona" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Datos Generales" tab="Datos Generales" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Nombre" />
+            <dataField fieldName="Segundo_Nombre" />
+            <dataField fieldName="Apellido_Paterno" />
+            <dataField fieldName="Apellido_Materno" />
+            <dataField fieldName="Genero_Persona_Id" aliasFieldName="Genero_Persona" />
+            <dataField fieldName="Fecha_Nacimiento" columns="10" />
+            <dataField fieldName="Maximo_Nivel_Escolaridad_Id" columns="15" />
+            <dataField fieldName="Numero_Celular_Personal" rows="5" />
+            <dataField fieldName="Correo_Personal" rows="5" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Persona_Ya_Contratada_LookUp_List" type="Grid" commandId="Grid_Persona" label="Personas ya contratadas" sortExpression="Nombre_Completo" filter="Estatus_Registro_Id IN (0,1) AND Contratado = 1" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Persona_Id" columns="15" aliasFieldName="Nombre_Completo" />
+        <dataField fieldName="Nombre_Completo" rows="5" hidden="true" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" hidden="true" />
+        <dataField fieldName="Estatus_Persona_Id" columns="15" hidden="true" />
+        <dataField fieldName="Contratado" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Persona_No_Contratada_LookUp_List" type="Grid" commandId="Grid_Persona" label="Personas pendientes de Contratar" sortExpression="Nombre_Completo" filter="Estatus_Registro_Id IN (0,1) AND Contratado = 0" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Persona_Id" columns="15" aliasFieldName="Nombre_Completo" />
+        <dataField fieldName="Nombre_Completo" rows="5" hidden="true" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" hidden="true" />
+        <dataField fieldName="Estatus_Persona_Id" columns="15" hidden="true" />
+        <dataField fieldName="Contratado" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="gridPersonasBorradas" type="Grid" commandId="Grid_Persona" label="Borrados/Inactivos" sortExpression="Nombre,Segundo_Nombre,Apellido_Paterno,Apellido_Materno" filter="Estatus_Registro_Id NOT IN (0,1)" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Persona_Id" columns="15" hidden="true" />
+        <dataField fieldName="Nombre" />
+        <dataField fieldName="Segundo_Nombre" />
+        <dataField fieldName="Apellido_Paterno" />
+        <dataField fieldName="Apellido_Materno" />
+        <dataField fieldName="Fecha_Nacimiento" columns="20" />
+        <dataField fieldName="Edad" columns="15" />
+        <dataField fieldName="Maximo_Nivel_Escolaridad_Id" aliasFieldName="Maximo_Nivel_Escolaridad_Nivel_Escolaridad" />
+        <dataField fieldName="Genero_Persona_Id" aliasFieldName="Genero_Persona" />
+        <dataField fieldName="Registro_Federal_Causante_Id" columns="13" />
+        <dataField fieldName="Curp_Id" columns="18" />
+        <dataField fieldName="Numero_Imss" columns="11" />
+        <dataField fieldName="Estatus_Persona_Id" aliasFieldName="Estatus_Persona_Estatus_Persona" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" />
+        <dataField fieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Contratado" hidden="true" />
+        <dataField fieldName="Nombre_Completo" rows="5" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" whenView="grid1" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Persona
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Id = @Persona_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" whenView="grid1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Persona
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Id = @Persona_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action commandName="Custom" commandArgument="EXECCS01" headerText="Guardar" id="a100" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action commandName="New" commandArgument="createForm_Jefe_Directo" id="a100" cssClass="NewIcon" roles="Administrators,ArhAdmin" whenView="Persona_LookUp_List" />
+      <action commandName="New" commandArgument="createForm2" id="a101" headerText="Nuevo" whenView="grid1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Persona
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Id = @Persona_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" whenView="grid1" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Persona
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Id = @Persona_Id]]></data>
+      </action>
+      <action id="a100" commandName="Edit" commandArgument="editFormImagen" whenView="gridImagen" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Persona
+	WHERE
+		REPLACE(UPPER(Nombre+Segundo_Nombre+Apellido_Paterno+Apellido_Materno),' ','') = REPLACE(UPPER(@Nombre+@Segundo_Nombre+@Apellido_Paterno+@Apellido_Materno),' ','')
+  
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe el registro de esta persona en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe el registro de esta persona en la base de datos, favor de corregir.'
+   RETURN
+END
+]]></rule>
+    <rule id="r102" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Persona
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Actualizado_Por_Id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Fecha_Creacion = GetDate()
+WHERE
+	Persona_Id= @Persona_Id]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Persona
+	WHERE
+  		REPLACE(UPPER(Nombre+Segundo_Nombre+Apellido_Paterno+Apellido_Materno),' ','') = REPLACE(UPPER(@Nombre+@Segundo_Nombre+@Apellido_Paterno+@Apellido_Materno),' ','')
+		AND Persona_Id <> @Persona_Id
+  		AND Estatus_Registro_Id = 1
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe el registro de esta persona en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya existe el registro de esta persona en la base de datos, favor de corregir.'
+   RETURN
+END
+
+
+
+
+
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Persona
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Persona_Id = @Persona_Id]]></rule>
+    <rule id="r104" commandName="New" type="Sql" phase="Before"><![CDATA[SET @Estatus_Persona_Id=1
+SET @Religion_Id = 0
+SET @Orientacion_Sexual_Id = 0
+SET @Disposicion_A_Mobilidad = 0
+SET @Disposicion_A_Cambio_Domicilio=0
+SET @Estatura=0
+SET @Peso = 0
+SET @Complexion_Fisica_Id = 0
+SET @Tiene_Tatuajes = 0
+SET @Tiene_Tatuajes_Visibles=0
+SET @Estado_Salud_Id=0
+SET @Sufre_Diabetes=0
+SET @Problemas_Presion_Arterial_Id=0
+SET @Consumo_Estupefacientes=0
+SET @Padece_Discapacidad=0
+SET @Color_Piel_Id=0
+]]></rule>
+    <rule id="r105" commandName="Custom" commandArgument="EXECCS01" type="Code" phase="After" />
+  </businessRules>
+</dataController>

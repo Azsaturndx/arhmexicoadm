@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Receptora" conflictDetection="overwriteChanges" label="Receptora" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Receptora"."Receptora_Id" "Receptora_Id"
+	,"Receptora"."Receptora" "Receptora"
+	,"Receptora"."Receptora_Razon_Social" "Receptora_Razon_Social"
+	,"Receptora"."Clave_Receptora" "Clave_Receptora"
+	,"Receptora"."Cliente_Id" "Cliente_Id"
+	,"Cliente_"."Cliente" "Cliente_Cliente"
+	,"Receptora"."Contratante_Id" "Contratante_Id"
+	,"Contratante_"."Contratante" "Contratante_Contratante"
+	,"Receptora"."Estatus_Receptora_Id" "Estatus_Receptora_Id"
+	,"Estatus_Receptora_"."Estatus_Receptora" "Estatus_Receptora_Estatus_Receptora"
+	,"Receptora"."Nombre_Base_Datos" "Nombre_Base_Datos"
+	,"Receptora"."Es_Sindicato" "Es_Sindicato"
+	,"Receptora"."Transaccion_Id" "Transaccion_Id"
+	,"Receptora"."Creado_Por_Id" "Creado_Por_Id"
+	,"cpUsuario_V"."UserName" "cpUserName"
+	,"Receptora"."Fecha_Creacion" "Fecha_Creacion"
+	,"Receptora"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"apUsuario_V"."UserName" "apUserName"
+	,"Receptora"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Receptora"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+from "APP"."Receptora" "Receptora"
+	left join "APP"."Cliente" "Cliente_" on "Receptora"."Cliente_Id" = "Cliente_"."Cliente_Id"
+	left join "APP"."Contratante" "Contratante_" on "Receptora"."Contratante_Id" = "Contratante_"."Contratante_Id"
+	left join "APP"."Estatus_Receptora" "Estatus_Receptora_" on "Receptora"."Estatus_Receptora_Id" = "Estatus_Receptora_"."Estatus_Receptora_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Receptora"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cpUsuario_V" on "Receptora"."Creado_Por_Id" = "cpUsuario_V"."UserId"
+	left join "dbo"."Usuario_V" "apUsuario_V" on "Receptora"."Actualizado_Por_Id" = "apUsuario_V"."UserId"
+]]></text>
+    </command>
+    <command id="Receptora_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Receptora_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Receptora_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Receptora Id" readOnly="true" />
+    <field name="Receptora" type="String" allowNulls="false" label="Receptora" length="150" showInSummary="true" />
+    <field name="Receptora_Razon_Social" type="String" allowNulls="false" label="Receptora Razón Social" length="150" showInSummary="true" />
+    <field name="Clave_Receptora" type="String" allowNulls="false" label="Clave de Receptora" length="4" showInSummary="true" />
+    <field name="Cliente_Id" type="Int32" allowNulls="false" default="((0))" label="Cliente Id" showInSummary="true">
+      <items style="Lookup" dataController="Cliente" newDataView="createForm1" dataValueField="Cliente_Id" dataTextField="Cliente" dataView="Cliente_Admin_LookUp_List" />
+    </field>
+    <field name="Cliente_Cliente" type="String" readOnly="true" label="Cliente" length="150" />
+    <field name="Contratante_Id" type="Int32" allowNulls="false" default="((0))" label="Contratante Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratante" newDataView="createForm1" dataValueField="Contratante_Id" dataTextField="Contratante" dataView="Contratante_Admin_LookUp_List" />
+    </field>
+    <field name="Contratante_Contratante" type="String" readOnly="true" label="Contratante" length="150" />
+    <field name="Estatus_Receptora_Id" type="Int32" allowNulls="false" default="((0))" label="Estatus Receptora Id">
+      <items style="Lookup" dataController="Estatus_Receptora" newDataView="createForm1" dataValueField="Estatus_Receptora_Id" dataTextField="Estatus_Receptora" dataView="Estatus_Receptora_LookUp_List" />
+    </field>
+    <field name="Estatus_Receptora_Estatus_Receptora" type="String" readOnly="true" label="Estatus de Receptora" length="150" />
+    <field name="Nombre_Base_Datos" type="String" default="('')" label="Nombre de Base Datos" length="150" />
+    <field name="Es_Sindicato" type="Boolean" default="((0))" label="¿Es Sindicato?" allowNulls="false">
+      <items style="CheckBox" />
+    </field>
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transacción Id" length="50" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus Registro" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Receptora" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" sortExpression="Receptora" filter="Estatus_Registro_Id = 1">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Receptora_Id" columns="15" hidden="true" />
+        <dataField fieldName="Receptora" />
+        <dataField fieldName="Receptora_Razon_Social" />
+        <dataField fieldName="Clave_Receptora" columns="4" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" />
+        <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" />
+        <dataField fieldName="Estatus_Receptora_Id" aliasFieldName="Estatus_Receptora_Estatus_Receptora" />
+        <dataField fieldName="Nombre_Base_Datos" />
+        <dataField fieldName="Es_Sindicato" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="10" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="10" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Receptora" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Receptora_Id" columns="15" hidden="true" />
+            <dataField fieldName="Receptora" />
+            <dataField fieldName="Receptora_Razon_Social" />
+            <dataField fieldName="Clave_Receptora" columns="4" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" />
+            <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" />
+            <dataField fieldName="Estatus_Receptora_Id" aliasFieldName="Estatus_Receptora_Estatus_Receptora" />
+            <dataField fieldName="Nombre_Base_Datos" />
+            <dataField fieldName="Es_Sindicato" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nueva Receptora" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Receptora" />
+            <dataField fieldName="Receptora_Razon_Social" />
+            <dataField fieldName="Clave_Receptora" columns="4" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" />
+            <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" />
+            <dataField fieldName="Estatus_Receptora_Id" aliasFieldName="Estatus_Receptora_Estatus_Receptora" />
+            <dataField fieldName="Nombre_Base_Datos" />
+            <dataField fieldName="Es_Sindicato" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Receptora_LookUp_List" commandId="command1" type="Grid" label="Receptora" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Receptora" filter="Estatus_Registro_Id IN (0,1)">
+      <dataFields>
+        <dataField fieldName="Receptora_Id" columns="15" hidden="true" />
+        <dataField fieldName="Receptora" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+APP.Receptora
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Receptora_Id = @Receptora_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+APP.Receptora
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Receptora_Id = @Receptora_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+APP.Receptora
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Receptora_Id = @Receptora_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+APP.Receptora
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Receptora_Id = @Receptora_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Receptora
+	WHERE
+		REPLACE(UPPER(Receptora),' ','') = REPLACE(UPPER(@Receptora),' ','')
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe esta receptora en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe esta receptora en la base de datos, favor de corregir.'
+   RETURN
+END
+]]></rule>
+    <rule id="r101" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Receptora
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Receptora_Id= @Receptora_Id]]></rule>
+    <rule id="r102" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Receptora
+	WHERE
+		REPLACE(UPPER(Receptora),' ','') = REPLACE(UPPER(@Receptora),' ','')
+  		AND Receptora_Id <> @Receptora_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe esta receptora en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe esta receptora en la base de datos, favor de corregir.'
+   RETURN
+END
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Receptora
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Receptora_Id= @Receptora_Id]]></rule>
+  </businessRules>
+</dataController>

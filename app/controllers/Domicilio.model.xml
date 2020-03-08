@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Domicilio" alias="Domicilio" created="2018-05-19T20:33:00" modified="2019-01-22T14:56:31" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Ciudad_" parentTableSchema="APP" parentTableName="Ciudad" x="406" y="20">
+      <foreignKeyColumn columnName="Ciudad_Id" parentColumnName="Ciudad_Id" />
+    </foreignKey>
+    <foreignKey id="Ciudad_Entidad_Pais_" parentTableSchema="APP" parentTableName="Entidad_Pais" baseForeignKey="Ciudad_" x="750" y="20">
+      <foreignKeyColumn columnName="Entidad_Pais_Id" parentColumnName="Entidad_Pais_Id" />
+    </foreignKey>
+    <foreignKey id="Ciudad_Entidad_Pais_Pais_" parentTableSchema="APP" parentTableName="Pais" baseForeignKey="Ciudad_Entidad_Pais_" x="1093" y="20">
+      <foreignKeyColumn columnName="Pais_Id" parentColumnName="Pais_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="410" y="271">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="cp" parentTableSchema="dbo" parentTableName="Usuario_V" x="37" y="763">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="ap" parentTableSchema="dbo" parentTableName="Usuario_V" x="39" y="630">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Persona_Nombre_Completo_V" parentTableSchema="dbo" parentTableName="Persona_Nombre_Completo_V" x="1042" y="306">
+      <foreignKeyColumn columnName="Persona_Id" parentColumnName="Persona_Id" />
+    </foreignKey>
+    <foreignKey id="Grid_Contratante_V" parentTableSchema="dbo" parentTableName="Grid_Contratante_V" x="1457" y="362">
+      <foreignKeyColumn columnName="Contratante_Id" parentColumnName="Contratante_Id" />
+    </foreignKey>
+    <foreignKey id="Grid_Cliente_V" parentTableSchema="dbo" parentTableName="Grid_Cliente_V" x="1089" y="453">
+      <foreignKeyColumn columnName="Cliente_Id" parentColumnName="Cliente_Id" />
+    </foreignKey>
+    <foreignKey id="Tipo_Actividad_RyS" parentTableSchema="APP" parentTableName="Tipo_Actividad_RyS" x="748" y="529">
+      <foreignKeyColumn columnName="Tipo_Actividad_RyS_Id" parentColumnName="Tipo_Actividad_RyS_Id" />
+    </foreignKey>
+    <foreignKey id="Proveedor" parentTableSchema="APP" parentTableName="Proveedor" x="1061" y="909">
+      <foreignKeyColumn columnName="Proveedor_Id" parentColumnName="Proveedor_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Domicilio_Id" fieldName="Domicilio_Id" label="Domicilio Id" />
+    <column name="Calle" fieldName="Calle" label="Calle" />
+    <column name="Numero_Interior" fieldName="Numero_Interior" label="Número Interior" />
+    <column name="Numero_Exterior" fieldName="Numero_Exterior" label="Número Exterior" />
+    <column name="Colonia" fieldName="Colonia" label="Colonia" />
+    <column name="Ciudad_Id" fieldName="Ciudad_Id" label="Ciudad Id" aliasColumnName="Ciudad" aliasForeignKey="Ciudad_" />
+    <column name="Ciudad" fieldName="Ciudad_Ciudad" label="Ciudad" foreignKey="Ciudad_" />
+    <column name="Entidad_Pais" fieldName="Ciudad_Entidad_Pais_Entidad_Pais" label="Ciudad Entidad Pais" foreignKey="Ciudad_Entidad_Pais_" />
+    <column name="Pais" fieldName="Ciudad_Entidad_Pais_Pais_Pais" label="Estado de la República" foreignKey="Ciudad_Entidad_Pais_Pais_" />
+    <column name="Codigo_Postal_Id" fieldName="Codigo_Postal_Id" label="Código Postal" />
+    <column name="Entre_Calles" fieldName="Entre_Calles" label="Entre Calles" />
+    <column name="Latitud" fieldName="Latitud" label="Latitud" />
+    <column name="Longitud" fieldName="Longitud" label="Longitud" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cp" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="ap" />
+    <column name="Persona_Id" fieldName="Persona_Id" label="Persona Id" aliasColumnName="Persona_Nombre" aliasForeignKey="Persona_Nombre_Completo_V" />
+    <column name="Persona_Nombre" fieldName="PersonaNombreCompletoVPersonaNombre" label="Persona Nombre Completo V Persona Nombre" foreignKey="Persona_Nombre_Completo_V" />
+    <column name="Contratante_Id" fieldName="Contratante_Id" label="Contratante Id" aliasColumnName="Contratante" aliasForeignKey="Grid_Contratante_V" />
+    <column name="Contratante" fieldName="GridContratanteVContratante" label="Grid Contratante V Contratante" foreignKey="Grid_Contratante_V" />
+    <column name="Cliente_Id" fieldName="Cliente_Id" label="Cliente Id" aliasColumnName="Cliente" aliasForeignKey="Grid_Cliente_V" />
+    <column name="Cliente" fieldName="GridClienteVCliente" label="Grid Cliente V Cliente" foreignKey="Grid_Cliente_V" />
+    <column name="Tipo_Actividad_RyS_Id" fieldName="Tipo_Actividad_Rys_Id" label="Tipo Actividad Rys Id" aliasColumnName="Tipo_Actividad_RyS" aliasForeignKey="Tipo_Actividad_RyS" />
+    <column name="Tipo_Actividad_RyS" fieldName="TipoActividadRysTipoActividadRys" label="Tipo Actividad Rys Tipo Actividad Rys" foreignKey="Tipo_Actividad_RyS" />
+    <column name="Actividad_RyS_Id" fieldName="Actividad_Rys_Id" label="Actividad Rys Id" />
+    <column name="Proveedor_Id" fieldName="Proveedor_Id" label="Proveedor Id" aliasColumnName="Proveedor" aliasForeignKey="Proveedor" />
+    <column name="Proveedor" fieldName="Proveedor" label="Proveedor" foreignKey="Proveedor" />
+  </columns>
+</dataModel>

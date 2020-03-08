@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Imss_Mensual_Sua" alias="Imss_Mensual_Sua" created="2019-04-15T21:37:03" modified="2019-04-15T21:37:42" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="Id" fieldName="Id" label="Id" />
+    <column name="Actividad" fieldName="Actividad" label="Actividad" />
+    <column name="Area_geografica" fieldName="Area_geografica" label="Areageografica" />
+    <column name="Codigo_postal" fieldName="Codigo_postal" label="Codigopostal" />
+    <column name="Delegacion_imss" fieldName="Delegacion_imss" label="Delegacionimss" />
+    <column name="Subdelegacion_imss" fieldName="Subdelegacion_imss" label="Subdelegacionimss" />
+    <column name="Domicilio" fieldName="Domicilio" label="Domicilio" />
+    <column name="Entidad" fieldName="Entidad" label="Entidad" />
+    <column name="Fecha_proceso" fieldName="Fecha_proceso" label="Fechaproceso" />
+    <column name="Razon_social" fieldName="Razon_social" label="Razonsocial" />
+    <column name="Periodo_proceso" fieldName="Periodo_proceso" label="Periodoproceso" />
+    <column name="Municipio_delegacion" fieldName="Municipio_delegacion" label="Municipiodelegacion" />
+    <column name="Prima_rt" fieldName="Prima_rt" label="Primart" />
+    <column name="Registro_patronal" fieldName="Registro_patronal" label="Registropatronal" />
+    <column name="Rfc" fieldName="Rfc" label="Rfc" />
+    <column name="Clave" fieldName="Clave" label="Clave" />
+    <column name="Clave_ubicacion" fieldName="Clave_ubicacion" label="Claveubicacion" />
+    <column name="Nombre" fieldName="Nombre" label="Nombre" />
+    <column name="RFC_curp" fieldName="RFC_curp" label="RF Ccurp" />
+    <column name="Aus" fieldName="Aus" label="Aus" />
+    <column name="CF" fieldName="CF" label="Cf" />
+    <column name="Dias" fieldName="Dias" label="Dias" />
+    <column name="Exc_Obr" fieldName="Exc_Obr" label="Exc Obr" />
+    <column name="Exc_Pat" fieldName="Exc_Pat" label="Exc Pat" />
+    <column name="Fecha_alta" fieldName="Fecha_alta" label="Fechaalta" />
+    <column name="Fecha_baja" fieldName="Fecha_baja" label="Fechabaja" />
+    <column name="GMP_Obr" fieldName="GMP_Obr" label="GMP Obr" />
+    <column name="GMP_Pat" fieldName="GMP_Pat" label="GMP Pat" />
+    <column name="GPS" fieldName="GPS" label="Gps" />
+    <column name="IV_Obr" fieldName="IV_Obr" label="IV Obr" />
+    <column name="IV_Pat" fieldName="IV_Pat" label="IV Pat" />
+    <column name="Inc" fieldName="Inc" label="Inc" />
+    <column name="Obrera" fieldName="Obrera" label="Obrera" />
+    <column name="Patronal" fieldName="Patronal" label="Patronal" />
+    <column name="PD_Pat" fieldName="PD_Pat" label="PD Pat" />
+    <column name="PD_Obr" fieldName="PD_Obr" label="PD Obr" />
+    <column name="RT" fieldName="RT" label="Rt" />
+    <column name="SDI" fieldName="SDI" label="Sdi" />
+    <column name="Subtotal" fieldName="Subtotal" label="Subtotal" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha Ultima Actualizacion" format="g" />
+    <column name="Fecha_Creacion" fieldName="FechaCreacion" label="Fecha Creacion" format="g" />
+  </columns>
+</dataModel>

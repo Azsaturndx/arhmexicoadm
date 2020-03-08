@@ -1,0 +1,697 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Tipo_Gasto" conflictDetection="overwriteChanges" label="Tipo Gasto" handler="arhmexico.Rules.Tipo_GastoBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Tipo_Gasto"."Tipo_Gasto_Id" "Tipo_Gasto_Id"
+	,"Tipo_Gasto"."Tipo_Gasto" "Tipo_Gasto"
+	,"Tipo_Gasto"."Transaccion_Id" "Transaccion_Id"
+	,"Tipo_Gasto"."Creado_Por_Id" "Creado_Por_Id"
+	,"cpUsuario_V"."UserName" "cpUserName"
+	,"Tipo_Gasto"."Fecha_Creacion" "Fecha_Creacion"
+	,"Tipo_Gasto"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"apUsuario_V"."UserName" "apUserName"
+	,"Tipo_Gasto"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Tipo_Gasto"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Tipo_Gasto"."Es_De_Hospedaje" "Es_De_Hospedaje"
+	,"Tipo_Gasto"."Es_De_Alimentos" "Es_De_Alimentos"
+	,"Tipo_Gasto"."Es_Aerolinea" "Es_Aerolinea"
+	,"Tipo_Gasto"."Es_Transporte_Terrestre" "Es_Transporte_Terrestre"
+	,"Tipo_Gasto"."Es_Otro" "Es_Otro"
+	,"Tipo_Gasto"."Es_Gasolina" "Es_Gasolina"
+	,"Tipo_Gasto"."Es_Periodico" "Es_Periodico"
+	,"Tipo_Gasto"."Aplica_Solicitud" "Aplica_Solicitud"
+	,"Tipo_Gasto"."Aplica_Autorizacion" "Aplica_Autorizacion"
+	,"Tipo_Gasto"."Aplica_Para_Sociedad" "Aplica_Para_Sociedad"
+	,"Tipo_Gasto"."Aplica_Para_Contratado" "Aplica_Para_Contratado"
+	,"Tipo_Gasto"."Aplica_Para_Sociedad_Cuadro_Accionario" "Aplica_Para_Sociedad_Cuadro_Accionario"
+	,"Tipo_Gasto"."Es_Servicio_Basico" "Es_Servicio_Basico"
+	,"Tipo_Gasto"."Es_De_Mantenimiento" "Es_De_Mantenimiento"
+	,"Tipo_Gasto"."Es_Fiscal" "Es_Fiscal"
+	,"Tipo_Gasto"."Es_Dividendo" "Es_Dividendo"
+	,"Tipo_Gasto"."Es_Renta" "Es_Renta"
+	,"Tipo_Gasto"."Es_Viatico" "Es_Viatico"
+from "APP"."Tipo_Gasto" "Tipo_Gasto"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Tipo_Gasto"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cpUsuario_V" on "Tipo_Gasto"."Creado_Por_Id" = "cpUsuario_V"."UserId"
+	left join "dbo"."Usuario_V" "apUsuario_V" on "Tipo_Gasto"."Actualizado_Por_Id" = "apUsuario_V"."UserId"
+]]></text>
+    </command>
+    <command id="Tipo_Gasto_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Tipo_Gasto_Id" />
+      </output>
+    </command>
+    <command type="Text" id="command2" tableName="APP.Tipo_Gasto" custom="false">
+      <text><![CDATA[select
+	"Tipo_Gasto"."Tipo_Gasto_Id" "Tipo_Gasto_Id"
+	,"Tipo_Gasto"."Tipo_Gasto" "Tipo_Gasto"
+	,"Tipo_Gasto"."Transaccion_Id" "Transaccion_Id"
+	,"Tipo_Gasto"."Creado_Por_Id" "Creado_Por_Id"
+	,"cpUsuario_V"."UserName" "cpUserName"
+	,"Tipo_Gasto"."Fecha_Creacion" "Fecha_Creacion"
+	,"Tipo_Gasto"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"apUsuario_V"."UserName" "apUserName"
+	,"Tipo_Gasto"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Tipo_Gasto"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Tipo_Gasto"."Es_De_Hospedaje" "Es_De_Hospedaje"
+	,"Tipo_Gasto"."Es_De_Alimentos" "Es_De_Alimentos"
+	,"Tipo_Gasto"."Es_Aerolinea" "Es_Aerolinea"
+	,"Tipo_Gasto"."Es_Transporte_Terrestre" "Es_Transporte_Terrestre"
+	,"Tipo_Gasto"."Es_Otro" "Es_Otro"
+	,"Tipo_Gasto"."Es_Gasolina" "Es_Gasolina"
+	,"Tipo_Gasto"."Es_Periodico" "Es_Periodico"
+	,"Tipo_Gasto"."Aplica_Solicitud" "Aplica_Solicitud"
+	,"Tipo_Gasto"."Aplica_Autorizacion" "Aplica_Autorizacion"
+	,"Tipo_Gasto"."Aplica_Para_Sociedad" "Aplica_Para_Sociedad"
+	,"Tipo_Gasto"."Aplica_Para_Contratado" "Aplica_Para_Contratado"
+	,"Tipo_Gasto"."Aplica_Para_Sociedad_Cuadro_Accionario" "Aplica_Para_Sociedad_Cuadro_Accionario"
+	,"Tipo_Gasto"."Es_Servicio_Basico" "Es_Servicio_Basico"
+	,"Tipo_Gasto"."Es_De_Mantenimiento" "Es_De_Mantenimiento"
+	,"Tipo_Gasto"."Es_Fiscal" "Es_Fiscal"
+	,"Tipo_Gasto"."Es_Dividendo" "Es_Dividendo"
+	,"Tipo_Gasto"."Es_Renta" "Es_Renta"
+	,"Tipo_Gasto"."Aplica_Para_Contratante" "Aplica_Para_Contratante"
+	,"Tipo_Gasto"."Es_Viatico" "Es_Viatico"
+from "APP"."Tipo_Gasto" "Tipo_Gasto"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Tipo_Gasto"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cpUsuario_V" on "Tipo_Gasto"."Creado_Por_Id" = "cpUsuario_V"."UserId"
+	left join "dbo"."Usuario_V" "apUsuario_V" on "Tipo_Gasto"."Actualizado_Por_Id" = "apUsuario_V"."UserId"]]></text>
+    </command>
+    <command type="Text" id="command3Contratante" custom="false">
+      <text><![CDATA[select
+	"Tipo_Gasto"."Tipo_Gasto_Id" "Tipo_Gasto_Id"
+	,"Tipo_Gasto"."Tipo_Gasto" "Tipo_Gasto"
+	,"Tipo_Gasto"."Transaccion_Id" "Transaccion_Id"
+	,"Tipo_Gasto"."Creado_Por_Id" "Creado_Por_Id"
+	,"cpUsuario_V"."UserName" "cpUserName"
+	,"Tipo_Gasto"."Fecha_Creacion" "Fecha_Creacion"
+	,"Tipo_Gasto"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"apUsuario_V"."UserName" "apUserName"
+	,"Tipo_Gasto"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Tipo_Gasto"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Tipo_Gasto"."Es_De_Hospedaje" "Es_De_Hospedaje"
+	,"Tipo_Gasto"."Es_De_Alimentos" "Es_De_Alimentos"
+	,"Tipo_Gasto"."Es_Aerolinea" "Es_Aerolinea"
+	,"Tipo_Gasto"."Es_Transporte_Terrestre" "Es_Transporte_Terrestre"
+	,"Tipo_Gasto"."Es_Otro" "Es_Otro"
+	,"Tipo_Gasto"."Es_Gasolina" "Es_Gasolina"
+	,"Tipo_Gasto"."Es_Periodico" "Es_Periodico"
+	,"Tipo_Gasto"."Aplica_Solicitud" "Aplica_Solicitud"
+	,"Tipo_Gasto"."Aplica_Autorizacion" "Aplica_Autorizacion"
+	,"Tipo_Gasto"."Aplica_Para_Sociedad" "Aplica_Para_Sociedad"
+	,"Tipo_Gasto"."Aplica_Para_Contratado" "Aplica_Para_Contratado"
+	,"Tipo_Gasto"."Aplica_Para_Sociedad_Cuadro_Accionario" "Aplica_Para_Sociedad_Cuadro_Accionario"
+	,"Tipo_Gasto"."Aplica_Para_Contratante" "Aplica_Para_Contratante"
+	,"Tipo_Gasto"."Es_Servicio_Basico" "Es_Servicio_Basico"
+	,"Tipo_Gasto"."Es_De_Mantenimiento" "Es_De_Mantenimiento"
+	,"Tipo_Gasto"."Es_Fiscal" "Es_Fiscal"
+	,"Tipo_Gasto"."Es_Dividendo" "Es_Dividendo"
+	,"Tipo_Gasto"."Es_Renta" "Es_Renta"
+	,"Tipo_Gasto"."Es_Viatico" "Es_Viatico"
+from "APP"."Tipo_Gasto" "Tipo_Gasto"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Tipo_Gasto"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cpUsuario_V" on "Tipo_Gasto"."Creado_Por_Id" = "cpUsuario_V"."UserId"
+	left join "dbo"."Usuario_V" "apUsuario_V" on "Tipo_Gasto"."Actualizado_Por_Id" = "apUsuario_V"."UserId"
+]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Tipo_Gasto_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Tipo Gasto Id" readOnly="true" />
+    <field name="Tipo_Gasto" type="String" allowNulls="false" label="Tipo de Gasto" length="150" showInSummary="true" />
+    <field name="Es_De_Hospedaje" type="Boolean" allowNulls="false" default="((0))" label="¿Es de Hospedaje?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_De_Alimentos" type="Boolean" allowNulls="false" default="((0))" label="¿Es de Alimentos?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Aerolinea" type="Boolean" allowNulls="false" default="((0))" label="¿Es Aerolinea?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Transporte_Terrestre" type="Boolean" allowNulls="false" default="((0))" label="¿Es Transporte Terrestre?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Otro" type="Boolean" allowNulls="false" default="((0))" label="¿Es Otro?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Gasolina" type="Boolean" allowNulls="false" default="((0))" label="¿Es Gasolina?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Periodico" type="Boolean" allowNulls="false" default="((0))" label="¿Es Periodico?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Solicitud" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Solicitud?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Autorizacion" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Autorización?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Sociedad" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica para Sociedad?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Contratado" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica para Contratado?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Sociedad_Cuadro_Accionario" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica para Sociedad Cuadro Accionario?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Servicio_Basico" type="Boolean" allowNulls="false" default="((0))" label="¿Es Servicio Básico?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_De_Mantenimiento" type="Boolean" allowNulls="false" default="((0))" label="¿Es de Mantenimiento?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Fiscal" type="Boolean" allowNulls="false" default="((0))" label="¿Es Fiscal?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Dividendo" type="Boolean" allowNulls="false" default="((0))" label="¿Es Dividendo?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Renta" type="Boolean" allowNulls="false" default="((0))" label="¿Es Renta?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transacción Id" length="50" showInSummary="true" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id" showInSummary="true">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" showInSummary="true" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id" showInSummary="true">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="Es_Viatico" type="Boolean" allowNulls="false" default="((0))" label="¿Es Viático?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Contratante" type="Boolean" label="¿Aplica Para Contratante?" allowNulls="false" default="0">
+      <items style="CheckBox" />
+    </field>
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command2" label="Tipo de Gasto" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Tipo_Gasto" filter="Estatus_Registro_Id &lt;&gt; 0 ">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Tipo_Gasto_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Gasto" />
+        <dataField fieldName="Es_De_Hospedaje" />
+        <dataField fieldName="Es_De_Alimentos" />
+        <dataField fieldName="Es_Aerolinea" />
+        <dataField fieldName="Es_Transporte_Terrestre" />
+        <dataField fieldName="Es_Otro" />
+        <dataField fieldName="Es_Gasolina" />
+        <dataField fieldName="Es_Periodico" />
+        <dataField fieldName="Aplica_Solicitud" />
+        <dataField fieldName="Aplica_Autorizacion" />
+        <dataField fieldName="Aplica_Para_Sociedad" />
+        <dataField fieldName="Aplica_Para_Contratado" />
+        <dataField fieldName="Aplica_Para_Sociedad_Cuadro_Accionario" />
+        <dataField fieldName="Aplica_Para_Contratante" />
+        <dataField fieldName="Es_Servicio_Basico" />
+        <dataField fieldName="Es_De_Mantenimiento" />
+        <dataField fieldName="Es_Fiscal" />
+        <dataField fieldName="Es_Dividendo" />
+        <dataField fieldName="Es_Renta" />
+        <dataField fieldName="Es_Viatico" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="10" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="10" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command2" label="Actualizar Tipo de Gasto" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Tipo_Gasto_Id" columns="15" hidden="true" />
+            <dataField fieldName="Tipo_Gasto" />
+            <dataField fieldName="Es_De_Hospedaje" />
+            <dataField fieldName="Es_De_Alimentos" />
+            <dataField fieldName="Es_Aerolinea" />
+            <dataField fieldName="Es_Transporte_Terrestre" />
+            <dataField fieldName="Es_Otro" />
+            <dataField fieldName="Es_Gasolina" />
+            <dataField fieldName="Es_Periodico" />
+            <dataField fieldName="Aplica_Solicitud" />
+            <dataField fieldName="Aplica_Autorizacion" />
+            <dataField fieldName="Aplica_Para_Sociedad" />
+            <dataField fieldName="Aplica_Para_Contratado" />
+            <dataField fieldName="Aplica_Para_Sociedad_Cuadro_Accionario" />
+            <dataField fieldName="Aplica_Para_Contratante" />
+            <dataField fieldName="Es_Servicio_Basico" />
+            <dataField fieldName="Es_De_Mantenimiento" />
+            <dataField fieldName="Es_Fiscal" />
+            <dataField fieldName="Es_Dividendo" />
+            <dataField fieldName="Es_Renta" />
+            <dataField fieldName="Es_Viatico" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command2" label="Nuevo Tipo de Gasto" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Tipo_Gasto" />
+            <dataField fieldName="Es_De_Hospedaje" />
+            <dataField fieldName="Es_De_Alimentos" />
+            <dataField fieldName="Es_Aerolinea" />
+            <dataField fieldName="Es_Transporte_Terrestre" />
+            <dataField fieldName="Es_Otro" />
+            <dataField fieldName="Es_Gasolina" />
+            <dataField fieldName="Es_Periodico" />
+            <dataField fieldName="Aplica_Solicitud" />
+            <dataField fieldName="Aplica_Autorizacion" />
+            <dataField fieldName="Aplica_Para_Sociedad" />
+            <dataField fieldName="Aplica_Para_Contratado" />
+            <dataField fieldName="Aplica_Para_Sociedad_Cuadro_Accionario" />
+            <dataField fieldName="Aplica_Para_Contratante" />
+            <dataField fieldName="Es_Servicio_Basico" />
+            <dataField fieldName="Es_De_Mantenimiento" />
+            <dataField fieldName="Es_Fiscal" />
+            <dataField fieldName="Es_Dividendo" />
+            <dataField fieldName="Es_Renta" />
+            <dataField fieldName="Es_Viatico" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Tipo_Gasto_LookUp_List" commandId="command1" type="Grid" label="Tipo de Gasto" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" filter="Estatus_Registro_Id &lt;&gt; 0" sortExpression="Tipo_Gasto" showInSelector="false">
+      <dataFields>
+        <dataField fieldName="Tipo_Gasto_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Gasto" rows="5" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Es_De_Hospedaje" hidden="true" />
+        <dataField fieldName="Es_De_Alimentos" hidden="true" />
+        <dataField fieldName="Es_Aerolinea" hidden="true" />
+        <dataField fieldName="Es_Transporte_Terrestre" hidden="true" />
+        <dataField fieldName="Es_Otro" hidden="true" />
+        <dataField fieldName="Es_Gasolina" hidden="true" />
+        <dataField fieldName="Es_Periodico" />
+        <dataField fieldName="Aplica_Solicitud" />
+        <dataField fieldName="Aplica_Autorizacion" />
+        <dataField fieldName="Aplica_Para_Sociedad" />
+        <dataField fieldName="Aplica_Para_Contratado" />
+        <dataField fieldName="Aplica_Para_Sociedad_Cuadro_Accionario" />
+        <dataField fieldName="Es_Servicio_Basico" />
+        <dataField fieldName="Es_De_Mantenimiento" />
+        <dataField fieldName="Es_Fiscal" />
+        <dataField fieldName="Es_Dividendo" />
+        <dataField fieldName="Es_Renta" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Gasto_Terrestre_LookUp_List" commandId="command2" type="Grid" label="Tipo de Gasto Terrestre" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" filter="Estatus_Registro_Id &lt;&gt; 0 AND Es_Transporte_Terrestre = 1 AND Es_Gasolina &lt;&gt; 1 AND Aplica_Para_Contratado = 1 " sortExpression="Tipo_Gasto" showInSelector="false">
+      <dataFields>
+        <dataField fieldName="Tipo_Gasto_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Gasto" rows="5" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Es_De_Hospedaje" hidden="true" />
+        <dataField fieldName="Es_De_Alimentos" hidden="true" />
+        <dataField fieldName="Aplica_Para_Contratado" />
+        <dataField fieldName="Es_Aerolinea" hidden="true" />
+        <dataField fieldName="Es_Transporte_Terrestre" hidden="true" />
+        <dataField fieldName="Es_Otro" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Gasto_Otros_LookUp_List" commandId="command2" type="Grid" label="Tipo de Gasto Otros" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" filter="Estatus_Registro_Id &lt;&gt; 0 AND Es_Otro = 1 AND Aplica_Para_Contratado=1" sortExpression="Tipo_Gasto" showInSelector="false">
+      <dataFields>
+        <dataField fieldName="Tipo_Gasto_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Gasto" rows="5" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Es_De_Hospedaje" hidden="true" />
+        <dataField fieldName="Es_De_Alimentos" hidden="true" />
+        <dataField fieldName="Es_Aerolinea" hidden="true" />
+        <dataField fieldName="Es_Transporte_Terrestre" hidden="true" />
+        <dataField fieldName="Es_Otro" hidden="true" />
+        <dataField fieldName="Aplica_Para_Contratado" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Gasto_Servicio_Basico_LookUp_List" commandId="command1" type="Grid" label="Tipo de Gasto" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" filter="Estatus_Registro_Id &lt;&gt; 0 AND Aplica_Para_Sociedad = 1 AND Es_Servicio_Basico = 1" sortExpression="Tipo_Gasto">
+      <dataFields>
+        <dataField fieldName="Tipo_Gasto_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Gasto" rows="5" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Es_De_Hospedaje" hidden="true" />
+        <dataField fieldName="Es_De_Alimentos" hidden="true" />
+        <dataField fieldName="Es_Aerolinea" hidden="true" />
+        <dataField fieldName="Es_Transporte_Terrestre" hidden="true" />
+        <dataField fieldName="Es_Otro" hidden="true" />
+        <dataField fieldName="Es_Gasolina" hidden="true" />
+        <dataField fieldName="Es_Periodico" />
+        <dataField fieldName="Aplica_Solicitud" />
+        <dataField fieldName="Aplica_Autorizacion" />
+        <dataField fieldName="Aplica_Para_Contratado" />
+        <dataField fieldName="Aplica_Para_Sociedad_Cuadro_Accionario" />
+        <dataField fieldName="Es_Servicio_Basico" />
+        <dataField fieldName="Es_De_Mantenimiento" />
+        <dataField fieldName="Es_Fiscal" />
+        <dataField fieldName="Es_Dividendo" />
+        <dataField fieldName="Es_Renta" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Gasto_Mantenimiento_LookUp_List" commandId="command1" type="Grid" label="Tipo de Gasto" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" filter="Estatus_Registro_Id &lt;&gt; 0 AND Aplica_Para_Sociedad = 1 AND Es_De_Mantenimiento= 1" sortExpression="Tipo_Gasto">
+      <dataFields>
+        <dataField fieldName="Tipo_Gasto_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Gasto" rows="5" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Es_De_Hospedaje" hidden="true" />
+        <dataField fieldName="Es_De_Alimentos" hidden="true" />
+        <dataField fieldName="Es_Aerolinea" hidden="true" />
+        <dataField fieldName="Es_Transporte_Terrestre" hidden="true" />
+        <dataField fieldName="Es_Otro" hidden="true" />
+        <dataField fieldName="Es_Gasolina" hidden="true" />
+        <dataField fieldName="Es_Periodico" />
+        <dataField fieldName="Aplica_Solicitud" />
+        <dataField fieldName="Aplica_Autorizacion" />
+        <dataField fieldName="Aplica_Para_Contratado" />
+        <dataField fieldName="Aplica_Para_Sociedad_Cuadro_Accionario" />
+        <dataField fieldName="Es_Servicio_Basico" />
+        <dataField fieldName="Es_De_Mantenimiento" />
+        <dataField fieldName="Es_Fiscal" />
+        <dataField fieldName="Es_Dividendo" />
+        <dataField fieldName="Es_Renta" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Gasto_Sociedad_LookUp_List" commandId="command1" type="Grid" label="Tipo de Gasto" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" filter="Estatus_Registro_Id &lt;&gt; 0 AND Aplica_Para_Sociedad = 1 " sortExpression="Tipo_Gasto">
+      <dataFields>
+        <dataField fieldName="Tipo_Gasto_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Gasto" rows="5" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Es_De_Hospedaje" hidden="true" />
+        <dataField fieldName="Es_De_Alimentos" hidden="true" />
+        <dataField fieldName="Es_Aerolinea" hidden="true" />
+        <dataField fieldName="Es_Transporte_Terrestre" hidden="true" />
+        <dataField fieldName="Es_Otro" hidden="true" />
+        <dataField fieldName="Es_Gasolina" hidden="true" />
+        <dataField fieldName="Es_Periodico" />
+        <dataField fieldName="Aplica_Solicitud" />
+        <dataField fieldName="Aplica_Autorizacion" />
+        <dataField fieldName="Aplica_Para_Contratado" />
+        <dataField fieldName="Aplica_Para_Sociedad_Cuadro_Accionario" />
+        <dataField fieldName="Es_Servicio_Basico" />
+        <dataField fieldName="Es_De_Mantenimiento" />
+        <dataField fieldName="Es_Fiscal" />
+        <dataField fieldName="Es_Dividendo" />
+        <dataField fieldName="Es_Renta" />
+        <dataField fieldName="Aplica_Para_Sociedad" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Gasto_Sociedad_Cuadro_Accionario_LookUp_List" commandId="command1" type="Grid" label="Tipo de Gasto" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" filter="Estatus_Registro_Id &lt;&gt; 0 AND Aplica_Para_Sociedad_Cuadro_Accionario = 1" sortExpression="Tipo_Gasto" showInSelector="false">
+      <dataFields>
+        <dataField fieldName="Tipo_Gasto_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Gasto" rows="5" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Es_De_Hospedaje" hidden="true" />
+        <dataField fieldName="Es_De_Alimentos" hidden="true" />
+        <dataField fieldName="Es_Aerolinea" hidden="true" />
+        <dataField fieldName="Es_Transporte_Terrestre" hidden="true" />
+        <dataField fieldName="Es_Otro" hidden="true" />
+        <dataField fieldName="Es_Gasolina" hidden="true" />
+        <dataField fieldName="Es_Periodico" />
+        <dataField fieldName="Aplica_Solicitud" />
+        <dataField fieldName="Aplica_Autorizacion" />
+        <dataField fieldName="Aplica_Para_Contratado" />
+        <dataField fieldName="Aplica_Para_Sociedad_Cuadro_Accionario" />
+        <dataField fieldName="Es_Servicio_Basico" />
+        <dataField fieldName="Es_De_Mantenimiento" />
+        <dataField fieldName="Es_Fiscal" />
+        <dataField fieldName="Es_Dividendo" />
+        <dataField fieldName="Es_Renta" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Gasto_LookUp_List1" commandId="command1" type="Grid" label="Tipo de Gasto" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" filter="Estatus_Registro_Id &lt;&gt; 3" sortExpression="Tipo_Gasto_Id">
+      <dataFields>
+        <dataField fieldName="Tipo_Gasto_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Gasto" rows="5" />
+        <dataField fieldName="Aplica_Para_Sociedad" />
+        <dataField fieldName="Aplica_Para_Contratado" />
+        <dataField fieldName="Aplica_Para_Sociedad_Cuadro_Accionario" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Es_De_Hospedaje" hidden="true" />
+        <dataField fieldName="Es_De_Alimentos" hidden="true" />
+        <dataField fieldName="Es_Aerolinea" hidden="true" />
+        <dataField fieldName="Es_Transporte_Terrestre" hidden="true" />
+        <dataField fieldName="Es_Otro" hidden="true" />
+        <dataField fieldName="Es_Gasolina" hidden="true" />
+        <dataField fieldName="Es_Periodico" />
+        <dataField fieldName="Aplica_Solicitud" />
+        <dataField fieldName="Aplica_Autorizacion" />
+        <dataField fieldName="Es_Servicio_Basico" />
+        <dataField fieldName="Es_De_Mantenimiento" />
+        <dataField fieldName="Es_Fiscal" />
+        <dataField fieldName="Es_Dividendo" />
+        <dataField fieldName="Es_Renta" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Gasto_LookUp_List_Aplica_Para_Contratado" commandId="command1" type="Grid" label="Tipo de Gasto Contratado" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" filter="Estatus_Registro_Id &lt;&gt; 0 AND Aplica_Para_Contratado = 1" sortExpression="Tipo_Gasto" showInSelector="false">
+      <dataFields>
+        <dataField fieldName="Tipo_Gasto_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Gasto" rows="5" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Es_De_Hospedaje" hidden="true" />
+        <dataField fieldName="Es_De_Alimentos" hidden="true" />
+        <dataField fieldName="Es_Aerolinea" hidden="true" />
+        <dataField fieldName="Es_Transporte_Terrestre" hidden="true" />
+        <dataField fieldName="Es_Otro" hidden="true" />
+        <dataField fieldName="Es_Gasolina" hidden="true" />
+        <dataField fieldName="Es_Periodico" hidden="true" />
+        <dataField fieldName="Aplica_Solicitud" hidden="true" />
+        <dataField fieldName="Aplica_Autorizacion" hidden="true" />
+        <dataField fieldName="Aplica_Para_Sociedad" hidden="true" />
+        <dataField fieldName="Aplica_Para_Contratado" hidden="true" />
+        <dataField fieldName="Aplica_Para_Sociedad_Cuadro_Accionario" hidden="true" />
+        <dataField fieldName="Es_Servicio_Basico" hidden="true" />
+        <dataField fieldName="Es_De_Mantenimiento" hidden="true" />
+        <dataField fieldName="Es_Fiscal" hidden="true" />
+        <dataField fieldName="Es_Dividendo" hidden="true" />
+        <dataField fieldName="Es_Renta" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Gasto_Aplica_Para_Sociedad_LookUp_List" commandId="command1" type="Grid" label="Tipo de Gasto" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" filter="Estatus_Registro_Id &lt;&gt; 0 AND Aplica_Para_Sociedad = 1 " sortExpression="Tipo_Gasto">
+      <dataFields>
+        <dataField fieldName="Tipo_Gasto_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Gasto" rows="5" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Es_De_Hospedaje" hidden="true" />
+        <dataField fieldName="Es_De_Alimentos" hidden="true" />
+        <dataField fieldName="Es_Aerolinea" hidden="true" />
+        <dataField fieldName="Es_Transporte_Terrestre" hidden="true" />
+        <dataField fieldName="Es_Otro" hidden="true" />
+        <dataField fieldName="Es_Gasolina" hidden="true" />
+        <dataField fieldName="Es_Periodico" />
+        <dataField fieldName="Aplica_Solicitud" />
+        <dataField fieldName="Aplica_Autorizacion" />
+        <dataField fieldName="Aplica_Para_Contratado" />
+        <dataField fieldName="Aplica_Para_Sociedad_Cuadro_Accionario" />
+        <dataField fieldName="Es_Servicio_Basico" />
+        <dataField fieldName="Es_De_Mantenimiento" />
+        <dataField fieldName="Es_Fiscal" />
+        <dataField fieldName="Es_Dividendo" />
+        <dataField fieldName="Es_Renta" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Gasto_Aplica_Para_Contratante" commandId="command3Contratante" type="Grid" label="Tipo de Gasto" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" filter="Estatus_Registro_Id &lt;&gt; 0 AND Aplica_Para_Contratante = 1 " sortExpression="Tipo_Gasto" showInSelector="false">
+      <dataFields>
+        <dataField fieldName="Tipo_Gasto_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Gasto" rows="5" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Es_De_Hospedaje" hidden="true" />
+        <dataField fieldName="Es_De_Alimentos" hidden="true" />
+        <dataField fieldName="Es_Aerolinea" hidden="true" />
+        <dataField fieldName="Es_Transporte_Terrestre" hidden="true" />
+        <dataField fieldName="Es_Otro" hidden="true" />
+        <dataField fieldName="Es_Gasolina" hidden="true" />
+        <dataField fieldName="Es_Periodico" />
+        <dataField fieldName="Aplica_Solicitud" />
+        <dataField fieldName="Aplica_Autorizacion" />
+        <dataField fieldName="Aplica_Para_Contratado" />
+        <dataField fieldName="Aplica_Para_Sociedad_Cuadro_Accionario" />
+        <dataField fieldName="Es_Servicio_Basico" />
+        <dataField fieldName="Es_De_Mantenimiento" />
+        <dataField fieldName="Es_Fiscal" />
+        <dataField fieldName="Es_Dividendo" />
+        <dataField fieldName="Es_Renta" />
+        <dataField fieldName="Aplica_Para_Contratante" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Tipo_Gasto
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Tipo_Gasto_Id = @Tipo_Gasto_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Tipo_Gasto
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Tipo_Gasto_Id = @Tipo_Gasto_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Tipo_Gasto
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Tipo_Gasto_Id = @Tipo_Gasto_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Tipo_Gasto
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Tipo_Gasto_Id = @Tipo_Gasto_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Tipo_Gasto
+	WHERE
+		REPLACE(UPPER(Tipo_Gasto),' ','') = REPLACE(UPPER(@Tipo_Gasto),' ','')
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya esta registrado este tipo de gasto en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya esta registrado este tipo de gasto en la base de datos, favor de corregir.'
+   RETURN
+END
+
+]]></rule>
+    <rule id="r101" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Tipo_Gasto
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Tipo_Gasto_Id= @Tipo_Gasto_Id]]></rule>
+    <rule id="r102" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Tipo_Gasto
+	WHERE
+  		REPLACE(UPPER(Tipo_Gasto),' ','') = REPLACE(UPPER(@Tipo_Gasto),' ','')
+		AND Tipo_Gasto_Id <> @Tipo_Gasto_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya esta registrado este tipo de gasto en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya esta registrado este tipo de gasto en la base de datos, favor de corregir.'
+   RETURN
+END
+
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Tipo_Gasto
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Tipo_Gasto_Id = @Tipo_Gasto_Id]]></rule>
+  </businessRules>
+</dataController>

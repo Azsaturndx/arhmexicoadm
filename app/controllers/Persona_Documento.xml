@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Persona_Documento" conflictDetection="overwriteChanges" label="Persona Documento" handler="arhmexico.Rules.Persona_DocumentoBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Persona_Documento"."Persona_Documento_Id" "Persona_Documento_Id"
+	,"Persona_Documento"."Persona_Id" "Persona_Id"
+	,"Persona"."Nombre" "PersonaNombre"
+	,"Persona"."Apellido_Paterno" "PersonaapellidoPaterno"
+	,"Persona"."Apellido_Materno" "PersonaapellidoMaterno"
+	,"Persona"."Segundo_Nombre" "PersonasegundoNombre"
+	,"Persona_Documento"."Documento_Id" "Documento_Id"
+	,"Documento_"."Documento" "Documento_Documento"
+	,"Documento_"."Tipo_Documento_Id" "DocumentoTipoDocumentoId"
+	,"Documento_Tipo_Documento_"."Tipo_Documento" "Documento_Tipo_Documento_Tipo_Documento"
+	,"Persona_Documento"."Fecha_Creacion" "Fecha_Creacion"
+	,"Persona_Documento"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Persona_Documento"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"cp"."UserName" "cpUserName"
+	,"ap"."UserName" "apUserName"
+from "APP"."Persona_Documento" "Persona_Documento"
+	left join "APP"."Documento" "Documento_" on "Persona_Documento"."Documento_Id" = "Documento_"."Documento_Id"
+	left join "APP"."Tipo_Documento" "Documento_Tipo_Documento_" on "Documento_"."Tipo_Documento_Id" = "Documento_Tipo_Documento_"."Tipo_Documento_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Persona_Documento"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cp" on "Persona_Documento"."Creado_Por_Id" = "cp"."UserId"
+	left join "dbo"."Usuario_V" "ap" on "Persona_Documento"."Actualizado_Por_Id" = "ap"."UserId"
+	left join "APP"."Persona" "Persona" on "Persona_Documento"."Persona_Id" = "Persona"."Persona_Id"
+]]></text>
+    </command>
+    <command id="Persona_Documento_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Persona_Documento_Id" />
+      </output>
+    </command>
+    <command type="Text" id="Grid_Persona_Documento" tableName="APP.Persona_Documento" custom="false">
+      <text><![CDATA[SELECT Persona_Documento_Id
+      ,Persona_Id
+      ,Persona_Nombre
+      ,PersonaNombre
+      ,PersonaSegundoNombre
+      ,PersonaApellidoPaterno
+      ,PersonaApellidoMaterno
+      ,Documento_Id
+      ,Documento_Documento
+      ,PictureFileName
+      ,PictureContentType
+      ,PictureLength
+      ,Notas
+      ,Estatus_Registro_Id
+      ,Fecha_Creacion
+      ,Fecha_Ultima_Actualizacion
+      ,Estatus_Registro_Estatus_Registro
+      ,cpUserName
+      ,apUserName
+      ,Nombre_Completo
+      ,Tipo_Documento_Id
+      ,DocumentoTipoDocumentoId
+      ,Documento_Tipo_Documento_Tipo_Documento
+  FROM dbo.Grid_Persona_Documento_V]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Persona_Documento_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Persona Documento Id" readOnly="true" />
+    <field name="Persona_Id" type="Int32" allowNulls="false" label="Persona Id" showInSummary="true">
+      <items style="Lookup" dataController="Persona" newDataView="createForm1" dataValueField="Persona_Id" dataTextField="Nombre_Completo" dataView="Persona_LookUp_List" />
+    </field>
+    <field name="PersonaNombre" type="String" readOnly="true" label="Primer Nombre" length="150" />
+    <field name="PersonaapellidoPaterno" type="String" readOnly="true" label="Apellido Paterno" length="150" />
+    <field name="PersonaapellidoMaterno" type="String" readOnly="true" label="Apellido Materno" length="150" />
+    <field name="PersonasegundoNombre" type="String" readOnly="true" label="Segundo Nombre" length="150" />
+    <field name="Documento_Id" type="Int32" allowNulls="false" default="((0))" label="Documento Id" showInSummary="true" contextFields="Persona_Id=Persona_Id">
+      <items style="Lookup" dataController="Documento" newDataView="personaDocumentoCreateForm" dataValueField="Documento_Id" dataTextField="Documento" dataView="Documento_LookUp_List" />
+    </field>
+    <field name="Documento_Documento" type="String" readOnly="true" label="Documento" length="250" />
+    <field name="DocumentoTipoDocumentoId" type="Int32" readOnly="true" label="Documento Tipo Documento Id" />
+    <field name="Documento_Tipo_Documento_Tipo_Documento" type="String" readOnly="true" label="Tipo de Documento" length="150" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" showInSummary="true" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" showInSummary="true" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id" showInSummary="true">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Nombre_Completo" type="String" readOnly="true" label="Nombre Completo" length="604" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="Grid_Persona_Documento" label="Persona Documento" filter="Estatus_Registro_Id &lt;&gt; 0" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" sortExpression="PersonaNombre,PersonasegundoNombre,PersonaapellidoPaterno,PersonaapellidoMaterno">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Persona_Id" aliasFieldName="PersonaNombre" />
+        <dataField fieldName="PersonaapellidoPaterno" />
+        <dataField fieldName="PersonaapellidoMaterno" />
+        <dataField fieldName="PersonasegundoNombre" />
+        <dataField fieldName="Documento_Id" aliasFieldName="Documento_Documento" />
+        <dataField fieldName="DocumentoTipoDocumentoId" columns="15" />
+        <dataField fieldName="Documento_Tipo_Documento_Tipo_Documento" />
+        <dataField fieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="PersonaNombre" rows="5" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="Grid_Persona_Documento" label="Actualizar Persona Documento" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Persona_Id" aliasFieldName="Nombre_Completo" />
+            <dataField fieldName="Documento_Id" aliasFieldName="Documento_Documento" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="Grid_Persona_Documento" label="Nuevo Persona Documento" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Persona_Id" aliasFieldName="Nombre_Completo" />
+            <dataField fieldName="Documento_Id" aliasFieldName="Documento_Documento" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Persona_Documento
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Documento_Id = @Persona_Documento_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Persona_Documento
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Documento_Id = @Persona_Documento_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Persona_Documento
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Documento_Id = @Persona_Documento_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Persona_Documento
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Documento_Id = @Persona_Documento_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r103" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+DECLARE @Mensaje_Sistema VARCHAR(250)
+SET @Existe = 0
+
+SELECT
+TOP 1 @Existe = 1
+FROM
+APP.Persona_Documento
+WHERE
+Persona_Id= @Persona_Id
+AND Documento_Id=@Documento_Id
+
+IF @Existe = 1
+BEGIN
+   SET @Mensaje_Sistema = 'Ya existe en la base de datos la relación entre la persona capturada y el documento cargado, favor de corregir'
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage =@Mensaje_Sistema
+   SET @Result_ShowAlert = @Mensaje_Sistema
+   RETURN
+END]]></rule>
+    <rule id="r102" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+APP.Persona_Documento
+SET
+Creado_Por_Id = @BusinessRules_UserId
+,Actualizado_Por_Id = @BusinessRules_UserId
+,Fecha_Creacion = GetDate()
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Persona_Documento_Id=@Persona_Documento_Id
+
+UPDATE
+APP.Documento
+SET
+Persona_Id = @Persona_Id
+WHERE
+Documento_Id = @Documento_Id]]></rule>
+    <rule id="r100" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+DECLARE @Mensaje_Sistema VARCHAR(250)
+SET @Existe = 0
+
+SELECT
+TOP 1 @Existe = 1
+FROM
+APP.Persona_Documento
+WHERE
+Persona_Id= @Persona_Id
+AND Documento_Id=@Documento_Id
+AND Persona_Documento_Id <> @Persona_Documento_Id
+
+IF @Existe = 1
+BEGIN
+   SET @Mensaje_Sistema = 'Ya existe en la base de datos la relación entre la persona capturada y el documento cargado, favor de corregir'
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage =@Mensaje_Sistema
+   SET @Result_ShowAlert = @Mensaje_Sistema
+   RETURN
+END
+]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Persona_Documento
+SET
+Actualizado_Por_Id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Documento_Id= @Persona_Documento_Id
+	
+UPDATE
+APP.Documento
+SET
+Persona_Id = @Persona_Id
+WHERE
+Documento_Id = @Documento_Id]]></rule>
+  </businessRules>
+</dataController>

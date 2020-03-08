@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Nivel_Escolaridad" conflictDetection="overwriteChanges" label="Nivel Escolaridad" handler="arhmexico.Rules.Nivel_EscolaridadBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Nivel_Escolaridad"."Nivel_Escolaridad_Id" "Nivel_Escolaridad_Id"
+	,"Nivel_Escolaridad"."Nivel_Escolaridad" "Nivel_Escolaridad"
+	,"Nivel_Escolaridad"."Fecha_Creacion" "Fecha_Creacion"
+	,"Nivel_Escolaridad"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Nivel_Escolaridad"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Nivel_Escolaridad"."Es_Nivel_Licenciatura" "Es_Nivel_Licenciatura"
+	,"Nivel_Escolaridad"."Es_Nivel_Posgrado" "Es_Nivel_Posgrado"
+	,"Nivel_Escolaridad"."Es_Nivel_Bachillerato" "Es_Nivel_Bachillerato"
+	,"Nivel_Escolaridad"."Es_Nivel_Secundaria" "Es_Nivel_Secundaria"
+	,"Nivel_Escolaridad"."Es_Nivel_Primaria" "Es_Nivel_Primaria"
+	,"Nivel_Escolaridad"."Es_Nivel_Diplomado" "Es_Nivel_Diplomado"
+	,"cp"."UserName" "cpUserName"
+	,"ap"."UserName" "apUserName"
+	,"Nivel_Escolaridad"."Es_Nivel_Carrera_Tecnica" "Es_Nivel_Carrera_Tecnica"
+	,"Nivel_Escolaridad"."Color_Texto_Id" "Color_Texto_Id"
+	,"Color"."Color" "Color_Texto"
+	,"Nivel_Escolaridad"."Color_Fondo_Id" "Color_Fondo_Id"
+	,"Color1"."Color" "Color_Fondo"
+	,"Nivel_Escolaridad"."Valor_Inicio" "ValorInicio"
+	,"Nivel_Escolaridad"."Valor_Fin" "ValorFin"
+	,"Nivel_Escolaridad"."Valor_Cuantitativo" "ValorCuantitativo"
+from "APP"."Nivel_Escolaridad" "Nivel_Escolaridad"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Nivel_Escolaridad"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cp" on "Nivel_Escolaridad"."Creado_Por_Id" = "cp"."UserId"
+	left join "dbo"."Usuario_V" "ap" on "Nivel_Escolaridad"."Actualizado_Por_Id" = "ap"."UserId"
+	left join "APP"."Color" "Color" on "Nivel_Escolaridad"."Color_Texto_Id" = "Color"."Color_Id"
+	left join "APP"."Color" "Color1" on "Nivel_Escolaridad"."Color_Fondo_Id" = "Color1"."Color_Id"
+]]></text>
+    </command>
+    <command id="Nivel_Escolaridad_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Nivel_Escolaridad_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Nivel_Escolaridad_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Nivel Escolaridad Id" readOnly="true" />
+    <field name="Nivel_Escolaridad" type="String" allowNulls="false" label="Nivel de Escolaridad" length="150" showInSummary="true" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" showInSummary="true" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" showInSummary="true" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id" showInSummary="true">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="Es_Nivel_Licenciatura" type="Boolean" allowNulls="false" default="((0))" label="¿Es Nivel Licenciatura?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Nivel_Posgrado" type="Boolean" allowNulls="false" default="((0))" label="¿Es Nivel Posgrado?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Nivel_Bachillerato" type="Boolean" allowNulls="false" default="((0))" label="¿Es Nivel Bachillerato?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Nivel_Secundaria" type="Boolean" allowNulls="false" default="((0))" label="¿Es Nivel Secundaria?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Nivel_Primaria" type="Boolean" allowNulls="false" default="((0))" label="¿Es Nivel Primaria?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Nivel_Diplomado" type="Boolean" allowNulls="false" default="((0))" label="¿Es Nivel Diplomado?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Nivel_Carrera_Tecnica" type="Boolean" allowNulls="false" default="((0))" label="¿Es Nivel Carrera Técnica?">
+      <items style="CheckBox" />
+    </field>
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Color_Texto_Id" type="Int32" allowNulls="false" default="((0))" label="Color Texto Id">
+      <items style="Lookup" dataController="Color" newDataView="createForm1" dataValueField="Color_Id" dataTextField="Color" dataView="Color_LookUp_List" />
+    </field>
+    <field name="Color_Texto" type="String" readOnly="true" label="Color de Texto" length="150" />
+    <field name="Color_Fondo_Id" type="Int32" allowNulls="false" default="((0))" label="Color Fondo Id">
+      <items style="Lookup" dataController="Color" newDataView="createForm1" dataValueField="Color_Id" dataTextField="Color" dataView="Color_LookUp_List" />
+    </field>
+    <field name="Color_Fondo" type="String" readOnly="true" label="Color Fondo" length="150" />
+    <field name="ValorInicio" type="Decimal" allowNulls="false" default="((0))" label="Valor Inicio" />
+    <field name="ValorFin" type="Decimal" allowNulls="false" default="((0))" label="Valor Fin" />
+    <field name="ValorCuantitativo" type="Decimal" allowNulls="false" default="((0))" label="Valor Cuantitativo" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Nivel de Escolaridad" sortExpression="Nivel_Escolaridad" filter="Estatus_Registro_Id &lt;&gt; 0" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Nivel_Escolaridad" />
+        <dataField fieldName="Es_Nivel_Licenciatura" />
+        <dataField fieldName="Es_Nivel_Posgrado" />
+        <dataField fieldName="Es_Nivel_Bachillerato" />
+        <dataField fieldName="Es_Nivel_Secundaria" />
+        <dataField fieldName="Es_Nivel_Primaria" />
+        <dataField fieldName="Es_Nivel_Diplomado" />
+        <dataField fieldName="Es_Nivel_Carrera_Tecnica" />
+        <dataField fieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Nivel Escolaridad" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Nivel_Escolaridad" />
+            <dataField fieldName="Es_Nivel_Licenciatura" />
+            <dataField fieldName="Es_Nivel_Posgrado" />
+            <dataField fieldName="Es_Nivel_Bachillerato" />
+            <dataField fieldName="Es_Nivel_Secundaria" />
+            <dataField fieldName="Es_Nivel_Primaria" />
+            <dataField fieldName="Es_Nivel_Diplomado" />
+            <dataField fieldName="Es_Nivel_Carrera_Tecnica" />
+            <dataField fieldName="ValorCuantitativo" columns="15" />
+            <dataField fieldName="ValorInicio" columns="15" />
+            <dataField fieldName="ValorFin" columns="15" />
+            <dataField fieldName="Color_Texto_Id" aliasFieldName="Color_Texto" />
+            <dataField fieldName="Color_Fondo_Id" aliasFieldName="Color_Fondo" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nuevo Nivel de Escolaridad" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Nivel_Escolaridad" />
+            <dataField fieldName="Es_Nivel_Licenciatura" />
+            <dataField fieldName="Es_Nivel_Posgrado" />
+            <dataField fieldName="Es_Nivel_Bachillerato" />
+            <dataField fieldName="Es_Nivel_Secundaria" />
+            <dataField fieldName="Es_Nivel_Primaria" />
+            <dataField fieldName="Es_Nivel_Diplomado" />
+            <dataField fieldName="Es_Nivel_Carrera_Tecnica" />
+            <dataField fieldName="ValorCuantitativo" columns="15" />
+            <dataField fieldName="ValorInicio" columns="15" />
+            <dataField fieldName="ValorFin" columns="15" />
+            <dataField fieldName="Color_Texto_Id" aliasFieldName="Color_Texto" />
+            <dataField fieldName="Color_Fondo_Id" aliasFieldName="Color_Fondo" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Nivel_Escolaridad_LookUp_List" type="Grid" commandId="command1" label="Nivel de Escolaridad" sortExpression="Nivel_Escolaridad" filter="Estatus_Registro_Id IN (1,0)" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Nivel_Escolaridad" />
+        <dataField fieldName="Color_Texto_Id" aliasFieldName="Color_Texto" hidden="true" />
+        <dataField fieldName="Color_Fondo_Id" aliasFieldName="Color_Fondo" hidden="true" />
+        <dataField fieldName="ValorInicio" columns="15" hidden="true" />
+        <dataField fieldName="ValorFin" columns="15" hidden="true" />
+        <dataField fieldName="ValorCuantitativo" columns="15" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Nivel_Escolaridad
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Nivel_Escolaridad_Id = @Nivel_Escolaridad_Id
+]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Nivel_Escolaridad
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Nivel_Escolaridad_Id = @Nivel_Escolaridad_Id
+]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Nivel_Escolaridad
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Nivel_Escolaridad_Id = @Nivel_Escolaridad_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Nivel_Escolaridad
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Nivel_Escolaridad_Id = @Nivel_Escolaridad_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Nivel_Escolaridad
+	WHERE
+		REPLACE(UPPER(Nivel_Escolaridad),' ','') = REPLACE(UPPER(@Nivel_Escolaridad),' ','')
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya esta registrado este nivel de escolaridad en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya esta registrado este nivel de escolaridad en la base de datos, favor de corregir.'
+   RETURN
+END
+
+]]></rule>
+    <rule id="r101" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Nivel_Escolaridad
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Nivel_Escolaridad_Id= @Nivel_Escolaridad_Id]]></rule>
+    <rule id="r102" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Nivel_Escolaridad
+	WHERE
+  		REPLACE(UPPER(Nivel_Escolaridad),' ','') = REPLACE(UPPER(@Nivel_Escolaridad),' ','')
+		AND Nivel_Escolaridad_Id <> @Nivel_Escolaridad_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya esta registrado este nivel de escolaridad en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya esta registrado este nivel de escolaridad en la base de datos, favor de corregir.'
+   RETURN
+END
+
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Nivel_Escolaridad
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Nivel_Escolaridad_Id = @Nivel_Escolaridad_Id]]></rule>
+  </businessRules>
+</dataController>

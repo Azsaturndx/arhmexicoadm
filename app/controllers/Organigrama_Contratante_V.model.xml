@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Organigrama_Contratante_V" alias="Organigrama_Contratante_V" created="2018-08-20T00:14:07" modified="2018-08-20T00:14:12" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="Contratante_Id" fieldName="Contratante_Id" label="Contratante Id" />
+    <column name="Contratante" fieldName="Contratante" label="Contratante" />
+    <column name="Cliente_Id" fieldName="Cliente_Id" label="Cliente Id" />
+  </columns>
+</dataModel>

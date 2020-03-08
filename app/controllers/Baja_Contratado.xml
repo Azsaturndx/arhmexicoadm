@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Baja_Contratado" label="Baja_Contratado" conflictDetection="overwriteChanges" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <fields>
+    <field name="Fecha_Movimiento_Personal" type="DateTime" label="Fecha de Movimiento" />
+    <field name="Motivo_Movimiento_Personal_Id" type="Int32" label="Motivo de Movimiento">
+      <items style="DropDownList" dataController="Motivo_Movimiento_Personal" dataView="Motivo_Movimiento_Personal_LookUp_List_Baja" dataTextField="Motivo_Movimiento_Personal" dataValueField="Motivo_Movimiento_Personal_Id" />
+    </field>
+  </fields>
+</dataController>

@@ -1,0 +1,73 @@
+<!-- 
+  This file is provided to store the settings for your Data Aquarium project. 
+  You can safely delete this file if no further code generation is planned.
+-->
+<project compatibility="20111118" dataModel="required" appFolder="app" subscriptionLevel="Unlimited" name="arhmexicoadm" prettyName="arhmexicoadm" type="Web Site Factory" codeDomProvider="CSharp" targetFramework="4.6" userInterface="TouchUI" pageImplementation="html" sourceControl="git" displayName="" group="" databaseChanged="true" appGenVersion="" xmlns="urn:schemas-codeontime-com:data-aquarium-project">
+  <connectionString hostDatabaseSharing="false" sessionStateMode="Custom">Data Source=arhmexicodbsrvr.database.windows.net;Initial Catalog=arhmexdb;Persist Security Info=True;User ID=arhmexdbadmin;Password=@rHM3xDB4dM1n_!4388380283938!_;</connectionString>
+  <providerName>System.Data.SqlClient</providerName>
+  <namespace>arhmexico</namespace>
+  <webServer run="true" port="21827" preview="Browser" client="">
+    <webConfig>Delete: /configuration/system.web.extensions/scripting/webServices/jsonSerialization
+
+&lt;nothing/&gt;
+
+AppendChild: /configuration/system.web.extensions/scripting/webServices
+
+&lt;jsonSerialization maxJsonLength="5500000" /&gt;
+
+Delete: /configuration/system.webServer/security/requestFiltering/requestLimits
+
+&lt;nothing/&gt;
+
+AppendChild: /configuration/system.webServer/security/requestFiltering
+
+&lt;requestLimits maxAllowedContentLength="2000000000" maxUrl="10999" maxQueryString="9999"/&gt;
+
+Delete: /configuration/system.web/httpRuntime
+
+&lt;nothing/&gt;
+
+AppendChild: /configuration/system.web
+
+&lt;httpRuntime executionTimeout="600" maxUrlLength="10999" maxQueryStringLength="2097151" maxRequestLength = "10240"/&gt;
+
+AppendChild: /configuration/connectionStrings
+
+&lt;add name="bwdforms" connectionString="Data Source=bwdbsrvr.database.windows.net;Initial Catalog=BwdDb;Persist Security Info=True;User ID=bwdDbAdmin;Password=B1_G!W@v3D4T4$!_@Dm1n!_08343898817_;" providerName="System.Data.SqlClient"/&gt;</webConfig>
+  </webServer>
+  <features useSaveAndNew="true" pageHeader="ARHuman" copyright="" annotations="false" annotationsPath="" newColumn="true" floating="false" maxGridFields="100" multiSelect="true" batchEdit="true" advancedSearch="false" advancedLookup="false" relationshipExplorer="false" enablePermalinks="false" enableHistory="false" enableTransactions="false" showModalForms="true" tabViewSelection="10">
+    <navigation detectUnderscoreSeparatedSchema="" />
+    <blob allowUploadOnInsert="true" />
+    <framework scriptOnly="true" useExtenders="false" />
+    <grid actionColumn="true" />
+    <touch desktopDisplayDensity="Comfortable" mobileDisplayDensity="Auto" transitions="" sidebar="Landscape" labelsInList="DisplayedBelow" initialListMode="SeeAll" menu="toolbar" promoteActions="true" smartDates="true" mapApiIdentifier="" mapApiIdentifierMobile="" />
+    <cms searchEngine="" analysisEngine="" analysisOnDataPages="false" />
+    <ease urlHashing="false">
+      <auditing></auditing>
+    </ease>
+    <packageProperties></packageProperties>
+    <smtp deliveryMethod="Network" deliveryFormat="" from="soporte@arhcloud.com.mx" clientDomain="" targetName="" host="smtp.gmail.com" port="587" defaultCredentials="false" enableSsl="true" username="soporte@arhcloud.com.mx" password="50P0rt3!@rhCL0Ud!_74994883" />
+    <addons OfflineSync="" ContentMaker="" />
+  </features>
+  <reports enabled="true" version="14" />
+  <host path="" url="" />
+  <databaseObjectFilter generate="ControllersAndPages"></databaseObjectFilter>
+  <bll normalizeModelNames="false" discoveryDepth="3" labelFormatExpression="" selectMethod="Select" selectSingleMethod="SelectSingle" insertMethod="Insert" updateMethod="Update" deleteMethod="Delete" generateSharedBusinessRules="true" includeViews="true" tabViewSelection="0">
+    <fieldMap></fieldMap>
+    <keys></keys>
+    <fieldsToIgnore></fieldsToIgnore>
+    <fieldsToHide></fieldsToHide>
+    <customLabels></customLabels>
+  </bll>
+  <membership enabled="true" providerName="System.Data.SqlClient" connectionString="" windowsAuthentication="false" activeDirectory="false" customSecurity="false" dedicatedLogin="false" displayRememberMe="true" rememberMeSet="true" displaySignUp="false" displayPasswordRecovery="true" displayMyAccount="true" displayHelp="true" idleUserDetectionTimeout="45" tabViewSelection="3" validationKey="768938E873F72C7B2216F57C6B4385BA8E57DFAAF2DC40C69C6620AAD7F6FD6666A6E24C222215D66FE60B5650FA46E95EFE08D47D3E40515CCB627B3CFBDC14">
+    <adConfig></adConfig>
+    <config></config>
+  </membership>
+  <globalization uiCulture="es-MX" culture="es-ES" enableClientBasedCulture="false" supportedCultures="es-ES,es-MX; en-US,en-US; " googleTranslateApiKey="" />
+  <layout name="Classic" menuStyle="MultiLevel" />
+  <theme name="DarkKnight" />
+  <publish mode="Azure">
+    <fileSystem external="false">{"path":"","previewUrl":"","webConfigCustomizations":{}}</fileSystem>
+    <azure external="false">{"webConfigCustomizations":{"production":{},"private":{}},"TenantID":"e8bb36ac-8e7a-4e24-9cb2-d5904fec1265","ClientID":"68a24f41-9d63-4786-9683-0a6682440426","ClientSecret":"KvuU/cL:@+WOZZun6o0fgyMddAxjJx56","AccessToken":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InBpVmxsb1FEU01LeGgxbTJ5Z3FHU1ZkZ0ZwQSIsImtpZCI6InBpVmxsb1FEU01LeGgxbTJ5Z3FHU1ZkZ0ZwQSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2U4YmIzNmFjLThlN2EtNGUyNC05Y2IyLWQ1OTA0ZmVjMTI2NS8iLCJpYXQiOjE1NzcwODQ3NTIsIm5iZiI6MTU3NzA4NDc1MiwiZXhwIjoxNTc3MDg4NjUyLCJhY3IiOiIxIiwiYWlvIjoiQVNRQTIvOE5BQUFBMzR5THphMTZoNlFvbU5sa0gvekxsZ1dqYk56czhlMFJzOWRka0Y2eVlZND0iLCJhbXIiOlsicHdkIl0sImFwcGlkIjoiNjhhMjRmNDEtOWQ2My00Nzg2LTk2ODMtMGE2NjgyNDQwNDI2IiwiYXBwaWRhY3IiOiIxIiwiZGV2aWNlaWQiOiI3MDJlNzIwYi0xYjQ4LTQ1ZDUtODhlMy0xZGNhZGRkMmNmNTciLCJmYW1pbHlfbmFtZSI6Ikx1bmEiLCJnaXZlbl9uYW1lIjoiRXJpa2EiLCJncm91cHMiOlsiODAyNDYxZTUtYjhlMC00NDFmLTllMGQtODFkNzhjODUwMTEwIl0sImlwYWRkciI6IjE4Ny4xNjMuNzIuMTI4IiwibmFtZSI6IkVyaWthIEx1bmEiLCJvaWQiOiI0YTYyZjAwYy1mYzM5LTRiNmQtOGMyMC00YWFhNTdjZTQ4NmEiLCJwdWlkIjoiMTAwMzAwMDBBNTU2OEMzRCIsInNjcCI6InVzZXJfaW1wZXJzb25hdGlvbiIsInN1YiI6IlBNNjh6eXFlbmhkd0VRQ1E1cFZzZnBiM3hVSWJycWc1TjhURUp0UHo0YlEiLCJ0aWQiOiJlOGJiMzZhYy04ZTdhLTRlMjQtOWNiMi1kNTkwNGZlYzEyNjUiLCJ1bmlxdWVfbmFtZSI6ImVyaWthLmx1bmFAYmlnd2F2ZWRhdGEubXgiLCJ1cG4iOiJlcmlrYS5sdW5hQGJpZ3dhdmVkYXRhLm14IiwidXRpIjoiY1VZQlhlZmU3azZta2pXTWZqMmNBQSIsInZlciI6IjEuMCIsIndpZHMiOlsiNjJlOTAzOTQtNjlmNS00MjM3LTkxOTAtMDEyMTc3MTQ1ZTEwIl19.quvLUlwjcLVO2BsYChuWD8nDFGwCsMzp0-XjOMWkz8RMI1YQb-ivEH1WLkueqEc4eUkFJJrnn4pHhF75FBqfN5eRBwpg6kCPzV86vBnSDwTd90vqMjE8yg3ITXMgw5KUdnCa8nwqcOJQZwa3SN4QD3dR8zdVpZTN8LML_E4S5cAqNswKKOfceVd9fQeRKzuAY-TS-lI4NU16LIto8PPLniMhA-GIDXtZDJRfPbQagpHNcchxZKvxFqaKASriT8jQwldLTt-1QOpXc5Xf6YK_vr6XYQ5sIZH1k7RTENQAOPckJjhdrKMKiKb3-yAlG_15-jhBHP4VTkuO59pM35Lvgg","RefreshToken":"AQABAAAAAACQN9QBRU3jT6bcBQLZNUj7oQETdmLrjG0AwLYTVK5A9yyuF_v9nT_vPLA--BHsVWWLfE8zPxmMXWeWpaqPXsGE6cWeUlHZPiJZJsOQx_ouWq7raPg1zgZLbK8IFl8jgcm5IqjJHlbEF0LTU1E9n-ZAiBDTidPYW6fl0iGpoIXHLUDLBod3ZIqzkPlO_kWKizgQ5ZblfzH8xneuVmbmZU9XEt_synl4j6-lJ50oeKJPZsZNbfrr9bBy1U6igS1Q4M0w-Zxq3sGy15RX5vkpXskcJ-NOWKC9A0TCQKUY9UBY1ZPL2Ddwz-zpnnqdptnjh7JHMtWrmQw1IAmR798f-6Dbk6YDzIaWwd0rKn1iHWB7jjdliMJm3K0NpyGtpkfXlsnPGeEhbu70nhMZmugIQr49dD1QYYAajIs7Eys-nUN3u0kvUWMhzMoNxy5fB5VIhiSAkt7wvqP7c0MRPvEC8TdYJ7ImMhSwdfJgZt4R3WHCCAQMUHuiAhu6DFej8atRGCVj5gumyH2Z9SQj8tSazAmDc-U8Di74-vF041HVRTbvhpBcYN910K8omsxnhsFXZf8YZV0SLaOIOXqsUDGabdRf-72SWNQiUSfVuAEOHfyLDUzLVuSHqS92Xnl4Y12fFSRmI5QsaQTzmgE5fhmFtdZ5aU20l4iJl50NV9BBmAdffx_--0leqMyAIZoDOqekZlzsZmQJxClbQoBhbgPC_wpjgWybWzkrQi-6BoDwoHCE-RKhkKl9JEm-yys6qXOxGev8Wy95oVX5_h1232idOhncDY9FoNxDM17wg1QKeS5twPCp_cfr92aVe1vlsxBCjk7wShgCnTVT4diV3dfl5x79bolSc3ROV7uzwXuoUoA03yAA","subscription":"f7460fd7-1d3d-45c4-b362-e7d4464fbb05","deployment":null,"appService":"/subscriptions/f7460fd7-1d3d-45c4-b362-e7d4464fbb05/resourceGroups/arhmex/providers/Microsoft.Web/sites/arhmex","productionUrl":"https://arhmex.azurewebsites.net","stagingUrl":null,"privateUrl":null,"deleteStaging":true,"lastDeployMode":"production","previewUrl":"https://arhmex.azurewebsites.net","overrideUrl":""}</azure>
+  </publish>
+</project>

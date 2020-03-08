@@ -1,0 +1,43 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Administración de Clientes</title>
+  </head>
+  <body data-authorize-roles="Administrators,ArhAdmin,ITARH,ArhVacaciones,ArhTesoreria,ArhContabilidad,ARHOperaciones">
+    <!--The contents of this page will be overwritten by app generator. Set page property "Generate" to "First Time Only" to preserve changes.-->
+    <div data-flow="row">
+      <div id="view1" data-controller="Cliente" data-view="gridAdmin" data-selection-mode="multiple" data-show-description="false" data-show-details-in-list-mode="false" data-roles="Administrators,ArhAdmin,ArhTesoreria,ArhContabilidad,ARHOperaciones"> </div>
+      <div data-activator="Tab|Contratantes">
+        <div id="view2" data-controller="Contratante_Admin" data-view="gridAdmin" data-filter-source="view1" data-filter-fields="Cliente_Id" data-selection-mode="multiple" data-show-description="false" data-show-details-in-list-mode="false" data-roles="Administrators,ArhAdmin,ArhTesoreria,ArhContabilidad,ARHOperaciones"> </div>
+      </div>
+      <div data-activator="Tab|Pagadoras Asignadas">
+        <div id="view3" data-controller="Cliente_Pagadora" data-view="grid1" data-filter-source="view1" data-filter-fields="Cliente_Id" data-show-description="false" data-show-details-in-list-mode="false" data-roles="Administrators,ArhAdmin,ArhTesoreria,ArhContabilidad,ARHOperaciones"> </div>
+      </div>
+      <div data-activator="Tab|Administración de Pagadoras">
+        <div id="view4" data-controller="Pagadora" data-view="grid1" data-filter-source="view1" data-filter-fields="Cliente_Id" data-show-description="false" data-show-details-in-list-mode="false" data-visible-when="[Master.Administra_Pagadoras]==true" data-roles="Administrators,ArhAdmin,ArhTesoreria,ArhContabilidad,ARHOperaciones"> </div>
+      </div>
+      <div data-activator="Tab|Relación de Sociedades">
+        <div id="view11" data-controller="Cliente_Sociedad" data-view="grid1" data-filter-source="view1" data-filter-fields="Cliente_Id" data-roles="Administrators,ArhAdmin"> </div>
+      </div>
+      <div data-activator="Tab|Documentos">
+        <div id="view5" data-controller="Cliente_Documento" data-view="grid1" data-filter-source="view1" data-filter-fields="Cliente_Id" data-roles="Administrators,ArhAdmin,ArhTesoreria,ArhContabilidad,ARHOperaciones"> </div>
+      </div>
+      <div data-activator="Tab|Receptoras asignadas">
+        <div id="view6" data-controller="Cliente_Receptora" data-view="Cliente_Receptora_LookUp_List" data-filter-source="view1" data-filter-fields="Cliente_Id" data-roles="Administrators,ArhAdmin,ArhTesoreria,ArhContabilidad,ARHOperaciones"> </div>
+      </div>
+      <div data-activator="Tab|Localidades de Cliente">
+        <div id="view7" data-controller="Cliente_Sucursal" data-view="grid1" data-filter-source="view1" data-filter-fields="Cliente_Id" data-roles="Administrators,ArhAdmin,ArhTesoreria,ArhContabilidad,ARHOperaciones"> </div>
+      </div>
+      <div data-activator="Tab|Responsables de Autorización Gastos de Sociedades">
+        <div id="view8" data-controller="Responsable_Autorizacion_Gasto_Sociedad" data-view="grid1" data-filter-source="view1" data-filter-fields="Cliente_Id" data-roles="Hidden"> </div>
+      </div>
+      <div data-activator="Tab|Responsables de Autorización Gastos de Cuadros Accionarios">
+        <div id="view9" data-controller="Responsable_Autorizacion_Gasto_Sociedad_Cuadro_Accionario" data-view="grid1" data-filter-source="view1" data-filter-fields="Cliente_Id" data-roles="Hidden"> </div>
+      </div>
+      <div data-activator="Tab|Conceptos ARH">
+        <div id="view10" data-controller="Cliente_Concepto_ARH" data-view="grid1" data-filter-source="view1" data-filter-fields="Cliente_Id" data-roles="Administrators,ArhAdmonServicios"> </div>
+      </div>
+    </div>
+  </body>
+</html>

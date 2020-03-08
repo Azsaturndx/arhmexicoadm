@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Estatus_Solicitud" conflictDetection="overwriteChanges" label="Estatus Solicitud" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Estatus_Solicitud"."Estatus_Solicitud_Id" "Estatus_Solicitud_Id"
+	,"Estatus_Solicitud"."Estatus_Solicitud" "Estatus_Solicitud"
+	,"Estatus_Solicitud"."Significa_Autorizada" "Significa_Autorizada"
+	,"Estatus_Solicitud"."Significa_Rechazada" "Significa_Rechazada"
+	,"Estatus_Solicitud"."Significa_Pendiente_Por_Autorizar" "Significa_Pendiente_Por_Autorizar"
+	,"Estatus_Solicitud"."Transaccion_Id" "Transaccion_Id"
+	,"Estatus_Solicitud"."Creado_Por_Id" "Creado_Por_Id"
+	,"Usuario_V"."UserName" "cpUserName"
+	,"Estatus_Solicitud"."Fecha_Creacion" "Fecha_Creacion"
+	,"Estatus_Solicitud"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"Usuario_V1"."UserName" "apUserName"
+	,"Estatus_Solicitud"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Estatus_Solicitud"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+from "APP"."Estatus_Solicitud" "Estatus_Solicitud"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Estatus_Solicitud"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Usuario_V" on "Estatus_Solicitud"."Creado_Por_Id" = "Usuario_V"."UserId"
+	left join "dbo"."Usuario_V" "Usuario_V1" on "Estatus_Solicitud"."Actualizado_Por_Id" = "Usuario_V1"."UserId"
+]]></text>
+    </command>
+    <command id="Estatus_Solicitud_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Estatus_Solicitud_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Estatus_Solicitud_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Estatus Solicitud Id" readOnly="true" />
+    <field name="Estatus_Solicitud" type="String" allowNulls="false" label="Estatus Solicitud" length="150" showInSummary="true" />
+    <field name="Significa_Autorizada" type="Boolean" allowNulls="false" default="((0))" label="¿Significa Autorizada?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Significa_Rechazada" type="Boolean" allowNulls="false" default="((0))" label="¿Significa Rechazada?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Significa_Pendiente_Por_Autorizar" type="Boolean" allowNulls="false" default="((0))" label="¿Significa Pendiente Por Autorizar?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transaccion Id" length="50" showInSummary="true" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Estatus Solicitud" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Estatus_Solicitud" filter="Estatus_Registro_Id &lt;&gt; 0">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Estatus_Solicitud" />
+        <dataField fieldName="Significa_Autorizada" />
+        <dataField fieldName="Significa_Rechazada" />
+        <dataField fieldName="Significa_Pendiente_Por_Autorizar" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Estatus Solicitud" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Estatus_Solicitud">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Significa_Autorizada">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Significa_Rechazada">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Significa_Pendiente_Por_Autorizar">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nuevo Estatus Solicitud" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Estatus_Solicitud" />
+            <dataField fieldName="Significa_Autorizada" />
+            <dataField fieldName="Significa_Rechazada" />
+            <dataField fieldName="Significa_Pendiente_Por_Autorizar" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Estatus_Solicitud_LookUp_List" commandId="command1" type="Grid" label="Estatus Solicitud" filter="Estatus_Registro_Id IN (1,0)" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" sortExpression="Estatus_Solicitud">
+      <dataFields>
+        <dataField fieldName="Significa_Autorizada" hidden="true" />
+        <dataField fieldName="Estatus_Solicitud" rows="5" />
+        <dataField fieldName="Significa_Rechazada" hidden="true" />
+        <dataField fieldName="Significa_Pendiente_Por_Autorizar" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE 
+	APP.Estatus_Solicitud
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Estatus_Solicitud_Id = @Estatus_Solicitud_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Estatus_Solicitud
+	WHERE
+		REPLACE(UPPER(Estatus_Solicitud),' ','') = REPLACE(UPPER(@Estatus_Solicitud),' ','')
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya esta registrado este estatus de solicitud en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya esta registrado este estatus de solicitud en la base de datos, favor de corregir.'
+   RETURN
+END
+
+]]></rule>
+    <rule id="r101" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Estatus_Solicitud
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Estatus_Solicitud_Id= @Estatus_Solicitud_Id]]></rule>
+    <rule id="r102" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Estatus_Solicitud
+	WHERE
+  		REPLACE(UPPER(Estatus_Solicitud),' ','') = REPLACE(UPPER(@Estatus_Solicitud),' ','')
+		AND Estatus_Solicitud_Id <> @Estatus_Solicitud_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya esta registrado este estatus de solicitud en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya esta registrado este estatus de solicitud en la base de datos, favor de corregir.'
+   RETURN
+END
+
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Estatus_Solicitud
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Estatus_Solicitud_Id = @Estatus_Solicitud_Id]]></rule>
+  </businessRules>
+</dataController>

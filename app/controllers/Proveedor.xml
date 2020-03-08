@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Proveedor" conflictDetection="overwriteChanges" label="Proveedor" handler="arhmexico.Rules.ProveedorBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Proveedor"."Proveedor_Id" "Proveedor_Id"
+	,"Proveedor"."Proveedor" "Proveedor"
+	,"Proveedor"."Tipo_Proveedor_Id" "Tipo_Proveedor_Id"
+	,"Tipo_Proveedor_"."Tipo_Proveedor" "Tipo_Proveedor_Tipo_Proveedor"
+	,"Proveedor"."Proveedor_Usuario_Aplicacion_Id" "Proveedor_Usuario_Aplicacion_Id"
+	,"Proveedor"."Horario_Inicio_Servicio" "Horario_Inicio_Servicio"
+	,"Proveedor"."Horario_Fin_Servicio" "Horario_Fin_Servicio"
+	,"Proveedor"."Trabaja_Lunes" "Trabaja_Lunes"
+	,"Proveedor"."Trabaja_Martes" "Trabaja_Martes"
+	,"Proveedor"."Trabaja_Miercoles" "Trabaja_Miercoles"
+	,"Proveedor"."Trabaja_Jueves" "Trabaja_Jueves"
+	,"Proveedor"."Trabaja_Viernes" "Trabaja_Viernes"
+	,"Proveedor"."Trabaja_Sabado" "Trabaja_Sabado"
+	,"Proveedor"."Trabaja_Domingo" "Trabaja_Domingo"
+	,"Proveedor"."Contratante_Id" "Contratante_Id"
+	,"Contratante_"."Contratante" "Contratante_Contratante"
+	,"Proveedor"."Cliente_Id" "Cliente_Id"
+	,"Cliente_"."Cliente" "Cliente_Cliente"
+	,"Proveedor"."Transaccion_Id" "Transaccion_Id"
+	,"Proveedor"."Creado_Por_Id" "Creado_Por_Id"
+	,"cpUsuario_V"."UserName" "cpUserName"
+	,"Proveedor"."Fecha_Creacion" "Fecha_Creacion"
+	,"Proveedor"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Proveedor"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Proveedor"."Correo_Electronico" "Correo_Electronico"
+	,"Proveedor"."Actualizado_Por_Id" "ActualizadoPorId"
+	,"apUsuario_V"."UserName" "apUserName"
+	,"Proveedor"."Registro_Federal_Causante_Id" "Registro_Federal_Causante_Id"
+	,"Proveedor"."Domicilio_Fiscal" "Domicilio_Fiscal"
+	,"Proveedor"."Razon_Social" "Razon_Social"
+	,"Proveedor"."Banco_Proveedor_Id" "Banco_Proveedor_Id"
+	,"Banco"."Nombre_Completo" "Banco_Nombre"
+	,"Proveedor"."Clave_Bancaria" "Clave_Bancaria"
+	,"Proveedor"."Periodicidad_Renta_Id" "Periodicidad_Renta_Id"
+	,"Periodicidad_Renta"."Periodicidad_Renta" "PeriodicidadRentaperiodicidadRenta"
+	,"Proveedor"."Numero_Dia_Fecha_Pago" "Numero_Dia_Fecha_Pago"
+	,"Proveedor"."Monto_Deposito_Garantia" "Monto_Deposito_Garantia"
+	,"Proveedor"."Notas" "Notas"
+from "APP"."Proveedor" "Proveedor"
+	left join "APP"."Tipo_Proveedor" "Tipo_Proveedor_" on "Proveedor"."Tipo_Proveedor_Id" = "Tipo_Proveedor_"."Tipo_Proveedor_Id"
+	left join "APP"."Contratante" "Contratante_" on "Proveedor"."Contratante_Id" = "Contratante_"."Contratante_Id"
+	left join "APP"."Cliente" "Cliente_" on "Proveedor"."Cliente_Id" = "Cliente_"."Cliente_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Proveedor"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cpUsuario_V" on "Proveedor"."Creado_Por_Id" = "cpUsuario_V"."UserId"
+	left join "dbo"."Usuario_V" "apUsuario_V" on "Proveedor"."Actualizado_Por_Id" = "apUsuario_V"."UserId"
+	left join "APP"."Banco" "Banco" on "Proveedor"."Banco_Proveedor_Id" = "Banco"."Banco_Id"
+	left join "APP"."Periodicidad_Renta" "Periodicidad_Renta" on "Proveedor"."Periodicidad_Renta_Id" = "Periodicidad_Renta"."Periodicidad_Renta_Id"
+]]></text>
+    </command>
+    <command id="Proveedor_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Proveedor_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Proveedor_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Proveedor Id" readOnly="true" />
+    <field name="Proveedor" type="String" allowNulls="false" label="Proveedor" length="150" showInSummary="true" />
+    <field name="Tipo_Proveedor_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo Proveedor Id" showInSummary="true">
+      <items style="Lookup" dataController="Tipo_Proveedor" newDataView="createForm1" dataValueField="Tipo_Proveedor_Id" dataTextField="Tipo_Proveedor" dataView="Tipo_Proveedor_LookUp_List" />
+    </field>
+    <field name="Tipo_Proveedor_Tipo_Proveedor" type="String" readOnly="true" label="Tipo de Proveedor" length="150" />
+    <field name="Proveedor_Usuario_Aplicacion_Id" type="Guid" label="Proveedor Usuario Aplicacion Id" showInSummary="true" />
+    <field name="Horario_Inicio_Servicio" type="TimeSpan" label="Horario Inicio Servicio" length="7" showInSummary="true" />
+    <field name="Horario_Fin_Servicio" type="TimeSpan" label="Horario Fin Servicio" length="7" showInSummary="true" />
+    <field name="Trabaja_Lunes" type="Boolean" allowNulls="false" default="((0))" label="¿Trabaja Lunes?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Trabaja_Martes" type="Boolean" allowNulls="false" default="((0))" label="¿Trabaja Martes?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Trabaja_Miercoles" type="Boolean" allowNulls="false" default="((0))" label="¿Trabaja Miercoles?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Trabaja_Jueves" type="Boolean" allowNulls="false" default="((0))" label="¿Trabaja Jueves?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Trabaja_Viernes" type="Boolean" allowNulls="false" default="((0))" label="¿Trabaja Viernes?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Trabaja_Sabado" type="Boolean" allowNulls="false" default="((0))" label="¿Trabaja Sabado?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Trabaja_Domingo" type="Boolean" allowNulls="false" default="((0))" label="¿Trabaja Domingo?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Contratante_Id" type="Int32" allowNulls="false" default="((0))" label="Contratante Id">
+      <items style="Lookup" dataController="Contratante" newDataView="createForm1" dataValueField="Contratante_Id" dataTextField="Contratante" dataView="Contratante_Admin_LookUp_List" />
+    </field>
+    <field name="Contratante_Contratante" type="String" readOnly="true" label="Contratante" length="150" />
+    <field name="Cliente_Id" type="Int32" allowNulls="false" default="((0))" label="Cliente Id">
+      <items style="Lookup" dataController="Cliente" newDataView="createForm1" dataValueField="Cliente_Id" dataTextField="Cliente" dataView="Cliente_Admin_LookUp_List" />
+    </field>
+    <field name="Cliente_Cliente" type="String" readOnly="true" label="Cliente" length="150" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transacción Id" length="50" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="Correo_Electronico" type="String" allowQBE="false" allowSorting="false" label="Correo Electronico" length="5000" />
+    <field name="ActualizadoPorId" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Registro_Federal_Causante_Id" type="String" allowNulls="false" default="('')" label="Registro Federal Causante Id" length="13" />
+    <field name="Domicilio_Fiscal" type="String" allowNulls="false" default="('')" allowQBE="false" allowSorting="false" label="Domicilio Fiscal" length="3000" />
+    <field name="Razon_Social" type="String" allowNulls="false" default="('')" label="Razón Social" length="150" />
+    <field name="Banco_Proveedor_Id" type="Int32" allowNulls="false" default="((0))" label="Banco Proveedor Id">
+      <items style="Lookup" dataController="Banco" newDataView="createForm1" dataValueField="Banco_Id" dataTextField="Nombre_Completo" dataView="Banco_LookUp_List" />
+    </field>
+    <field name="Banco_Nombre" type="String" readOnly="true" label="Nombre del Banco" length="150" />
+    <field name="Clave_Bancaria" type="String" allowNulls="false" default="('0')" label="Clave Bancaria" length="25" />
+    <field name="Periodicidad_Renta_Id" type="Int32" allowNulls="false" default="((0))" label="Periodicidad Renta Id">
+      <items style="Lookup" dataController="Periodicidad_Renta" newDataView="createForm1" dataValueField="Periodicidad_Renta_Id" dataTextField="Periodicidad_Renta" dataView="Periodicidad_Renta_LookUp_List" />
+    </field>
+    <field name="PeriodicidadRentaperiodicidadRenta" type="String" readOnly="true" label="Periodicidad Rentaperiodicidad Renta" length="150" />
+    <field name="Numero_Dia_Fecha_Pago" type="Int16" default="((0))" label="Número Día Fecha Pago" />
+    <field name="Monto_Deposito_Garantia" type="Decimal" allowNulls="false" default="((0))" label="Monto de Depósito de Garantia" />
+    <field name="Notas" type="String" allowNulls="false" default="('')" allowQBE="false" allowSorting="false" label="Notas" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Proveedor" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" sortExpression="Proveedor" filter="Estatus_Registro_Id &lt;&gt; 0">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Proveedor" />
+        <dataField fieldName="Tipo_Proveedor_Id" aliasFieldName="Tipo_Proveedor_Tipo_Proveedor" />
+        <dataField fieldName="Correo_Electronico" rows="5" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" />
+        <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" />
+        <dataField fieldName="Horario_Inicio_Servicio" columns="15" />
+        <dataField fieldName="Horario_Fin_Servicio" columns="15" />
+        <dataField fieldName="Trabaja_Lunes" />
+        <dataField fieldName="Trabaja_Martes" />
+        <dataField fieldName="Trabaja_Miercoles" />
+        <dataField fieldName="Trabaja_Jueves" />
+        <dataField fieldName="Trabaja_Viernes" />
+        <dataField fieldName="Trabaja_Sabado" />
+        <dataField fieldName="Trabaja_Domingo" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="ActualizadoPorId" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Registro_Federal_Causante_Id" columns="13" />
+        <dataField fieldName="Domicilio_Fiscal" rows="5" />
+        <dataField fieldName="Razon_Social" />
+        <dataField fieldName="Banco_Proveedor_Id" aliasFieldName="Banco_Nombre" />
+        <dataField fieldName="Clave_Bancaria" columns="25" />
+        <dataField fieldName="Periodicidad_Renta_Id" aliasFieldName="PeriodicidadRentaperiodicidadRenta" />
+        <dataField fieldName="Numero_Dia_Fecha_Pago" columns="15" />
+        <dataField fieldName="Monto_Deposito_Garantia" columns="15" />
+        <dataField fieldName="Notas" rows="5" />
+        <dataField fieldName="Proveedor_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Proveedor" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Proveedor" />
+            <dataField fieldName="Tipo_Proveedor_Id" aliasFieldName="Tipo_Proveedor_Tipo_Proveedor" />
+            <dataField fieldName="Proveedor_Usuario_Aplicacion_Id" columns="15" />
+            <dataField fieldName="Horario_Inicio_Servicio" columns="15" />
+            <dataField fieldName="Horario_Fin_Servicio" columns="15" />
+            <dataField fieldName="Trabaja_Lunes" />
+            <dataField fieldName="Trabaja_Martes" />
+            <dataField fieldName="Trabaja_Miercoles" />
+            <dataField fieldName="Trabaja_Jueves" />
+            <dataField fieldName="Trabaja_Viernes" />
+            <dataField fieldName="Trabaja_Sabado" />
+            <dataField fieldName="Trabaja_Domingo" />
+            <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" />
+            <dataField fieldName="Correo_Electronico" rows="5" />
+            <dataField fieldName="Registro_Federal_Causante_Id" columns="13" />
+            <dataField fieldName="Domicilio_Fiscal" rows="5" />
+            <dataField fieldName="Razon_Social" />
+            <dataField fieldName="Banco_Proveedor_Id" aliasFieldName="Banco_Nombre" />
+            <dataField fieldName="Clave_Bancaria" columns="25" />
+            <dataField fieldName="Periodicidad_Renta_Id" aliasFieldName="PeriodicidadRentaperiodicidadRenta" />
+            <dataField fieldName="Numero_Dia_Fecha_Pago" columns="15" />
+            <dataField fieldName="Monto_Deposito_Garantia" columns="15" />
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Proveedor_Id" columns="15" hidden="true" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nuevo Proveedor" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Proveedor" />
+            <dataField fieldName="Tipo_Proveedor_Id" aliasFieldName="Tipo_Proveedor_Tipo_Proveedor" />
+            <dataField fieldName="Proveedor_Usuario_Aplicacion_Id" columns="15" />
+            <dataField fieldName="Horario_Inicio_Servicio" columns="15" />
+            <dataField fieldName="Horario_Fin_Servicio" columns="15" />
+            <dataField fieldName="Trabaja_Lunes" />
+            <dataField fieldName="Trabaja_Martes" />
+            <dataField fieldName="Trabaja_Miercoles" />
+            <dataField fieldName="Trabaja_Jueves" />
+            <dataField fieldName="Trabaja_Viernes" />
+            <dataField fieldName="Trabaja_Sabado" />
+            <dataField fieldName="Trabaja_Domingo" />
+            <dataField fieldName="Contratante_Id" aliasFieldName="Contratante_Contratante" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" />
+            <dataField fieldName="Correo_Electronico" rows="5" />
+            <dataField fieldName="Registro_Federal_Causante_Id" columns="13" />
+            <dataField fieldName="Domicilio_Fiscal" rows="5" />
+            <dataField fieldName="Razon_Social" />
+            <dataField fieldName="Banco_Proveedor_Id" aliasFieldName="Banco_Nombre" />
+            <dataField fieldName="Clave_Bancaria" columns="25" />
+            <dataField fieldName="Periodicidad_Renta_Id" aliasFieldName="PeriodicidadRentaperiodicidadRenta" />
+            <dataField fieldName="Numero_Dia_Fecha_Pago" columns="15" />
+            <dataField fieldName="Monto_Deposito_Garantia" columns="15" />
+            <dataField fieldName="Notas" rows="5" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Proveedor_LookUp_List" commandId="command1" type="Grid" label="Proveedor" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Proveedor" filter="Estatus_Registro_Id &lt;&gt; 3">
+      <dataFields>
+        <dataField fieldName="Proveedor" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" hidden="true" />
+        <dataField fieldName="Proveedor_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+APP.Proveedor
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Proveedor_Id = @Proveedor_Id
+]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+APP.Proveedor
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Proveedor_Id = @Proveedor_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+APP.Proveedor
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Proveedor_Id = @Proveedor_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+APP.Proveedor
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Proveedor_Id = @Proveedor_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Proveedor
+	WHERE
+		REPLACE(UPPER(Proveedor),' ','') = REPLACE(UPPER(@Proveedor),' ','')
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe este proveedor registrado en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe este proveedor registrado en la base de datos, favor de corregir.'
+   RETURN
+END
+]]></rule>
+    <rule id="r101" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Proveedor
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Proveedor_Id= @Proveedor_Id]]></rule>
+    <rule id="r102" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Proveedor
+	WHERE
+		REPLACE(UPPER(Proveedor),' ','') = REPLACE(UPPER(@Proveedor),' ','')
+  		AND Proveedor_Id <> @Proveedor_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe este proveedor registrado en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe este proveedor registrado en la base de datos, favor de corregir.'
+   RETURN
+END
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Proveedor
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Proveedor_Id= @Proveedor_Id]]></rule>
+  </businessRules>
+</dataController>

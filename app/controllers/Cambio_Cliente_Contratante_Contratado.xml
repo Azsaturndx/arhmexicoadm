@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Cambio_Cliente_Contratante_Contratado" label="Cambio_Cliente_Contratante_Contratado" conflictDetection="overwriteChanges" handler="arhmexico.Rules.Cambio_Cliente_Contratante_ContratadoBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <fields>
+    <field name="Fecha_Movimiento_Personal" type="DateTime" label="Fecha de Movimiento" />
+    <field name="Motivo_Movimiento_Personal_Id" type="Int32" label="Motivo de Movimiento">
+      <items style="Lookup" dataController="Motivo_Movimiento_Personal" dataView="Motivo_Movimiento_Personal_LookUp_List_Cambio" dataTextField="Motivo_Movimiento_Personal" dataValueField="Motivo_Movimiento_Personal_Id" newDataView="createForm1" />
+    </field>
+    <field name="Contratante_Id" type="Int32" label="Nuevo Contratante" contextFields="Cliente_Id=Cliente_Id">
+      <items style="Lookup" dataController="Contratante" dataView="Contratante_Admin_LookUp_List" dataTextField="Contratante" dataValueField="Contratante_Id" newDataView="createForm1" />
+    </field>
+    <field name="Contratante_Puesto" type="Int32" label="Nuevo Puesto" contextFields="Contratante_Id=Contratante_Id,Contratante_Estructura_Organizacional_Id=Estructura_Organizacional_Id">
+      <items style="Lookup" dataController="Contratante_Puesto" dataView="Contratante_Puesto_Aun_Sin_Asignar_LookUp_List" dataTextField="Contratante_Puesto" dataValueField="Contratante_Puesto_Id" newDataView="createForm1" />
+    </field>
+    <field name="Pagadora_Id" type="Int32" label="Nueva Pagadora" contextFields="Contratante_Id=Contratante_Id">
+      <items style="Lookup" dataController="Contratante_Pagadora" dataView="Contratante_Pagadora_LookUp_List" dataTextField="Pagadora_Pagadora" dataValueField="Pagadora_Id" />
+    </field>
+    <field name="Cliente_Id" type="Int32" label="Nuevo Cliente">
+      <items style="Lookup" dataController="Cliente" dataView="Cliente_LookUp_List" dataTextField="Cliente" dataValueField="Cliente_Id" newDataView="createForm1" />
+    </field>
+    <field name="Estructura_Organizacional_Id" type="Int32" label="Nueva Estructura Organizacional" contextFields="Contratante_Id=Contratante_Id">
+      <items style="Lookup" dataController="Contratante_Estructura_Organizacional" dataView="Contratante_Estructura_Organizacional_Vigente_LookUp_list" dataValueField="Contratante_Estructura_Organizacional_Id" dataTextField="Estructura_Organizacional" newDataView="createForm1" />
+    </field>
+  </fields>
+  <views>
+    <view id="editForm1" type="Form" label="Cambio de Contratante" showInSelector="false">
+      <categories>
+        <category id="c1" headerText="Cambio de Cliente y/o Contratante" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="Fecha_Movimiento_Personal" columns="10" />
+            <dataField fieldName="Motivo_Movimiento_Personal_Id" columns="15" />
+            <dataField fieldName="Cliente_Id" columns="15" />
+            <dataField fieldName="Contratante_Id" columns="15">
+              <footerText>Si cambia de Cliente debe cambiar de Contratante.</footerText>
+            </dataField>
+          </dataFields>
+        </category>
+        <category headerText="Cambio de Puesto/Pagadora" id="c2" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="Estructura_Organizacional_Id" columns="15" />
+            <dataField fieldName="Contratante_Puesto" columns="15" />
+            <dataField fieldName="Pagadora_Id" columns="15" />
+          </dataFields>
+          <description><![CDATA[Si no se cambian estos datos se modificarán en el contratado como Sin Puesto, Sin Pagadora.
+
+]]></description>
+        </category>
+      </categories>
+    </view>
+  </views>
+</dataController>

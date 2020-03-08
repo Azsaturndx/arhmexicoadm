@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Grid_Solicitud_Gasto_V" conflictDetection="overwriteChanges" label="Grid Solicitud Gasto V" handler="arhmexico.Rules.Grid_Solicitud_Gasto_VBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Grid_Solicitud_Gasto_V"."Administracion_Gasto_Id" "Administracion_Gasto_Id"
+	,"Grid_Solicitud_Gasto_V"."Estatus_Solicitud_Id" "Estatus_Solicitud_Id"
+	,"Grid_Solicitud_Gasto_V"."Estatus_Solicitud" "Estatus_Solicitud"
+	,"Grid_Solicitud_Gasto_V"."Monto_Gasto" "Monto_Gasto"
+	,"Grid_Solicitud_Gasto_V"."Monto_Gasto_Autorizado" "Monto_Gasto_Autorizado"
+	,"Grid_Solicitud_Gasto_V"."Solicitud_Gasto_Key" "Solicitud_Gasto_Key"
+	,"Grid_Solicitud_Gasto_V"."Autorizado_Rechazado_Por_Id" "Autorizado_Rechazado_Por_Id"
+	,"Grid_Solicitud_Gasto_V"."Comentarios_Autorizacion_Rechazo" "Comentarios_Autorizacion_Rechazo"
+	,"Grid_Solicitud_Gasto_V"."Fecha_Solicitud" "Fecha_Solicitud"
+from "dbo"."Grid_Solicitud_Gasto_V" "Grid_Solicitud_Gasto_V"
+]]></text>
+    </command>
+    <command id="Estatus_Solicitud_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Estatus_Solicitud_Id" />
+      </output>
+    </command>
+    <command type="Text" id="command2" custom="false">
+      <text><![CDATA[select
+	"Grid_Solicitud_Gasto_V"."Administracion_Gasto_Id" "Administracion_Gasto_Id"
+	,"Grid_Solicitud_Gasto_V"."Estatus_Solicitud_Id" "Estatus_Solicitud_Id"
+	,"Estatus_Solicitud"."Estatus_Solicitud" "EstatusSolicitudestatusSolicitud"
+	,"Grid_Solicitud_Gasto_V"."Monto_Gasto" "Monto_Gasto"
+	,"Grid_Solicitud_Gasto_V"."Monto_Gasto_Autorizado" "Monto_Gasto_Autorizado"
+	,"Grid_Solicitud_Gasto_V"."Solicitud_Gasto_Key" "Solicitud_Gasto_Key"
+	,"Grid_Solicitud_Gasto_V"."Autorizado_Rechazado_Por_Id" "Autorizado_Rechazado_Por_Id"
+	,"Grid_Solicitud_Gasto_V"."Comentarios_Autorizacion_Rechazo" "Comentarios_Autorizacion_Rechazo"
+	,"Grid_Solicitud_Gasto_V"."Fecha_Solicitud" "Fecha_Solicitud"
+from "dbo"."Grid_Solicitud_Gasto_V" "Grid_Solicitud_Gasto_V"
+	left join "APP"."Estatus_Solicitud" "Estatus_Solicitud" on "Grid_Solicitud_Gasto_V"."Estatus_Solicitud_Id" = "Estatus_Solicitud"."Estatus_Solicitud_Id"
+]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Administracion_Gasto_Id" type="Int32" allowNulls="false" label="Administracion Gasto Id" showInSummary="true" isPrimaryKey="true" />
+    <field name="Estatus_Solicitud_Id" type="Int32" label="Estatus Solicitud Id" showInSummary="true">
+      <items style="Lookup" dataController="Estatus_Solicitud" dataView="Estatus_Solicitud_LookUp_List" dataTextField="Estatus_Solicitud" dataValueField="Estatus_Solicitud_Id" />
+    </field>
+    <field name="Estatus_Solicitud" type="String" label="Estatus Solicitud" length="150" showInSummary="true" />
+    <field name="Monto_Gasto" type="Decimal" allowNulls="false" label="Monto del Gasto" showInSummary="true" dataFormatString="c" readOnly="true" />
+    <field name="Monto_Gasto_Autorizado" type="Decimal" label="Monto Autorizado" showInSummary="true" dataFormatString="c" />
+    <field name="Solicitud_Gasto_Key" type="String" label="Solicitud Gasto Key" length="50" />
+    <field name="Autorizado_Rechazado_Por_Id" type="Guid" allowNulls="false" label="Autorizado Rechazado Por Id" />
+    <field name="Comentarios_Autorizacion_Rechazo" type="String" allowNulls="false" label="Comentarios " length="800" />
+    <field name="Fecha_Solicitud" type="DateTime" dataFormatString="g" label="Fecha de Solicitud" readOnly="true" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Grid Solicitud Gasto V" showInSelector="false">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Administracion_Gasto_Id" columns="15" />
+        <dataField fieldName="Estatus_Solicitud_Id" columns="15" />
+        <dataField fieldName="Estatus_Solicitud" />
+        <dataField fieldName="Monto_Gasto" columns="15" />
+        <dataField fieldName="Monto_Gasto_Autorizado" columns="15" />
+        <dataField fieldName="Solicitud_Gasto_Key" columns="50" />
+        <dataField fieldName="Autorizado_Rechazado_Por_Id" columns="15" />
+        <dataField fieldName="Comentarios_Autorizacion_Rechazo" />
+        <dataField fieldName="Fecha_Solicitud" columns="20" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command2" label="Autorización de Solicitud de Gasto con Cambios" showInSelector="false" access="Public">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Autorización con Cambios" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Administracion_Gasto_Id" columns="15" hidden="true" />
+            <dataField fieldName="Fecha_Solicitud" columns="20" />
+            <dataField fieldName="Estatus_Solicitud_Id" columns="15" aliasFieldName="EstatusSolicitudestatusSolicitud" hidden="true" />
+            <dataField fieldName="Monto_Gasto" columns="15" />
+            <dataField fieldName="Monto_Gasto_Autorizado" columns="15" />
+            <dataField fieldName="Solicitud_Gasto_Key" columns="50" hidden="true" />
+            <dataField fieldName="Autorizado_Rechazado_Por_Id" columns="15" />
+            <dataField fieldName="Comentarios_Autorizacion_Rechazo" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="New Grid Solicitud Gasto V" showInSelector="false">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Administracion_Gasto_Id" columns="15" />
+            <dataField fieldName="Estatus_Solicitud_Id" columns="15" />
+            <dataField fieldName="Estatus_Solicitud" />
+            <dataField fieldName="Monto_Gasto" columns="15" />
+            <dataField fieldName="Monto_Gasto_Autorizado" columns="15" />
+            <dataField fieldName="Solicitud_Gasto_Key" columns="50" />
+            <dataField fieldName="Autorizado_Rechazado_Por_Id" columns="15" />
+            <dataField fieldName="Comentarios_Autorizacion_Rechazo" />
+            <dataField fieldName="Fecha_Solicitud" columns="20" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" />
+      <action id="a3" commandName="Delete" />
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="Delete" />
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Custom" commandArgument="ExecCS01" headerText="Guardar" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="Delete" cssClass="DeleteIcon" whenView="grid1" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" />
+      <action id="a2" commandName="Delete" />
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Update" type="Sql" phase="Before"><![CDATA[SET @Estatus_Solicitud_Id = 4
+SELECT 
+   @EstatusSolicitudestatusSolicitud = Estatus_Solicitud
+FROM
+APP.Estatus_Solicitud
+WHERE
+Estatus_Solicitud_Id = @Estatus_Solicitud_Id
+
+SET @Comentarios_Autorizacion_Rechazo = '']]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="Execute"><![CDATA[SET @Estatus_Solicitud_Id = 4
+SELECT 
+   @EstatusSolicitudestatusSolicitud = Estatus_Solicitud
+FROM
+APP.Estatus_Solicitud
+WHERE
+Estatus_Solicitud_Id = @Estatus_Solicitud_Id
+
+SET @Comentarios_Autorizacion_Rechazo = '']]></rule>
+    <rule id="r102" commandName="Custom" commandArgument="ExecCS01" type="Code" phase="After" />
+  </businessRules>
+</dataController>

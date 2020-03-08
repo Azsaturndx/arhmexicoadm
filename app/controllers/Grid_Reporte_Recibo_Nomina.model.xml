@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Grid_Reporte_Recibo_Nomina" alias="Grid_Reporte_Recibo_Nomina" created="2019-02-26T11:58:23" modified="2019-02-26T11:58:34" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="Cliente" fieldName="Cliente" label="Cliente" />
+    <column name="Contratante" fieldName="Contratante" label="Contratante" />
+    <column name="Nombre" fieldName="Nombre" label="Nombre" />
+    <column name="Enlace" fieldName="Enlace" label="Enlace" />
+    <column name="Periodo_Nomina" fieldName="Periodo_Nomina" label="Periodo de Nomina" />
+    <column name="Anio" fieldName="Anio" label="Anio" />
+    <column name="Mes_Numero" fieldName="Mes_Numero" label="Mes Numero" />
+  </columns>
+</dataModel>

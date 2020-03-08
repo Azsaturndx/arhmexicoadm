@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Contratado_Saldo_Vacaciones" conflictDetection="overwriteChanges" label="Contratado Saldo Vacaciones" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Contratado_Saldo_Vacaciones"."Contratado_Saldo_Vacaciones_Id" "Contratado_Saldo_Vacaciones_Id"
+	,"Contratado_Saldo_Vacaciones"."Contratado_Id" "Contratado_Id"
+	,"Contratado_"."Identificador_Unico" "Contratado_Identificador_Unico"
+	,"Contratado_Saldo_Vacaciones"."Anio_Id" "Anio_Id"
+	,"Anio_"."Anio" "Anio_Anio"
+	,"Contratado_Saldo_Vacaciones"."Fecha_Inicio_Saldo" "Fecha_Inicio_Saldo"
+	,"Contratado_Saldo_Vacaciones"."Fecha_Fin_Saldo" "Fecha_Fin_Saldo"
+	,"Contratado_Saldo_Vacaciones"."Saldo_Vacaciones" "Saldo_Vacaciones"
+	,"Contratado_Saldo_Vacaciones"."Saldo_Vacaciones_Anio_Anterior" "Saldo_Vacaciones_Anio_Anterior"
+	,"Contratado_Saldo_Vacaciones"."Dias_Pendientes_Por_Tomar" "Dias_Pendientes_Por_Tomar"
+	,"Contratado_Saldo_Vacaciones"."Notas" "Notas"
+	,"Contratado_Saldo_Vacaciones"."Cliente_Id" "Cliente_Id"
+	,"Usuario_V"."UserName" "cpUserName"
+	,"Contratado_Saldo_Vacaciones"."Fecha_Creacion" "Fecha_Creacion"
+	,"Usuario_V1"."UserName" "apUserName"
+	,"Contratado_Saldo_Vacaciones"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Contratado_Saldo_Vacaciones"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Contratante"."Contratante" "Contratante"
+	,"Contratante"."Contratante_Id" "Contratante_Contratante_Id"
+	,"Cliente"."Cliente" "Cliente"
+	,"Persona"."Nombre" "Persona_Nombre"
+	,"Persona"."Apellido_Paterno" "Persona_Apellido_Paterno"
+	,"Persona"."Apellido_Materno" "Persona_Apellido_Materno"
+	,"Persona"."Segundo_Nombre" "Persona_Segundo_Nombre"
+from "APP"."Contratado_Saldo_Vacaciones" "Contratado_Saldo_Vacaciones"
+	left join "APP"."Contratado" "Contratado_" on "Contratado_Saldo_Vacaciones"."Contratado_Id" = "Contratado_"."Contratado_Id"
+	left join "APP"."Contratante" "Contratante" on "Contratado_"."Contratante_Id" = "Contratante"."Contratante_Id"
+	left join "APP"."Cliente" "Cliente" on "Contratante"."Cliente_Id" = "Cliente"."Cliente_Id"
+	left join "APP"."Persona" "Persona" on "Contratado_"."Persona_Id" = "Persona"."Persona_Id"
+	left join "APP"."Anio" "Anio_" on "Contratado_Saldo_Vacaciones"."Anio_Id" = "Anio_"."Anio_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Contratado_Saldo_Vacaciones"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Usuario_V" on "Contratado_Saldo_Vacaciones"."Creado_Por_Id" = "Usuario_V"."UserId"
+	left join "dbo"."Usuario_V" "Usuario_V1" on "Contratado_Saldo_Vacaciones"."Actualizado_Por_Id" = "Usuario_V1"."UserId"
+]]></text>
+    </command>
+    <command id="Contratado_Saldo_Vacaciones_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Contratado_Saldo_Vacaciones_Id" />
+      </output>
+    </command>
+    <command type="Text" id="Contratado_Saldo_Vacaciones_Cliente_V" tableName="APP.Contratado_Saldo_Vacaciones" custom="false">
+      <text><![CDATA[SELECT 
+	Contratado_Saldo_Vacaciones_Id
+	,Contratado_Id
+	,Contratado_Identificador_Unico
+	,Anio_Id
+	,Anio_Anio
+	,Fecha_Inicio_Saldo
+	,Fecha_Fin_Saldo
+	,Saldo_Vacaciones
+	,Saldo_Vacaciones_Anio_Anterior
+	,Dias_Pendientes_Por_Tomar
+	,Notas
+	,Cliente_Id
+	,Transaccion_Id
+	,Creado_Por_Id
+	,Fecha_Creacion
+	,cpUserName
+	,Actualizado_Por_Id
+	,Fecha_Ultima_Actualizacion
+	,apUserName
+	,Estatus_Registro_Id
+	,Estatus_Registro_Estatus_Registro
+	,UserId
+FROM
+	dbo.Contratado_Saldo_Vacaciones_Cliente_V]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Contratado_Saldo_Vacaciones_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Contratado Saldo Vacaciones Id" readOnly="true" />
+    <field name="Contratado_Id" type="Int32" allowNulls="false" default="((0))" label="Contratado Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratado" newDataView="createForm1" dataValueField="Contratado_Id" dataTextField="Identificador_Unico" copy="Contratante=Contratante_Contratante, " dataView="Contratado_Admin_LookUp_List" />
+    </field>
+    <field name="Contratado_Identificador_Unico" type="String" readOnly="true" label="Contratado Identificador Unico" length="50" />
+    <field name="Anio_Id" type="Int32" allowNulls="false" default="((0))" label="Anio Id" showInSummary="true">
+      <items style="Lookup" dataController="Anio" newDataView="createForm1" dataValueField="Anio_Id" dataTextField="Anio" dataView="Anio_LookUp_List" />
+    </field>
+    <field name="Anio_Anio" type="String" readOnly="true" label="Año" length="150" />
+    <field name="Fecha_Inicio_Saldo" type="DateTime" allowNulls="false" dataFormatString="g" label="Fecha Inicio Saldo" showInSummary="true" />
+    <field name="Fecha_Fin_Saldo" type="DateTime" allowNulls="false" dataFormatString="g" label="Fecha Fin Saldo" showInSummary="true" />
+    <field name="Saldo_Vacaciones" type="Int16" allowNulls="false" label="Saldo Vacaciones" showInSummary="true" />
+    <field name="Saldo_Vacaciones_Anio_Anterior" type="Int16" allowNulls="false" label="Saldo Vacaciones Anio Anterior" />
+    <field name="Dias_Pendientes_Por_Tomar" type="Int16" allowNulls="false" label="Dias Pendientes Por Tomar" />
+    <field name="Notas" type="String" allowQBE="false" allowSorting="false" label="Notas" />
+    <field name="Cliente_Id" type="Int32" allowNulls="false" default="((0))" label="Cliente Id" />
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha Ultima Actualizacion UTC 0" />
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus Registro" length="150" />
+    <field name="Contratante" type="String" readOnly="true" label="Contratante" length="150" />
+    <field name="Contratante_Contratante_Id" type="Int32" label="Contratante Id" readOnly="true" />
+    <field name="Cliente" type="String" readOnly="true" label="Cliente" length="150" />
+    <field name="Persona_Nombre" type="String" readOnly="true" label="Nombre" length="150" />
+    <field name="Persona_Apellido_Paterno" type="String" readOnly="true" label="Apellido Paterno" length="150" />
+    <field name="Persona_Apellido_Materno" type="String" readOnly="true" label="Apellido Materno" length="150" />
+    <field name="Persona_Segundo_Nombre" type="String" readOnly="true" label="Persona Segundo Nombre" length="150" />
+    <field name="UserId" type="String" label="User Id" length="50" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Contratado Saldo Vacaciones" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" filter="Estatus_Registro_Id &lt;&gt; 0">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Contratado_Id" aliasFieldName="Contratado_Identificador_Unico" />
+        <dataField fieldName="Persona_Nombre" />
+        <dataField fieldName="Persona_Segundo_Nombre" />
+        <dataField fieldName="Persona_Apellido_Paterno" />
+        <dataField fieldName="Persona_Apellido_Materno" />
+        <dataField fieldName="Cliente" />
+        <dataField fieldName="Contratante" />
+        <dataField fieldName="Anio_Id" aliasFieldName="Anio_Anio" />
+        <dataField fieldName="Fecha_Inicio_Saldo" columns="20" />
+        <dataField fieldName="Fecha_Fin_Saldo" columns="20" />
+        <dataField fieldName="Saldo_Vacaciones" columns="15" />
+        <dataField fieldName="Saldo_Vacaciones_Anio_Anterior" columns="15" />
+        <dataField fieldName="Dias_Pendientes_Por_Tomar" columns="15" />
+        <dataField fieldName="Notas" rows="5" />
+        <dataField fieldName="Cliente_Id" columns="15" hidden="true" />
+        <dataField fieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Contratante_Contratante_Id" columns="15" hidden="true" />
+        <dataField fieldName="UserId" columns="50" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="gridContratado" type="Grid" commandId="command1" label="Contratado Saldo Vacaciones" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" filter="Estatus_Registro_Id &lt;&gt; 0">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Contratado_Id" aliasFieldName="Contratado_Identificador_Unico" />
+        <dataField fieldName="Contratado_Identificador_Unico" columns="50" />
+        <dataField fieldName="Cliente" />
+        <dataField fieldName="Contratante" />
+        <dataField fieldName="Anio_Id" aliasFieldName="Anio_Anio" />
+        <dataField fieldName="Fecha_Inicio_Saldo" columns="20" />
+        <dataField fieldName="Fecha_Fin_Saldo" columns="20" />
+        <dataField fieldName="Saldo_Vacaciones" columns="15" />
+        <dataField fieldName="Saldo_Vacaciones_Anio_Anterior" columns="15" />
+        <dataField fieldName="Dias_Pendientes_Por_Tomar" columns="15" />
+        <dataField fieldName="Notas" rows="5" />
+        <dataField fieldName="Cliente_Id" columns="15" hidden="true" />
+        <dataField fieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Contratante_Contratante_Id" columns="15" hidden="true" />
+        <dataField fieldName="UserId" columns="50" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" commandId="command1" type="Form" label="Actualizar Saldo de Vacaciones" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="Contratado_Saldo_Vacaciones_Id" columns="15" hidden="true" />
+            <dataField fieldName="Contratado_Id" columns="15" hidden="true" aliasFieldName="Contratado_Identificador_Unico" />
+            <dataField fieldName="Anio_Id" columns="15" aliasFieldName="Anio_Anio" />
+            <dataField fieldName="Fecha_Inicio_Saldo" columns="10" />
+            <dataField fieldName="Fecha_Fin_Saldo" columns="10" />
+            <dataField fieldName="Saldo_Vacaciones" columns="15" />
+            <dataField fieldName="Saldo_Vacaciones_Anio_Anterior" columns="15" />
+            <dataField fieldName="Dias_Pendientes_Por_Tomar" columns="15" />
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Estatus_Registro_Id" columns="15" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" commandId="command1" type="Form" label="Nuevo Saldo de Vacaciones" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="Contratado_Saldo_Vacaciones_Id" columns="15" hidden="true" />
+            <dataField fieldName="Contratado_Id" columns="15" hidden="true" aliasFieldName="Contratado_Identificador_Unico" />
+            <dataField fieldName="Anio_Id" columns="15" aliasFieldName="Anio_Anio" />
+            <dataField fieldName="Fecha_Inicio_Saldo" columns="10" />
+            <dataField fieldName="Fecha_Fin_Saldo" columns="10" />
+            <dataField fieldName="Saldo_Vacaciones" columns="15" />
+            <dataField fieldName="Saldo_Vacaciones_Anio_Anterior" columns="15" />
+            <dataField fieldName="Dias_Pendientes_Por_Tomar" columns="15" />
+            <dataField fieldName="Notas" rows="5" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE 
+	APP.Contratado_Saldo_Vacaciones
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Contratado_Saldo_Vacaciones_Id = @Contratado_Saldo_Vacaciones_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE 
+	APP.Contratado_Saldo_Vacaciones
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Contratado_Saldo_Vacaciones_Id = @Contratado_Saldo_Vacaciones_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" commandName="Select" whenClientScript="this.hasDetails()" commandArgument="editForm1" whenView="createForm1" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" cssClass="NewIcon" commandArgument="createForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" cssClass="EditIcon" whenView="grid1" commandArgument="editForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE 
+	APP.Contratado_Saldo_Vacaciones
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Contratado_Saldo_Vacaciones_Id = @Contratado_Saldo_Vacaciones_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE 
+	APP.Contratado_Saldo_Vacaciones
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Contratado_Saldo_Vacaciones_Id = @Contratado_Saldo_Vacaciones_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+</dataController>

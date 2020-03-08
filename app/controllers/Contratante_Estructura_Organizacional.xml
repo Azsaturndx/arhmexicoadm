@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Contratante_Estructura_Organizacional" conflictDetection="overwriteChanges" label="Contratante Estructura Organizacional" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Contratante_Estructura_Organizacional"."Contratante_Estructura_Organizacional_Id" "Contratante_Estructura_Organizacional_Id"
+	,"Contratante_Estructura_Organizacional"."Contratante_Id" "Contratante_Id"
+	,"Contratante_Estructura_Organizacional"."Tipo_Estructura_Organizacional_Id" "Tipo_Estructura_Organizacional_Id"
+	,"Tipo_Estructura_Organizacional_"."Tipo_Estructura_Organizacional" "Tipo_Estructura_Organizacional_Tipo_Estructura_Organizacional"
+	,"Contratante_Estructura_Organizacional"."Estructura_Organizacional" "Estructura_Organizacional"
+	,"Contratante_Estructura_Organizacional"."Permitir_Asociar_Personal" "Permitir_Asociar_Personal"
+	,"Contratante_Estructura_Organizacional"."Estructura_Organizacional_Padre_Id" "Estructura_Organizacional_Padre_Id"
+	,"Contratante_Estructura_Organizacional1"."Estructura_Organizacional" "Estructura_Organizacional_Padre"
+	,"Contratante_Estructura_Organizacional"."Estructura_Organizacional_Descripcion" "Estructura_Organizacional_Descripcion"
+	,"Contratante_Estructura_Organizacional"."Cliente_Id" "Cliente_Id"
+	,"Cliente_"."Cliente" "Cliente_Cliente"
+	,"Contratante_Estructura_Organizacional"."Transaccion_Id" "Transaccion_Id"
+	,"Contratante_Estructura_Organizacional"."Creado_Por_Id" "Creado_Por_Id"
+	,"Usuario_V"."UserName" "cpUserName"
+	,"Contratante_Estructura_Organizacional"."Fecha_Creacion" "Fecha_Creacion"
+	,"Contratante_Estructura_Organizacional"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"Usuario_V1"."UserName" "apUserName"
+	,"Contratante_Estructura_Organizacional"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Contratante_Estructura_Organizacional"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Contratante_Estructura_Organizacional"."Estatus_Estructura_Organizacional_Id" "Estatus_Estructura_Organizacional_Id"
+	,"Estatus_Estructura_Organizacional"."Estatus_Estructura_Organizacional" "Estatus_Estructura_Organizacional_Etiqueta"
+from "APP"."Contratante_Estructura_Organizacional" "Contratante_Estructura_Organizacional"
+	left join "APP"."Tipo_Estructura_Organizacional" "Tipo_Estructura_Organizacional_" on "Contratante_Estructura_Organizacional"."Tipo_Estructura_Organizacional_Id" = "Tipo_Estructura_Organizacional_"."Tipo_Estructura_Organizacional_Id"
+	left join "APP"."Cliente" "Cliente_" on "Contratante_Estructura_Organizacional"."Cliente_Id" = "Cliente_"."Cliente_Id"
+	left join "dbo"."Usuario_V" "Usuario_V" on "Contratante_Estructura_Organizacional"."Creado_Por_Id" = "Usuario_V"."UserId"
+	left join "dbo"."Usuario_V" "Usuario_V1" on "Contratante_Estructura_Organizacional"."Actualizado_Por_Id" = "Usuario_V1"."UserId"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro" on "Contratante_Estructura_Organizacional"."Estatus_Registro_Id" = "Estatus_Registro"."Estatus_Registro_Id"
+	left join "APP"."Contratante_Estructura_Organizacional" "Contratante_Estructura_Organizacional1" on "Contratante_Estructura_Organizacional"."Estructura_Organizacional_Padre_Id" = "Contratante_Estructura_Organizacional1"."Contratante_Estructura_Organizacional_Id"
+	left join "APP"."Estatus_Estructura_Organizacional" "Estatus_Estructura_Organizacional" on "Contratante_Estructura_Organizacional"."Estatus_Estructura_Organizacional_Id" = "Estatus_Estructura_Organizacional"."Estatus_Estructura_Organizacional_Id"
+]]></text>
+    </command>
+    <command id="Contratante_Estructura_Organizacional_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Contratante_Estructura_Organizacional_Id" />
+      </output>
+    </command>
+    <command type="Text" id="Grid_Contratante_Estructura_Organizacional_Cliente_V" tableName="APP.Contratante_Estructura_Organizacional" custom="false">
+      <text><![CDATA[SELECT 
+	Contratante_Estructura_Organizacional_Id
+	,Contratante_Id
+	,Tipo_Estructura_Organizacional_Id
+	,Tipo_Estructura_Organizacional_Tipo_Estructura_Organizacional
+	,Estructura_Organizacional
+	,Permitir_Asociar_Personal
+	,Estructura_Organizacional_Padre_Id
+	,Estructura_Organizacional_Padre
+	,Estructura_Organizacional_Descripcion
+	,Cliente_Id
+	,Cliente_Cliente
+	,Transaccion_Id
+	,Creado_Por_Id
+	,cpUserName
+	,Fecha_Creacion
+	,Actualizado_Por_Id
+	,apUserName
+	,Fecha_Ultima_Actualizacion
+	,Estatus_Registro_Id
+	,Estatus_Registro_Estatus_Registro
+	,Estatus_Estructura_Organizacional_Id
+	,Estatus_Estructura_Organizacional_Etiqueta
+	,UserId
+FROM
+	dbo.Grid_Contratante_Estructura_Organizacional_Cliente_V]]></text>
+    </command>
+    <command type="Text" id="Grid_Contratante_Estructura_Organizacional_Admin" custom="false">
+      <text><![CDATA[SELECT 
+	Contratante_Estructura_Organizacional_Id
+	,Contratante_Id
+	,Tipo_Estructura_Organizacional_Id
+	,Tipo_Estructura_Organizacional_Tipo_Estructura_Organizacional
+	,Estructura_Organizacional
+	,Permitir_Asociar_Personal
+	,Estructura_Organizacional_Padre_Id
+	,Estructura_Organizacional_Padre
+	,Estructura_Organizacional_Descripcion
+	,Cliente_Id
+	,Cliente_Cliente
+	,Transaccion_Id
+	,Creado_Por_Id
+	,cpUserName
+	,Fecha_Creacion
+	,Actualizado_Por_Id
+	,apUserName
+	,Fecha_Ultima_Actualizacion
+	,Estatus_Registro_Id
+	,Estatus_Registro_Estatus_Registro
+	,Estatus_Estructura_Organizacional_Id
+	,Estatus_Estructura_Organizacional_Etiqueta
+FROM
+	dbo.Grid_Contratante_Estructura_Organizacional_Admin_V
+	]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Contratante_Estructura_Organizacional_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Contratante Estructura Organizacional Id" readOnly="true" />
+    <field name="Contratante_Id" type="Int32" allowNulls="false" default="((0))" label="Contratante Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratante_Admin" dataView="Contratante_Admin_LookUp_List" dataTextField="Contratante" dataValueField="Contratante_Id" newDataView="createForm1" copy="Contratante_Nombre=Contratante,&#xD;&#xA;Cliente_Id=Cliente_Id" />
+    </field>
+    <field name="Tipo_Estructura_Organizacional_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo Estructura Organizacional Id" showInSummary="true">
+      <items style="Lookup" dataController="Tipo_Estructura_Organizacional" dataValueField="Tipo_Estructura_Organizacional_Id" dataTextField="Tipo_Estructura_Organizacional" dataView="Tipo_Estructura_Organizacional_LookUp_List" />
+    </field>
+    <field name="Tipo_Estructura_Organizacional_Tipo_Estructura_Organizacional" type="String" readOnly="true" label="Tipo de Estructura Organizacional" length="150" />
+    <field name="Estructura_Organizacional" type="String" allowNulls="false" label="Estructura Organizacional" length="150" showInSummary="true" />
+    <field name="Permitir_Asociar_Personal" type="Boolean" allowNulls="false" default="((0))" label="¿Permitir Asociar Personal?" showInSummary="true" />
+    <field name="Estructura_Organizacional_Padre_Id" type="Int32" default="((0))" label="Estructura Organizacional Padre Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratante_Estructura_Organizacional" dataValueField="Contratante_Estructura_Organizacional_Id" dataTextField="Estructura_Organizacional" dataView="Contratante_Estructura_Organizacional_LookUp_List" />
+    </field>
+    <field name="Estructura_Organizacional_Padre" type="String" readOnly="true" label="Estructura Organizacional Padre" length="150" />
+    <field name="Estructura_Organizacional_Descripcion" type="String" allowQBE="false" allowSorting="false" label="Descripción de Estructura Organizacional" />
+    <field name="Cliente_Id" type="Int32" allowNulls="false" default="((0))" label="Cliente Id">
+      <items style="Lookup" dataController="Cliente" dataView="Cliente_Admin_LookUp_List" dataTextField="Cliente" dataValueField="Cliente_Id" newDataView="createForm1" copy="Cliente_Cliente=Cliente" />
+    </field>
+    <field name="Cliente_Cliente" type="String" readOnly="true" label="Cliente" length="150" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transaccion Id" length="50" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="Estatus_Estructura_Organizacional_Id" type="Int32" allowNulls="false" default="((0))" label="Estatus Estructura Organizacional Id">
+      <items style="Lookup" dataController="Estatus_Estructura_Organizacional" newDataView="createForm1" dataValueField="Estatus_Estructura_Organizacional_Id" dataTextField="Estatus_Estructura_Organizacional" dataView="Estatus_Estructura_Organizacional_LookUp_List" />
+    </field>
+    <field name="Estatus_Estructura_Organizacional_Etiqueta" type="String" readOnly="true" label="Estatus Estructura Organizacional Etiqueta" length="150" />
+    <field name="UserId" type="String" label="User Id" length="50" />
+    <field name="Contratante_Nombre" type="String" readOnly="true" label="Contratante Nombre" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Contratante Estructura Organizacional" filter="Estatus_Registro_Id &lt;&gt; 0" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Estructura_Organizacional" />
+        <dataField fieldName="Contratante_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Estructura_Organizacional_Id" aliasFieldName="Tipo_Estructura_Organizacional_Tipo_Estructura_Organizacional" />
+        <dataField fieldName="Permitir_Asociar_Personal" />
+        <dataField fieldName="Estructura_Organizacional_Padre_Id" aliasFieldName="Estructura_Organizacional_Padre" />
+        <dataField fieldName="Estructura_Organizacional_Descripcion" rows="5" />
+        <dataField fieldName="Cliente_Id" hidden="true" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Estructura_Organizacional_Id" aliasFieldName="Estatus_Estructura_Organizacional_Etiqueta" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Contratante Estructura Organizacional" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Contratante_Id" columns="15" hidden="true" aliasFieldName="Contratante_Nombre" />
+            <dataField fieldName="Estructura_Organizacional" />
+            <dataField fieldName="Tipo_Estructura_Organizacional_Id" aliasFieldName="Tipo_Estructura_Organizacional_Tipo_Estructura_Organizacional" />
+            <dataField fieldName="Permitir_Asociar_Personal" />
+            <dataField fieldName="Estructura_Organizacional_Padre_Id" aliasFieldName="Estructura_Organizacional_Padre" />
+            <dataField fieldName="Estructura_Organizacional_Descripcion" rows="5" />
+            <dataField fieldName="Estatus_Estructura_Organizacional_Id" aliasFieldName="Estatus_Estructura_Organizacional_Etiqueta" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="Cliente_Id" columns="15" aliasFieldName="Cliente_Cliente" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nuevo Contratante Estructura Organizacional" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Contratante_Id" columns="15" aliasFieldName="Contratante_Nombre" />
+            <dataField fieldName="Estructura_Organizacional" />
+            <dataField fieldName="Tipo_Estructura_Organizacional_Id" aliasFieldName="Tipo_Estructura_Organizacional_Tipo_Estructura_Organizacional" />
+            <dataField fieldName="Permitir_Asociar_Personal" />
+            <dataField fieldName="Estructura_Organizacional_Padre_Id" aliasFieldName="Estructura_Organizacional_Padre" />
+            <dataField fieldName="Estructura_Organizacional_Descripcion" rows="5" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Contratante_Estructura_Organizacional_LookUp_List" commandId="Grid_Contratante_Estructura_Organizacional_Admin" type="Grid" label="Contratante Estructura Organizacional" filter="Estatus_Registro_Id IN (0,1)" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Estructura_Organizacional" showInSelector="false">
+      <dataFields>
+        <dataField fieldName="Contratante_Estructura_Organizacional_Id" columns="15" hidden="true" />
+        <dataField fieldName="Estructura_Organizacional" rows="5" />
+        <dataField fieldName="Contratante_Id" columns="15" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="UserId" columns="50" hidden="true" />
+        <dataField fieldName="Cliente_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Contratante_Estructura_Organizacional_Vigente_LookUp_list" commandId="Grid_Contratante_Estructura_Organizacional_Admin" type="Grid" label="Contratante Estructura Organizacional" filter="Estatus_Registro_Id =1 AND Estatus_Estructura_Organizacional_Id=1" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Estructura_Organizacional" showInSelector="false">
+      <dataFields>
+        <dataField fieldName="Contratante_Estructura_Organizacional_Id" columns="15" hidden="true" />
+        <dataField fieldName="Estructura_Organizacional" rows="5" />
+        <dataField fieldName="Contratante_Id" columns="15" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="UserId" columns="50" hidden="true" />
+        <dataField fieldName="Cliente_Id" columns="15" hidden="true" />
+        <dataField fieldName="Estatus_Estructura_Organizacional_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE 
+	APP.Contratante_Estructura_Organizacional
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Contratante_Estructura_Organizacional_Id = @Contratante_Estructura_Organizacional_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE 
+	APP.Contratante_Estructura_Organizacional
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Contratante_Estructura_Organizacional_Id = @Contratante_Estructura_Organizacional_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" roles="Administrators,ArhAdmin" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE 
+	APP.Contratante_Estructura_Organizacional
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Contratante_Estructura_Organizacional_Id = @Contratante_Estructura_Organizacional_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE 
+	APP.Contratante_Estructura_Organizacional
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Contratante_Estructura_Organizacional_Id = @Contratante_Estructura_Organizacional_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SELECT
+	@Cliente_Id=ct.Cliente_Id
+	,@Cliente_Cliente=cl.Cliente
+FROM
+	APP.Contratante ct
+	,APP.Cliente cl
+WHERE
+	ct.Contratante_Id = @Contratante_Id
+	AND ct.Cliente_Id = cl.Cliente_Id
+
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Contratante_Estructura_Organizacional
+	WHERE
+		REPLACE(UPPER(Estructura_Organizacional),' ','') = REPLACE(UPPER(@Estructura_Organizacional),' ','')
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya esta registrada esta estructura organizacional en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya esta registrada esta estructura organizacional en la base de datos, favor de corregir.'
+   RETURN
+END
+
+]]></rule>
+    <rule id="r102" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Contratante_Estructura_Organizacional
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Contratante_Estructura_Organizacional_Id= @Contratante_Estructura_Organizacional_Id]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Contratante_Estructura_Organizacional
+	WHERE
+  		REPLACE(UPPER(Estructura_Organizacional),' ','') = REPLACE(UPPER(@Estructura_Organizacional),' ','')
+		AND Contratante_Estructura_Organizacional_Id <> @Contratante_Estructura_Organizacional_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya esta registrada esta estructura organizacional en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya esta registrada esta estructura organizacional en la base de datos, favor de corregir.'
+   RETURN
+END
+
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Contratante_Estructura_Organizacional
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Contratante_Estructura_Organizacional_Id = @Contratante_Estructura_Organizacional_Id]]></rule>
+  </businessRules>
+</dataController>

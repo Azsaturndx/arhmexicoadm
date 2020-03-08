@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Contratado" alias="Contratado" created="2018-06-28T15:45:23" modified="2018-12-02T15:25:00" x="20" y="32" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Contratante_" parentTableSchema="APP" parentTableName="Contratante" x="598" y="20">
+      <foreignKeyColumn columnName="Contratante_Id" parentColumnName="Contratante_Id" />
+    </foreignKey>
+    <foreignKey id="Tipo_Contratado_" parentTableSchema="APP" parentTableName="Tipo_Contratado" x="560" y="1040">
+      <foreignKeyColumn columnName="Tipo_Contratado_Id" parentColumnName="Tipo_Contratado_Id" />
+    </foreignKey>
+    <foreignKey id="Tipo_Empleado_" parentTableSchema="APP" parentTableName="Tipo_Empleado" x="946" y="32">
+      <foreignKeyColumn columnName="Tipo_Empleado_Id" parentColumnName="Tipo_Empleado_Id" />
+    </foreignKey>
+    <foreignKey id="Contratante_Estructura_Organizacional_" parentTableSchema="APP" parentTableName="Contratante_Estructura_Organizacional" x="1221" y="263">
+      <foreignKeyColumn columnName="Persona_Id" parentColumnName="Tipo_Estructura_Organizacional_Id" />
+    </foreignKey>
+    <foreignKey id="Contratante_Puesto_" parentTableSchema="APP" parentTableName="Contratante_Puesto" x="805" y="270">
+      <foreignKeyColumn columnName="Contratante_Puesto_Id" parentColumnName="Contratante_Puesto_Id" />
+    </foreignKey>
+    <foreignKey id="Turno_Laboral_" parentTableSchema="APP" parentTableName="Turno_Laboral" x="572" y="667">
+      <foreignKeyColumn columnName="Turno_Laboral_Id" parentColumnName="Turno_Laboral_Id" />
+    </foreignKey>
+    <foreignKey id="Documento_Contrato_" parentTableSchema="APP" parentTableName="Documento" x="1469" y="32">
+      <foreignKeyColumn columnName="Documento_Contrato_Id" parentColumnName="Documento_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Contratado_" parentTableSchema="APP" parentTableName="Estatus_Contratado" x="1493" y="682">
+      <foreignKeyColumn columnName="Estatus_Contratado_Id" parentColumnName="Estatus_Contratado_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="555" y="500">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Usuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="24" y="1005">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Usuario_V1" parentTableSchema="dbo" parentTableName="Usuario_V" x="21" y="906">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Candidato" parentTableSchema="APP" parentTableName="Candidato" x="988" y="596">
+      <foreignKeyColumn columnName="Persona_Id" parentColumnName="Candidato_Id" />
+    </foreignKey>
+    <foreignKey id="Vacante" parentTableSchema="APP" parentTableName="Vacante" x="1819" y="494" baseForeignKey="Candidato">
+      <foreignKeyColumn columnName="Vacante_Id" parentColumnName="Vacante_Id" />
+    </foreignKey>
+    <foreignKey id="Grid_Persona_Domicilio_V" parentTableSchema="dbo" parentTableName="Grid_Persona_Domicilio_V" x="2599" y="36">
+      <foreignKeyColumn columnName="Persona_Id" parentColumnName="Persona_Id" />
+    </foreignKey>
+    <foreignKey id="Grid_Contacto_V" parentTableSchema="dbo" parentTableName="Grid_Contacto_V" x="1868" y="38">
+      <foreignKeyColumn columnName="Persona_Id" parentColumnName="Persona_Id" />
+    </foreignKey>
+    <foreignKey id="Nivel_Organizacional" parentTableSchema="APP" parentTableName="Nivel_Organizacional" x="1534" y="921">
+      <foreignKeyColumn columnName="Nivel_Organizacional_Id" parentColumnName="Nivel_Organizacional_Id" />
+    </foreignKey>
+    <foreignKey id="Persona" parentTableSchema="APP" parentTableName="Persona" x="985" y="981">
+      <foreignKeyColumn columnName="Persona_Id" parentColumnName="Persona_Id" />
+    </foreignKey>
+    <foreignKey id="Genero" parentTableSchema="APP" parentTableName="Genero" x="1674" y="1353" baseForeignKey="Persona">
+      <foreignKeyColumn columnName="Genero_Persona_Id" parentColumnName="Genero_Id" />
+    </foreignKey>
+    <foreignKey id="Estado_Civil" parentTableSchema="APP" parentTableName="Estado_Civil" x="1425" y="1459" baseForeignKey="Persona">
+      <foreignKeyColumn columnName="Estado_Civil_Id" parentColumnName="Estado_Civil_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Persona" parentTableSchema="APP" parentTableName="Estatus_Persona" x="516" y="1359" baseForeignKey="Persona">
+      <foreignKeyColumn columnName="Estatus_Persona_Id" parentColumnName="Estatus_Persona_Id" />
+    </foreignKey>
+    <foreignKey id="Nivel_Escolaridad" parentTableSchema="APP" parentTableName="Nivel_Escolaridad" x="2062" y="985" baseForeignKey="Persona">
+      <foreignKeyColumn columnName="Maximo_Nivel_Escolaridad_Id" parentColumnName="Nivel_Escolaridad_Id" />
+    </foreignKey>
+    <foreignKey id="Ciudad" parentTableSchema="APP" parentTableName="Ciudad" x="2131" y="1428" baseForeignKey="Persona">
+      <foreignKeyColumn columnName="Lugar_Nacimiento_Id" parentColumnName="Ciudad_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Contratado_Id" fieldName="Contratado_Id" label="Contratado Id" />
+    <column name="Contratante_Id" fieldName="Contratante_Id" label="Contratante Id" aliasColumnName="Contratante" aliasForeignKey="Contratante_" />
+    <column name="Contratante" fieldName="Contratante_Contratante" label="Contratante" foreignKey="Contratante_" />
+    <column name="Persona_Id" fieldName="Persona_Id" label="Persona Id" aliasColumnName="Numero_Imss" aliasForeignKey="Persona" />
+    <column name="Numero_Imss" fieldName="PersonanumeroImss" label="Número IMSS" foreignKey="Persona" />
+    <column name="Curp_Id" fieldName="PersonacurpId" label="CURP" foreignKey="Persona" />
+    <column name="Registro_Federal_Causante_Id" fieldName="PersonaregistroFederalCausanteId" label="RFC" foreignKey="Persona" />
+    <column name="Fecha_Nacimiento" fieldName="PersonafechaNacimiento" label="Fecha de Nacimiento" foreignKey="Persona" format="d" />
+    <column name="Picture" fieldName="PersonaPicture" label="Imagen" foreignKey="Persona" />
+    <column name="Contacto" fieldName="Persona_Contacto_Etiqueta" label="Contratado Contacto" foreignKey="Grid_Contacto_V" />
+    <column name="Contacto_Id" fieldName="Persona_Contacto_iD" label="Contratado Contacto Id" foreignKey="Grid_Contacto_V" />
+    <column name="Domicilio_Etiqueta" fieldName="Persona_Domicilio_Etiqueta" label="Domicilio" foreignKey="Grid_Persona_Domicilio_V" />
+    <column name="Domicilio_Id" fieldName="Persona_Domicilio_Etiqueta_Id" label="Grid Persona Domicilio V Domicilio Id" foreignKey="Grid_Persona_Domicilio_V" />
+    <column name="Candidato_Id" fieldName="Candidato_Id" label="Candidato Id" />
+    <column name="Identificador_Unico" fieldName="Identificador_Unico" label="Identificador Unico" />
+    <column name="Tipo_Contratado_Id" fieldName="Tipo_Contratado_Id" label="Tipo Contratado Id" aliasColumnName="Tipo_Contratado" aliasForeignKey="Tipo_Contratado_" />
+    <column name="Tipo_Contratado" fieldName="Tipo_Contratado_Tipo_Contratado" label="Tipo Contratado" foreignKey="Tipo_Contratado_" />
+    <column name="Tipo_Empleado_Id" fieldName="Tipo_Empleado_Id" label="Tipo Empleado Id" aliasColumnName="Tipo_Empleado" aliasForeignKey="Tipo_Empleado_" />
+    <column name="Tipo_Empleado" fieldName="Tipo_Empleado_Tipo_Empleado" label="Tipo Empleado" foreignKey="Tipo_Empleado_" />
+    <column name="Contratante_Estructura_Organizacional_Id" fieldName="Contratante_Estructura_Organizacional_Id" label="Contratante Estructura Organizacional Id" aliasColumnName="Estructura_Organizacional" aliasForeignKey="Contratante_Estructura_Organizacional_" />
+    <column name="Estructura_Organizacional" fieldName="Contratante_Estructura_Organizacional_Estructura_Organizacional" label="Contratante Estructura Organizacional" foreignKey="Contratante_Estructura_Organizacional_" />
+    <column name="Contratante_Puesto_Id" fieldName="Contratante_Puesto_Id" label="Contratante Puesto Id" aliasColumnName="Contratante_Puesto" aliasForeignKey="Contratante_Puesto_" />
+    <column name="Contratante_Puesto" fieldName="Contratante_Puesto_Contratante_Puesto" label="Puesto" foreignKey="Contratante_Puesto_" />
+    <column name="Turno_Laboral_Id" fieldName="Turno_Laboral_Id" label="Turno Laboral Id" aliasColumnName="Turno_Laboral" aliasForeignKey="Turno_Laboral_" />
+    <column name="Turno_Laboral" fieldName="Turno_Laboral_Turno_Laboral" label="Turno Laboral" foreignKey="Turno_Laboral_" />
+    <column name="Fecha_Contratacion" fieldName="Fecha_Contratacion" label="Fecha de Contratación" format="g" />
+    <column name="Fecha_Antiguedad" fieldName="Fecha_Antiguedad" label="Fecha de Antigüedad" format="g" />
+    <column name="Vigencia_Contrato" fieldName="Vigencia_Contrato" label="Vigencia Contrato" format="g" />
+    <column name="Documento_Contrato_Id" fieldName="Documento_Contrato_Id" label="Documento Contrato Id" aliasColumnName="Documento" aliasForeignKey="Documento_Contrato_" />
+    <column name="Documento" fieldName="Documento_Contrato_Documento" label="Documento Contrato Documento" foreignKey="Documento_Contrato_" />
+    <column name="Notas_Contratacion" fieldName="Notas_Contratacion" label="Notas Contratacion" />
+    <column name="Estatus_Contratado_Id" fieldName="Estatus_Contratado_Id" label="Estatus Contratado Id" aliasColumnName="Estatus_Contratado" aliasForeignKey="Estatus_Contratado_" />
+    <column name="Estatus_Contratado" fieldName="Estatus_Contratado_Estatus_Contratado" label="Estatus Contratado" foreignKey="Estatus_Contratado_" />
+    <column name="Contratado_Key" fieldName="Contratado_Key" label="Contratado Key" />
+    <column name="Cliente_Id" fieldName="Cliente_Id" label="Cliente Id" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="Usuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="Usuario_V1" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro Estatus Registro" foreignKey="Estatus_Registro_" />
+    <column name="Vacante" fieldName="Vacante" label="Vacante" foreignKey="Vacante" />
+    <column name="Nivel_Organizacional_Id" fieldName="Nivel_Organizacional_Id" label="Nivel Organizacional Id" aliasColumnName="Nivel_Organizacional" aliasForeignKey="Nivel_Organizacional" />
+    <column name="Nivel_Organizacional" fieldName="NivelOrganizacionalnivelOrganizacional" label="Nivel Organizacional" foreignKey="Nivel_Organizacional" />
+    <column name="Identificador_Unico_A" fieldName="Identificador_Unico_A" label="Identificador Unico A" />
+    <column name="Acceso_App_Por_Kiosko" fieldName="Acceso_App_Por_Kiosko" label="Acceso App Por Kiosko" />
+    <column name="Genero" fieldName="Genero" label="Genero" foreignKey="Genero" />
+    <column name="Estado_Civil" fieldName="EstadoCivilestadoCivil" label="Estado Civil" foreignKey="Estado_Civil" />
+    <column name="Estatus_Persona" fieldName="EstatusPersonaestatusPersona" label="Estatus de Persona" foreignKey="Estatus_Persona" />
+    <column name="Nivel_Escolaridad" fieldName="NivelEscolaridadnivelEscolaridad" label="Máximo Nivel de Escolaridad" foreignKey="Nivel_Escolaridad" />
+    <column name="Ciudad" fieldName="Ciudad" label="Lugar de Nacimiento" foreignKey="Ciudad" />
+  </columns>
+</dataModel>

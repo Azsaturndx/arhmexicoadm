@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Descripcion_Puesto_Tipo_Actividad" alias="Descripcion_Puesto_Tipo_Actividad" created="2019-02-21T10:00:58" modified="2019-02-25T15:26:42" x="20" y="26" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Descripcion_Puesto_" parentTableSchema="APP" parentTableName="Descripcion_Puesto" x="463" y="26">
+      <foreignKeyColumn columnName="Descripcion_Puesto_Id" parentColumnName="Descripcion_Puesto_Id" />
+    </foreignKey>
+    <foreignKey id="Tipo_Actividad_" parentTableSchema="APP" parentTableName="Tipo_Actividad" x="463" y="186">
+      <foreignKeyColumn columnName="Tipo_Actividad_Id" parentColumnName="Tipo_Actividad_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="463" y="531">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Creado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="1046" y="20">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Actualizado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="1044" y="279">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Descripcion_Puesto_Tipo_Actividad_Id" fieldName="Descripcion_Puesto_Tipo_Actividad_Id" label="Descripcion Puesto Tipo Actividad Id" />
+    <column name="Descripcion_Puesto_Id" fieldName="Descripcion_Puesto_Id" label="Descripcion Puesto Id" aliasColumnName="Descripcion_Puesto" aliasForeignKey="Descripcion_Puesto_" />
+    <column name="Descripcion_Puesto" fieldName="Descripcion_Puesto_Descripcion_Puesto" label="Descripcion Puesto" foreignKey="Descripcion_Puesto_" />
+    <column name="Tipo_Actividad_Id" fieldName="Tipo_Actividad_Id" label="Tipo Actividad Id" aliasColumnName="Tipo_Actividad" aliasForeignKey="Tipo_Actividad_" />
+    <column name="Tipo_Actividad" fieldName="Tipo_Actividad_Tipo_Actividad" label="Tipo Actividad" foreignKey="Tipo_Actividad_" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="Creado_Por" />
+    <column name="UserName" fieldName="CreadoPorusername" label="Creado Por" foreignKey="Creado_Por" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha Creacion" format="g" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="Actualizado_Por" />
+    <column name="UserName" fieldName="ActualizadoPorusername" label="Actualizado Porusername" foreignKey="Actualizado_Por" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha Ultima Actualizacion" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+  </columns>
+</dataModel>

@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "arhmexicoadm_D", "app\", "7C624388-A5CB-442A-9945-25AD7C4EF6D7"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Code On Time Items", "Code On Time Items", "{FF43F148-5BE2-413F-82E8-7B60B75F30F6}"
+	ProjectSection(SolutionItems) = preProject
+		ClientLibrary.en-US.txt = ClientLibrary.en-US.txt
+		ClientLibrary.es-MX.txt = ClientLibrary.es-MX.txt
+		DataAquarium.Project.xml = DataAquarium.Project.xml
+		DataAquarium.Version.xml = DataAquarium.Version.xml
+		Sync.BWD03-LuisAlberto.xml = Sync.BWD03-LuisAlberto.xml
+		Sync.BWD04-Giovanna.xml = Sync.BWD04-Giovanna.xml
+		Sync.BWD07-Erika-Luna.xml = Sync.BWD07-Erika-Luna.xml
+		Sync.BWDPC-GHPA-Azsat.xml = Sync.BWDPC-GHPA-Azsat.xml
+		Sync.DESKTOP-E855I77-Everardo.xml = Sync.DESKTOP-E855I77-Everardo.xml
+		Sync.DESKTOP-F84MGT6-luisc.xml = Sync.DESKTOP-F84MGT6-luisc.xml
+		Sync.DESKTOP-RHBPIV0-mayra-venegas.xml = Sync.DESKTOP-RHBPIV0-mayra-venegas.xml
+	EndProjectSection
+EndProject

@@ -1,0 +1,16 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Accionista</title>
+    <meta name="description" content="This page allows accionista management.">
+  </head>
+  <body data-authorize-roles="Administrators,ArhAdmin,ArhFiscal">
+    <div data-flow="row">
+      <div id="view1" data-controller="Accionista" data-view="grid1" data-show-in-summary="true" data-selection-mode="multiple"> </div>
+      <div data-activator="Tab|Documentos">
+        <div id="view2" data-controller="Accionista_Documento" data-view="grid1" data-filter-source="view1" data-filter-fields="Accionista_Id" data-tag="view-style-grid, &#xD;&#xA;view-style-list,&#xD;&#xA;view-style-cards,&#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-calendar-disabled" data-roles="Administrators,ArhAdmin,ArhFiscal"> </div>
+      </div>
+    </div>
+  </body>
+</html>

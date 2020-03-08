@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Organigrama_V" conflictDetection="overwriteChanges" label="Organigrama V" handler="arhmexico.Rules.Organigrama_VBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Organigrama_V"."Organigrama_Id" "Organigrama_Id"
+	,"Organigrama_V"."Contratante_Id" "Contratante_Id"
+	,"Contratante"."Contratante" "Contratante"
+	,"Organigrama_V"."Contratante_Estructura_Organizacional_Id" "Contratante_Estructura_Organizacional_Id"
+	,"Contratante_Estructura_Organizacional"."Estructura_Organizacional" "Contratante_Estructura_Organizacional_Estructura_Organizacional"
+	,"Organigrama_V"."Permitir_Asociar_Personal" "Permitir_Asociar_Personal"
+	,"Organigrama_V"."Estructura_Organizacional_Padre_Id" "Estructura_Organizacional_Padre_Id"
+	,"Contratante_Estructura_Organizacional1"."Estructura_Organizacional" "Contratante_Estructura_Organizacional1_Estructura_Organizacional"
+	,"Organigrama_V"."Contratante_Puesto_Id" "Contratante_Puesto_Id"
+	,"Contratante_Puesto"."Contratante_Puesto" "Contratante_Puesto_Contratante_Puesto"
+	,"Organigrama_V"."Contratante_Puesto_Padre_Id" "Contratante_Puesto_Padre_Id"
+	,"Contratante_Puesto1"."Contratante_Puesto" "Contratante_Puesto1_Contratante_Puesto"
+	,"Organigrama_V"."Contratado_Id" "Contratado_Id"
+	,"Organigrama_V"."Persona_Id" "Persona_Id"
+	,"Persona"."Nombre" "Persona_Nombre"
+	,"Organigrama_V"."Nombre" "Nombre"
+	,"Organigrama_V"."Segundo_Nombre" "Segundo_Nombre"
+	,"Organigrama_V"."Apellido_Paterno" "Apellido_Paterno"
+	,"Organigrama_V"."Apellido_Materno" "Apellido_Materno"
+from "dbo"."Organigrama_V" "Organigrama_V"
+	left join "APP"."Contratante" "Contratante" on "Organigrama_V"."Contratante_Id" = "Contratante"."Contratante_Id"
+ and "Organigrama_V"."Persona_Id" = "Contratante"."Estatus_Registro_Id"
+	left join "APP"."Contratante_Puesto" "Contratante_Puesto" on "Organigrama_V"."Contratante_Puesto_Id" = "Contratante_Puesto"."Contratante_Puesto_Id"
+	left join "APP"."Contratante_Puesto" "Contratante_Puesto1" on "Organigrama_V"."Contratante_Puesto_Padre_Id" = "Contratante_Puesto1"."Contratante_Puesto_Id"
+	left join "APP"."Contratante_Estructura_Organizacional" "Contratante_Estructura_Organizacional" on "Organigrama_V"."Contratante_Estructura_Organizacional_Id" = "Contratante_Estructura_Organizacional"."Contratante_Estructura_Organizacional_Id"
+	left join "APP"."Contratante_Estructura_Organizacional" "Contratante_Estructura_Organizacional1" on "Organigrama_V"."Estructura_Organizacional_Padre_Id" = "Contratante_Estructura_Organizacional1"."Contratante_Estructura_Organizacional_Id"
+	left join "APP"."Persona" "Persona" on "Organigrama_V"."Persona_Id" = "Persona"."Persona_Id"
+]]></text>
+    </command>
+    <command id="Contratante_Puesto_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Contratante_Puesto_Id" />
+      </output>
+    </command>
+    <command id="Contratado_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Contratado_Id" />
+      </output>
+    </command>
+    <command id="Persona_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Persona_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Organigrama_Id" type="Int64" label="Organigrama Id" showInSummary="true" isPrimaryKey="true" />
+    <field name="Contratante_Id" type="Int32" allowNulls="false" label="Contratante Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratante" newDataView="createForm1" dataValueField="Contratante_Id" dataTextField="Contratante" copy="Persona_Id=Estatus_Registro_Id" />
+    </field>
+    <field name="Contratante" type="String" readOnly="true" label="Contratante" length="150" />
+    <field name="Contratante_Estructura_Organizacional_Id" type="Int32" allowNulls="false" label="Contratante Estructura Organizacional Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratante_Estructura_Organizacional" newDataView="createForm1" dataValueField="Contratante_Estructura_Organizacional_Id" dataTextField="Estructura_Organizacional" />
+    </field>
+    <field name="Contratante_Estructura_Organizacional_Estructura_Organizacional" type="String" readOnly="true" label="Estructura Organizacional" length="150" />
+    <field name="Permitir_Asociar_Personal" type="Boolean" allowNulls="false" label="Permitir Asociar Personal" showInSummary="true" />
+    <field name="Estructura_Organizacional_Padre_Id" type="Int32" allowNulls="false" label="Estructura Organizacional Padre Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratante_Estructura_Organizacional" newDataView="createForm1" dataValueField="Contratante_Estructura_Organizacional_Id" dataTextField="Estructura_Organizacional" />
+    </field>
+    <field name="Contratante_Estructura_Organizacional1_Estructura_Organizacional" type="String" readOnly="true" label="Contratante Estructura Organizacional 1 Estructura Organizacional" length="150" />
+    <field name="Contratante_Puesto_Id" type="Int32" label="Contratante Puesto Id" readOnly="true">
+      <items style="Lookup" dataController="Contratante_Puesto" newDataView="createForm1" dataValueField="Contratante_Puesto_Id" dataTextField="Contratante_Puesto" />
+    </field>
+    <field name="Contratante_Puesto_Contratante_Puesto" type="String" readOnly="true" label="Contratante Puesto Contratante Puesto" length="150" />
+    <field name="Contratante_Puesto_Padre_Id" type="Int32" label="Contratante Puesto Padre Id">
+      <items style="Lookup" dataController="Contratante_Puesto" newDataView="createForm1" dataValueField="Contratante_Puesto_Id" dataTextField="Contratante_Puesto" />
+    </field>
+    <field name="Contratante_Puesto1_Contratante_Puesto" type="String" readOnly="true" label="Contratante Puesto 1 Contratante Puesto" length="150" />
+    <field name="Contratado_Id" type="Int32" label="Contratado Id" readOnly="true" />
+    <field name="Persona_Id" type="Int32" label="Persona Id" readOnly="true" />
+    <field name="Persona_Nombre" type="String" readOnly="true" label="Persona Nombre" length="150" />
+    <field name="Nombre" type="String" label="Nombre" length="150" />
+    <field name="Segundo_Nombre" type="String" label="Segundo Nombre" length="150" />
+    <field name="Apellido_Paterno" type="String" label="Apellido Paterno" length="150" />
+    <field name="Apellido_Materno" type="String" label="Apellido Materno" length="150" />
+    <field name="Tipo_Organigrama_Id" type="Int16" label="Tipo Organigrama Id" causesCalculate="true" allowNulls="false">
+      <items style="DropDownList" copy="Organigrama_Estructura_Id = null,&#xD;&#xA;Organigrama_Puesto_Id = null,&#xD;&#xA;Nivel = null">
+        <item value="0" text="Estructura Organizacional" />
+        <item value="1" text="Puesto" />
+      </items>
+    </field>
+    <field name="Organigrama_Estructura_Id" type="Int32" label="Organigrama Estructura Id" causesCalculate="true" contextFields="ClienteId = Organigrama_Cliente_Id, ContratanteId = Organigrama_Contratante_Id">
+      <items style="DropDownList" dataController="Organigrama_Estructura_V" dataView="grid1" dataTextField="Estructura_Organizacional" dataValueField="Contratante_Estructura_Organizacional_Id" copy="Organigrama_Puesto_Id = null,&#xD;&#xA;Nivel = null" />
+    </field>
+    <field name="Organigrama_Estructura" type="String" label="Organigrama Estructura" />
+    <field name="Organigrama_Puesto_Id" type="Int32" label="Organigrama Puesto Id" causesCalculate="true" contextFields="ClienteId = Organigrama_Cliente_Id, ContratanteId = Organigrama_Contratante_Id">
+      <items style="DropDownList" dataController="Organigrama_Puesto_V" dataView="grid1" dataTextField="Contratante_Puesto" dataValueField="Contratante_Puesto_Id" copy="Organigrama_Estructura_Id = null,&#xD;&#xA;Nivel = null" />
+    </field>
+    <field name="Organigrama_Puesto" type="String" label="Organigrama Puesto" />
+    <field name="Nivel" type="Int32" label="Nivel" causesCalculate="true" />
+    <field name="Organigrama_Cliente_Id" type="Int32" label="Organigrama Cliente Id" causesCalculate="true">
+      <items style="DropDownList" dataController="Organigrama_Cliente_V" dataView="grid1" dataTextField="Cliente" dataValueField="Cliente_Id" copy="Organigrama_Contratante_Id = null,&#xD;&#xA;Tipo_Organigrama_Id = null,&#xD;&#xA;Organigrama_Estructura_Id = null,&#xD;&#xA;Organigrama_Puesto_Id = null,&#xD;&#xA;Nivel = null" />
+    </field>
+    <field name="Organigrama_Cliente" type="String" label="Organigrama Cliente" />
+    <field name="Organigrama_Contratante_Id" type="Int32" label="Organigrama Contratante Id" causesCalculate="true" contextFields="Cliente_Id = Organigrama_Cliente_Id">
+      <items style="DropDownList" dataController="Organigrama_Contratante_V" dataView="grid1" dataTextField="Contratante" dataValueField="Contratante_Id" copy="Tipo_Organigrama_Id = null,&#xD;&#xA;Organigrama_Estructura_Id = null,&#xD;&#xA;Organigrama_Puesto_Id = null,&#xD;&#xA;Nivel = null" />
+    </field>
+    <field name="Organigrama_Contratante" type="String" label="Organigrama Contratante" />
+    <field name="Organigrama_Puesto_Id_1" type="Int32" label="Organigrama Puesto Id" causesCalculate="true" contextFields="ClienteId = Organigrama_Cliente_Id">
+      <items style="DropDownList" dataController="Organigrama_Puesto_V" dataView="grid1" dataTextField="Contratante_Puesto" dataValueField="Contratante_Puesto_Id" copy="Organigrama_Estructura_Id = null,&#xD;&#xA;Nivel = null" />
+    </field>
+    <field name="Organigrama_Estructura_Id_1" type="Int32" label="Organigrama Estructura Id" causesCalculate="true" contextFields="ClienteId = Organigrama_Cliente_Id">
+      <items style="DropDownList" dataController="Organigrama_Estructura_V" dataView="grid1" dataTextField="Estructura_Organizacional" dataValueField="Contratante_Estructura_Organizacional_Id" copy="Organigrama_Puesto_Id = null,&#xD;&#xA;Nivel = null" />
+    </field>
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Organigrama" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Organigrama_Id" columns="15" />
+        <dataField fieldName="Contratante_Id" aliasFieldName="Contratante" />
+        <dataField fieldName="Contratante_Estructura_Organizacional_Id" aliasFieldName="Contratante_Estructura_Organizacional_Estructura_Organizacional" />
+        <dataField fieldName="Permitir_Asociar_Personal" />
+        <dataField fieldName="Estructura_Organizacional_Padre_Id" aliasFieldName="Contratante_Estructura_Organizacional1_Estructura_Organizacional" />
+        <dataField fieldName="Contratante_Puesto_Id" aliasFieldName="Contratante_Puesto_Contratante_Puesto" />
+        <dataField fieldName="Contratante_Puesto_Padre_Id" aliasFieldName="Contratante_Puesto1_Contratante_Puesto" />
+        <dataField fieldName="Contratado_Id" columns="15" />
+        <dataField fieldName="Persona_Id" textMode="Static" aliasFieldName="Persona_Nombre" />
+        <dataField fieldName="Nombre" />
+        <dataField fieldName="Segundo_Nombre" />
+        <dataField fieldName="Apellido_Paterno" />
+        <dataField fieldName="Apellido_Materno" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Organigrama" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Organigrama_Id" columns="15" />
+            <dataField fieldName="Contratante_Id" aliasFieldName="Contratante" />
+            <dataField fieldName="Contratante_Estructura_Organizacional_Id" aliasFieldName="Contratante_Estructura_Organizacional_Estructura_Organizacional" />
+            <dataField fieldName="Permitir_Asociar_Personal" />
+            <dataField fieldName="Estructura_Organizacional_Padre_Id" aliasFieldName="Contratante_Estructura_Organizacional1_Estructura_Organizacional" />
+            <dataField fieldName="Contratante_Puesto_Id" aliasFieldName="Contratante_Puesto_Contratante_Puesto" />
+            <dataField fieldName="Contratante_Puesto_Padre_Id" aliasFieldName="Contratante_Puesto1_Contratante_Puesto" />
+            <dataField fieldName="Contratado_Id" columns="15" />
+            <dataField fieldName="Persona_Id" textMode="Static" aliasFieldName="Persona_Nombre" />
+            <dataField fieldName="Nombre" />
+            <dataField fieldName="Segundo_Nombre" />
+            <dataField fieldName="Apellido_Paterno" />
+            <dataField fieldName="Apellido_Materno" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nuevo Organigrama" showInSelector="false" filter="@ContextFields_d">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Organigrama_Id" columns="15" />
+            <dataField fieldName="Contratante_Id" aliasFieldName="Contratante" />
+            <dataField fieldName="Contratante_Estructura_Organizacional_Id" aliasFieldName="Contratante_Estructura_Organizacional_Estructura_Organizacional" />
+            <dataField fieldName="Permitir_Asociar_Personal" />
+            <dataField fieldName="Estructura_Organizacional_Padre_Id" aliasFieldName="Contratante_Estructura_Organizacional1_Estructura_Organizacional" />
+            <dataField fieldName="Contratante_Puesto_Id" aliasFieldName="Contratante_Puesto_Contratante_Puesto" />
+            <dataField fieldName="Contratante_Puesto_Padre_Id" aliasFieldName="Contratante_Puesto1_Contratante_Puesto" />
+            <dataField fieldName="Contratado_Id" columns="15" />
+            <dataField fieldName="Persona_Id" textMode="Static" aliasFieldName="Persona_Nombre" />
+            <dataField fieldName="Nombre" />
+            <dataField fieldName="Segundo_Nombre" />
+            <dataField fieldName="Apellido_Paterno" />
+            <dataField fieldName="Apellido_Materno" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm2" commandId="command1" type="Form" label="ORGANIGRAMA" tags="modal-never" showInSelector="false">
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="Tipo_Organigrama_Id" columns="15" />
+            <dataField fieldName="Organigrama_Estructura_Id" columns="15" aliasFieldName="Organigrama_Estructura" hidden="true">
+              <visibility>
+                <expression test="[Tipo_Organigrama_Id] == 0" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Organigrama_Puesto_Id" columns="15" aliasFieldName="Organigrama_Puesto" hidden="true">
+              <visibility>
+                <expression test="[Tipo_Organigrama_Id]==1" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Nivel" columns="15" />
+            <dataField fieldName="Organigrama_Cliente_Id" columns="15" aliasFieldName="Organigrama_Cliente" />
+            <dataField fieldName="Organigrama_Contratante_Id" columns="15" aliasFieldName="Organigrama_Contratante" />
+            <dataField fieldName="Organigrama_Puesto_Id_1" columns="15" aliasFieldName="Organigrama_Puesto" />
+            <dataField fieldName="Organigrama_Estructura_Id_1" columns="15" aliasFieldName="Organigrama_Estructura" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="Delete" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" roles="hidden" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" roles="hidden" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" roles="hidden" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+      <action commandName="Custom" commandArgument="ExecCS01" headerText="Visualizar Organigrama" whenLastCommandName="New" id="a100" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="Delete" cssClass="DeleteIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="hidden" />
+      <action id="a2" commandName="Delete" roles="hidden" />
+    </actionGroup>
+    <actionGroup id="ag100" scope="ActionBar" headerText="Ver Organigrama" flat="true">
+      <action commandName="New" commandArgument="createForm2" headerText="Ver Organigrama" cssClass="material-icon-visibility" id="a100" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Custom" commandArgument="ExecCS01" type="Code" phase="After" />
+    <rule id="r101" commandName="Calculate" type="JavaScript" phase="Before"><![CDATA[// Declaracion de variables sistema*
+var success = this.validateInput();
+var commandName = this.arguments().CommandName;
+var triggerFieldName = this.arguments().Trigger;
+// Declaracion de variables campos
+var fieldValueOrganigramaClienteId = [Organigrama_Cliente_Id];
+var fieldValueOrganigramaContratanteId = [Organigrama_Contratante_Id];
+var fieldValueTipoOrganigramaId = [Tipo_Organigrama_Id];
+var fieldValueOrganigramaEstructuraId = [Organigrama_Estructura_Id];
+var fieldValueOrganigramaPuestoId = [Organigrama_Puesto_Id];
+var fieldValueOrganigramaPuestoId1 = [Organigrama_Puesto_Id_1];
+var fieldValueOrganigramaEstructuraId1 = [Organigrama_Estructura_Id_1];
+
+//BEGIN CLIENTE ID VALIDATION
+if (triggerFieldName == 'Organigrama_Cliente_Id'){
+
+  if(fieldValueOrganigramaClienteId == null){
+    //console.log("world");
+    $('#contenedor_contratante').hide();
+    //$('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_estructura1').hide();
+  }
+  else{
+    //console.log("world2");
+    $('#contenedor_contratante').show();
+    //$('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_estructura1').hide();
+  }
+}
+
+/*
+//BEGIN CONTRATANTE ID VALIDATION
+if (triggerFieldName == 'Organigrama_Contratante_Id'){
+  
+  if(fieldValueOrganigramaContratanteId == null){
+    $('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+  else{
+    $('#contenedor_seleccion').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+}*/
+
+
+//BEGIN TIPO ORGANIGRAMA ID VALIDATION
+if (triggerFieldName == 'Tipo_Organigrama_Id'){
+  if(fieldValueTipoOrganigramaId == 0 && fieldValueOrganigramaContratanteId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_estructura1').show();
+  }
+  
+  if(fieldValueTipoOrganigramaId == 0 && fieldValueOrganigramaContratanteId > 0)
+  {
+   	$('#contenedor_estructura').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_estructura1').hide();
+  }
+  
+  if(fieldValueTipoOrganigramaId == 1 && fieldValueOrganigramaContratanteId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_puesto1').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_estructura1').hide();
+  }
+  
+  if(fieldValueTipoOrganigramaId == 1 && fieldValueOrganigramaContratanteId > 0)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_puesto').show();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_estructura1').hide();
+  }
+    
+}
+
+
+//BEGIN PUESTO ID VALIDATION
+if (triggerFieldName == 'Organigrama_Puesto_Id'){
+  if(fieldValueOrganigramaPuestoId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_estructura1').hide();
+  }
+  else{
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_estructura1').hide();
+  }
+}
+
+//BEGIN PUESTO ID VALIDATION
+if (triggerFieldName == 'Organigrama_Puesto_Id_1'){
+  if(fieldValueOrganigramaPuestoId1 == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura1').hide();
+  }
+  else{
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura1').hide();
+  }
+}
+
+console.log("llamada 1");
+
+//BEGIN ESTRUCTURA ID VALIDATION
+if (triggerFieldName == 'Organigrama_Estructura_Id'){
+  console.log("llamada 2");
+  if(fieldValueOrganigramaEstructuraId == null)
+  {
+    console.log("llamada 3");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_estructura1').hide();
+  }
+  else{
+    console.log("llamada 4");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_estructura1').hide();
+  }
+}
+
+//BEGIN ESTRUCTURA ID VALIDATION
+if (triggerFieldName == 'Organigrama_Estructura_Id_1'){
+  console.log("llamada 2");
+  if(fieldValueOrganigramaEstructuraId1 == null)
+  {
+    console.log("llamada 3");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_estructura').hide();
+  }
+  else{
+    console.log("llamada 4");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_estructura').hide();
+  }
+}
+]]></rule>
+  </businessRules>
+</dataController>

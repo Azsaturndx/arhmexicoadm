@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Tipo_Documento" alias="Tipo_Documento" created="2018-05-19T20:18:49" modified="2019-12-20T12:25:52" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="502" y="20">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="cp" parentTableSchema="dbo" parentTableName="Usuario_V" x="520" y="176">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="ap" parentTableSchema="dbo" parentTableName="Usuario_V" x="537" y="629">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Cliente" parentTableSchema="APP" parentTableName="Cliente" x="987" y="162">
+      <foreignKeyColumn columnName="Cliente_Id" parentColumnName="Cliente_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Tipo_Documento_Id" fieldName="Tipo_Documento_Id" label="Tipo Documento Id" />
+    <column name="Tipo_Documento" fieldName="Tipo_Documento" label="Tipo de Documento" />
+    <column name="Es_Acta_Nacimiento" fieldName="Es_Acta_Nacimiento" label="¿Es Acta Nacimiento?" />
+    <column name="Es_Ine" fieldName="Es_Ine" label="¿Es IFE/INE?" />
+    <column name="Es_Curp" fieldName="Es_Curp" label="¿Es CURP?" />
+    <column name="Es_Recibo_Nomina" fieldName="Es_Recibo_Nomina" label="¿Es Recibo de Nómina?" />
+    <column name="Es_Comprobante_Domicilio" fieldName="Es_Comprobante_Domicilio" label="¿Es Comprobante de Domicilio?" />
+    <column name="Es_Carta_Recomendacion" fieldName="Es_Carta_Recomendacion" label="¿Es Carta de Recomendación?" />
+    <column name="Es_Carta_Antiguedad" fieldName="Es_Carta_Antiguedad" label="¿Es Carta Antigüedad?" />
+    <column name="Es_Cv" fieldName="Es_Cv" label="¿Es CV?" />
+    <column name="Es_Resultado_Examen_Medico" fieldName="Es_Resultado_Examen_Medico" label="¿Es Resultado Examen Médico?" />
+    <column name="Es_Resultado_Investigacion_Socio_Economica" fieldName="Es_Resultado_Investigacion_Socio_Economica" label="¿Es Resultado Investigación Socio Económica?" />
+    <column name="Es_Resultado_Examen_Psicometrico" fieldName="Es_Resultado_Examen_Psicometrico" label="¿Es Resultado Examen Psicométrico?" />
+    <column name="Es_Resultado_Entrevista" fieldName="Es_Resultado_Entrevista" label="¿Es Resultado Entrevista?" />
+    <column name="Es_Otro" fieldName="Es_Otro" label="¿Es Otro?" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cp" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="ap" />
+    <column name="Es_Perfil_RyS" fieldName="Es_Perfil_Rys" label="¿Es Perfil Rys?" />
+    <column name="Cliente_Id" fieldName="Cliente_Id" label="Cliente Id" aliasColumnName="Cliente" aliasForeignKey="Cliente" />
+    <column name="Cliente" fieldName="Cliente_Nombre" label="Cliente" foreignKey="Cliente" />
+    <column name="Es_De_Fiscal" fieldName="Es_De_Fiscal" label="¿Es De Fiscal?" />
+    <column name="Es_Documento_Permanente" fieldName="Es_Documento_Permanente" label="¿Es Documento Permanente?" />
+    <column name="Es_Documento_De_Contratacion_Cliente" fieldName="Es_Documento_De_Contratacion_Cliente" label="¿Es Documento De Contratacion Cliente?" />
+    <column name="Es_De_Registro" fieldName="Es_De_Registro" label="¿Es De Registro?" />
+    <column name="Es_De_Contratacion_Aspirante" fieldName="Es_De_Contratacion_Aspirante" label="¿Es De Contratacion Aspirante?" />
+    <column name="Es_De_Finiquito" fieldName="Es_De_Finiquito" label="¿Es De Finiquito?" />
+    <column name="Es_De_Laboral" fieldName="Es_De_Laboral" label="¿Es De Laboral?" />
+    <column name="Es_De_Persona" fieldName="Es_De_Persona" label="¿Es De Persona?" />
+    <column name="Es_De_Contratado" fieldName="Es_De_Contratado" label="¿Es De Contratado?" />
+    <column name="Es_De_Candidato" fieldName="Es_De_Candidato" label="¿Es De Candidato?" />
+    <column name="Es_Cheque_Impreso" fieldName="Es_Cheque_Impreso" label="¿Es Cheque Impreso?" />
+    <column name="Es_Carta_Renuncia_ARH" fieldName="Es_Carta_Renuncia_Arh" label="¿Es Carta Renuncia ARH?" />
+    <column name="Es_Carta_Renuncia_Cliente" fieldName="Es_Carta_Renuncia_Cliente" label="¿Es Carta Renuncia Cliente?" />
+    <column name="Es_Renuncia_Como_Miembro_Sindicato" fieldName="Es_Renuncia_Como_Miembro_Sindicato" label="¿Es Renuncia Como Miembro Sindicato?" />
+    <column name="Es_Carta_Finiquito_SA" fieldName="Es_Carta_Finiquito_SA" label="¿Es Carta Finiquito SA?" />
+    <column name="Es_Recibo_Sindicato" fieldName="Es_Recibo_Sindicato" label="¿Es Recibo Sindicato?" />
+    <column name="Es_Convenio" fieldName="Es_Convenio" label="¿Es Convenio?" />
+    <column name="Es_Documento_Demanda" fieldName="Es_Documento_Demanda" label="¿Es Documento Demanda?" />
+    <column name="Es_Documento_SA" fieldName="Es_Documento_SA" label="¿Es Documento SA?" />
+    <column name="Es_Documento_Sindicato" fieldName="Es_Documento_Sindicato" label="¿Es Documento Sindicato?" />
+    <column name="Es_Pagadora_Documento" fieldName="Es_Pagadora_Documento" label="¿Es Pagadora Documento?" />
+    <column name="Es_Cliente_Documento" fieldName="Es_Cliente_Documento" label="¿Es Cliente Documento?" />
+    <column name="Es_Receptora_Documento" fieldName="Es_Receptora_Documento" label="¿Es Receptora Documento?" />
+    <column name="Es_Pagadora_Cuadro_Accionario_Documento" fieldName="Es_Pagadora_Cuadro_Accionario_Documento" label="¿Es Pagadora Cuadro Accionario Documento?" />
+    <column name="Es_Receptora_Cuadro_Accionario_Documento" fieldName="Es_Receptora_Cuadro_Accionario_Documento" label="¿Es Receptora Cuadro Accionario Documento?" />
+    <column name="Aplica_Descripcion_Puesto" fieldName="Aplica_Descripcion_Puesto" label="Aplica Descripcion Puesto" />
+    <column name="Aplica_Numero_Escritura" fieldName="AplicaNumeroEscritura" label="¿Aplica Número de Escritura?" />
+    <column name="Aplica_Fecha_Vencimiento" fieldName="AplicaFechaVencimiento" label="Aplica Fecha Vencimiento" />
+    <column name="Cantidad_Dias_Aviso_Antes_Vencimiento" fieldName="CantidadDiasAvisoAntesVencimiento" label="Cantidad Dias Aviso Antes Vencimiento" />
+    <column name="Es_Sociedad_Documento" fieldName="EsSociedadDocumento" label="Es Sociedad Documento" />
+    <column name="Es_Sociedad_Cuadro_Accionario_Documento" fieldName="EsSociedadCuadroAccionarioDocumento" label="Es Sociedad Cuadro Accionario Documento" />
+    <column name="Es_Accionista_Documento" fieldName="EsAccionistaDocumento" label="Es Accionista Documento" />
+  </columns>
+</dataModel>

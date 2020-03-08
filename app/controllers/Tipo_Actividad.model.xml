@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Tipo_Actividad" alias="Tipo_Actividad" created="2018-10-08T20:04:21" modified="2019-02-21T17:28:35" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Tipo_Actividad_RyS_" parentTableSchema="APP" parentTableName="Tipo_Actividad_RyS" x="2136" y="48">
+      <foreignKeyColumn columnName="Tipo_Actividad_RyS_Id" parentColumnName="Tipo_Actividad_RyS_Id" />
+    </foreignKey>
+    <foreignKey id="Layout_Correo_Notificacion_" parentTableSchema="APP" parentTableName="Layout_Correo_Electronico" x="1767" y="157">
+      <foreignKeyColumn columnName="Layout_Correo_Notificacion_Id" parentColumnName="Layout_Correo_Electronico_Id" />
+    </foreignKey>
+    <foreignKey id="Layout_Correo_Notificacion_No_Cumplimiento_" parentTableSchema="APP" parentTableName="Layout_Correo_Electronico" x="1318" y="311">
+      <foreignKeyColumn columnName="Layout_Correo_Notificacion_No_Cumplimiento_Id" parentColumnName="Layout_Correo_Electronico_Id" />
+    </foreignKey>
+    <foreignKey id="Layout_Correo_Notificacion_Cumplimiento_" parentTableSchema="APP" parentTableName="Layout_Correo_Electronico" x="662" y="413">
+      <foreignKeyColumn columnName="Layout_Correo_Notificacion_Cumplimiento_Id" parentColumnName="Layout_Correo_Electronico_Id" />
+    </foreignKey>
+    <foreignKey id="Rol_Actividad_" parentTableSchema="dbo" parentTableName="Rol_Actividad" x="697" y="622">
+      <foreignKeyColumn columnName="Rol_Actividad_Id" parentColumnName="Rol_Actividad_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="908" y="794">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="cpUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="589" y="966">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="apUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="188" y="1053">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Tipo_Actividad_Id" fieldName="Tipo_Actividad_Id" label="Tipo Actividad Id" />
+    <column name="Tipo_Actividad" fieldName="Tipo_Actividad" label="Tipo de Actividad" />
+    <column name="Aplica_Vigencia" fieldName="Aplica_Vigencia" label="¿Aplica Vigencia?" />
+    <column name="Dias_Vigencia" fieldName="Dias_Vigencia" label="Días de Vigencia" />
+    <column name="Es_Para_Registro_Inicial" fieldName="Es_Para_Registro_Inicial" label="¿Es Para Registro Inicial?" />
+    <column name="Es_Evento_Actualizacion" fieldName="Es_Evento_Actualizacion" label="¿Es Evento Actualización?" />
+    <column name="Es_Actividad_RyS" fieldName="Es_Actividad_RyS" label="¿Es Actividad RyS?" />
+    <column name="Tipo_Actividad_RyS_Id" fieldName="Tipo_Actividad_RyS_Id" label="Tipo Actividad Ry S Id" aliasColumnName="Tipo_Actividad_RyS" aliasForeignKey="Tipo_Actividad_RyS_" />
+    <column name="Tipo_Actividad_RyS" fieldName="Tipo_Actividad_RyS_Tipo_Actividad_RyS" label="Tipo Actividad RyS" foreignKey="Tipo_Actividad_RyS_" />
+    <column name="Es_Match_Candidato_Potencial" fieldName="Es_Match_Candidato_Potencial" label="¿Es Match Candidato Potencial?" />
+    <column name="Numero_Recordatorios_Limite" fieldName="Numero_Recordatorios_Limite" label="Número Recordatorios Límite" />
+    <column name="Enviar_Notificacion" fieldName="Enviar_Notificacion" label="¿Enviar Notificación?" />
+    <column name="Layout_Correo_Notificacion_Id" fieldName="Layout_Correo_Notificacion_Id" label="Layout Correo Notificacion Id" aliasColumnName="Layout_Correo_Electronico" aliasForeignKey="Layout_Correo_Notificacion_" />
+    <column name="Layout_Correo_Electronico" fieldName="Layout_Correo_Notificacion_Layout_Correo_Electronico" label="Layout Correo Notificación" foreignKey="Layout_Correo_Notificacion_" />
+    <column name="Enviar_Notificacion_No_Cumplimiento" fieldName="Enviar_Notificacion_No_Cumplimiento" label="Enviar Notificacion No Cumplimiento" />
+    <column name="Layout_Correo_Notificacion_No_Cumplimiento_Id" fieldName="Layout_Correo_Notificacion_No_Cumplimiento_Id" label="Layout Correo Notificacion No Cumplimiento Id" aliasColumnName="Layout_Correo_Electronico" aliasForeignKey="Layout_Correo_Notificacion_No_Cumplimiento_" />
+    <column name="Layout_Correo_Electronico" fieldName="Layout_Correo_Notificacion_No_Cumplimiento_Layout_Correo_Electronico" label="Layout Correo Notificación No Cumplimiento" foreignKey="Layout_Correo_Notificacion_No_Cumplimiento_" />
+    <column name="Enviar_Notificacion_Cumplimiento" fieldName="Enviar_Notificacion_Cumplimiento" label="Enviar Notificación Cumplimiento" />
+    <column name="Layout_Correo_Notificacion_Cumplimiento_Id" fieldName="Layout_Correo_Notificacion_Cumplimiento_Id" label="Layout Correo Notificacion Cumplimiento Id" aliasColumnName="Layout_Correo_Electronico" aliasForeignKey="Layout_Correo_Notificacion_Cumplimiento_" />
+    <column name="Layout_Correo_Electronico" fieldName="Layout_Correo_Notificacion_Cumplimiento_Layout_Correo_Electronico" label="Layout Correo Notificación Cumplimiento" foreignKey="Layout_Correo_Notificacion_Cumplimiento_" />
+    <column name="Validar_Via_SQL" fieldName="Validar_Via_SQL" label="Validar Via SQL" />
+    <column name="Sentencia_SQL_A_Validar" fieldName="Sentencia_SQL_A_Validar" label="Sentencia SQL a Validar" />
+    <column name="Numero_Dias_Previos_Para_Notificacion" fieldName="Numero_Dias_Previos_Para_Notificacion" label="Número de Días Previos Para Notificación" />
+    <column name="Validar_Manualmente" fieldName="Validar_Manualmente" label="Validar Manualmente" />
+    <column name="Url_Pagina_Actividad" fieldName="Url_Pagina_Actividad" label="URL Página Actividad" />
+    <column name="Es_Logic_APP" fieldName="Es_Logic_APP" label="¿Es Logic APP?" />
+    <column name="Obligatoria" fieldName="Obligatoria" label="¿Obligatoria?" />
+    <column name="Url_Pagina" fieldName="Url_Pagina" label="URL de Página" />
+    <column name="Controlador" fieldName="Controlador" label="Controlador" />
+    <column name="Nombre_Comando" fieldName="Nombre_Comando" label="Nombre Comando" />
+    <column name="Nombre_Vista_COT" fieldName="Nombre_Vista_COT" label="Nombre Vista COT" />
+    <column name="Rol_Actividad_Id" fieldName="Rol_Actividad_Id" label="Rol Actividad Id" aliasColumnName="Rol_Actividad" aliasForeignKey="Rol_Actividad_" />
+    <column name="Rol_Actividad" fieldName="Rol_Actividad_Rol_Actividad" label="Rol Actividad" foreignKey="Rol_Actividad_" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transacción Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="cpUsuario_V" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cpUsuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación UTC 0" format="g" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="apUsuario_V" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="apUsuario_V" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización UTC 0" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+    <column name="Enviar_Notificacion_Encargado" fieldName="Enviar_Notificacion_Encargado" label="¿Enviar Notificación Encargado?" />
+    <column name="Layout_Correo_Notificacion_Encargado_Id" fieldName="Layout_Correo_Notificacion_Encargado_Id" label="Layout Correo Notificacion Encargado Id" />
+    <column name="Aplica_Mensaje_Creado_Manualmente" fieldName="AplicaMensajeCreadoManualmente" label="Aplica Mensaje Creado Manualmente" />
+    <column name="Es_Envio_Correo_Electronico" fieldName="EsEnvioCorreoElectronico" label="Es Envio Correo Electronico" />
+    <column name="Es_Envio_Mensaje_SMS" fieldName="EsEnvioMensajeSms" label="Es Envio Mensaje Sms" />
+    <column name="Layout_Mensaje_SMS_Notificacion_Id" fieldName="LayoutMensajeSmsNotificacionId" label="Layout Mensaje Sms Notificacion Id" />
+    <column name="Layout_Mensaje_SMS_Notificacion_Encargado_Id" fieldName="LayoutMensajeSmsNotificacionEncargadoId" label="Layout Mensaje Sms Notificacion Encargado Id" />
+    <column name="Layout_Mensaje_SMS_Notificacion_No_Cumplimiento_Id" fieldName="LayoutMensajeSmsNotificacionNoCumplimientoId" label="Layout Mensaje Sms Notificacion No Cumplimiento Id" />
+    <column name="Layout_Mensaje_SMS_Notificacion_Cumplimiento_Id" fieldName="LayoutMensajeSmsNotificacionCumplimientoId" label="Layout Mensaje Sms Notificacion Cumplimiento Id" />
+    <column name="Aplica_Descripcion_Puesto" fieldName="Aplica_Descripcion_Puesto" label="Aplica Descripcion Puesto" />
+  </columns>
+</dataModel>

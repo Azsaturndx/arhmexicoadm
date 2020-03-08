@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Servicio_Integracion" alias="Servicio_Integracion" created="2019-02-08T17:02:26" modified="2019-02-08T17:08:01" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Tipo_Servicio_" parentTableSchema="dbo" parentTableName="Tipo_Servicio" x="516" y="20">
+      <foreignKeyColumn columnName="Tipo_Servicio_Id" parentColumnName="Tipo_Servicio_Id" />
+    </foreignKey>
+    <foreignKey id="Tipo_Accion_Servicio_" parentTableSchema="dbo" parentTableName="Tipo_Accion_Servicio" x="516" y="250">
+      <foreignKeyColumn columnName="Tipo_Accion_Servicio_Id" parentColumnName="Tipo_Accion_Servicio_Id" />
+    </foreignKey>
+    <foreignKey id="Layout_Cabecera_" parentTableSchema="dbo" parentTableName="Layout_HTML" x="516" y="480">
+      <foreignKeyColumn columnName="Layout_Cabecera_Id" parentColumnName="Layout_HTML_Id" />
+    </foreignKey>
+    <foreignKey id="Layout_Cuerpo_" parentTableSchema="dbo" parentTableName="Layout_HTML" x="516" y="710">
+      <foreignKeyColumn columnName="Layout_Cuerpo_Id" parentColumnName="Layout_HTML_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="516" y="941">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="cpUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="72" y="590">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="apUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="68" y="733">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Servicio_Integracion_Id" fieldName="Servicio_Integracion_Id" label="Servicio Integracion Id" />
+    <column name="Servicio_Integracion" fieldName="Servicio_Integracion" label="Servicio de Integración" />
+    <column name="Servicio_Integracion_Descripcion" fieldName="Servicio_Integracion_Descripcion" label="Descripción de Servicio de Integración" />
+    <column name="Servicio_URL" fieldName="Servicio_URL" label="Servicio URL" />
+    <column name="Es_Token_Una_Constante" fieldName="Es_Token_Una_Constante" label="Es Token Una Constante" />
+    <column name="Token" fieldName="Token" label="Token" />
+    <column name="Nombre_Encabezado" fieldName="Nombre_Encabezado" label="Nombre Encabezado" />
+    <column name="Tipo_Contenido" fieldName="Tipo_Contenido" label="Tipo de Contenido" />
+    <column name="Tipo_Servicio_Id" fieldName="Tipo_Servicio_Id" label="Tipo Servicio Id" aliasColumnName="Tipo_Servicio" aliasForeignKey="Tipo_Servicio_" />
+    <column name="Tipo_Servicio" fieldName="Tipo_Servicio_Tipo_Servicio" label="Tipo de Servicio" foreignKey="Tipo_Servicio_" />
+    <column name="Tipo_Accion_Servicio_Id" fieldName="Tipo_Accion_Servicio_Id" label="Tipo Accion Servicio Id" aliasColumnName="Tipo_Accion_Servicio" aliasForeignKey="Tipo_Accion_Servicio_" />
+    <column name="Tipo_Accion_Servicio" fieldName="Tipo_Accion_Servicio_Tipo_Accion_Servicio" label="Tipo Acción de Servicio" foreignKey="Tipo_Accion_Servicio_" />
+    <column name="Layout_Cabecera_Id" fieldName="Layout_Cabecera_Id" label="Layout Cabecera Id" aliasColumnName="Layout_HTML_Nombre" aliasForeignKey="Layout_Cabecera_" />
+    <column name="Layout_HTML_Nombre" fieldName="Layout_Cabecera_Layout_HTML_Nombre" label="Layout Cabecera Layout HTML Nombre" foreignKey="Layout_Cabecera_" />
+    <column name="Layout_Cuerpo_Id" fieldName="Layout_Cuerpo_Id" label="Layout Cuerpo Id" aliasColumnName="Layout_HTML_Nombre" aliasForeignKey="Layout_Cuerpo_" />
+    <column name="Layout_HTML_Nombre" fieldName="Layout_Cuerpo_Layout_HTML_Nombre" label="Layout Cuerpo Layout HTML Nombre" foreignKey="Layout_Cuerpo_" />
+    <column name="Servicio_Usuario_Password" fieldName="Servicio_Usuario_Password" label="Servicio Usuario Password" />
+    <column name="Nombre_Identificador_Unico_Objeto_Respuesta" fieldName="Nombre_Identificador_Unico_Objeto_Respuesta" label="Nombre Identificador Unico Objeto Respuesta" />
+    <column name="Aplica_Validacion" fieldName="Aplica_Validacion" label="Aplica Validacion" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="cpUsuario_V" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cpUsuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creacón" format="d" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="apUsuario_V" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="apUsuario_V" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="d" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+  </columns>
+</dataModel>

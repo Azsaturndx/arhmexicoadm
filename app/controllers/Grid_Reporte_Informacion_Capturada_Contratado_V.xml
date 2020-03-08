@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Grid_Reporte_Informacion_Capturada_Contratado_V" conflictDetection="overwriteChanges" label="Grid Reporte Informacion Capturada Contratado V" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Grid_Reporte_Informacion_Capturada_Contratado_V"."Nombre_Reporte" "Nombre_Reporte"
+	,"Grid_Reporte_Informacion_Capturada_Contratado_V"."Tipo_Reporte" "Tipo_Reporte"
+	,"Grid_Reporte_Informacion_Capturada_Contratado_V"."Nota" "Nota"
+	,"Grid_Reporte_Informacion_Capturada_Contratado_V"."Cliente_Id" "Cliente_Id"
+	,"Grid_Reporte_Informacion_Capturada_Contratado_V"."Cliente" "Cliente"
+	,"Grid_Reporte_Informacion_Capturada_Contratado_V"."Contratante_Id" "Contratante_Id"
+	,"Grid_Reporte_Informacion_Capturada_Contratado_V"."Contratante" "Contratante"
+	,"Grid_Reporte_Informacion_Capturada_Contratado_V"."Contratado_Id" "Contratado_Id"
+	,"Grid_Reporte_Informacion_Capturada_Contratado_V"."Identificador_Unico" "Identificador_Unico"
+	,"Grid_Reporte_Informacion_Capturada_Contratado_V"."Persona_Id" "Persona_Id"
+	,"Grid_Reporte_Informacion_Capturada_Contratado_V"."Nombre" "Nombre"
+	,"Grid_Reporte_Informacion_Capturada_Contratado_V"."Segundo_Nombre" "Segundo_Nombre"
+	,"Grid_Reporte_Informacion_Capturada_Contratado_V"."Apellido_Paterno" "Apellido_Paterno"
+	,"Grid_Reporte_Informacion_Capturada_Contratado_V"."Apellido_Materno" "Apellido_Materno"
+	,"Grid_Reporte_Informacion_Capturada_Contratado_V"."Nombre_Completo" "Nombre_Completo"
+	,"Grid_Reporte_Informacion_Capturada_Contratado_V"."Grid_Reporte_Informacion_Capturada_Contratado_Id" "GridReporteInformacionCapturadaContratadoId"
+	,"Grid_Reporte_Informacion_Capturada_Contratado_V"."Estatus_Persona_Id" "EstatusPersonaId"
+	,"Grid_Reporte_Informacion_Capturada_Contratado_V"."Estatus_Contratado_Id" "EstatusContratadoId"
+	,"Grid_Reporte_Informacion_Capturada_Contratado_V"."Estatus_Persona" "EstatusPersona"
+	,"Grid_Reporte_Informacion_Capturada_Contratado_V"."Estatus_Contratado" "EstatusContratado"
+from "dbo"."Grid_Reporte_Informacion_Capturada_Contratado_V" "Grid_Reporte_Informacion_Capturada_Contratado_V"
+]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="GridReporteInformacionCapturadaContratadoId" type="Int64" label="Grid Reporte Informacion Capturada Contratado Id" allowNulls="false" isPrimaryKey="true" />
+    <field name="Nombre_Reporte" type="String" allowNulls="false" label="Nombre de Reporte" length="21" showInSummary="true" />
+    <field name="Tipo_Reporte" type="String" allowNulls="false" label="Tipo de Reporte" length="26" showInSummary="true" />
+    <field name="Nota" type="String" allowNulls="false" label="Nota" length="608" showInSummary="true" />
+    <field name="Cliente_Id" type="Int32" allowNulls="false" label="Cliente Id" showInSummary="true" />
+    <field name="Cliente" type="String" allowNulls="false" label="Cliente" length="150" showInSummary="true" />
+    <field name="Contratante_Id" type="Int32" allowNulls="false" label="Contratante Id" />
+    <field name="Contratante" type="String" allowNulls="false" label="Contratante" length="150" />
+    <field name="Contratado_Id" type="Int32" allowNulls="false" label="Contratado Id" />
+    <field name="Identificador_Unico" type="String" allowNulls="false" label="Identificador Unico" length="50" />
+    <field name="Persona_Id" type="Int32" allowNulls="false" label="Persona Id" />
+    <field name="Nombre" type="String" allowNulls="false" label="Nombre" length="150" />
+    <field name="Segundo_Nombre" type="String" label="Segundo Nombre" length="150" />
+    <field name="Apellido_Paterno" type="String" allowNulls="false" label="Apellido Paterno" length="150" />
+    <field name="Apellido_Materno" type="String" label="Apellido Materno" length="150" />
+    <field name="Nombre_Completo" type="String" label="Nombre Completo" length="603" />
+    <field name="EstatusPersonaId" type="Int32" allowNulls="false" label="Estatus Persona Id" />
+    <field name="EstatusContratadoId" type="Int32" allowNulls="false" label="Estatus Contratado Id" />
+    <field name="EstatusPersona" type="String" allowNulls="false" label="Estatus Persona" readOnly="true" length="250" />
+    <field name="EstatusContratado" type="String" allowNulls="false" label="Estatus Contratado" readOnly="true" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Reporte de Información Capturada Por Contratado" sortExpression="Cliente,Contratante,Nombre,Segundo_Nombre,Apellido_Paterno,Apellido_Materno">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Nombre_Reporte" columns="21" />
+        <dataField fieldName="Tipo_Reporte" columns="26" />
+        <dataField fieldName="Nota" />
+        <dataField fieldName="Cliente_Id" columns="15" hidden="true" />
+        <dataField fieldName="Cliente" />
+        <dataField fieldName="Contratante_Id" columns="15" hidden="true" />
+        <dataField fieldName="Contratante" />
+        <dataField fieldName="Contratado_Id" columns="15" hidden="true" />
+        <dataField fieldName="Identificador_Unico" columns="50" />
+        <dataField fieldName="Persona_Id" columns="15" hidden="true" />
+        <dataField fieldName="Nombre_Completo" />
+        <dataField fieldName="Nombre" />
+        <dataField fieldName="Segundo_Nombre" />
+        <dataField fieldName="Apellido_Paterno" />
+        <dataField fieldName="Apellido_Materno" />
+        <dataField fieldName="GridReporteInformacionCapturadaContratadoId" columns="15" hidden="true" />
+        <dataField fieldName="EstatusPersonaId" columns="15" aliasFieldName="EstatusPersona" />
+        <dataField fieldName="EstatusContratadoId" columns="15" aliasFieldName="EstatusContratado" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Review Grid Reporte Informacion Capturada Contratado V">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Grid Reporte Informacion Capturada Contratado V" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Nombre_Reporte" columns="21" />
+            <dataField fieldName="Tipo_Reporte" columns="26" />
+            <dataField fieldName="Nota" />
+            <dataField fieldName="Cliente_Id" columns="15" />
+            <dataField fieldName="Cliente" />
+            <dataField fieldName="Contratante_Id" columns="15" />
+            <dataField fieldName="Contratante" />
+            <dataField fieldName="Contratado_Id" columns="15" />
+            <dataField fieldName="Identificador_Unico" columns="50" />
+            <dataField fieldName="Persona_Id" columns="15" />
+            <dataField fieldName="Nombre" />
+            <dataField fieldName="Segundo_Nombre" />
+            <dataField fieldName="Apellido_Paterno" />
+            <dataField fieldName="Apellido_Materno" />
+            <dataField fieldName="Nombre_Completo" />
+            <dataField fieldName="GridReporteInformacionCapturadaContratadoId" columns="15" />
+            <dataField fieldName="EstatusPersonaId" columns="15" />
+            <dataField fieldName="EstatusContratadoId" columns="15" />
+            <dataField fieldName="EstatusPersona" />
+            <dataField fieldName="EstatusContratado" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="New Grid Reporte Informacion Capturada Contratado V">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Nombre_Reporte" columns="21" />
+            <dataField fieldName="Tipo_Reporte" columns="26" />
+            <dataField fieldName="Nota" />
+            <dataField fieldName="Cliente_Id" columns="15" />
+            <dataField fieldName="Cliente" />
+            <dataField fieldName="Contratante_Id" columns="15" />
+            <dataField fieldName="Contratante" />
+            <dataField fieldName="Contratado_Id" columns="15" />
+            <dataField fieldName="Identificador_Unico" columns="50" />
+            <dataField fieldName="Persona_Id" columns="15" />
+            <dataField fieldName="Nombre" />
+            <dataField fieldName="Segundo_Nombre" />
+            <dataField fieldName="Apellido_Paterno" />
+            <dataField fieldName="Apellido_Materno" />
+            <dataField fieldName="Nombre_Completo" />
+            <dataField fieldName="GridReporteInformacionCapturadaContratadoId" columns="15" />
+            <dataField fieldName="EstatusPersonaId" columns="15" />
+            <dataField fieldName="EstatusContratadoId" columns="15" />
+            <dataField fieldName="EstatusPersona" />
+            <dataField fieldName="EstatusContratado" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+  </actions>
+</dataController>

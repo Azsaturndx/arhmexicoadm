@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Tipo_Periodo_Tiempo" alias="Tipo_Periodo_Tiempo" created="2019-07-22T11:14:38" modified="2019-07-22T11:16:37" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="451" y="20">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Creado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="963" y="46">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Actualizado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="511" y="256">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Tipo_Periodo_Tiempo_Id" fieldName="Tipo_Periodo_Tiempo_Id" label="Tipo Periodo Tiempo Id" />
+    <column name="Tipo_Periodo_Tiempo" fieldName="Tipo_Periodo_Tiempo" label="Tipo Periodo de Tiempo" />
+    <column name="Es_Mensual" fieldName="Es_Mensual" label="¿Es Mensual?" />
+    <column name="Es_Quincenal" fieldName="Es_Quincenal" label="¿Es Quincenal?" />
+    <column name="Es_Semanal" fieldName="Es_Semanal" label="¿Es Semanal?" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="UserName" fieldName="CreadoPorusername" label="Creado Por" foreignKey="Creado_Por" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="UserName" fieldName="ActualizadoPorusername" label="Actualizado Por" foreignKey="Actualizado_Por" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+    <column name="Es_Por_Dia" fieldName="Es_Por_Dia" label="¿Es Por Día?" />
+    <column name="Aplica_Nomina" fieldName="Aplica_Nomina" label="¿Aplica Nómina?" />
+    <column name="Aplica_Notificaciones_Recordatorios" fieldName="Aplica_Notificaciones_Recordatorios" label="¿Aplica Notificaciones Recordatorios?" />
+    <column name="Es_Anual" fieldName="Es_Anual" label="¿Es Anual?" />
+  </columns>
+</dataModel>

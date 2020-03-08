@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Reporte_Relacion_Usuario_Contrasena_Por_Contratado" alias="Reporte_Relacion_Usuario_Contrasena_Por_Contratado" created="2019-05-28T16:53:43" modified="2019-05-28T16:54:19" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="Temporal_Contratante_Usuario_Aplicacion_Id" fieldName="Temporal_Contratante_Usuario_Aplicacion_Id" label="Temporal Contratante Usuario Aplicacion Id" />
+    <column name="Contratante_Id" fieldName="Contratante_Id" label="Contratante Id" />
+    <column name="Contratante" fieldName="Contratante" label="Contratante" />
+    <column name="Contratado_Id" fieldName="Contratado_Id" label="Contratado Id" />
+    <column name="Persona_Nombre" fieldName="Persona_Nombre" label="Nombre Completo" />
+    <column name="Identificador_Unico" fieldName="Identificador_Unico" label="Identificador Único" />
+    <column name="Cliente_Id" fieldName="Cliente_Id" label="Cliente Id" />
+    <column name="Cliente" fieldName="Cliente" label="Cliente" />
+    <column name="Persona_Id" fieldName="Persona_Id" label="Persona Id" />
+    <column name="Usuario" fieldName="Usuario" label="Usuario" />
+    <column name="Contrasena" fieldName="Contrasena" label="Contraseña" />
+    <column name="Nota" fieldName="Nota" label="Nota" />
+    <column name="Estatus_Contratado_Id" fieldName="Estatus_Contratado_Id" label="Estatus Contratado Id" />
+    <column name="Estatus_Contratado" fieldName="Estatus_Contratado" label="Estatus Contratado" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha Creacion" format="g" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha Ultima Actualizacion" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" />
+    <column name="Estatus_Persona_Id" fieldName="Estatus_Persona_Id" label="Estatus Persona Id" />
+    <column name="Estatus_Persona" fieldName="Estatus_Persona" label="Estatus Persona" />
+  </columns>
+</dataModel>

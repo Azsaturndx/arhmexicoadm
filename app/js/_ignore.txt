@@ -1,0 +1,13 @@
+﻿daf/*
+sys/*
+lib/*
+surveys/*
+_references.js
+organigramaLogica.js
+organigramaInit.js
+human_board.js
+mini-event-calendar.min.js
+dcalendar.picker.js
+human_board_calendar_init.js
+human_board_anuncios_init.js
+jquery.html-svg-connect.js

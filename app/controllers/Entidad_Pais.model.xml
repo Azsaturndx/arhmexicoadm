@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Entidad_Pais" alias="Entidad_Pais" created="2018-05-19T20:06:02" modified="2018-05-19T20:08:12" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Pais_" parentTableSchema="APP" parentTableName="Pais" x="405" y="20">
+      <foreignKeyColumn columnName="Pais_Id" parentColumnName="Pais_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="405" y="250">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="cp" parentTableSchema="dbo" parentTableName="Usuario_V" x="40" y="326">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="ap" parentTableSchema="dbo" parentTableName="Usuario_V" x="453" y="393">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Entidad_Pais_Id" fieldName="Entidad_Pais_Id" label="Entidad Pais Id" />
+    <column name="Entidad_Pais" fieldName="Entidad_Pais" label="Estado de la República" />
+    <column name="Es_Default" fieldName="Es_Default" label="¿Es Default?" />
+    <column name="Pais_Id" fieldName="Pais_Id" label="Pais Id" aliasColumnName="Pais" aliasForeignKey="Pais_" />
+    <column name="Pais" fieldName="Pais_Pais" label="País" foreignKey="Pais_" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cp" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="ap" />
+  </columns>
+</dataModel>

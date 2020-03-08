@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Dia" conflictDetection="overwriteChanges" label="Dia" handler="arhmexico.Rules.DiaBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Dia"."Dia_Id" "Dia_Id"
+	,"Dia"."Dia" "Dia"
+	,"Dia"."Dia_Numero" "Dia_Numero"
+	,"Dia"."Mes_Id" "Mes_Id"
+	,"Mes_"."Mes" "Mes_Mes"
+	,"Dia"."Anio_Id" "Anio_Id"
+	,"Anio_"."Anio" "Anio_Anio"
+	,"Dia"."Dia_Anio_Id" "Dia_Anio_Id"
+	,"Dia"."Dia_Fecha" "Dia_Fecha"
+	,"Dia"."Transaccion_Id" "Transaccion_Id"
+	,"Dia"."Fecha_Creacion" "Fecha_Creacion"
+	,"Dia"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Dia"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"cp"."UserName" "cpUserName"
+	,"ap"."UserName" "apUserName"
+from "APP"."Dia" "Dia"
+	left join "APP"."Mes" "Mes_" on "Dia"."Mes_Id" = "Mes_"."Mes_Id"
+	left join "APP"."Anio" "Anio_" on "Dia"."Anio_Id" = "Anio_"."Anio_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Dia"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cp" on "Dia"."Creado_Por_Id" = "cp"."UserId"
+	left join "dbo"."Usuario_V" "ap" on "Dia"."Actualizado_Por_Id" = "ap"."UserId"
+]]></text>
+    </command>
+    <command id="Dia_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Dia_Id" />
+      </output>
+    </command>
+    <command type="Text" id="gridDiaV" custom="false">
+      <text><![CDATA[SELECT [Dia_Numero]
+      ,[Estatus_Registro_Id]
+      ,[Estatus_Registro_Estatus_Registro]
+      ,[cpUserName]
+      ,[apUserName]
+  FROM [dbo].[Grid_Dia_V]]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Dia_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Dia Id" readOnly="true" />
+    <field name="Dia" type="String" allowNulls="false" label="Día" length="150" showInSummary="true" />
+    <field name="Dia_Numero" type="Byte" allowNulls="false" label="Número de Día" showInSummary="true" />
+    <field name="Mes_Id" type="Int32" allowNulls="false" default="((0))" label="Mes Id" showInSummary="true">
+      <items style="Lookup" dataController="Mes" newDataView="createForm1" dataValueField="Mes_Id" dataTextField="Mes" />
+    </field>
+    <field name="Mes_Mes" type="String" readOnly="true" label="Mes" length="150" />
+    <field name="Anio_Id" type="Int32" allowNulls="false" default="((0))" label="Anio Id" showInSummary="true">
+      <items style="Lookup" dataController="Anio" newDataView="createForm1" dataValueField="Anio_Id" dataTextField="Anio" />
+    </field>
+    <field name="Anio_Anio" type="String" readOnly="true" label="Año" length="150" />
+    <field name="Dia_Anio_Id" type="Int32" allowNulls="false" default="((0))" label="Número de Día en el año (1 a 365)" showInSummary="true" />
+    <field name="Dia_Fecha" type="DateTime" allowNulls="false" dataFormatString="d" label="Fecha" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Creación" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Última Actualización" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Dia" sortExpression="Dia" filter="Estatus_Registro_Id &lt;&gt; 0" showInSelector="false">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Dia" />
+        <dataField fieldName="Dia_Numero" columns="15" />
+        <dataField fieldName="Mes_Id" aliasFieldName="Mes_Mes" />
+        <dataField fieldName="Anio_Id" aliasFieldName="Anio_Anio" />
+        <dataField fieldName="Dia_Anio_Id" columns="15" />
+        <dataField fieldName="Dia_Fecha" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Review Dia">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Día" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Dia" />
+            <dataField fieldName="Dia_Numero" columns="15" />
+            <dataField fieldName="Mes_Id" aliasFieldName="Mes_Mes" />
+            <dataField fieldName="Anio_Id" aliasFieldName="Anio_Anio" />
+            <dataField fieldName="Dia_Anio_Id" columns="15" />
+            <dataField fieldName="Dia_Fecha" columns="20" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="New Dia">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Dia" />
+            <dataField fieldName="Dia_Numero" columns="15" />
+            <dataField fieldName="Mes_Id" aliasFieldName="Mes_Mes" />
+            <dataField fieldName="Anio_Id" aliasFieldName="Anio_Anio" />
+            <dataField fieldName="Dia_Anio_Id" columns="15" />
+            <dataField fieldName="Dia_Fecha" columns="20" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Dia_LookUp_List" type="Grid" commandId="command1" label="Dia" sortExpression="Dia" filter="Estatus_Registro_Id IN (0,1)" showInSelector="false">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Dia" />
+        <dataField fieldName="Dia_Numero" columns="15" />
+        <dataField fieldName="Mes_Id" aliasFieldName="Mes_Mes" />
+        <dataField fieldName="Anio_Id" aliasFieldName="Anio_Anio" />
+        <dataField fieldName="Dia_Anio_Id" columns="15" />
+        <dataField fieldName="Dia_Fecha" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+    <view id="Dia_LookUp_List_Solo_Dia" type="Grid" commandId="command1" label="Dia" sortExpression="Dia" filter="Estatus_Registro_Id IN (1)" showInSelector="false">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Dia_Numero" columns="15" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Dia
+SET
+	Estatus_Registro_Id = 3
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Dia_Id= @Dia_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Dia
+SET
+	Estatus_Registro_Id = 3
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Dia_Id= @Dia_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Dia
+SET
+	Estatus_Registro_Id = 3
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Dia_Id= @Dia_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Dia
+SET
+	Estatus_Registro_Id = 3
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Dia_Id= @Dia_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+</dataController>

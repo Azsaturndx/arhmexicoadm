@@ -1,0 +1,176 @@
+﻿
+
+<!-- 
+    This section provides a sample markup for Touch UI user interface. 
+-->
+<div id="GeneracionPDFSolicitudDocumento" data-app-role="page" xmlns:codedom="http://www.codeontime.com/2008/codedom-compiler" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:c="urn:schemas-codeontime-com:data-aquarium" xmlns:asp="urn:asp.net" xmlns:aquarium="urn:data-aquarium">
+<p>Generando PDF</p>
+</div>
+        
+<script type="text/javascript">
+    (function () {
+        if ($app.touch)
+            $(document).one('start.app', function () {
+                // The page of Touch UI application is ready to be configured
+        });
+    })();
+
+    
+    var metodo = "GET";
+    var debug = 0;
+    var field; //Esta variable nos servirá para pasarla a la función que valida que el parámetro exista en la URL
+    var urlWebAPI;//Url de Web API
+    var urlForbidden = "../Pages/Frb.html"; //url para denegar acceso
+    var numeroParametrosInvalidos = 0;
+    var url = window.location.href;//Variable para obtener la URL
+    var vSolicitudKey = "solicitudKey" //parámetro que viene en ulr
+
+    //Para contar la cantidad de parámetros en la URL
+    var contadorParametros = 0;
+
+    if (debug == 0)
+    {
+        urlWebAPI = "https://arhapi.azurewebsites.net/api/peticion/ObtenerDocumentoSolicitud?documentoKey=";
+    }
+    else
+    {
+        urlWebAPI = "http://localhost:60766/api/peticion/ObtenerDocumentoSolicitud?documentoKey=";
+    }
+
+    var solicitudKey = getUrlVars()["solicitudKey"];
+
+    $(document).ready(function () {
+        //Validar que solo pasen los parámetros necesarios y no más.
+        //contadorParametros = parse_query_string(url);
+        if (debug == 1)
+            alert("Hola");
+            //console.log("Parámetros=" + contadorParametros);
+        if (contadorParametros > 0) {
+            window.location.replace(urlForbidden + "?fbt=11");
+        }//if (contadorParametros > 0)
+        else
+        {
+            urlWebAPI = urlWebAPI + solicitudKey;
+
+            if (debug == 1)
+                console.log("Inicio de llamada a WebAPI, URL:" + urlWebAPI);
+
+            if (debug == 1)
+                alert("El valor del Key es:" + solicitudKey);
+
+            field = vSolicitudKey;
+            //Validar que el parámetro venga en la URL
+            if ((checkUrlParameter(field)) == false) {
+                if (debug == 1)
+                    alert("No existe el parámetro en la URL");
+                window.location.replace(urlForbidden + "?fbt=11");
+            }//if ((checkUrlParameter(field)) == false)
+            else {
+                if (debug == 1)
+                    alert("El parámetro Token si existe en la URL");
+
+                if (vSolicitudKey == "") {
+                    if (debug == 1)
+                        alert("El parámetro Token viene vacío.");
+                    window.location.replace(urlForbidden + "?fbt=11");
+                }//if(vSolicitudKey=="")
+
+                window.location.replace(urlWebAPI);
+                /*
+                try {
+                    $.ajax({
+                        url: urlWebAPI,
+                        method: metodo,
+                        beforeSend: function (e) {
+                            if (debug == 1) {
+                                console.log(urlWebAPI);
+                            }
+                        }
+                        , success: function (response) {
+                            if (debug == 1) console.log("Éxito!!...");
+
+                            if (debug == 1) {
+                                console.log(response);
+                            }//if (debug == 1)
+
+                           
+
+                        }
+                        , error: function (response) {
+                            console.log("Entro en error");
+                            //window.location.replace(urlForbidden + "?fbt=11");
+                            if (debug == 1) console.log("Error 800!!!");
+                           
+                        }
+                    }).done(function (data) {
+                        console.log("Done");
+                        console.log(data);
+                        if (debug == 1) console.log("Hecho!!");
+                        return true;
+                    });
+                }//try
+                catch (err) {
+
+                    if (debug == 1) console.log("Catch Error 600073!!!");
+                    window.location.replace(urlForbidden + "?fbt=11");
+                    return true;
+                }//catch
+                */
+
+            }//else if ((checkUrlParameter(field)) == false)
+        }//else if (contadorParametros > 0)
+
+    });//$(document).ready(function ()
+
+    function getUrlVars() {
+        var vars = {};
+        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+            vars[key] = value;
+        });
+        return vars;
+    }//function getUrlVars() 
+
+    //Función para validar si existe un parámetro en la URL
+    function checkUrlParameter(parameter) {
+        if (url.indexOf('?' + parameter + '=') != -1)
+            return true;
+        else if (url.indexOf('&' + parameter + '=') != -1)
+            return true;
+        return false
+    }//function checkUrlParameter(parameter)
+
+    //Función para contar todos los parámetros en la URL
+    function parse_query_string(query) {
+        if (url.indexOf('?') != -1) {
+            if (debug == 1)
+                alert("Ingreso por aqui 1 ");
+            var arregloLiga = query.split("?");
+            var vars = arregloLiga[1].split("&");
+            var query_string = {};
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                var key = decodeURIComponent(pair[0]);
+                var numeroParametrosIncorrectos = 0;
+                var value = decodeURIComponent(pair[1]);
+                if (key != "solicitudKey") {
+                    console.log("Key=" + key);
+                    numeroParametrosIncorrectos++;
+
+                }
+                if (numeroParametrosIncorrectos > 0) {
+                    if (debug == 1)
+                        alert("Existen varios parámetros incorrectos");
+                    console.log("Total Parámetros Incorrectos=" + numeroParametrosIncorrectos + "; URL Verificada:" + query);
+                }
+            }
+        }
+        else {
+            if (debug == 1)
+                console.log("Ingreso por ELSE de fn parse_query_string");
+            window.location.replace(urlForbidden + "?fbt=1");
+        }
+
+        return numeroParametrosIncorrectos;
+    }    //Función para contar todos los parámetros en la URL
+
+</script>

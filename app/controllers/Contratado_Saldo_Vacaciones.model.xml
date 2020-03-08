@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Contratado_Saldo_Vacaciones" alias="Contratado_Saldo_Vacaciones" created="2018-07-10T11:51:12" modified="2019-01-13T15:37:13" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Contratado_" parentTableSchema="APP" parentTableName="Contratado" x="580" y="25">
+      <foreignKeyColumn columnName="Contratado_Id" parentColumnName="Contratado_Id" />
+    </foreignKey>
+    <foreignKey id="Anio_" parentTableSchema="APP" parentTableName="Anio" x="800" y="494">
+      <foreignKeyColumn columnName="Anio_Id" parentColumnName="Anio_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="434" y="710">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Usuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="1344" y="478">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Usuario_V1" parentTableSchema="dbo" parentTableName="Usuario_V" x="1047" y="714">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Contratante" parentTableSchema="APP" parentTableName="Contratante" x="1063" y="38" baseForeignKey="Contratado_">
+      <foreignKeyColumn columnName="Contratante_Id" parentColumnName="Contratante_Id" />
+    </foreignKey>
+    <foreignKey id="Cliente" parentTableSchema="APP" parentTableName="Cliente" x="1491" y="68" baseForeignKey="Contratante">
+      <foreignKeyColumn columnName="Cliente_Id" parentColumnName="Cliente_Id" />
+    </foreignKey>
+    <foreignKey id="Persona" parentTableSchema="APP" parentTableName="Persona" x="1141" y="331" baseForeignKey="Contratado_">
+      <foreignKeyColumn columnName="Persona_Id" parentColumnName="Persona_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Contratado_Saldo_Vacaciones_Id" fieldName="Contratado_Saldo_Vacaciones_Id" label="Contratado Saldo Vacaciones Id" />
+    <column name="Contratado_Id" fieldName="Contratado_Id" label="Contratado Id" aliasColumnName="Identificador_Unico" aliasForeignKey="Contratado_" />
+    <column name="Identificador_Unico" fieldName="Contratado_Identificador_Unico" label="Contratado Identificador Unico" foreignKey="Contratado_" />
+    <column name="Anio_Id" fieldName="Anio_Id" label="Anio Id" aliasColumnName="Anio" aliasForeignKey="Anio_" />
+    <column name="Anio" fieldName="Anio_Anio" label="Anio" foreignKey="Anio_" />
+    <column name="Fecha_Inicio_Saldo" fieldName="Fecha_Inicio_Saldo" label="Fecha Inicio Saldo" format="g" />
+    <column name="Fecha_Fin_Saldo" fieldName="Fecha_Fin_Saldo" label="Fecha Fin Saldo" format="g" />
+    <column name="Saldo_Vacaciones" fieldName="Saldo_Vacaciones" label="Saldo Vacaciones" />
+    <column name="Saldo_Vacaciones_Anio_Anterior" fieldName="Saldo_Vacaciones_Anio_Anterior" label="Saldo Vacaciones Anio Anterior" />
+    <column name="Dias_Pendientes_Por_Tomar" fieldName="Dias_Pendientes_Por_Tomar" label="Dias Pendientes Por Tomar" />
+    <column name="Notas" fieldName="Notas" label="Notas" />
+    <column name="Cliente_Id" fieldName="Cliente_Id" label="Cliente Id" />
+    <column name="UserName" fieldName="cpUserName" label="Usuario V Username" foreignKey="Usuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha Creacion" format="g" />
+    <column name="UserName" fieldName="apUserName" label="ap User Name" foreignKey="Usuario_V1" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha Ultima Actualizacion" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+    <column name="Contratante" fieldName="Contratante" label="Contratante" foreignKey="Contratante" />
+    <column name="Contratante_Id" fieldName="Contratante_Contratante_Id" label="Contratante Id" foreignKey="Contratante" />
+    <column name="Cliente" fieldName="Cliente" label="Cliente" foreignKey="Cliente" />
+    <column name="Nombre" fieldName="Persona_Nombre" label="Nombre" foreignKey="Persona" />
+    <column name="Apellido_Paterno" fieldName="Persona_Apellido_Paterno" label="Apellido Paterno" foreignKey="Persona" />
+    <column name="Apellido_Materno" fieldName="Persona_Apellido_Materno" label="Apellido Materno" foreignKey="Persona" />
+    <column name="Segundo_Nombre" fieldName="Persona_Segundo_Nombre" label="Persona Segundo Nombre" foreignKey="Persona" />
+  </columns>
+</dataModel>

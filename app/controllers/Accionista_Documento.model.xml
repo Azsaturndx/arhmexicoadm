@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Accionista_Documento" alias="Accionista_Documento" created="2019-12-12T23:02:08" modified="2019-12-20T13:04:05" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Accionista_" parentTableSchema="APP" parentTableName="Accionista" x="405" y="20">
+      <foreignKeyColumn columnName="Accionista_Id" parentColumnName="Accionista_Id" />
+    </foreignKey>
+    <foreignKey id="Tipo_Documento_" parentTableSchema="APP" parentTableName="Tipo_Documento" x="1227" y="131">
+      <foreignKeyColumn columnName="Tipo_Documento_Id" parentColumnName="Tipo_Documento_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="405" y="481">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Creado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="666" y="186">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Actualizado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="909" y="312">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Accionista_Documento_Id" fieldName="Accionista_Documento_Id" label="Accionista Documento Id" />
+    <column name="Accionista_Id" fieldName="Accionista_Id" label="Accionista Id" aliasColumnName="Nombre_Completo" aliasForeignKey="Accionista_" />
+    <column name="Nombre_Completo" fieldName="Accionista_Nombre_Completo" label="Accionista" foreignKey="Accionista_" />
+    <column name="Nombre_Documento" fieldName="Nombre_Documento" label="Nombre Documento" />
+    <column name="Tipo_Documento_Id" fieldName="Tipo_Documento_Id" label="Tipo Documento Id" aliasColumnName="Tipo_Documento" aliasForeignKey="Tipo_Documento_" />
+    <column name="Tipo_Documento" fieldName="Tipo_Documento_Tipo_Documento" label="Tipo de Documento" foreignKey="Tipo_Documento_" />
+    <column name="Picture" fieldName="Picture" label="Archivo" />
+    <column name="PictureFileName" fieldName="PictureFileName" label="Nombre del Archivo" />
+    <column name="PictureContentType" fieldName="PictureContentType" label="Tipo de Archivo" />
+    <column name="PictureLength" fieldName="PictureLength" label="Tamaño de Archivo" />
+    <column name="Vigencia" fieldName="Vigencia" label="Vigencia" format="g" />
+    <column name="Notas" fieldName="Notas" label="Notas" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="UserName" fieldName="CreadoPorusername" label="Creado Por" foreignKey="Creado_Por" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="UserName" fieldName="ActualizadoPorusername" label="Actualizado Por" foreignKey="Actualizado_Por" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+    <column name="Correo_Aviso_Fecha_Vencimiento" fieldName="CorreoAvisoFechaVencimiento" label="Correo Aviso Fecha Vencimiento" />
+  </columns>
+</dataModel>

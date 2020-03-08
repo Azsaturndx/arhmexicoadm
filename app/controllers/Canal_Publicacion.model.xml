@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Canal_Publicacion" alias="Canal_Publicacion" created="2019-01-22T14:33:45" modified="2019-02-08T17:55:15" x="20" y="22" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="468" y="958">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="cpUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="71" y="643">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="apUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="46" y="776">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Autenticacion_Servicio_Integracion" parentTableSchema="APP" parentTableName="Servicio_Integracion" x="876" y="20">
+      <foreignKeyColumn columnName="Servicio_Integracion_Autentificacion_Id" parentColumnName="Servicio_Integracion_Id" />
+    </foreignKey>
+    <foreignKey id="Alta_Servicio_Integracion" parentTableSchema="APP" parentTableName="Servicio_Integracion" x="873" y="295">
+      <foreignKeyColumn columnName="Servicio_Integracion_Alta_Id" parentColumnName="Servicio_Integracion_Id" />
+    </foreignKey>
+    <foreignKey id="Modificacion_Servicio_Integracion" parentTableSchema="APP" parentTableName="Servicio_Integracion" x="873" y="551">
+      <foreignKeyColumn columnName="Servicio_Integracion_Modificacion_Id" parentColumnName="Servicio_Integracion_Id" />
+    </foreignKey>
+    <foreignKey id="Baja_Servicio_Integracion" parentTableSchema="APP" parentTableName="Servicio_Integracion" x="874" y="835">
+      <foreignKeyColumn columnName="Servicio_Integracion_Baja_Id" parentColumnName="Servicio_Integracion_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Canal_Publicacion_Id" fieldName="Canal_Publicacion_Id" label="Canal Publicacion Id" />
+    <column name="Es_OCC" fieldName="Es_OCC" label="¿Es OCC?" />
+    <column name="Es_Indeed" fieldName="Es_Indeed" label="¿Es Indeed?" />
+    <column name="Es_Boomerang" fieldName="Es_Boomerang" label="¿Es Boomerang?" />
+    <column name="Es_ArhHuman" fieldName="Es_ArhHuman" label="¿Es Arh Human?" />
+    <column name="Es_Talatenca" fieldName="Es_Talatenca" label="¿Es Talatenca?" />
+    <column name="Es_Gobierno" fieldName="Es_Gobierno" label="¿Es Gobierno?" />
+    <column name="Es_El_Norte" fieldName="Es_El_Norte" label="¿Es El Norte?" />
+    <column name="Es_LinkedIn" fieldName="Es_LinkedIn" label="¿Es Linked In?" />
+    <column name="Es_Facebook" fieldName="Es_Facebook" label="¿Es Facebook?" />
+    <column name="Es_Twitter" fieldName="Es_Twitter" label="¿Es Twitter?" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="cpUsuario_V" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cpUsuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="d" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="apUsuario_V" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="apUsuario_V" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="d" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+    <column name="Servicio_Integracion_Autentificacion_Id" fieldName="Servicio_Integracion_Autentificacion_Id" label="Servicio Integracion Autentificacion Id" aliasColumnName="Servicio_Integracion" aliasForeignKey="Autenticacion_Servicio_Integracion" />
+    <column name="Servicio_Integracion" fieldName="Autenticacion_Servicio_Integracion" label="Servicio Integración Autenticación" foreignKey="Autenticacion_Servicio_Integracion" />
+    <column name="Servicio_Integracion_Alta_Id" fieldName="Servicio_Integracion_Alta_Id" label="Servicio Integracion Alta Id" aliasColumnName="Servicio_Integracion" aliasForeignKey="Alta_Servicio_Integracion" />
+    <column name="Servicio_Integracion" fieldName="Alta_Servicio_Integracion" label="Servicio Integración Alta" foreignKey="Alta_Servicio_Integracion" />
+    <column name="Servicio_Integracion_Modificacion_Id" fieldName="Servicio_Integracion_Modificacion_Id" label="Servicio Integracion Modificacion Id" aliasColumnName="Servicio_Integracion" aliasForeignKey="Modificacion_Servicio_Integracion" />
+    <column name="Servicio_Integracion" fieldName="Alta_Servicio_Modificacion" label="Servicio Integracion Modificación" foreignKey="Modificacion_Servicio_Integracion" />
+    <column name="Servicio_Integracion_Baja_Id" fieldName="Servicio_Integracion_Baja_Id" label="Servicio Integracion Baja Id" aliasColumnName="Servicio_Integracion" aliasForeignKey="Baja_Servicio_Integracion" />
+    <column name="Servicio_Integracion" fieldName="Servicio_Integracion_Baja" label="Servicio Integracion Baja" foreignKey="Baja_Servicio_Integracion" />
+    <column name="Es_Otro" fieldName="Es_Otro" label="¿Es Otro?" />
+    <column name="Utiliza_Servicio" fieldName="Utiliza_Servicio" label="¿Utiliza Servicio?" />
+    <column name="Canal_Publicacion" fieldName="Canal_Publicacion" label="Canal de Publicación" />
+  </columns>
+</dataModel>

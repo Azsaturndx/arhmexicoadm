@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Tipo_Prestacion" alias="Tipo_Prestacion" created="2018-06-27T19:22:27" modified="2019-02-21T17:29:10" x="20" y="35" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="524" y="311">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Usuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="544" y="20">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Usuario_V1" parentTableSchema="dbo" parentTableName="Usuario_V" x="873" y="225">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Tipo_Prestacion_Id" fieldName="Tipo_Prestacion_Id" label="Tipo Prestacion Id" />
+    <column name="Tipo_Prestacion" fieldName="Tipo_Prestacion" label="Tipo Prestacion" />
+    <column name="Es_Prestacion_Vacaciones" fieldName="Es_Prestacion_Vacaciones" label="Es Prestacion Vacaciones" />
+    <column name="Es_Prestacion_Aguinaldo" fieldName="Es_Prestacion_Aguinaldo" label="Es Prestacion Aguinaldo" />
+    <column name="Es_Prestacion_Tiempo_Extra" fieldName="Es_Prestacion_Tiempo_Extra" label="Es Prestacion Tiempo Extra" />
+    <column name="Es_Prestacion_Jornada_Laboral" fieldName="Es_Prestacion_Jornada_Laboral" label="Es Prestacion Jornada Laboral" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V" />
+    <column name="UserName" fieldName="cpUserName" label="Usuario V Username" foreignKey="Usuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha Creacion" format="g" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V1" />
+    <column name="UserName" fieldName="apUserName" label="ap User Name" foreignKey="Usuario_V1" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha Ultima Actualizacion" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+    <column name="Es_PTU" fieldName="Es_Ptu" label="Es Ptu" />
+    <column name="Es_Bonificacion" fieldName="Es_Bonificacion" label="Es Bonificacion" />
+    <column name="Es_Clinica_Privada" fieldName="Es_Clinica_Privada" label="Es Clinica Privada" />
+    <column name="Es_Parque_Recreativo" fieldName="Es_Parque_Recreativo" label="Es Parque Recreativo" />
+    <column name="Es_Automovil_Utilitario" fieldName="Es_Automovil_Utilitario" label="Es Automovil Utilitario" />
+    <column name="Es_Vales_Despensa" fieldName="Es_Vales_Despensa" label="Es Vales Despensa" />
+    <column name="Es_Vales_Gasolina" fieldName="Es_Vales_Gasolina" label="Es Vales Gasolina" />
+    <column name="Es_Apoyo_Comedor" fieldName="Es_Apoyo_Comedor" label="Es Apoyo Comedor" />
+    <column name="Es_Guarderia" fieldName="Es_Guarderia" label="Es Guarderia" />
+    <column name="Es_Ayuda_Estudios" fieldName="Es_Ayuda_Estudios" label="Es Ayuda Estudios" />
+    <column name="Es_Otro" fieldName="Es_Otro" label="Es Otro" />
+    <column name="Mostrar_En_Experiencia_Laboral" fieldName="Mostrar_En_Experiencia_Laboral" label="Mostrar En Experiencia Laboral" />
+    <column name="Aplica_Descripcion_Puesto" fieldName="Aplica_Descripcion_Puesto" label="Aplica Descripcion Puesto" />
+  </columns>
+</dataModel>

@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Receptora_Cuadro_Accionario" conflictDetection="overwriteChanges" label="Receptora Cuadro Accionario" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Receptora_Cuadro_Accionario"."Receptora_Cuadro_Accionario_Id" "Receptora_Cuadro_Accionario_Id"
+	,"Receptora_Cuadro_Accionario"."Receptora_Id" "Receptora_Id"
+	,"Receptora_"."Receptora" "Receptora_Receptora"
+	,"Receptora_Cuadro_Accionario"."Tipo_Sociedad_Id" "Tipo_Sociedad_Id"
+	,"Tipo_Sociedad_"."Tipo_Sociedad" "Tipo_Sociedad_Tipo_Sociedad"
+	,"Receptora_Cuadro_Accionario"."Numero_Acciones" "Numero_Acciones"
+	,"Receptora_Cuadro_Accionario"."Valor_Nomina_Acciones" "Valor_Nomina_Acciones"
+	,"Receptora_Cuadro_Accionario"."Porcentaje_Accionario" "Porcentaje_Accionario"
+	,"Receptora_Cuadro_Accionario"."Capital_Social_Total" "Capital_Social_Total"
+	,"Receptora_Cuadro_Accionario"."CURP" "CURP"
+	,"Receptora_Cuadro_Accionario"."RFC" "RFC"
+	,"Receptora_Cuadro_Accionario"."Transaccion_Id" "Transaccion_Id"
+	,"Receptora_Cuadro_Accionario"."Creado_Por_Id" "Creado_Por_Id"
+	,"cpUsuario_V"."UserName" "cpUserName"
+	,"Receptora_Cuadro_Accionario"."Fecha_Creacion" "Fecha_Creacion"
+	,"Receptora_Cuadro_Accionario"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"apUsuario_V"."UserName" "apUserName"
+	,"Receptora_Cuadro_Accionario"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Receptora_Cuadro_Accionario"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+from "APP"."Receptora_Cuadro_Accionario" "Receptora_Cuadro_Accionario"
+	left join "APP"."Receptora" "Receptora_" on "Receptora_Cuadro_Accionario"."Receptora_Id" = "Receptora_"."Receptora_Id"
+	left join "APP"."Tipo_Sociedad" "Tipo_Sociedad_" on "Receptora_Cuadro_Accionario"."Tipo_Sociedad_Id" = "Tipo_Sociedad_"."Tipo_Sociedad_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Receptora_Cuadro_Accionario"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cpUsuario_V" on "Receptora_Cuadro_Accionario"."Creado_Por_Id" = "cpUsuario_V"."UserId"
+	left join "dbo"."Usuario_V" "apUsuario_V" on "Receptora_Cuadro_Accionario"."Actualizado_Por_Id" = "apUsuario_V"."UserId"
+]]></text>
+    </command>
+    <command id="Receptora_Cuadro_Accionario_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Receptora_Cuadro_Accionario_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Receptora_Cuadro_Accionario_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Receptora Cuadro Accionario Id" readOnly="true" />
+    <field name="Receptora_Id" type="Int32" allowNulls="false" default="((0))" label="Receptora Id" showInSummary="true">
+      <items style="Lookup" dataController="Receptora" newDataView="createForm1" dataValueField="Receptora_Id" dataTextField="Receptora" dataView="Receptora_LookUp_List" />
+    </field>
+    <field name="Receptora_Receptora" type="String" readOnly="true" label="Receptora" length="150" />
+    <field name="Tipo_Sociedad_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo Sociedad Id" showInSummary="true">
+      <items style="Lookup" dataController="Tipo_Sociedad" newDataView="createForm1" dataValueField="Tipo_Sociedad_Id" dataTextField="Tipo_Sociedad" dataView="Tipo_Sociedad_LookUp_List" />
+    </field>
+    <field name="Tipo_Sociedad_Tipo_Sociedad" type="String" readOnly="true" label="Tipo de Sociedad" length="150" />
+    <field name="Numero_Acciones" type="Int32" allowNulls="false" default="((0))" label="Número Acciones" showInSummary="true" />
+    <field name="Valor_Nomina_Acciones" type="Decimal" allowNulls="false" default="((0))" label="Valor Nomina Acciones" showInSummary="true" />
+    <field name="Porcentaje_Accionario" type="Decimal" allowNulls="false" default="((0))" label="Porcentaje Accionario" editor="p" />
+    <field name="Capital_Social_Total" type="Decimal" allowNulls="false" default="((0))" label="Capital Social Total" />
+    <field name="CURP" type="String" allowNulls="false" default="('')" label="CURP" length="18" />
+    <field name="RFC" type="String" allowNulls="false" default="('')" label="RFC" length="18" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transacción Id" length="50" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Receptora Cuadro Accionario" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" sortExpression="Receptora_Receptora" filter="Estatus_Registro_Id = 1">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Receptora_Id" aliasFieldName="Receptora_Receptora" />
+        <dataField fieldName="Tipo_Sociedad_Id" aliasFieldName="Tipo_Sociedad_Tipo_Sociedad" />
+        <dataField fieldName="Numero_Acciones" columns="15" />
+        <dataField fieldName="Valor_Nomina_Acciones" columns="15" />
+        <dataField fieldName="Porcentaje_Accionario" columns="15" />
+        <dataField fieldName="Capital_Social_Total" columns="15" />
+        <dataField fieldName="CURP" columns="18" />
+        <dataField fieldName="RFC" columns="18" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="10" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="10" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Receptora_Receptora" rows="5" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Receptora Cuadro Accionario" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Receptora_Id" aliasFieldName="Receptora_Receptora" />
+            <dataField fieldName="Tipo_Sociedad_Id" aliasFieldName="Tipo_Sociedad_Tipo_Sociedad" />
+            <dataField fieldName="Numero_Acciones" columns="15" />
+            <dataField fieldName="Valor_Nomina_Acciones" columns="15" />
+            <dataField fieldName="Porcentaje_Accionario" columns="15" />
+            <dataField fieldName="Capital_Social_Total" columns="15" />
+            <dataField fieldName="CURP" columns="18" />
+            <dataField fieldName="RFC" columns="18" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nueva Receptora Cuadro Accionario" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Receptora_Id" aliasFieldName="Receptora_Receptora" />
+            <dataField fieldName="Tipo_Sociedad_Id" aliasFieldName="Tipo_Sociedad_Tipo_Sociedad" />
+            <dataField fieldName="Numero_Acciones" columns="15" />
+            <dataField fieldName="Valor_Nomina_Acciones" columns="15" />
+            <dataField fieldName="Porcentaje_Accionario" columns="15" />
+            <dataField fieldName="Capital_Social_Total" columns="15" />
+            <dataField fieldName="CURP" columns="18" />
+            <dataField fieldName="RFC" columns="18" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Receptora_Cuadro_Accionario_LookUp_List" commandId="command1" type="Grid" label="Receptora Cuadro Accionario" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" filter="Estatus_Registro_Id IN (0,1)" sortExpression="Receptora_Receptora">
+      <dataFields>
+        <dataField fieldName="Receptora_Id" aliasFieldName="Receptora_Receptora" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" hidden="true" />
+        <dataField fieldName="Receptora_Receptora" rows="5" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+APP.Receptora_Cuadro_Accionario
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Receptora_Cuadro_Accionario_Id = @Receptora_Cuadro_Accionario_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+APP.Receptora_Cuadro_Accionario
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Receptora_Cuadro_Accionario_Id = @Receptora_Cuadro_Accionario_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+APP.Receptora_Cuadro_Accionario
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Receptora_Cuadro_Accionario_Id = @Receptora_Cuadro_Accionario_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+APP.Receptora_Cuadro_Accionario
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Receptora_Cuadro_Accionario_Id = @Receptora_Cuadro_Accionario_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Receptora_Cuadro_Accionario
+	WHERE
+		Receptora_Id = @Receptora_Id
+  		AND Tipo_Sociedad_Id = @Tipo_Sociedad_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un registro con esta receptora y este tipo de sociedad en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya existe un registro con esta receptora y este tipo de sociedad en la base de datos, favor de corregir.'
+   RETURN
+END
+]]></rule>
+    <rule id="r101" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Receptora_Cuadro_Accionario
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Receptora_Cuadro_Accionario_Id= @Receptora_Cuadro_Accionario_Id]]></rule>
+    <rule id="r102" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Receptora_Cuadro_Accionario
+	WHERE
+		Receptora_Id = @Receptora_Id
+  		AND Tipo_Sociedad_Id = @Tipo_Sociedad_Id
+  		AND Receptora_Cuadro_Accionario_Id <> @Receptora_Cuadro_Accionario_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un registro con esta receptora y este tipo de sociedad en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya existe un registro con esta receptora y este tipo de sociedad en la base de datos, favor de corregir.'
+   RETURN
+END
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Receptora_Cuadro_Accionario
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Receptora_Cuadro_Accionario_Id= @Receptora_Cuadro_Accionario_Id]]></rule>
+  </businessRules>
+</dataController>

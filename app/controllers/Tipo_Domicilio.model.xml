@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Tipo_Domicilio" alias="Tipo_Domicilio" created="2018-05-19T20:16:08" modified="2018-07-23T14:55:55" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="405" y="20">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="cp" parentTableSchema="dbo" parentTableName="Usuario_V" x="403" y="156">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="ap" parentTableSchema="dbo" parentTableName="Usuario_V" x="416" y="374">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Tipo_Domicilio_Id" fieldName="Tipo_Domicilio_Id" label="Tipo Domicilio Id" />
+    <column name="Tipo_Domicilio" fieldName="Tipo_Domicilio" label="Tipo de Domicilio" />
+    <column name="Es_Default" fieldName="Es_Default" label="¿Es Default?" />
+    <column name="Es_Domicilio_Propio" fieldName="Es_Domicilio_Propio" label="¿Es Domicilio Propio?" />
+    <column name="Es_Domicilio_Rentado" fieldName="Es_Domicilio_Rentado" label="¿Es Domicilio Rentado?" />
+    <column name="Es_Domicilio_Familiar" fieldName="Es_Domicilio_Familiar" label="¿Es Domicilio Familia?" />
+    <column name="Es_Domicilio_Trabajo" fieldName="Es_Domicilio_Trabajo" label="¿Es Domicilio Trabajo?" />
+    <column name="Es_Domicilio_Fiscal" fieldName="Es_Domicilio_Fiscal" label="¿Es Domicilio Fiscal?" />
+    <column name="Es_Domicilio_Empresa" fieldName="Es_Domicilio_Empresa" label="¿Es Domicilio Empresa?" />
+    <column name="Es_Sucursal" fieldName="Es_Sucursal" label="¿Es Sucursal?" />
+    <column name="Es_Matriz" fieldName="Es_Matriz" label="¿Es Matriz?" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cp" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="ap" />
+    <column name="Aplica_Persona" fieldName="Aplica_Persona" label="Aplica Persona" />
+    <column name="Aplica_Contratante" fieldName="Aplica_Contratante" label="Aplica Contratante" />
+  </columns>
+</dataModel>

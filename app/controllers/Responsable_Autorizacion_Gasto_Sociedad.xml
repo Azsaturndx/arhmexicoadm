@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Responsable_Autorizacion_Gasto_Sociedad" label="Responsable_Autorizacion_Gasto_Sociedad" conflictDetection="overwriteChanges" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Responsable_Autorizacion_Gasto"."Responsable_Autorizacion_Gasto_Id" "Responsable_Autorizacion_Gasto_Id"
+	,"Responsable_Autorizacion_Gasto"."Tipo_Gasto_Id" "Tipo_Gasto_Id"
+	,"Tipo_Gasto"."Tipo_Gasto" "Tipo_GastoTipo_Gasto"
+	,"Responsable_Autorizacion_Gasto"."Contratado_Responsable_Autorizacion_Id" "Contratado_Responsable_Autorizacion_Id"
+	,"Responsable_Autorizacion_Gasto"."Contratado_Id" "Contratado_Id"
+	,"Responsable_Autorizacion_Gasto"."Sociedad_Id" "Sociedad_Id"
+	,"Sociedad_"."Sociedad" "Sociedad_Sociedad"
+	,"Responsable_Autorizacion_Gasto"."Sociedad_Cuadro_Accionario_Id" "Sociedad_Cuadro_Accionario_Id"
+	,"Responsable_Autorizacion_Gasto"."Proveedor_Id" "Proveedor_Id"
+	,"Responsable_Autorizacion_Gasto"."Es_Por_Jefe" "Es_Por_Jefe"
+	,"Responsable_Autorizacion_Gasto"."Aplica_CC" "Aplica_CC"
+	,"Responsable_Autorizacion_Gasto"."Correo_CC" "Correo_CC"
+	,"Responsable_Autorizacion_Gasto"."Transaccion_Id" "Transaccion_Id"
+	,"Creado_Por"."UserName" "CreadoPorusername"
+	,"Responsable_Autorizacion_Gasto"."Fecha_Creacion" "Fecha_Creacion"
+	,"Actualizado_Por"."UserName" "ActualizadoPorusername"
+	,"Responsable_Autorizacion_Gasto"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Responsable_Autorizacion_Gasto"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Contratado_Responsable_Autorizacion_Nombre"."Persona_Nombre" "PersonaNombreCompletoVPersonaNombre"
+	,"Contratado_Nombre_Completo"."Persona_Nombre" "ContratadoNombreCompletopersonaNombre"
+	,"Responsable_Autorizacion_Gasto"."Cliente_Id" "Cliente_Id"
+	,"Cliente"."Cliente" "Cliente"
+	,"Responsable_Autorizacion_Gasto"."Contratante_Id" "Contratante_Id"
+	,"Contratante"."Contratante" "Contratante"
+from "APP"."Responsable_Autorizacion_Gasto" "Responsable_Autorizacion_Gasto"
+	left join "APP"."Tipo_Gasto" "Tipo_Gasto" on "Responsable_Autorizacion_Gasto"."Tipo_Gasto_Id" = "Tipo_Gasto"."Tipo_Gasto_Id"
+	left join "APP"."Contratado" "Contratado_Responsable_Autorizacion_" on "Responsable_Autorizacion_Gasto"."Contratado_Responsable_Autorizacion_Id" = "Contratado_Responsable_Autorizacion_"."Contratado_Id"
+	left join "dbo"."Persona_Nombre_Completo_V" "Contratado_Responsable_Autorizacion_Nombre" on "Contratado_Responsable_Autorizacion_"."Persona_Id" = "Contratado_Responsable_Autorizacion_Nombre"."Persona_Id"
+	left join "APP"."Contratado" "Contratado_" on "Responsable_Autorizacion_Gasto"."Contratado_Id" = "Contratado_"."Contratado_Id"
+	left join "dbo"."Persona_Nombre_Completo_V" "Contratado_Nombre_Completo" on "Contratado_"."Persona_Id" = "Contratado_Nombre_Completo"."Persona_Id"
+	left join "APP"."Sociedad" "Sociedad_" on "Responsable_Autorizacion_Gasto"."Sociedad_Id" = "Sociedad_"."Sociedad_Id"
+	left join "APP"."Sociedad_Cuadro_Accionario" "Sociedad_Cuadro_Accionario_" on "Responsable_Autorizacion_Gasto"."Sociedad_Cuadro_Accionario_Id" = "Sociedad_Cuadro_Accionario_"."Sociedad_Cuadro_Accionario_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Responsable_Autorizacion_Gasto"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Creado_Por" on "Responsable_Autorizacion_Gasto"."Creado_Por_Id" = "Creado_Por"."UserId"
+	left join "dbo"."Usuario_V" "Actualizado_Por" on "Responsable_Autorizacion_Gasto"."Actualizado_Por_Id" = "Actualizado_Por"."UserId"
+	left join "APP"."Cliente" "Cliente" on "Responsable_Autorizacion_Gasto"."Cliente_Id" = "Cliente"."Cliente_Id"
+	left join "APP"."Contratante" "Contratante" on "Responsable_Autorizacion_Gasto"."Contratante_Id" = "Contratante"."Contratante_Id"
+]]></text>
+    </command>
+    <command id="Responsable_Autorizacion_Gasto_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Responsable_Autorizacion_Gasto_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Responsable_Autorizacion_Gasto_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Responsable Autorizacion Gasto Id" readOnly="true" />
+    <field name="Tipo_Gasto_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo Gasto Id" showInSummary="true">
+      <items style="Lookup" dataController="Tipo_Gasto" dataValueField="Tipo_Gasto_Id" dataTextField="Tipo_Gasto" dataView="Tipo_Gasto_Aplica_Para_Sociedad_LookUp_List" copy="Aplica_Para_Sociedad=Aplica_Para_Sociedad" />
+    </field>
+    <field name="Tipo_GastoTipo_Gasto" type="String" readOnly="true" label="Tipo de Gasto" length="150" />
+    <field name="Contratado_Responsable_Autorizacion_Id" type="Int32" allowNulls="false" default="((0))" label="Responsable Autorizacion Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratado_Admin" dataValueField="Contratado_Id" dataTextField="Persona_Nombre" copy="" dataView="Contratado_Admin_LookUp_List" />
+    </field>
+    <field name="Contratado_Id" type="Int32" allowNulls="false" default="((0))" label="Contratado Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratado_Admin" dataValueField="Contratado_Id" dataTextField="Persona_Nombre" copy="" dataView="Contratado_Admin_LookUp_List" />
+    </field>
+    <field name="Sociedad_Id" type="Int32" allowNulls="false" default="((0))" label="Sociedad Id" showInSummary="true">
+      <items style="Lookup" dataController="Sociedad" newDataView="createForm1" dataValueField="Sociedad_Id" dataTextField="Sociedad" dataView="Sociedad_LookUp_List" />
+    </field>
+    <field name="Sociedad_Sociedad" type="String" readOnly="true" label="Sociedad" length="250" />
+    <field name="Sociedad_Cuadro_Accionario_Id" type="Int32" allowNulls="false" default="((0))" label="Sociedad Cuadro Accionario Id" showInSummary="true">
+      <items style="Lookup" dataController="Sociedad_Cuadro_Accionario" dataView="Sociedad_Cuadro_Accionario_LookUp_List" dataTextField="Accionista_Sociedad" dataValueField="Sociedad_Cuadro_Accionario_Id" />
+    </field>
+    <field name="Proveedor_Id" type="Int32" allowNulls="false" default="((0))" label="Proveedor">
+      <items style="Lookup" dataController="Proveedor" dataView="Proveedor_LookUp_List" dataTextField="Proveedor" dataValueField="Proveedor_Id" />
+    </field>
+    <field name="Es_Por_Jefe" type="Boolean" allowNulls="false" default="((0))" label="Es Por Jefe" />
+    <field name="Aplica_CC" type="Boolean" allowNulls="false" default="((0))" label="Aplica Cc">
+      <items style="CheckBox" />
+    </field>
+    <field name="Correo_CC" type="String" allowQBE="false" allowSorting="false" label="Correo Cc" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transaccion Id" length="50" />
+    <field name="CreadoPorusername" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Creación" />
+    <field name="ActualizadoPorusername" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Última Actualización" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus Registro" length="150" />
+    <field name="PersonaNombreCompletoVPersonaNombre" type="String" label="Responsable de Autorización" readOnly="true" length="603" />
+    <field name="ContratadoNombreCompletopersonaNombre" type="String" label="Contratado" readOnly="true" length="603" />
+    <field name="Cliente_Id" type="Int32" allowNulls="false" default="((0))" label="Cliente Id">
+      <items style="Lookup" dataController="Cliente" newDataView="createForm1" dataValueField="Cliente_Id" dataTextField="Cliente" dataView="Cliente_Admin_LookUp_List" />
+    </field>
+    <field name="Cliente" type="String" readOnly="true" label="Cliente" length="150" />
+    <field name="Contratante_Id" type="Int32" allowNulls="false" default="((0))" label="Contratante Id">
+      <items style="Lookup" dataController="Contratante" newDataView="createForm1" dataValueField="Contratante_Id" dataTextField="Contratante" />
+    </field>
+    <field name="Contratante" type="String" readOnly="true" label="Contratante" length="150" />
+    <field name="Aplica_Para_Sociedad" type="Boolean" label="Aplica Para Sociedad" isVirtual="true" allowNulls="false">
+      <items style="CheckBox" />
+    </field>
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Responsable de Autorización de Gasto" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" filter="Estatus_Registro_Id&lt;&gt;0 AND Aplica_Para_Sociedad=1">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Tipo_Gasto_Id" aliasFieldName="Tipo_GastoTipo_Gasto" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" hidden="true" />
+        <dataField fieldName="Contratante_Id" aliasFieldName="Contratante" hidden="true" />
+        <dataField fieldName="Sociedad_Id" aliasFieldName="Sociedad_Sociedad" />
+        <dataField fieldName="Contratado_Responsable_Autorizacion_Id" columns="15" aliasFieldName="PersonaNombreCompletoVPersonaNombre" />
+        <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="ContratadoNombreCompletopersonaNombre" hidden="true" />
+        <dataField fieldName="Sociedad_Cuadro_Accionario_Id" aliasFieldName="CleanIdentifier-Error" hidden="true" />
+        <dataField fieldName="Proveedor_Id" columns="15" hidden="true" />
+        <dataField fieldName="Es_Por_Jefe" hidden="true" />
+        <dataField fieldName="Aplica_CC" />
+        <dataField fieldName="Correo_CC" rows="5" />
+        <dataField fieldName="Transaccion_Id" columns="50" hidden="true" />
+        <dataField fieldName="CreadoPorusername" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="ActualizadoPorusername" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Aplica_Para_Sociedad" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Revisar Responsable de Autorización" showInSelector="false">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Responsable de Autorización" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Tipo_Gasto_Id" aliasFieldName="Tipo_GastoTipo_Gasto" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" hidden="true" />
+            <dataField fieldName="Contratante_Id" aliasFieldName="Contratante" hidden="true" />
+            <dataField fieldName="Sociedad_Id" aliasFieldName="Sociedad_Sociedad" />
+            <dataField fieldName="Sociedad_Cuadro_Accionario_Id" aliasFieldName="CleanIdentifier-Error" hidden="true" />
+            <dataField fieldName="Es_Por_Jefe" hidden="true" />
+            <dataField fieldName="Contratado_Responsable_Autorizacion_Id" columns="15" aliasFieldName="PersonaNombreCompletoVPersonaNombre" />
+            <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="ContratadoNombreCompletopersonaNombre" hidden="true" />
+            <dataField fieldName="Proveedor_Id" columns="15" hidden="true" />
+            <dataField fieldName="Aplica_CC" />
+            <dataField fieldName="Correo_CC" rows="5">
+              <visibility>
+                <expression test="[Aplica_CC]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nuevo Responsable de Autorización" showInSelector="false">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Tipo_Gasto_Id" aliasFieldName="Tipo_GastoTipo_Gasto" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" hidden="true" />
+            <dataField fieldName="Contratante_Id" aliasFieldName="Contratante" hidden="true" />
+            <dataField fieldName="Sociedad_Id" aliasFieldName="Sociedad_Sociedad" />
+            <dataField fieldName="Es_Por_Jefe" hidden="true" />
+            <dataField fieldName="Contratado_Responsable_Autorizacion_Id" columns="15" aliasFieldName="PersonaNombreCompletoVPersonaNombre">
+              <footerText />
+            </dataField>
+            <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="ContratadoNombreCompletopersonaNombre" hidden="true" />
+            <dataField fieldName="Sociedad_Cuadro_Accionario_Id" aliasFieldName="CleanIdentifier-Error" hidden="true" />
+            <dataField fieldName="Proveedor_Id" columns="15" hidden="true" />
+            <dataField fieldName="Aplica_CC" />
+            <dataField fieldName="Correo_CC" rows="5">
+              <visibility>
+                <expression test="[Aplica_CC]==true" type="ClientScript" />
+              </visibility>
+              <footerText>Necesita agregar todos los correos para copiar en caso de actualización separados por punto y coma.</footerText>
+            </dataField>
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+APP.Responsable_Autorizacion_Gasto
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+WHERE
+Responsable_Autorizacion_Gasto_Id = @Responsable_Autorizacion_Gasto_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+APP.Responsable_Autorizacion_Gasto
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+WHERE
+Responsable_Autorizacion_Gasto_Id = @Responsable_Autorizacion_Gasto_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+APP.Responsable_Autorizacion_Gasto
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+WHERE
+Responsable_Autorizacion_Gasto_Id = @Responsable_Autorizacion_Gasto_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+APP.Responsable_Autorizacion_Gasto
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+WHERE
+Responsable_Autorizacion_Gasto_Id = @Responsable_Autorizacion_Gasto_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Aplica_Para_Contratado BIT
+
+DECLARE @Aplica_Para_Sociedad_Cuadro_Accionario BIT
+
+SET @Aplica_Para_Contratado = 0
+
+SET @Aplica_Para_Sociedad_Cuadro_Accionario = 0
+
+
+DECLARE @Existe BIT
+SET @Existe = 0
+
+SELECT
+	TOP 1 @Existe=1
+FROM
+	APP.Responsable_Autorizacion_Gasto
+WHERE
+       Tipo_Gasto_Id = @Tipo_Gasto_Id
+       AND Contratado_Id = @Contratado_Id
+       AND Sociedad_Id = @Sociedad_Id
+       AND Sociedad_Cuadro_Accionario_Id = @Sociedad_Cuadro_Accionario_Id
+       AND Proveedor_Id = @Proveedor_Id
+	   AND Contratado_Responsable_Autorizacion_Id = @Contratado_Responsable_Autorizacion_Id
+       AND Contratante_Id = @Contratante_Id
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un responsable para este tipo de gasto en la base de datos, favor de corregir'
+   SET @Result_ShowAlert = 'Ya existe un responsable para este tipo de gasto en la base de datos, favor de corregir'
+   RETURN
+END
+
+
+IF(IsNull(@Contratado_Id,0)=0)
+BEGIN
+ SET @Contratado_Id = 0
+END
+
+IF(IsNull(@Tipo_Gasto_Id,0)=0)
+BEGIN
+	SET @BusinessRules_PreventDefault = 1
+   	SET @Result_ShowViewMessage = 'Es necesario seleccionar un tipo de gasto.'
+   	SET @Result_ShowAlert = 'Es necesario seleccionar un tipo de gasto.'
+   RETURN
+END
+
+SELECT
+	@Aplica_Para_Contratado = Aplica_Para_Contratado
+	,@Aplica_Para_Sociedad = Aplica_Para_Sociedad
+	,@Aplica_Para_Sociedad_Cuadro_Accionario = Aplica_Para_Sociedad_Cuadro_Accionario
+FROM
+	APP.Tipo_Gasto
+WHERE
+	Tipo_Gasto_Id = @Tipo_Gasto_Id
+	
+IF(@Aplica_Para_Sociedad = 1 OR @Aplica_Para_Sociedad_Cuadro_Accionario = 1)
+BEGIN
+	IF(IsNull(@Contratado_Responsable_Autorizacion_Id,0)=0)
+	BEGIN
+	   	SET @BusinessRules_PreventDefault = 1
+   		SET @Result_ShowViewMessage = 'Es necesario seleccionar un responsable de autorización en caso de que el tipo de gasto sea para sociedad o cuadro accionario.' 
+   		SET @Result_ShowAlert = 'Es necesario seleccionar un responsable de autorización en caso de que el tipo de gasto sea para sociedad o cuadro accionario.'
+   		RETURN
+	END
+END
+
+]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Aplica_Para_Contratado BIT
+
+DECLARE @Aplica_Para_Sociedad_Cuadro_Accionario BIT
+
+SET @Aplica_Para_Contratado = 0
+
+SET @Aplica_Para_Sociedad_Cuadro_Accionario = 0
+
+
+DECLARE @Existe BIT
+SET @Existe = 0
+
+SELECT
+	TOP 1 @Existe=1
+FROM
+	APP.Responsable_Autorizacion_Gasto
+WHERE
+       Tipo_Gasto_Id = @Tipo_Gasto_Id
+       AND Contratado_Id = @Contratado_Id
+       AND Sociedad_Id = @Sociedad_Id
+       AND Sociedad_Cuadro_Accionario_Id = @Sociedad_Cuadro_Accionario_Id
+       AND Proveedor_Id = @Proveedor_Id
+       AND Contratado_Responsable_Autorizacion_Id = @Contratado_Responsable_Autorizacion_Id
+       AND Responsable_Autorizacion_Gasto_Id <> @Responsable_Autorizacion_Gasto_Id
+ 	   AND Contratante_Id=@Contratante_Id
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un responsable para este tipo de gasto en la base de datos, favor de corregir'
+   SET @Result_ShowAlert = 'Ya existe un responsable para este tipo de gasto en la base de datos, favor de corregir'
+   RETURN
+END
+
+IF(IsNull(@Tipo_Gasto_Id,0)=0)
+BEGIN
+	SET @BusinessRules_PreventDefault = 1
+   	SET @Result_ShowViewMessage = 'Es necesario seleccionar un tipo de gasto.'
+   	SET @Result_ShowAlert = 'Es necesario seleccionar un tipo de gasto.'
+   RETURN
+END
+
+SELECT
+	@Aplica_Para_Contratado = Aplica_Para_Contratado
+	,@Aplica_Para_Sociedad = Aplica_Para_Sociedad
+	,@Aplica_Para_Sociedad_Cuadro_Accionario = Aplica_Para_Sociedad_Cuadro_Accionario
+FROM
+	APP.Tipo_Gasto
+WHERE
+	Tipo_Gasto_Id = @Tipo_Gasto_Id
+
+IF(@Aplica_Para_Sociedad = 1 OR @Aplica_Para_Sociedad_Cuadro_Accionario = 1)
+BEGIN
+	IF(IsNull(@Contratado_Responsable_Autorizacion_Id,0)=0)
+	BEGIN
+	   	SET @BusinessRules_PreventDefault = 1
+   		SET @Result_ShowViewMessage = 'Es necesario seleccionar un responsable de autorización en caso de que el tipo de gasto sea para sociedad o cuadro accionario.' 
+   		SET @Result_ShowAlert = 'Es necesario seleccionar un responsable de autorización en caso de que el tipo de gasto sea para sociedad o cuadro accionario.'
+   		RETURN
+	END
+END
+	  
+]]></rule>
+    <rule id="r102" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Responsable_Autorizacion_Gasto
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+	,Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Responsable_Autorizacion_Gasto_Id= @Responsable_Autorizacion_Gasto_Id]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Responsable_Autorizacion_Gasto
+SET
+	Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Responsable_Autorizacion_Gasto_Id= @Responsable_Autorizacion_Gasto_Id]]></rule>
+  </businessRules>
+</dataController>

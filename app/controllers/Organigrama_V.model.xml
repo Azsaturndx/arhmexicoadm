@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Organigrama_V" alias="Organigrama_V" created="2018-07-16T16:22:36" modified="2018-07-16T16:29:25" x="20" y="23" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Contratante" parentTableSchema="APP" parentTableName="Contratante" x="467" y="20">
+      <foreignKeyColumn columnName="Contratante_Id" parentColumnName="Contratante_Id" />
+      <foreignKeyColumn columnName="Persona_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Contratante_Puesto" parentTableSchema="APP" parentTableName="Contratante_Puesto" x="931" y="68">
+      <foreignKeyColumn columnName="Contratante_Puesto_Id" parentColumnName="Contratante_Puesto_Id" />
+    </foreignKey>
+    <foreignKey id="Contratante_Puesto1" parentTableSchema="APP" parentTableName="Contratante_Puesto" x="149" y="394">
+      <foreignKeyColumn columnName="Contratante_Puesto_Padre_Id" parentColumnName="Contratante_Puesto_Id" />
+    </foreignKey>
+    <foreignKey id="Contratante_Estructura_Organizacional" parentTableSchema="APP" parentTableName="Contratante_Estructura_Organizacional" x="673" y="410">
+      <foreignKeyColumn columnName="Contratante_Estructura_Organizacional_Id" parentColumnName="Contratante_Estructura_Organizacional_Id" />
+    </foreignKey>
+    <foreignKey id="Contratante_Estructura_Organizacional1" parentTableSchema="APP" parentTableName="Contratante_Estructura_Organizacional" x="1157" y="533">
+      <foreignKeyColumn columnName="Estructura_Organizacional_Padre_Id" parentColumnName="Contratante_Estructura_Organizacional_Id" />
+    </foreignKey>
+    <foreignKey id="Persona" parentTableSchema="APP" parentTableName="Persona" x="1207" y="443">
+      <foreignKeyColumn columnName="Persona_Id" parentColumnName="Persona_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Organigrama_Id" fieldName="Organigrama_Id" label="Organigrama Id" />
+    <column name="Contratante_Id" fieldName="Contratante_Id" label="Contratante Id" aliasColumnName="Contratante" aliasForeignKey="Contratante" />
+    <column name="Contratante" fieldName="Contratante" label="Contratante" foreignKey="Contratante" />
+    <column name="Contratante_Estructura_Organizacional_Id" fieldName="Contratante_Estructura_Organizacional_Id" label="Contratante Estructura Organizacional Id" aliasColumnName="Estructura_Organizacional" aliasForeignKey="Contratante_Estructura_Organizacional" />
+    <column name="Estructura_Organizacional" fieldName="Contratante_Estructura_Organizacional_Estructura_Organizacional" label="Contratante Estructura Organizacional Estructura Organizacional" foreignKey="Contratante_Estructura_Organizacional" />
+    <column name="Permitir_Asociar_Personal" fieldName="Permitir_Asociar_Personal" label="Permitir Asociar Personal" />
+    <column name="Estructura_Organizacional_Padre_Id" fieldName="Estructura_Organizacional_Padre_Id" label="Estructura Organizacional Padre Id" aliasColumnName="Estructura_Organizacional" aliasForeignKey="Contratante_Estructura_Organizacional1" />
+    <column name="Estructura_Organizacional" fieldName="Contratante_Estructura_Organizacional1_Estructura_Organizacional" label="Contratante Estructura Organizacional 1 Estructura Organizacional" foreignKey="Contratante_Estructura_Organizacional1" />
+    <column name="Contratante_Puesto_Id" fieldName="Contratante_Puesto_Id" label="Contratante Puesto Id" aliasColumnName="Contratante_Puesto" aliasForeignKey="Contratante_Puesto" />
+    <column name="Contratante_Puesto" fieldName="Contratante_Puesto_Contratante_Puesto" label="Contratante Puesto Contratante Puesto" foreignKey="Contratante_Puesto" />
+    <column name="Contratante_Puesto_Padre_Id" fieldName="Contratante_Puesto_Padre_Id" label="Contratante Puesto Padre Id" aliasColumnName="Contratante_Puesto" aliasForeignKey="Contratante_Puesto1" />
+    <column name="Contratante_Puesto" fieldName="Contratante_Puesto1_Contratante_Puesto" label="Contratante Puesto 1 Contratante Puesto" foreignKey="Contratante_Puesto1" />
+    <column name="Contratado_Id" fieldName="Contratado_Id" label="Contratado Id" />
+    <column name="Persona_Id" fieldName="Persona_Id" label="Persona Id" aliasColumnName="Nombre" aliasForeignKey="Persona" />
+    <column name="Nombre" fieldName="Persona_Nombre" label="Persona Nombre" foreignKey="Persona" />
+    <column name="Nombre" fieldName="Nombre" label="Nombre" />
+    <column name="Segundo_Nombre" fieldName="Segundo_Nombre" label="Segundo Nombre" />
+    <column name="Apellido_Paterno" fieldName="Apellido_Paterno" label="Apellido Paterno" />
+    <column name="Apellido_Materno" fieldName="Apellido_Materno" label="Apellido Materno" />
+  </columns>
+</dataModel>

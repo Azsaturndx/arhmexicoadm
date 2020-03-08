@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Candidato_Admin" label="Candidato_Admin" conflictDetection="overwriteChanges" handler="arhmexico.Rules.Candidato_AdminBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Candidato"."Candidato_Id" "Candidato_Id"
+	,"Candidato"."Persona_Id" "Persona_Id"
+	,"Persona_"."Nombre" "Persona_Nombre"
+	,"Candidato"."Vacante_Id" "Vacante_Id"
+	,"Vacante_"."Vacante" "Vacante_Vacante"
+	,"Vacante_Cliente_"."Cliente" "Vacante_Cliente_Cliente"
+	,"Candidato"."Rechazado" "Rechazado"
+	,"Candidato"."Candidato_Finalista" "Candidato_Finalista"
+	,"Candidato"."Contratado" "Contratado"
+	,"Candidato"."Notas" "Notas"
+	,"Candidato"."Fecha_Creacion" "Fecha_Creacion"
+	,"Candidato"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Candidato"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"cp"."UserName" "cpUserName"
+	,"ap"."UserName" "apUserName"
+	,"Candidato"."Cliente_Id" "Cliente_Id"
+from "APP"."Candidato" "Candidato"
+	left join "APP"."Persona" "Persona_" on "Candidato"."Persona_Id" = "Persona_"."Persona_Id"
+	left join "APP"."Vacante" "Vacante_" on "Candidato"."Vacante_Id" = "Vacante_"."Vacante_Id"
+	left join "APP"."Cliente" "Vacante_Cliente_" on "Vacante_"."Cliente_Id" = "Vacante_Cliente_"."Cliente_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Candidato"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cp" on "Candidato"."Creado_Por_Id" = "cp"."UserId"
+	left join "dbo"."Usuario_V" "ap" on "Candidato"."Actualizado_Por_Id" = "ap"."UserId"
+]]></text>
+    </command>
+    <command id="Candidato_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Candidato_Id" />
+      </output>
+    </command>
+    <command type="Text" id="Grid_Candidato" custom="false" tableName="APP.Candidato">
+      <text><![CDATA[SELECT Candidato_Id
+      ,Persona_Id
+      ,Persona_Nombre
+      ,PersonaNombre
+      ,PersonaSegundoNombre
+      ,PersonaApellidoPaterno
+      ,PersonaApellidoMaterno
+      ,Rechazado
+      ,Candidato_Finalista
+      ,Contratado
+      ,Notas
+      ,Estatus_Registro_Id
+      ,Fecha_Creacion
+      ,Fecha_Ultima_Actualizacion
+      ,Estatus_Registro_Estatus_Registro
+      ,cpUserName
+      ,apUserName
+      ,Nombre_Completo
+      ,Cliente_Id
+	  ,Vacante_Id
+      ,Vacante_Cliente_Cliente
+      ,Vacante_Vacante
+	  ,UserId
+  FROM dbo.Grid_Candidato_V]]></text>
+    </command>
+    <command type="Text" id="Candidato_LookUp_List" custom="false">
+      <text><![CDATA[SELECT 
+Persona_Id
+,Persona_Nombre 
+,Candidato_Id
+,Vacante_Id
+,Vacante_Vacante
+,Estatus_Registro_Id
+FROM 
+dbo.Candidato_Admin_V]]></text>
+    </command>
+    <command type="Text" id="Grid_Candidato_Admin" custom="false" tableName="APP.Candidato">
+      <text><![CDATA[SELECT Candidato_Id
+      ,Persona_Id
+      ,Persona_Nombre
+      ,PersonaNombre
+      ,PersonaSegundoNombre
+      ,PersonaApellidoPaterno
+      ,PersonaApellidoMaterno
+      ,Rechazado
+      ,Candidato_Finalista
+      ,Contratado
+      ,Notas
+      ,Estatus_Registro_Id
+      ,Fecha_Creacion
+      ,Fecha_Ultima_Actualizacion
+      ,Estatus_Registro_Estatus_Registro
+      ,cpUserName
+      ,apUserName
+      ,Nombre_Completo
+      ,Cliente_Id
+	  ,Vacante_Id
+      ,Vacante_Cliente_Cliente
+      ,Vacante_Vacante
+  FROM dbo.Grid_Candidato_Admin_V]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Candidato_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Candidato Id" readOnly="true" />
+    <field name="Persona_Id" type="Int32" allowNulls="false" default="((0))" label="Persona Id" showInSummary="true">
+      <items style="Lookup" dataController="Persona" newDataView="createForm1" dataValueField="Persona_Id" dataTextField="Nombre_Completo" dataView="Persona_LookUp_List" />
+    </field>
+    <field name="Persona_Nombre" type="String" readOnly="true" label="Candidato" length="150" />
+    <field name="Vacante_Id" type="Int32" allowNulls="false" default="((0))" label="Vacante Id" showInSummary="true">
+      <items style="Lookup" dataController="Vacante_Admin" newDataView="createForm1" dataValueField="Vacante_Id" dataTextField="Vacante" dataView="Vacante_Admin_LookUp_List" copy="Cliente_Id=Cliente_Id" />
+    </field>
+    <field name="Vacante_Vacante" type="String" readOnly="true" label="Vacante" length="150" />
+    <field name="Vacante_Cliente_Cliente" type="String" readOnly="true" label="Cliente" length="150" />
+    <field name="Rechazado" type="Boolean" allowNulls="false" default="((0))" label="¿Fue Rechazado?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Candidato_Finalista" type="Boolean" allowNulls="false" default="((0))" label="¿Es Candidato Finalista?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Contratado" type="Boolean" allowNulls="false" default="((0))" label="¿Fue Contratado?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Notas" type="String" allowQBE="false" allowSorting="false" label="Notas" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="Cliente_Id" type="Int32" allowNulls="false" default="((0))" label="Cliente Id" />
+    <field name="Nombre_Completo" type="String" readOnly="true" label="Nombre Completo" length="604" />
+  </fields>
+  <views>
+    <view id="gridAdmin" type="Grid" commandId="Grid_Candidato_Admin" label="Candidato" sortExpression="Nombre_Completo,Vacante_Vacante" filter="Estatus_Registro_Id&lt;&gt;0" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Persona_Id" aliasFieldName="Nombre_Completo" />
+        <dataField fieldName="Vacante_Id" aliasFieldName="Vacante_Vacante" />
+        <dataField fieldName="Rechazado" />
+        <dataField fieldName="Candidato_Finalista">
+          <readOnly>
+            <expression test="[Rechazado]==true" type="ClientScript" />
+          </readOnly>
+        </dataField>
+        <dataField fieldName="Contratado" />
+        <dataField fieldName="Notas" rows="5" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Cliente_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="Grid_Candidato_Admin" label="Actualizar Candidato" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Persona_Id" aliasFieldName="Nombre_Completo" />
+            <dataField fieldName="Vacante_Id" aliasFieldName="Vacante_Vacante" />
+            <dataField fieldName="Rechazado">
+              <readOnly>
+                <expression test="[Candidato_Finalista]==true || [Contratado] == true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Candidato_Finalista">
+              <readOnly>
+                <expression test="[Rechazado]==true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Contratado">
+              <readOnly>
+                <expression test="[Rechazado]==true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="Cliente_Id" columns="15" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="Grid_Candidato_Admin" label="Nuevo Candidato" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Persona_Id" aliasFieldName="Nombre_Completo" />
+            <dataField fieldName="Vacante_Id" aliasFieldName="Vacante_Vacante" />
+            <dataField fieldName="Rechazado">
+              <readOnly>
+                <expression test="[Candidato_Finalista]==true || [Contratado] == true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Candidato_Finalista">
+              <readOnly>
+                <expression test="[Rechazado]==true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Contratado">
+              <readOnly>
+                <expression test="[Rechazado]==true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Cliente_Id" columns="15" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Candidato_LookUp_List" commandId="Candidato_LookUp_List" type="Grid" label="Candidato" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" sortExpression="Vacante_Vacante" filter="Estatus_Registro_Id IN (1,0)">
+      <dataFields>
+        <dataField fieldName="Candidato_Id" columns="15" hidden="true" />
+        <dataField fieldName="Persona_Id" columns="15" hidden="true" />
+        <dataField fieldName="Vacante_Vacante" rows="5" />
+        <dataField fieldName="Persona_Nombre" rows="5" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Vacante_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Candidato
+SET
+	Actualizado_Por_Id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion =GetDate()
+	,Estatus_Registro_Id = 3
+WHERE
+	Candidato_Id= @Candidato_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="gridAdmin" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Candidato
+SET
+	Actualizado_Por_Id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Estatus_Registro_Id = 3
+WHERE
+	Candidato_Id= @Candidato_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="gridAdmin" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="gridAdmin" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Candidato
+SET
+	Actualizado_Por_Id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Estatus_Registro_Id = 3
+WHERE
+	Candidato_Id= @Candidato_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Candidato
+SET
+	Actualizado_Por_Id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Estatus_Registro_Id = 3
+WHERE
+	Candidato_Id= @Candidato_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Candidato
+	WHERE
+		Persona_Id = @Persona_Id
+  	    AND Vacante_Id = @Vacante_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un candidato para la vacante seleccionada similar en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe un candidato para la vacante seleccionada similar en la base de datos, favor de corregir.'
+   RETURN
+END
+]]></rule>
+    <rule id="r103" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+APP.Candidato
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+Candidato_Id=@Candidato_Id
+
+UPDATE
+APP.Persona
+SET
+Cliente_Id=@Cliente_Id
+WHERE
+Persona_Id=@Persona_Id]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Candidato
+	WHERE
+		Persona_Id = @Persona_Id
+  		AND Vacante_Id = @Vacante_Id
+		AND Candidato_Id <> @Candidato_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un candidato para la vacante seleccionada similar en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe un candidato para la vacante seleccionada similar en la base de datos, favor de corregir.'
+   RETURN
+END
+
+]]></rule>
+    <rule id="r102" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Candidato
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Candidato_Id= @Candidato_Id]]></rule>
+  </businessRules>
+</dataController>

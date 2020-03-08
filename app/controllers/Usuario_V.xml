@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Usuario_V" conflictDetection="overwriteChanges" label="Usuario V" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Usuario_V"."ApplicationId" "ApplicationId"
+	,"Usuario_V"."UserId" "UserId"
+	,"Usuario_V"."UserName" "UserName"
+	,"Usuario_V"."LoweredUserName" "LoweredUserName"
+	,"Usuario_V"."MobileAlias" "MobileAlias"
+	,"Usuario_V"."IsAnonymous" "IsAnonymous"
+	,"Usuario_V"."LastActivityDate" "LastActivityDate"
+from "dbo"."Usuario_V" "Usuario_V"
+]]></text>
+    </command>
+    <command type="Text" id="Usuario_RH_Admin_V" custom="false">
+      <text><![CDATA[SELECT ApplicationId
+      ,UserId
+      ,UserName
+      ,LoweredUserName
+      ,MobileAlias
+      ,IsAnonymous
+      ,LastActivityDate
+  FROM dbo.Usuario_Rh_Admin_V]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="ApplicationId" type="Guid" allowNulls="false" label="Application Id" showInSummary="true" />
+    <field name="UserId" type="Guid" allowNulls="false" label="User Id" showInSummary="true" isPrimaryKey="true" />
+    <field name="UserName" type="String" allowNulls="false" label="User Name" length="256" showInSummary="true" />
+    <field name="LoweredUserName" type="String" allowNulls="false" label="Lowered User Name" length="256" showInSummary="true" />
+    <field name="MobileAlias" type="String" label="Mobile Alias" length="16" showInSummary="true" />
+    <field name="IsAnonymous" type="Boolean" allowNulls="false" label="Is Anonymous" />
+    <field name="LastActivityDate" type="DateTime" allowNulls="false" dataFormatString="g" label="Last Activity Date" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Usuario" sortExpression="UserName" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="ApplicationId" columns="15" hidden="true" />
+        <dataField fieldName="UserId" columns="15" hidden="true" />
+        <dataField fieldName="UserName" />
+      </dataFields>
+    </view>
+    <view id="Usuario_RH_Admin_LookUp_List" type="Grid" commandId="Usuario_RH_Admin_V" label="Usuario" sortExpression="UserName" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="ApplicationId" columns="15" hidden="true" />
+        <dataField fieldName="UserId" columns="15" hidden="true" />
+        <dataField fieldName="UserName" />
+      </dataFields>
+    </view>
+    <view id="Usuario_LookUp_List" type="Grid" commandId="Usuario_RH_Admin_V" label="Usuario" sortExpression="UserName" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="ApplicationId" columns="15" hidden="true" />
+        <dataField fieldName="UserId" columns="15" hidden="true" />
+        <dataField fieldName="UserName" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="Delete" />
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" commandName="Select" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+  </actions>
+</dataController>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Contratado_Solicitud_Prestamo" alias="Contratado_Solicitud_Prestamo" created="2019-07-31T10:37:09" modified="2019-08-21T13:02:50" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Contratado_" parentTableSchema="APP" parentTableName="Contratado" x="842" y="26">
+      <foreignKeyColumn columnName="Contratado_Id" parentColumnName="Contratado_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Solicitud_" parentTableSchema="APP" parentTableName="Estatus_Solicitud" x="442" y="946">
+      <foreignKeyColumn columnName="Estatus_Solicitud_Id" parentColumnName="Estatus_Solicitud_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="442" y="20">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Creado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="1209" y="72">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Autorizado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="686" y="85">
+      <foreignKeyColumn columnName="Autorizado_Rechazado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Actualizado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="840" y="190">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Contratado_Solicitud_Prestamo_Id" fieldName="Contratado_Solicitud_Prestamo_Id" label="Contratado Solicitud Prestamo Id" />
+    <column name="Contratado_Id" fieldName="Contratado_Id" label="Contratado Id" aliasColumnName="Identificador_Unico" aliasForeignKey="Contratado_" />
+    <column name="Identificador_Unico" fieldName="Contratado_Identificador_Unico" label="Contratado Identificador Unico" foreignKey="Contratado_" />
+    <column name="Notas_Solicitud" fieldName="Notas_Solicitud" label="Notas de Solicitud" />
+    <column name="Solicitud_Prestamo_Key" fieldName="Solicitud_Prestamo_Key" label="Solicitud Prestamo Key" />
+    <column name="Fecha_Solicitud" fieldName="Fecha_Solicitud" label="Fecha de Solicitud" format="g" />
+    <column name="Estatus_Solicitud_Id" fieldName="Estatus_Solicitud_Id" label="Estatus Solicitud Id" aliasColumnName="Estatus_Solicitud" aliasForeignKey="Estatus_Solicitud_" />
+    <column name="Estatus_Solicitud" fieldName="Estatus_Solicitud_Estatus_Solicitud" label="Estatus de Solicitud" foreignKey="Estatus_Solicitud_" />
+    <column name="Fecha_Autorizacion_Rechazo" fieldName="Fecha_Autorizacion_Rechazo" label="Fecha de Autorización/Rechazo" format="g" />
+    <column name="UserName" fieldName="AutorizadoPorusername" label="Autorizado Por" foreignKey="Autorizado_Por" />
+    <column name="Notas_Autorizacion_Rechazo" fieldName="Notas_Autorizacion_Rechazo" label="Notas de Autorización/Rechazo" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="UserName" fieldName="CreadoPorusername" label="Creado Por" foreignKey="Creado_Por" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="UserName" fieldName="ActualizadoPorusername" label="Actualizado Por" foreignKey="Actualizado_Por" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+    <column name="Monto_Solicitado" fieldName="MontoSolicitado" label="Monto Solicitado" />
+    <column name="Monto_Prestado" fieldName="MontoPrestado" label="Monto Prestado" />
+  </columns>
+</dataModel>

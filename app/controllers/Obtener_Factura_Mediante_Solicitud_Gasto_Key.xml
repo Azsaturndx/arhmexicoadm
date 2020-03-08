@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Obtener_Factura_Mediante_Solicitud_Gasto_Key" conflictDetection="overwriteChanges" label="Obtener Factura Mediante Solicitud Gasto Key" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Obtener_Factura_Mediante_Solicitud_Gasto_Key"."Picture2" "Picture2"
+	,"Obtener_Factura_Mediante_Solicitud_Gasto_Key"."Picture2ContentType" "Picture2ContentType"
+	,"Obtener_Factura_Mediante_Solicitud_Gasto_Key"."Picture2FileName" "Picture2FileName"
+	,"Obtener_Factura_Mediante_Solicitud_Gasto_Key"."Picture2Length" "Picture2Length"
+	,"Obtener_Factura_Mediante_Solicitud_Gasto_Key"."Administracion_Gasto_Id" "Administracion_Gasto_Id"
+	,"Obtener_Factura_Mediante_Solicitud_Gasto_Key"."Solicitud_Gasto_Key" "Solicitud_Gasto_Key"
+from "dbo"."Obtener_Factura_Mediante_Solicitud_Gasto_Key" "Obtener_Factura_Mediante_Solicitud_Gasto_Key"
+]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Picture2" type="Byte[]" onDemand="true" sourceFields="" onDemandHandler="ObtenerPicture" onDemandStyle="Thumbnail" allowQBE="false" allowSorting="false" label="Archivo" showInSummary="true" />
+    <field name="Picture2ContentType" type="String" label="Picture2 Content Type" length="250" showInSummary="true" />
+    <field name="Picture2FileName" type="String" label="Nombre del Archivo" length="250" showInSummary="true" />
+    <field name="Picture2Length" type="Int32" label="Picture2 Length" showInSummary="true" />
+    <field name="Administracion_Gasto_Id" type="Int32" allowNulls="false" label="Administracion Gasto Id" showInSummary="true" isPrimaryKey="true" />
+    <field name="Solicitud_Gasto_Key" type="String" allowNulls="false" label="Solicitud Gasto Key" length="50" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Factura o Recibo" showInSelector="false" access="Public">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Picture2" columns="15" />
+        <dataField fieldName="Picture2ContentType" />
+        <dataField fieldName="Picture2FileName" />
+        <dataField fieldName="Picture2Length" columns="15" />
+        <dataField fieldName="Administracion_Gasto_Id" columns="15" />
+        <dataField fieldName="Solicitud_Gasto_Key" columns="50" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Revisar Factura o Recibo" showInSelector="false">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Obtener Factura Mediante Solicitud Gasto Key" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Picture2" columns="15" />
+            <dataField fieldName="Picture2ContentType" />
+            <dataField fieldName="Picture2FileName" />
+            <dataField fieldName="Picture2Length" columns="15" />
+            <dataField fieldName="Administracion_Gasto_Id" columns="15" />
+            <dataField fieldName="Solicitud_Gasto_Key" columns="50" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nueva Factura o Recibo" showInSelector="false">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Picture2" columns="15" />
+            <dataField fieldName="Picture2ContentType" hidden="true" />
+            <dataField fieldName="Picture2FileName" />
+            <dataField fieldName="Picture2Length" columns="15" hidden="true" />
+            <dataField fieldName="Administracion_Gasto_Id" columns="15" />
+            <dataField fieldName="Solicitud_Gasto_Key" columns="50" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" />
+      <action id="a3" commandName="Delete" />
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Hidden" />
+      <action id="a2" commandName="Delete" roles="Hidden" />
+      <action id="a3" commandName="Cancel" roles="Hidden" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="Delete" cssClass="DeleteIcon" whenView="grid1" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" />
+      <action id="a2" commandName="Delete" />
+    </actionGroup>
+  </actions>
+</dataController>

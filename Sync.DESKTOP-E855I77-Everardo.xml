@@ -1,0 +1,2391 @@
+<?xml version="1.0" encoding="utf-8"?><logs><log type="Controllers"><c y="NodeSet" t="2018-07-23T10:57:42"><controller name="Organigrama_Puesto_V" />
+<view id="grid1" />
+<update>
+  <SortExpression>Contratante_Puesto</SortExpression>
+</update></c><c y="NodeSet" t="2018-07-23T10:59:42"><controller name="Organigrama_Estructura_V" />
+<view id="grid1" />
+<update>
+  <SortExpression>Estructura_Organizacional</SortExpression>
+</update></c><c y="NodeSet" t="2018-07-23T11:33:24"><controller name="Estructura_Datos_V" />
+<field name="Estructura_Id" />
+<update>
+  <IsPrimaryKey>true</IsPrimaryKey>
+</update></c><c y="NodeSet" t="2018-07-23T11:33:42"><controller name="Perfil_Persona_V" />
+<field name="Perfil_Id" />
+<update>
+  <IsPrimaryKey>true</IsPrimaryKey>
+</update></c><c y="NodeSet" t="2018-07-23T11:34:35"><controller name="Perfil_Persona_V" />
+<field name="Picture" />
+<update>
+  <SourceFields>Perfil_Id</SourceFields>
+</update></c><c y="NodeSet" t="2018-07-23T11:36:20"><controller name="Estructura_Datos_V" />
+<view id="editForm1" />
+<update>
+  <Label>Edicion Datos Estructura</Label>
+</update></c><c y="NodeSet" t="2018-07-23T11:37:06"><controller name="Estructura_Datos_V" />
+<view id="editForm1" />
+<category id="c1" />
+<update>
+  <HeaderText>Datos Estructura</HeaderText>
+</update></c><c y="NodeSet" t="2018-07-23T11:38:43"><controller name="Perfil_Persona_V" />
+<view id="editForm1" />
+<update>
+  <Label>Edicion Datos Puesto</Label>
+</update></c><c y="NodeSet" t="2018-07-23T11:39:28"><controller name="Perfil_Persona_V" />
+<view id="editForm1" />
+<category id="c1" />
+<update>
+  <HeaderText>Datos Puesto</HeaderText>
+</update></c><c y="NodeSet" t="2018-08-08T23:05:09"><controller name="Contratante_Puesto" />
+<insert type="view">
+  <ViewId>createForm2</ViewId>
+  <Type>Form</Type>
+  <Legend>false</Legend>
+  <CommandId>command1</CommandId>
+  <Label>Nuevo Puesto</Label>
+  <ShowInSelector>true</ShowInSelector>
+  <ReportTemplate>false</ReportTemplate>
+</insert></c><c y="NodeSet" t="2018-08-08T23:06:09"><controller name="Contratante_Puesto" />
+<view id="createForm2" />
+<copy>
+  <controller name="Contratante_Puesto" />
+  <view id="createForm1" />
+  <category id="c1" />
+  <dataField fieldName="Contratante_Id" />
+</copy></c><c y="NodeSet" t="2018-08-08T23:06:09"><controller name="Contratante_Puesto" />
+<view id="createForm2" />
+<copy>
+  <controller name="Contratante_Puesto" />
+  <view id="createForm1" />
+  <category id="c1" />
+  <dataField fieldName="Contratante_Puesto" />
+</copy></c><c y="NodeSet" t="2018-08-08T23:06:09"><controller name="Contratante_Puesto" />
+<view id="createForm2" />
+<copy>
+  <controller name="Contratante_Puesto" />
+  <view id="createForm1" />
+  <category id="c1" />
+  <dataField fieldName="Contratante_Puesto_Padre_Id" />
+</copy></c><c y="NodeSet" t="2018-08-08T23:06:09"><controller name="Contratante_Puesto" />
+<view id="createForm2" />
+<copy>
+  <controller name="Contratante_Puesto" />
+  <view id="createForm1" />
+  <category id="c1" />
+  <dataField fieldName="Contratante_Puesto_Descripcion" />
+</copy></c><c y="NodeSet" t="2018-08-08T23:06:09"><controller name="Contratante_Puesto" />
+<view id="createForm2" />
+<copy>
+  <controller name="Contratante_Puesto" />
+  <view id="createForm1" />
+  <category id="c1" />
+  <dataField fieldName="Cliente_Id" />
+</copy></c><c y="NodeSet" t="2018-08-08T23:06:09"><controller name="Contratante_Puesto" />
+<view id="createForm2" />
+<copy>
+  <controller name="Contratante_Puesto" />
+  <view id="createForm1" />
+  <category id="c1" />
+  <dataField fieldName="Contratante_Estructura_Organizacional_Id" />
+</copy></c><c y="NodeSet" t="2018-08-08T23:16:01"><controller name="Contratante_Puesto" />
+<view id="createForm2" />
+<copy>
+  <controller name="Contratante_Puesto" />
+  <field name="Estatus_Puesto_Id" />
+</copy></c><c y="NodeSet" t="2018-08-20T00:22:07"><controller name="Organigrama_V" />
+<insert type="field">
+  <Name>Organigrama_Cliente_Id</Name>
+  <Type>Int32</Type>
+  <AllowNulls>true</AllowNulls>
+  <IsPrimaryKey>false</IsPrimaryKey>
+  <IsVirtual>false</IsVirtual>
+  <Computed>false</Computed>
+  <Calculated>false</Calculated>
+  <CausesCalculate>false</CausesCalculate>
+  <OnDemand>false</OnDemand>
+  <Label>Organigrama Cliente Id</Label>
+  <ReadOnly>false</ReadOnly>
+  <ShowInSummary>false</ShowInSummary>
+  <HtmlEncode>true</HtmlEncode>
+  <FormatOnClient>true</FormatOnClient>
+  <ItemsStyle>DropDownList</ItemsStyle>
+  <ItemsDataController>Organigrama_Cliente_V</ItemsDataController>
+  <ItemsDataView>grid1</ItemsDataView>
+  <ItemsDataValueField>Cliente_Id</ItemsDataValueField>
+  <ItemsDataTextField>Cliente</ItemsDataTextField>
+  <SearchOnStart>false</SearchOnStart>
+  <AutoSelect>false</AutoSelect>
+  <ItemsLetters>false</ItemsLetters>
+  <AllowQBE>true</AllowQBE>
+  <AllowSorting>true</AllowSorting>
+  <MaskType>None</MaskType>
+  <AllowLEV>false</AllowLEV>
+</insert></c><c y="NodeSet" t="2018-08-20T00:24:13"><controller name="Organigrama_V" />
+<insert type="field">
+  <Name>Organigrama_Cliente</Name>
+  <Type>String</Type>
+  <AllowNulls>true</AllowNulls>
+  <IsPrimaryKey>false</IsPrimaryKey>
+  <IsVirtual>false</IsVirtual>
+  <Computed>false</Computed>
+  <Calculated>false</Calculated>
+  <CausesCalculate>false</CausesCalculate>
+  <OnDemand>false</OnDemand>
+  <Label>Organigrama Cliente</Label>
+  <ReadOnly>false</ReadOnly>
+  <ShowInSummary>false</ShowInSummary>
+  <HtmlEncode>true</HtmlEncode>
+  <FormatOnClient>true</FormatOnClient>
+  <SearchOnStart>false</SearchOnStart>
+  <AutoSelect>false</AutoSelect>
+  <ItemsLetters>false</ItemsLetters>
+  <AllowQBE>true</AllowQBE>
+  <AllowSorting>true</AllowSorting>
+  <MaskType>None</MaskType>
+  <AllowLEV>false</AllowLEV>
+</insert></c><c y="NodeSet" t="2018-08-20T00:28:13"><controller name="Organigrama_V" />
+<insert type="field">
+  <Name>Organigrama_Contratante_Id</Name>
+  <Type>Int32</Type>
+  <AllowNulls>true</AllowNulls>
+  <IsPrimaryKey>false</IsPrimaryKey>
+  <IsVirtual>false</IsVirtual>
+  <Computed>false</Computed>
+  <Calculated>false</Calculated>
+  <CausesCalculate>false</CausesCalculate>
+  <OnDemand>false</OnDemand>
+  <Label>Organigrama Contratante Id</Label>
+  <ReadOnly>false</ReadOnly>
+  <ShowInSummary>false</ShowInSummary>
+  <HtmlEncode>true</HtmlEncode>
+  <FormatOnClient>true</FormatOnClient>
+  <ItemsStyle>DropDownList</ItemsStyle>
+  <ItemsDataController>Organigrama_Contratante_V</ItemsDataController>
+  <ItemsDataView>grid1</ItemsDataView>
+  <ItemsDataValueField>Contratante_Id</ItemsDataValueField>
+  <ItemsDataTextField>Contratante</ItemsDataTextField>
+  <SearchOnStart>false</SearchOnStart>
+  <AutoSelect>false</AutoSelect>
+  <ItemsLetters>false</ItemsLetters>
+  <AllowQBE>true</AllowQBE>
+  <AllowSorting>true</AllowSorting>
+  <MaskType>None</MaskType>
+  <AllowLEV>false</AllowLEV>
+</insert></c><c y="NodeSet" t="2018-08-20T00:29:42"><controller name="Organigrama_V" />
+<insert type="field">
+  <Name>Organigrama_Contratante</Name>
+  <Type>String</Type>
+  <AllowNulls>true</AllowNulls>
+  <IsPrimaryKey>false</IsPrimaryKey>
+  <IsVirtual>false</IsVirtual>
+  <Computed>false</Computed>
+  <Calculated>false</Calculated>
+  <CausesCalculate>false</CausesCalculate>
+  <OnDemand>false</OnDemand>
+  <Label>Organigrama Contratante</Label>
+  <ReadOnly>false</ReadOnly>
+  <ShowInSummary>false</ShowInSummary>
+  <HtmlEncode>true</HtmlEncode>
+  <FormatOnClient>true</FormatOnClient>
+  <SearchOnStart>false</SearchOnStart>
+  <AutoSelect>false</AutoSelect>
+  <ItemsLetters>false</ItemsLetters>
+  <AllowQBE>true</AllowQBE>
+  <AllowSorting>true</AllowSorting>
+  <MaskType>None</MaskType>
+  <AllowLEV>false</AllowLEV>
+</insert></c><c y="NodeSet" t="2018-08-20T00:31:00"><controller name="Organigrama_V" />
+<view id="createForm2" />
+<category id="c1" />
+<copy>
+  <controller name="Organigrama_V" />
+  <field name="Organigrama_Cliente_Id" />
+</copy></c><c y="NodeSet" t="2018-08-20T00:31:00"><controller name="Organigrama_V" />
+<view id="createForm2" />
+<category id="c1" />
+<copy>
+  <controller name="Organigrama_V" />
+  <field name="Organigrama_Contratante_Id" />
+</copy></c><c y="NodeSet" t="2018-08-20T00:32:29"><controller name="Organigrama_V" />
+<view id="createForm2" />
+<dataField fieldName="Organigrama_Cliente_Id" />
+<update>
+  <Alias>Organigrama_Cliente</Alias>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2018-08-20T00:33:38"><controller name="Organigrama_V" />
+<view id="createForm2" />
+<dataField fieldName="Organigrama_Contratante_Id" />
+<update>
+  <Alias>Organigrama_Contratante</Alias>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2018-08-20T00:38:13"><controller name="Organigrama_V" />
+<field name="Nivel" />
+<update>
+  <CausesCalculate>true</CausesCalculate>
+</update></c><c y="NodeSet" t="2018-08-20T00:38:27"><controller name="Organigrama_V" />
+<field name="Nivel" />
+<update>
+  <CausesCalculate>false</CausesCalculate>
+</update></c><c y="NodeSet" t="2018-08-20T00:38:39"><controller name="Organigrama_V" />
+<field name="Organigrama_Puesto_Id" />
+<update>
+  <CausesCalculate>true</CausesCalculate>
+</update></c><c y="NodeSet" t="2018-08-20T00:38:55"><controller name="Organigrama_V" />
+<field name="Organigrama_Estructura_Id" />
+<update>
+  <CausesCalculate>true</CausesCalculate>
+</update></c><c y="NodeSet" t="2018-08-20T00:39:06"><controller name="Organigrama_V" />
+<field name="Organigrama_Cliente_Id" />
+<update>
+  <CausesCalculate>true</CausesCalculate>
+</update></c><c y="NodeSet" t="2018-08-20T00:39:11"><controller name="Organigrama_V" />
+<field name="Organigrama_Contratante_Id" />
+<update>
+  <CausesCalculate>true</CausesCalculate>
+</update></c><c y="NodeSet" t="2018-08-20T00:44:56"><controller name="Organigrama_V" />
+<field name="Organigrama_Contratante_Id" />
+<update>
+  <Copy>Tipo_Organigrama_Id = null</Copy>
+  <ContextFields>ClienteId = Organigrama_Cliente_Id</ContextFields>
+</update></c><c y="NodeSet" t="2018-08-20T00:59:16"><controller name="Organigrama_V" />
+<field name="Organigrama_Cliente_Id" />
+<update>
+  <Copy>Organigrama_Contratante_Id = null,
+Tipo_Organigrama_Id = null,
+Organigrama_Estructura_Id = null,
+Organigrama_Puesto_Id = null,
+Nivel = null</Copy>
+</update></c><c y="NodeSet" t="2018-08-20T00:59:54"><controller name="Organigrama_V" />
+<field name="Organigrama_Contratante_Id" />
+<update>
+  <Copy>Tipo_Organigrama_Id = null,
+Organigrama_Estructura_Id = null,
+Organigrama_Puesto_Id = null,
+Nivel = null</Copy>
+</update></c><c y="NodeSet" t="2018-08-20T01:00:26"><controller name="Organigrama_V" />
+<field name="Tipo_Organigrama_Id" />
+<update>
+  <Copy>Organigrama_Estructura_Id = null,
+Organigrama_Puesto_Id = null,
+Nivel = null</Copy>
+</update></c><c y="NodeSet" t="2018-08-20T01:01:11"><controller name="Organigrama_V" />
+<field name="Organigrama_Estructura_Id" />
+<update>
+  <Copy>Organigrama_Puesto_Id = null,
+Nivel = null</Copy>
+  <ContextFields>ClienteId = Organigrama_Cliente_Id, ContratanteId = Organigrama_Contratante_Id</ContextFields>
+</update></c><c y="NodeSet" t="2018-08-20T01:02:32"><controller name="Organigrama_V" />
+<field name="Organigrama_Puesto_Id" />
+<update>
+  <Copy>Organigrama_Estructura_Id = null,
+Nivel = null</Copy>
+  <ContextFields>ClienteId = Organigrama_Cliente_Id, ContratanteId = Organigrama_Contratante_Id</ContextFields>
+</update></c><c y="NodeSet" t="2018-08-20T01:02:56"><controller name="Organigrama_V" />
+<field name="Nivel" />
+<update>
+  <CausesCalculate>true</CausesCalculate>
+</update></c><c y="NodeSet" t="2018-08-20T01:17:08"><controller name="Organigrama_V" />
+<rule id="r101" />
+<update>
+  <Script>// Declaracion de variables sistema*
+var success = this.validateInput();
+var commandName = this.arguments().CommandName;
+var triggerFieldName = this.arguments().Trigger;
+// Declaracion de variables campos
+var fieldValueOrganigramaClienteId = [Organigrama_Cliente_Id];
+var fieldValueOrganigramaContratanteId = [Organigrama_Contratante_Id];
+var fieldValueTipoOrganigramaId = [Tipo_Organigrama_Id];
+var fieldValueOrganigramaEstructuraId = [Organigrama_Estructura_Id];
+var fieldValueOrganigramaPuestoId = [Organigrama_Puesto_Id];
+
+//BEGIN CLIENTE ID VALIDATION
+if (triggerFieldName == 'Organigrama_Cliente_Id'){
+  //console.log("hello");
+  //console.log(fieldValueOrganigramaClienteId);
+  if(fieldValueOrganigramaClienteId == null){
+    //console.log("world");
+    $('#contenedor_contratante').hide();
+    $('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+  else{
+    //console.log("world2");
+    $('#contenedor_contratante').show();
+    $('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+}
+
+
+//BEGIN CONTRATANTE ID VALIDATION
+if (triggerFieldName == 'Organigrama_Contratante_Id'){
+  
+  if(fieldValueOrganigramaContratanteId == null){
+    $('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+  else{
+    $('#contenedor_seleccion').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+}
+
+
+//BEGIN TIPO ORGANIGRAMA ID VALIDATION
+if (triggerFieldName == 'Tipo_Organigrama_Id'){
+  if(fieldValueTipoOrganigramaId == 0)
+  {
+   	$('#contenedor_estructura').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').hide();
+  }
+  else if(fieldValueTipoOrganigramaId == 1)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_puesto').show();
+    $('#contenedor_nivel').hide();
+  }
+}
+
+//BEGIN PUESTO ID VALIDATION
+if (triggerFieldName == 'Organigrama_Puesto_Id'){
+  if(fieldValueOrganigramaPuestoId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+  else{
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').show();
+  }
+}
+
+console.log("llamada 1");
+
+//BEGIN ESTRUCTURA ID VALIDATION
+if (triggerFieldName == 'Organigrama_Estructura_Id'){
+  console.log("llamada 2");
+  if(fieldValueOrganigramaEstructuraId == null)
+  {
+    console.log("llamada 3");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').hide();
+  }
+  else{
+    console.log("llamada 4");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').show();
+  }
+}
+</Script>
+</update></c><c y="NodeSet" t="2018-08-20T01:23:21"><controller name="Contratante_Puesto" />
+<view id="createForm2" />
+<category id="c1" />
+<dataField fieldName="Cliente_Id" />
+<move>
+  <controller name="Contratante_Puesto" />
+  <view id="createForm2" />
+  <category id="c1" />
+  <dataField fieldName="Contratante_Puesto" />
+</move></c><c y="NodeSet" t="2018-08-20T01:23:30"><controller name="Contratante_Puesto" />
+<view id="createForm2" />
+<category id="c1" />
+<dataField fieldName="Contratante_Puesto" />
+<after>
+  <controller name="Contratante_Puesto" />
+  <view id="createForm2" />
+  <category id="c1" />
+  <dataField fieldName="Cliente_Id" />
+</after></c><c y="NodeSet" t="2018-08-20T01:23:41"><controller name="Contratante_Puesto" />
+<view id="createForm2" />
+<category id="c1" />
+<dataField fieldName="Contratante_Puesto" />
+<move>
+  <controller name="Contratante_Puesto" />
+  <view id="createForm2" />
+  <category id="c1" />
+  <dataField fieldName="Contratante_Puesto_Descripcion" />
+</move></c><c y="NodeSet" t="2018-08-20T01:23:54"><controller name="Contratante_Puesto" />
+<view id="createForm2" />
+<category id="c1" />
+<dataField fieldName="Contratante_Estructura_Organizacional_Id" />
+<move>
+  <controller name="Contratante_Puesto" />
+  <view id="createForm2" />
+  <category id="c1" />
+  <dataField fieldName="Contratante_Id" />
+</move></c><c y="NodeSet" t="2018-08-20T01:23:56"><controller name="Contratante_Puesto" />
+<view id="createForm2" />
+<category id="c1" />
+<dataField fieldName="Cliente_Id" />
+<move>
+  <controller name="Contratante_Puesto" />
+  <view id="createForm2" />
+  <category id="c1" />
+  <dataField fieldName="Contratante_Id" />
+</move></c><c y="NodeSet" t="2018-08-20T01:24:04"><controller name="Contratante_Puesto" />
+<view id="createForm2" />
+<category id="c1" />
+<dataField fieldName="Contratante_Id" />
+<move>
+  <controller name="Contratante_Puesto" />
+  <view id="createForm2" />
+  <category id="c1" />
+  <dataField fieldName="Contratante_Puesto_Padre_Id" />
+</move></c><c y="NodeSet" t="2018-08-20T01:24:10"><controller name="Contratante_Puesto" />
+<view id="createForm2" />
+<dataField fieldName="Contratante_Puesto_Padre_Id" />
+<update>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2018-08-20T01:30:13"><controller name="Contratante_Puesto" />
+<view id="createForm2" />
+<dataField fieldName="Contratante_Puesto_Padre_Id" />
+<update>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2018-08-20T02:09:42"><controller name="Organigrama_V" />
+<field name="Organigrama_Contratante_Id" />
+<update>
+  <Copy>Tipo_Organigrama_Id = null,
+Organigrama_Estructura_Id = null,
+Organigrama_Puesto_Id = null,
+Nivel = null</Copy>
+</update></c><c y="NodeSet" t="2018-08-20T02:16:06"><controller name="Organigrama_V" />
+<field name="Organigrama_Contratante_Id" />
+<update>
+  <Copy>Tipo_Organigrama_Id = null,
+Organigrama_Estructura_Id = null,
+Organigrama_Puesto_Id = null,
+Nivel = null</Copy>
+  <ContextFields>Cliente_Id = Organigrama_Cliente_Id</ContextFields>
+</update></c><c y="NodeSet" t="2018-08-20T02:28:06"><controller name="Organigrama_V" />
+<field name="Organigrama_Contratante_Id" />
+<update>
+  <Copy>Tipo_Organigrama_Id = null,
+Organigrama_Estructura_Id = null,
+Organigrama_Puesto_Id = null,
+Nivel = null</Copy>
+</update></c><c y="NodeSet" t="2018-08-20T02:44:57"><controller name="Contratado" />
+<insert type="view">
+  <ViewId>createForm2</ViewId>
+  <Type>Form</Type>
+  <Legend>false</Legend>
+  <CommandId>command1</CommandId>
+  <Label>createForm2</Label>
+  <ShowInSelector>true</ShowInSelector>
+  <ReportTemplate>false</ReportTemplate>
+</insert></c><c y="NodeSet" t="2018-08-20T02:46:25"><controller name="Contratado" />
+<view id="createForm2" />
+<copy>
+  <controller name="Contratado" />
+  <field name="Contratante_Puesto_Id" />
+</copy></c><c y="NodeSet" t="2018-08-20T02:58:24"><controller name="Contratado" />
+<view id="createForm2" />
+<dataField fieldName="Contratante_Puesto_Id" />
+<update>
+  <Alias>Contratante_Puesto_Contratante_Puesto</Alias>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2018-08-20T03:07:42"><controller name="Contratado" />
+<view id="createForm2" />
+<delete /></c><c y="NodeSet" t="2018-08-20T03:08:05"><controller name="Contratado" />
+<insert type="view">
+  <ViewId>editForm2</ViewId>
+  <Type>Form</Type>
+  <Legend>false</Legend>
+  <CommandId>command1</CommandId>
+  <Label>editForm2</Label>
+  <ShowInSelector>true</ShowInSelector>
+  <ReportTemplate>false</ReportTemplate>
+</insert></c><c y="NodeSet" t="2018-08-20T03:08:27"><controller name="Contratado" />
+<view id="editForm2" />
+<copy>
+  <controller name="Contratado" />
+  <field name="Contratante_Puesto_Id" />
+</copy></c><c y="NodeSet" t="2018-08-20T03:08:43"><controller name="Contratado" />
+<view id="editForm2" />
+<dataField fieldName="Contratante_Puesto_Id" />
+<update>
+  <Alias>Contratante_Puesto_Contratante_Puesto</Alias>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2018-08-20T03:26:24"><controller name="Contratante_Puesto" />
+<insert type="view">
+  <ViewId>createForm3</ViewId>
+  <Type>Form</Type>
+  <Legend>false</Legend>
+  <CommandId>command1</CommandId>
+  <Label>createForm3</Label>
+  <ShowInSelector>true</ShowInSelector>
+  <ReportTemplate>false</ReportTemplate>
+</insert></c><c y="NodeSet" t="2018-08-20T03:28:49"><controller name="Contratante_Puesto" />
+<view id="createForm3" />
+<delete /></c><c y="NodeSet" t="2018-08-20T03:29:46"><controller name="Contratante_Puesto" />
+<insert type="view">
+  <ViewId>editForm2</ViewId>
+  <Type>Form</Type>
+  <Legend>false</Legend>
+  <CommandId>command1</CommandId>
+  <Label>editForm2</Label>
+  <ShowInSelector>true</ShowInSelector>
+  <ReportTemplate>false</ReportTemplate>
+</insert></c><c y="NodeSet" t="2018-08-20T03:34:52"><controller name="Contratante_Puesto" />
+<view id="editForm2" />
+<copy>
+  <controller name="Contratante_Puesto" />
+  <view id="editForm1" />
+  <category id="c1" />
+  <dataField fieldName="Contratante_Puesto" />
+</copy></c><c y="NodeSet" t="2018-08-20T03:36:49"><controller name="Contratado" />
+<insert type="view">
+  <ViewId>Contratado_Sin_Puesto_LookUp_List</ViewId>
+  <Type>Grid</Type>
+  <Legend>false</Legend>
+  <CommandId>command1</CommandId>
+  <Label>Contratado_Sin_Puesto_LookUp_List</Label>
+  <ShowInSelector>true</ShowInSelector>
+  <ReportTemplate>false</ReportTemplate>
+</insert></c><c y="NodeSet" t="2018-08-20T03:46:09"><controller name="Contratado" />
+<view id="Contratado_Sin_Puesto_LookUp_List" />
+<update>
+  <Tags>view-style-grid, 
+view-style-list-disabled, 
+view-style-charts-disabled,
+view-style-cards-disabled,
+view-style-calendar-disabled</Tags>
+</update></c><c y="NodeSet" t="2018-08-20T03:47:41"><controller name="Contratado" />
+<view id="Contratado_Sin_Puesto_LookUp_List" />
+<update>
+  <Tags>view-style-grid, 
+view-style-list-disabled, 
+view-style-charts-disabled,
+view-style-cards-disabled,
+view-style-calendar-disabled</Tags>
+  <FilterExpression>Estatus_Registro_Id = 1 AND Contratante_Puesto_Id = 0</FilterExpression>
+</update></c><c y="NodeSet" t="2018-08-20T03:57:08"><controller name="Contratante_Puesto" />
+<insert type="field">
+  <Name>Contratado_Id</Name>
+  <Type>Int32</Type>
+  <AllowNulls>true</AllowNulls>
+  <IsPrimaryKey>false</IsPrimaryKey>
+  <IsVirtual>false</IsVirtual>
+  <Computed>false</Computed>
+  <Calculated>false</Calculated>
+  <CausesCalculate>false</CausesCalculate>
+  <OnDemand>false</OnDemand>
+  <Label>Contratado Id</Label>
+  <ReadOnly>false</ReadOnly>
+  <ShowInSummary>false</ShowInSummary>
+  <HtmlEncode>true</HtmlEncode>
+  <FormatOnClient>true</FormatOnClient>
+  <SearchOnStart>false</SearchOnStart>
+  <AutoSelect>false</AutoSelect>
+  <ItemsLetters>false</ItemsLetters>
+  <AllowQBE>true</AllowQBE>
+  <AllowSorting>true</AllowSorting>
+  <MaskType>None</MaskType>
+  <AllowLEV>false</AllowLEV>
+</insert></c><c y="NodeSet" t="2018-08-20T03:57:28"><controller name="Contratante_Puesto" />
+<insert type="field">
+  <Name>Contratado</Name>
+  <Type>String</Type>
+  <AllowNulls>true</AllowNulls>
+  <IsPrimaryKey>false</IsPrimaryKey>
+  <IsVirtual>false</IsVirtual>
+  <Computed>false</Computed>
+  <Calculated>false</Calculated>
+  <CausesCalculate>false</CausesCalculate>
+  <OnDemand>false</OnDemand>
+  <Label>Contratado</Label>
+  <ReadOnly>false</ReadOnly>
+  <ShowInSummary>false</ShowInSummary>
+  <HtmlEncode>true</HtmlEncode>
+  <FormatOnClient>true</FormatOnClient>
+  <SearchOnStart>false</SearchOnStart>
+  <AutoSelect>false</AutoSelect>
+  <ItemsLetters>false</ItemsLetters>
+  <AllowQBE>true</AllowQBE>
+  <AllowSorting>true</AllowSorting>
+  <MaskType>None</MaskType>
+  <AllowLEV>false</AllowLEV>
+</insert></c><c y="NodeSet" t="2018-08-20T03:59:31"><controller name="Contratante_Puesto" />
+<field name="Contratado_Id" />
+<update>
+  <ItemsStyle>Lookup</ItemsStyle>
+  <ItemsDataController>Contratado</ItemsDataController>
+  <ItemsDataView>Contratado_Sin_Puesto_LookUp_List</ItemsDataView>
+  <ItemsDataValueField>Contratado_Id</ItemsDataValueField>
+  <ItemsDataTextField>Contratado_Persona_Nombre</ItemsDataTextField>
+</update></c><c y="NodeSet" t="2018-08-20T03:59:54"><controller name="Contratante_Puesto" />
+<view id="editForm2" />
+<move>
+  <controller name="Contratante_Puesto" />
+  <field name="Contratado_Id" />
+</move></c><c y="NodeSet" t="2018-08-20T04:00:07"><controller name="Contratante_Puesto" />
+<view id="editForm2" />
+<dataField fieldName="Contratado_Id" />
+<update>
+  <Alias>Contratado</Alias>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2018-08-20T04:00:13"><controller name="Contratante_Puesto" />
+<view id="editForm2" />
+<dataField fieldName="Contratado_Id" />
+<update>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2018-08-20T04:16:11"><controller name="Contratado" />
+<view id="Contratado_Sin_Puesto_LookUp_List" />
+<update>
+  <Tags>view-style-grid, 
+view-style-list-disabled, 
+view-style-charts-disabled,
+view-style-cards-disabled,
+view-style-calendar-disabled</Tags>
+  <CommandId>Grid_Contratado_Admin</CommandId>
+</update></c><c y="NodeSet" t="2018-08-20T04:16:26"><controller name="Contratado" />
+<view id="Contratado_Sin_Puesto_LookUp_List" />
+<update>
+  <Tags>view-style-grid, 
+view-style-list-disabled, 
+view-style-charts-disabled,
+view-style-cards-disabled,
+view-style-calendar-disabled</Tags>
+  <SortExpression>Contratado_Persona_Nombre</SortExpression>
+</update></c><c y="NodeSet" t="2018-08-20T04:20:54"><controller name="Contratado" />
+<view id="Contratado_Sin_Puesto_LookUp_List" />
+<insert type="dataField">
+  <FieldName>Contratado_Persona_Nombre</FieldName>
+  <TextMode>Text</TextMode>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+  <DataViewShowActionBar>true</DataViewShowActionBar>
+  <DataViewShowDescription>true</DataViewShowDescription>
+  <DataViewShowViewSelector>true</DataViewShowViewSelector>
+  <DataViewShowSearchBar>true</DataViewShowSearchBar>
+  <DataViewShowQuickFind>true</DataViewShowQuickFind>
+  <DataViewShowRowNumber>false</DataViewShowRowNumber>
+  <DataViewShowPageSize>true</DataViewShowPageSize>
+  <DataViewShowModalForms>false</DataViewShowModalForms>
+  <DataViewSearchOnStart>false</DataViewSearchOnStart>
+  <DataViewAutoSelectFirstRow>false</DataViewAutoSelectFirstRow>
+  <DataViewAutoHighlightFirstRow>false</DataViewAutoHighlightFirstRow>
+</insert></c><c y="NodeSet" t="2018-08-20T04:27:58"><controller name="Contratante_Puesto" />
+<insert type="rule">
+  <Type>Sql</Type>
+  <CommandName>Update</CommandName>
+  <CommandArgument>editForm2</CommandArgument>
+  <Phase>After</Phase>
+  <Script>--q</Script>
+</insert></c><c y="NodeSet" t="2018-08-20T04:29:47"><controller name="Contratante_Puesto" />
+<rule id="r105" />
+<update>
+  <Script>UPDATE
+	APP.Contratante_Puesto
+SET
+	Estatus_Puesto_Id = 1
+	,Fecha</Script>
+</update></c><c y="NodeSet" t="2018-08-20T04:30:12"><controller name="Contratante_Puesto" />
+<rule id="r105" />
+<update>
+  <Script>UPDATE
+	APP.Contratante_Puesto
+SET
+	Estatus_Puesto_Id = 1
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId</Script>
+</update></c><c y="NodeSet" t="2018-08-20T04:30:21"><controller name="Contratante_Puesto" />
+<rule id="r105" />
+<update>
+  <Script>UPDATE
+	APP.Contratante_Puesto
+SET
+	 Estatus_Puesto_Id = 1
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId</Script>
+</update></c><c y="NodeSet" t="2018-08-20T04:32:27"><controller name="Contratante_Puesto" />
+<rule id="r105" />
+<update>
+  <Script>UPDATE
+	APP.Contratante_Puesto
+SET
+	 Estatus_Puesto_Id = 1
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Contratante_Puesto_Id = @Contratante_Puesto_Id
+	
+	
+UPDATE
+	APP.Contratado
+SET
+	 Contratante_Puesto_Id = @Contratante_Puesto_Id
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Contratado_Id = @Contratado_Id</Script>
+</update></c><c y="NodeSet" t="2018-08-20T04:36:47"><controller name="Contratante_Puesto" />
+<insert type="rule">
+  <Type>Sql</Type>
+  <CommandName>Update</CommandName>
+  <CommandArgument>editForm2</CommandArgument>
+  <Phase>Before</Phase>
+  <Script>--</Script>
+</insert></c><c y="NodeSet" t="2018-08-20T04:36:51"><controller name="Contratante_Puesto" />
+<rule id="r104" />
+<after>
+  <controller name="Contratante_Puesto" />
+  <rule id="r106" />
+</after></c><c y="NodeSet" t="2018-08-20T04:39:04"><controller name="Contratante_Puesto" />
+<rule id="r106" />
+<update>
+  <Script>DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Contratante_Puesto
+	WHERE
+		Contratante_Puesto_Id = @Contratante_Puesto_Id
+  		AND Estatus_Puesto_Id  3
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un puesto asignado a este contratante en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya existe un puesto asignado a este contratante en la base de datos, favor de corregir.'
+   RETURN
+END</Script>
+</update></c><c y="NodeSet" t="2018-08-20T04:40:16"><controller name="Contratante_Puesto" />
+<rule id="r106" />
+<update>
+  <Script>DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Contratante_Puesto
+	WHERE
+		Contratante_Puesto_Id = @Contratante_Puesto_Id
+  		AND Estatus_Puesto_Id &lt;&gt; 3
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'El puesto no es apto para asignar un contratado, verique sus datos'
+   SET @Result_ShowAlert = 'El puesto no es apto para asignar un contratado, verique sus datos'
+   RETURN
+END</Script>
+</update></c><c y="NodeSet" t="2018-08-20T04:40:19"><controller name="Contratante_Puesto" />
+<rule id="r106" />
+<update>
+  <Script>DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Contratante_Puesto
+	WHERE
+		Contratante_Puesto_Id = @Contratante_Puesto_Id
+  		AND Estatus_Puesto_Id &lt;&gt; 3
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'El puesto no es apto para asignar un contratado, verique sus datos'
+   SET @Result_ShowAlert = 'El puesto no es apto para asignar un contratado, verique sus datos'
+   RETURN
+END</Script>
+</update></c><c y="NodeSet" t="2018-08-20T04:43:45"><controller name="Contratante_Puesto" />
+<rule id="r101" />
+<update>
+  <CommandArgument>editForm1</CommandArgument>
+  <Script>DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Contratante_Puesto
+	WHERE
+		Contratante_Id = @Contratante_Id
+  		AND REPLACE(UPPER(Contratante_Puesto),' ','') = REPLACE(UPPER(@Contratante_Puesto),' ','')
+		AND Contratante_Puesto_Id &lt;&gt; @Contratante_Puesto_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un puesto asignado a este contratante en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya existe un puesto asignado a este contratante en la base de datos, favor de corregir.'
+   RETURN
+END
+
+</Script>
+</update></c><c y="NodeSet" t="2018-08-20T04:43:50"><controller name="Contratante_Puesto" />
+<rule id="r103" />
+<update>
+  <CommandArgument>editForm1</CommandArgument>
+  <Script>UPDATE
+	APP.Contratante_Puesto
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Contratante_Puesto_Id = @Contratante_Puesto_Id</Script>
+</update></c><c y="NodeSet" t="2018-08-20T04:47:08"><controller name="Contratante_Puesto" />
+<rule id="r105" />
+<update>
+  <Script>/*UPDATE
+	APP.Contratante_Puesto
+SET
+	 Estatus_Puesto_Id = 1
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Contratante_Puesto_Id = @Contratante_Puesto_Id
+	
+	
+UPDATE
+	APP.Contratado
+SET
+	 Contratante_Puesto_Id = @Contratante_Puesto_Id
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Contratado_Id = @Contratado_Id*/
+	
+SET @Result_ShowViewMessage = 'Mensaje Sistema'
+SET @Result_ShowAlert = 'Mensaje Sistema'
+   </Script>
+</update></c><c y="NodeSet" t="2018-08-20T04:50:52"><controller name="Contratante_Puesto" />
+<rule id="r106" />
+<update>
+  <Script>/*DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Contratante_Puesto
+	WHERE
+		Contratante_Puesto_Id = @Contratante_Puesto_Id
+  		AND Estatus_Puesto_Id &lt;&gt; 3
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'El puesto no es apto para asignar un contratado, verique sus datos'
+   SET @Result_ShowAlert = 'El puesto no es apto para asignar un contratado, verique sus datos'
+   RETURN
+END*/
+SET @Result_ShowViewMessage = 'Mensaje Sistema'
+SET @Result_ShowAlert = 'Mensaje Sistema'</Script>
+</update></c><c y="NodeSet" t="2018-08-20T04:54:23"><controller name="Contratante_Puesto" />
+<insert type="rule">
+  <Type>Code</Type>
+  <CommandName>Custom</CommandName>
+  <CommandArgument>ExecCS100</CommandArgument>
+  <Phase>After</Phase>
+</insert></c><c y="NodeSet" t="2018-08-20T04:54:40"><controller name="Contratante_Puesto" />
+<rule id="r106" />
+<delete /></c><c y="NodeSet" t="2018-08-20T04:54:40"><controller name="Contratante_Puesto" />
+<rule id="r105" />
+<delete /></c><c y="NodeSet" t="2018-08-20T04:54:46"><controller name="Contratante_Puesto" />
+<rule id="r101" />
+<update>
+  <CommandArgument />
+  <Script>DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Contratante_Puesto
+	WHERE
+		Contratante_Id = @Contratante_Id
+  		AND REPLACE(UPPER(Contratante_Puesto),' ','') = REPLACE(UPPER(@Contratante_Puesto),' ','')
+		AND Contratante_Puesto_Id &lt;&gt; @Contratante_Puesto_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un puesto asignado a este contratante en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya existe un puesto asignado a este contratante en la base de datos, favor de corregir.'
+   RETURN
+END
+
+</Script>
+</update></c><c y="NodeSet" t="2018-08-20T04:54:51"><controller name="Contratante_Puesto" />
+<rule id="r103" />
+<update>
+  <CommandArgument />
+  <Script>UPDATE
+	APP.Contratante_Puesto
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Contratante_Puesto_Id = @Contratante_Puesto_Id</Script>
+</update></c><c y="NodeSet" t="2018-08-20T04:56:53"><controller name="Contratante_Puesto" />
+<actionGroup id="ag2" />
+<insert type="action">
+  <CommandName>Custom</CommandName>
+  <CommandArgument>ExecCS100</CommandArgument>
+  <HeaderText>Guardar</HeaderText>
+  <CausesValidation>true</CausesValidation>
+  <WhenLastCommandName>Edit</WhenLastCommandName>
+  <WhenLastCommandArgument>editForm2</WhenLastCommandArgument>
+</insert></c><c y="NodeSet" t="2018-08-20T04:58:29"><controller name="Contratante_Puesto" />
+<actionGroup id="ag2" />
+<action id="a1" />
+<after>
+  <controller name="Contratante_Puesto" />
+  <actionGroup id="ag2" />
+  <action id="a100" />
+</after></c><c y="NodeSet" t="2018-08-20T05:24:22"><controller name="Contratante_Puesto" />
+<actionGroup id="ag2" />
+<action id="a1" />
+<update>
+  <HeaderText>aaaaaaaaaaaaaa</HeaderText>
+</update></c><c y="NodeSet" t="2018-08-20T05:26:18"><controller name="Contratante_Puesto" />
+<actionGroup id="ag2" />
+<action id="a1" />
+<update>
+  <HeaderText />
+</update></c><c y="NodeSet" t="2018-08-20T05:26:31"><controller name="Contratante_Puesto" />
+<actionGroup id="ag2" />
+<action id="a4" />
+<update>
+  <HeaderText>aaaaaaaaaaaaaa</HeaderText>
+</update></c><c y="NodeSet" t="2018-08-20T05:28:04"><controller name="Contratante_Puesto" />
+<actionGroup id="ag2" />
+<action id="a4" />
+<update>
+  <HeaderText />
+  <WhenLastCommandArgument>editForm1</WhenLastCommandArgument>
+</update></c><c y="NodeSet" t="2018-08-21T01:46:14"><controller name="Organigrama_V" />
+<view id="createForm1" />
+<update>
+  <FilterExpression>@ContextFields_d</FilterExpression>
+</update></c><c y="NodeSet" t="2018-08-21T02:04:32"><controller name="Organigrama_V" />
+<view id="createForm2" />
+<update>
+  <FilterExpression>@ContextFields_ContratanteId = 0
+(
+
+)</FilterExpression>
+</update></c><c y="NodeSet" t="2018-08-21T02:07:16"><controller name="Organigrama_V" />
+<view id="createForm2" />
+<update>
+  <FilterExpression>@ContextFields_ContratanteId = 0
+(
+@ContextFields_ClienteId = Organigrama_Cliente_Id
+)</FilterExpression>
+</update></c><c y="NodeSet" t="2018-08-21T02:11:14"><controller name="Organigrama_V" />
+<view id="createForm2" />
+<update>
+  <FilterExpression>@ContextFields_ContratanteId = 1
+(
+@ContextFields_ClienteId = Organigrama_Cliente_Id
+)</FilterExpression>
+</update></c><c y="NodeSet" t="2018-08-21T02:31:03"><controller name="Organigrama_V" />
+<view id="createForm2" />
+<update>
+  <FilterExpression />
+</update></c><c y="NodeSet" t="2018-08-21T02:39:11"><controller name="Organigrama_V" />
+<copy>
+  <controller name="Organigrama_V" />
+  <field name="Organigrama_Puesto_Id" />
+</copy></c><c y="NodeSet" t="2018-08-21T02:40:15"><controller name="Organigrama_V" />
+<view id="createForm2" />
+<category id="c1" />
+<copy>
+  <controller name="Organigrama_V" />
+  <field name="Organigrama_Puesto_Id_1" />
+</copy></c><c y="NodeSet" t="2018-08-21T02:45:09"><controller name="Organigrama_V" />
+<view id="createForm2" />
+<dataField fieldName="Organigrama_Puesto_Id_1" />
+<update>
+  <Alias>Organigrama_Puesto</Alias>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2018-08-21T02:50:44"><controller name="Organigrama_V" />
+<field name="Organigrama_Puesto_Id_1" />
+<update>
+  <Copy>Organigrama_Estructura_Id = null,
+Nivel = null</Copy>
+  <ContextFields>ClienteId = Organigrama_Cliente_Id</ContextFields>
+</update></c><c y="NodeSet" t="2018-08-21T03:03:38"><controller name="Organigrama_V" />
+<rule id="r101" />
+<update>
+  <Script>// Declaracion de variables sistema*
+var success = this.validateInput();
+var commandName = this.arguments().CommandName;
+var triggerFieldName = this.arguments().Trigger;
+// Declaracion de variables campos
+var fieldValueOrganigramaClienteId = [Organigrama_Cliente_Id];
+var fieldValueOrganigramaContratanteId = [Organigrama_Contratante_Id];
+var fieldValueTipoOrganigramaId = [Tipo_Organigrama_Id];
+var fieldValueOrganigramaEstructuraId = [Organigrama_Estructura_Id];
+var fieldValueOrganigramaPuestoId = [Organigrama_Puesto_Id];
+
+var fieldValueOrganigramaPuestoId = [Organigrama_Puesto_Id_1];
+
+
+//BEGIN CLIENTE ID VALIDATION
+if (triggerFieldName == 'Organigrama_Cliente_Id'){
+  //console.log("hello");
+  //console.log(fieldValueOrganigramaClienteId);
+  if(fieldValueOrganigramaClienteId == null){
+    //console.log("world");
+    $('#contenedor_contratante').hide();
+    $('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+  else{
+    //console.log("world2");
+    $('#contenedor_contratante').show();
+    $('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+}
+
+/*
+//BEGIN CONTRATANTE ID VALIDATION
+if (triggerFieldName == 'Organigrama_Contratante_Id'){
+  
+  if(fieldValueOrganigramaContratanteId == null){
+    $('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+  else{
+    $('#contenedor_seleccion').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+}*/
+
+
+//BEGIN TIPO ORGANIGRAMA ID VALIDATION
+if (triggerFieldName == 'Tipo_Organigrama_Id'){
+  if(fieldValueTipoOrganigramaId == 0)
+  {
+   	$('#contenedor_estructura').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').hide();
+  }
+  
+  if(fieldValueTipoOrganigramaId == 1 &amp;&amp; fieldValueOrganigramaContratanteId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_puesto').show();
+    $('#contenedor_nivel').hide();
+  }
+  
+  if(fieldValueTipoOrganigramaId == 1 &amp;&amp; fieldValueOrganigramaContratanteId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_puesto').show();
+    $('#contenedor_nivel').hide();
+  }
+    
+}
+
+
+
+
+
+//BEGIN PUESTO ID VALIDATION
+if (triggerFieldName == 'Organigrama_Puesto_Id'){
+  if(fieldValueOrganigramaPuestoId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+  else{
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').show();
+  }
+}
+
+console.log("llamada 1");
+
+//BEGIN ESTRUCTURA ID VALIDATION
+if (triggerFieldName == 'Organigrama_Estructura_Id'){
+  console.log("llamada 2");
+  if(fieldValueOrganigramaEstructuraId == null)
+  {
+    console.log("llamada 3");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').hide();
+  }
+  else{
+    console.log("llamada 4");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').show();
+  }
+}
+</Script>
+</update></c><c y="NodeSet" t="2018-08-21T03:18:30"><controller name="Organigrama_V" />
+<rule id="r101" />
+<update>
+  <Script>// Declaracion de variables sistema*
+var success = this.validateInput();
+var commandName = this.arguments().CommandName;
+var triggerFieldName = this.arguments().Trigger;
+// Declaracion de variables campos
+var fieldValueOrganigramaClienteId = [Organigrama_Cliente_Id];
+var fieldValueOrganigramaContratanteId = [Organigrama_Contratante_Id];
+var fieldValueTipoOrganigramaId = [Tipo_Organigrama_Id];
+var fieldValueOrganigramaEstructuraId = [Organigrama_Estructura_Id];
+var fieldValueOrganigramaPuestoId = [Organigrama_Puesto_Id];
+
+var fieldValueOrganigramaPuestoId1 = [Organigrama_Puesto_Id_1];
+
+
+//BEGIN CLIENTE ID VALIDATION
+if (triggerFieldName == 'Organigrama_Cliente_Id'){
+  //console.log("hello");
+  //console.log(fieldValueOrganigramaClienteId);
+  if(fieldValueOrganigramaClienteId == null){
+    //console.log("world");
+    $('#contenedor_contratante').hide();
+    $('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+  else{
+    //console.log("world2");
+    $('#contenedor_contratante').show();
+    $('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+}
+
+/*
+//BEGIN CONTRATANTE ID VALIDATION
+if (triggerFieldName == 'Organigrama_Contratante_Id'){
+  
+  if(fieldValueOrganigramaContratanteId == null){
+    $('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+  else{
+    $('#contenedor_seleccion').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+}*/
+
+
+//BEGIN TIPO ORGANIGRAMA ID VALIDATION
+if (triggerFieldName == 'Tipo_Organigrama_Id'){
+  if(fieldValueTipoOrganigramaId == 0)
+  {
+   	$('#contenedor_estructura').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_nivel').hide();
+  }
+  
+  if(fieldValueTipoOrganigramaId == 1 &amp;&amp; fieldValueOrganigramaContratanteId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_puesto1').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').hide();
+  }
+  
+  if(fieldValueTipoOrganigramaId == 1 &amp;&amp; fieldValueOrganigramaContratanteId &gt; 0)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_puesto').show();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_nivel').hide();
+  }
+    
+}
+
+
+//BEGIN PUESTO ID VALIDATION
+if (triggerFieldName == 'Organigrama_Puesto_Id'){
+  if(fieldValueOrganigramaPuestoId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+  else{
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto1').hide();
+  }
+}
+
+//BEGIN PUESTO ID VALIDATION
+if (triggerFieldName == 'Organigrama_Puesto_Id_1'){
+  if(fieldValueOrganigramaPuestoId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto').hide();
+  }
+  else{
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto').hide();
+  }
+}
+
+console.log("llamada 1");
+
+//BEGIN ESTRUCTURA ID VALIDATION
+if (triggerFieldName == 'Organigrama_Estructura_Id'){
+  console.log("llamada 2");
+  if(fieldValueOrganigramaEstructuraId == null)
+  {
+    console.log("llamada 3");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+  else{
+    console.log("llamada 4");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto1').hide();
+  }
+}
+</Script>
+</update></c><c y="NodeSet" t="2018-08-21T03:18:32"><controller name="Organigrama_V" />
+<rule id="r101" />
+<update>
+  <Script>// Declaracion de variables sistema*
+var success = this.validateInput();
+var commandName = this.arguments().CommandName;
+var triggerFieldName = this.arguments().Trigger;
+// Declaracion de variables campos
+var fieldValueOrganigramaClienteId = [Organigrama_Cliente_Id];
+var fieldValueOrganigramaContratanteId = [Organigrama_Contratante_Id];
+var fieldValueTipoOrganigramaId = [Tipo_Organigrama_Id];
+var fieldValueOrganigramaEstructuraId = [Organigrama_Estructura_Id];
+var fieldValueOrganigramaPuestoId = [Organigrama_Puesto_Id];
+
+var fieldValueOrganigramaPuestoId1 = [Organigrama_Puesto_Id_1];
+
+
+//BEGIN CLIENTE ID VALIDATION
+if (triggerFieldName == 'Organigrama_Cliente_Id'){
+  //console.log("hello");
+  //console.log(fieldValueOrganigramaClienteId);
+  if(fieldValueOrganigramaClienteId == null){
+    //console.log("world");
+    $('#contenedor_contratante').hide();
+    $('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+  else{
+    //console.log("world2");
+    $('#contenedor_contratante').show();
+    $('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+}
+
+/*
+//BEGIN CONTRATANTE ID VALIDATION
+if (triggerFieldName == 'Organigrama_Contratante_Id'){
+  
+  if(fieldValueOrganigramaContratanteId == null){
+    $('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+  else{
+    $('#contenedor_seleccion').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+}*/
+
+
+//BEGIN TIPO ORGANIGRAMA ID VALIDATION
+if (triggerFieldName == 'Tipo_Organigrama_Id'){
+  if(fieldValueTipoOrganigramaId == 0)
+  {
+   	$('#contenedor_estructura').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_nivel').hide();
+  }
+  
+  if(fieldValueTipoOrganigramaId == 1 &amp;&amp; fieldValueOrganigramaContratanteId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_puesto1').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').hide();
+  }
+  
+  if(fieldValueTipoOrganigramaId == 1 &amp;&amp; fieldValueOrganigramaContratanteId &gt; 0)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_puesto').show();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_nivel').hide();
+  }
+    
+}
+
+
+//BEGIN PUESTO ID VALIDATION
+if (triggerFieldName == 'Organigrama_Puesto_Id'){
+  if(fieldValueOrganigramaPuestoId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+  else{
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto1').hide();
+  }
+}
+
+//BEGIN PUESTO ID VALIDATION
+if (triggerFieldName == 'Organigrama_Puesto_Id_1'){
+  if(fieldValueOrganigramaPuestoId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto').hide();
+  }
+  else{
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto').hide();
+  }
+}
+
+console.log("llamada 1");
+
+//BEGIN ESTRUCTURA ID VALIDATION
+if (triggerFieldName == 'Organigrama_Estructura_Id'){
+  console.log("llamada 2");
+  if(fieldValueOrganigramaEstructuraId == null)
+  {
+    console.log("llamada 3");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+  else{
+    console.log("llamada 4");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto1').hide();
+  }
+}
+</Script>
+</update></c><c y="NodeSet" t="2018-08-21T03:28:08"><controller name="Organigrama_V" />
+<rule id="r101" />
+<update>
+  <Script>// Declaracion de variables sistema*
+var success = this.validateInput();
+var commandName = this.arguments().CommandName;
+var triggerFieldName = this.arguments().Trigger;
+// Declaracion de variables campos
+var fieldValueOrganigramaClienteId = [Organigrama_Cliente_Id];
+var fieldValueOrganigramaContratanteId = [Organigrama_Contratante_Id];
+var fieldValueTipoOrganigramaId = [Tipo_Organigrama_Id];
+var fieldValueOrganigramaEstructuraId = [Organigrama_Estructura_Id];
+var fieldValueOrganigramaPuestoId = [Organigrama_Puesto_Id];
+
+var fieldValueOrganigramaPuestoId1 = [Organigrama_Puesto_Id_1];
+
+
+//BEGIN CLIENTE ID VALIDATION
+if (triggerFieldName == 'Organigrama_Cliente_Id'){
+  //console.log("hello");
+  //console.log(fieldValueOrganigramaClienteId);
+  if(fieldValueOrganigramaClienteId == null){
+    //console.log("world");
+    $('#contenedor_contratante').hide();
+    //$('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+  else{
+    //console.log("world2");
+    $('#contenedor_contratante').show();
+    //$('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+}
+
+/*
+//BEGIN CONTRATANTE ID VALIDATION
+if (triggerFieldName == 'Organigrama_Contratante_Id'){
+  
+  if(fieldValueOrganigramaContratanteId == null){
+    $('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+  else{
+    $('#contenedor_seleccion').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+}*/
+
+
+//BEGIN TIPO ORGANIGRAMA ID VALIDATION
+if (triggerFieldName == 'Tipo_Organigrama_Id'){
+  if(fieldValueTipoOrganigramaId == 0)
+  {
+   	$('#contenedor_estructura').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_nivel').hide();
+  }
+  
+  if(fieldValueTipoOrganigramaId == 1 &amp;&amp; fieldValueOrganigramaContratanteId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_puesto1').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').hide();
+  }
+  
+  if(fieldValueTipoOrganigramaId == 1 &amp;&amp; fieldValueOrganigramaContratanteId &gt; 0)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_puesto').show();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_nivel').hide();
+  }
+    
+}
+
+
+//BEGIN PUESTO ID VALIDATION
+if (triggerFieldName == 'Organigrama_Puesto_Id'){
+  if(fieldValueOrganigramaPuestoId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+  else{
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto1').hide();
+  }
+}
+
+//BEGIN PUESTO ID VALIDATION
+if (triggerFieldName == 'Organigrama_Puesto_Id_1'){
+  if(fieldValueOrganigramaPuestoId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto').hide();
+  }
+  else{
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto').hide();
+  }
+}
+
+console.log("llamada 1");
+
+//BEGIN ESTRUCTURA ID VALIDATION
+if (triggerFieldName == 'Organigrama_Estructura_Id'){
+  console.log("llamada 2");
+  if(fieldValueOrganigramaEstructuraId == null)
+  {
+    console.log("llamada 3");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+  else{
+    console.log("llamada 4");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto1').hide();
+  }
+}
+</Script>
+</update></c><c y="NodeSet" t="2018-08-21T03:50:04"><controller name="Organigrama_V" />
+<rule id="r101" />
+<update>
+  <Script>// Declaracion de variables sistema*
+var success = this.validateInput();
+var commandName = this.arguments().CommandName;
+var triggerFieldName = this.arguments().Trigger;
+// Declaracion de variables campos
+var fieldValueOrganigramaClienteId = [Organigrama_Cliente_Id];
+var fieldValueOrganigramaContratanteId = [Organigrama_Contratante_Id];
+var fieldValueTipoOrganigramaId = [Tipo_Organigrama_Id];
+var fieldValueOrganigramaEstructuraId = [Organigrama_Estructura_Id];
+var fieldValueOrganigramaPuestoId = [Organigrama_Puesto_Id];
+
+var fieldValueOrganigramaPuestoId1 = [Organigrama_Puesto_Id_1];
+
+
+//BEGIN CLIENTE ID VALIDATION
+if (triggerFieldName == 'Organigrama_Cliente_Id'){
+  //console.log("hello");
+  //console.log(fieldValueOrganigramaClienteId);
+  if(fieldValueOrganigramaClienteId == null){
+    //console.log("world");
+    $('#contenedor_contratante').hide();
+    //$('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+  else{
+    //console.log("world2");
+    $('#contenedor_contratante').show();
+    //$('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+}
+
+/*
+//BEGIN CONTRATANTE ID VALIDATION
+if (triggerFieldName == 'Organigrama_Contratante_Id'){
+  
+  if(fieldValueOrganigramaContratanteId == null){
+    $('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+  else{
+    $('#contenedor_seleccion').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+}*/
+
+
+//BEGIN TIPO ORGANIGRAMA ID VALIDATION
+if (triggerFieldName == 'Tipo_Organigrama_Id'){
+  if(fieldValueTipoOrganigramaId == 0)
+  {
+   	$('#contenedor_estructura').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_nivel').hide();
+  }
+  
+  if(fieldValueTipoOrganigramaId == 1 &amp;&amp; fieldValueOrganigramaContratanteId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_puesto1').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').hide();
+  }
+  
+  if(fieldValueTipoOrganigramaId == 1 &amp;&amp; fieldValueOrganigramaContratanteId &gt; 0)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_puesto').show();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_nivel').hide();
+  }
+    
+}
+
+
+//BEGIN PUESTO ID VALIDATION
+if (triggerFieldName == 'Organigrama_Puesto_Id'){
+  if(fieldValueOrganigramaPuestoId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+  else{
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto1').hide();
+  }
+}
+
+//BEGIN PUESTO ID VALIDATION
+if (triggerFieldName == 'Organigrama_Puesto_Id_1'){
+  if(fieldValueOrganigramaPuestoId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto').hide();
+  }
+  else{
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto').hide();
+  }
+}
+
+console.log("llamada 1");
+
+//BEGIN ESTRUCTURA ID VALIDATION
+if (triggerFieldName == 'Organigrama_Estructura_Id'){
+  console.log("llamada 2");
+  if(fieldValueOrganigramaEstructuraId == null)
+  {
+    console.log("llamada 3");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+  else{
+    console.log("llamada 4");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto1').hide();
+  }
+}
+</Script>
+</update></c><c y="NodeSet" t="2018-08-21T03:53:50"><controller name="Organigrama_V" />
+<rule id="r101" />
+<update>
+  <Script>// Declaracion de variables sistema*
+var success = this.validateInput();
+var commandName = this.arguments().CommandName;
+var triggerFieldName = this.arguments().Trigger;
+// Declaracion de variables campos
+var fieldValueOrganigramaClienteId = [Organigrama_Cliente_Id];
+var fieldValueOrganigramaContratanteId = [Organigrama_Contratante_Id];
+var fieldValueTipoOrganigramaId = [Tipo_Organigrama_Id];
+var fieldValueOrganigramaEstructuraId = [Organigrama_Estructura_Id];
+var fieldValueOrganigramaPuestoId = [Organigrama_Puesto_Id];
+
+var fieldValueOrganigramaPuestoId1 = [Organigrama_Puesto_Id_1];
+
+
+//BEGIN CLIENTE ID VALIDATION
+if (triggerFieldName == 'Organigrama_Cliente_Id'){
+  //console.log("hello");
+  //console.log(fieldValueOrganigramaClienteId);
+  if(fieldValueOrganigramaClienteId == null){
+    //console.log("world");
+    $('#contenedor_contratante').hide();
+    //$('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+  else{
+    //console.log("world2");
+    $('#contenedor_contratante').show();
+    //$('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+}
+
+/*
+//BEGIN CONTRATANTE ID VALIDATION
+if (triggerFieldName == 'Organigrama_Contratante_Id'){
+  
+  if(fieldValueOrganigramaContratanteId == null){
+    $('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+  else{
+    $('#contenedor_seleccion').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+}*/
+
+
+//BEGIN TIPO ORGANIGRAMA ID VALIDATION
+if (triggerFieldName == 'Tipo_Organigrama_Id'){
+  if(fieldValueTipoOrganigramaId == 0)
+  {
+   	$('#contenedor_estructura').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_nivel').hide();
+  }
+  
+  if(fieldValueTipoOrganigramaId == 1 &amp;&amp; fieldValueOrganigramaContratanteId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_puesto1').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').hide();
+  }
+  
+  if(fieldValueTipoOrganigramaId == 1 &amp;&amp; fieldValueOrganigramaContratanteId &gt; 0)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_puesto').show();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_nivel').hide();
+  }
+    
+}
+
+
+//BEGIN PUESTO ID VALIDATION
+if (triggerFieldName == 'Organigrama_Puesto_Id'){
+  if(fieldValueOrganigramaPuestoId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+  else{
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto1').hide();
+  }
+}
+
+//BEGIN PUESTO ID VALIDATION
+if (triggerFieldName == 'Organigrama_Puesto_Id_1'){
+  if(fieldValueOrganigramaPuestoId1 == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto').hide();
+  }
+  else{
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto').hide();
+  }
+}
+
+console.log("llamada 1");
+
+//BEGIN ESTRUCTURA ID VALIDATION
+if (triggerFieldName == 'Organigrama_Estructura_Id'){
+  console.log("llamada 2");
+  if(fieldValueOrganigramaEstructuraId == null)
+  {
+    console.log("llamada 3");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+  else{
+    console.log("llamada 4");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto1').hide();
+  }
+}
+</Script>
+</update></c><c y="NodeSet" t="2018-08-21T04:05:19"><controller name="Organigrama_V" />
+<rule id="r101" />
+<update>
+  <Script>// Declaracion de variables sistema*
+var success = this.validateInput();
+var commandName = this.arguments().CommandName;
+var triggerFieldName = this.arguments().Trigger;
+// Declaracion de variables campos
+var fieldValueOrganigramaClienteId = [Organigrama_Cliente_Id];
+var fieldValueOrganigramaContratanteId = [Organigrama_Contratante_Id];
+var fieldValueTipoOrganigramaId = [Tipo_Organigrama_Id];
+var fieldValueOrganigramaEstructuraId = [Organigrama_Estructura_Id];
+var fieldValueOrganigramaPuestoId = [Organigrama_Puesto_Id];
+
+var fieldValueOrganigramaPuestoId1 = [Organigrama_Puesto_Id_1];
+
+
+//BEGIN CLIENTE ID VALIDATION
+if (triggerFieldName == 'Organigrama_Cliente_Id'){
+  //console.log("hello");
+  //console.log(fieldValueOrganigramaClienteId);
+  if(fieldValueOrganigramaClienteId == null){
+    //console.log("world");
+    $('#contenedor_contratante').hide();
+    //$('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+  else{
+    //console.log("world2");
+    $('#contenedor_contratante').show();
+    //$('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+}
+
+/*
+//BEGIN CONTRATANTE ID VALIDATION
+if (triggerFieldName == 'Organigrama_Contratante_Id'){
+  
+  if(fieldValueOrganigramaContratanteId == null){
+    $('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+  else{
+    $('#contenedor_seleccion').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+}*/
+
+
+//BEGIN TIPO ORGANIGRAMA ID VALIDATION
+if (triggerFieldName == 'Tipo_Organigrama_Id'){
+  if(fieldValueTipoOrganigramaId == 0)
+  {
+   	$('#contenedor_estructura').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_nivel').hide();
+  }
+  
+  if(fieldValueTipoOrganigramaId == 1 &amp;&amp; fieldValueOrganigramaContratanteId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_puesto1').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').hide();
+  }
+  
+  if(fieldValueTipoOrganigramaId == 1 &amp;&amp; fieldValueOrganigramaContratanteId &gt; 0)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_puesto').show();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_nivel').hide();
+  }
+    
+}
+
+
+//BEGIN PUESTO ID VALIDATION
+if (triggerFieldName == 'Organigrama_Puesto_Id'){
+  if(fieldValueOrganigramaPuestoId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+  else{
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto1').hide();
+  }
+}
+
+//BEGIN PUESTO ID VALIDATION
+if (triggerFieldName == 'Organigrama_Puesto_Id_1'){
+  if(fieldValueOrganigramaPuestoId1 == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto').hide();
+  }
+  else{
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto').hide();
+  }
+}
+
+console.log("llamada 1");
+
+//BEGIN ESTRUCTURA ID VALIDATION
+if (triggerFieldName == 'Organigrama_Estructura_Id'){
+  console.log("llamada 2");
+  if(fieldValueOrganigramaEstructuraId == null)
+  {
+    console.log("llamada 3");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+  else{
+    console.log("llamada 4");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto1').hide();
+  }
+}
+</Script>
+</update></c><c y="NodeSet" t="2018-08-21T04:07:22"><controller name="Organigrama_V" />
+<rule id="r101" />
+<update>
+  <Script>// Declaracion de variables sistema*
+var success = this.validateInput();
+var commandName = this.arguments().CommandName;
+var triggerFieldName = this.arguments().Trigger;
+// Declaracion de variables campos
+var fieldValueOrganigramaClienteId = [Organigrama_Cliente_Id];
+var fieldValueOrganigramaContratanteId = [Organigrama_Contratante_Id];
+var fieldValueTipoOrganigramaId = [Tipo_Organigrama_Id];
+var fieldValueOrganigramaEstructuraId = [Organigrama_Estructura_Id];
+var fieldValueOrganigramaPuestoId = [Organigrama_Puesto_Id];
+
+var fieldValueOrganigramaPuestoId1 = [Organigrama_Puesto_Id_1];
+
+
+//BEGIN CLIENTE ID VALIDATION
+if (triggerFieldName == 'Organigrama_Cliente_Id'){
+  //console.log("hello");
+  //console.log(fieldValueOrganigramaClienteId);
+  if(fieldValueOrganigramaClienteId == null){
+    //console.log("world");
+    $('#contenedor_contratante').hide();
+    //$('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+  else{
+    //console.log("world2");
+    $('#contenedor_contratante').show();
+    //$('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+}
+
+/*
+//BEGIN CONTRATANTE ID VALIDATION
+if (triggerFieldName == 'Organigrama_Contratante_Id'){
+  
+  if(fieldValueOrganigramaContratanteId == null){
+    $('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+  else{
+    $('#contenedor_seleccion').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+}*/
+
+
+//BEGIN TIPO ORGANIGRAMA ID VALIDATION
+if (triggerFieldName == 'Tipo_Organigrama_Id'){
+  if(fieldValueTipoOrganigramaId == 0)
+  {
+   	$('#contenedor_estructura').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_nivel').hide();
+  }
+  
+  if(fieldValueTipoOrganigramaId == 1 &amp;&amp; fieldValueOrganigramaContratanteId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_puesto1').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').hide();
+  }
+  
+  if(fieldValueTipoOrganigramaId == 1 &amp;&amp; fieldValueOrganigramaContratanteId &gt; 0)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_puesto').show();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_nivel').hide();
+  }
+    
+}
+
+
+//BEGIN PUESTO ID VALIDATION
+if (triggerFieldName == 'Organigrama_Puesto_Id'){
+  if(fieldValueOrganigramaPuestoId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+  else{
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto1').hide();
+  }
+}
+
+//BEGIN PUESTO ID VALIDATION
+if (triggerFieldName == 'Organigrama_Puesto_Id_1'){
+  if(fieldValueOrganigramaPuestoId1 == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto').hide();
+  }
+  else{
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto').hide();
+  }
+}
+
+console.log("llamada 1");
+
+//BEGIN ESTRUCTURA ID VALIDATION
+if (triggerFieldName == 'Organigrama_Estructura_Id'){
+  console.log("llamada 2");
+  if(fieldValueOrganigramaEstructuraId == null)
+  {
+    console.log("llamada 3");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+  }
+  else{
+    console.log("llamada 4");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto1').hide();
+  }
+}
+</Script>
+</update></c><c y="NodeSet" t="2018-08-21T04:46:50"><controller name="Organigrama_V" />
+<copy>
+  <controller name="Organigrama_V" />
+  <field name="Organigrama_Estructura_Id" />
+</copy></c><c y="NodeSet" t="2018-08-21T04:48:27"><controller name="Organigrama_V" />
+<view id="createForm2" />
+<category id="c1" />
+<copy>
+  <controller name="Organigrama_V" />
+  <field name="Organigrama_Estructura_Id_1" />
+</copy></c><c y="NodeSet" t="2018-08-21T04:48:50"><controller name="Organigrama_V" />
+<view id="createForm2" />
+<dataField fieldName="Organigrama_Estructura_Id_1" />
+<update>
+  <Alias>Organigrama_Estructura</Alias>
+  <Hidden>false</Hidden>
+  <DataViewShowInSummary>false</DataViewShowInSummary>
+</update></c><c y="NodeSet" t="2018-08-21T04:49:34"><controller name="Organigrama_V" />
+<field name="Organigrama_Estructura_Id_1" />
+<update>
+  <Copy>Organigrama_Puesto_Id = null,
+Nivel = null</Copy>
+</update></c><c y="NodeSet" t="2018-08-21T05:05:57"><controller name="Organigrama_V" />
+<rule id="r101" />
+<update>
+  <Script>// Declaracion de variables sistema*
+var success = this.validateInput();
+var commandName = this.arguments().CommandName;
+var triggerFieldName = this.arguments().Trigger;
+// Declaracion de variables campos
+var fieldValueOrganigramaClienteId = [Organigrama_Cliente_Id];
+var fieldValueOrganigramaContratanteId = [Organigrama_Contratante_Id];
+var fieldValueTipoOrganigramaId = [Tipo_Organigrama_Id];
+var fieldValueOrganigramaEstructuraId = [Organigrama_Estructura_Id];
+var fieldValueOrganigramaPuestoId = [Organigrama_Puesto_Id];
+
+var fieldValueOrganigramaPuestoId1 = [Organigrama_Puesto_Id_1];
+var fieldValueOrganigramaEstructuraId1 = [Organigrama_Estructura_Id_1];
+
+
+//BEGIN CLIENTE ID VALIDATION
+if (triggerFieldName == 'Organigrama_Cliente_Id'){
+  //console.log("hello");
+  //console.log(fieldValueOrganigramaClienteId);
+  if(fieldValueOrganigramaClienteId == null){
+    //console.log("world");
+    $('#contenedor_contratante').hide();
+    //$('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_estructura1').hide();
+  }
+  else{
+    //console.log("world2");
+    $('#contenedor_contratante').show();
+    //$('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_estructura1').hide();
+  }
+}
+
+/*
+//BEGIN CONTRATANTE ID VALIDATION
+if (triggerFieldName == 'Organigrama_Contratante_Id'){
+  
+  if(fieldValueOrganigramaContratanteId == null){
+    $('#contenedor_seleccion').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+  else{
+    $('#contenedor_seleccion').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+  }
+}*/
+
+
+//BEGIN TIPO ORGANIGRAMA ID VALIDATION
+if (triggerFieldName == 'Tipo_Organigrama_Id'){
+  if(fieldValueTipoOrganigramaId == 0 &amp;&amp; fieldValueOrganigramaContratanteId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_estructura1').show();
+  }
+  
+  if(fieldValueTipoOrganigramaId == 0 &amp;&amp; fieldValueOrganigramaContratanteId &gt; 0)
+  {
+   	$('#contenedor_estructura').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_estructura1').hide();
+  }
+  
+  if(fieldValueTipoOrganigramaId == 1 &amp;&amp; fieldValueOrganigramaContratanteId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_puesto1').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_estructura1').hide();
+  }
+  
+  if(fieldValueTipoOrganigramaId == 1 &amp;&amp; fieldValueOrganigramaContratanteId &gt; 0)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_puesto').show();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_estructura1').hide();
+  }
+    
+}
+
+
+//BEGIN PUESTO ID VALIDATION
+if (triggerFieldName == 'Organigrama_Puesto_Id'){
+  if(fieldValueOrganigramaPuestoId == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_estructura1').hide();
+  }
+  else{
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_estructura1').hide();
+  }
+}
+
+//BEGIN PUESTO ID VALIDATION
+if (triggerFieldName == 'Organigrama_Puesto_Id_1'){
+  if(fieldValueOrganigramaPuestoId1 == null)
+  {
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura1').hide();
+  }
+  else{
+   	$('#contenedor_estructura').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto').hide();
+    $('#contenedor_estructura1').hide();
+  }
+}
+
+console.log("llamada 1");
+
+//BEGIN ESTRUCTURA ID VALIDATION
+if (triggerFieldName == 'Organigrama_Estructura_Id'){
+  console.log("llamada 2");
+  if(fieldValueOrganigramaEstructuraId == null)
+  {
+    console.log("llamada 3");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_estructura1').hide();
+  }
+  else{
+    console.log("llamada 4");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_estructura1').hide();
+  }
+}
+
+//BEGIN ESTRUCTURA ID VALIDATION
+if (triggerFieldName == 'Organigrama_Estructura_Id_1'){
+  console.log("llamada 2");
+  if(fieldValueOrganigramaEstructuraId1 == null)
+  {
+    console.log("llamada 3");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').hide();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_estructura').hide();
+  }
+  else{
+    console.log("llamada 4");
+    $('#contenedor_puesto').hide();
+    $('#contenedor_nivel').show();
+    $('#contenedor_puesto1').hide();
+    $('#contenedor_estructura').hide();
+  }
+}
+
+
+
+
+</Script>
+</update></c><c y="NodeSet" t="2018-08-21T05:15:01"><controller name="Organigrama_V" />
+<field name="Organigrama_Estructura_Id_1" />
+<update>
+  <Copy>Organigrama_Puesto_Id = null,
+Nivel = null</Copy>
+  <ContextFields>ClienteId = Organigrama_Cliente_Id</ContextFields>
+</update></c><c y="NodeSet" t="2018-08-21T05:15:25"><controller name="Organigrama_V" />
+<field name="Organigrama_Estructura_Id_1" />
+<update>
+  <Copy>Organigrama_Puesto_Id = null,
+Nivel = null</Copy>
+</update></c><c y="NodeSet" t="2018-08-21T05:18:47"><controller name="Organigrama_V" />
+<field name="Organigrama_Estructura_Id_1" />
+<update>
+  <Copy>Organigrama_Puesto_Id = null,
+Nivel = null</Copy>
+</update></c><c y="NodeSet" t="2018-09-11T12:47:03"><controller name="Organigrama_Cliente_V" />
+<view id="createForm1" />
+<update>
+  <SortExpression>Cliente</SortExpression>
+</update></c><c y="NodeSet" t="2018-09-11T12:47:23"><controller name="Organigrama_Contratante_V" />
+<view id="grid1" />
+<update>
+  <SortExpression>Contratante</SortExpression>
+</update></c><c y="NodeSet" t="2018-09-11T12:57:39"><controller name="Organigrama_Cliente_V" />
+<view id="grid1" />
+<update>
+  <SortExpression>Cliente</SortExpression>
+</update></c></log><log type="Application"><c y="NodeSet" t="2018-07-23T11:32:25"><page name="Estructura_Datos_V" />
+<update>
+  <UseExtenders>false</UseExtenders>
+  <Roles>hidden</Roles>
+</update></c><c y="NodeSet" t="2018-07-23T11:32:37"><page name="Perfil_Persona_V" />
+<update>
+  <UseExtenders>false</UseExtenders>
+  <Roles>hidden</Roles>
+</update></c><c y="NodeSet" t="2018-08-20T00:17:55"><page name="Organigrama_Cliente_V" />
+<update>
+  <UseExtenders>false</UseExtenders>
+  <Roles>hidden</Roles>
+</update></c><c y="NodeSet" t="2018-08-20T00:18:04"><page name="Organigrama_Contratante_V" />
+<update>
+  <UseExtenders>false</UseExtenders>
+  <Roles>hidden</Roles>
+</update></c></log></logs>

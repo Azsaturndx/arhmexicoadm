@@ -1,0 +1,344 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div data-container="collapsible" data-wrap="false" data-header-text="none">
+        <div data-container="toggle" class="app-feedback" style="height:30% !important;">
+            <span class="app-collapsible-toggle-button" title="Minimizar"></span>
+        </div>
+        <!-- START <div data-container="simple">-->
+        <div data-container="simple" style="height:auto; width:auto !important;">
+            <!-- START <div data-container="column" style="height:auto; width:50%;"> -->
+
+
+            <div data-container="row">
+                <span data-control="label" data-field="Fecha_Solicitud" class="spanText">Fecha_Solicitud</span>
+                <span data-control="field" data-field="Fecha_Solicitud" class="fieldTextRequired">[Fecha_Solicitud]</span>
+            </div>
+            <div data-container="row">
+                <span data-control="label" data-field="Monto_Gasto" class="spanText">Monto Gasto</span>
+                <span data-control="field" data-field="Monto_Gasto" class="fieldTextRequired">[Monto_Gasto]</span>
+            </div>
+            <div data-container="row" data-wrap="false">
+                <span data-control="label" data-field="Monto_Gasto_Autorizado" class="spanText">Monto_Gasto_Autorizado</span>
+                <span data-control="field" data-field="Monto_Gasto_Autorizado" class="fieldTextRequired">[Monto_Gasto_Autorizado]</span>
+            </div>
+            
+                <span data-control="label" data-field="Estatus_Solicitud_Id" class="spanText" style="display:none">Estatus_Solicitud_Id</span>
+                <span data-control="field" data-field="Estatus_Solicitud_Id" class="fieldTextRequired" style="display:none">[Estatus_Solicitud_Id]</span>
+            
+            <div data-container="row" style="height:auto">
+                <span data-control="label" data-field="Comentarios_Autorizacion_Rechazo" class="spanText">Comentarios_Autorizacion_Rechazo</span>
+                <span data-control="field" data-field="Comentarios_Autorizacion_Rechazo" class="fieldTextRequired">[Comentarios_Autorizacion_Rechazo]</span>
+            </div>
+            
+                <span data-control="label" data-field="Solicitud_Gasto_Key" class="spanText" style="display:none">Solicitud_Gasto_Key</span>
+                <span data-control="field" data-field="Solicitud_Gasto_Key" class="fieldTextRequired" style="display:none">[Solicitud_Gasto_Key]</span>
+            
+            
+                <span data-control="label" data-field="Administracion_Gasto_Id" class="spanText" style="display:none">Administracion_Gasto_Id</span>
+                <span data-control="field" data-field="Administracion_Gasto_Id" class="fieldTextRequired" style="display:none">[Administracion_Gasto_Id]</span>
+
+            <span data-control="label" data-field="Autorizado_Rechazado_Por_Id" class="spanText" style="display:none">Autorizado_Rechazado_Por_Id</span>
+            <span data-control="field" data-field="Autorizado_Rechazado_Por_Id" class="fieldTextRequired" style="display:none">[Autorizado_Rechazado_Por_Id]</span>
+            
+            
+
+
+
+        </div><!--<div data-container="simple">-->
+    </div><!--END <div data-container="collapsible" d-->
+</body>
+</html>
+<script type="text/javascript">
+
+    var debug = 0; //Para sacar a pantalla validaciones en caso de debug como alert.
+
+    var field; //Esta variable nos servirá para pasarla a la función que valida que el parámetro exista en la URL
+    var url = window.location.href;//Variable para obtener la URL
+    var urlForbidden = "../Pages/Frb.html";
+    var numeroParametrosInvalidos = 0;
+
+    var urlLogicAppToken = "https://prod-04.southcentralus.logic.azure.com:443/workflows/1a32705c836d4ad0a84b11fba004c241/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=kzRjEpq15iS_qoInMfcFCeUPiji8qIsf-z4fiIw2KlQ"; //Logic APP para validar el token
+    var urlLogicAppSolicitudKey = "https://prod-01.southcentralus.logic.azure.com:443/workflows/28d25dfed3ce4b0988981bb505ba1de5/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=oO2go39bq7k11_Bh_Yq1Vd2WmBEAWxJ0oiEDJiA7a04";//Logic APP para validar la solicitud key
+    var urlLogicAppUserKey = "https://prod-03.southcentralus.logic.azure.com:443/workflows/933750fc49d043e78ba0f5e02126ce84/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=5J6TTvbAx9da4RIUZ53kAgHgy6zeKgcrquhfsUPaato";//Logic APP para validar el usuario
+
+
+    if (debug == 1)
+    {
+        urlLogicAppToken = "https://prod-14.southcentralus.logic.azure.com:443/workflows/be5025e5e84b41f9a60471894b86ea0a/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Q0TnkEoHlSHUJLVMR5njQOB72DShe868iafBJnY4OQE"; //Logic APP para validar el token
+        urlLogicAppSolicitudKey = "https://prod-22.southcentralus.logic.azure.com:443/workflows/c62e114b1b0440d68d969036bcd0cbaa/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=UFVKDcgqi-82l-axW40wViZgkKj9OK1C6f7HclgNVGw";//Logic APP para validar la solicitud key
+        urlLogicAppUserKey = "https://prod-30.southcentralus.logic.azure.com:443/workflows/a9b0ecae086145139f610a8a9f1b6aa1/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=tJg_VWfVpnWkU2lgq1Vi3aB_XO0omTK4ll3FHu668AY";//Logic APP para validar el usuario
+    }
+    
+    var metodo = "GET";
+
+    //Traer los datos que vienen en los parámetros siguientes
+    var vToken = "token";//Token
+    var vSolicitudKey = "solicitudKey"; //Solicitud Key
+    var vUserKey = "userKey"; //Usuario
+
+    //Para contar la cantidad de parámetros en la URL
+    var contadorParametros = 0;
+
+    var urlToken = getUrlVars()[vToken];
+    var urlSKey = getUrlVars()[vSolicitudKey];
+    var urlUK = getUrlVars()[vUserKey];
+
+    $(document).ready(function () {
+        //Validar que solo pasen los parámetros necesarios y no más.
+        //contadorParametros = parse_query_string(url);
+        if (debug == 1)
+            console.log("Parámetros=" + contadorParametros);
+        if (contadorParametros > 0) {
+            window.location.replace(urlForbidden + "?fbt=1");
+        }//if (contadorParametros > 0)
+        else
+        {
+            //INICIO Validar Token
+            //Iniciar validación de LogicAPP para token
+
+            urlLogicApp = urlLogicAppToken + "&token=" + urlToken;
+
+            if (debug == 1)
+                console.log("Inicio de llamada a Logic App, URL:" + urlLogicApp);
+
+            if (debug == 1)
+                alert("El valor del Token es:" + urlToken + ";Valor de la Solicitud:" + urlSKey + ";Valor del User:" + urlUK);
+
+            field = vToken;
+            if ((checkUrlParameter(field)) == false) {
+                if (debug == 1)
+                    alert("No existe el parámetro en la URL");
+                window.location.replace(urlForbidden + "?fbt=1");
+            }//if ((checkUrlParameter(field)) == false)
+            else {
+                if (debug == 1)
+                    alert("El parámetro Token si existe en la URL");
+
+                if (vToken == "") {
+                    if (debug == 1)
+                        alert("El parámetro Token viene vacío.");
+                        window.location.replace(urlForbidden + "?fbt=1");
+                }//if(vToken=="")
+
+                try {
+                    $.ajax({
+                        url: urlLogicApp,
+                        method: metodo,
+                        beforeSend: function (e) {
+                            if (debug == 1) {
+                                console.log("Validando Token de Sesión...");
+                                console.log(urlLogicApp);
+                            }
+                        }
+                        , success: function (response) {
+                            if (debug == 1) console.log("Éxito!!...");
+
+                            if (debug == 1) {
+                                console.log(response);
+                            }//if (debug == 1)
+
+                        }
+                        , error: function (e, t, a) {
+
+                            window.location.replace(urlForbidden + "?fbt=2");
+                            if (debug == 1) console.log("Error 600072!!!");
+                            return false;
+                        }
+                    }).done(function (data) {
+                        if (debug == 1) console.log("Hecho!!");
+                        return true;
+                    });
+                }//try
+                catch (err) {
+
+                    if (debug == 1) console.log("Catch Error 600073!!!");
+                    window.location.replace(urlForbidden + "?fbt=2");
+                    return true;
+                }//catch
+            }//else if ((checkUrlParameter(field)) == false)
+            //FIN Validar Token
+            urlLogicApp = urlLogicAppSolicitudKey + "&solicitudKey=" + urlSKey;
+
+            if (debug == 1)
+                console.log("Inicio de llamada a Logic App, URL:" + urlLogicApp);
+
+            if (debug == 1)
+                alert("El valor de la solicitud es:" + urlSKey);
+
+            field = vSolicitudKey;
+            if ((checkUrlParameter(field)) == false) {
+                if (debug == 1)
+                    alert("No existe el parámetro en la URL");
+                window.location.replace(urlForbidden + "?fbt=1");
+            }//if ((checkUrlParameter(field)) == false)
+            else {
+                if (debug == 1)
+                    alert("El parámetro Solicitud Key si existe en la URL");
+
+                if (vSolicitudKey == "") {
+                    if (debug == 1)
+                        alert("El parámetro Solicitud Key viene vacío.");
+                    window.location.replace(urlForbidden + "?fbt=1");
+                }//if(vToken=="")
+
+                try {
+                    $.ajax({
+                        url: urlLogicApp,
+                        method: metodo,
+                        beforeSend: function (e) {
+                            if (debug == 1) {
+                                console.log("Validando Key de Solicitud de Gasto...");
+                                console.log(urlLogicApp);
+                            }
+                        }
+                        , success: function (response) {
+                            if (debug == 1) console.log("Éxito!!...");
+
+                            if (debug == 1) {
+                                console.log(response);
+                            }//if (debug == 1)
+
+                        }
+                        , error: function (e, t, a) {
+
+                            window.location.replace(urlForbidden + "?fbt=9");
+                            if (debug == 1) console.log("Error 600072!!!");
+                            return false;
+                        }
+                    }).done(function (data) {
+                        if (debug == 1) console.log("Hecho!!");
+                        return true;
+                    });
+                }//try
+                catch (err) {
+
+                    if (debug == 1) console.log("Catch Error 600073!!!");
+                    window.location.replace(urlForbidden + "?fbt=9");
+                    return true;
+                }//catch
+            }//else if ((checkUrlParameter(field)) == false)
+            //FIN Validar Solicitud Key Gasto
+            //INICIO Validar User Key
+            urlLogicApp = urlLogicAppUserKey + "&userKey=" + urlUK + "&solicitudKey=" + urlSKey;
+
+            if (debug == 1)
+                console.log("Inicio de llamada a Logic App, URL:" + urlLogicApp);
+
+            if (debug == 1)
+                alert("El valor del Token es:" + urlToken + ";Valor de la Solicitud:" + urlSKey + ";Valor del User:" + urlUK);
+
+            field = vUserKey;
+            if ((checkUrlParameter(field)) == false) {
+                if (debug == 1)
+                    alert("No existe el parámetro en la URL");
+                window.location.replace(urlForbidden + "?fbt=1");
+            }//if ((checkUrlParameter(field)) == false)
+            else {
+                if (debug == 1)
+                    alert("El parámetro User Key si existe en la URL");
+
+                if (vSolicitudKey == "") {
+                    if (debug == 1)
+                        alert("El parámetro User Key viene vacío.");
+                    window.location.replace(urlForbidden + "?fbt=1");
+                }//if(vToken=="")
+
+                try {
+                    $.ajax({
+                        url: urlLogicApp,
+                        method: metodo,
+                        beforeSend: function (e) {
+                            if (debug == 1) {
+                                console.log("Validando User Key...");
+                                console.log(urlLogicApp);
+                            }
+                        }
+                        , success: function (response) {
+                            if (debug == 1) console.log("Éxito!!...");
+
+                            if (debug == 1) {
+                                console.log(response);
+                            }//if (debug == 1)
+
+                        }
+                        , error: function (e, t, a) {
+
+                            window.location.replace(urlForbidden + "?fbt=10");
+                            if (debug == 1) console.log("Error 600072!!!");
+                            return false;
+                        }
+                    }).done(function (data) {
+                        if (debug == 1) console.log("Hecho!!");
+                        return true;
+                    });
+                }//try
+                catch (err) {
+
+                    if (debug == 1) console.log("Catch Error 600073!!!");
+                    window.location.replace(urlForbidden + "?fbt=10");
+                    return true;
+                }//catch
+
+                //Parsear el token para validar el tipo de dato
+            }//else if ((checkUrlParameter(field)) == false)
+            //FIN Validar User Key
+        }//else if (contadorParametros > 0)
+    });//$(document).ready(function () {
+
+    //Función para obtener las variables de la URL mediante el nombre del parámetro
+    function getUrlVars() {
+        var vars = {};
+        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+            vars[key] = value;
+        });
+        return vars;
+    }//function getUrlVars()
+
+    //Función para validar si existe un parámetro en la URL
+    function checkUrlParameter(parameter) {
+        if (url.indexOf('?' + parameter + '=') != -1)
+            return true;
+        else if (url.indexOf('&' + parameter + '=') != -1)
+            return true;
+        return false
+    }//function checkUrlParameter(parameter)
+
+    //Función para contar todos los parámetros en la URL
+    function parse_query_string(query) {
+        if (url.indexOf('?') != -1) {
+            if (debug == 1)
+                alert("Ingreso por aqui 1 ");
+            var arregloLiga = query.split("?");
+            var vars = arregloLiga[1].split("&");
+            var query_string = {};
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                var key = decodeURIComponent(pair[0]);
+                var numeroParametrosIncorrectos = 0;
+                var value = decodeURIComponent(pair[1]);
+                if (key != "token" && key != "solicitudKey" && key != "userKey" && key != "_commandName" && key != "_commandArgument" && key != "_controller" && key != "Solicitud_Gasto_Key" && key != "Administracion_Gasto_Id") {
+                    console.log("Key=" + key);
+                    numeroParametrosIncorrectos++;
+
+                }
+                if (numeroParametrosIncorrectos > 0) {
+                    if (debug == 1)
+                        alert("Existen varios parámetros incorrectos");
+                    console.log("Total Parámetros Incorrectos=" + numeroParametrosIncorrectos + "; URL Verificada:" + query);
+                }
+            }
+        }
+        else {
+            if (debug == 1)
+                console.log("Ingreso por ELSE de fn parse_query_string");
+            window.location.replace(urlForbidden + "?fbt=1");
+        }
+
+        return numeroParametrosIncorrectos;
+    }    //Función para contar todos los parámetros en la URL
+</script>

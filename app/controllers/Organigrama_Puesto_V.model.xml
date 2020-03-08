@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Organigrama_Puesto_V" alias="Organigrama_Puesto_V" created="2018-07-16T16:30:00" modified="2018-08-20T00:16:55" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="Contratante_Puesto_Id" fieldName="Contratante_Puesto_Id" label="Contratante Puesto Id" />
+    <column name="Contratante_Puesto" fieldName="Contratante_Puesto" label="Contratante Puesto" />
+    <column name="Estatus_Puesto_Id" fieldName="EstatusPuestoId" label="Estatus Puesto Id" />
+    <column name="Color_Hexadecimal" fieldName="ColorHexadecimal" label="Color Hexadecimal" />
+    <column name="Cliente_Id" fieldName="ClienteId" label="Cliente Id" />
+    <column name="Contratante_Id" fieldName="ContratanteId" label="Contratante Id" />
+    <column name="Contratante_Estructura_Organizacional_Id" fieldName="ContratanteEstructuraOrganizacionalId" label="Contratante Estructura Organizacional Id" />
+  </columns>
+</dataModel>

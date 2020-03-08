@@ -1,0 +1,484 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Metrica" conflictDetection="overwriteChanges" label="Metrica" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Metrica"."Metrica_Id" "Metrica_Id"
+	,"Metrica"."Metrica" "Metrica"
+	,"Metrica"."Aplica_Para_Religion" "Aplica_Para_Religion"
+	,"Metrica"."Aplica_Para_Orientacion_Sexual" "Aplica_Para_Orientacion_Sexual"
+	,"Metrica"."Aplica_Para_Disposicion_A_Movilidad" "Aplica_Para_Disposicion_A_Movilidad"
+	,"Metrica"."Aplica_Para_Disposicion_A_Cambio_De_Domicilio" "Aplica_Para_Disposicion_A_Cambio_De_Domicilio"
+	,"Metrica"."Aplica_Para_Edad" "Aplica_Para_Edad"
+	,"Metrica"."Aplica_Para_Color_Piel" "Aplica_Para_Color_Piel"
+	,"Metrica"."Aplica_Para_Estatura" "Aplica_Para_Estatura"
+	,"Metrica"."Aplica_Para_Peso" "Aplica_Para_Peso"
+	,"Metrica"."Aplica_Para_Complexion_Fisica" "Aplica_Para_Complexion_Fisica"
+	,"Metrica"."Aplica_Para_Tatuajes_Admitidos" "Aplica_Para_Tatuajes_Admitidos"
+	,"Metrica"."Aplica_Para_Tatuajes_Visibilidad" "Aplica_Para_Tatuajes_Visibilidad"
+	,"Metrica"."Aplica_Para_Tipo_Tatuajes" "Aplica_Para_Tipo_Tatuajes"
+	,"Metrica"."Aplica_Para_Sena_Particular" "Aplica_Para_Sena_Particular"
+	,"Metrica"."Aplica_Para_Estado_Salud_Aparente" "Aplica_Para_Estado_Salud_Aparente"
+	,"Metrica"."Aplica_Para_Estado_Salud_Sufre_Diabetes" "Aplica_Para_Estado_Salud_Sufre_Diabetes"
+	,"Metrica"."Aplica_Para_Estado_Salud_Problemas_Presion_Artereal" "Aplica_Para_Estado_Salud_Problemas_Presion_Artereal"
+	,"Metrica"."Aplica_Para_Estado_Salud_Sufre_Sobrepeso" "Aplica_Para_Estado_Salud_Sufre_Sobrepeso"
+	,"Metrica"."Aplica_Para_Estado_Salud_Consumo_Estupefacientes" "Aplica_Para_Estado_Salud_Consumo_Estupefacientes"
+	,"Metrica"."Aplica_Para_Estado_Salud_Padece_Discapacidad" "Aplica_Para_Estado_Salud_Padece_Discapacidad"
+	,"Metrica"."Aplica_Para_Estado_Salud_Tipo_Discapacidad" "Aplica_Para_Estado_Salud_Tipo_Discapacidad"
+	,"Metrica"."Aplica_Para_Experiencia_Periodo" "Aplica_Para_Experiencia_Periodo"
+	,"Metrica"."Aplica_Para_Tipo_Contribucion" "Aplica_Para_Tipo_Contribucion"
+	,"Metrica"."Aplica_Para_Nivel_Conocimiento" "Aplica_Para_Nivel_Conocimiento"
+	,"Metrica"."Aplica_Para_Nivel_Habilidad" "Aplica_Para_Nivel_Habilidad"
+	,"Metrica"."Aplica_Para_Anios_Uso" "Aplica_Para_Anios_Uso"
+	,"Metrica"."Aplica_Para_Es_Titulado" "Aplica_Para_Es_Titulado"
+	,"Metrica"."Aplica_Para_Es_Becado" "Aplica_Para_Es_Becado"
+	,"Metrica"."Aplica_Para_Es_Certificado" "Aplica_Para_Es_Certificado"
+	,"Metrica"."Transaccion_Id" "Transaccion_Id"
+	,"Metrica"."Creado_Por_Id" "Creado_Por_Id"
+	,"Usuario_V1"."UserName" "Creado_Por"
+	,"Metrica"."Fecha_Creacion" "Fecha_Creacion"
+	,"Metrica"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"Usuario_V"."UserName" "Actualizado_Por"
+	,"Metrica"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Metrica"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+from "APP"."Metrica" "Metrica"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Metrica"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Usuario_V" on "Metrica"."Actualizado_Por_Id" = "Usuario_V"."UserId"
+	left join "dbo"."Usuario_V" "Usuario_V1" on "Metrica"."Creado_Por_Id" = "Usuario_V1"."UserId"
+]]></text>
+    </command>
+    <command id="Metrica_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Metrica_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Metrica_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Metrica Id" readOnly="true" />
+    <field name="Metrica" type="String" allowNulls="false" default="('')" label="Métrica" length="150" showInSummary="true" />
+    <field name="Aplica_Para_Religion" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Religión?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Orientacion_Sexual" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Orientacion Sexual?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Disposicion_A_Movilidad" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Disposición A Movilidad?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Disposicion_A_Cambio_De_Domicilio" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Disposición A Cambio De Domicilio?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Edad" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Edad?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Color_Piel" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Color Piel?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Estatura" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Estatura?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Peso" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Peso?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Complexion_Fisica" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Complexión Fisica?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Tatuajes_Admitidos" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Tatuajes Admitidos?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Tatuajes_Visibilidad" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Tatuajes Visibilidad?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Tipo_Tatuajes" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Tipo de Tatuajes?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Sena_Particular" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Seña Particular?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Estado_Salud_Aparente" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Estado de Salud Aparente?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Estado_Salud_Sufre_Diabetes" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Estado de Salud Sufre Diabetes?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Estado_Salud_Problemas_Presion_Artereal" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Estado de Salud Problemas Presión Artereal?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Estado_Salud_Sufre_Sobrepeso" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Estado de Salud Sufre Sobrepeso?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Estado_Salud_Consumo_Estupefacientes" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Estado de Salud de Consumo de Estupefacientes?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Estado_Salud_Padece_Discapacidad" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Estado de Salud Padece Discapacidad?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Estado_Salud_Tipo_Discapacidad" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Estado de Salud Tipo de Discapacidad?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Experiencia_Periodo" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Experiencia de Período">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Tipo_Contribucion" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Tipo de Contribución?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Nivel_Conocimiento" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Nivel de Conocimiento?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Nivel_Habilidad" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Nivel de Habilidad?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Anios_Uso" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Años de Uso?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Es_Titulado" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Es Titulado?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Es_Becado" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Es Becado?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Es_Certificado" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Para Es Certificado?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transaccion Id" length="50" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="Creado_Por" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Creación" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="Actualizado_Por" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Última Actualización" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Métrica" showInSelector="false">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Metrica" />
+        <dataField fieldName="Aplica_Para_Religion" />
+        <dataField fieldName="Aplica_Para_Orientacion_Sexual" />
+        <dataField fieldName="Aplica_Para_Disposicion_A_Movilidad" />
+        <dataField fieldName="Aplica_Para_Disposicion_A_Cambio_De_Domicilio" />
+        <dataField fieldName="Aplica_Para_Edad" />
+        <dataField fieldName="Aplica_Para_Color_Piel" />
+        <dataField fieldName="Aplica_Para_Estatura" />
+        <dataField fieldName="Aplica_Para_Peso" />
+        <dataField fieldName="Aplica_Para_Complexion_Fisica" />
+        <dataField fieldName="Aplica_Para_Tatuajes_Admitidos" />
+        <dataField fieldName="Aplica_Para_Tatuajes_Visibilidad" />
+        <dataField fieldName="Aplica_Para_Tipo_Tatuajes" />
+        <dataField fieldName="Aplica_Para_Sena_Particular" />
+        <dataField fieldName="Aplica_Para_Estado_Salud_Aparente" />
+        <dataField fieldName="Aplica_Para_Estado_Salud_Sufre_Diabetes" />
+        <dataField fieldName="Aplica_Para_Estado_Salud_Problemas_Presion_Artereal" />
+        <dataField fieldName="Aplica_Para_Estado_Salud_Sufre_Sobrepeso" />
+        <dataField fieldName="Aplica_Para_Estado_Salud_Consumo_Estupefacientes" />
+        <dataField fieldName="Aplica_Para_Estado_Salud_Padece_Discapacidad" />
+        <dataField fieldName="Aplica_Para_Estado_Salud_Tipo_Discapacidad" />
+        <dataField fieldName="Aplica_Para_Experiencia_Periodo" />
+        <dataField fieldName="Aplica_Para_Tipo_Contribucion" />
+        <dataField fieldName="Aplica_Para_Nivel_Conocimiento" />
+        <dataField fieldName="Aplica_Para_Nivel_Habilidad" />
+        <dataField fieldName="Aplica_Para_Anios_Uso" />
+        <dataField fieldName="Aplica_Para_Es_Titulado" />
+        <dataField fieldName="Aplica_Para_Es_Becado" />
+        <dataField fieldName="Aplica_Para_Es_Certificado" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="Creado_Por" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="Actualizado_Por" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Métrica" showInSelector="false">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Métrica" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Metrica" />
+            <dataField fieldName="Aplica_Para_Religion" />
+            <dataField fieldName="Aplica_Para_Orientacion_Sexual" />
+            <dataField fieldName="Aplica_Para_Disposicion_A_Movilidad" />
+            <dataField fieldName="Aplica_Para_Disposicion_A_Cambio_De_Domicilio" />
+            <dataField fieldName="Aplica_Para_Edad" />
+            <dataField fieldName="Aplica_Para_Color_Piel" />
+            <dataField fieldName="Aplica_Para_Estatura" />
+            <dataField fieldName="Aplica_Para_Peso" />
+            <dataField fieldName="Aplica_Para_Complexion_Fisica" />
+            <dataField fieldName="Aplica_Para_Tatuajes_Admitidos" />
+            <dataField fieldName="Aplica_Para_Tatuajes_Visibilidad" />
+            <dataField fieldName="Aplica_Para_Tipo_Tatuajes" />
+            <dataField fieldName="Aplica_Para_Sena_Particular" />
+            <dataField fieldName="Aplica_Para_Estado_Salud_Aparente" />
+            <dataField fieldName="Aplica_Para_Estado_Salud_Sufre_Diabetes" />
+            <dataField fieldName="Aplica_Para_Estado_Salud_Problemas_Presion_Artereal" />
+            <dataField fieldName="Aplica_Para_Estado_Salud_Sufre_Sobrepeso" />
+            <dataField fieldName="Aplica_Para_Estado_Salud_Consumo_Estupefacientes" />
+            <dataField fieldName="Aplica_Para_Estado_Salud_Padece_Discapacidad" />
+            <dataField fieldName="Aplica_Para_Estado_Salud_Tipo_Discapacidad" />
+            <dataField fieldName="Aplica_Para_Experiencia_Periodo" />
+            <dataField fieldName="Aplica_Para_Tipo_Contribucion" />
+            <dataField fieldName="Aplica_Para_Nivel_Conocimiento" />
+            <dataField fieldName="Aplica_Para_Nivel_Habilidad" />
+            <dataField fieldName="Aplica_Para_Anios_Uso" />
+            <dataField fieldName="Aplica_Para_Es_Titulado" />
+            <dataField fieldName="Aplica_Para_Es_Becado" />
+            <dataField fieldName="Aplica_Para_Es_Certificado" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nueva Métrica" showInSelector="false">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Metrica" />
+            <dataField fieldName="Aplica_Para_Religion" />
+            <dataField fieldName="Aplica_Para_Orientacion_Sexual" />
+            <dataField fieldName="Aplica_Para_Disposicion_A_Movilidad" />
+            <dataField fieldName="Aplica_Para_Disposicion_A_Cambio_De_Domicilio" />
+            <dataField fieldName="Aplica_Para_Edad" />
+            <dataField fieldName="Aplica_Para_Color_Piel" />
+            <dataField fieldName="Aplica_Para_Estatura" />
+            <dataField fieldName="Aplica_Para_Peso" />
+            <dataField fieldName="Aplica_Para_Complexion_Fisica" />
+            <dataField fieldName="Aplica_Para_Tatuajes_Admitidos" />
+            <dataField fieldName="Aplica_Para_Tatuajes_Visibilidad" />
+            <dataField fieldName="Aplica_Para_Tipo_Tatuajes" />
+            <dataField fieldName="Aplica_Para_Sena_Particular" />
+            <dataField fieldName="Aplica_Para_Estado_Salud_Aparente" />
+            <dataField fieldName="Aplica_Para_Estado_Salud_Sufre_Diabetes" />
+            <dataField fieldName="Aplica_Para_Estado_Salud_Problemas_Presion_Artereal" />
+            <dataField fieldName="Aplica_Para_Estado_Salud_Sufre_Sobrepeso" />
+            <dataField fieldName="Aplica_Para_Estado_Salud_Consumo_Estupefacientes" />
+            <dataField fieldName="Aplica_Para_Estado_Salud_Padece_Discapacidad" />
+            <dataField fieldName="Aplica_Para_Estado_Salud_Tipo_Discapacidad" />
+            <dataField fieldName="Aplica_Para_Experiencia_Periodo" />
+            <dataField fieldName="Aplica_Para_Tipo_Contribucion" />
+            <dataField fieldName="Aplica_Para_Nivel_Conocimiento" />
+            <dataField fieldName="Aplica_Para_Nivel_Habilidad" />
+            <dataField fieldName="Aplica_Para_Anios_Uso" />
+            <dataField fieldName="Aplica_Para_Es_Titulado" />
+            <dataField fieldName="Aplica_Para_Es_Becado" />
+            <dataField fieldName="Aplica_Para_Es_Certificado" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Metrica_LookUp_List" type="Grid" commandId="command1" label="Métrica" showInSelector="false">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Metrica_Id" hidden="true" textMode="Text" />
+        <dataField fieldName="Metrica" />
+        <dataField fieldName="Aplica_Para_Religion" hidden="true" />
+        <dataField fieldName="Aplica_Para_Orientacion_Sexual" hidden="true" />
+        <dataField fieldName="Aplica_Para_Disposicion_A_Movilidad" hidden="true" />
+        <dataField fieldName="Aplica_Para_Disposicion_A_Cambio_De_Domicilio" hidden="true" />
+        <dataField fieldName="Aplica_Para_Edad" hidden="true" />
+        <dataField fieldName="Aplica_Para_Color_Piel" hidden="true" />
+        <dataField fieldName="Aplica_Para_Estatura" hidden="true" />
+        <dataField fieldName="Aplica_Para_Peso" hidden="true" />
+        <dataField fieldName="Aplica_Para_Complexion_Fisica" hidden="true" />
+        <dataField fieldName="Aplica_Para_Tatuajes_Admitidos" hidden="true" />
+        <dataField fieldName="Aplica_Para_Tatuajes_Visibilidad" hidden="true" />
+        <dataField fieldName="Aplica_Para_Tipo_Tatuajes" hidden="true" />
+        <dataField fieldName="Aplica_Para_Sena_Particular" hidden="true" />
+        <dataField fieldName="Aplica_Para_Estado_Salud_Aparente" hidden="true" />
+        <dataField fieldName="Aplica_Para_Estado_Salud_Sufre_Diabetes" hidden="true" />
+        <dataField fieldName="Aplica_Para_Estado_Salud_Problemas_Presion_Artereal" hidden="true" />
+        <dataField fieldName="Aplica_Para_Estado_Salud_Sufre_Sobrepeso" hidden="true" />
+        <dataField fieldName="Aplica_Para_Estado_Salud_Consumo_Estupefacientes" hidden="true" />
+        <dataField fieldName="Aplica_Para_Estado_Salud_Padece_Discapacidad" hidden="true" />
+        <dataField fieldName="Aplica_Para_Estado_Salud_Tipo_Discapacidad" hidden="true" />
+        <dataField fieldName="Aplica_Para_Experiencia_Periodo" hidden="true" />
+        <dataField fieldName="Aplica_Para_Tipo_Contribucion" hidden="true" />
+        <dataField fieldName="Aplica_Para_Nivel_Conocimiento" hidden="true" />
+        <dataField fieldName="Aplica_Para_Nivel_Habilidad" hidden="true" />
+        <dataField fieldName="Aplica_Para_Anios_Uso" hidden="true" />
+        <dataField fieldName="Aplica_Para_Es_Titulado" hidden="true" />
+        <dataField fieldName="Aplica_Para_Es_Becado" hidden="true" />
+        <dataField fieldName="Aplica_Para_Es_Certificado" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Metrica
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = dbo.fn_Convertir_UTC_A_Fecha_Hora_Local(Getdate(),-6)
+WHERE
+	Metrica_Id = @Metrica_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Metrica
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = dbo.fn_Convertir_UTC_A_Fecha_Hora_Local(Getdate(),-6)
+WHERE
+	Metrica_Id = @Metrica_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Metrica
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = dbo.fn_Convertir_UTC_A_Fecha_Hora_Local(Getdate(),-6)
+WHERE
+	Metrica_Id = @Metrica_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Metrica
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion =dbo.fn_Convertir_UTC_A_Fecha_Hora_Local(Getdate(),-6)
+WHERE
+	Metrica_Id = @Metrica_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Metrica
+	WHERE
+		REPLACE(UPPER(Metrica),' ','') = REPLACE(UPPER(@Metrica),' ','')
+  
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe esta Métrica en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe esta Métrica en la base de datos, favor de corregir.'
+   RETURN
+END
+]]></rule>
+    <rule id="r101" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Metrica
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Actualizado_Por_Id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = dbo.fn_Convertir_UTC_A_Fecha_Hora_Local(Getdate(),-6)
+	,Fecha_Creacion = dbo.fn_Convertir_UTC_A_Fecha_Hora_Local(Getdate(),-6)
+WHERE
+	Metrica_Id= @Metrica_Id
+
+]]></rule>
+    <rule id="r102" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Metrica
+	WHERE
+		REPLACE(UPPER(Metrica),' ','') = REPLACE(UPPER(@Metrica),' ','')
+  		AND Metrica_Id = @Metrica_Id
+  
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe esta Métrica en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe esta Métrica en la base de datos, favor de corregir.'
+   RETURN
+END]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Metrica
+SET
+	Actualizado_Por_Id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = dbo.fn_Convertir_UTC_A_Fecha_Hora_Local(Getdate(),-6)
+WHERE
+	Metrica_Id= @Metrica_Id
+
+]]></rule>
+  </businessRules>
+</dataController>

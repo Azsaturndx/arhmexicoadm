@@ -1,0 +1,22 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sociedad</title>
+  </head>
+  <body data-authorize-roles="Administrators,ArhAdmin,ArhFiscal">
+    <!--The contents of this page will be overwritten by app generator. Set page property "Generate" to "First Time Only" to preserve changes.-->
+    <div data-flow="row">
+      <div id="view1" data-controller="Sociedad" data-view="grid1" data-show-description="false" data-show-details-in-list-mode="false"> </div>
+      <div data-activator="Tab|Pagadoras">
+        <div id="view2" data-controller="Pagadora" data-view="grid1" data-filter-source="view1" data-filter-fields="Sociedad_Id" data-tag="view-style-grid, &#xD;&#xA;view-style-list,&#xD;&#xA;view-style-cards,&#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-calendar-disabled" data-show-description="false" data-show-details-in-list-mode="false"> </div>
+      </div>
+      <div data-activator="Tab|Documentos">
+        <div id="view3" data-controller="Sociedad_Documento" data-view="grid1" data-filter-source="view1" data-filter-fields="Sociedad_Id" data-tag="view-style-grid, &#xD;&#xA;view-style-list,&#xD;&#xA;view-style-cards,&#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-calendar-disabled"> </div>
+      </div>
+      <div data-activator="Tab|Responsables de Autorización">
+        <div id="view4" data-controller="Responsable_Autorizacion_Gasto_Sociedad" data-view="grid1" data-filter-source="view1" data-filter-fields="Sociedad_Id" data-tag="view-style-grid, &#xD;&#xA;view-style-list,&#xD;&#xA;view-style-cards,&#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-calendar-disabled"> </div>
+      </div>
+    </div>
+  </body>
+</html>

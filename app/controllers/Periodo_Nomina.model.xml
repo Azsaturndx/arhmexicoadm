@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Periodo_Nomina" alias="Periodo_Nomina" created="2019-07-22T11:00:41" modified="2019-07-22T11:03:48" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Tipo_Periodo_Tiempo_" parentTableSchema="dbo" parentTableName="Tipo_Periodo_Tiempo" x="405" y="20">
+      <foreignKeyColumn columnName="Tipo_Periodo_Tiempo_Id" parentColumnName="Tipo_Periodo_Tiempo_Id" />
+    </foreignKey>
+    <foreignKey id="Anio_" parentTableSchema="APP" parentTableName="Anio" x="405" y="249">
+      <foreignKeyColumn columnName="Anio_Id" parentColumnName="Anio_Id" />
+    </foreignKey>
+    <foreignKey id="Mes_" parentTableSchema="APP" parentTableName="Mes" x="405" y="479">
+      <foreignKeyColumn columnName="Mes_Id" parentColumnName="Mes_Id" />
+    </foreignKey>
+    <foreignKey id="Mes_Anio_" parentTableSchema="APP" parentTableName="Anio" baseForeignKey="Mes_" x="979" y="209">
+      <foreignKeyColumn columnName="Anio_Id" parentColumnName="Anio_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="405" y="733">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Creado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="1841" y="24">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Actualizado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="854" y="97">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Periodo_Nomina_Id" fieldName="Periodo_Nomina_Id" label="Periodo Nomina Id" />
+    <column name="Periodo_Nomina" fieldName="Periodo_Nomina" label="Periodo de Nómina" />
+    <column name="Tipo_Periodo_Tiempo_Id" fieldName="Tipo_Periodo_Tiempo_Id" label="Tipo Periodo Tiempo Id" aliasColumnName="Tipo_Periodo_Tiempo" aliasForeignKey="Tipo_Periodo_Tiempo_" />
+    <column name="Tipo_Periodo_Tiempo" fieldName="Tipo_Periodo_Tiempo_Tipo_Periodo_Tiempo" label="Tipo Periodo Tiempo" foreignKey="Tipo_Periodo_Tiempo_" />
+    <column name="Fecha_Inicio" fieldName="Fecha_Inicio" label="Fecha Inicio" format="g" />
+    <column name="Fecha_Fin" fieldName="Fecha_Fin" label="Fecha Fin" format="g" />
+    <column name="Numero_Periodo_Nomina" fieldName="Numero_Periodo_Nomina" label="Número Periodo Nomina" />
+    <column name="Anio_Id" fieldName="Anio_Id" label="Anio Id" aliasColumnName="Anio" aliasForeignKey="Anio_" />
+    <column name="Anio" fieldName="Anio_Anio" label="Año" foreignKey="Anio_" />
+    <column name="Mes_Id" fieldName="Mes_Id" label="Mes Id" aliasColumnName="Mes" aliasForeignKey="Mes_" />
+    <column name="Mes" fieldName="Mes_Mes" label="Mes" foreignKey="Mes_" />
+    <column name="Anio" fieldName="Mes_Anio_Anio" label="Mes Año" foreignKey="Mes_Anio_" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="UserName" fieldName="CreadoPorusername" label="Creado Por" foreignKey="Creado_Por" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="UserName" fieldName="ActualizadoPorusername" label="Actualizado Por" foreignKey="Actualizado_Por" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+  </columns>
+</dataModel>

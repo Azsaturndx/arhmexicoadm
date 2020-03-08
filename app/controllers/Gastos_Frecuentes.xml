@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Gastos_Frecuentes" conflictDetection="overwriteChanges" label="Gastos Frecuentes" handler="arhmexico.Rules.Gastos_FrecuentesBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Gastos_Frecuentes"."Gastos_Frecuentes_Id" "Gastos_Frecuentes_Id"
+	,"Gastos_Frecuentes"."Gastos_Frecuentes" "Gastos_Frecuentes"
+	,"Gastos_Frecuentes"."Contratado_Id" "Contratado_Id"
+	,"Gastos_Frecuentes"."Tipo_Gasto_Id" "Tipo_Gasto_Id"
+	,"Tipo_Gasto_"."Tipo_Gasto" "Tipo_Gasto_Tipo_Gasto"
+	,"Gastos_Frecuentes"."Ciudad_Origen_Id" "Ciudad_Origen_Id"
+	,"Ciudad_Origen_"."Ciudad" "Ciudad_Origen_Ciudad"
+	,"Gastos_Frecuentes"."Ciudad_Destino_Id" "Ciudad_Destino_Id"
+	,"Ciudad_Destino_"."Ciudad" "Ciudad_Destino_Ciudad"
+	,"Gastos_Frecuentes"."Direccion_Origen" "Direccion_Origen"
+	,"Gastos_Frecuentes"."Direccion_Destino" "Direccion_Destino"
+	,"Gastos_Frecuentes"."Viaje_Redondo" "Viaje_Redondo"
+	,"Gastos_Frecuentes"."Servicio_Hospedaje_Id" "Servicio_Hospedaje_Id"
+	,"hServicio"."Servicio" "Servicio_Hospedaje"
+	,"Gastos_Frecuentes"."Servicio_Alimentos_Id" "Servicio_Alimentos_Id"
+	,"aServicio"."Servicio" "Servicio_Alimento"
+	,"Gastos_Frecuentes"."Servicio_Transportacion_Id" "Servicio_Transportacion_Id"
+	,"tServicio"."Servicio" "Servicio_Transportacion"
+	,"Gastos_Frecuentes"."Latitud" "Latitud"
+	,"Gastos_Frecuentes"."Longitud" "Longitud"
+	,"Gastos_Frecuentes"."Kilometraje" "Kilometraje"
+	,"Gastos_Frecuentes"."Transaccion_Id" "Transaccion_Id"
+	,"Gastos_Frecuentes"."Creado_Por_Id" "Creado_Por_Id"
+	,"cpUsuario_V"."UserName" "cpUserName"
+	,"Gastos_Frecuentes"."Fecha_Creacion" "Fecha_Creacion"
+	,"Gastos_Frecuentes"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"apUsuario_V"."UserName" "apUserName"
+	,"Gastos_Frecuentes"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Gastos_Frecuentes"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Persona_V"."Persona_Nombre" "Persona_Nombre"
+	,"Gastos_Frecuentes"."Monto_Historico" "Monto_Historico"
+	,"Gastos_Frecuentes"."Servicio_Vuelo_Id" "Servicio_Vuelo_Id"
+	,"vServicio"."Servicio" "Servicio_Vuelo"
+	,"Gastos_Frecuentes"."Servicio_Gasolina_Id" "Servicio_Gasolina_Id"
+	,"gServicio"."Servicio" "Servicio_Gasolina"
+	,"Gastos_Frecuentes"."Servicio_Otro_Id" "Servicio_Otro_Id"
+	,"oServicio"."Servicio" "Servicio_Otro"
+from "APP"."Gastos_Frecuentes" "Gastos_Frecuentes"
+	left join "APP"."Contratado" "Contratado_" on "Gastos_Frecuentes"."Contratado_Id" = "Contratado_"."Contratado_Id"
+	left join "dbo"."Persona_V" "Persona_V" on "Contratado_"."Persona_Id" = "Persona_V"."Persona_Id"
+	left join "APP"."Tipo_Gasto" "Tipo_Gasto_" on "Gastos_Frecuentes"."Tipo_Gasto_Id" = "Tipo_Gasto_"."Tipo_Gasto_Id"
+	left join "APP"."Ciudad" "Ciudad_Origen_" on "Gastos_Frecuentes"."Ciudad_Origen_Id" = "Ciudad_Origen_"."Ciudad_Id"
+	left join "APP"."Ciudad" "Ciudad_Destino_" on "Gastos_Frecuentes"."Ciudad_Destino_Id" = "Ciudad_Destino_"."Ciudad_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Gastos_Frecuentes"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "APP"."Servicio" "hServicio" on "Gastos_Frecuentes"."Servicio_Hospedaje_Id" = "hServicio"."Servicio_Id"
+	left join "APP"."Servicio" "aServicio" on "Gastos_Frecuentes"."Servicio_Alimentos_Id" = "aServicio"."Servicio_Id"
+	left join "APP"."Servicio" "tServicio" on "Gastos_Frecuentes"."Servicio_Transportacion_Id" = "tServicio"."Servicio_Id"
+	left join "dbo"."Usuario_V" "cpUsuario_V" on "Gastos_Frecuentes"."Creado_Por_Id" = "cpUsuario_V"."UserId"
+	left join "dbo"."Usuario_V" "apUsuario_V" on "Gastos_Frecuentes"."Actualizado_Por_Id" = "apUsuario_V"."UserId"
+	left join "APP"."Servicio" "vServicio" on "Gastos_Frecuentes"."Servicio_Vuelo_Id" = "vServicio"."Servicio_Id"
+	left join "APP"."Servicio" "gServicio" on "Gastos_Frecuentes"."Servicio_Gasolina_Id" = "gServicio"."Servicio_Id"
+	left join "APP"."Servicio" "oServicio" on "Gastos_Frecuentes"."Servicio_Otro_Id" = "oServicio"."Servicio_Id"
+]]></text>
+    </command>
+    <command id="Gastos_Frecuentes_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Gastos_Frecuentes_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Gastos_Frecuentes_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Gastos Frecuentes Id" readOnly="true" />
+    <field name="Gastos_Frecuentes" type="String" allowNulls="false" default="('')" label="Gasto Frecuente" length="150" showInSummary="true" />
+    <field name="Contratado_Id" type="Int32" allowNulls="false" default="((0))" label="Contratado Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratado" newDataView="createForm1" dataValueField="Contratado_Id" dataTextField="Persona_Nombre" copy="" dataView="Contratado_Admin_LookUp_List" />
+    </field>
+    <field name="Tipo_Gasto_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo Gasto Id" showInSummary="true">
+      <items style="Lookup" dataController="Tipo_Gasto" newDataView="createForm1" dataValueField="Tipo_Gasto_Id" dataTextField="Tipo_Gasto" dataView="Tipo_Gasto_LookUp_List" />
+    </field>
+    <field name="Tipo_Gasto_Tipo_Gasto" type="String" readOnly="true" label="Tipo de Gasto" length="150" />
+    <field name="Ciudad_Origen_Id" type="Int32" allowNulls="false" default="((0))" label="Ciudad Origen Id" showInSummary="true">
+      <items style="Lookup" dataController="Ciudad" newDataView="createForm1" dataValueField="Ciudad_Id" dataTextField="Ciudad" dataView="Ciudad_LookUp_List" />
+    </field>
+    <field name="Ciudad_Origen_Ciudad" type="String" readOnly="true" label="Ciudad de Origen" length="150" />
+    <field name="Ciudad_Destino_Id" type="Int32" allowNulls="false" default="((0))" label="Ciudad Destino Id" showInSummary="true">
+      <items style="Lookup" dataController="Ciudad" newDataView="createForm1" dataValueField="Ciudad_Id" dataTextField="Ciudad" dataView="Ciudad_LookUp_List" />
+    </field>
+    <field name="Ciudad_Destino_Ciudad" type="String" readOnly="true" label="Ciudad de Destino" length="150" />
+    <field name="Direccion_Origen" type="String" allowNulls="false" default="('')" label="Dirección de Origen" length="800" />
+    <field name="Direccion_Destino" type="String" allowNulls="false" default="('')" label="Dirección de Destino" length="800" />
+    <field name="Viaje_Redondo" type="Boolean" allowNulls="false" default="((0))" label="¿Es Viaje Redondo?" />
+    <field name="Servicio_Hospedaje_Id" type="Int32" allowNulls="false" default="((0))" label="Servicio Hospedaje Id">
+      <items style="Lookup" dataController="Servicio" newDataView="createForm1" dataValueField="Servicio_Id" dataTextField="Servicio" dataView="Servicio_Hospedaje_LookUp_List" />
+    </field>
+    <field name="Servicio_Hospedaje" type="String" readOnly="true" label="Servicio de Hospedaje" length="150" />
+    <field name="Servicio_Alimentos_Id" type="Int32" allowNulls="false" default="((0))" label="Servicio Alimentos Id">
+      <items style="Lookup" dataController="Servicio" newDataView="createForm1" dataValueField="Servicio_Id" dataTextField="Servicio" dataView="Servicio_Alimentos_LookUp_List" />
+    </field>
+    <field name="Servicio_Alimento" type="String" readOnly="true" label="Servicio de Alimentos" length="150" />
+    <field name="Servicio_Transportacion_Id" type="Int32" allowNulls="false" default="((0))" label="Servicio Transportacion Id">
+      <items style="Lookup" dataController="Servicio" newDataView="createForm1" dataValueField="Servicio_Id" dataTextField="Servicio" dataView="Servicio_Terrestre_LookUp_List" />
+    </field>
+    <field name="Servicio_Transportacion" type="String" readOnly="true" label="Servicio de Transportación" length="150" />
+    <field name="Latitud" type="Decimal" allowNulls="false" default="((0))" label="Latitud" />
+    <field name="Longitud" type="Decimal" allowNulls="false" default="((0))" label="Longitud" />
+    <field name="Kilometraje" type="Decimal" allowNulls="false" default="((0))" label="Kilometraje" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transacción Id" length="50" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="Persona_Nombre" type="String" readOnly="true" label="Contratante" length="603" />
+    <field name="Monto_Historico" type="Decimal" allowNulls="false" default="((0))" label="Monto Historico" />
+    <field name="Servicio_Vuelo_Id" type="Int32" allowNulls="false" default="((0))" label="Servicio Vuelo Id">
+      <items style="Lookup" dataController="Servicio" newDataView="createForm1" dataValueField="Servicio_Id" dataTextField="Servicio" dataView="Servicio_Vuelo_LookUp_List" />
+    </field>
+    <field name="Servicio_Vuelo" type="String" readOnly="true" label="Servicio Vuelo" length="150" />
+    <field name="Servicio_Gasolina_Id" type="Int32" allowNulls="false" default="((0))" label="Servicio Gasolina Id">
+      <items style="Lookup" dataController="Servicio" newDataView="createForm1" dataValueField="Servicio_Id" dataTextField="Servicio" dataView="Servicio_Gasolina_LookUp_List" />
+    </field>
+    <field name="Servicio_Gasolina" type="String" readOnly="true" label="Servicio Gasolina" length="150" />
+    <field name="Servicio_Otro_Id" type="Int32" allowNulls="false" default="((0))" label="Servicio Otro Id">
+      <items style="Lookup" dataController="Servicio" newDataView="createForm1" dataValueField="Servicio_Id" dataTextField="Servicio" dataView="Servicio_Otros_LookUp_List" />
+    </field>
+    <field name="Servicio_Otro" type="String" readOnly="true" label="Servicio Otro" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Gastos Frecuentes" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" sortExpression="Gastos_Frecuentes" filter="Estatus_Registro_Id &lt;&gt; 0">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Gastos_Frecuentes" />
+        <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Persona_Nombre" />
+        <dataField fieldName="Tipo_Gasto_Id" aliasFieldName="Tipo_Gasto_Tipo_Gasto" />
+        <dataField fieldName="Ciudad_Origen_Id" aliasFieldName="Ciudad_Origen_Ciudad" />
+        <dataField fieldName="Ciudad_Destino_Id" aliasFieldName="Ciudad_Destino_Ciudad" />
+        <dataField fieldName="Direccion_Origen" />
+        <dataField fieldName="Direccion_Destino" />
+        <dataField fieldName="Viaje_Redondo" />
+        <dataField fieldName="Servicio_Hospedaje_Id" aliasFieldName="Servicio_Hospedaje" />
+        <dataField fieldName="Servicio_Alimentos_Id" aliasFieldName="Servicio_Alimento" />
+        <dataField fieldName="Servicio_Transportacion_Id" aliasFieldName="Servicio_Transportacion" />
+        <dataField fieldName="Latitud" columns="15" />
+        <dataField fieldName="Longitud" columns="15" />
+        <dataField fieldName="Kilometraje" columns="15" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="10" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="10" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Persona_Nombre" hidden="true" />
+        <dataField fieldName="Monto_Historico" columns="15" />
+        <dataField fieldName="Servicio_Vuelo_Id" aliasFieldName="Servicio_Vuelo" />
+        <dataField fieldName="Servicio_Gasolina_Id" aliasFieldName="Servicio_Gasolina" />
+        <dataField fieldName="Servicio_Otro_Id" aliasFieldName="Servicio_Otro" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Gasto Frecuente" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" sortExpression="Gastos_Frecuentes" filter="Estatus_Registro_Id &lt;&gt; 0">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Gastos_Frecuentes" />
+            <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Persona_Nombre" />
+            <dataField fieldName="Tipo_Gasto_Id" aliasFieldName="Tipo_Gasto_Tipo_Gasto" />
+            <dataField fieldName="Ciudad_Origen_Id" aliasFieldName="Ciudad_Origen_Ciudad" />
+            <dataField fieldName="Ciudad_Destino_Id" aliasFieldName="Ciudad_Destino_Ciudad" />
+            <dataField fieldName="Direccion_Origen" />
+            <dataField fieldName="Direccion_Destino" />
+            <dataField fieldName="Viaje_Redondo" />
+            <dataField fieldName="Servicio_Hospedaje_Id" aliasFieldName="Servicio_Hospedaje" />
+            <dataField fieldName="Servicio_Alimentos_Id" aliasFieldName="Servicio_Alimento" />
+            <dataField fieldName="Servicio_Transportacion_Id" aliasFieldName="Servicio_Transportacion" />
+            <dataField fieldName="Servicio_Vuelo_Id" aliasFieldName="Servicio_Vuelo" />
+            <dataField fieldName="Servicio_Gasolina_Id" aliasFieldName="Servicio_Gasolina" />
+            <dataField fieldName="Servicio_Otro_Id" aliasFieldName="Servicio_Otro" />
+            <dataField fieldName="Latitud" columns="15" />
+            <dataField fieldName="Longitud" columns="15" />
+            <dataField fieldName="Kilometraje" columns="15" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="Persona_Nombre" hidden="true" />
+            <dataField fieldName="Monto_Historico" columns="15" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nuevo Gasto Frecuente" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Gastos_Frecuentes" />
+            <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Persona_Nombre" />
+            <dataField fieldName="Tipo_Gasto_Id" aliasFieldName="Tipo_Gasto_Tipo_Gasto" />
+            <dataField fieldName="Ciudad_Origen_Id" aliasFieldName="Ciudad_Origen_Ciudad" />
+            <dataField fieldName="Ciudad_Destino_Id" aliasFieldName="Ciudad_Destino_Ciudad" />
+            <dataField fieldName="Direccion_Origen" />
+            <dataField fieldName="Direccion_Destino" />
+            <dataField fieldName="Viaje_Redondo" />
+            <dataField fieldName="Servicio_Hospedaje_Id" aliasFieldName="Servicio_Hospedaje" />
+            <dataField fieldName="Servicio_Alimentos_Id" aliasFieldName="Servicio_Alimento" />
+            <dataField fieldName="Servicio_Transportacion_Id" aliasFieldName="Servicio_Transportacion" />
+            <dataField fieldName="Servicio_Vuelo_Id" aliasFieldName="Servicio_Vuelo" />
+            <dataField fieldName="Servicio_Gasolina_Id" aliasFieldName="Servicio_Gasolina" />
+            <dataField fieldName="Servicio_Otro_Id" aliasFieldName="Servicio_Otro" />
+            <dataField fieldName="Latitud" columns="15" />
+            <dataField fieldName="Longitud" columns="15" />
+            <dataField fieldName="Kilometraje" columns="15" />
+            <dataField fieldName="Monto_Historico" columns="15" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Gastos_Frecuentes_LookUp_List" commandId="command1" type="Grid" label="Gastos Frecuentes" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Gastos_Frecuentes" filter="Estatus_Registro_Id &lt;&gt; 0">
+      <dataFields>
+        <dataField fieldName="Gastos_Frecuentes_Id" columns="15" hidden="true" />
+        <dataField fieldName="Gastos_Frecuentes" rows="5" />
+        <dataField fieldName="Contratado_Id" columns="15" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Gasto_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Gastos_Frecuentes
+SET
+	Estatus_Registro_Id = 3
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Gastos_Frecuentes_Id= @Gastos_Frecuentes_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Gastos_Frecuentes
+SET
+	Estatus_Registro_Id = 3
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Gastos_Frecuentes_Id= @Gastos_Frecuentes_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Gastos_Frecuentes
+SET
+	Estatus_Registro_Id = 3
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Gastos_Frecuentes_Id= @Gastos_Frecuentes_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE
+	APP.Gastos_Frecuentes
+SET
+	Estatus_Registro_Id = 3
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Gastos_Frecuentes_Id= @Gastos_Frecuentes_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Gastos_Frecuentes
+	WHERE
+		REPLACE(UPPER(Gastos_Frecuentes),' ','') = REPLACE(UPPER(@Gastos_Frecuentes),' ','')
+  
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe este registro de gasto frecuente en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe este registro de gasto frecuente en la base de datos, favor de corregir.'
+   RETURN
+END
+
+
+
+
+]]></rule>
+    <rule id="r101" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Gastos_Frecuentes
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Actualizado_Por_Id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Fecha_Creacion = GetDate()
+WHERE
+	Gastos_Frecuentes_Id= @Gastos_Frecuentes_Id]]></rule>
+    <rule id="r102" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Gastos_Frecuentes
+	WHERE
+  		REPLACE(UPPER(Gastos_Frecuentes),' ','') = REPLACE(UPPER(@Gastos_Frecuentes),' ','')
+		AND Gastos_Frecuentes_Id <> @Gastos_Frecuentes_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe este registro de gasto frecuente en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya existe este registro de gasto frecuente en la base de datos, favor de corregir.'
+   RETURN
+END
+
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Gastos_Frecuentes
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Gastos_Frecuentes_Id = @Gastos_Frecuentes_Id]]></rule>
+  </businessRules>
+</dataController>

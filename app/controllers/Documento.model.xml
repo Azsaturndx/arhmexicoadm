@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Documento" alias="Documento" created="2018-05-19T20:30:07" modified="2018-07-15T19:34:47" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Tipo_Documento_" parentTableSchema="APP" parentTableName="Tipo_Documento" x="404" y="20">
+      <foreignKeyColumn columnName="Tipo_Documento_Id" parentColumnName="Tipo_Documento_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="404" y="251">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="cp" parentTableSchema="dbo" parentTableName="Usuario_V" x="417" y="381">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="ap" parentTableSchema="dbo" parentTableName="Usuario_V" x="63" y="424">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Documento_Id" fieldName="Documento_Id" label="Documento Id" />
+    <column name="Tipo_Documento_Id" fieldName="Tipo_Documento_Id" label="Tipo Documento Id" aliasColumnName="Tipo_Documento" aliasForeignKey="Tipo_Documento_" />
+    <column name="Tipo_Documento" fieldName="Tipo_Documento_Tipo_Documento" label="Tipo de Documento" foreignKey="Tipo_Documento_" />
+    <column name="Documento" fieldName="Documento" label="Nombre de Documento" />
+    <column name="Picture" fieldName="Picture" label="Documento" />
+    <column name="PictureFileName" fieldName="PictureFileName" label="Nombre Archivo" />
+    <column name="PictureContentType" fieldName="PictureContentType" label="Tipo de Archivo" />
+    <column name="PictureLength" fieldName="PictureLength" label="Tamaño Archivo" />
+    <column name="Notas" fieldName="Notas" label="Notas" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cp" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="ap" />
+    <column name="Persona_Id" fieldName="Persona_Id" label="Persona Id" />
+    <column name="Persona_Conocimiento_Id" fieldName="Persona_Conocimiento_Id" label="Persona Conocimiento Id" />
+    <column name="Cliente_Id" fieldName="Cliente_Id" label="Cliente Id" />
+  </columns>
+</dataModel>

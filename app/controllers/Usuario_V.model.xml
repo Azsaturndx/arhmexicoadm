@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Usuario_V" alias="Usuario_V" created="2018-07-15T16:06:08" modified="2018-07-15T16:06:22" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="ApplicationId" fieldName="ApplicationId" label="Application Id" />
+    <column name="UserId" fieldName="UserId" label="User Id" />
+    <column name="UserName" fieldName="UserName" label="User Name" />
+    <column name="LoweredUserName" fieldName="LoweredUserName" label="Lowered User Name" />
+    <column name="MobileAlias" fieldName="MobileAlias" label="Mobile Alias" />
+    <column name="IsAnonymous" fieldName="IsAnonymous" label="Is Anonymous" />
+    <column name="LastActivityDate" fieldName="LastActivityDate" label="Last Activity Date" format="g" />
+  </columns>
+</dataModel>

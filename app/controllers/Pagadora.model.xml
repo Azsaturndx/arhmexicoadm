@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Pagadora" alias="Pagadora" created="2018-09-24T17:10:45" modified="2019-06-12T10:56:35" x="20" y="33" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Contratante_" parentTableSchema="APP" parentTableName="Contratante" x="1057" y="218">
+      <foreignKeyColumn columnName="Contratante_Id" parentColumnName="Contratante_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Pagadora_" parentTableSchema="APP" parentTableName="Estatus_Pagadora" x="419" y="273">
+      <foreignKeyColumn columnName="Estatus_Pagadora_Id" parentColumnName="Estatus_Pagadora_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="425" y="508">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="apUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="31" y="610">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="cpUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="30" y="447">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Cliente" parentTableSchema="APP" parentTableName="Cliente" x="710" y="20">
+      <foreignKeyColumn columnName="Cliente_Id" parentColumnName="Cliente_Id" />
+    </foreignKey>
+    <foreignKey id="Sociedad" parentTableSchema="APP" parentTableName="Sociedad" x="878" y="488">
+      <foreignKeyColumn columnName="Sociedad_Id" parentColumnName="Sociedad_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Pagadora_Id" fieldName="Pagadora_Id" label="Pagadora Id" />
+    <column name="Pagadora" fieldName="Pagadora" label="Pagadora" />
+    <column name="Pagadora_Razon_Social" fieldName="Pagadora_Razon_Social" label="Pagadora Razon Social" />
+    <column name="Clave_Pagadora" fieldName="Clave_Pagadora" label="Clave Pagadora" />
+    <column name="Cliente_Id" fieldName="Cliente_Id" label="Cliente Id" aliasColumnName="Cliente" aliasForeignKey="Cliente" />
+    <column name="Cliente" fieldName="Cliente" label="Cliente" foreignKey="Cliente" />
+    <column name="Contratante_Id" fieldName="Contratante_Id" label="Contratante Id" aliasColumnName="Contratante" aliasForeignKey="Contratante_" />
+    <column name="Contratante" fieldName="Contratante_Contratante" label="Contratante" foreignKey="Contratante_" />
+    <column name="Estatus_Pagadora_Id" fieldName="Estatus_Pagadora_Id" label="Estatus Pagadora Id" aliasColumnName="Estatus_Pagadora" aliasForeignKey="Estatus_Pagadora_" />
+    <column name="Estatus_Pagadora" fieldName="Estatus_Pagadora_Estatus_Pagadora" label="Estatus Pagadora" foreignKey="Estatus_Pagadora_" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cpUsuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="apUsuario_V" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+    <column name="Nombre_Base_Datos" fieldName="Nombre_Base_Datos" label="Nombre de Base Datos Comercial" />
+    <column name="Sociedad" fieldName="Sociedad" label="Sociedad" foreignKey="Sociedad" />
+    <column name="Sociedad_Id" fieldName="Sociedad_Id" label="Sociedad Id" />
+    <column name="Es_Sindicato" fieldName="EsSindicato" label="Es Sindicato" />
+    <column name="Leyenda_Sindicato" fieldName="LeyendaSindicato" label="Leyenda Sindicato" />
+    <column name="Registro_Patronal" fieldName="RegistroPatronal" label="Registro Patronal" />
+  </columns>
+</dataModel>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Proveedor_Arrendamiento" alias="Proveedor_Arrendamiento" created="2019-02-13T13:13:20" modified="2019-02-13T13:15:54" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Proveedor_" parentTableSchema="APP" parentTableName="Proveedor" x="436" y="20">
+      <foreignKeyColumn columnName="Proveedor_Id" parentColumnName="Proveedor_Id" />
+    </foreignKey>
+    <foreignKey id="Tipo_Arrendamiento_" parentTableSchema="APP" parentTableName="Tipo_Arrendamiento" x="436" y="319">
+      <foreignKeyColumn columnName="Tipo_Arrendamiento_Id" parentColumnName="Tipo_Arrendamiento_Id" />
+    </foreignKey>
+    <foreignKey id="Periodicidad_Pago_" parentTableSchema="APP" parentTableName="Periodicidad" x="436" y="548">
+      <foreignKeyColumn columnName="Periodicidad_Pago_Id" parentColumnName="Periodicidad_Id" />
+    </foreignKey>
+    <foreignKey id="Dia_Pago_" parentTableSchema="APP" parentTableName="Dia" x="436" y="779">
+      <foreignKeyColumn columnName="Dia_Pago_Id" parentColumnName="Dia_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="858" y="20">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Creado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="1285" y="183">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Actualizado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="908" y="408">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Proveedor_Arrendamiento_Id" fieldName="Proveedor_Arrendamiento_Id" label="Proveedor Arrendamiento Id" />
+    <column name="Proveedor_Id" fieldName="Proveedor_Id" label="Proveedor Id" aliasColumnName="Proveedor" aliasForeignKey="Proveedor_" />
+    <column name="Proveedor" fieldName="Proveedor_Proveedor" label="Proveedor" foreignKey="Proveedor_" />
+    <column name="Tipo_Arrendamiento_Id" fieldName="Tipo_Arrendamiento_Id" label="Tipo Arrendamiento Id" aliasColumnName="Tipo_Arrendamiento" aliasForeignKey="Tipo_Arrendamiento_" />
+    <column name="Tipo_Arrendamiento" fieldName="Tipo_Arrendamiento_Tipo_Arrendamiento" label="Tipo de Arrendamiento" foreignKey="Tipo_Arrendamiento_" />
+    <column name="Calle_Arrendamiento" fieldName="Calle_Arrendamiento" label="Calle Arrendamiento" />
+    <column name="Numero_Exterior_Arrendamiento" fieldName="Numero_Exterior_Arrendamiento" label="Numero Exterior Arrendamiento" />
+    <column name="Periodicidad_Pago_Id" fieldName="Periodicidad_Pago_Id" label="Periodicidad Pago Id" aliasColumnName="Periodicidad" aliasForeignKey="Periodicidad_Pago_" />
+    <column name="Periodicidad" fieldName="Periodicidad_Pago_Periodicidad" label="Periodicidad Pago Periodicidad" foreignKey="Periodicidad_Pago_" />
+    <column name="Dia_Pago_Id" fieldName="Dia_Pago_Id" label="Dia Pago Id" aliasColumnName="Dia" aliasForeignKey="Dia_Pago_" />
+    <column name="Dia" fieldName="Dia_Pago_Dia" label="Dia Pago Dia" foreignKey="Dia_Pago_" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="UserName" fieldName="CreadoPorusername" label="Creado Por" foreignKey="Creado_Por" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="UserName" fieldName="ActualizadoPorusername" label="Actualizado Porusername" foreignKey="Actualizado_Por" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus del Registro" foreignKey="Estatus_Registro_" />
+  </columns>
+</dataModel>

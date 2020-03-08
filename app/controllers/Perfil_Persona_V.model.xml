@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Perfil_Persona_V" alias="Perfil_Persona_V" created="2018-07-23T11:29:14" modified="2018-07-23T11:29:19" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="Perfil_Id" fieldName="Perfil_Id" label="Perfil Id" />
+    <column name="Persona_Id" fieldName="Persona_Id" label="Persona Id" />
+    <column name="Picture" fieldName="Picture" label="Picture" />
+    <column name="Nombre" fieldName="Nombre" label="Nombre" />
+    <column name="Segundo_Nombre" fieldName="Segundo_Nombre" label="Segundo Nombre" />
+    <column name="Apellido_Paterno" fieldName="Apellido_Paterno" label="Apellido Paterno" />
+    <column name="Apellido_Materno" fieldName="Apellido_Materno" label="Apellido Materno" />
+    <column name="Edad" fieldName="Edad" label="Edad" />
+    <column name="Genero" fieldName="Genero" label="Genero" />
+    <column name="Estructura_Organizacional" fieldName="Estructura_Organizacional" label="Estructura Organizacional" />
+    <column name="Contratante_Puesto_Id" fieldName="Contratante_Puesto_Id" label="Contratante Puesto Id" />
+    <column name="Contratante_Puesto" fieldName="Contratante_Puesto" label="Contratante Puesto" />
+    <column name="Jefe_Directo" fieldName="Jefe_Directo" label="Jefe Directo" />
+  </columns>
+</dataModel>

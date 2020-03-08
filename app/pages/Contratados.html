@@ -1,0 +1,88 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Contratados</title>
+  </head>
+  <body data-authorize-roles="Administrators,ArhAdmin">
+    <!--The contents of this page will be overwritten by app generator. Set page property "Generate" to "First Time Only" to preserve changes.-->
+    <div data-flow="row">
+      <div id="view1" data-controller="Contratado_Admin" data-view="gridAdmin" data-selection-mode="multiple" data-tag="view-style-grid, &#xD;&#xA;view-style-list,&#xD;&#xA;view-style-cards,&#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-calendar-disabled" data-show-description="false" data-show-details-in-list-mode="false" data-roles="Administrators,ArhAdmin"> </div>
+      <div data-activator="Tab|Solicitudes de Vacaciones">
+        <div id="view2" data-controller="Contratado_Solicitud_Vacaciones" data-view="grid1" data-filter-source="view1" data-filter-fields="Contratado_Id" data-selection-mode="multiple" data-tag="view-style-grid, &#xD;&#xA;view-style-list,&#xD;&#xA;view-style-cards,&#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-calendar-disabled" data-show-view-selector="false" data-show-details-in-list-mode="false" data-visible-when="[master.Acceso_Servicio_ARH_Vacaciones]==true" data-roles="Administrators,ArhAdmin"> </div>
+      </div>
+      <div data-activator="Tab|Saldo de Vacaciones">
+        <div id="view4" data-controller="Contratado_Saldo_Vacaciones" data-view="gridContratado" data-filter-source="view1" data-filter-fields="Contratado_Id" data-tag="view-style-grid, &#xD;&#xA;view-style-list,&#xD;&#xA;view-style-cards,&#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-calendar-disabled" data-show-view-selector="false" data-visible-when="[master.Acceso_Servicio_ARH_Vacaciones]==true" data-roles="Administrators,ArhAdmin"> </div>
+      </div>
+      <div data-activator="Tab|Solicitudes de Ausentismo">
+        <div id="view26" data-controller="Ausentismo" data-view="grid1" data-filter-source="view1" data-filter-fields="Contratado_Id" data-tag="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" data-roles="Administrators,ArhAdmin"> </div>
+      </div>
+      <div data-activator="Tab|Recibo de Nómina">
+        <div id="view3" data-controller="Contratado_Recibo_Nomina" data-view="grid1" data-filter-source="view1" data-filter-fields="Contratado_Id" data-tag="view-style-grid, &#xD;&#xA;view-style-list,&#xD;&#xA;view-style-cards,&#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-calendar-disabled" data-show-view-selector="false" data-visible-when="[master.Acceso_Servicio_ARH_Nomina]==true" data-roles="Administrators,ArhAdmin"> </div>
+      </div>
+      <div data-activator="Tab|Contactos">
+        <div id="view5" data-controller="Contacto" data-view="grid1" data-filter-source="view1" data-filter-fields="Persona_Id" data-tag="view-style-grid, &#xD;&#xA;view-style-list,&#xD;&#xA;view-style-cards,&#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-calendar-disabled" data-show-view-selector="false" data-roles="Administrators,ArhAdmin"> </div>
+      </div>
+      <div data-activator="Tab|Domicilios">
+        <div id="view6" data-controller="Persona_Domicilio" data-view="grid1" data-filter-source="view1" data-filter-fields="Persona_Id" data-tag="view-style-grid, &#xD;&#xA;view-style-list,&#xD;&#xA;view-style-cards,&#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-calendar-disabled" data-show-view-selector="false" data-roles="Administrators,ArhAdmin"> </div>
+      </div>
+      <div data-activator="Tab|Educación">
+        <div id="view7" data-controller="Persona_Educacion" data-view="grid1" data-filter-source="view1" data-filter-fields="Persona_Id" data-tag="view-style-grid, &#xD;&#xA;view-style-list,&#xD;&#xA;view-style-cards,&#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-calendar-disabled" data-show-view-selector="false" data-roles="Administrators,ArhAdmin"> </div>
+      </div>
+      <div data-activator="Tab|Conocimientos">
+        <div id="view8" data-controller="Persona_Conocimiento" data-view="grid1" data-filter-source="view1" data-filter-fields="Persona_Id" data-tag="view-style-grid, &#xD;&#xA;view-style-list,&#xD;&#xA;view-style-cards,&#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-calendar-disabled" data-show-view-selector="false" data-roles="Administrators,ArhAdmin"> </div>
+      </div>
+      <div data-activator="Tab|Documentos Personales">
+        <div id="view9" data-controller="Persona_Documento" data-view="grid1" data-filter-source="view1" data-filter-fields="Persona_Id" data-tag="view-style-grid, &#xD;&#xA;view-style-list,&#xD;&#xA;view-style-cards,&#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-calendar-disabled" data-show-view-selector="false" data-roles="Administrators,ArhAdmin"> </div>
+      </div>
+      <div data-activator="Tab|Documentos de Contratado">
+        <div id="view19" data-controller="Contratado_Documento" data-view="grid1" data-filter-source="view1" data-filter-fields="Contratado_Id" data-show-description="false" data-show-details-in-list-mode="false" data-roles="Administrators,ArhAdmin"> </div>
+      </div>
+      <div data-activator="Tab|Experiencia Laboral">
+        <div id="view10" data-controller="Persona_Experiencia_Laboral" data-view="grid1" data-filter-source="view1" data-filter-fields="Persona_Id" data-tag="view-style-grid, &#xD;&#xA;view-style-list,&#xD;&#xA;view-style-cards,&#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-calendar-disabled" data-show-view-selector="false" data-roles="Administrators,ArhAdmin"> </div>
+      </div>
+      <div data-activator="Tab|Áreas de Interés">
+        <div id="view11" data-controller="Persona_Area_Interes" data-view="grid1" data-filter-source="view1" data-filter-fields="Persona_Id" data-tag="view-style-grid, &#xD;&#xA;view-style-list,&#xD;&#xA;view-style-cards,&#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-calendar-disabled" data-show-view-selector="false" data-roles="Administrators,ArhAdmin"> </div>
+      </div>
+      <div data-activator="Tab|Imagen">
+        <div id="view14" data-controller="Persona" data-view="gridImagen" data-filter-source="view1" data-filter-fields="Persona_Id" data-tag="view-style-grid, &#xD;&#xA;view-style-list,&#xD;&#xA;view-style-cards,&#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-calendar-disabled" data-show-description="false" data-show-details-in-list-mode="false" data-roles="Administrators,ArhAdmin"> </div>
+      </div>
+      <div data-activator="Tab|Pasatiempos">
+        <div id="view12" data-controller="Persona_Pasatiempo" data-view="grid1" data-filter-source="view1" data-filter-fields="Persona_Id" data-tag="view-style-grid, &#xD;&#xA;view-style-list,&#xD;&#xA;view-style-cards,&#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-calendar-disabled" data-show-view-selector="false" data-roles="Administrators,ArhAdmin"> </div>
+      </div>
+      <div data-activator="Tab|Solicitudes de Gastos">
+        <div id="view13" data-controller="Administracion_Gasto" data-view="gridGastosGeneral" data-filter-source="view1" data-filter-fields="Contratado_Id" data-tag="view-style-grid, &#xD;&#xA;view-style-list,&#xD;&#xA;view-style-cards,&#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-calendar-disabled" data-show-description="false" data-show-details-in-list-mode="false" data-visible-when="[master.Acceso_Servicio_ARH_Gastos]==true" data-roles="Administrators,ArhAdmin"> </div>
+      </div>
+      <div data-activator="Tab|Movimiento de Personal">
+        <div id="view15" data-controller="Movimiento_Personal" data-view="grid1" data-filter-source="view1" data-filter-fields="Contratado_Id" data-tag="view-style-grid, &#xD;&#xA;view-style-list,&#xD;&#xA;view-style-cards,&#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-calendar-disabled" data-show-view-selector="false" data-roles="Administrators,ArhAdmin"> </div>
+      </div>
+      <div data-activator="Tab|Herramientas de Trabajo Asignadas">
+        <div id="view16" data-controller="Herramienta_Trabajo_Asignada" data-view="grid1" data-filter-source="view1" data-filter-fields="Contratado_Id" data-tag="view-style-grid, &#xD;&#xA;view-style-list,&#xD;&#xA;view-style-cards,&#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-calendar-disabled" data-show-description="false" data-roles="Administrators,ArhAdmin"> </div>
+      </div>
+      <div data-activator="Tab|Finiquitos">
+        <div id="view17" data-controller="Finiquito" data-view="grid1" data-filter-source="view1" data-filter-fields="Contratado_Id" data-tag="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" data-show-description="false" data-show-view-selector="false" data-roles="Administrators,ArhAdmin"> </div>
+      </div>
+      <div data-activator="Tab|Demandas">
+        <div id="view18" data-controller="Demanda" data-view="grid1" data-filter-source="view17" data-filter-fields="Demanda_Id" data-tag="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" data-show-description="false" data-show-view-selector="false" data-auto-hide="self" data-show-details-in-list-mode="false" data-roles="hidden"> </div>
+      </div>
+      <div data-activator="Tab|Solicitud de Documento">
+        <div id="view20" data-controller="Contratado_Solicitud_Documento" data-view="grid1" data-filter-source="view1" data-filter-fields="Contratado_Id" data-tag="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" data-visible-when="[master.Acceso_Servicio_ARH_Documentos]==true" data-roles="Administrators,ArhAdmin"> </div>
+      </div>
+      <div data-activator="Tab|Solicitudes de Préstamo">
+        <div id="view21" data-controller="Contratado_Solicitud_Prestamo" data-view="grid1" data-filter-source="view1" data-filter-fields="Contratado_Id" data-selection-mode="multiple" data-tag="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" data-visible-when="[master.Acceso_Servicio_ARH_Prestamos]==true" data-roles="Administrators,ArhAdmin"> </div>
+      </div>
+      <div data-activator="Tab|Formularios">
+        <div id="view22" data-controller="Documento_Solicitud_Prestamo" data-view="grid1" data-filter-source="view21" data-filter-fields="Contratado_Solicitud_Prestamo_Id" data-tag="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" data-roles="Administrators,ArhAdmin"> </div>
+      </div>
+      <div data-activator="Tab|Evaluaciones">
+        <div id="view23" data-controller="Red_Evaluacion_ARH" data-view="grid1" data-filter-source="view1" data-filter-fields="Empleado_Evaluado_Contratado_Id" data-visible-when="[master.Acceso_Servicio_ARH_Evaluaciones]==true" data-roles="hidden"> </div>
+      </div>
+      <div data-activator="Tab|Conceptos ARH">
+        <div id="view24" data-controller="Contratado_Concepto_ARH" data-view="grid1" data-filter-source="view1" data-filter-fields="Contratado_Id" data-tag="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" data-roles="Administrators,ArhAdmonServicios"> </div>
+      </div>
+      <div data-activator="Tab|IMSS">
+        <div id="view25" data-controller="Datos_Integracion_Empleados" data-view="grid1" data-filter-source="view1" data-filter-fields="Contratado_Id"> </div>
+      </div>
+    </div>
+  </body>
+</html>

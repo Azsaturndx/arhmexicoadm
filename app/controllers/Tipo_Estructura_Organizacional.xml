@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Tipo_Estructura_Organizacional" conflictDetection="overwriteChanges" label="Tipo Estructura Organizacional" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Tipo_Estructura_Organizacional"."Tipo_Estructura_Organizacional_Id" "Tipo_Estructura_Organizacional_Id"
+	,"Tipo_Estructura_Organizacional"."Tipo_Estructura_Organizacional" "Tipo_Estructura_Organizacional"
+	,"Tipo_Estructura_Organizacional"."Transaccion_Id" "Transaccion_Id"
+	,"Tipo_Estructura_Organizacional"."Creado_Por_Id" "Creado_Por_Id"
+	,"Usuario_V"."UserName" "cpUserName"
+	,"Tipo_Estructura_Organizacional"."Fecha_Creacion" "Fecha_Creacion"
+	,"Tipo_Estructura_Organizacional"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"Usuario_V1"."UserName" "apUserName"
+	,"Tipo_Estructura_Organizacional"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Tipo_Estructura_Organizacional"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Tipo_Estructura_Organizacional"."Color_Id" "Color_Id"
+	,"Color"."Color" "Color"
+	,"Tipo_Estructura_Organizacional"."Es_Unidad_Servicio" "Es_Unidad_Servicio"
+	,"Tipo_Estructura_Organizacional"."Es_Unidad_Negocio" "Es_Unidad_Negocio"
+	,"Tipo_Estructura_Organizacional"."Es_Direccion" "Es_Direccion"
+	,"Tipo_Estructura_Organizacional"."Es_Gerencia" "Es_Gerencia"
+	,"Tipo_Estructura_Organizacional"."Es_Jefatura" "Es_Jefatura"
+	,"Tipo_Estructura_Organizacional"."Es_Departamento" "Es_Departamento"
+	,"Tipo_Estructura_Organizacional"."Es_Zona_Comercial" "Es_Zona_Comercial"
+	,"Tipo_Estructura_Organizacional"."Es_Coordinacion" "Es_Coordinacion"
+	,"Tipo_Estructura_Organizacional"."Es_Unidad_Personal" "Es_Unidad_Personal"
+from "APP"."Tipo_Estructura_Organizacional" "Tipo_Estructura_Organizacional"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Tipo_Estructura_Organizacional"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Usuario_V" on "Tipo_Estructura_Organizacional"."Creado_Por_Id" = "Usuario_V"."UserId"
+	left join "dbo"."Usuario_V" "Usuario_V1" on "Tipo_Estructura_Organizacional"."Actualizado_Por_Id" = "Usuario_V1"."UserId"
+	left join "APP"."Color" "Color" on "Tipo_Estructura_Organizacional"."Color_Id" = "Color"."Color_Id"
+]]></text>
+    </command>
+    <command id="Tipo_Estructura_Organizacional_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Tipo_Estructura_Organizacional_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Tipo_Estructura_Organizacional_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Tipo Estructura Organizacional Id" readOnly="true" />
+    <field name="Tipo_Estructura_Organizacional" type="String" allowNulls="false" label="Tipo de Estructura Organizacional" length="150" showInSummary="true" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transaccion Id" length="50" showInSummary="true" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id" showInSummary="true">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" showInSummary="true" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id" showInSummary="true">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="Color_Id" type="Int32" allowNulls="false" default="((0))" label="Color Id">
+      <items style="Lookup" dataController="Color" newDataView="createForm1" dataValueField="Color_Id" dataTextField="Color" dataView="Color_LookUp_List" copy="Color_Nombre=Color" />
+    </field>
+    <field name="Color" type="String" readOnly="true" label="Color" length="150" />
+    <field name="Es_Unidad_Servicio" type="Boolean" allowNulls="false" default="((0))" label="¿Es Unidad Servicio?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Unidad_Negocio" type="Boolean" allowNulls="false" default="((0))" label="¿Es Unidad de Negocio?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Direccion" type="Boolean" allowNulls="false" default="((0))" label="¿Es Dirección?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Gerencia" type="Boolean" allowNulls="false" default="((0))" label="¿Es Gerencia?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Jefatura" type="Boolean" allowNulls="false" default="((0))" label="¿Es Jefatura?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Departamento" type="Boolean" allowNulls="false" default="((0))" label="¿Es Departamento?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Zona_Comercial" type="Boolean" allowNulls="false" default="((0))" label="¿Es Zona Comercial?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Coordinacion" type="Boolean" allowNulls="false" default="((0))" label="¿Es Coordinación?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Unidad_Personal" type="Boolean" allowNulls="false" default="((0))" label="¿Es Unidad Personal?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Color_Nombre" type="String" readOnly="true" label="Color" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Tipo Estructura Organizacional" filter="Estatus_Registro_Id &lt;&gt; 0" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Tipo_Estructura_Organizacional">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Tipo_Estructura_Organizacional" />
+        <dataField fieldName="Es_Unidad_Servicio" />
+        <dataField fieldName="Es_Unidad_Negocio" />
+        <dataField fieldName="Es_Direccion" />
+        <dataField fieldName="Es_Gerencia" />
+        <dataField fieldName="Es_Jefatura" />
+        <dataField fieldName="Es_Departamento" />
+        <dataField fieldName="Es_Zona_Comercial" />
+        <dataField fieldName="Es_Coordinacion" />
+        <dataField fieldName="Es_Unidad_Personal" />
+        <dataField fieldName="Color_Id" aliasFieldName="Color" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Edición Tipo Estructura Organizacional" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Tipo_Estructura_Organizacional" />
+            <dataField fieldName="Es_Unidad_Servicio" />
+            <dataField fieldName="Es_Unidad_Negocio" />
+            <dataField fieldName="Es_Direccion" />
+            <dataField fieldName="Es_Gerencia" />
+            <dataField fieldName="Es_Jefatura" />
+            <dataField fieldName="Es_Departamento" />
+            <dataField fieldName="Es_Zona_Comercial" />
+            <dataField fieldName="Es_Coordinacion" />
+            <dataField fieldName="Es_Unidad_Personal" />
+            <dataField fieldName="Color_Id" aliasFieldName="Color" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nuevo Tipo Estructura Organizacional" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Tipo_Estructura_Organizacional" />
+            <dataField fieldName="Es_Unidad_Servicio" />
+            <dataField fieldName="Es_Unidad_Negocio" />
+            <dataField fieldName="Es_Direccion" />
+            <dataField fieldName="Es_Gerencia" />
+            <dataField fieldName="Es_Jefatura" />
+            <dataField fieldName="Es_Departamento" />
+            <dataField fieldName="Es_Zona_Comercial" />
+            <dataField fieldName="Es_Coordinacion" />
+            <dataField fieldName="Es_Unidad_Personal" />
+            <dataField fieldName="Color_Id" aliasFieldName="Color" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Tipo_Estructura_Organizacional_LookUp_List" commandId="command1" type="Grid" label="Tipo Estructura Organizacional" filter="Estatus_Registro_Id IN (1,0)" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Tipo_Estructura_Organizacional" showInSelector="false">
+      <dataFields>
+        <dataField fieldName="Tipo_Estructura_Organizacional_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Estructura_Organizacional" rows="5" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true">
+          <visibility>
+            <expression test="false" type="ClientScript" />
+          </visibility>
+        </dataField>
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Tipo_Estructura_Organizacional
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Tipo_Estructura_Organizacional_Id = @Tipo_Estructura_Organizacional_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Tipo_Estructura_Organizacional
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Tipo_Estructura_Organizacional_Id = @Tipo_Estructura_Organizacional_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Tipo_Estructura_Organizacional
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Tipo_Estructura_Organizacional_Id = @Tipo_Estructura_Organizacional_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Tipo_Estructura_Organizacional
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Tipo_Estructura_Organizacional_Id = @Tipo_Estructura_Organizacional_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Tipo_Estructura_Organizacional
+	WHERE
+		REPLACE(UPPER(Tipo_Estructura_Organizacional),' ','') = REPLACE(UPPER(@Tipo_Estructura_Organizacional),' ','')
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya esta registrado este tipo de estructura organizacional en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya esta registrado este tipo de estructura organizacional en la base de datos, favor de corregir.'
+   RETURN
+END
+
+]]></rule>
+    <rule id="r102" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Tipo_Estructura_Organizacional
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Tipo_Estructura_Organizacional_Id= @Tipo_Estructura_Organizacional_Id]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Tipo_Estructura_Organizacional
+	WHERE
+  		REPLACE(UPPER(Tipo_Estructura_Organizacional),' ','') = REPLACE(UPPER(@Tipo_Estructura_Organizacional),' ','')
+		AND Tipo_Estructura_Organizacional_Id <> @Tipo_Estructura_Organizacional_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya esta registrado este tipo de estructura organizacional en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya esta registrado este tipo de estructura organizacional en la base de datos, favor de corregir.'
+   RETURN
+END
+
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Tipo_Estructura_Organizacional
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Tipo_Estructura_Organizacional_Id = @Tipo_Estructura_Organizacional_Id]]></rule>
+  </businessRules>
+</dataController>

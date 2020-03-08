@@ -1,0 +1,1480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Tipo_Documento" conflictDetection="overwriteChanges" label="Tipo Documento" handler="arhmexico.Rules.Tipo_DocumentoBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text" custom="false">
+      <text><![CDATA[select
+	"Tipo_Documento"."Tipo_Documento_Id" "Tipo_Documento_Id"
+	,"Tipo_Documento"."Tipo_Documento" "Tipo_Documento"
+	,"Tipo_Documento"."Es_Acta_Nacimiento" "Es_Acta_Nacimiento"
+	,"Tipo_Documento"."Es_Ine" "Es_Ine"
+	,"Tipo_Documento"."Es_Curp" "Es_Curp"
+	,"Tipo_Documento"."Es_Recibo_Nomina" "Es_Recibo_Nomina"
+	,"Tipo_Documento"."Es_Comprobante_Domicilio" "Es_Comprobante_Domicilio"
+	,"Tipo_Documento"."Es_Carta_Recomendacion" "Es_Carta_Recomendacion"
+	,"Tipo_Documento"."Es_Carta_Antiguedad" "Es_Carta_Antiguedad"
+	,"Tipo_Documento"."Es_Cv" "Es_Cv"
+	,"Tipo_Documento"."Es_Resultado_Examen_Medico" "Es_Resultado_Examen_Medico"
+	,"Tipo_Documento"."Es_Resultado_Investigacion_Socio_Economica" "Es_Resultado_Investigacion_Socio_Economica"
+	,"Tipo_Documento"."Es_Resultado_Examen_Psicometrico" "Es_Resultado_Examen_Psicometrico"
+	,"Tipo_Documento"."Es_Resultado_Entrevista" "Es_Resultado_Entrevista"
+	,"Tipo_Documento"."Es_Otro" "Es_Otro"
+	,"Tipo_Documento"."Fecha_Creacion" "Fecha_Creacion"
+	,"Tipo_Documento"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Tipo_Documento"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"cp"."UserName" "cpUserName"
+	,"ap"."UserName" "apUserName"
+	,"Tipo_Documento"."Es_Perfil_RyS" "Es_Perfil_Rys"
+	,"Tipo_Documento"."Cliente_Id" "Cliente_Id"
+	,"Cliente"."Cliente" "Cliente_Nombre"
+	,"Tipo_Documento"."Es_De_Fiscal" "Es_De_Fiscal"
+	,"Tipo_Documento"."Es_Documento_Permanente" "Es_Documento_Permanente"
+	,"Tipo_Documento"."Es_Documento_De_Contratacion_Cliente" "Es_Documento_De_Contratacion_Cliente"
+	,"Tipo_Documento"."Es_De_Registro" "Es_De_Registro"
+	,"Tipo_Documento"."Es_De_Contratacion_Aspirante" "Es_De_Contratacion_Aspirante"
+	,"Tipo_Documento"."Es_De_Finiquito" "Es_De_Finiquito"
+	,"Tipo_Documento"."Es_De_Laboral" "Es_De_Laboral"
+	,"Tipo_Documento"."Es_De_Persona" "Es_De_Persona"
+	,"Tipo_Documento"."Es_De_Contratado" "Es_De_Contratado"
+	,"Tipo_Documento"."Es_De_Candidato" "Es_De_Candidato"
+	,"Tipo_Documento"."Es_Cheque_Impreso" "Es_Cheque_Impreso"
+	,"Tipo_Documento"."Es_Carta_Renuncia_ARH" "Es_Carta_Renuncia_Arh"
+	,"Tipo_Documento"."Es_Carta_Renuncia_Cliente" "Es_Carta_Renuncia_Cliente"
+	,"Tipo_Documento"."Es_Renuncia_Como_Miembro_Sindicato" "Es_Renuncia_Como_Miembro_Sindicato"
+	,"Tipo_Documento"."Es_Carta_Finiquito_SA" "Es_Carta_Finiquito_SA"
+	,"Tipo_Documento"."Es_Recibo_Sindicato" "Es_Recibo_Sindicato"
+	,"Tipo_Documento"."Es_Convenio" "Es_Convenio"
+	,"Tipo_Documento"."Es_Documento_Demanda" "Es_Documento_Demanda"
+	,"Tipo_Documento"."Es_Documento_SA" "Es_Documento_SA"
+	,"Tipo_Documento"."Es_Documento_Sindicato" "Es_Documento_Sindicato"
+	,"Tipo_Documento"."Es_Pagadora_Documento" "Es_Pagadora_Documento"
+	,"Tipo_Documento"."Es_Cliente_Documento" "Es_Cliente_Documento"
+	,"Tipo_Documento"."Es_Receptora_Documento" "Es_Receptora_Documento"
+	,"Tipo_Documento"."Es_Pagadora_Cuadro_Accionario_Documento" "Es_Pagadora_Cuadro_Accionario_Documento"
+	,"Tipo_Documento"."Es_Receptora_Cuadro_Accionario_Documento" "Es_Receptora_Cuadro_Accionario_Documento"
+	,"Tipo_Documento"."Aplica_Descripcion_Puesto" "Aplica_Descripcion_Puesto"
+	,"Tipo_Documento"."Aplica_Numero_Escritura" "Aplica_Numero_Escritura"
+	,"Tipo_Documento"."Aplica_Fecha_Vencimiento"
+	,"Tipo_Documento"."Aplica_Numero_Escritura"
+	,"Tipo_Documento"."Es_Accionista_Documento"
+from "APP"."Tipo_Documento" "Tipo_Documento"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Tipo_Documento"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cp" on "Tipo_Documento"."Creado_Por_Id" = "cp"."UserId"
+	left join "dbo"."Usuario_V" "ap" on "Tipo_Documento"."Actualizado_Por_Id" = "ap"."UserId"
+	left join "APP"."Cliente" "Cliente" on "Tipo_Documento"."Cliente_Id" = "Cliente"."Cliente_Id"]]></text>
+    </command>
+    <command id="Tipo_Documento_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Tipo_Documento_Id" />
+      </output>
+    </command>
+    <command type="Text" id="command2" custom="false">
+      <text><![CDATA[select
+	"Tipo_Documento"."Tipo_Documento_Id" "Tipo_Documento_Id"
+	,"Tipo_Documento"."Tipo_Documento" "Tipo_Documento"
+	,"Tipo_Documento"."Es_Acta_Nacimiento" "Es_Acta_Nacimiento"
+	,"Tipo_Documento"."Es_Ine" "Es_Ine"
+	,"Tipo_Documento"."Es_Curp" "Es_Curp"
+	,"Tipo_Documento"."Es_Recibo_Nomina" "Es_Recibo_Nomina"
+	,"Tipo_Documento"."Es_Comprobante_Domicilio" "Es_Comprobante_Domicilio"
+	,"Tipo_Documento"."Es_Carta_Recomendacion" "Es_Carta_Recomendacion"
+	,"Tipo_Documento"."Es_Carta_Antiguedad" "Es_Carta_Antiguedad"
+	,"Tipo_Documento"."Es_Cv" "Es_Cv"
+	,"Tipo_Documento"."Es_Resultado_Examen_Medico" "Es_Resultado_Examen_Medico"
+	,"Tipo_Documento"."Es_Resultado_Investigacion_Socio_Economica" "Es_Resultado_Investigacion_Socio_Economica"
+	,"Tipo_Documento"."Es_Resultado_Examen_Psicometrico" "Es_Resultado_Examen_Psicometrico"
+	,"Tipo_Documento"."Es_Resultado_Entrevista" "Es_Resultado_Entrevista"
+	,"Tipo_Documento"."Es_Otro" "Es_Otro"
+	,"Tipo_Documento"."Fecha_Creacion" "Fecha_Creacion"
+	,"Tipo_Documento"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Tipo_Documento"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"cp"."UserName" "cpUserName"
+	,"ap"."UserName" "apUserName"
+	,"Tipo_Documento"."Es_Perfil_RyS" "Es_Perfil_Rys"
+	,"Tipo_Documento"."Cliente_Id" "Cliente_Id"
+	,"Cliente"."Cliente" "Cliente_Nombre"
+	,"Tipo_Documento"."Es_De_Fiscal" "Es_De_Fiscal"
+	,"Tipo_Documento"."Es_Documento_Permanente" "Es_Documento_Permanente"
+	,"Tipo_Documento"."Es_Documento_De_Contratacion_Cliente" "Es_Documento_De_Contratacion_Cliente"
+	,"Tipo_Documento"."Es_De_Registro" "Es_De_Registro"
+	,"Tipo_Documento"."Es_De_Contratacion_Aspirante" "Es_De_Contratacion_Aspirante"
+	,"Tipo_Documento"."Es_De_Finiquito" "Es_De_Finiquito"
+	,"Tipo_Documento"."Es_De_Laboral" "Es_De_Laboral"
+	,"Tipo_Documento"."Es_De_Persona" "Es_De_Persona"
+	,"Tipo_Documento"."Es_De_Contratado" "Es_De_Contratado"
+	,"Tipo_Documento"."Es_De_Candidato" "Es_De_Candidato"
+	,"Tipo_Documento"."Es_Cheque_Impreso" "Es_Cheque_Impreso"
+	,"Tipo_Documento"."Es_Carta_Renuncia_ARH" "Es_Carta_Renuncia_Arh"
+	,"Tipo_Documento"."Es_Carta_Renuncia_Cliente" "Es_Carta_Renuncia_Cliente"
+	,"Tipo_Documento"."Es_Renuncia_Como_Miembro_Sindicato" "Es_Renuncia_Como_Miembro_Sindicato"
+	,"Tipo_Documento"."Es_Carta_Finiquito_SA" "Es_Carta_Finiquito_SA"
+	,"Tipo_Documento"."Es_Recibo_Sindicato" "Es_Recibo_Sindicato"
+	,"Tipo_Documento"."Es_Convenio" "Es_Convenio"
+	,"Tipo_Documento"."Es_Documento_Demanda" "Es_Documento_Demanda"
+	,"Tipo_Documento"."Es_Documento_SA" "Es_Documento_SA"
+	,"Tipo_Documento"."Es_Documento_Sindicato" "Es_Documento_Sindicato"
+	,"Tipo_Documento"."Es_Pagadora_Documento" "Es_Pagadora_Documento"
+	,"Tipo_Documento"."Es_Cliente_Documento" "Es_Cliente_Documento"
+	,"Tipo_Documento"."Es_Receptora_Documento" "Es_Receptora_Documento"
+	,"Tipo_Documento"."Es_Pagadora_Cuadro_Accionario_Documento" "Es_Pagadora_Cuadro_Accionario_Documento"
+	,"Tipo_Documento"."Es_Receptora_Cuadro_Accionario_Documento" "Es_Receptora_Cuadro_Accionario_Documento"
+	,"Tipo_Documento"."Aplica_Descripcion_Puesto" "Aplica_Descripcion_Puesto"
+	,"Tipo_Documento"."Es_Obligatorio_Para_Solicitar_Prestamo" "Es_Obligatorio_Para_Solicitar_Prestamo"
+	,"Tipo_Documento"."Es_Formulario_Para_Solicitar_Prestamo" "Es_Formulario_Para_Solicitar_Prestamo"
+	,"Tipo_Documento"."Es_Sociedad_Documento" "Es_Sociedad_Documento"
+	,"Tipo_Documento"."Es_Sociedad_Cuadro_Accionario_Documento" "Es_Sociedad_Cuadro_Accionario_Documento"
+	,"Tipo_Documento"."Aplica_Numero_Escritura" "Aplica_Numero_Escritura"
+	,"Tipo_Documento"."Aplica_Fecha_Vencimiento" "Aplica_Fecha_Vencimiento"
+	,"Tipo_Documento"."Es_Accionista_Documento" "Es_Accionista_Documento"
+	,"Tipo_Documento"."Cantidad_Dias_Aviso_Antes_Vencimiento" "Cantidad_Dias_Aviso_Antes_Vencimiento"
+from "APP"."Tipo_Documento" "Tipo_Documento"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Tipo_Documento"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cp" on "Tipo_Documento"."Creado_Por_Id" = "cp"."UserId"
+	left join "dbo"."Usuario_V" "ap" on "Tipo_Documento"."Actualizado_Por_Id" = "ap"."UserId"
+	left join "APP"."Cliente" "Cliente" on "Tipo_Documento"."Cliente_Id" = "Cliente"."Cliente_Id"]]></text>
+    </command>
+    <command type="Text" id="gridTipoDocumentoSociedadCuadroV" custom="false">
+      <text><![CDATA[select
+	"Tipo_Documento"."Tipo_Documento_Id" "Tipo_Documento_Id"
+	,"Tipo_Documento"."Tipo_Documento" "Tipo_Documento"
+	,"Tipo_Documento"."Es_Acta_Nacimiento" "Es_Acta_Nacimiento"
+	,"Tipo_Documento"."Es_Ine" "Es_Ine"
+	,"Tipo_Documento"."Es_Curp" "Es_Curp"
+	,"Tipo_Documento"."Es_Recibo_Nomina" "Es_Recibo_Nomina"
+	,"Tipo_Documento"."Es_Comprobante_Domicilio" "Es_Comprobante_Domicilio"
+	,"Tipo_Documento"."Es_Carta_Recomendacion" "Es_Carta_Recomendacion"
+	,"Tipo_Documento"."Es_Carta_Antiguedad" "Es_Carta_Antiguedad"
+	,"Tipo_Documento"."Es_Cv" "Es_Cv"
+	,"Tipo_Documento"."Es_Resultado_Examen_Medico" "Es_Resultado_Examen_Medico"
+	,"Tipo_Documento"."Es_Resultado_Investigacion_Socio_Economica" "Es_Resultado_Investigacion_Socio_Economica"
+	,"Tipo_Documento"."Es_Resultado_Examen_Psicometrico" "Es_Resultado_Examen_Psicometrico"
+	,"Tipo_Documento"."Es_Resultado_Entrevista" "Es_Resultado_Entrevista"
+	,"Tipo_Documento"."Es_Otro" "Es_Otro"
+	,"Tipo_Documento"."Fecha_Creacion" "Fecha_Creacion"
+	,"Tipo_Documento"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Tipo_Documento"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"cp"."UserName" "cpUserName"
+	,"ap"."UserName" "apUserName"
+	,"Tipo_Documento"."Es_Perfil_RyS" "Es_Perfil_Rys"
+	,"Tipo_Documento"."Cliente_Id" "Cliente_Id"
+	,"Cliente"."Cliente" "Cliente_Nombre"
+	,"Tipo_Documento"."Es_De_Fiscal" "Es_De_Fiscal"
+	,"Tipo_Documento"."Es_Documento_Permanente" "Es_Documento_Permanente"
+	,"Tipo_Documento"."Es_Documento_De_Contratacion_Cliente" "Es_Documento_De_Contratacion_Cliente"
+	,"Tipo_Documento"."Es_De_Registro" "Es_De_Registro"
+	,"Tipo_Documento"."Es_De_Contratacion_Aspirante" "Es_De_Contratacion_Aspirante"
+	,"Tipo_Documento"."Es_De_Finiquito" "Es_De_Finiquito"
+	,"Tipo_Documento"."Es_De_Laboral" "Es_De_Laboral"
+	,"Tipo_Documento"."Es_De_Persona" "Es_De_Persona"
+	,"Tipo_Documento"."Es_De_Contratado" "Es_De_Contratado"
+	,"Tipo_Documento"."Es_De_Candidato" "Es_De_Candidato"
+	,"Tipo_Documento"."Es_Cheque_Impreso" "Es_Cheque_Impreso"
+	,"Tipo_Documento"."Es_Carta_Renuncia_ARH" "Es_Carta_Renuncia_Arh"
+	,"Tipo_Documento"."Es_Carta_Renuncia_Cliente" "Es_Carta_Renuncia_Cliente"
+	,"Tipo_Documento"."Es_Renuncia_Como_Miembro_Sindicato" "Es_Renuncia_Como_Miembro_Sindicato"
+	,"Tipo_Documento"."Es_Carta_Finiquito_SA" "Es_Carta_Finiquito_SA"
+	,"Tipo_Documento"."Es_Recibo_Sindicato" "Es_Recibo_Sindicato"
+	,"Tipo_Documento"."Es_Convenio" "Es_Convenio"
+	,"Tipo_Documento"."Es_Documento_Demanda" "Es_Documento_Demanda"
+	,"Tipo_Documento"."Es_Documento_SA" "Es_Documento_SA"
+	,"Tipo_Documento"."Es_Documento_Sindicato" "Es_Documento_Sindicato"
+	,"Tipo_Documento"."Es_Pagadora_Documento" "Es_Pagadora_Documento"
+	,"Tipo_Documento"."Es_Cliente_Documento" "Es_Cliente_Documento"
+	,"Tipo_Documento"."Es_Receptora_Documento" "Es_Receptora_Documento"
+	,"Tipo_Documento"."Es_Pagadora_Cuadro_Accionario_Documento" "Es_Pagadora_Cuadro_Accionario_Documento"
+	,"Tipo_Documento"."Es_Receptora_Cuadro_Accionario_Documento" "Es_Receptora_Cuadro_Accionario_Documento"
+	,"Tipo_Documento"."Aplica_Descripcion_Puesto" "Aplica_Descripcion_Puesto"
+	,"Tipo_Documento"."Es_Sociedad_Documento" "Es_Sociedad_Documento"
+	,"Tipo_Documento"."Es_Sociedad_Cuadro_Accionario_Documento" "Es_Sociedad_Cuadro_Accionario_Documento"
+	,"Tipo_Documento"."Aplica_Fecha_Vencimiento"
+	,"Tipo_Documento"."Aplica_Numero_Escritura"
+	,"Tipo_Documento"."Es_Accionista_Documento"
+from "APP"."Tipo_Documento" "Tipo_Documento"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Tipo_Documento"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cp" on "Tipo_Documento"."Creado_Por_Id" = "cp"."UserId"
+	left join "dbo"."Usuario_V" "ap" on "Tipo_Documento"."Actualizado_Por_Id" = "ap"."UserId"
+	left join "APP"."Cliente" "Cliente" on "Tipo_Documento"."Cliente_Id" = "Cliente"."Cliente_Id"]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Tipo_Documento_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Tipo Documento Id" readOnly="true" />
+    <field name="Tipo_Documento" type="String" allowNulls="false" default="('')" label="Tipo de Documento" length="150" showInSummary="true" />
+    <field name="Es_De_Fiscal" type="Boolean" allowNulls="false" default="((0))" label="¿Es de Fiscal?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Documento_Permanente" type="Boolean" allowNulls="false" default="((0))" label="¿Es Documento Permanente?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Documento_De_Contratacion_Cliente" type="Boolean" allowNulls="false" default="((0))" label="¿Es Documento de Contratación Cliente?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_De_Registro" type="Boolean" allowNulls="false" default="((0))" label="¿Es de Registro?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_De_Contratacion_Aspirante" type="Boolean" allowNulls="false" default="((0))" label="¿Es de Contratación Aspirante?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_De_Finiquito" type="Boolean" allowNulls="false" default="((0))" label="¿Es de Finiquito?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_De_Laboral" type="Boolean" allowNulls="false" default="((0))" label="¿Es de Laboral?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_De_Persona" type="Boolean" allowNulls="false" default="((0))" label="¿Es de Persona?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_De_Contratado" type="Boolean" allowNulls="false" default="((0))" label="¿Es de Contratado?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_De_Candidato" type="Boolean" allowNulls="false" default="((0))" label="¿Es de Candidato?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Acta_Nacimiento" type="Boolean" allowNulls="false" default="((0))" label="¿Es Acta Nacimiento?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Ine" type="Boolean" allowNulls="false" default="((0))" label="¿Es IFE/INE?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Curp" type="Boolean" allowNulls="false" default="((0))" label="¿Es CURP?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Recibo_Nomina" type="Boolean" allowNulls="false" default="((0))" label="¿Es Recibo de Nómina?" showInSummary="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Comprobante_Domicilio" type="Boolean" allowNulls="false" default="((0))" label="¿Es Comprobante de Domicilio?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Carta_Recomendacion" type="Boolean" allowNulls="false" default="((0))" label="¿Es Carta de Recomendación?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Carta_Antiguedad" type="Boolean" allowNulls="false" default="((0))" label="¿Es Carta Antigüedad?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Cv" type="Boolean" allowNulls="false" default="((0))" label="¿Es CV?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Resultado_Examen_Medico" type="Boolean" allowNulls="false" default="((0))" label="¿Es Resultado Examen Médico?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Resultado_Investigacion_Socio_Economica" type="Boolean" allowNulls="false" default="((0))" label="¿Es Resultado Investigación Socio Económica?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Resultado_Examen_Psicometrico" type="Boolean" allowNulls="false" default="((0))" label="¿Es Resultado Examen Psicométrico?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Resultado_Entrevista" type="Boolean" allowNulls="false" default="((0))" label="¿Es Resultado Entrevista?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Perfil_Rys" type="Boolean" allowNulls="false" default="((0))" label="¿Es Perfil Rys?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Otro" type="Boolean" allowNulls="false" default="((0))" label="¿Es Otro?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Cliente_Id" type="Int32" allowNulls="false" default="((0))" label="Cliente Id">
+      <items style="Lookup" dataController="Cliente" newDataView="createForm1" dataValueField="Cliente_Id" dataTextField="Cliente" dataView="Cliente_Admin_LookUp_List" />
+    </field>
+    <field name="Cliente_Nombre" type="String" readOnly="true" label="Cliente" length="150" />
+    <field name="Es_Cheque_Impreso" type="Boolean" allowNulls="false" default="((0))" label="¿Es Cheque Impreso?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Carta_Renuncia_Arh" type="Boolean" allowNulls="false" default="((0))" label="¿Es Carta Renuncia ARH?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Carta_Renuncia_Cliente" type="Boolean" allowNulls="false" default="((0))" label="¿Es Carta Renuncia Cliente?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Renuncia_Como_Miembro_Sindicato" type="Boolean" allowNulls="false" default="((0))" label="¿Es Renuncia Como Miembro Sindicato?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Carta_Finiquito_SA" type="Boolean" allowNulls="false" default="((0))" label="¿Es Carta Finiquito SA?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Recibo_Sindicato" type="Boolean" allowNulls="false" default="((0))" label="¿Es Recibo Sindicato?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Convenio" type="Boolean" allowNulls="false" default="((0))" label="¿Es Convenio?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Documento_Demanda" type="Boolean" allowNulls="false" default="((0))" label="¿Es Documento Demanda?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Documento_SA" type="Boolean" allowNulls="false" default="((0))" label="¿Es Documento SA?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Documento_Sindicato" type="Boolean" allowNulls="false" default="((0))" label="¿Es Documento Sindicato?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Pagadora_Documento" type="Boolean" allowNulls="false" default="((0))" label="¿Es Pagadora Documento?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Cliente_Documento" type="Boolean" allowNulls="false" default="((0))" label="¿Es Cliente Documento?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Receptora_Documento" type="Boolean" allowNulls="false" default="((0))" label="¿Es Receptora Documento?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Pagadora_Cuadro_Accionario_Documento" type="Boolean" allowNulls="false" default="((0))" label="¿Es Pagadora Cuadro Accionario Documento?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Receptora_Cuadro_Accionario_Documento" type="Boolean" allowNulls="false" default="((0))" label="¿Es Receptora Cuadro Accionario Documento?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Descripcion_Puesto" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Descripción de Puesto?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Numero_Escritura" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Número de Escritura?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Fecha_Vencimiento" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Fecha de Vencimiento?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Cantidad_Dias_Aviso_Antes_Vencimiento" type="Int32" allowNulls="false" default="((0))" label="Cantidad Dias Aviso Antes Vencimiento" />
+    <field name="Es_Sociedad_Documento" type="Boolean" allowNulls="false" default="((0))" label="¿Es Documento de Sociedad?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Sociedad_Cuadro_Accionario_Documento" type="Boolean" allowNulls="false" default="((0))" label="¿Es Documento de Sociedad Cuadro Accionario?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Accionista_Documento" type="Boolean" allowNulls="false" default="((0))" label="¿Es Documento de Accionista?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Obligatorio_Para_Solicitar_Prestamo" type="Boolean" label="¿Es Obligatorio Para Solicitar Préstamo?" allowNulls="false" default="0">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Formulario_Para_Solicitar_Prestamo" type="Boolean" label="¿Es Formulario Para Solicitar Préstamo?" allowNulls="false" default="0">
+      <items style="CheckBox" />
+    </field>
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Tipo de Documento" sortExpression="Tipo_Documento" filter="Estatus_Registro_Id &lt;&gt; 0" showInSelector="false" reportLabel="Tipos de Documentos" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Tipo_Documento" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Nombre" />
+        <dataField fieldName="Es_De_Fiscal" />
+        <dataField fieldName="Es_Documento_Permanente" />
+        <dataField fieldName="Es_Documento_De_Contratacion_Cliente" />
+        <dataField fieldName="Es_De_Registro" />
+        <dataField fieldName="Es_De_Contratacion_Aspirante" />
+        <dataField fieldName="Es_De_Finiquito" />
+        <dataField fieldName="Es_De_Laboral" />
+        <dataField fieldName="Es_De_Persona" />
+        <dataField fieldName="Es_De_Contratado" />
+        <dataField fieldName="Es_De_Candidato" />
+        <dataField fieldName="Es_Acta_Nacimiento" />
+        <dataField fieldName="Es_Ine" />
+        <dataField fieldName="Es_Curp" />
+        <dataField fieldName="Es_Recibo_Nomina" />
+        <dataField fieldName="Es_Comprobante_Domicilio" />
+        <dataField fieldName="Es_Carta_Recomendacion" />
+        <dataField fieldName="Es_Carta_Antiguedad" />
+        <dataField fieldName="Es_Cv" />
+        <dataField fieldName="Es_Resultado_Examen_Medico" />
+        <dataField fieldName="Es_Resultado_Investigacion_Socio_Economica" />
+        <dataField fieldName="Es_Resultado_Examen_Psicometrico" />
+        <dataField fieldName="Es_Resultado_Entrevista" />
+        <dataField fieldName="Es_Perfil_Rys" />
+        <dataField fieldName="Es_Cheque_Impreso" />
+        <dataField fieldName="Es_Carta_Renuncia_Arh" />
+        <dataField fieldName="Es_Carta_Renuncia_Cliente" />
+        <dataField fieldName="Es_Renuncia_Como_Miembro_Sindicato" />
+        <dataField fieldName="Es_Carta_Finiquito_SA" />
+        <dataField fieldName="Es_Recibo_Sindicato" />
+        <dataField fieldName="Es_Convenio" />
+        <dataField fieldName="Es_Documento_Demanda" />
+        <dataField fieldName="Es_Documento_SA" />
+        <dataField fieldName="Es_Documento_Sindicato" />
+        <dataField fieldName="Es_Pagadora_Documento" />
+        <dataField fieldName="Es_Cliente_Documento" />
+        <dataField fieldName="Es_Receptora_Documento" />
+        <dataField fieldName="Es_Pagadora_Cuadro_Accionario_Documento" />
+        <dataField fieldName="Es_Receptora_Cuadro_Accionario_Documento" />
+        <dataField fieldName="Es_Otro" />
+        <dataField fieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Aplica_Descripcion_Puesto" />
+        <dataField fieldName="Aplica_Numero_Escritura" />
+        <dataField fieldName="Aplica_Fecha_Vencimiento" />
+        <dataField fieldName="Cantidad_Dias_Aviso_Antes_Vencimiento" columns="15" />
+        <dataField fieldName="Es_Sociedad_Documento" />
+        <dataField fieldName="Es_Sociedad_Cuadro_Accionario_Documento" />
+        <dataField fieldName="Es_Accionista_Documento" />
+        <dataField fieldName="Tipo_Documento_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command2" label="Edición Tipo de Documento" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Tipo de Documento" tab="Generales" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Tipo_Documento" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Nombre" />
+            <dataField fieldName="Es_Cheque_Impreso" />
+            <dataField fieldName="Es_Carta_Renuncia_Arh" />
+            <dataField fieldName="Es_Carta_Renuncia_Cliente" />
+            <dataField fieldName="Es_Renuncia_Como_Miembro_Sindicato" />
+            <dataField fieldName="Es_Carta_Finiquito_SA" />
+            <dataField fieldName="Es_Recibo_Sindicato" />
+            <dataField fieldName="Es_Convenio" />
+            <dataField fieldName="Es_Documento_Demanda" />
+            <dataField fieldName="Es_Documento_SA" />
+            <dataField fieldName="Es_Documento_Sindicato" />
+            <dataField fieldName="Aplica_Descripcion_Puesto" />
+            <dataField fieldName="Aplica_Numero_Escritura" />
+            <dataField fieldName="Aplica_Fecha_Vencimiento" />
+            <dataField fieldName="Cantidad_Dias_Aviso_Antes_Vencimiento" columns="15" />
+            <dataField fieldName="Es_Sociedad_Documento" />
+            <dataField fieldName="Es_Sociedad_Cuadro_Accionario_Documento" />
+            <dataField fieldName="Es_Accionista_Documento" />
+            <dataField fieldName="Es_De_Fiscal" />
+            <dataField fieldName="Es_Documento_Permanente" />
+            <dataField fieldName="Es_Documento_De_Contratacion_Cliente" />
+            <dataField fieldName="Es_De_Registro" />
+            <dataField fieldName="Es_De_Contratacion_Aspirante" />
+            <dataField fieldName="Es_De_Finiquito" />
+            <dataField fieldName="Es_De_Laboral" />
+            <dataField fieldName="Es_De_Persona" />
+            <dataField fieldName="Es_De_Contratado" />
+            <dataField fieldName="Es_De_Candidato" />
+            <dataField fieldName="Es_Pagadora_Documento" />
+            <dataField fieldName="Es_Cliente_Documento" />
+            <dataField fieldName="Es_Receptora_Documento" />
+            <dataField fieldName="Es_Pagadora_Cuadro_Accionario_Documento" />
+            <dataField fieldName="Es_Receptora_Cuadro_Accionario_Documento" />
+            <dataField fieldName="Tipo_Documento_Id" columns="15" hidden="true" />
+          </dataFields>
+        </category>
+        <category headerText="Básicos" tab="Básicos" id="c3">
+          <dataFields>
+            <dataField fieldName="Es_Acta_Nacimiento" />
+            <dataField fieldName="Es_Ine" />
+            <dataField fieldName="Es_Curp" />
+            <dataField fieldName="Es_Recibo_Nomina" />
+            <dataField fieldName="Es_Comprobante_Domicilio" />
+            <dataField fieldName="Es_Carta_Recomendacion" />
+            <dataField fieldName="Es_Carta_Antiguedad" />
+            <dataField fieldName="Es_Cv" />
+            <dataField fieldName="Es_Otro" />
+            <dataField fieldName="Es_Perfil_Rys" />
+            <dataField fieldName="Es_Obligatorio_Para_Solicitar_Prestamo" />
+            <dataField fieldName="Es_Formulario_Para_Solicitar_Prestamo" />
+          </dataFields>
+        </category>
+        <category headerText="Resultados" tab="Resultados" id="c2" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="Es_Resultado_Examen_Medico" />
+            <dataField fieldName="Es_Resultado_Investigacion_Socio_Economica" />
+            <dataField fieldName="Es_Resultado_Examen_Psicometrico" />
+            <dataField fieldName="Es_Resultado_Entrevista" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command2" label="Nuevo Tipo de Documento" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Tipo de Documento" tab="Generales" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Tipo_Documento" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Nombre" />
+            <dataField fieldName="Es_De_Fiscal" />
+            <dataField fieldName="Es_Documento_Permanente" />
+            <dataField fieldName="Es_Documento_De_Contratacion_Cliente" />
+            <dataField fieldName="Es_De_Registro" />
+            <dataField fieldName="Es_De_Contratacion_Aspirante" />
+            <dataField fieldName="Es_De_Finiquito" />
+            <dataField fieldName="Es_De_Laboral" />
+            <dataField fieldName="Es_De_Persona" />
+            <dataField fieldName="Es_De_Contratado" />
+            <dataField fieldName="Es_De_Candidato" />
+            <dataField fieldName="Es_Cheque_Impreso" />
+            <dataField fieldName="Es_Carta_Renuncia_Arh" />
+            <dataField fieldName="Es_Carta_Renuncia_Cliente" />
+            <dataField fieldName="Es_Renuncia_Como_Miembro_Sindicato" />
+            <dataField fieldName="Es_Carta_Finiquito_SA" />
+            <dataField fieldName="Es_Recibo_Sindicato" />
+            <dataField fieldName="Es_Convenio" />
+            <dataField fieldName="Es_Documento_Demanda" />
+            <dataField fieldName="Es_Documento_SA" />
+            <dataField fieldName="Es_Documento_Sindicato" />
+            <dataField fieldName="Aplica_Descripcion_Puesto" />
+            <dataField fieldName="Aplica_Numero_Escritura" />
+            <dataField fieldName="Aplica_Fecha_Vencimiento" />
+            <dataField fieldName="Cantidad_Dias_Aviso_Antes_Vencimiento" columns="15" />
+            <dataField fieldName="Es_Sociedad_Documento" />
+            <dataField fieldName="Es_Sociedad_Cuadro_Accionario_Documento" />
+            <dataField fieldName="Es_Accionista_Documento" />
+            <dataField fieldName="Es_Pagadora_Documento" />
+            <dataField fieldName="Es_Cliente_Documento" />
+            <dataField fieldName="Es_Receptora_Documento" />
+            <dataField fieldName="Es_Pagadora_Cuadro_Accionario_Documento" />
+            <dataField fieldName="Es_Receptora_Cuadro_Accionario_Documento" />
+          </dataFields>
+        </category>
+        <category headerText="Básicos" tab="Básicos" id="c3">
+          <dataFields>
+            <dataField fieldName="Es_Acta_Nacimiento" />
+            <dataField fieldName="Es_Ine" />
+            <dataField fieldName="Es_Curp" />
+            <dataField fieldName="Es_Recibo_Nomina" />
+            <dataField fieldName="Es_Comprobante_Domicilio" />
+            <dataField fieldName="Es_Carta_Recomendacion" />
+            <dataField fieldName="Es_Carta_Antiguedad" />
+            <dataField fieldName="Es_Cv" />
+            <dataField fieldName="Es_Otro" />
+            <dataField fieldName="Es_Perfil_Rys" />
+            <dataField fieldName="Es_Obligatorio_Para_Solicitar_Prestamo" />
+            <dataField fieldName="Es_Formulario_Para_Solicitar_Prestamo" />
+          </dataFields>
+        </category>
+        <category headerText="Resultados" tab="Resultados" id="c2" flow="NewColumn">
+          <dataFields>
+            <dataField fieldName="Es_Resultado_Examen_Medico" />
+            <dataField fieldName="Es_Resultado_Investigacion_Socio_Economica" />
+            <dataField fieldName="Es_Resultado_Examen_Psicometrico" />
+            <dataField fieldName="Es_Resultado_Entrevista" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Tipo_Documento_LookUp_List" type="Grid" commandId="command1" label="Tipo de Documento" sortExpression="Tipo_Documento" filter="Estatus_Registro_Id IN (1,0)" reportLabel="Tipos de Documentos" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Tipo_Documento_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Documento" />
+        <dataField fieldName="Es_Acta_Nacimiento" hidden="true" />
+        <dataField fieldName="Es_Ine" hidden="true" />
+        <dataField fieldName="Es_Curp" hidden="true" />
+        <dataField fieldName="Es_Recibo_Nomina" hidden="true" />
+        <dataField fieldName="Es_Comprobante_Domicilio" hidden="true" />
+        <dataField fieldName="Es_Carta_Recomendacion" hidden="true" />
+        <dataField fieldName="Es_Carta_Antiguedad" hidden="true" />
+        <dataField fieldName="Es_Cv" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Medico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Investigacion_Socio_Economica" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Psicometrico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Entrevista" hidden="true" />
+        <dataField fieldName="Es_Otro" hidden="true" />
+        <dataField fieldName="Aplica_Descripcion_Puesto" />
+        <dataField fieldName="Aplica_Numero_Escritura" />
+        <dataField fieldName="Aplica_Fecha_Vencimiento" />
+        <dataField fieldName="Cantidad_Dias_Aviso_Antes_Vencimiento" columns="15" />
+        <dataField fieldName="Es_Sociedad_Documento" />
+        <dataField fieldName="Es_Sociedad_Cuadro_Accionario_Documento" />
+        <dataField fieldName="Es_Accionista_Documento" />
+        <dataField fieldName="Es_Perfil_Rys" hidden="true" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Nombre" hidden="true" />
+        <dataField fieldName="Es_De_Fiscal" hidden="true" />
+        <dataField fieldName="Es_Documento_Permanente" hidden="true" />
+        <dataField fieldName="Es_Documento_De_Contratacion_Cliente" hidden="true" />
+        <dataField fieldName="Es_De_Registro" hidden="true" />
+        <dataField fieldName="Es_De_Contratacion_Aspirante" hidden="true" />
+        <dataField fieldName="Es_De_Finiquito" hidden="true" />
+        <dataField fieldName="Es_De_Laboral" hidden="true" />
+        <dataField fieldName="Es_De_Persona" hidden="true" />
+        <dataField fieldName="Es_De_Contratado" hidden="true" />
+        <dataField fieldName="Es_De_Candidato" hidden="true" />
+        <dataField fieldName="Es_Cheque_Impreso" hidden="true" />
+        <dataField fieldName="Es_Carta_Renuncia_Arh" hidden="true" />
+        <dataField fieldName="Es_Carta_Renuncia_Cliente" hidden="true" />
+        <dataField fieldName="Es_Renuncia_Como_Miembro_Sindicato" hidden="true" />
+        <dataField fieldName="Es_Carta_Finiquito_SA" hidden="true" />
+        <dataField fieldName="Es_Recibo_Sindicato" hidden="true" />
+        <dataField fieldName="Es_Convenio" hidden="true" />
+        <dataField fieldName="Es_Documento_Demanda" hidden="true" />
+        <dataField fieldName="Es_Documento_SA" hidden="true" />
+        <dataField fieldName="Es_Documento_Sindicato" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Documento_Fiscal_LookUp_List" type="Grid" commandId="command1" label="Tipo de Documento" sortExpression="Tipo_Documento" filter="Estatus_Registro_Id = 1 AND Es_De_Fiscal = 1" reportLabel="Tipos de Documentos" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Tipo_Documento_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Documento" />
+        <dataField fieldName="Es_Acta_Nacimiento" hidden="true" />
+        <dataField fieldName="Es_Ine" hidden="true" />
+        <dataField fieldName="Es_Curp" hidden="true" />
+        <dataField fieldName="Es_Recibo_Nomina" hidden="true" />
+        <dataField fieldName="Es_Comprobante_Domicilio" hidden="true" />
+        <dataField fieldName="Es_Carta_Recomendacion" hidden="true" />
+        <dataField fieldName="Es_Carta_Antiguedad" hidden="true" />
+        <dataField fieldName="Es_Cv" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Medico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Investigacion_Socio_Economica" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Psicometrico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Entrevista" hidden="true" />
+        <dataField fieldName="Es_Otro" hidden="true" />
+        <dataField fieldName="Es_Perfil_Rys" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Nombre" />
+        <dataField fieldName="Es_De_Fiscal" />
+        <dataField fieldName="Es_Documento_Permanente" />
+        <dataField fieldName="Es_Documento_De_Contratacion_Cliente" />
+        <dataField fieldName="Es_De_Registro" />
+        <dataField fieldName="Es_De_Contratacion_Aspirante" />
+        <dataField fieldName="Es_De_Finiquito" />
+        <dataField fieldName="Es_De_Laboral" />
+        <dataField fieldName="Es_De_Persona" />
+        <dataField fieldName="Es_De_Contratado" />
+        <dataField fieldName="Es_De_Candidato" />
+        <dataField fieldName="Es_Cheque_Impreso" />
+        <dataField fieldName="Es_Carta_Renuncia_Arh" />
+        <dataField fieldName="Es_Carta_Renuncia_Cliente" />
+        <dataField fieldName="Es_Renuncia_Como_Miembro_Sindicato" />
+        <dataField fieldName="Es_Carta_Finiquito_SA" />
+        <dataField fieldName="Es_Recibo_Sindicato" />
+        <dataField fieldName="Es_Convenio" />
+        <dataField fieldName="Es_Documento_Demanda" />
+        <dataField fieldName="Es_Documento_SA" />
+        <dataField fieldName="Es_Documento_Sindicato" />
+        <dataField fieldName="Aplica_Descripcion_Puesto" />
+        <dataField fieldName="Aplica_Numero_Escritura" hidden="true" />
+        <dataField fieldName="Aplica_Fecha_Vencimiento" hidden="true" />
+        <dataField fieldName="Cantidad_Dias_Aviso_Antes_Vencimiento" columns="15" />
+        <dataField fieldName="Es_Sociedad_Documento" />
+        <dataField fieldName="Es_Sociedad_Cuadro_Accionario_Documento" />
+        <dataField fieldName="Es_Accionista_Documento" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Documento_Permanente_LookUp_List" type="Grid" commandId="command1" label="Tipo de Documento" sortExpression="Tipo_Documento" filter="Estatus_Registro_Id = 1 AND Es_De_Laboral= 1" reportLabel="Tipos de Documentos" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Tipo_Documento_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Documento" />
+        <dataField fieldName="Es_Acta_Nacimiento" hidden="true" />
+        <dataField fieldName="Es_Ine" hidden="true" />
+        <dataField fieldName="Es_Curp" hidden="true" />
+        <dataField fieldName="Es_Recibo_Nomina" hidden="true" />
+        <dataField fieldName="Es_Comprobante_Domicilio" hidden="true" />
+        <dataField fieldName="Es_Carta_Recomendacion" hidden="true" />
+        <dataField fieldName="Es_Carta_Antiguedad" hidden="true" />
+        <dataField fieldName="Es_Cv" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Medico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Investigacion_Socio_Economica" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Psicometrico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Entrevista" hidden="true" />
+        <dataField fieldName="Es_Otro" hidden="true" />
+        <dataField fieldName="Es_Perfil_Rys" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Nombre" />
+        <dataField fieldName="Es_De_Fiscal" />
+        <dataField fieldName="Es_Documento_Permanente" />
+        <dataField fieldName="Es_Documento_De_Contratacion_Cliente" />
+        <dataField fieldName="Es_De_Registro" />
+        <dataField fieldName="Es_De_Contratacion_Aspirante" />
+        <dataField fieldName="Es_De_Finiquito" />
+        <dataField fieldName="Es_De_Laboral" />
+        <dataField fieldName="Es_De_Persona" />
+        <dataField fieldName="Es_De_Contratado" />
+        <dataField fieldName="Es_De_Candidato" />
+        <dataField fieldName="Es_Cheque_Impreso" />
+        <dataField fieldName="Es_Carta_Renuncia_Arh" />
+        <dataField fieldName="Es_Carta_Renuncia_Cliente" />
+        <dataField fieldName="Es_Renuncia_Como_Miembro_Sindicato" />
+        <dataField fieldName="Es_Carta_Finiquito_SA" />
+        <dataField fieldName="Es_Recibo_Sindicato" />
+        <dataField fieldName="Es_Convenio" />
+        <dataField fieldName="Es_Documento_Demanda" />
+        <dataField fieldName="Es_Documento_SA" />
+        <dataField fieldName="Es_Documento_Sindicato" />
+        <dataField fieldName="Aplica_Descripcion_Puesto" />
+        <dataField fieldName="Aplica_Numero_Escritura" />
+        <dataField fieldName="Aplica_Fecha_Vencimiento" />
+        <dataField fieldName="Cantidad_Dias_Aviso_Antes_Vencimiento" columns="15" />
+        <dataField fieldName="Es_Sociedad_Documento" />
+        <dataField fieldName="Es_Sociedad_Cuadro_Accionario_Documento" />
+        <dataField fieldName="Es_Accionista_Documento" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Documento_Contratacion_Cliente_LookUp_List" type="Grid" commandId="command1" label="Tipo de Documento" sortExpression="Tipo_Documento" filter="Estatus_Registro_Id = 1 AND Es_De_Laboral= 1" reportLabel="Tipos de Documentos" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Tipo_Documento_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Documento" />
+        <dataField fieldName="Es_Acta_Nacimiento" hidden="true" />
+        <dataField fieldName="Es_Ine" hidden="true" />
+        <dataField fieldName="Es_Curp" hidden="true" />
+        <dataField fieldName="Es_Recibo_Nomina" hidden="true" />
+        <dataField fieldName="Es_Comprobante_Domicilio" hidden="true" />
+        <dataField fieldName="Es_Carta_Recomendacion" hidden="true" />
+        <dataField fieldName="Es_Carta_Antiguedad" hidden="true" />
+        <dataField fieldName="Es_Cv" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Medico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Investigacion_Socio_Economica" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Psicometrico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Entrevista" hidden="true" />
+        <dataField fieldName="Es_Otro" hidden="true" />
+        <dataField fieldName="Es_Perfil_Rys" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Nombre" />
+        <dataField fieldName="Es_De_Fiscal" />
+        <dataField fieldName="Es_Documento_Permanente" />
+        <dataField fieldName="Es_Documento_De_Contratacion_Cliente" />
+        <dataField fieldName="Es_De_Registro" />
+        <dataField fieldName="Es_De_Contratacion_Aspirante" />
+        <dataField fieldName="Es_De_Finiquito" />
+        <dataField fieldName="Es_De_Laboral" />
+        <dataField fieldName="Es_De_Persona" />
+        <dataField fieldName="Es_De_Contratado" />
+        <dataField fieldName="Es_De_Candidato" />
+        <dataField fieldName="Es_Cheque_Impreso" />
+        <dataField fieldName="Es_Carta_Renuncia_Arh" />
+        <dataField fieldName="Es_Carta_Renuncia_Cliente" />
+        <dataField fieldName="Es_Renuncia_Como_Miembro_Sindicato" />
+        <dataField fieldName="Es_Carta_Finiquito_SA" />
+        <dataField fieldName="Es_Recibo_Sindicato" />
+        <dataField fieldName="Es_Convenio" />
+        <dataField fieldName="Es_Documento_Demanda" />
+        <dataField fieldName="Es_Documento_SA" />
+        <dataField fieldName="Es_Documento_Sindicato" />
+        <dataField fieldName="Aplica_Descripcion_Puesto" />
+        <dataField fieldName="Aplica_Numero_Escritura" />
+        <dataField fieldName="Aplica_Fecha_Vencimiento" />
+        <dataField fieldName="Cantidad_Dias_Aviso_Antes_Vencimiento" columns="15" />
+        <dataField fieldName="Es_Sociedad_Documento" />
+        <dataField fieldName="Es_Sociedad_Cuadro_Accionario_Documento" />
+        <dataField fieldName="Es_Accionista_Documento" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Documento_Registro_LookUp_List" type="Grid" commandId="command1" label="Tipo de Documento" sortExpression="Tipo_Documento" filter="Estatus_Registro_Id = 1 AND Es_De_Laboral= 1" reportLabel="Tipos de Documentos" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Tipo_Documento_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Documento" />
+        <dataField fieldName="Es_Acta_Nacimiento" hidden="true" />
+        <dataField fieldName="Es_Ine" hidden="true" />
+        <dataField fieldName="Es_Curp" hidden="true" />
+        <dataField fieldName="Es_Recibo_Nomina" hidden="true" />
+        <dataField fieldName="Es_Comprobante_Domicilio" hidden="true" />
+        <dataField fieldName="Es_Carta_Recomendacion" hidden="true" />
+        <dataField fieldName="Es_Carta_Antiguedad" hidden="true" />
+        <dataField fieldName="Es_Cv" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Medico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Investigacion_Socio_Economica" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Psicometrico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Entrevista" hidden="true" />
+        <dataField fieldName="Es_Otro" hidden="true" />
+        <dataField fieldName="Es_Perfil_Rys" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Nombre" />
+        <dataField fieldName="Es_De_Fiscal" />
+        <dataField fieldName="Es_Documento_Permanente" />
+        <dataField fieldName="Es_Documento_De_Contratacion_Cliente" />
+        <dataField fieldName="Es_De_Registro" />
+        <dataField fieldName="Es_De_Contratacion_Aspirante" />
+        <dataField fieldName="Es_De_Finiquito" />
+        <dataField fieldName="Es_De_Laboral" />
+        <dataField fieldName="Es_De_Persona" />
+        <dataField fieldName="Es_De_Contratado" />
+        <dataField fieldName="Es_De_Candidato" />
+        <dataField fieldName="Es_Cheque_Impreso" />
+        <dataField fieldName="Es_Carta_Renuncia_Arh" />
+        <dataField fieldName="Es_Carta_Renuncia_Cliente" />
+        <dataField fieldName="Es_Renuncia_Como_Miembro_Sindicato" />
+        <dataField fieldName="Es_Carta_Finiquito_SA" />
+        <dataField fieldName="Es_Recibo_Sindicato" />
+        <dataField fieldName="Es_Convenio" />
+        <dataField fieldName="Es_Documento_Demanda" />
+        <dataField fieldName="Es_Documento_SA" />
+        <dataField fieldName="Es_Documento_Sindicato" />
+        <dataField fieldName="Aplica_Descripcion_Puesto" />
+        <dataField fieldName="Aplica_Numero_Escritura" />
+        <dataField fieldName="Aplica_Fecha_Vencimiento" />
+        <dataField fieldName="Cantidad_Dias_Aviso_Antes_Vencimiento" columns="15" />
+        <dataField fieldName="Es_Sociedad_Documento" />
+        <dataField fieldName="Es_Sociedad_Cuadro_Accionario_Documento" />
+        <dataField fieldName="Es_Accionista_Documento" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Documento_Contratacion_Aspirante_LookUp_List" type="Grid" commandId="command1" label="Tipo de Documento" sortExpression="Tipo_Documento" filter="Estatus_Registro_Id = 1 AND Es_De_Laboral= 1" reportLabel="Tipos de Documentos" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Tipo_Documento_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Documento" />
+        <dataField fieldName="Es_Acta_Nacimiento" hidden="true" />
+        <dataField fieldName="Es_Ine" hidden="true" />
+        <dataField fieldName="Es_Curp" hidden="true" />
+        <dataField fieldName="Es_Recibo_Nomina" hidden="true" />
+        <dataField fieldName="Es_Comprobante_Domicilio" hidden="true" />
+        <dataField fieldName="Es_Carta_Recomendacion" hidden="true" />
+        <dataField fieldName="Es_Carta_Antiguedad" hidden="true" />
+        <dataField fieldName="Es_Cv" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Medico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Investigacion_Socio_Economica" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Psicometrico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Entrevista" hidden="true" />
+        <dataField fieldName="Es_Otro" hidden="true" />
+        <dataField fieldName="Es_Perfil_Rys" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Nombre" />
+        <dataField fieldName="Es_De_Fiscal" />
+        <dataField fieldName="Es_Documento_Permanente" />
+        <dataField fieldName="Es_Documento_De_Contratacion_Cliente" />
+        <dataField fieldName="Es_De_Registro" />
+        <dataField fieldName="Es_De_Contratacion_Aspirante" />
+        <dataField fieldName="Es_De_Finiquito" />
+        <dataField fieldName="Es_De_Laboral" />
+        <dataField fieldName="Es_De_Persona" />
+        <dataField fieldName="Es_De_Contratado" />
+        <dataField fieldName="Es_De_Candidato" />
+        <dataField fieldName="Es_Cheque_Impreso" />
+        <dataField fieldName="Es_Carta_Renuncia_Arh" />
+        <dataField fieldName="Es_Carta_Renuncia_Cliente" />
+        <dataField fieldName="Es_Renuncia_Como_Miembro_Sindicato" />
+        <dataField fieldName="Es_Carta_Finiquito_SA" />
+        <dataField fieldName="Es_Recibo_Sindicato" />
+        <dataField fieldName="Es_Convenio" />
+        <dataField fieldName="Es_Documento_Demanda" />
+        <dataField fieldName="Es_Documento_SA" />
+        <dataField fieldName="Es_Documento_Sindicato" />
+        <dataField fieldName="Aplica_Descripcion_Puesto" />
+        <dataField fieldName="Aplica_Numero_Escritura" />
+        <dataField fieldName="Aplica_Fecha_Vencimiento" />
+        <dataField fieldName="Cantidad_Dias_Aviso_Antes_Vencimiento" columns="15" />
+        <dataField fieldName="Es_Sociedad_Documento" />
+        <dataField fieldName="Es_Sociedad_Cuadro_Accionario_Documento" />
+        <dataField fieldName="Es_Accionista_Documento" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Documento_Finiquito_LookUp_List" type="Grid" commandId="command1" label="Tipo de Documento" sortExpression="Tipo_Documento" filter="Estatus_Registro_Id = 1 AND Es_De_Finiquito= 1" reportLabel="Tipos de Documentos" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Tipo_Documento_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Documento" />
+        <dataField fieldName="Es_De_Finiquito" hidden="true" />
+        <dataField fieldName="Es_Cheque_Impreso" hidden="true" />
+        <dataField fieldName="Es_Carta_Renuncia_Arh" hidden="true" />
+        <dataField fieldName="Es_Carta_Renuncia_Cliente" hidden="true" />
+        <dataField fieldName="Es_Renuncia_Como_Miembro_Sindicato" hidden="true" />
+        <dataField fieldName="Es_Carta_Finiquito_SA" hidden="true" />
+        <dataField fieldName="Aplica_Descripcion_Puesto" />
+        <dataField fieldName="Aplica_Numero_Escritura" />
+        <dataField fieldName="Aplica_Fecha_Vencimiento" />
+        <dataField fieldName="Cantidad_Dias_Aviso_Antes_Vencimiento" columns="15" />
+        <dataField fieldName="Es_Sociedad_Documento" />
+        <dataField fieldName="Es_Sociedad_Cuadro_Accionario_Documento" />
+        <dataField fieldName="Es_Accionista_Documento" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Documento_Laboral_LookUp_List" type="Grid" commandId="command1" label="Tipo de Documento" sortExpression="Tipo_Documento" filter="Estatus_Registro_Id = 1 AND Es_De_Laboral= 1" reportLabel="Tipos de Documentos" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Tipo_Documento_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Documento" />
+        <dataField fieldName="Es_Acta_Nacimiento" hidden="true" />
+        <dataField fieldName="Es_Ine" hidden="true" />
+        <dataField fieldName="Es_Curp" hidden="true" />
+        <dataField fieldName="Es_Recibo_Nomina" hidden="true" />
+        <dataField fieldName="Es_Comprobante_Domicilio" hidden="true" />
+        <dataField fieldName="Es_Carta_Recomendacion" hidden="true" />
+        <dataField fieldName="Es_Carta_Antiguedad" hidden="true" />
+        <dataField fieldName="Es_Cv" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Medico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Investigacion_Socio_Economica" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Psicometrico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Entrevista" hidden="true" />
+        <dataField fieldName="Es_Otro" hidden="true" />
+        <dataField fieldName="Es_Perfil_Rys" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Nombre" />
+        <dataField fieldName="Es_De_Fiscal" />
+        <dataField fieldName="Es_Documento_Permanente" />
+        <dataField fieldName="Es_Documento_De_Contratacion_Cliente" />
+        <dataField fieldName="Es_De_Registro" />
+        <dataField fieldName="Es_De_Contratacion_Aspirante" />
+        <dataField fieldName="Es_De_Finiquito" />
+        <dataField fieldName="Es_De_Laboral" />
+        <dataField fieldName="Es_De_Persona" />
+        <dataField fieldName="Es_De_Contratado" />
+        <dataField fieldName="Es_De_Candidato" />
+        <dataField fieldName="Es_Cheque_Impreso" />
+        <dataField fieldName="Es_Carta_Renuncia_Arh" />
+        <dataField fieldName="Es_Carta_Renuncia_Cliente" />
+        <dataField fieldName="Es_Renuncia_Como_Miembro_Sindicato" />
+        <dataField fieldName="Es_Carta_Finiquito_SA" />
+        <dataField fieldName="Es_Recibo_Sindicato" />
+        <dataField fieldName="Es_Convenio" />
+        <dataField fieldName="Es_Documento_Demanda" />
+        <dataField fieldName="Es_Documento_SA" />
+        <dataField fieldName="Es_Documento_Sindicato" />
+        <dataField fieldName="Aplica_Descripcion_Puesto" />
+        <dataField fieldName="Aplica_Numero_Escritura" />
+        <dataField fieldName="Aplica_Fecha_Vencimiento" />
+        <dataField fieldName="Cantidad_Dias_Aviso_Antes_Vencimiento" columns="15" />
+        <dataField fieldName="Es_Sociedad_Documento" />
+        <dataField fieldName="Es_Sociedad_Cuadro_Accionario_Documento" />
+        <dataField fieldName="Es_Accionista_Documento" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Documento_Persona_LookUp_List" type="Grid" commandId="command1" label="Tipo de Documento" sortExpression="Tipo_Documento" filter="Estatus_Registro_Id = 1 AND Es_De_Persona = 1" reportLabel="Tipos de Documentos" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Tipo_Documento_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Documento" />
+        <dataField fieldName="Es_Acta_Nacimiento" hidden="true" />
+        <dataField fieldName="Es_Ine" hidden="true" />
+        <dataField fieldName="Es_Curp" hidden="true" />
+        <dataField fieldName="Es_Recibo_Nomina" hidden="true" />
+        <dataField fieldName="Es_Comprobante_Domicilio" hidden="true" />
+        <dataField fieldName="Es_Carta_Recomendacion" hidden="true" />
+        <dataField fieldName="Es_Carta_Antiguedad" hidden="true" />
+        <dataField fieldName="Es_Cv" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Medico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Investigacion_Socio_Economica" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Psicometrico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Entrevista" hidden="true" />
+        <dataField fieldName="Es_Otro" hidden="true" />
+        <dataField fieldName="Es_Perfil_Rys" hidden="true" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Nombre" hidden="true" />
+        <dataField fieldName="Es_De_Fiscal" hidden="true" />
+        <dataField fieldName="Es_Documento_Permanente" hidden="true" />
+        <dataField fieldName="Es_Documento_De_Contratacion_Cliente" hidden="true" />
+        <dataField fieldName="Es_De_Registro" hidden="true" />
+        <dataField fieldName="Es_De_Contratacion_Aspirante" hidden="true" />
+        <dataField fieldName="Es_De_Finiquito" hidden="true" />
+        <dataField fieldName="Es_De_Laboral" hidden="true" />
+        <dataField fieldName="Es_De_Persona" hidden="true" />
+        <dataField fieldName="Es_De_Contratado" hidden="true" />
+        <dataField fieldName="Es_De_Candidato" hidden="true" />
+        <dataField fieldName="Es_Cheque_Impreso" hidden="true" />
+        <dataField fieldName="Es_Carta_Renuncia_Arh" hidden="true" />
+        <dataField fieldName="Es_Carta_Renuncia_Cliente" hidden="true" />
+        <dataField fieldName="Es_Renuncia_Como_Miembro_Sindicato" hidden="true" />
+        <dataField fieldName="Es_Carta_Finiquito_SA" hidden="true" />
+        <dataField fieldName="Es_Recibo_Sindicato" hidden="true" />
+        <dataField fieldName="Es_Convenio" hidden="true" />
+        <dataField fieldName="Es_Documento_Demanda" hidden="true" />
+        <dataField fieldName="Es_Documento_SA" hidden="true" />
+        <dataField fieldName="Es_Documento_Sindicato" hidden="true" />
+        <dataField fieldName="Aplica_Descripcion_Puesto" />
+        <dataField fieldName="Aplica_Numero_Escritura" />
+        <dataField fieldName="Aplica_Fecha_Vencimiento" />
+        <dataField fieldName="Cantidad_Dias_Aviso_Antes_Vencimiento" columns="15" />
+        <dataField fieldName="Es_Sociedad_Documento" />
+        <dataField fieldName="Es_Sociedad_Cuadro_Accionario_Documento" />
+        <dataField fieldName="Es_Accionista_Documento" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Documento_Contratado_LookUp_List" type="Grid" commandId="command1" label="Tipo de Documento" sortExpression="Tipo_Documento" filter="Estatus_Registro_Id = 1 AND Es_De_Contratado = 1" reportLabel="Tipos de Documentos" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Tipo_Documento_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Documento" />
+        <dataField fieldName="Es_Acta_Nacimiento" hidden="true" />
+        <dataField fieldName="Es_Ine" hidden="true" />
+        <dataField fieldName="Es_Curp" hidden="true" />
+        <dataField fieldName="Es_Recibo_Nomina" hidden="true" />
+        <dataField fieldName="Es_Comprobante_Domicilio" hidden="true" />
+        <dataField fieldName="Es_Carta_Recomendacion" hidden="true" />
+        <dataField fieldName="Es_Carta_Antiguedad" hidden="true" />
+        <dataField fieldName="Es_Cv" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Medico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Investigacion_Socio_Economica" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Psicometrico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Entrevista" hidden="true" />
+        <dataField fieldName="Es_Otro" hidden="true" />
+        <dataField fieldName="Es_Perfil_Rys" hidden="true" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Nombre" />
+        <dataField fieldName="Es_De_Fiscal" hidden="true" />
+        <dataField fieldName="Es_Documento_Permanente" hidden="true" />
+        <dataField fieldName="Es_Documento_De_Contratacion_Cliente" hidden="true" />
+        <dataField fieldName="Es_De_Registro" hidden="true" />
+        <dataField fieldName="Es_De_Contratacion_Aspirante" hidden="true" />
+        <dataField fieldName="Es_De_Finiquito" hidden="true" />
+        <dataField fieldName="Es_De_Laboral" hidden="true" />
+        <dataField fieldName="Es_De_Persona" hidden="true" />
+        <dataField fieldName="Es_De_Contratado" hidden="true" />
+        <dataField fieldName="Es_De_Candidato" hidden="true" />
+        <dataField fieldName="Es_Cheque_Impreso" hidden="true" />
+        <dataField fieldName="Es_Carta_Renuncia_Arh" hidden="true" />
+        <dataField fieldName="Es_Carta_Renuncia_Cliente" hidden="true" />
+        <dataField fieldName="Es_Renuncia_Como_Miembro_Sindicato" hidden="true" />
+        <dataField fieldName="Es_Carta_Finiquito_SA" hidden="true" />
+        <dataField fieldName="Es_Recibo_Sindicato" hidden="true" />
+        <dataField fieldName="Es_Convenio" hidden="true" />
+        <dataField fieldName="Es_Documento_Demanda" hidden="true" />
+        <dataField fieldName="Es_Documento_SA" hidden="true" />
+        <dataField fieldName="Es_Documento_Sindicato" hidden="true" />
+        <dataField fieldName="Aplica_Descripcion_Puesto" />
+        <dataField fieldName="Aplica_Numero_Escritura" />
+        <dataField fieldName="Aplica_Fecha_Vencimiento" />
+        <dataField fieldName="Cantidad_Dias_Aviso_Antes_Vencimiento" columns="15" />
+        <dataField fieldName="Es_Sociedad_Documento" />
+        <dataField fieldName="Es_Sociedad_Cuadro_Accionario_Documento" />
+        <dataField fieldName="Es_Accionista_Documento" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Documento_Candidato_LookUp_List" type="Grid" commandId="command1" label="Tipo de Documento" sortExpression="Tipo_Documento" filter="Estatus_Registro_Id = 1 AND Es_De_Candidato = 1" reportLabel="Tipos de Documentos" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Tipo_Documento_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Documento" />
+        <dataField fieldName="Es_Acta_Nacimiento" hidden="true" />
+        <dataField fieldName="Es_Ine" hidden="true" />
+        <dataField fieldName="Es_Curp" hidden="true" />
+        <dataField fieldName="Es_Recibo_Nomina" hidden="true" />
+        <dataField fieldName="Es_Comprobante_Domicilio" hidden="true" />
+        <dataField fieldName="Es_Carta_Recomendacion" hidden="true" />
+        <dataField fieldName="Es_Carta_Antiguedad" hidden="true" />
+        <dataField fieldName="Es_Cv" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Medico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Investigacion_Socio_Economica" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Psicometrico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Entrevista" hidden="true" />
+        <dataField fieldName="Es_Otro" hidden="true" />
+        <dataField fieldName="Es_Perfil_Rys" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Nombre" />
+        <dataField fieldName="Es_De_Fiscal" />
+        <dataField fieldName="Es_Documento_Permanente" />
+        <dataField fieldName="Es_Documento_De_Contratacion_Cliente" />
+        <dataField fieldName="Es_De_Registro" />
+        <dataField fieldName="Es_De_Contratacion_Aspirante" />
+        <dataField fieldName="Es_De_Finiquito" />
+        <dataField fieldName="Es_De_Laboral" />
+        <dataField fieldName="Es_De_Persona" />
+        <dataField fieldName="Es_De_Contratado" />
+        <dataField fieldName="Es_De_Candidato" />
+        <dataField fieldName="Es_Cheque_Impreso" />
+        <dataField fieldName="Es_Carta_Renuncia_Arh" />
+        <dataField fieldName="Es_Carta_Renuncia_Cliente" />
+        <dataField fieldName="Es_Renuncia_Como_Miembro_Sindicato" />
+        <dataField fieldName="Es_Carta_Finiquito_SA" />
+        <dataField fieldName="Es_Recibo_Sindicato" />
+        <dataField fieldName="Es_Convenio" />
+        <dataField fieldName="Es_Documento_Demanda" />
+        <dataField fieldName="Es_Documento_SA" />
+        <dataField fieldName="Es_Documento_Sindicato" />
+        <dataField fieldName="Aplica_Descripcion_Puesto" />
+        <dataField fieldName="Aplica_Numero_Escritura" />
+        <dataField fieldName="Aplica_Fecha_Vencimiento" />
+        <dataField fieldName="Cantidad_Dias_Aviso_Antes_Vencimiento" columns="15" />
+        <dataField fieldName="Es_Sociedad_Documento" />
+        <dataField fieldName="Es_Sociedad_Cuadro_Accionario_Documento" />
+        <dataField fieldName="Es_Accionista_Documento" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Documento_Pagadora_LookUp_List" commandId="command1" type="Grid" label="Tipo de Documento" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Tipo_Documento" filter="Estatus_Registro_Id IN (0,1) AND Es_Pagadora_Documento = 1">
+      <dataFields>
+        <dataField fieldName="Tipo_Documento_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Documento" />
+        <dataField fieldName="Es_Pagadora_Documento" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Documento_Cliente_LookUp_List" commandId="command1" type="Grid" label="Tipo de Documento" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Tipo_Documento" filter="Estatus_Registro_Id IN (0,1) AND Es_Cliente_Documento = 1">
+      <dataFields>
+        <dataField fieldName="Tipo_Documento_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Documento" />
+        <dataField fieldName="Es_Cliente_Documento" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Aplica_Numero_Escritura" hidden="true" />
+        <dataField fieldName="Aplica_Fecha_Vencimiento" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Documento_Receptora_LookUp_List" commandId="command1" type="Grid" label="Tipo de Documento" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Tipo_Documento" filter="Estatus_Registro_Id IN (0,1) AND Es_Receptora_Documento = 1">
+      <dataFields>
+        <dataField fieldName="Tipo_Documento_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Documento" />
+        <dataField fieldName="Es_Receptora_Documento" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Documento_Pagadora_Cuadro_Accionario_LookUp_List" commandId="command1" type="Grid" label="Tipo de Documento" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Tipo_Documento" filter="Estatus_Registro_Id IN (0,1) AND Es_Pagadora_Cuadro_Accionario_Documento = 1">
+      <dataFields>
+        <dataField fieldName="Tipo_Documento_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Documento" />
+        <dataField fieldName="Es_Pagadora_Cuadro_Accionario_Documento" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Documento_Receptora_Cuadro_Accionario_LookUp_List" commandId="command1" type="Grid" label="Tipo de Documento" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Tipo_Documento" filter="Estatus_Registro_Id IN (0,1) AND Es_Receptora_Cuadro_Accionario_Documento = 1">
+      <dataFields>
+        <dataField fieldName="Tipo_Documento_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Documento" />
+        <dataField fieldName="Es_Receptora_Cuadro_Accionario_Documento" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Documento_Descripcion_Puesto_LookUp_List" type="Grid" commandId="command1" label="Tipo de Documento" sortExpression="Tipo_Documento" filter="Estatus_Registro_Id = 1 AND Aplica_Descripcion_Puesto = 1" reportLabel="Tipos de Documentos" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Tipo_Documento_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Documento" />
+        <dataField fieldName="Es_Acta_Nacimiento" hidden="true" />
+        <dataField fieldName="Es_Ine" hidden="true" />
+        <dataField fieldName="Es_Curp" hidden="true" />
+        <dataField fieldName="Es_Recibo_Nomina" hidden="true" />
+        <dataField fieldName="Es_Comprobante_Domicilio" hidden="true" />
+        <dataField fieldName="Es_Carta_Recomendacion" hidden="true" />
+        <dataField fieldName="Es_Carta_Antiguedad" hidden="true" />
+        <dataField fieldName="Es_Cv" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Medico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Investigacion_Socio_Economica" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Psicometrico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Entrevista" hidden="true" />
+        <dataField fieldName="Es_Otro" hidden="true" />
+        <dataField fieldName="Aplica_Descripcion_Puesto" />
+        <dataField fieldName="Aplica_Numero_Escritura" />
+        <dataField fieldName="Aplica_Fecha_Vencimiento" />
+        <dataField fieldName="Cantidad_Dias_Aviso_Antes_Vencimiento" columns="15" />
+        <dataField fieldName="Es_Sociedad_Documento" />
+        <dataField fieldName="Es_Sociedad_Cuadro_Accionario_Documento" />
+        <dataField fieldName="Es_Accionista_Documento" />
+        <dataField fieldName="Es_Perfil_Rys" hidden="true" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Nombre" hidden="true" />
+        <dataField fieldName="Es_De_Fiscal" hidden="true" />
+        <dataField fieldName="Es_Documento_Permanente" hidden="true" />
+        <dataField fieldName="Es_Documento_De_Contratacion_Cliente" hidden="true" />
+        <dataField fieldName="Es_De_Registro" hidden="true" />
+        <dataField fieldName="Es_De_Contratacion_Aspirante" hidden="true" />
+        <dataField fieldName="Es_De_Finiquito" hidden="true" />
+        <dataField fieldName="Es_De_Laboral" hidden="true" />
+        <dataField fieldName="Es_De_Persona" hidden="true" />
+        <dataField fieldName="Es_De_Contratado" hidden="true" />
+        <dataField fieldName="Es_De_Candidato" hidden="true" />
+        <dataField fieldName="Es_Cheque_Impreso" hidden="true" />
+        <dataField fieldName="Es_Carta_Renuncia_Arh" hidden="true" />
+        <dataField fieldName="Es_Carta_Renuncia_Cliente" hidden="true" />
+        <dataField fieldName="Es_Renuncia_Como_Miembro_Sindicato" hidden="true" />
+        <dataField fieldName="Es_Carta_Finiquito_SA" hidden="true" />
+        <dataField fieldName="Es_Recibo_Sindicato" hidden="true" />
+        <dataField fieldName="Es_Convenio" hidden="true" />
+        <dataField fieldName="Es_Documento_Demanda" hidden="true" />
+        <dataField fieldName="Es_Documento_SA" hidden="true" />
+        <dataField fieldName="Es_Documento_Sindicato" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Documento_Formulario_LookUp_list" type="Grid" commandId="command2" label="Tipo de Documento" sortExpression="Tipo_Documento" filter="Estatus_Registro_Id = 1 AND Es_Formulario_Para_Solicitar_Prestamo = 1" reportLabel="Tipos de Documentos" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Tipo_Documento_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Documento" />
+        <dataField fieldName="Es_Acta_Nacimiento" hidden="true" />
+        <dataField fieldName="Es_Ine" hidden="true" />
+        <dataField fieldName="Es_Curp" hidden="true" />
+        <dataField fieldName="Es_Recibo_Nomina" hidden="true" />
+        <dataField fieldName="Es_Comprobante_Domicilio" hidden="true" />
+        <dataField fieldName="Es_Carta_Recomendacion" hidden="true" />
+        <dataField fieldName="Es_Carta_Antiguedad" hidden="true" />
+        <dataField fieldName="Es_Cv" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Medico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Investigacion_Socio_Economica" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Psicometrico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Entrevista" hidden="true" />
+        <dataField fieldName="Es_Otro" hidden="true" />
+        <dataField fieldName="Aplica_Descripcion_Puesto" />
+        <dataField fieldName="Aplica_Numero_Escritura" />
+        <dataField fieldName="Aplica_Fecha_Vencimiento" />
+        <dataField fieldName="Cantidad_Dias_Aviso_Antes_Vencimiento" columns="15" />
+        <dataField fieldName="Es_Sociedad_Documento" />
+        <dataField fieldName="Es_Sociedad_Cuadro_Accionario_Documento" />
+        <dataField fieldName="Es_Accionista_Documento" />
+        <dataField fieldName="Es_Perfil_Rys" hidden="true" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Nombre" hidden="true" />
+        <dataField fieldName="Es_De_Fiscal" hidden="true" />
+        <dataField fieldName="Es_Documento_Permanente" hidden="true" />
+        <dataField fieldName="Es_Documento_De_Contratacion_Cliente" hidden="true" />
+        <dataField fieldName="Es_De_Registro" hidden="true" />
+        <dataField fieldName="Es_De_Contratacion_Aspirante" hidden="true" />
+        <dataField fieldName="Es_De_Finiquito" hidden="true" />
+        <dataField fieldName="Es_De_Laboral" hidden="true" />
+        <dataField fieldName="Es_De_Persona" hidden="true" />
+        <dataField fieldName="Es_De_Contratado" hidden="true" />
+        <dataField fieldName="Es_De_Candidato" hidden="true" />
+        <dataField fieldName="Es_Cheque_Impreso" hidden="true" />
+        <dataField fieldName="Es_Carta_Renuncia_Arh" hidden="true" />
+        <dataField fieldName="Es_Carta_Renuncia_Cliente" hidden="true" />
+        <dataField fieldName="Es_Renuncia_Como_Miembro_Sindicato" hidden="true" />
+        <dataField fieldName="Es_Carta_Finiquito_SA" hidden="true" />
+        <dataField fieldName="Es_Recibo_Sindicato" hidden="true" />
+        <dataField fieldName="Es_Convenio" hidden="true" />
+        <dataField fieldName="Es_Documento_Demanda" hidden="true" />
+        <dataField fieldName="Es_Documento_SA" hidden="true" />
+        <dataField fieldName="Es_Documento_Sindicato" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Es_Obligatorio_Para_Solicitar_Prestamo" hidden="true" />
+        <dataField fieldName="Es_Formulario_Para_Solicitar_Prestamo" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Documento_Obligatorio_Prestamo_LookUp_List" type="Grid" commandId="command2" label="Tipo de Documento" sortExpression="Tipo_Documento" filter="Estatus_Registro_Id = 1 AND Es_Obligatorio_Para_Solicitar_Prestamo = 1" reportLabel="Tipos de Documentos" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Tipo_Documento_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Documento" />
+        <dataField fieldName="Es_Acta_Nacimiento" hidden="true" />
+        <dataField fieldName="Es_Ine" hidden="true" />
+        <dataField fieldName="Es_Curp" hidden="true" />
+        <dataField fieldName="Es_Recibo_Nomina" hidden="true" />
+        <dataField fieldName="Es_Comprobante_Domicilio" hidden="true" />
+        <dataField fieldName="Es_Carta_Recomendacion" hidden="true" />
+        <dataField fieldName="Es_Carta_Antiguedad" hidden="true" />
+        <dataField fieldName="Es_Cv" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Medico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Investigacion_Socio_Economica" hidden="true" />
+        <dataField fieldName="Es_Resultado_Examen_Psicometrico" hidden="true" />
+        <dataField fieldName="Es_Resultado_Entrevista" hidden="true" />
+        <dataField fieldName="Es_Otro" hidden="true" />
+        <dataField fieldName="Aplica_Descripcion_Puesto" />
+        <dataField fieldName="Aplica_Numero_Escritura" />
+        <dataField fieldName="Aplica_Fecha_Vencimiento" />
+        <dataField fieldName="Cantidad_Dias_Aviso_Antes_Vencimiento" columns="15" />
+        <dataField fieldName="Es_Sociedad_Documento" />
+        <dataField fieldName="Es_Sociedad_Cuadro_Accionario_Documento" />
+        <dataField fieldName="Es_Accionista_Documento" />
+        <dataField fieldName="Es_Perfil_Rys" hidden="true" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Nombre" hidden="true" />
+        <dataField fieldName="Es_De_Fiscal" hidden="true" />
+        <dataField fieldName="Es_Documento_Permanente" hidden="true" />
+        <dataField fieldName="Es_Documento_De_Contratacion_Cliente" hidden="true" />
+        <dataField fieldName="Es_De_Registro" hidden="true" />
+        <dataField fieldName="Es_De_Contratacion_Aspirante" hidden="true" />
+        <dataField fieldName="Es_De_Finiquito" hidden="true" />
+        <dataField fieldName="Es_De_Laboral" hidden="true" />
+        <dataField fieldName="Es_De_Persona" hidden="true" />
+        <dataField fieldName="Es_De_Contratado" hidden="true" />
+        <dataField fieldName="Es_De_Candidato" hidden="true" />
+        <dataField fieldName="Es_Cheque_Impreso" hidden="true" />
+        <dataField fieldName="Es_Carta_Renuncia_Arh" hidden="true" />
+        <dataField fieldName="Es_Carta_Renuncia_Cliente" hidden="true" />
+        <dataField fieldName="Es_Renuncia_Como_Miembro_Sindicato" hidden="true" />
+        <dataField fieldName="Es_Carta_Finiquito_SA" hidden="true" />
+        <dataField fieldName="Es_Recibo_Sindicato" hidden="true" />
+        <dataField fieldName="Es_Convenio" hidden="true" />
+        <dataField fieldName="Es_Documento_Demanda" hidden="true" />
+        <dataField fieldName="Es_Documento_SA" hidden="true" />
+        <dataField fieldName="Es_Documento_Sindicato" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Es_Obligatorio_Para_Solicitar_Prestamo" hidden="true" />
+        <dataField fieldName="Es_Formulario_Para_Solicitar_Prestamo" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Documento_Sociedad_LookUp_List" commandId="gridTipoDocumentoSociedadCuadroV" type="Grid" label="Tipo de Documento" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Tipo_Documento" filter="Estatus_Registro_Id IN (0,1) AND Es_Sociedad_Documento = 1">
+      <dataFields>
+        <dataField fieldName="Tipo_Documento_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Documento" />
+        <dataField fieldName="Es_Cliente_Documento" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Es_Sociedad_Documento" hidden="true" />
+        <dataField fieldName="Aplica_Fecha_Vencimiento" />
+        <dataField fieldName="Cantidad_Dias_Aviso_Antes_Vencimiento" columns="15" />
+        <dataField fieldName="Aplica_Numero_Escritura" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Documento_Sociedad_Cuadro_Accionario_LookUp_List" commandId="gridTipoDocumentoSociedadCuadroV" type="Grid" label="Tipo de Documento" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Tipo_Documento" filter="Estatus_Registro_Id IN (0,1) AND Es_Sociedad_Cuadro_Accionario_Documento = 1">
+      <dataFields>
+        <dataField fieldName="Tipo_Documento_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Documento" />
+        <dataField fieldName="Es_Cliente_Documento" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Es_Sociedad_Cuadro_Accionario_Documento" hidden="true" />
+        <dataField fieldName="Aplica_Fecha_Vencimiento" hidden="true" />
+        <dataField fieldName="Cantidad_Dias_Aviso_Antes_Vencimiento" columns="15" hidden="true" />
+        <dataField fieldName="Aplica_Numero_Escritura" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Tipo_Documento_Accionista_Documento_LookUp_List" commandId="gridTipoDocumentoSociedadCuadroV" type="Grid" label="Tipo de Documento" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Tipo_Documento" filter="Estatus_Registro_Id IN (0,1) AND Es_Accionista_Documento = 1">
+      <dataFields>
+        <dataField fieldName="Tipo_Documento_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Documento" />
+        <dataField fieldName="Es_Cliente_Documento" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Es_Accionista_Documento" hidden="true" />
+        <dataField fieldName="Aplica_Fecha_Vencimiento" hidden="true" />
+        <dataField fieldName="Cantidad_Dias_Aviso_Antes_Vencimiento" columns="15" hidden="true" />
+        <dataField fieldName="Aplica_Numero_Escritura" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Tipo_Documento
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Tipo_Documento_Id = @Tipo_Documento_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Tipo_Documento
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Tipo_Documento_Id = @Tipo_Documento_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Tipo_Documento
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Tipo_Documento_Id = @Tipo_Documento_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Tipo_Documento
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Tipo_Documento_Id = @Tipo_Documento_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Tipo_Documento
+	WHERE
+		REPLACE(UPPER(Tipo_Documento),' ','') = REPLACE(UPPER(@Tipo_Documento),' ','')
+        AND Cliente_Id = @Cliente_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe este tipo de documento en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe este tipo de documento en la base de datos, favor de corregir.'
+   RETURN
+END
+
+]]></rule>
+    <rule id="r102" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Tipo_Documento
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Actualizado_Por_Id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Fecha_Creacion = GetDate()
+WHERE
+	Tipo_Documento_Id= @Tipo_Documento_Id]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Tipo_Documento
+	WHERE
+  		REPLACE(UPPER(Tipo_Documento),' ','') = REPLACE(UPPER(@Tipo_Documento),' ','')
+		AND Tipo_Documento_Id <> @Tipo_Documento_Id
+        AND Cliente_Id = @Cliente_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe esta registrado este tipo de conocimiento en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya existe esta registrado este tipo de conocimiento en la base de datos, favor de corregir.'
+   RETURN
+END
+
+
+
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Tipo_Documento
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Tipo_Documento_Id = @Tipo_Documento_Id]]></rule>
+  </businessRules>
+</dataController>

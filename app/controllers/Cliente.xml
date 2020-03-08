@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Cliente" conflictDetection="overwriteChanges" label="Cliente" handler="arhmexico.Rules.ClienteBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Cliente"."Cliente_Id" "Cliente_Id"
+	,"Cliente"."Cliente" "Cliente"
+	,"Cliente"."Fecha_Creacion" "Fecha_Creacion"
+	,"Cliente"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Cliente"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"cp"."UserName" "cpUserName"
+	,"ap"."UserName" "apUserName"
+	,"Cliente"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"Cliente"."Creado_Por_Id" "Creado_Por_Id"
+	,"Cliente"."Transaccion_Id" "Transaccion_Id"
+	,"Cliente"."Cliente_Correo_Electronico" "Cliente_Correo_Electronico"
+	,"Cliente"."Clave_Cliente" "Clave_Cliente"
+	,"Cliente"."Storage_Share" "Storage_Share"
+from "APP"."Cliente" "Cliente"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Cliente"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cp" on "Cliente"."Creado_Por_Id" = "cp"."UserId"
+	left join "dbo"."Usuario_V" "ap" on "Cliente"."Actualizado_Por_Id" = "ap"."UserId"
+]]></text>
+    </command>
+    <command id="Cliente_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Cliente_Id" />
+      </output>
+    </command>
+    <command type="Text" id="Grid_Cliente_Admin" tableName="APP.Cliente" custom="false">
+      <text><![CDATA[SELECT 
+	   Cliente_Id
+      ,Cliente
+      ,Fecha_Creacion
+      ,Fecha_Ultima_Actualizacion
+      ,Estatus_Registro_Id
+      ,Estatus_Registro_Estatus_Registro
+      ,Creado_Por_Id
+      ,apUserName
+      ,Actualizado_Por_Id
+      ,cpUserName
+      ,Transaccion_Id
+	  ,Administra_Pagadoras
+	  ,Clave_Cliente
+	  ,Storage_Share
+	  ,Cliente_Correo_Electronico
+	  ,Persona_Ejecutiva_Cuenta_Id
+	  ,Ejecutiva_Cuenta
+	  ,Persona_Agente_Comercial_Id
+	  ,Agente_Comercial
+	  ,Nombre_Comercial
+	  ,Mostrar_Religion_A_Aspirante
+	  ,Mostrar_Orientacion_Sexual_A_Aspirante
+	  ,Mostrar_Senas_Particulares_A_Aspirante
+	  ,Permite_Cancelar_Solicitud_Vacaciones
+FROM
+	dbo.Grid_Cliente_Admin_Demo_V]]></text>
+    </command>
+    <command type="Text" id="Grid_Cliente" tableName="APP.Cliente" custom="false">
+      <text><![CDATA[SELECT Cliente_Id
+      ,Cliente
+      ,Fecha_Creacion
+      ,Fecha_Ultima_Actualizacion
+      ,Estatus_Registro_Id
+      ,Estatus_Registro_Estatus_Registro
+      ,Creado_Por_Id
+      ,apUserName
+      ,Actualizado_Por_Id
+      ,cpUserName
+      ,Transaccion_Id
+      ,UserId
+  FROM dbo.Grid_Cliente_V]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Cliente_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Cliente Id" readOnly="true" />
+    <field name="Cliente" type="String" allowNulls="false" label="Cliente" length="150" showInSummary="true" roles="Administrators,ArhAdmin,ARHOperaciones" writeRoles="Administrators,ArhAdmin,ARHOperaciones" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" showInSummary="true" />
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" showInSummary="true" />
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id" showInSummary="true" roles="Administrators,ArhAdmin,rhAdmin,rhUsuario" writeRoles="Administrators,ArhAdmin,rhAdmin">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id" showInSummary="true">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserId" copy="apUserName=UserName" />
+    </field>
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserId" copy="cpUserName=UserName" />
+    </field>
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transaccion Id" length="50" />
+    <field name="Cliente_Correo_Electronico" type="String" allowQBE="false" allowSorting="false" label="Correo Electronico" length="5000" />
+    <field name="Clave_Cliente" type="String" label="Clave de Cliente" length="4" allowNulls="false" />
+    <field name="Storage_Share" type="String" label="Storage Share" length="150" readOnly="true" />
+    <field name="Administra_Pagadoras" type="Boolean" label="¿Administra Pagadoras?" allowNulls="false" roles="Administrators,ArhAdmin,ARHOperaciones" writeRoles="Administrators,ArhAdmin,ARHOperaciones">
+      <items style="CheckBox" />
+    </field>
+    <field name="Persona_Ejecutiva_Cuenta_Id" type="Int32" label="Ejecutivo de cuenta">
+      <items style="Lookup" dataController="Persona" dataView="Persona_LookUp_List" dataTextField="Nombre_Completo" dataValueField="Persona_Id" newDataView="createForm1" />
+    </field>
+    <field name="Persona_Ejecutiva_Cuenta" type="String" label="Ejecutivo de Cuenta" length="300" isVirtual="true" />
+    <field name="Persona_Agente_Comercial_Id" type="Int32" label="Persona Agente Comercial Id">
+      <items style="Lookup" dataController="Persona" dataView="Persona_LookUp_List" dataTextField="Nombre_Completo" dataValueField="Persona_Id" newDataView="createForm1" />
+    </field>
+    <field name="Persona_Agente_Comercial" type="String" label="Agente Comercial" length="300" isVirtual="true" />
+    <field name="Nombre_Comercial" type="String" label="Nombre comercial" length="300" />
+    <field name="Mostrar_Religion_A_Aspirante" type="Boolean" label="¿Mostrar Religión A Aspirante?" allowNulls="false">
+      <items style="CheckBox" />
+    </field>
+    <field name="Mostrar_Orientacion_Sexual_A_Aspirante" type="Boolean" label="¿Mostrar Orientación Sexual A Aspirante?" allowNulls="false">
+      <items style="CheckBox" />
+    </field>
+    <field name="Mostrar_Senas_Particulares_A_Aspirante" type="Boolean" label="¿Mostrar Señas Particulares A Aspirante?" allowNulls="false">
+      <items style="CheckBox" />
+    </field>
+    <field name="Permite_Cancelar_Solicitud_Vacaciones" type="Boolean" label="¿Permite Cancelar Solicitud Vacaciones?" allowNulls="false">
+      <items style="CheckBox" />
+    </field>
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="Grid_Cliente" label="Cliente" sortExpression="Cliente" filter="Estatus_Registro_Id &lt;&gt; 0" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Cliente" />
+        <dataField fieldName="Cliente_Correo_Electronico" rows="5" />
+        <dataField fieldName="Storage_Share" />
+        <dataField fieldName="Clave_Cliente" columns="4" />
+        <dataField fieldName="Creado_Por_Id" columns="15" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="Actualizado_Por_Id" columns="15" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Administra_Pagadoras" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="gridAdmin" type="Grid" commandId="Grid_Cliente_Admin" label="Cliente (Admin)" sortExpression="Cliente" filter="Estatus_Registro_Id = 1" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Cliente" />
+        <dataField fieldName="Cliente_Correo_Electronico" rows="5" />
+        <dataField fieldName="Clave_Cliente" columns="4" />
+        <dataField fieldName="Storage_Share" />
+        <dataField fieldName="Creado_Por_Id" columns="15" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="Actualizado_Por_Id" columns="15" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Administra_Pagadoras" hidden="true" />
+        <dataField fieldName="Persona_Ejecutiva_Cuenta_Id" columns="15" aliasFieldName="Persona_Ejecutiva_Cuenta" />
+        <dataField fieldName="Persona_Agente_Comercial_Id" columns="15" aliasFieldName="Persona_Agente_Comercial" />
+        <dataField fieldName="Nombre_Comercial" rows="5" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="Grid_Cliente_Admin" label="Actualizar Cliente" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Cliente" />
+            <dataField fieldName="Cliente_Correo_Electronico" rows="5" />
+            <dataField fieldName="Administra_Pagadoras" />
+            <dataField fieldName="Clave_Cliente" columns="4" />
+            <dataField fieldName="Storage_Share" />
+            <dataField fieldName="Persona_Ejecutiva_Cuenta_Id" columns="15" aliasFieldName="Persona_Ejecutiva_Cuenta" />
+            <dataField fieldName="Persona_Agente_Comercial_Id" columns="15" aliasFieldName="Persona_Agente_Comercial" />
+            <dataField fieldName="Nombre_Comercial" rows="5" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="Mostrar_Religion_A_Aspirante" />
+            <dataField fieldName="Mostrar_Orientacion_Sexual_A_Aspirante" />
+            <dataField fieldName="Mostrar_Senas_Particulares_A_Aspirante" />
+            <dataField fieldName="Permite_Cancelar_Solicitud_Vacaciones" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="Grid_Cliente_Admin" label="Nuevo Cliente" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Cliente" />
+            <dataField fieldName="Cliente_Correo_Electronico" rows="5" />
+            <dataField fieldName="Clave_Cliente" columns="4" />
+            <dataField fieldName="Storage_Share" />
+            <dataField fieldName="Persona_Ejecutiva_Cuenta_Id" columns="15" aliasFieldName="Persona_Ejecutiva_Cuenta" />
+            <dataField fieldName="Persona_Agente_Comercial_Id" columns="15" aliasFieldName="Persona_Agente_Comercial" />
+            <dataField fieldName="Nombre_Comercial" rows="5" />
+            <dataField fieldName="Administra_Pagadoras" />
+            <dataField fieldName="Mostrar_Religion_A_Aspirante" />
+            <dataField fieldName="Mostrar_Orientacion_Sexual_A_Aspirante" />
+            <dataField fieldName="Mostrar_Senas_Particulares_A_Aspirante" />
+            <dataField fieldName="Permite_Cancelar_Solicitud_Vacaciones" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Cliente_LookUp_List" type="Grid" commandId="Grid_Cliente_Admin" label="Cliente" sortExpression="Cliente" filter="Estatus_Registro_Id IN (1,0)" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Cliente_Id" columns="15" hidden="true" />
+        <dataField fieldName="Cliente" />
+        <dataField fieldName="Clave_Cliente" columns="4" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Cliente_Admin_LookUp_List" type="Grid" commandId="Grid_Cliente_Admin" label="Cliente" sortExpression="Cliente" filter="Estatus_Registro_Id = 1" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Cliente_Id" columns="15" hidden="true" />
+        <dataField fieldName="Cliente" />
+        <dataField fieldName="Clave_Cliente" columns="4" hidden="true" />
+        <dataField fieldName="Mostrar_Religion_A_Aspirante" hidden="true" />
+        <dataField fieldName="Mostrar_Orientacion_Sexual_A_Aspirante" hidden="true" />
+        <dataField fieldName="Mostrar_Senas_Particulares_A_Aspirante" hidden="true" />
+        <dataField fieldName="Permite_Cancelar_Solicitud_Vacaciones" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="gridAdminBorrado" type="Grid" commandId="Grid_Cliente_Admin" label="Bajas/Borrados" sortExpression="Cliente" filter="Estatus_Registro_Id NOT IN (0,1)" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Cliente" />
+        <dataField fieldName="Cliente_Correo_Electronico" rows="5" />
+        <dataField fieldName="Clave_Cliente" columns="4" />
+        <dataField fieldName="Storage_Share" />
+        <dataField fieldName="Creado_Por_Id" columns="15" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="Actualizado_Por_Id" columns="15" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Administra_Pagadoras" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE
+	APP.Cliente
+SET 
+	Estatus_Registro_Id=3
+	,Actualizado_Por_Id = @BusinessRules_UserId
+    ,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Cliente_Id = @Cliente_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE
+	APP.Cliente
+SET 
+	Estatus_Registro_Id=3
+	,Actualizado_Por_Id = @BusinessRules_UserId
+    ,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Cliente_Id = @Cliente_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE
+	APP.Cliente
+SET 
+	Estatus_Registro_Id=3
+	,Actualizado_Por_Id = @BusinessRules_UserId
+    ,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Cliente_Id = @Cliente_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE
+	APP.Cliente
+SET 
+	Estatus_Registro_Id=3
+	,Actualizado_Por_Id = @BusinessRules_UserId
+    ,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Cliente_Id = @Cliente_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Cliente
+	WHERE
+		REPLACE(UPPER(Cliente),' ','') = REPLACE(UPPER(@Cliente),' ','')
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un cliente con el mismo NOMBRE en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe un cliente con el mismo NOMBRE en la base de datos, favor de corregir.'
+   RETURN
+END
+
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Cliente
+	WHERE
+		REPLACE(UPPER(Clave_Cliente),' ','') = REPLACE(UPPER(@Clave_Cliente),' ','')
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un cliente con la misma CLAVE DE CLIENTE en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe un cliente con la misma CLAVE DE CLIENTE en la base de datos, favor de corregir.'
+   RETURN
+END
+
+
+
+]]></rule>
+    <rule id="r103" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Cliente
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+	,Storage_Share= 'arhcloud'
+WHERE
+	Cliente_Id= @Cliente_Id]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Cliente
+	WHERE
+  		REPLACE(UPPER(Cliente),' ','') = REPLACE(UPPER(@Cliente),' ','')
+		AND Cliente_Id <> @Cliente_Id
+),0)
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Cliente
+	WHERE
+  		REPLACE(UPPER(Clave_Cliente),' ','') = REPLACE(UPPER(@Clave_Cliente),' ','')
+		AND Cliente_Id <> @Cliente_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un cliente con el mismo NOMBRE ó con la misma CLAVE DE CLIENTE en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe un cliente con el mismo NOMBRE ó con la misma CLAVE DE CLIENTE en la base de datos, favor de corregir.'
+   RETURN
+END
+	
+	
+	]]></rule>
+    <rule id="r102" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Cliente
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Cliente_Id = @Cliente_Id]]></rule>
+    <rule id="r104" commandName="New" type="Sql" phase="Execute"><![CDATA[SET @Storage_Share = 'arhcloud'
+SET @Administra_Pagadoras = 0
+SET @Mostrar_Religion_A_Aspirante = 0
+SET @Mostrar_Orientacion_Sexual_A_Aspirante = 0
+SET @Mostrar_Senas_Particulares_A_Aspirante = 0
+SET @Permite_Cancelar_Solicitud_Vacaciones = 0]]></rule>
+  </businessRules>
+</dataController>

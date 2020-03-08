@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Objeto_Encuesta_BWDForms" label="Objeto_Encuesta_BWDForms" conflictDetection="overwriteChanges" connectionStringName="bwdforms" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command type="Text" id="Objeto_Encuesta_V" custom="false">
+      <text><![CDATA[SELECT [Objeto_Id]
+      ,[Objeto_Nombre]
+      ,[Objeto_Key]
+  FROM [dbo].[Objeto_Encuesta_V]]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Objeto_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Objeto Id" readOnly="true" />
+    <field name="Objeto_Nombre" type="String" allowNulls="false" label="Encuesta" length="150" readOnly="true" />
+    <field name="Objeto_Key" type="String" allowNulls="false" label="Objeto Key" length="50" />
+  </fields>
+  <views>
+    <view id="grid1" commandId="Objeto_Encuesta_V" type="Grid" label="Encuesta">
+      <dataFields>
+        <dataField fieldName="Objeto_Id" columns="15" hidden="true" />
+        <dataField fieldName="Objeto_Nombre" rows="5" />
+        <dataField fieldName="Objeto_Key" columns="50" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+</dataController>

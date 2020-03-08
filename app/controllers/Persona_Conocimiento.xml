@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Persona_Conocimiento" conflictDetection="overwriteChanges" label="Persona Conocimiento" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Persona_Conocimiento"."Persona_Conocimiento_Id" "Persona_Conocimiento_Id"
+	,"Persona_Conocimiento"."Persona_Id" "Persona_Id"
+	,"Persona"."Nombre" "PersonaNombre"
+	,"Persona"."Apellido_Paterno" "PersonaapellidoPaterno"
+	,"Persona"."Apellido_Materno" "PersonaapellidoMaterno"
+	,"Persona"."Segundo_Nombre" "PersonasegundoNombre"
+	,"Persona_Conocimiento"."Tipo_Conocimiento_Id" "Tipo_Conocimiento_Id"
+	,"Tipo_Conocimiento_"."Tipo_Conocimiento" "Tipo_Conocimiento_Tipo_Conocimiento"
+	,"Persona_Conocimiento"."Lista_Elemento_Id" "Lista_Elemento_Id"
+	,"Lista_Elemento_"."Lista_Elemento" "Lista_Elemento_Lista_Elemento"
+	,"Lista_Elemento_Lista_"."Lista" "Lista_Elemento_Lista_Lista"
+	,"Persona_Conocimiento"."Notas" "Notas"
+	,"Persona_Conocimiento"."Picture" "Picture"
+	,"Persona_Conocimiento"."PictureFileName" "PictureFileName"
+	,"Persona_Conocimiento"."PictureContentType" "PictureContentType"
+	,"Persona_Conocimiento"."PictureLength" "PictureLength"
+	,"Persona_Conocimiento"."Fecha_Creacion" "Fecha_Creacion"
+	,"Persona_Conocimiento"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Persona_Conocimiento"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"cp"."UserName" "cpUserName"
+	,"ap"."UserName" "apUserName"
+from "APP"."Persona_Conocimiento" "Persona_Conocimiento"
+	left join "APP"."Tipo_Conocimiento" "Tipo_Conocimiento_" on "Persona_Conocimiento"."Tipo_Conocimiento_Id" = "Tipo_Conocimiento_"."Tipo_Conocimiento_Id"
+	left join "APP"."Lista_Elemento" "Lista_Elemento_" on "Persona_Conocimiento"."Lista_Elemento_Id" = "Lista_Elemento_"."Lista_Elemento_Id"
+ and "Persona_Conocimiento"."Actualizado_Por_Id" = "Lista_Elemento_"."Creado_Por_Id"
+	left join "APP"."Lista" "Lista_Elemento_Lista_" on "Lista_Elemento_"."Lista_Id" = "Lista_Elemento_Lista_"."Lista_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Persona_Conocimiento"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "APP"."Persona" "Persona" on "Persona_Conocimiento"."Persona_Id" = "Persona"."Persona_Id"
+	left join "dbo"."Usuario_V" "cp" on "Persona_Conocimiento"."Creado_Por_Id" = "cp"."UserId"
+	left join "dbo"."Usuario_V" "ap" on "Persona_Conocimiento"."Actualizado_Por_Id" = "ap"."UserId"
+]]></text>
+    </command>
+    <command id="Persona_Conocimiento_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Persona_Conocimiento_Id" />
+      </output>
+    </command>
+    <command type="Text" id="Grid_Persona_Conocimiento" tableName="APP.Persona_Conocimiento" custom="false">
+      <text><![CDATA[SELECT Persona_Id
+      ,Persona_Nombre
+	  ,PersonaNombre
+      ,PersonaSegundoNombre
+      ,PersonaApellidoPaterno
+      ,PersonaApellidoMaterno
+      ,Persona_Conocimiento_Id
+      ,Tipo_Conocimiento_Id
+      ,Lista_Elemento_Id
+      ,Lista_Elemento_Lista_Elemento
+      ,Tipo_Conocimiento_Tipo_Conocimiento
+      ,Lista_Id
+      ,Lista_Elemento_Lista_Lista
+      ,Notas
+      ,Picture
+      ,PictureFileName
+      ,PictureContentType
+      ,PictureLength
+      ,Nombre_Completo
+      ,cpUserName
+      ,apUserName
+      ,Estatus_Registro_Id
+      ,Estatus_Registro_Estatus_Registro
+      ,Fecha_Creacion
+      ,Fecha_Ultima_Actualizacion
+  FROM dbo.Grid_Persona_Conocimiento_V]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Persona_Conocimiento_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Persona Conocimiento Id" readOnly="true" />
+    <field name="Persona_Id" type="Int32" allowNulls="false" label="Persona Id" showInSummary="true">
+      <items style="Lookup" dataController="Persona" newDataView="createForm1" dataValueField="Persona_Id" dataTextField="Nombre_Completo" copy="PersonaapellidoPaterno=Apellido_Paterno, PersonaapellidoMaterno=Apellido_Materno, PersonasegundoNombre=Segundo_Nombre" dataView="Persona_LookUp_List" />
+    </field>
+    <field name="PersonaNombre" type="String" readOnly="true" label="Primer Nombre" length="150" />
+    <field name="PersonaapellidoPaterno" type="String" readOnly="true" label="Apellido Paterno" length="150" />
+    <field name="PersonaapellidoMaterno" type="String" readOnly="true" label="Apellido Materno" length="150" />
+    <field name="PersonasegundoNombre" type="String" readOnly="true" label="Segundo Nombre" length="150" />
+    <field name="Tipo_Conocimiento_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo Conocimiento Id" showInSummary="true">
+      <items style="Lookup" dataController="Tipo_Conocimiento" newDataView="createForm1" dataValueField="Tipo_Conocimiento_Id" dataTextField="Tipo_Conocimiento" dataView="Tipo_Conocimiento_LookUp_List" copy="Lista_Id=Lista_Id" />
+    </field>
+    <field name="Tipo_Conocimiento_Tipo_Conocimiento" type="String" readOnly="true" label="Tipo de Conocimiento" length="150" />
+    <field name="Lista_Elemento_Id" type="Int32" allowNulls="false" default="((0))" label="Lista Elemento Id" showInSummary="true" contextFields="Lista_Id=Lista_Id">
+      <items style="Lookup" dataController="Lista_Elemento" newDataView="createForm1" dataValueField="Lista_Elemento_Id" dataTextField="Lista_Elemento" copy="Actualizado_Por_Id=Actualizado_Por_Id, Lista_Elemento_Lista_Lista=Lista_Lista" dataView="Lista_Elemento_LookUp_List" />
+    </field>
+    <field name="Lista_Elemento_Lista_Elemento" type="String" readOnly="true" label="Nivel de Conocimiento" length="500" />
+    <field name="Lista_Elemento_Lista_Lista" type="String" readOnly="true" label="Medición/Escala" length="250" />
+    <field name="Notas" type="String" allowQBE="false" allowSorting="false" label="Notas" showInSummary="true" />
+    <field name="Picture" type="Byte[]" onDemand="true" sourceFields="Persona_Conocimiento_Id" onDemandHandler="Persona_ConocimientoPicture" onDemandStyle="Thumbnail" allowQBE="false" allowSorting="false" label="Certificado" showInSummary="true" />
+    <field name="PictureFileName" type="String" label="Nombre Archivo Certificado" length="250" />
+    <field name="PictureContentType" type="String" label="Tipo de Archivo Certificado" length="250" />
+    <field name="PictureLength" type="Int32" label="Tamaño de Archivo Certificado" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Nombre_Completo" type="String" readOnly="true" label="Nombre Completo" length="604" />
+    <field name="Lista_Id" type="Int32" label="Lista Id" readOnly="true" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="Grid_Persona_Conocimiento" label="Persona Conocimiento" filter="Estatus_Registro_Id &lt;&gt; 0" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" sortExpression="PersonaNombre,PersonasegundoNombre,PersonaapellidoPaterno,PersonaapellidoMaterno">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Persona_Id" aliasFieldName="PersonaNombre" />
+        <dataField fieldName="Tipo_Conocimiento_Id" aliasFieldName="Tipo_Conocimiento_Tipo_Conocimiento" />
+        <dataField fieldName="Lista_Elemento_Lista_Lista" />
+        <dataField fieldName="Lista_Elemento_Id" aliasFieldName="Lista_Elemento_Lista_Elemento" />
+        <dataField fieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="Grid_Persona_Conocimiento" label="Edición Conocimiento" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Conocimiento" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Persona_Id" aliasFieldName="Nombre_Completo" />
+            <dataField fieldName="Tipo_Conocimiento_Id" aliasFieldName="Tipo_Conocimiento_Tipo_Conocimiento" />
+            <dataField fieldName="Lista_Elemento_Id" aliasFieldName="Lista_Elemento_Lista_Elemento" />
+            <dataField fieldName="Lista_Id" columns="15" hidden="true" />
+          </dataFields>
+        </category>
+        <category headerText="Certificado" tab="Certificado" id="c2">
+          <dataFields>
+            <dataField fieldName="PictureFileName">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Picture" columns="15" />
+            <dataField fieldName="PictureContentType">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="PictureLength" columns="15">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+          </dataFields>
+        </category>
+        <category headerText="Otros" tab="Otros" id="c3">
+          <dataFields>
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="Grid_Persona_Conocimiento" label="Nuevo Conocimiento" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Conocimiento" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Persona_Id" aliasFieldName="Nombre_Completo" />
+            <dataField fieldName="Tipo_Conocimiento_Id" aliasFieldName="Tipo_Conocimiento_Tipo_Conocimiento" />
+            <dataField fieldName="Lista_Elemento_Id" aliasFieldName="Lista_Elemento_Lista_Elemento" />
+            <dataField fieldName="Lista_Id" columns="15" hidden="true">
+              <visibility>
+                <expression test="false" type="ClientScript" />
+              </visibility>
+            </dataField>
+          </dataFields>
+        </category>
+        <category headerText="Certificado" tab="Certificado" id="c2">
+          <dataFields>
+            <dataField fieldName="PictureFileName">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Picture" columns="15" />
+            <dataField fieldName="PictureContentType">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="PictureLength" columns="15">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+          </dataFields>
+        </category>
+        <category headerText="Otros" tab="Otros" id="c3">
+          <dataFields>
+            <dataField fieldName="Notas" rows="5" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Persona_Conocimiento
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Conocimiento_Id = @Persona_Conocimiento_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Persona_Conocimiento
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Conocimiento_Id = @Persona_Conocimiento_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Persona_Conocimiento
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Conocimiento_Id = @Persona_Conocimiento_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Persona_Conocimiento
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Conocimiento_Id = @Persona_Conocimiento_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r102" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+DECLARE @Mensaje_Sistema VARCHAR(250)
+SET @Existe = 0
+
+SELECT
+TOP 1 @Existe = 1
+FROM
+APP.Persona_Conocimiento
+WHERE
+Persona_Id= @Persona_Id
+AND Tipo_Conocimiento_Id = @Tipo_Conocimiento_Id
+
+IF @Existe = 1
+BEGIN
+   SET @Mensaje_Sistema = 'Ya existe en la base de datos la relación entre la persona capturada y el conocimiento seleccionado, favor de corregir'
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage =@Mensaje_Sistema
+   SET @Result_ShowAlert = @Mensaje_Sistema
+   RETURN
+END]]></rule>
+    <rule id="r103" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+APP.Persona_Conocimiento
+SET
+Creado_Por_Id = @BusinessRules_UserId
+,Actualizado_Por_Id = @BusinessRules_UserId
+,Fecha_Creacion = GetDate()
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Persona_Conocimiento_Id=@Persona_Conocimiento_Id
+]]></rule>
+    <rule id="r100" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+DECLARE @Mensaje_Sistema VARCHAR(250)
+SET @Existe = 0
+
+SELECT
+TOP 1 @Existe = 1
+FROM
+APP.Persona_Conocimiento
+WHERE
+Persona_Id= @Persona_Id
+AND Tipo_Conocimiento_Id = @Tipo_Conocimiento_Id
+AND Persona_Conocimiento_Id <> @Persona_Conocimiento_Id
+
+IF @Existe = 1
+BEGIN
+   SET @Mensaje_Sistema = 'Ya existe en la base de datos la relación entre la persona capturada y el conocimiento seleccionado, favor de corregir'
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage =@Mensaje_Sistema
+   SET @Result_ShowAlert = @Mensaje_Sistema
+   RETURN
+END
+]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Persona_Conocimiento
+SET
+Actualizado_Por_Id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Persona_Conocimiento_Id= @Persona_Conocimiento_Id]]></rule>
+  </businessRules>
+</dataController>

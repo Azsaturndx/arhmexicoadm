@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Perfil_Persona_V" conflictDetection="overwriteChanges" label="Perfil Persona V" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Perfil_Persona_V"."Perfil_Id" "Perfil_Id"
+	,"Perfil_Persona_V"."Persona_Id" "Persona_Id"
+	,"Perfil_Persona_V"."Picture" "Picture"
+	,"Perfil_Persona_V"."Nombre" "Nombre"
+	,"Perfil_Persona_V"."Segundo_Nombre" "Segundo_Nombre"
+	,"Perfil_Persona_V"."Apellido_Paterno" "Apellido_Paterno"
+	,"Perfil_Persona_V"."Apellido_Materno" "Apellido_Materno"
+	,"Perfil_Persona_V"."Edad" "Edad"
+	,"Perfil_Persona_V"."Genero" "Genero"
+	,"Perfil_Persona_V"."Estructura_Organizacional" "Estructura_Organizacional"
+	,"Perfil_Persona_V"."Contratante_Puesto_Id" "Contratante_Puesto_Id"
+	,"Perfil_Persona_V"."Contratante_Puesto" "Contratante_Puesto"
+	,"Perfil_Persona_V"."Jefe_Directo" "Jefe_Directo"
+from "dbo"."Perfil_Persona_V" "Perfil_Persona_V"
+]]></text>
+    </command>
+    <command id="Persona_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Persona_Id" />
+      </output>
+    </command>
+    <command id="Contratante_Puesto_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Contratante_Puesto_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Perfil_Id" type="Int64" label="Perfil Id" showInSummary="true" isPrimaryKey="true" />
+    <field name="Persona_Id" type="Int32" label="Persona Id" readOnly="true" showInSummary="true" />
+    <field name="Picture" type="Byte[]" onDemand="true" sourceFields="Perfil_Id" onDemandHandler="Perfil_Persona_VPicture" onDemandStyle="Thumbnail" allowQBE="false" allowSorting="false" label="Picture" showInSummary="true" />
+    <field name="Nombre" type="String" label="Nombre" length="150" showInSummary="true" />
+    <field name="Segundo_Nombre" type="String" label="Segundo Nombre" length="150" showInSummary="true" />
+    <field name="Apellido_Paterno" type="String" label="Apellido Paterno" length="150" />
+    <field name="Apellido_Materno" type="String" label="Apellido Materno" length="150" />
+    <field name="Edad" type="Int16" label="Edad" readOnly="true" />
+    <field name="Genero" type="String" label="Genero" length="150" />
+    <field name="Estructura_Organizacional" type="String" allowNulls="false" label="Estructura Organizacional" length="150" />
+    <field name="Contratante_Puesto_Id" type="Int32" label="Contratante Puesto Id" readOnly="true" />
+    <field name="Contratante_Puesto" type="String" label="Contratante Puesto" length="150" />
+    <field name="Jefe_Directo" type="String" label="Jefe Directo" readOnly="true" length="603" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Perfil Persona" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Perfil_Id" columns="15" />
+        <dataField fieldName="Persona_Id" columns="15" />
+        <dataField fieldName="Picture" columns="15" />
+        <dataField fieldName="Nombre" />
+        <dataField fieldName="Segundo_Nombre" />
+        <dataField fieldName="Apellido_Paterno" />
+        <dataField fieldName="Apellido_Materno" />
+        <dataField fieldName="Edad" columns="15" />
+        <dataField fieldName="Genero" />
+        <dataField fieldName="Estructura_Organizacional" />
+        <dataField fieldName="Contratante_Puesto_Id" columns="15" />
+        <dataField fieldName="Contratante_Puesto" />
+        <dataField fieldName="Jefe_Directo" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Edicion Datos Puesto" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Datos Puesto" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Perfil_Id" columns="15" />
+            <dataField fieldName="Persona_Id" columns="15" />
+            <dataField fieldName="Picture" columns="15" />
+            <dataField fieldName="Nombre" />
+            <dataField fieldName="Segundo_Nombre" />
+            <dataField fieldName="Apellido_Paterno" />
+            <dataField fieldName="Apellido_Materno" />
+            <dataField fieldName="Edad" columns="15" />
+            <dataField fieldName="Genero" />
+            <dataField fieldName="Estructura_Organizacional" />
+            <dataField fieldName="Contratante_Puesto_Id" columns="15" />
+            <dataField fieldName="Contratante_Puesto" />
+            <dataField fieldName="Jefe_Directo" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nuevo Perfil Persona" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Perfil_Id" columns="15" />
+            <dataField fieldName="Persona_Id" columns="15" />
+            <dataField fieldName="Picture" columns="15" />
+            <dataField fieldName="Nombre" />
+            <dataField fieldName="Segundo_Nombre" />
+            <dataField fieldName="Apellido_Paterno" />
+            <dataField fieldName="Apellido_Materno" />
+            <dataField fieldName="Edad" columns="15" />
+            <dataField fieldName="Genero" />
+            <dataField fieldName="Estructura_Organizacional" />
+            <dataField fieldName="Contratante_Puesto_Id" columns="15" />
+            <dataField fieldName="Contratante_Puesto" />
+            <dataField fieldName="Jefe_Directo" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" />
+      <action id="a3" commandName="Delete" />
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="Delete" />
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="Delete" cssClass="DeleteIcon" whenView="grid1" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" />
+      <action id="a2" commandName="Delete" />
+    </actionGroup>
+  </actions>
+</dataController>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Pagadora_Cuadro_Accionario" alias="Pagadora_Cuadro_Accionario" created="2018-11-12T21:22:33" modified="2018-11-14T20:17:15" x="20" y="22" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Pagadora_" parentTableSchema="APP" parentTableName="Pagadora" x="840" y="20">
+      <foreignKeyColumn columnName="Pagadora_Id" parentColumnName="Pagadora_Id" />
+    </foreignKey>
+    <foreignKey id="Tipo_Sociedad_" parentTableSchema="APP" parentTableName="Tipo_Sociedad" x="847" y="261">
+      <foreignKeyColumn columnName="Tipo_Sociedad_Id" parentColumnName="Tipo_Sociedad_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="442" y="298">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="cpUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="46" y="425">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="apUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="42" y="557">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Pagadora_Cuadro_Accionario_Id" fieldName="Pagadora_Cuadro_Accionario_Id" label="Pagadora Cuadro Accionario Id" />
+    <column name="Pagadora_Id" fieldName="Pagadora_Id" label="Pagadora Id" aliasColumnName="Pagadora" aliasForeignKey="Pagadora_" />
+    <column name="Pagadora" fieldName="Pagadora_Pagadora" label="Pagadora" foreignKey="Pagadora_" />
+    <column name="Tipo_Sociedad_Id" fieldName="Tipo_Sociedad_Id" label="Tipo Sociedad Id" aliasColumnName="Tipo_Sociedad" aliasForeignKey="Tipo_Sociedad_" />
+    <column name="Tipo_Sociedad" fieldName="Tipo_Sociedad_Tipo_Sociedad" label="Tipo de Sociedad" foreignKey="Tipo_Sociedad_" />
+    <column name="Numero_Acciones" fieldName="Numero_Acciones" label="Número de Acciones" />
+    <column name="Valor_Nomina_Acciones" fieldName="Valor_Nomina_Acciones" label="Valor Nómina Acciones" />
+    <column name="Porcentaje_Accionario" fieldName="Porcentaje_Accionario" label="Porcentaje Accionario" />
+    <column name="Capital_Social_Total" fieldName="Capital_Social_Total" label="Capital Social Total" />
+    <column name="CURP" fieldName="CURP" label="CURP" />
+    <column name="RFC" fieldName="RFC" label="RFC" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="cpUsuario_V" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cpUsuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación UTC 0" format="d" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="apUsuario_V" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="apUsuario_V" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización UTC 0" format="d" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transacción Id" />
+  </columns>
+</dataModel>

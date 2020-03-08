@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Reporte_Reloj_Checador_V" label="Reporte_Reloj_Checador_V" conflictDetection="overwriteChanges" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command type="Text" id="Reporte_Reloj_Checador_V" custom="false">
+      <text><![CDATA[SELECT 
+	Nombre
+	,Cliente
+	,Contratante
+	,Checada_de_entrada
+	,Checada_de_salida
+	,Estado_de_checada
+	,Información_Adicional
+FROM 
+	dbo.Reporte_Reloj_Checador_V]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Nombre" type="String" label="Nombre" length="200" />
+    <field name="Cliente" type="String" label="Cliente" length="200" />
+    <field name="Contratante" type="String" label="Contratante" length="200" />
+    <field name="Checada_de_entrada" type="DateTime" label="Checada de entrada" dataFormatString="d" />
+    <field name="Checada_de_salida" type="DateTime" label="Checada de salida" dataFormatString="d" />
+    <field name="Estado_de_checada" type="String" label="Estado de checada" length="20" />
+    <field name="Informacion_Adicional" type="String" label="Información Adicional" length="500" />
+  </fields>
+  <views>
+    <view id="grid1" commandId="Reporte_Reloj_Checador_V" type="Grid" label="Reporte Reloj Checador" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <dataFields>
+        <dataField fieldName="Nombre" rows="5" />
+        <dataField fieldName="Cliente" rows="5" />
+        <dataField fieldName="Contratante" rows="5" />
+        <dataField fieldName="Checada_de_entrada" columns="10" />
+        <dataField fieldName="Checada_de_salida" columns="10" />
+        <dataField fieldName="Estado_de_checada" columns="20" />
+        <dataField fieldName="Informacion_Adicional" rows="5" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="hidden" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="hidden" />
+      <action id="a4" commandName="ExportRss" roles="hidden" />
+      <action id="a5" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+  </actions>
+</dataController>

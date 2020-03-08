@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Seguro" conflictDetection="overwriteChanges" label="Seguro" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Seguro"."Seguro_Id" "Seguro_Id"
+	,"Seguro"."Contratado_Id" "Contratado_Id"
+	,"Seguro"."Persona_Id" "Persona_Id"
+	,"Seguro"."Es_Titular" "Es_Titular"
+	,"Seguro"."Beneficiario_Id" "Beneficiario_Id"
+	,"Seguro"."Parentesco_Id" "Parentesco_Id"
+	,"Parentesco"."Parentesco" "Parentesco"
+	,"Seguro"."Categoria_Seguro_Id" "Categoria_Seguro_Id"
+	,"Categoria_Seguro"."Categoria_Seguro" "CategoriaSegurocategoriaSeguro"
+	,"Seguro"."Sociedad_Id" "Sociedad_Id"
+	,"Sociedad"."Sociedad" "Sociedad"
+	,"Seguro"."Cliente_Id" "Cliente_Id"
+	,"Cliente"."Cliente" "Cliente"
+	,"Seguro"."Tipo_Seguro_Id" "Tipo_Seguro_Id"
+	,"Tipo_Seguro"."Tipo_Seguro" "TipoSegurotipoSeguro"
+	,"Seguro"."Aseguradora_Id" "Aseguradora_Id"
+	,"Aseguradora"."Aseguradora" "Aseguradora"
+	,"Seguro"."Tipo_Asegurado_Id" "Tipo_Asegurado_Id"
+	,"Tipo_Asegurado"."Tipo_Asegurado" "TipoAseguradotipoAsegurado"
+	,"Seguro"."Periodicidad_Id" "Periodicidad_Id"
+	,"Periodicidad"."Periodicidad" "Periodicidad"
+	,"Seguro"."Anio_Id" "Anio_Id"
+	,"Anio"."Anio" "Anio"
+	,"Seguro"."Proveedor_Id" "Proveedor_Id"
+	,"Proveedor"."Proveedor" "Proveedor"
+	,"Seguro"."Genero_Id" "Genero_Id"
+	,"Genero"."Genero" "Genero"
+	,"Seguro"."Certificado" "Certificado"
+	,"Seguro"."Fecha_Movimiento" "Fecha_Movimiento"
+	,"Seguro"."Numero_Movimiento" "Numero_Movimiento"
+	,"Seguro"."Fecha_Calculo" "Fecha_Calculo"
+	,"Seguro"."Prima_Tarifa" "Prima_Tarifa"
+	,"Seguro"."Recargo" "Recargo"
+	,"Seguro"."Gastos_Expedicion" "Gastos_Expedicion"
+	,"Seguro"."IVA" "IVA"
+	,"Seguro"."Subsecuente" "Subsecuente"
+	,"Seguro"."Complemento" "Complemento"
+	,"Seguro"."Solo_Complemento" "Solo_Complemento"
+	,"Seguro"."Porcentaje_Suma_Asegurada" "Porcentaje_Suma_Asegurada"
+	,"Seguro"."Fecha_Alta" "Fecha_Alta"
+	,"Seguro"."Fecha_Inicio" "Fecha_Inicio"
+	,"Seguro"."Fecha_Fin" "Fecha_Fin"
+	,"Seguro"."Importe" "Importe"
+	,"Seguro"."Suma" "Suma"
+	,"Seguro"."Tipo_Movimiento_Id" "Tipo_Movimiento_Id"
+	,"Seguro"."Tipo_Registro_Id" "Tipo_Registro_Id"
+	,"Seguro"."Forma_Recuperacion_Id" "Forma_Recuperacion_Id"
+	,"Seguro"."Transaccion_Id" "Transaccion_Id"
+	,"Creado_Por"."UserName" "CreadoPorusername"
+	,"Seguro"."Fecha_Creacion" "Fecha_Creacion"
+	,"Actualizado_Por"."UserName" "ActualizadoPorusername"
+	,"Seguro"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Seguro"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro"."Estatus_Registro" "EstatusRegistroestatusRegistro"
+from "APP"."Seguro" "Seguro"
+	left join "APP"."Parentesco" "Parentesco" on "Seguro"."Parentesco_Id" = "Parentesco"."Parentesco_Id"
+	left join "APP"."Categoria_Seguro" "Categoria_Seguro" on "Seguro"."Categoria_Seguro_Id" = "Categoria_Seguro"."Categoria_Seguro_Id"
+	left join "APP"."Sociedad" "Sociedad" on "Seguro"."Sociedad_Id" = "Sociedad"."Sociedad_Id"
+	left join "APP"."Cliente" "Cliente" on "Seguro"."Cliente_Id" = "Cliente"."Cliente_Id"
+	left join "APP"."Tipo_Seguro" "Tipo_Seguro" on "Seguro"."Tipo_Seguro_Id" = "Tipo_Seguro"."Tipo_Seguro_Id"
+	left join "APP"."Aseguradora" "Aseguradora" on "Seguro"."Aseguradora_Id" = "Aseguradora"."Aseguradora_Id"
+	left join "APP"."Tipo_Asegurado" "Tipo_Asegurado" on "Seguro"."Tipo_Asegurado_Id" = "Tipo_Asegurado"."Tipo_Asegurado_Id"
+	left join "APP"."Periodicidad" "Periodicidad" on "Seguro"."Periodicidad_Id" = "Periodicidad"."Periodicidad_Id"
+	left join "APP"."Anio" "Anio" on "Seguro"."Anio_Id" = "Anio"."Anio_Id"
+	left join "APP"."Proveedor" "Proveedor" on "Seguro"."Proveedor_Id" = "Proveedor"."Proveedor_Id"
+	left join "APP"."Genero" "Genero" on "Seguro"."Genero_Id" = "Genero"."Genero_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro" on "Seguro"."Estatus_Registro_Id" = "Estatus_Registro"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Creado_Por" on "Seguro"."Creado_Por_Id" = "Creado_Por"."UserId"
+	left join "dbo"."Usuario_V" "Actualizado_Por" on "Seguro"."Actualizado_Por_Id" = "Actualizado_Por"."UserId"
+]]></text>
+    </command>
+    <command id="Seguro_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Seguro_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Seguro_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Seguro Id" readOnly="true" />
+    <field name="Contratado_Id" type="Int32" allowNulls="false" default="((0))" label="Contratado Id" showInSummary="true">
+      <items style="Lookup" />
+    </field>
+    <field name="Persona_Id" type="Int32" allowNulls="false" default="((0))" label="Persona Id" showInSummary="true">
+      <items style="Lookup" dataController="Persona" dataView="Persona_LookUp_List" dataTextField="Nombre" dataValueField="Persona_Id" />
+    </field>
+    <field name="Es_Titular" type="Boolean" allowNulls="false" default="((0))" label="¿Es Titular?" showInSummary="true" />
+    <field name="Beneficiario_Id" type="Int32" allowNulls="false" default="((0))" label="Beneficiario Id" showInSummary="true" />
+    <field name="Parentesco_Id" type="Int32" allowNulls="false" default="((0))" label="Parentesco Id" showInSummary="true">
+      <items style="Lookup" dataController="Parentesco" newDataView="createForm1" dataValueField="Parentesco_Id" dataTextField="Parentesco" dataView="Parentesco_LookUp_List" />
+    </field>
+    <field name="Parentesco" type="String" readOnly="true" label="Parentesco" length="150" />
+    <field name="Categoria_Seguro_Id" type="Int32" allowNulls="false" default="((0))" label="Categoria Seguro Id">
+      <items style="Lookup" dataController="Categoria_Seguro" newDataView="createForm1" dataValueField="Categoria_Seguro_Id" dataTextField="Categoria_Seguro" dataView="Categoria_Seguro_LookUp_List" />
+    </field>
+    <field name="CategoriaSegurocategoriaSeguro" type="String" readOnly="true" label="Categoría Seguro" length="150" />
+    <field name="Sociedad_Id" type="Int32" allowNulls="false" default="((0))" label="Sociedad Id">
+      <items style="Lookup" dataController="Sociedad" newDataView="createForm1" dataValueField="Sociedad_Id" dataTextField="Sociedad" dataView="Sociedad_LookUp_List" />
+    </field>
+    <field name="Sociedad" type="String" readOnly="true" label="Sociedad" length="250" />
+    <field name="Cliente_Id" type="Int32" allowNulls="false" default="((0))" label="Cliente Id">
+      <items style="Lookup" dataController="Cliente" newDataView="createForm1" dataValueField="Cliente_Id" dataTextField="Cliente" dataView="Cliente_LookUp_List" />
+    </field>
+    <field name="Cliente" type="String" readOnly="true" label="Cliente" length="150" />
+    <field name="Tipo_Seguro_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo Seguro Id">
+      <items style="Lookup" dataController="Tipo_Seguro" newDataView="createForm1" dataValueField="Tipo_Seguro_Id" dataTextField="Tipo_Seguro" dataView="Tipo_Seguro_LookUp_List" />
+    </field>
+    <field name="TipoSegurotipoSeguro" type="String" readOnly="true" label="Tipo de Seguro" length="150" />
+    <field name="Aseguradora_Id" type="Int32" allowNulls="false" default="((0))" label="Aseguradora Id">
+      <items style="Lookup" dataController="Aseguradora" newDataView="createForm1" dataValueField="Aseguradora_Id" dataTextField="Aseguradora" dataView="Aseguradora_LookUp_List" />
+    </field>
+    <field name="Aseguradora" type="String" readOnly="true" label="Aseguradora" length="150" />
+    <field name="Tipo_Asegurado_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo Asegurado Id">
+      <items style="Lookup" dataController="Tipo_Asegurado" newDataView="createForm1" dataValueField="Tipo_Asegurado_Id" dataTextField="Tipo_Asegurado" />
+    </field>
+    <field name="TipoAseguradotipoAsegurado" type="String" readOnly="true" label="Tipo Asegurado" length="150" />
+    <field name="Periodicidad_Id" type="Int32" allowNulls="false" default="((0))" label="Periodicidad Id">
+      <items style="Lookup" dataController="Periodicidad" newDataView="createForm1" dataValueField="Periodicidad_Id" dataTextField="Periodicidad" />
+    </field>
+    <field name="Periodicidad" type="String" readOnly="true" label="Periodicidad" length="150" />
+    <field name="Anio_Id" type="Int32" allowNulls="false" default="((0))" label="Anio Id">
+      <items style="Lookup" dataController="Anio" newDataView="createForm1" dataValueField="Anio_Id" dataTextField="Anio" />
+    </field>
+    <field name="Anio" type="String" readOnly="true" label="Año" length="150" />
+    <field name="Proveedor_Id" type="Int32" allowNulls="false" default="((0))" label="Proveedor Id">
+      <items style="Lookup" dataController="Proveedor" newDataView="createForm1" dataValueField="Proveedor_Id" dataTextField="Proveedor" />
+    </field>
+    <field name="Proveedor" type="String" readOnly="true" label="Proveedor" length="150" />
+    <field name="Genero_Id" type="Int32" allowNulls="false" default="((0))" label="Genero Id">
+      <items style="Lookup" dataController="Genero" newDataView="createForm1" dataValueField="Genero_Id" dataTextField="Genero" />
+    </field>
+    <field name="Genero" type="String" readOnly="true" label="Género" length="150" />
+    <field name="Certificado" type="String" label="Certificado" length="25" />
+    <field name="Fecha_Movimiento" type="DateTime" dataFormatString="g" label="Fecha Movimiento" />
+    <field name="Numero_Movimiento" type="Int32" label="Número Movimiento" />
+    <field name="Fecha_Calculo" type="DateTime" dataFormatString="g" label="Fecha Cálculo" />
+    <field name="Prima_Tarifa" type="Decimal" label="Prima Tarifa" />
+    <field name="Recargo" type="Decimal" label="Recargo" />
+    <field name="Gastos_Expedicion" type="Decimal" label="Gastos Expedición" />
+    <field name="IVA" type="Decimal" label="IVA" />
+    <field name="Subsecuente" type="Decimal" label="Subsecuente" />
+    <field name="Complemento" type="Decimal" label="Complemento" />
+    <field name="Solo_Complemento" type="Decimal" label="Solo Complemento" />
+    <field name="Porcentaje_Suma_Asegurada" type="Int32" label="Porcentaje Suma Asegurada" />
+    <field name="Fecha_Alta" type="DateTime" dataFormatString="g" label="Fecha Alta" />
+    <field name="Fecha_Inicio" type="DateTime" dataFormatString="g" label="Fecha Inicio" />
+    <field name="Fecha_Fin" type="DateTime" dataFormatString="g" label="Fecha Fin" />
+    <field name="Importe" type="Decimal" label="Importe" />
+    <field name="Suma" type="Decimal" label="Suma" />
+    <field name="Tipo_Movimiento_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo Movimiento Id" />
+    <field name="Tipo_Registro_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo Registro Id" />
+    <field name="Forma_Recuperacion_Id" type="Int32" allowNulls="false" default="((0))" label="Forma Recuperacion Id" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transaccion Id" length="50" />
+    <field name="CreadoPorusername" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Creación" />
+    <field name="ActualizadoPorusername" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Última Actualización" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" />
+    </field>
+    <field name="EstatusRegistroestatusRegistro" type="String" readOnly="true" label="Estatus Registro" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Seguro">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Contratado_Id" columns="15" />
+        <dataField fieldName="Persona_Id" columns="15" />
+        <dataField fieldName="Es_Titular" />
+        <dataField fieldName="Beneficiario_Id" columns="15" />
+        <dataField fieldName="Parentesco_Id" aliasFieldName="Parentesco" />
+        <dataField fieldName="Categoria_Seguro_Id" aliasFieldName="CategoriaSegurocategoriaSeguro" />
+        <dataField fieldName="Sociedad_Id" aliasFieldName="Sociedad" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" />
+        <dataField fieldName="Tipo_Seguro_Id" aliasFieldName="TipoSegurotipoSeguro" />
+        <dataField fieldName="Aseguradora_Id" aliasFieldName="Aseguradora" />
+        <dataField fieldName="Tipo_Asegurado_Id" aliasFieldName="TipoAseguradotipoAsegurado" />
+        <dataField fieldName="Periodicidad_Id" aliasFieldName="Periodicidad" />
+        <dataField fieldName="Anio_Id" aliasFieldName="Anio" />
+        <dataField fieldName="Proveedor_Id" aliasFieldName="Proveedor" />
+        <dataField fieldName="Genero_Id" aliasFieldName="Genero" />
+        <dataField fieldName="Certificado" columns="25" />
+        <dataField fieldName="Fecha_Movimiento" columns="20" />
+        <dataField fieldName="Numero_Movimiento" columns="15" />
+        <dataField fieldName="Fecha_Calculo" columns="20" />
+        <dataField fieldName="Prima_Tarifa" columns="15" />
+        <dataField fieldName="Recargo" columns="15" />
+        <dataField fieldName="Gastos_Expedicion" columns="15" />
+        <dataField fieldName="IVA" columns="15" />
+        <dataField fieldName="Subsecuente" columns="15" />
+        <dataField fieldName="Complemento" columns="15" />
+        <dataField fieldName="Solo_Complemento" columns="15" />
+        <dataField fieldName="Porcentaje_Suma_Asegurada" columns="15" />
+        <dataField fieldName="Fecha_Alta" columns="20" />
+        <dataField fieldName="Fecha_Inicio" columns="20" />
+        <dataField fieldName="Fecha_Fin" columns="20" />
+        <dataField fieldName="Importe" columns="15" />
+        <dataField fieldName="Suma" columns="15" />
+        <dataField fieldName="Tipo_Movimiento_Id" columns="15" />
+        <dataField fieldName="Tipo_Registro_Id" columns="15" />
+        <dataField fieldName="Forma_Recuperacion_Id" columns="15" />
+        <dataField fieldName="Transaccion_Id" columns="50" />
+        <dataField fieldName="CreadoPorusername" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="ActualizadoPorusername" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="EstatusRegistroestatusRegistro" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Review Seguro">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Seguro" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Contratado_Id" columns="15" />
+            <dataField fieldName="Persona_Id" columns="15" />
+            <dataField fieldName="Es_Titular" />
+            <dataField fieldName="Beneficiario_Id" columns="15" />
+            <dataField fieldName="Parentesco_Id" aliasFieldName="Parentesco" />
+            <dataField fieldName="Categoria_Seguro_Id" aliasFieldName="CategoriaSegurocategoriaSeguro" />
+            <dataField fieldName="Sociedad_Id" aliasFieldName="Sociedad" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" />
+            <dataField fieldName="Tipo_Seguro_Id" aliasFieldName="TipoSegurotipoSeguro" />
+            <dataField fieldName="Aseguradora_Id" aliasFieldName="Aseguradora" />
+            <dataField fieldName="Tipo_Asegurado_Id" aliasFieldName="TipoAseguradotipoAsegurado" />
+            <dataField fieldName="Periodicidad_Id" aliasFieldName="Periodicidad" />
+            <dataField fieldName="Anio_Id" aliasFieldName="Anio" />
+            <dataField fieldName="Proveedor_Id" aliasFieldName="Proveedor" />
+            <dataField fieldName="Genero_Id" aliasFieldName="Genero" />
+            <dataField fieldName="Certificado" columns="25" />
+            <dataField fieldName="Fecha_Movimiento" columns="20" />
+            <dataField fieldName="Numero_Movimiento" columns="15" />
+            <dataField fieldName="Fecha_Calculo" columns="20" />
+            <dataField fieldName="Prima_Tarifa" columns="15" />
+            <dataField fieldName="Recargo" columns="15" />
+            <dataField fieldName="Gastos_Expedicion" columns="15" />
+            <dataField fieldName="IVA" columns="15" />
+            <dataField fieldName="Subsecuente" columns="15" />
+            <dataField fieldName="Complemento" columns="15" />
+            <dataField fieldName="Solo_Complemento" columns="15" />
+            <dataField fieldName="Porcentaje_Suma_Asegurada" columns="15" />
+            <dataField fieldName="Fecha_Alta" columns="20" />
+            <dataField fieldName="Fecha_Inicio" columns="20" />
+            <dataField fieldName="Fecha_Fin" columns="20" />
+            <dataField fieldName="Importe" columns="15" />
+            <dataField fieldName="Suma" columns="15" />
+            <dataField fieldName="Tipo_Movimiento_Id" columns="15" />
+            <dataField fieldName="Tipo_Registro_Id" columns="15" />
+            <dataField fieldName="Forma_Recuperacion_Id" columns="15" />
+            <dataField fieldName="Transaccion_Id" columns="50" />
+            <dataField fieldName="CreadoPorusername" />
+            <dataField fieldName="Fecha_Creacion" columns="20" />
+            <dataField fieldName="ActualizadoPorusername" />
+            <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="EstatusRegistroestatusRegistro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="New Seguro">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Contratado_Id" columns="15" />
+            <dataField fieldName="Persona_Id" columns="15" />
+            <dataField fieldName="Es_Titular" />
+            <dataField fieldName="Beneficiario_Id" columns="15" />
+            <dataField fieldName="Parentesco_Id" aliasFieldName="Parentesco" />
+            <dataField fieldName="Categoria_Seguro_Id" aliasFieldName="CategoriaSegurocategoriaSeguro" />
+            <dataField fieldName="Sociedad_Id" aliasFieldName="Sociedad" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" />
+            <dataField fieldName="Tipo_Seguro_Id" aliasFieldName="TipoSegurotipoSeguro" />
+            <dataField fieldName="Aseguradora_Id" aliasFieldName="Aseguradora" />
+            <dataField fieldName="Tipo_Asegurado_Id" aliasFieldName="TipoAseguradotipoAsegurado" />
+            <dataField fieldName="Periodicidad_Id" aliasFieldName="Periodicidad" />
+            <dataField fieldName="Anio_Id" aliasFieldName="Anio" />
+            <dataField fieldName="Proveedor_Id" aliasFieldName="Proveedor" />
+            <dataField fieldName="Genero_Id" aliasFieldName="Genero" />
+            <dataField fieldName="Certificado" columns="25" />
+            <dataField fieldName="Fecha_Movimiento" columns="20" />
+            <dataField fieldName="Numero_Movimiento" columns="15" />
+            <dataField fieldName="Fecha_Calculo" columns="20" />
+            <dataField fieldName="Prima_Tarifa" columns="15" />
+            <dataField fieldName="Recargo" columns="15" />
+            <dataField fieldName="Gastos_Expedicion" columns="15" />
+            <dataField fieldName="IVA" columns="15" />
+            <dataField fieldName="Subsecuente" columns="15" />
+            <dataField fieldName="Complemento" columns="15" />
+            <dataField fieldName="Solo_Complemento" columns="15" />
+            <dataField fieldName="Porcentaje_Suma_Asegurada" columns="15" />
+            <dataField fieldName="Fecha_Alta" columns="20" />
+            <dataField fieldName="Fecha_Inicio" columns="20" />
+            <dataField fieldName="Fecha_Fin" columns="20" />
+            <dataField fieldName="Importe" columns="15" />
+            <dataField fieldName="Suma" columns="15" />
+            <dataField fieldName="Tipo_Movimiento_Id" columns="15" />
+            <dataField fieldName="Tipo_Registro_Id" columns="15" />
+            <dataField fieldName="Forma_Recuperacion_Id" columns="15" />
+            <dataField fieldName="Transaccion_Id" columns="50" />
+            <dataField fieldName="CreadoPorusername" />
+            <dataField fieldName="Fecha_Creacion" columns="20" />
+            <dataField fieldName="ActualizadoPorusername" />
+            <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="EstatusRegistroestatusRegistro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" />
+      <action id="a3" commandName="Delete" />
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="Delete" />
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="Delete" cssClass="DeleteIcon" whenView="grid1" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" />
+      <action id="a2" commandName="Delete" />
+    </actionGroup>
+  </actions>
+</dataController>

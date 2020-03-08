@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Contratado_Solicitud_Vacaciones" conflictDetection="overwriteChanges" label="Contratado Solicitud Vacaciones" handler="arhmexico.Rules.Contratado_Solicitud_VacacionesBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text" custom="false">
+      <text><![CDATA[select
+	"Contratado_Solicitud_Vacaciones"."Contratado_Solicitud_Vacaciones_Id" "Contratado_Solicitud_Vacaciones_Id"
+	,"Contratado_Solicitud_Vacaciones"."Contratado_Id" "Contratado_Id"
+	,"Contratado"."Contratante_Id" "Contratante_Id"
+	,"Persona_V"."Persona_Nombre" "Persona_V_Persona_Nombre"
+	,"Contratado_Solicitud_Vacaciones"."Fecha_Solicitud" "Fecha_Solicitud"
+	,"Contratado_Solicitud_Vacaciones"."Dias_Solicitados" "Dias_Solicitados"
+	,"Contratado_Solicitud_Vacaciones"."Fecha_Inicio_Vacaciones" "Fecha_Inicio_Vacaciones"
+	,"Contratado_Solicitud_Vacaciones"."Fecha_Fin_Vacaciones" "Fecha_Fin_Vacaciones"
+	,"Contratado_Solicitud_Vacaciones"."Estatus_Solicitud_Id" "Estatus_Solicitud_Id"
+	,"Estatus_Solicitud_"."Estatus_Solicitud" "Estatus_Solicitud_Estatus_Solicitud"
+	,"Contratado_Solicitud_Vacaciones"."Fecha_Autorizacion_Rechazo" "Fecha_Autorizacion_Rechazo"
+	,"Contratado_Solicitud_Vacaciones"."Autorizado_Rechazado_Por_Id" "Autorizado_Rechazado_Por_Id"
+	,"Usuario_V2"."UserName" "arpUserName"
+	,"Contratado_Solicitud_Vacaciones"."Notas_Autorizacion_Rechazo" "Notas_Autorizacion_Rechazo"
+	,"Contratado_Solicitud_Vacaciones"."Dias_Autorizados" "Dias_Autorizados"
+	,"Contratado_Solicitud_Vacaciones"."Solicitud_Vacaciones_Key" "Solicitud_Vacaciones_Key"
+	,"Contratado_Solicitud_Vacaciones"."Transaccion_Id" "Transaccion_Id"
+	,"Contratado_Solicitud_Vacaciones"."Creado_Por_Id" "Creado_Por_Id"
+	,"Usuario_V"."UserName" "cpUserName"
+	,"Contratado_Solicitud_Vacaciones"."Fecha_Creacion" "Fecha_Creacion"
+	,"Contratado_Solicitud_Vacaciones"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"Usuario_V1"."UserName" "apUserName"
+	,"Contratado_Solicitud_Vacaciones"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Contratado_Solicitud_Vacaciones"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Contratado"."Contratante_Id"
+from "APP"."Contratado_Solicitud_Vacaciones" "Contratado_Solicitud_Vacaciones"
+	left join "APP"."Estatus_Solicitud" "Estatus_Solicitud_" on "Contratado_Solicitud_Vacaciones"."Estatus_Solicitud_Id" = "Estatus_Solicitud_"."Estatus_Solicitud_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Contratado_Solicitud_Vacaciones"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Usuario_V" on "Contratado_Solicitud_Vacaciones"."Creado_Por_Id" = "Usuario_V"."UserId"
+ and "Contratado_Solicitud_Vacaciones"."Actualizado_Por_Id" = "Usuario_V"."ApplicationId"
+	left join "dbo"."Usuario_V" "Usuario_V1" on "Contratado_Solicitud_Vacaciones"."Actualizado_Por_Id" = "Usuario_V1"."UserId"
+	left join "dbo"."Usuario_V" "Usuario_V2" on "Contratado_Solicitud_Vacaciones"."Autorizado_Rechazado_Por_Id" = "Usuario_V2"."UserId"
+	left join "dbo"."Persona_V" "Persona_V" on "Contratado_Solicitud_Vacaciones"."Contratado_Id" = "Persona_V"."Contratado_Id"
+	left join "APP"."Contratado" "Contratado" on "Contratado_Solicitud_Vacaciones"."Contratado_Id" = "Contratado"."Contratado_Id"
+]]></text>
+    </command>
+    <command id="Contratado_Solicitud_Vacaciones_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Contratado_Solicitud_Vacaciones_Id" />
+      </output>
+    </command>
+    <command type="Text" id="command2" tableName="APP.Contratado_Solicitud_Vacaciones" custom="false">
+      <text><![CDATA[select
+	"Contratado_Solicitud_Vacaciones"."Contratado_Solicitud_Vacaciones_Id" "Contratado_Solicitud_Vacaciones_Id"
+	,"Contratado_Solicitud_Vacaciones"."Contratado_Id" "Contratado_Id"
+	,"Contratado"."Contratante_Id" "Contratante_Id"
+	,"Persona_V"."Persona_Nombre" "Persona_V_Persona_Nombre"
+	,"Contratado_Solicitud_Vacaciones"."Fecha_Solicitud" "Fecha_Solicitud"
+	,"Contratado_Solicitud_Vacaciones"."Dias_Solicitados" "Dias_Solicitados"
+	,"Contratado_Solicitud_Vacaciones"."Fecha_Inicio_Vacaciones" "Fecha_Inicio_Vacaciones"
+	,"Contratado_Solicitud_Vacaciones"."Fecha_Fin_Vacaciones" "Fecha_Fin_Vacaciones"
+	,"Contratado_Solicitud_Vacaciones"."Estatus_Solicitud_Id" "Estatus_Solicitud_Id"
+	,"Estatus_Solicitud_"."Estatus_Solicitud" "Estatus_Solicitud_Estatus_Solicitud"
+	,"Contratado_Solicitud_Vacaciones"."Fecha_Autorizacion_Rechazo" "Fecha_Autorizacion_Rechazo"
+	,"Contratado_Solicitud_Vacaciones"."Autorizado_Rechazado_Por_Id" "Autorizado_Rechazado_Por_Id"
+	,"Usuario_V2"."UserName" "arpUserName"
+	,"Contratado_Solicitud_Vacaciones"."Notas_Autorizacion_Rechazo" "Notas_Autorizacion_Rechazo"
+	,"Contratado_Solicitud_Vacaciones"."Dias_Autorizados" "Dias_Autorizados"
+	,"Contratado_Solicitud_Vacaciones"."Solicitud_Vacaciones_Key" "Solicitud_Vacaciones_Key"
+	,"Contratado_Solicitud_Vacaciones"."Transaccion_Id" "Transaccion_Id"
+	,"Contratado_Solicitud_Vacaciones"."Creado_Por_Id" "Creado_Por_Id"
+	,"Usuario_V"."UserName" "cpUserName"
+	,"Contratado_Solicitud_Vacaciones"."Fecha_Creacion" "Fecha_Creacion"
+	,"Contratado_Solicitud_Vacaciones"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"Usuario_V1"."UserName" "apUserName"
+	,"Contratado_Solicitud_Vacaciones"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Contratado_Solicitud_Vacaciones"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Contratado"."Contratante_Id"
+	,"Contratante"."Permite_Cancelar_Solicitud_Vacaciones"
+	 ,dbo.fn_Mostrar_Boton_Autorizar_Rechazar_Solicitud_Vacaciones( @BusinessRules_UserId ,"Contratado"."Contratante_Id"  ,"Contratado_Solicitud_Vacaciones"."Contratado_Id" ,"Contratado_Solicitud_Vacaciones"."Fecha_Inicio_Vacaciones" ,"Contratado_Solicitud_Vacaciones"."Fecha_Fin_Vacaciones" ,1,0) Mostrar_Boton_Autorizar_Solicitud_Vacaciones
+ ,dbo.fn_Mostrar_Boton_Autorizar_Rechazar_Solicitud_Vacaciones( @BusinessRules_UserId ,"Contratado"."Contratante_Id"  ,"Contratado_Solicitud_Vacaciones"."Contratado_Id" ,"Contratado_Solicitud_Vacaciones"."Fecha_Inicio_Vacaciones" ,"Contratado_Solicitud_Vacaciones"."Fecha_Fin_Vacaciones" ,0,1) Mostrar_Boton_Rechazar_Solicitud_Vacaciones
+from "APP"."Contratado_Solicitud_Vacaciones" "Contratado_Solicitud_Vacaciones"
+	left join "APP"."Estatus_Solicitud" "Estatus_Solicitud_" on "Contratado_Solicitud_Vacaciones"."Estatus_Solicitud_Id" = "Estatus_Solicitud_"."Estatus_Solicitud_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Contratado_Solicitud_Vacaciones"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Usuario_V" on "Contratado_Solicitud_Vacaciones"."Creado_Por_Id" = "Usuario_V"."UserId"
+ and "Contratado_Solicitud_Vacaciones"."Actualizado_Por_Id" = "Usuario_V"."ApplicationId"
+	left join "dbo"."Usuario_V" "Usuario_V1" on "Contratado_Solicitud_Vacaciones"."Actualizado_Por_Id" = "Usuario_V1"."UserId"
+	left join "dbo"."Usuario_V" "Usuario_V2" on "Contratado_Solicitud_Vacaciones"."Autorizado_Rechazado_Por_Id" = "Usuario_V2"."UserId"
+	left join "dbo"."Persona_V" "Persona_V" on "Contratado_Solicitud_Vacaciones"."Contratado_Id" = "Persona_V"."Contratado_Id"
+	left join "APP"."Contratado" "Contratado" on "Contratado_Solicitud_Vacaciones"."Contratado_Id" = "Contratado"."Contratado_Id"
+	left join "APP"."Contratante" "Contratante" on "Contratado"."Contratante_Id" = "Contratante"."Contratante_Id"]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Contratado_Solicitud_Vacaciones_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Contratado Solicitud Vacaciones Id" />
+    <field name="Contratado_Id" type="Int32" allowNulls="false" default="((0))" label="Contratado Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratado" dataValueField="Contratado_Id" copy="" dataView="Contratado_Admin_LookUp_List" />
+    </field>
+    <field name="Contratante_Id" type="Int32" readOnly="true" label="Contratante Id" />
+    <field name="Persona_V_Persona_Nombre" type="String" readOnly="true" label="Nombre de Contratado" length="603" />
+    <field name="Fecha_Solicitud" type="DateTime" allowNulls="false" dataFormatString="d" label="Fecha de Solicitud" showInSummary="true" default="(getdate())" />
+    <field name="Dias_Solicitados" type="Int32" allowNulls="false" default="((1))" label="Días Solicitados" showInSummary="true" />
+    <field name="Fecha_Inicio_Vacaciones" type="DateTime" allowNulls="false" dataFormatString="d" label="Fecha de Inicio de Vacaciones" showInSummary="true" default="(getdate())" />
+    <field name="Fecha_Fin_Vacaciones" type="DateTime" allowNulls="false" dataFormatString="d" label="Fecha de Fin de Vacaciones" showInSummary="true" default="(getdate())" />
+    <field name="Estatus_Solicitud_Id" type="Int32" allowNulls="false" default="((0))" label="Estatus Solicitud Id">
+      <items style="Lookup" dataController="Estatus_Solicitud" dataValueField="Estatus_Solicitud_Id" dataTextField="Estatus_Solicitud" dataView="Estatus_Solicitud_LookUp_List" />
+    </field>
+    <field name="Estatus_Solicitud_Estatus_Solicitud" type="String" readOnly="true" label="Estatus de Solicitud" length="150" />
+    <field name="Fecha_Autorizacion_Rechazo" type="DateTime" dataFormatString="d" label="Fecha de Autorización o Rechazo" default="(getdate())" />
+    <field name="Autorizado_Rechazado_Por_Id" type="Guid" label="Autorizado o Rechazado Por">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="arpUserName" type="String" readOnly="true" label="Actualizado/Rechazado Por" length="256" />
+    <field name="Notas_Autorizacion_Rechazo" type="String" allowQBE="false" allowSorting="false" label="Notas" length="5000" />
+    <field name="Dias_Autorizados" type="Int32" label="Días Autorizados" />
+    <field name="Solicitud_Vacaciones_Key" type="String" allowNulls="false" default="(newid())" label="Solicitud Vacaciones Key" length="50" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transaccion Id" length="50" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" copy="Actualizado_Por_Id=ApplicationId" />
+    </field>
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id" />
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="Tipo_Prestacion_Id" type="Int32" readOnly="true" label="Tipo Prestacion Id" default="((0))" />
+    <field name="Fecha_Inicio_Vacaciones_Autorizado" type="DateTime" label="Fecha Inicio Vacaciones Autorizado" dataFormatString="d" />
+    <field name="Fecha_Fin_Vacaciones_Autorizado" type="DateTime" label="Fecha Fin Vacaciones Autorizado" dataFormatString="d" />
+    <field name="Permite_Cancelar_Solicitud_Vacaciones" type="Boolean" readOnly="true" label="Permite Cancelar Solicitud Vacaciones" />
+    <field name="Mostrar_Boton_Autorizar_Solicitud_Vacaciones" type="Boolean" readOnly="true" label="Mostrar Boton Autorizar Solicitud Vacaciones" />
+    <field name="Mostrar_Boton_Rechazar_Solicitud_Vacaciones" type="Boolean" readOnly="true" label="Mostrar Boton Rechazar Solicitud Vacaciones" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command2" label="Solicitudes de Vacaciones de Contratados" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" filter="Estatus_Registro_Id&lt;&gt;0">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Contratado_Solicitud_Vacaciones_Id" columns="15" hidden="true" />
+        <dataField fieldName="Contratado_Id" aliasFieldName="Persona_V_Persona_Nombre" hidden="true" />
+        <dataField fieldName="Persona_V_Persona_Nombre" />
+        <dataField fieldName="Fecha_Solicitud" columns="20" />
+        <dataField fieldName="Dias_Solicitados" columns="15" />
+        <dataField fieldName="Fecha_Inicio_Vacaciones" columns="20" />
+        <dataField fieldName="Fecha_Fin_Vacaciones" columns="20" />
+        <dataField fieldName="Estatus_Solicitud_Id" aliasFieldName="Estatus_Solicitud_Estatus_Solicitud" />
+        <dataField fieldName="Fecha_Autorizacion_Rechazo" columns="20" />
+        <dataField fieldName="Autorizado_Rechazado_Por_Id" aliasFieldName="arpUserName" />
+        <dataField fieldName="Dias_Autorizados" columns="15" />
+        <dataField fieldName="Solicitud_Vacaciones_Key" columns="50" hidden="true" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" hidden="true" />
+        <dataField fieldName="Fecha_Creacion" columns="20" hidden="true" />
+        <dataField fieldName="Actualizado_Por_Id" textMode="Static" aliasFieldName="apUserName" hidden="true" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" hidden="true" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Tipo_Prestacion_Id" columns="15" hidden="true" />
+        <dataField fieldName="Contratante_Id" columns="15" hidden="true" />
+        <dataField fieldName="Permite_Cancelar_Solicitud_Vacaciones" hidden="true" />
+        <dataField fieldName="Mostrar_Boton_Rechazar_Solicitud_Vacaciones" hidden="true" />
+        <dataField fieldName="Mostrar_Boton_Autorizar_Solicitud_Vacaciones" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Solicitud Vacaciones" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Contratado_Solicitud_Vacaciones_Id" columns="15" hidden="true" />
+            <dataField fieldName="Contratado_Id" aliasFieldName="Persona_V_Persona_Nombre" />
+            <dataField fieldName="Fecha_Solicitud" columns="20">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Dias_Solicitados" columns="15" />
+            <dataField fieldName="Fecha_Inicio_Vacaciones" columns="20">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Fecha_Fin_Vacaciones" columns="20">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Estatus_Solicitud_Id" aliasFieldName="Estatus_Solicitud_Estatus_Solicitud">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Dias_Autorizados" columns="15" hidden="true">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Fecha_Inicio_Vacaciones_Autorizado" columns="10" hidden="true">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Fecha_Fin_Vacaciones_Autorizado" columns="10" hidden="true">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Fecha_Autorizacion_Rechazo" columns="20" hidden="true">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Notas_Autorizacion_Rechazo" rows="5" hidden="true">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Solicitud_Vacaciones_Key" columns="50" hidden="true" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nueva Solicitud de Vacaciones" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Contratado_Solicitud_Vacaciones_Id" columns="15" hidden="true" />
+            <dataField fieldName="Contratado_Id" aliasFieldName="Persona_V_Persona_Nombre" />
+            <dataField fieldName="Persona_V_Persona_Nombre" />
+            <dataField fieldName="Solicitud_Vacaciones_Key" columns="50" hidden="true" />
+            <dataField fieldName="Fecha_Solicitud" columns="20" hidden="true" />
+            <dataField fieldName="Dias_Solicitados" columns="15" hidden="true" />
+            <dataField fieldName="Fecha_Inicio_Vacaciones" columns="20" />
+            <dataField fieldName="Fecha_Fin_Vacaciones" columns="20" />
+            <dataField fieldName="Estatus_Solicitud_Id" aliasFieldName="Estatus_Solicitud_Estatus_Solicitud" hidden="true" />
+            <dataField fieldName="Dias_Autorizados" columns="15" hidden="true" />
+            <dataField fieldName="Fecha_Inicio_Vacaciones_Autorizado" columns="10" hidden="true" />
+            <dataField fieldName="Fecha_Fin_Vacaciones_Autorizado" columns="10" hidden="true" />
+            <dataField fieldName="Fecha_Autorizacion_Rechazo" columns="20" hidden="true" />
+            <dataField fieldName="Autorizado_Rechazado_Por_Id" aliasFieldName="arpUserName" hidden="true" />
+            <dataField fieldName="Notas_Autorizacion_Rechazo" rows="5" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE 
+	APP.Contratado_Solicitud_Vacaciones
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Contratado_Solicitud_Vacaciones_Id = @Contratado_Solicitud_Vacaciones_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE 
+	APP.Contratado_Solicitud_Vacaciones
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Contratado_Solicitud_Vacaciones_Id = @Contratado_Solicitud_Vacaciones_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Custom" commandArgument="EXECCS07" headerText="Guardar" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Custom" commandArgument="EXECCS06" headerText="Aceptar" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" roles="hidden" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE 
+	APP.Contratado_Solicitud_Vacaciones
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Contratado_Solicitud_Vacaciones_Id = @Contratado_Solicitud_Vacaciones_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE 
+	APP.Contratado_Solicitud_Vacaciones
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Contratado_Solicitud_Vacaciones_Id = @Contratado_Solicitud_Vacaciones_Id]]></data>
+      </action>
+      <action commandName="Custom" commandArgument="EXECCS03" headerText="Autorizar" id="a103" whenClientScript="([Estatus_Solicitud_Id]==0 || [Estatus_Solicitud_Id]== 1) &amp;&amp; [Mostrar_Boton_Autorizar_Solicitud_Vacaciones] == true" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action commandName="Custom" headerText="Autorizar con Cambios" id="a101" commandArgument="EXECCS04" roles="hidden" whenClientScript="[Estatus_Solicitud_Id]==0 || [Estatus_Solicitud_Id]== 1">
+        <data />
+      </action>
+      <action commandName="Custom" headerText="Rechazar" id="a102" commandArgument="EXECCS05" whenClientScript="([Estatus_Solicitud_Id]==0 || [Estatus_Solicitud_Id]== 1) &amp;&amp; [Mostrar_Boton_Rechazar_Solicitud_Vacaciones]==true" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data />
+      </action>
+      <action commandName="Custom" commandArgument="EXECCS08" headerText="Cancelar" id="a100" whenClientScript="[Permite_Cancelar_Solicitud_Vacaciones]== 1 || [Estatus_Solicitud_Id]!= 5" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Custom" type="Sql" phase="Before" commandArgument="EXECCS06"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Contratado_Solicitud_Vacaciones
+	WHERE
+  		Contratado_Id = @Contratado_Id
+		AND CONVERT(VARCHAR(10),Fecha_Inicio_Vacaciones,105) = CONVERT(VARCHAR(10),@Fecha_Inicio_Vacaciones,105)
+		AND CONVERT(VARCHAR(10),Fecha_Inicio_Vacaciones,105) = CONVERT(VARCHAR(10),@Fecha_Fin_Vacaciones,105)
+		AND Estatus_Solicitud_Id = @Estatus_Solicitud_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya esta registrada esta solicitud en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya esta registrada esta solicitud en la base de datos, favor de corregir.'
+   RETURN
+END
+
+SET @Dias_Solicitados = dbo.fn_Calcular_Dias_Vacaciones (@Contratado_Id,@Fecha_Inicio_Vacaciones,@Fecha_Fin_Vacaciones)
+SET @Estatus_Solicitud_Id = IsNull((SELECT TOP 1 Estatus_Solicitud_Id FROM app.Estatus_Solicitud WHERE Significa_Pendiente_Por_Autorizar = 1 AND Estatus_Registro_Id = 1),0)
+SET @Dias_Autorizados = 0
+
+]]></rule>
+    <rule id="r101" commandName="Custom" type="Sql" phase="After" commandArgument="EXECCS06"><![CDATA[UPDATE
+	APP.Contratado_Solicitud_Vacaciones
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Contratado_Solicitud_Vacaciones_Id= @Contratado_Solicitud_Vacaciones_Id]]></rule>
+    <rule id="r107" commandName="Custom" commandArgument="EXECCS06" type="Code" phase="After" />
+    <rule id="r102" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Contratado_Solicitud_Vacaciones
+	WHERE
+  		Contratado_Id = @Contratado_Id
+		AND Contratado_Solicitud_Vacaciones_Id <> @Contratado_Solicitud_Vacaciones_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya esta registrada esta solicitud en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya esta registrada esta solicitud en la base de datos, favor de corregir.'
+   RETURN
+END
+
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Contratado_Solicitud_Vacaciones
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Contratado_Solicitud_Vacaciones_Id = @Contratado_Solicitud_Vacaciones_Id]]></rule>
+    <rule id="r105" commandName="Custom" commandArgument="EXECCS03" type="Code" phase="After" />
+    <rule id="r104" commandName="Custom" commandArgument="EXECCS04" type="Code" phase="After" />
+    <rule id="r106" commandName="Custom" commandArgument="EXECCS05" type="Code" phase="After" />
+    <rule id="r108" commandName="Custom" commandArgument="EXECCS07" type="Code" phase="After" />
+    <rule id="r109" commandName="Custom" commandArgument="EXECCS08" type="Code" phase="After" />
+    <rule id="r110" commandName="New" type="Sql" phase="Execute"><![CDATA[SET @Fecha_Solicitud = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local] (GETDATE(),0)
+
+]]></rule>
+  </businessRules>
+</dataController>

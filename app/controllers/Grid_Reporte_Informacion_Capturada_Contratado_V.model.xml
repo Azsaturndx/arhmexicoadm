@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Grid_Reporte_Informacion_Capturada_Contratado_V" alias="Grid_Reporte_Informacion_Capturada_Contratado_V" created="2019-03-27T15:07:15" modified="2019-05-28T13:11:42" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="Nombre_Reporte" fieldName="Nombre_Reporte" label="Nombre de Reporte" />
+    <column name="Tipo_Reporte" fieldName="Tipo_Reporte" label="Tipo de Reporte" />
+    <column name="Nota" fieldName="Nota" label="Nota" />
+    <column name="Cliente_Id" fieldName="Cliente_Id" label="Cliente Id" />
+    <column name="Cliente" fieldName="Cliente" label="Cliente" />
+    <column name="Contratante_Id" fieldName="Contratante_Id" label="Contratante Id" />
+    <column name="Contratante" fieldName="Contratante" label="Contratante" />
+    <column name="Contratado_Id" fieldName="Contratado_Id" label="Contratado Id" />
+    <column name="Identificador_Unico" fieldName="Identificador_Unico" label="Identificador Unico" />
+    <column name="Persona_Id" fieldName="Persona_Id" label="Persona Id" />
+    <column name="Nombre" fieldName="Nombre" label="Nombre" />
+    <column name="Segundo_Nombre" fieldName="Segundo_Nombre" label="Segundo Nombre" />
+    <column name="Apellido_Paterno" fieldName="Apellido_Paterno" label="Apellido Paterno" />
+    <column name="Apellido_Materno" fieldName="Apellido_Materno" label="Apellido Materno" />
+    <column name="Nombre_Completo" fieldName="Nombre_Completo" label="Nombre Completo" />
+    <column name="Grid_Reporte_Informacion_Capturada_Contratado_Id" fieldName="GridReporteInformacionCapturadaContratadoId" label="Grid Reporte Informacion Capturada Contratado Id" />
+    <column name="Estatus_Persona_Id" fieldName="EstatusPersonaId" label="Estatus Persona Id" />
+    <column name="Estatus_Contratado_Id" fieldName="EstatusContratadoId" label="Estatus Contratado Id" />
+    <column name="Estatus_Persona" fieldName="EstatusPersona" label="Estatus Persona" />
+    <column name="Estatus_Contratado" fieldName="EstatusContratado" label="Estatus Contratado" />
+  </columns>
+</dataModel>

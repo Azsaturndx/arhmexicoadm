@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Vacante" alias="Vacante" created="2018-05-20T22:11:02" modified="2019-02-26T11:57:19" x="21" y="26" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Cliente_" parentTableSchema="APP" parentTableName="Cliente" x="542" y="20">
+      <foreignKeyColumn columnName="Cliente_Id" parentColumnName="Cliente_Id" />
+    </foreignKey>
+    <foreignKey id="Documento_Perfil_" parentTableSchema="APP" parentTableName="Documento" x="1179" y="141">
+      <foreignKeyColumn columnName="Documento_Perfil_Id" parentColumnName="Documento_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="862" y="214">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="cp" parentTableSchema="dbo" parentTableName="Usuario_V" x="20" y="744">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="ap" parentTableSchema="dbo" parentTableName="Usuario_V" x="23" y="845">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Contratante" parentTableSchema="APP" parentTableName="Contratante" x="1181" y="346">
+      <foreignKeyColumn columnName="Contratante_Id" parentColumnName="Contratante_Id" />
+    </foreignKey>
+    <foreignKey id="Puesto" parentTableSchema="APP" parentTableName="Puesto" x="865" y="413">
+      <foreignKeyColumn columnName="Contratante_Puesto_Id" parentColumnName="Puesto_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Vacante" parentTableSchema="APP" parentTableName="Estatus_Vacante" x="484" y="458">
+      <foreignKeyColumn columnName="Estatus_Vacante_Id" parentColumnName="Estatus_Vacante_Id" />
+    </foreignKey>
+    <foreignKey id="Grid_Domicilio_V" parentTableSchema="dbo" parentTableName="Grid_Domicilio_V" x="489" y="649">
+      <foreignKeyColumn columnName="Domicilio_Reclutamiento_Id" parentColumnName="Domicilio_Id" />
+    </foreignKey>
+    <foreignKey id="Grid_Contratado_V" parentTableSchema="dbo" parentTableName="Grid_Contratado_V" x="483" y="748">
+      <foreignKeyColumn columnName="Contratado_Encargado_Reclutamiento_Id" parentColumnName="Contratado_Id" />
+    </foreignKey>
+    <foreignKey id="Layout_HTML" parentTableSchema="dbo" parentTableName="Layout_HTML" x="473" y="854">
+      <foreignKeyColumn columnName="Layout_HTML_Publicacion_Vacante_Id" parentColumnName="Layout_HTML_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Vacante_Id" fieldName="Vacante_Id" label="Vacante Id" />
+    <column name="Cliente_Id" fieldName="Cliente_Id" label="Cliente Id" aliasColumnName="Cliente" aliasForeignKey="Cliente_" />
+    <column name="Cliente" fieldName="Cliente_Cliente" label="Cliente" foreignKey="Cliente_" />
+    <column name="Vacante" fieldName="Vacante" label="Vacante" />
+    <column name="Numero_Posiciones_A_Cubrir" fieldName="Numero_Posiciones_A_Cubrir" label="Número de Posiciones A Cubrir" />
+    <column name="Fecha_Limite_Cubrir_Vacante" fieldName="Fecha_Limite_Cubrir_Vacante" label="Fecha Límite para Cubrir Vacante" format="g" />
+    <column name="Notas" fieldName="Notas" label="Notas" />
+    <column name="Documento_Perfil_Id" fieldName="Documento_Perfil_Id" label="Documento Perfil Id" aliasColumnName="Documento" aliasForeignKey="Documento_Perfil_" />
+    <column name="Documento" fieldName="Documento_Perfil_Documento" label="Documento de Perfil" foreignKey="Documento_Perfil_" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cp" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="ap" />
+    <column name="Contratante" fieldName="Contratante" label="Contratante" foreignKey="Contratante" />
+    <column name="Contratante_Id" fieldName="Contratante_Id" label="Contratante Id" />
+    <column name="Contratante_Puesto_Id" fieldName="Contratante_Puesto_Id" label="Contratante Puesto Id" aliasColumnName="Puesto" aliasForeignKey="Puesto" />
+    <column name="Puesto" fieldName="Puesto" label="Puesto" foreignKey="Puesto" />
+    <column name="Fecha_Limite_Publicacion" fieldName="Fecha_Limite_Publicacion" label="Fecha Limite de Publicación" format="d" />
+    <column name="Telefono_RRHH" fieldName="Telefono_RRHH" label="Telefono RRHH" />
+    <column name="Correo_RRHH" fieldName="Correo_RRHH" label="Correo RRHH" />
+    <column name="Telefono_Encargado" fieldName="Telefono_Encargado" label="Teléfono de Encargado" />
+    <column name="Correo_Encargado" fieldName="Correo_Encargado" label="Correo de Encargado" />
+    <column name="Correo_Reclutamiento" fieldName="Correo_Reclutamiento" label="Correo de Reclutamiento" />
+    <column name="Telefono_Reclutamiento" fieldName="Telefono_Reclutamiento" label="Telefono de Reclutamiento" />
+    <column name="Publicar" fieldName="Publicar" label="Publicar" />
+    <column name="Estatus_Vacante_Id" fieldName="Estatus_Vacante_Id" label="Estatus Vacante Id" aliasColumnName="Estatus_Vacante" aliasForeignKey="Estatus_Vacante" />
+    <column name="Estatus_Vacante" fieldName="Estatus_Vacante" label="Estatus de Vacante" foreignKey="Estatus_Vacante" />
+    <column name="Domicilio_Reclutamiento_Id" fieldName="DomicilioReclutamientoId" label="Domicilio Reclutamiento Id" aliasColumnName="Domicilio_Etiqueta" aliasForeignKey="Grid_Domicilio_V" />
+    <column name="Domicilio_Etiqueta" fieldName="GridDomicilioVDomicilioEtiqueta" label="Domicilio Reclutamiento" foreignKey="Grid_Domicilio_V" />
+    <column name="Nombre_Completo" fieldName="GridContratadoVNombreCompleto" label="Encargado de Reclutamiento" foreignKey="Grid_Contratado_V" />
+    <column name="Contratado_Encargado_Reclutamiento_Id" fieldName="ContratadoEncargadoReclutamientoId" label="Encargado Reclutamiento Id" />
+    <column name="Encargado_Reclutamiento" fieldName="EncargadoReclutamiento" label="Encargado de Reclutamiento" />
+    <column name="Layout_HTML_Publicacion_Vacante_Id" fieldName="LayoutHtmlPublicacionVacanteId" label="Layout Html Id" aliasColumnName="Layout_HTML_Nombre" aliasForeignKey="Layout_HTML" />
+    <column name="Layout_HTML_Nombre" fieldName="LayoutHtmlLayoutHtmlNombre" label="Layout Html" foreignKey="Layout_HTML" />
+    <column name="Transaccion_Id" fieldName="TransaccionId" label="Transaccion Id" />
+  </columns>
+</dataModel>

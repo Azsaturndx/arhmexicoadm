@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Persona_Experiencia_Laboral" alias="Persona_Experiencia_Laboral" created="2018-07-31T17:44:20" modified="2018-07-31T17:45:34" x="20" y="36" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Persona_" parentTableSchema="APP" parentTableName="Persona" x="492" y="20">
+      <foreignKeyColumn columnName="Persona_Id" parentColumnName="Persona_Id" />
+    </foreignKey>
+    <foreignKey id="Organizacion_" parentTableSchema="APP" parentTableName="Organizacion" x="462" y="347">
+      <foreignKeyColumn columnName="Organizacion_Id" parentColumnName="Organizacion_Id" />
+    </foreignKey>
+    <foreignKey id="Area_Laboral_" parentTableSchema="APP" parentTableName="Area_Laboral" x="446" y="587">
+      <foreignKeyColumn columnName="Area_Laboral_Id" parentColumnName="Area_Laboral_Id" />
+    </foreignKey>
+    <foreignKey id="Nivel_Organizacional_" parentTableSchema="APP" parentTableName="Nivel_Organizacional" x="436" y="848">
+      <foreignKeyColumn columnName="Nivel_Organizacional_Id" parentColumnName="Nivel_Organizacional_Id" />
+    </foreignKey>
+    <foreignKey id="Puesto_" parentTableSchema="APP" parentTableName="Puesto" x="944" y="35">
+      <foreignKeyColumn columnName="Puesto_Id" parentColumnName="Puesto_Id" />
+    </foreignKey>
+    <foreignKey id="Persona_Ultimo_Jefe_Inmediato_" parentTableSchema="APP" parentTableName="Persona" x="997" y="241">
+      <foreignKeyColumn columnName="Persona_Ultimo_Jefe_Inmediato_Id" parentColumnName="Persona_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="1104" y="575">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Usuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="52" y="511">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="ApplicationId" />
+    </foreignKey>
+    <foreignKey id="Usuario_V1" parentTableSchema="dbo" parentTableName="Usuario_V" x="60" y="749">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Persona_Experiencia_Laboral_Id" fieldName="Persona_Experiencia_Laboral_Id" label="Persona Experiencia Laboral Id" />
+    <column name="Persona_Id" fieldName="Persona_Id" label="Persona Id" aliasColumnName="Nombre" aliasForeignKey="Persona_" />
+    <column name="Nombre" fieldName="Persona_Nombre" label="Persona Nombre" foreignKey="Persona_" />
+    <column name="Fecha_Inicio" fieldName="Fecha_Inicio" label="Fecha Inicio" format="g" />
+    <column name="Fecha_Fin" fieldName="Fecha_Fin" label="Fecha Fin" format="g" />
+    <column name="Organizacion_Id" fieldName="Organizacion_Id" label="Organizacion Id" aliasColumnName="Organizacion" aliasForeignKey="Organizacion_" />
+    <column name="Organizacion" fieldName="Organizacion_Organizacion" label="Organizacion" foreignKey="Organizacion_" />
+    <column name="Area_Laboral_Id" fieldName="Area_Laboral_Id" label="Area Laboral Id" aliasColumnName="Area_Laboral" aliasForeignKey="Area_Laboral_" />
+    <column name="Area_Laboral" fieldName="Area_Laboral_Area_Laboral" label="Area Laboral" foreignKey="Area_Laboral_" />
+    <column name="Nivel_Organizacional_Id" fieldName="Nivel_Organizacional_Id" label="Nivel Organizacional Id" aliasColumnName="Nivel_Organizacional" aliasForeignKey="Nivel_Organizacional_" />
+    <column name="Nivel_Organizacional" fieldName="Nivel_Organizacional_Nivel_Organizacional" label="Nivel Organizacional" foreignKey="Nivel_Organizacional_" />
+    <column name="Puesto_Id" fieldName="Puesto_Id" label="Puesto Id" aliasColumnName="Puesto" aliasForeignKey="Puesto_" />
+    <column name="Puesto" fieldName="Puesto_Puesto" label="Puesto" foreignKey="Puesto_" />
+    <column name="Persona_Ultimo_Jefe_Inmediato_Id" fieldName="Persona_Ultimo_Jefe_Inmediato_Id" label="Persona Ultimo Jefe Inmediato Id" aliasColumnName="Nombre" aliasForeignKey="Persona_Ultimo_Jefe_Inmediato_" />
+    <column name="Nombre" fieldName="Persona_Ultimo_Jefe_Inmediato_Nombre" label="Persona Ultimo Jefe Inmediato Nombre" foreignKey="Persona_Ultimo_Jefe_Inmediato_" />
+    <column name="Ultimo_Sueldo_Percibido" fieldName="Ultimo_Sueldo_Percibido" label="Ultimo Sueldo Percibido" />
+    <column name="Notas" fieldName="Notas" label="Notas" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V" />
+    <column name="UserName" fieldName="cpUserName" label="Usuario V Username" foreignKey="Usuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha Creacion" format="g" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V1" />
+    <column name="UserName" fieldName="apUserName" label="ap User Name" foreignKey="Usuario_V1" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha Ultima Actualizacion" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+  </columns>
+</dataModel>

@@ -1,0 +1,1282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Herramienta_Trabajo_Asignada" conflictDetection="overwriteChanges" label="Herramienta Trabajo Asignada" handler="arhmexico.Rules.Herramienta_Trabajo_AsignadaBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Herramienta_Trabajo_Asignada"."Herramienta_Trabajo_Asignada_Id" "Herramienta_Trabajo_Asignada_Id"
+	,"Herramienta_Trabajo_Asignada"."Tipo_Herramienta_Id" "Tipo_Herramienta_Id"
+	,"Tipo_Herramienta_"."Tipo_Herramienta" "Tipo_Herramienta_Tipo_Herramienta"
+	,"Herramienta_Trabajo_Asignada"."Contratado_Id" "Contratado_Id"
+	,"Herramienta_Trabajo_Asignada"."Marca_Id" "Marca_Id"
+	,"Marca_"."Marca" "Marca_Marca"
+	,"Herramienta_Trabajo_Asignada"."Modelo" "Modelo"
+	,"Herramienta_Trabajo_Asignada"."Numero_Serie" "Numero_Serie"
+	,"Herramienta_Trabajo_Asignada"."Color_Id" "Color_Id"
+	,"Color_"."Color" "Color_Color"
+	,"Herramienta_Trabajo_Asignada"."Fecha_Asignacion" "Fecha_Asignacion"
+	,"Herramienta_Trabajo_Asignada"."Cliente_Id" "Cliente_Id"
+	,"Cliente_"."Cliente" "Cliente_Cliente"
+	,"Herramienta_Trabajo_Asignada"."Anio_Id" "Anio_Id"
+	,"Anio_"."Anio" "Anio_Anio"
+	,"Herramienta_Trabajo_Asignada"."Transaccion_Id" "Transaccion_Id"
+	,"Herramienta_Trabajo_Asignada"."Creado_Por_Id" "Creado_Por_Id"
+	,"cpUsuario_V"."UserName" "cpUserName"
+	,"Herramienta_Trabajo_Asignada"."Fecha_Creacion" "Fecha_Creacion"
+	,"Herramienta_Trabajo_Asignada"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"apUsuario_V"."UserName" "apUserName"
+	,"Herramienta_Trabajo_Asignada"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Herramienta_Trabajo_Asignada"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Persona_V"."Persona_Nombre" "Contratado"
+	,"Herramienta_Trabajo_Asignada"."IMEI" "Imei"
+	,"Herramienta_Trabajo_Asignada"."Numero_Chip" "Numero_Chip"
+	,"Herramienta_Trabajo_Asignada"."Banco_Id" "Banco_Id"
+	,"Banco"."Nombre_Completo" "Banco"
+	,"Herramienta_Trabajo_Asignada"."Numero_Celular" "Numero_Celular"
+	,"Herramienta_Trabajo_Asignada"."Numero_Placas" "Numero_Placas"
+	,"Compania_Telefonica"."Compania_Telefonica" "Compania_Telefonica"
+	,"Herramienta_Trabajo_Asignada"."Compania_Telefonica_Id" "Compania_Telefonica_Id"
+	,"Herramienta_Trabajo_Asignada"."Numeracion_Tarjeta" "Numeracion_Tarjeta"
+	,"Herramienta_Trabajo_Asignada"."Numero_Contrato_Proveedor" "Numero_Contrato_Proveedor"
+	,"Herramienta_Trabajo_Asignada"."Notas" "Notas"
+	,"Herramienta_Trabajo_Asignada"."Identificador_Activo_Fijo" "Identificador_Activo_Fijo"
+from "APP"."Herramienta_Trabajo_Asignada" "Herramienta_Trabajo_Asignada"
+	left join "APP"."Tipo_Herramienta" "Tipo_Herramienta_" on "Herramienta_Trabajo_Asignada"."Tipo_Herramienta_Id" = "Tipo_Herramienta_"."Tipo_Herramienta_Id"
+	left join "APP"."Contratado" "Contratado_" on "Herramienta_Trabajo_Asignada"."Contratado_Id" = "Contratado_"."Contratado_Id"
+	left join "dbo"."Persona_V" "Persona_V" on "Contratado_"."Persona_Id" = "Persona_V"."Persona_Id"
+	left join "APP"."Marca" "Marca_" on "Herramienta_Trabajo_Asignada"."Marca_Id" = "Marca_"."Marca_Id"
+	left join "APP"."Color" "Color_" on "Herramienta_Trabajo_Asignada"."Color_Id" = "Color_"."Color_Id"
+	left join "APP"."Cliente" "Cliente_" on "Herramienta_Trabajo_Asignada"."Cliente_Id" = "Cliente_"."Cliente_Id"
+	left join "APP"."Anio" "Anio_" on "Herramienta_Trabajo_Asignada"."Anio_Id" = "Anio_"."Anio_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Herramienta_Trabajo_Asignada"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cpUsuario_V" on "Herramienta_Trabajo_Asignada"."Creado_Por_Id" = "cpUsuario_V"."UserId"
+	left join "dbo"."Usuario_V" "apUsuario_V" on "Herramienta_Trabajo_Asignada"."Actualizado_Por_Id" = "apUsuario_V"."UserId"
+	left join "APP"."Banco" "Banco" on "Herramienta_Trabajo_Asignada"."Banco_Id" = "Banco"."Banco_Id"
+	left join "APP"."Compania_Telefonica" "Compania_Telefonica" on "Herramienta_Trabajo_Asignada"."Compania_Telefonica_Id" = "Compania_Telefonica"."Compania_Telefonica_Id"
+]]></text>
+    </command>
+    <command id="Herramienta_Trabajo_Asignada_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Herramienta_Trabajo_Asignada_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Herramienta_Trabajo_Asignada_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Herramienta Trabajo Asignada Id" readOnly="true" />
+    <field name="Tipo_Herramienta_Id" type="Int32" allowNulls="false" label="Tipo Herramienta Id" showInSummary="true" contextFields="Mostrar_Tipo_Herramienta=Mostrar_Tipo_Herramienta">
+      <items style="Lookup" dataController="Tipo_Herramienta" newDataView="createForm1" dataValueField="Tipo_Herramienta_Id" dataTextField="Tipo_Herramienta" copy="Es_Vehiculo=Es_Vehiculo&#xD;&#xA;Aplica_Numero_Serie=Aplica_Numero_Serie&#xD;&#xA;Es_Celular=Es_Celular&#xD;&#xA;Es_Tarjeta_Bancaria=Es_Tarjeta_Bancaria&#xD;&#xA;Es_Computadora=Es_Computadora&#xD;&#xA;Es_Herramienta_Basica=Es_Herramienta_Basica" dataView="Tipo_Herramienta_LookUp_List" />
+    </field>
+    <field name="Tipo_Herramienta_Tipo_Herramienta" type="String" readOnly="true" label="Tipo de Herramienta" length="150" />
+    <field name="Contratado_Id" type="Int32" allowNulls="false" default="((0))" label="Contratado Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratado_Admin" newDataView="createForm1" dataValueField="Contratado_Id" dataTextField="Persona_Nombre" copy="Cliente_Id=Cliente_Id&#xD;&#xA;Cliente_Cliente=Cliente_Cliente" dataView="Contratado_Admin_LookUp_List" />
+    </field>
+    <field name="Marca_Id" type="Int32" allowNulls="false" default="((0))" label="Marca Id" showInSummary="true">
+      <items style="Lookup" dataController="Marca" newDataView="createForm1" dataValueField="Marca_Id" dataTextField="Marca" dataView="Marca_LookUp_List" />
+    </field>
+    <field name="Marca_Marca" type="String" readOnly="true" label="Marca" length="150" />
+    <field name="Modelo" type="String" allowNulls="false" default="('')" label="Modelo" length="20" showInSummary="true" />
+    <field name="Numero_Serie" type="String" allowNulls="false" default="('')" label="Número de Serie/Motor/Tarjeta" length="20" showInSummary="true" />
+    <field name="Color_Id" type="Int32" allowNulls="false" default="((0))" label="Color Id">
+      <items style="Lookup" dataController="Color" newDataView="createForm1" dataValueField="Color_Id" dataTextField="Color" dataView="Color_LookUp_List" />
+    </field>
+    <field name="Color_Color" type="String" readOnly="true" label="Color" length="150" />
+    <field name="Fecha_Asignacion" type="DateTime" allowNulls="false" dataFormatString="d" default="('1900-01-01')" label="Fecha de Asignación" />
+    <field name="Cliente_Id" type="Int32" allowNulls="false" default="((0))" label="Cliente Id">
+      <items style="Lookup" dataController="Cliente" newDataView="createForm1" dataValueField="Cliente_Id" dataTextField="Cliente" dataView="Cliente_Admin_LookUp_List" />
+    </field>
+    <field name="Cliente_Cliente" type="String" readOnly="true" label="Cliente" length="150" />
+    <field name="Anio_Id" type="Int32" allowNulls="false" default="((0))" label="Anio Id">
+      <items style="Lookup" dataController="Anio" newDataView="createForm1" dataValueField="Anio_Id" dataTextField="Anio" dataView="Anio_LookUp_List" />
+    </field>
+    <field name="Anio_Anio" type="String" readOnly="true" label="Año" length="150" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transacción Id" length="50" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="Contratado" type="String" readOnly="true" label="Contratado" length="603" />
+    <field name="Imei" type="String" allowNulls="false" default="('')" label="Imei" length="50" />
+    <field name="Numero_Chip" type="String" allowNulls="false" default="('')" label="Número de Chip" length="20" />
+    <field name="Banco_Id" type="Int32" allowNulls="false" default="((0))" label="Banco Id">
+      <items style="Lookup" dataController="Banco" newDataView="createForm1" dataValueField="Banco_Id" dataTextField="Nombre_Completo" dataView="Banco_LookUp_List" />
+    </field>
+    <field name="Banco" type="String" readOnly="true" label="Banco" length="150" />
+    <field name="Numero_Celular" type="String" allowNulls="false" default="('')" label="Número de Celular" length="10" />
+    <field name="Numero_Placas" type="String" allowNulls="false" default="('')" label="Número de Placas" length="10" />
+    <field name="Compania_Telefonica" type="String" readOnly="true" label="Compañia Telefónica" length="50" />
+    <field name="Compania_Telefonica_Id" type="Int32" allowNulls="false" default="((0))" label="Compania Telefonica Id">
+      <items style="Lookup" dataController="Compania_Telefonica" newDataView="createForm1" dataValueField="Compania_Telefonica_Id" dataTextField="Compania_Telefonica" dataView="Compania_Telefonica_LookUp_List" />
+    </field>
+    <field name="Numeracion_Tarjeta" type="String" allowNulls="false" default="('')" label="Numeración de Tarjeta" length="20" />
+    <field name="Numero_Contrato_Proveedor" type="String" default="('')" label="Número de Contrato de Proveedor" length="50" />
+    <field name="Notas" type="String" allowQBE="false" allowSorting="false" label="Notas" />
+    <field name="Identificador_Activo_Fijo" type="String" default="('')" label="Identificador de Activo Fijo" length="50" />
+    <field name="Es_Vehiculo" type="Boolean" label="¿Es Vehiculo?" default="((0))" readOnly="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Numero_Serie" type="Boolean" label="¿Aplica Número de Serie?" default="((0))" readOnly="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Celular" type="Boolean" readOnly="true" label="¿Es Celular o dispositivo de comunicación?" default="((0))">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Computadora" type="Boolean" default="((0))" label="¿Es Equipo de Computo?" readOnly="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Tarjeta_Bancaria" type="Boolean" label="¿Es Tarjeta Bancaria?" readOnly="true" default="((0))">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Herramienta_Basica" type="Boolean" default="((0))" label="¿Es Herramienta Básica?" readOnly="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Mostrar_Tipo_Herramienta" type="Boolean" label="¿Mostrar Tipo Herramienta?" allowNulls="false" readOnly="true">
+      <items style="CheckBox" />
+    </field>
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Herramientas de Trabajo Asignada" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Tipo_Herramienta_Tipo_Herramienta" filter="Estatus_Registro_Id &lt;&gt; 0">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Herramienta_Trabajo_Asignada_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Herramienta_Id" aliasFieldName="Tipo_Herramienta_Tipo_Herramienta" />
+        <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Contratado" />
+        <dataField fieldName="Marca_Id" aliasFieldName="Marca_Marca" />
+        <dataField fieldName="Modelo" columns="20" />
+        <dataField fieldName="Numero_Serie" columns="20" />
+        <dataField fieldName="Imei" columns="50" />
+        <dataField fieldName="Numero_Chip" columns="20" />
+        <dataField fieldName="Compania_Telefonica_Id" columns="15" aliasFieldName="Compania_Telefonica" />
+        <dataField fieldName="Banco_Id" aliasFieldName="Banco" />
+        <dataField fieldName="Numero_Celular" columns="10" />
+        <dataField fieldName="Numero_Contrato_Proveedor" columns="50" />
+        <dataField fieldName="Numero_Placas" columns="10" />
+        <dataField fieldName="Identificador_Activo_Fijo" columns="50" />
+        <dataField fieldName="Color_Id" aliasFieldName="Color_Color" />
+        <dataField fieldName="Anio_Id" aliasFieldName="Anio_Anio" />
+        <dataField fieldName="Fecha_Asignacion" columns="10" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="10" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="10" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Es_Vehiculo" hidden="true" />
+        <dataField fieldName="Aplica_Numero_Serie" hidden="true" />
+        <dataField fieldName="Es_Celular" hidden="true" />
+        <dataField fieldName="Es_Computadora" hidden="true" />
+        <dataField fieldName="Es_Tarjeta_Bancaria" hidden="true" />
+        <dataField fieldName="Es_Herramienta_Basica" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="CelularGrid" type="Grid" commandId="command1" label="Celulares o Dispositivos de Comunicación" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Tipo_Herramienta_Tipo_Herramienta" filter="Estatus_Registro_Id &lt;&gt; 0 AND Es_Celular = 1" reportLabel="Celulares o Dispositivos de Comunicación">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Herramienta_Trabajo_Asignada_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Herramienta_Id" aliasFieldName="Tipo_Herramienta_Tipo_Herramienta" hidden="true" />
+        <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Contratado" />
+        <dataField fieldName="Marca_Id" aliasFieldName="Marca_Marca" />
+        <dataField fieldName="Modelo" columns="20" />
+        <dataField fieldName="Numero_Serie" columns="20" />
+        <dataField fieldName="Identificador_Activo_Fijo" columns="50" />
+        <dataField fieldName="Imei" columns="50" />
+        <dataField fieldName="Numero_Chip" columns="20" />
+        <dataField fieldName="Compania_Telefonica_Id" columns="15" aliasFieldName="Compania_Telefonica" />
+        <dataField fieldName="Numero_Celular" columns="10" />
+        <dataField fieldName="Numero_Contrato_Proveedor" columns="50" />
+        <dataField fieldName="Color_Id" aliasFieldName="Color_Color" />
+        <dataField fieldName="Fecha_Asignacion" columns="10" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="10" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="10" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Aplica_Numero_Serie" hidden="true" />
+        <dataField fieldName="Es_Celular" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="VehiculoGrid" type="Grid" commandId="command1" label="Vehículos" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Tipo_Herramienta_Tipo_Herramienta" filter="Estatus_Registro_Id &lt;&gt; 0 AND Es_Vehiculo = 1">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Herramienta_Trabajo_Asignada_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Herramienta_Id" aliasFieldName="Tipo_Herramienta_Tipo_Herramienta" hidden="true" />
+        <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Contratado" />
+        <dataField fieldName="Marca_Id" aliasFieldName="Marca_Marca" />
+        <dataField fieldName="Modelo" columns="20" />
+        <dataField fieldName="Numero_Serie" columns="20" />
+        <dataField fieldName="Numero_Placas" columns="10" />
+        <dataField fieldName="Identificador_Activo_Fijo" columns="50" />
+        <dataField fieldName="Color_Id" aliasFieldName="Color_Color" />
+        <dataField fieldName="Anio_Id" aliasFieldName="Anio_Anio" />
+        <dataField fieldName="Fecha_Asignacion" columns="10" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="10" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="10" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Es_Vehiculo" hidden="true" />
+        <dataField fieldName="Aplica_Numero_Serie" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="ComputadoraGrid" type="Grid" commandId="command1" label="Equipos de Computo" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Tipo_Herramienta_Tipo_Herramienta" filter="Estatus_Registro_Id &lt;&gt; 0 AND Es_Computadora = 1">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Herramienta_Trabajo_Asignada_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Herramienta_Id" aliasFieldName="Tipo_Herramienta_Tipo_Herramienta" hidden="true" />
+        <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Contratado" />
+        <dataField fieldName="Marca_Id" aliasFieldName="Marca_Marca" />
+        <dataField fieldName="Modelo" columns="20" />
+        <dataField fieldName="Numero_Serie" columns="20" />
+        <dataField fieldName="Identificador_Activo_Fijo" columns="50" />
+        <dataField fieldName="Color_Id" aliasFieldName="Color_Color" />
+        <dataField fieldName="Fecha_Asignacion" columns="10" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="10" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="10" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Aplica_Numero_Serie" hidden="true" />
+        <dataField fieldName="Es_Computadora" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="TarjetaBancariaGrid" type="Grid" commandId="command1" label="Tarjetas Bancarias" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Tipo_Herramienta_Tipo_Herramienta" filter="Estatus_Registro_Id &lt;&gt; 0 AND Es_Tarjeta_Bancaria = 1">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Herramienta_Trabajo_Asignada_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Herramienta_Id" aliasFieldName="Tipo_Herramienta_Tipo_Herramienta" hidden="true" />
+        <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Contratado" />
+        <dataField fieldName="Numero_Serie" columns="20" />
+        <dataField fieldName="Banco_Id" aliasFieldName="Banco" />
+        <dataField fieldName="Fecha_Asignacion" columns="10" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="10" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="10" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Aplica_Numero_Serie" hidden="true" />
+        <dataField fieldName="Es_Tarjeta_Bancaria" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="HerramientaBasicaGrid" type="Grid" commandId="command1" label="Herramientas Básicas" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Tipo_Herramienta_Tipo_Herramienta" filter="Estatus_Registro_Id &lt;&gt; 0 AND Es_Herramienta_Basica=1">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Herramienta_Trabajo_Asignada_Id" columns="15" hidden="true" />
+        <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Contratado" />
+        <dataField fieldName="Tipo_Herramienta_Id" aliasFieldName="Tipo_Herramienta_Tipo_Herramienta" />
+        <dataField fieldName="Marca_Id" aliasFieldName="Marca_Marca" />
+        <dataField fieldName="Identificador_Activo_Fijo" columns="50" />
+        <dataField fieldName="Fecha_Asignacion" columns="10" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="10" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="10" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Aplica_Numero_Serie" hidden="true" />
+        <dataField fieldName="Es_Herramienta_Basica" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Herramienta de Trabajo Asignada" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" sortExpression="Tipo_Herramienta_Tipo_Herramienta">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Datos Generales" tab="Datos Generales" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Herramienta_Trabajo_Asignada_Id" columns="15" hidden="true" />
+            <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Contratado" hidden="true" />
+            <dataField fieldName="Tipo_Herramienta_Id" aliasFieldName="Tipo_Herramienta_Tipo_Herramienta" />
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Fecha_Asignacion" columns="10" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="Aplica_Numero_Serie" hidden="true" />
+            <dataField fieldName="Es_Vehiculo" hidden="true" />
+            <dataField fieldName="Es_Tarjeta_Bancaria" hidden="true" />
+            <dataField fieldName="Es_Computadora" hidden="true" />
+            <dataField fieldName="Es_Celular" hidden="true" />
+            <dataField fieldName="Es_Herramienta_Basica" hidden="true" />
+          </dataFields>
+        </category>
+        <category headerText="Identificación" tab="Identificación" id="c3">
+          <dataFields>
+            <dataField fieldName="Numero_Serie" columns="20">
+              <visibility>
+                <expression test="[Aplica_Numero_Serie]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Identificador_Activo_Fijo" columns="50" />
+            <dataField fieldName="Numero_Celular" columns="10">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Imei" columns="50">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Chip" columns="20">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Contrato_Proveedor" columns="50">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Placas" columns="10">
+              <visibility>
+                <expression test="[Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+          </dataFields>
+        </category>
+        <category headerText="Características" tab="Características" id="c2">
+          <dataFields>
+            <dataField fieldName="Marca_Id" aliasFieldName="Marca_Marca">
+              <visibility>
+                <expression test="[Es_Vehiculo]==true || [Es_Computadora]==true || [Es_Celular]==true || [Es_Herramienta_Basica]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Modelo" columns="20">
+              <visibility>
+                <expression test="[Es_Celular]==true || [Es_Computadora]==true || [Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Anio_Id" aliasFieldName="Anio_Anio" tag="[Es_Vehiculo]==true">
+              <visibility>
+                <expression test="[Es_Vehiculo]==1" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Compania_Telefonica_Id" columns="15" aliasFieldName="Compania_Telefonica">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Color_Id" aliasFieldName="Color_Color">
+              <visibility>
+                <expression test="[Es_Computadora]==true || [Es_Celular]==true || [Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Banco_Id" aliasFieldName="Banco">
+              <visibility>
+                <expression test="[Es_Tarjeta_Bancaria]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numeracion_Tarjeta" columns="20">
+              <visibility>
+                <expression test="[Es_Tarjeta_Bancaria]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nueva Herramienta de Trabajo Asignada" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Tipo_Herramienta_Id" aliasFieldName="Tipo_Herramienta_Tipo_Herramienta" />
+            <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Contratado" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" hidden="true" />
+            <dataField fieldName="Marca_Id" aliasFieldName="Marca_Marca">
+              <visibility>
+                <expression test="[Es_Vehiculo]==true || [Es_Computadora]==true || [Es_Celular]==true || [Es_Herramienta_Basica]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Anio_Id" aliasFieldName="Anio_Anio">
+              <visibility>
+                <expression test="[Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Modelo" columns="20">
+              <visibility>
+                <expression test="[Es_Celular]==true || [Es_Computadora]==true || [Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Serie" columns="20">
+              <visibility>
+                <expression test="[Aplica_Numero_Serie]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Color_Id" aliasFieldName="Color_Color">
+              <visibility>
+                <expression test="[Es_Computadora]==true || [Es_Celular]==true || [Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Compania_Telefonica_Id" columns="15" aliasFieldName="Compania_Telefonica">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Banco_Id" aliasFieldName="Banco">
+              <visibility>
+                <expression test="[Es_Tarjeta_Bancaria]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Celular" columns="10">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Imei" columns="50">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Chip" columns="20">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Placas" columns="10">
+              <visibility>
+                <expression test="[Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numeracion_Tarjeta" columns="20">
+              <visibility>
+                <expression test="[Es_Tarjeta_Bancaria]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Contrato_Proveedor" columns="50" />
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Identificador_Activo_Fijo" columns="50" />
+            <dataField fieldName="Fecha_Asignacion" columns="10" />
+            <dataField fieldName="Aplica_Numero_Serie" hidden="true" />
+            <dataField fieldName="Es_Vehiculo" hidden="true" />
+            <dataField fieldName="Es_Celular" hidden="true" />
+            <dataField fieldName="Es_Computadora" hidden="true" />
+            <dataField fieldName="Es_Tarjeta_Bancaria" hidden="true" />
+            <dataField fieldName="Es_Herramienta_Basica" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="CelularCreateForm" type="Form" commandId="command1" label="Nuevo Celular" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Datos Generales" tab="Datos Generales" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Tipo_Herramienta_Id" aliasFieldName="Tipo_Herramienta_Tipo_Herramienta" hidden="true" />
+            <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Contratado" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" hidden="true" />
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Fecha_Asignacion" columns="10" />
+            <dataField fieldName="Aplica_Numero_Serie" hidden="true" />
+            <dataField fieldName="Es_Vehiculo" hidden="true" />
+            <dataField fieldName="Es_Celular" hidden="true" />
+            <dataField fieldName="Es_Computadora" hidden="true" />
+            <dataField fieldName="Es_Tarjeta_Bancaria" hidden="true" />
+            <dataField fieldName="Es_Herramienta_Basica" hidden="true" />
+            <dataField fieldName="Mostrar_Tipo_Herramienta" hidden="true" />
+          </dataFields>
+        </category>
+        <category headerText="Características" tab="Características" id="c2">
+          <dataFields>
+            <dataField fieldName="Marca_Id" aliasFieldName="Marca_Marca">
+              <visibility>
+                <expression test="[Es_Vehiculo]==true || [Es_Computadora]==true || [Es_Celular]==true || [Es_Herramienta_Basica]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Modelo" columns="20">
+              <visibility>
+                <expression test="[Es_Celular]==true || [Es_Computadora]==true || [Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Anio_Id" aliasFieldName="Anio_Anio">
+              <visibility>
+                <expression test="[Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Compania_Telefonica_Id" columns="15" aliasFieldName="Compania_Telefonica">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Color_Id" aliasFieldName="Color_Color">
+              <visibility>
+                <expression test="[Es_Computadora]==true || [Es_Celular]==true || [Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Banco_Id" aliasFieldName="Banco">
+              <visibility>
+                <expression test="[Es_Tarjeta_Bancaria]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+          </dataFields>
+        </category>
+        <category headerText="Identificación" tab="Identificación" id="c3">
+          <dataFields>
+            <dataField fieldName="Numero_Serie" columns="20">
+              <visibility>
+                <expression test="[Aplica_Numero_Serie]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Identificador_Activo_Fijo" columns="50" />
+            <dataField fieldName="Numero_Celular" columns="10">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Chip" columns="20">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Contrato_Proveedor" columns="50">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Imei" columns="50">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Placas" columns="10">
+              <visibility>
+                <expression test="[Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numeracion_Tarjeta" columns="20">
+              <visibility>
+                <expression test="[Es_Tarjeta_Bancaria]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="VehiculoCreateForm" type="Form" commandId="command1" label="Nueva Vehículo" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Datos Generales" tab="Datos Generales" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Tipo_Herramienta_Id" aliasFieldName="Tipo_Herramienta_Tipo_Herramienta" hidden="true" />
+            <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Contratado" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" hidden="true" />
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Fecha_Asignacion" columns="10" />
+            <dataField fieldName="Aplica_Numero_Serie" hidden="true" />
+            <dataField fieldName="Es_Vehiculo" hidden="true" />
+            <dataField fieldName="Es_Celular" hidden="true" />
+            <dataField fieldName="Es_Computadora" hidden="true" />
+            <dataField fieldName="Es_Tarjeta_Bancaria" hidden="true" />
+            <dataField fieldName="Es_Herramienta_Basica" hidden="true" />
+            <dataField fieldName="Mostrar_Tipo_Herramienta" hidden="true" />
+          </dataFields>
+        </category>
+        <category headerText="Características" tab="Características" id="c2">
+          <dataFields>
+            <dataField fieldName="Marca_Id" aliasFieldName="Marca_Marca">
+              <visibility>
+                <expression test="[Es_Vehiculo]==true || [Es_Computadora]==true || [Es_Celular]==true || [Es_Herramienta_Basica]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Modelo" columns="20">
+              <visibility>
+                <expression test="[Es_Celular]==true || [Es_Computadora]==true || [Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Anio_Id" aliasFieldName="Anio_Anio">
+              <visibility>
+                <expression test="[Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Compania_Telefonica_Id" columns="15" aliasFieldName="Compania_Telefonica">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Color_Id" aliasFieldName="Color_Color">
+              <visibility>
+                <expression test="[Es_Computadora]==true || [Es_Celular]==true || [Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Banco_Id" aliasFieldName="Banco">
+              <visibility>
+                <expression test="[Es_Tarjeta_Bancaria]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+          </dataFields>
+        </category>
+        <category headerText="Identificación" tab="Identificación" id="c3">
+          <dataFields>
+            <dataField fieldName="Numero_Serie" columns="20">
+              <visibility>
+                <expression test="[Aplica_Numero_Serie]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Identificador_Activo_Fijo" columns="50" />
+            <dataField fieldName="Numero_Celular" columns="10">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Chip" columns="20">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Contrato_Proveedor" columns="50">
+              <readOnly>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Imei" columns="50">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Placas" columns="10">
+              <visibility>
+                <expression test="[Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numeracion_Tarjeta" columns="20">
+              <visibility>
+                <expression test="[Es_Tarjeta_Bancaria]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="ComputadoraCreateForm" type="Form" commandId="command1" label="Nuevo Equipo de Cómputo" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Datos Generales" tab="Datos Generales" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Tipo_Herramienta_Id" aliasFieldName="Tipo_Herramienta_Tipo_Herramienta" hidden="true" />
+            <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Contratado" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" hidden="true" />
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Fecha_Asignacion" columns="10" />
+            <dataField fieldName="Aplica_Numero_Serie" hidden="true" />
+            <dataField fieldName="Es_Vehiculo" hidden="true" />
+            <dataField fieldName="Es_Celular" hidden="true" />
+            <dataField fieldName="Es_Computadora" hidden="true" />
+            <dataField fieldName="Es_Tarjeta_Bancaria" hidden="true" />
+            <dataField fieldName="Es_Herramienta_Basica" hidden="true" />
+            <dataField fieldName="Mostrar_Tipo_Herramienta" hidden="true" />
+          </dataFields>
+        </category>
+        <category headerText="Características" tab="Características" id="c2">
+          <dataFields>
+            <dataField fieldName="Marca_Id" aliasFieldName="Marca_Marca">
+              <visibility>
+                <expression test="[Es_Vehiculo]==true || [Es_Computadora]==true || [Es_Celular]==true || [Es_Herramienta_Basica]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Modelo" columns="20">
+              <visibility>
+                <expression test="[Es_Celular]==true || [Es_Computadora]==true || [Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Anio_Id" aliasFieldName="Anio_Anio">
+              <visibility>
+                <expression test="[Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Compania_Telefonica_Id" columns="15" aliasFieldName="Compania_Telefonica">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Color_Id" aliasFieldName="Color_Color">
+              <visibility>
+                <expression test="[Es_Computadora]==true || [Es_Celular]==true || [Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Banco_Id" aliasFieldName="Banco">
+              <visibility>
+                <expression test="[Es_Tarjeta_Bancaria]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+          </dataFields>
+        </category>
+        <category headerText="Identificación" tab="Identificación" id="c3">
+          <dataFields>
+            <dataField fieldName="Numero_Serie" columns="20">
+              <visibility>
+                <expression test="[Aplica_Numero_Serie]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Identificador_Activo_Fijo" columns="50" />
+            <dataField fieldName="Numero_Celular" columns="10">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Chip" columns="20">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Contrato_Proveedor" columns="50">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Imei" columns="50">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Placas" columns="10">
+              <visibility>
+                <expression test="[Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numeracion_Tarjeta" columns="20">
+              <visibility>
+                <expression test="[Es_Tarjeta_Bancaria]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="TarjetaBancariaCreateForm" type="Form" commandId="command1" label="Nueva Tarjeta Bancaria" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Datos Generales" tab="Datos Generales" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Tipo_Herramienta_Id" aliasFieldName="Tipo_Herramienta_Tipo_Herramienta" hidden="true" />
+            <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Contratado" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" hidden="true" />
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Fecha_Asignacion" columns="10" />
+            <dataField fieldName="Aplica_Numero_Serie" hidden="true" />
+            <dataField fieldName="Es_Vehiculo" hidden="true" />
+            <dataField fieldName="Es_Celular" hidden="true" />
+            <dataField fieldName="Es_Computadora" hidden="true" />
+            <dataField fieldName="Es_Tarjeta_Bancaria" hidden="true" />
+            <dataField fieldName="Es_Herramienta_Basica" hidden="true" />
+            <dataField fieldName="Mostrar_Tipo_Herramienta" hidden="true" />
+          </dataFields>
+        </category>
+        <category headerText="Características" tab="Características" id="c2">
+          <dataFields>
+            <dataField fieldName="Marca_Id" aliasFieldName="Marca_Marca">
+              <visibility>
+                <expression test="[Es_Vehiculo]==true || [Es_Computadora]==true || [Es_Celular]==true || [Es_Herramienta_Basica]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Modelo" columns="20">
+              <visibility>
+                <expression test="[Es_Celular]==true || [Es_Computadora]==true || [Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Anio_Id" aliasFieldName="Anio_Anio">
+              <visibility>
+                <expression test="[Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Color_Id" aliasFieldName="Color_Color">
+              <visibility>
+                <expression test="[Es_Computadora]==true || [Es_Celular]==true || [Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Banco_Id" aliasFieldName="Banco">
+              <visibility>
+                <expression test="[Es_Tarjeta_Bancaria]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Compania_Telefonica_Id" columns="15" aliasFieldName="Compania_Telefonica">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+          </dataFields>
+        </category>
+        <category headerText="Identificación" tab="Identificación" id="c3">
+          <dataFields>
+            <dataField fieldName="Numero_Serie" columns="20">
+              <visibility>
+                <expression test="[Aplica_Numero_Serie]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Identificador_Activo_Fijo" columns="50" />
+            <dataField fieldName="Numero_Celular" columns="10">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Chip" columns="20">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Contrato_Proveedor" columns="50">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Imei" columns="50">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Placas" columns="10">
+              <visibility>
+                <expression test="[Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numeracion_Tarjeta" columns="20">
+              <visibility>
+                <expression test="[Es_Tarjeta_Bancaria]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="HerramientaBasicaCreateForm" type="Form" commandId="command1" label="Nueva Herramienta Básica" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Datos Generales" tab="Datos Generales" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Mostrar_Tipo_Herramienta" hidden="true" />
+            <dataField fieldName="Tipo_Herramienta_Id" aliasFieldName="Tipo_Herramienta_Tipo_Herramienta">
+              <visibility>
+                <expression test="[Mostrar_Tipo_Herramienta]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Contratado" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" hidden="true" />
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Fecha_Asignacion" columns="10" />
+            <dataField fieldName="Aplica_Numero_Serie" hidden="true" />
+            <dataField fieldName="Es_Vehiculo" hidden="true" />
+            <dataField fieldName="Es_Celular" hidden="true" />
+            <dataField fieldName="Es_Computadora" hidden="true" />
+            <dataField fieldName="Es_Tarjeta_Bancaria" hidden="true" />
+            <dataField fieldName="Es_Herramienta_Basica" hidden="true" />
+          </dataFields>
+        </category>
+        <category headerText="Características" tab="Características" id="c2">
+          <dataFields>
+            <dataField fieldName="Marca_Id" aliasFieldName="Marca_Marca">
+              <visibility>
+                <expression test="[Es_Vehiculo]==true || [Es_Computadora]==true || [Es_Celular]==true || [Es_Herramienta_Basica]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Anio_Id" aliasFieldName="Anio_Anio">
+              <visibility>
+                <expression test="[Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Modelo" columns="20">
+              <visibility>
+                <expression test="[Es_Celular]==true || [Es_Computadora]==true || [Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Color_Id" aliasFieldName="Color_Color">
+              <visibility>
+                <expression test="[Es_Computadora]==true || [Es_Celular]==true || [Es_Vehiculo]==true || [Es_Herramienta_Basica]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Compania_Telefonica_Id" columns="15" aliasFieldName="Compania_Telefonica">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Banco_Id" aliasFieldName="Banco">
+              <visibility>
+                <expression test="[Es_Tarjeta_Bancaria]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+          </dataFields>
+        </category>
+        <category headerText="Identificación" tab="Identificación" id="c3">
+          <dataFields>
+            <dataField fieldName="Numero_Serie" columns="20">
+              <visibility>
+                <expression test="[Aplica_Numero_Serie]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Identificador_Activo_Fijo" columns="50" />
+            <dataField fieldName="Numero_Celular" columns="10">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Chip" columns="20">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Contrato_Proveedor" columns="50" />
+            <dataField fieldName="Imei" columns="50">
+              <visibility>
+                <expression test="[Es_Celular]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Placas" columns="10">
+              <visibility>
+                <expression test="[Es_Vehiculo]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numeracion_Tarjeta" columns="20">
+              <visibility>
+                <expression test="[Es_Tarjeta_Bancaria]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Herramienta_Trabajo_Asignada_LookUp_List" commandId="command1" type="Grid" label="Herramienta de Trabajo Asignada" showInSelector="false" sortExpression="Tipo_Herramienta_Tipo_Herramienta" filter="Estatus_Registro_Id IN (0,1)">
+      <dataFields>
+        <dataField fieldName="Herramienta_Trabajo_Asignada_Id" columns="15" hidden="true" />
+        <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Contratado" />
+        <dataField fieldName="Tipo_Herramienta_Id" columns="15" aliasFieldName="Tipo_Herramienta_Tipo_Herramienta" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" hidden="true" />
+        <dataField fieldName="Tipo_Herramienta_Tipo_Herramienta" rows="5" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Herramienta_Trabajo_Asignada
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Herramienta_Trabajo_Asignada_Id = @Herramienta_Trabajo_Asignada_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a100" commandName="New" commandArgument="CelularGrid" headerText="Nuevo Celular" whenView="CelularGrid" roles="Administrators,ArhAdmin" />
+      <action id="a101" commandName="New" commandArgument="VehiculoGrid" headerText="Nuevo Vehiculo" whenView="VehiculoGrid" roles="Administrators,ArhAdmin" />
+      <action id="a102" commandName="New" commandArgument="ComputadoraGrid" headerText="Nuevo Equipo de Cómputo" whenView="ComputadoraGrid" roles="Administrators,ArhAdmin" />
+      <action id="a103" commandName="New" commandArgument="TarjetaBancariaGrid" headerText="Nueva Tarjeta Bancaria" whenView="TarjetaBancariaGrid" roles="Administrators,ArhAdmin" />
+      <action id="a104" commandName="New" commandArgument="HerramientaBasicaGrid" headerText="Nueva Herramienta Básica" whenView="HerramientaBasicaGrid" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Herramienta_Trabajo_Asignada
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Herramienta_Trabajo_Asignada_Id = @Herramienta_Trabajo_Asignada_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a100" commandName="New" commandArgument="CelularCreateForm" cssClass="NewIcon" whenView="CelularGrid" headerText="Nuevo Celular" roles="Administrators,ArhAdmin" />
+      <action id="a101" commandName="New" commandArgument="VehiculoCreateForm" cssClass="NewIcon" whenView="VehiculoGrid" headerText="Nuevo Vehiculo" roles="Administrators,ArhAdmin" />
+      <action id="a102" commandName="New" commandArgument="ComputadoraCreateForm" cssClass="NewIcon" whenView="ComputadoraGrid" headerText="Nuevo Equipo de Cómputo" roles="Administrators,ArhAdmin" />
+      <action id="a103" commandName="New" commandArgument="TarjetaBancariaCreateForm" cssClass="NewIcon" whenView="TarjetaBancariaGrid" headerText="Nueva Tarjeta Bancaria" roles="Administrators,ArhAdmin" />
+      <action id="a104" commandName="New" commandArgument="HerramientaBasicaCreateForm" cssClass="NewIcon" whenView="HerramientaBasicaGrid" headerText="Nueva Herramienta Básica" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Herramienta_Trabajo_Asignada
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Herramienta_Trabajo_Asignada_Id = @Herramienta_Trabajo_Asignada_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Herramienta_Trabajo_Asignada
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Herramienta_Trabajo_Asignada_Id = @Herramienta_Trabajo_Asignada_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r110" commandName="Select" type="Sql" phase="Execute"><![CDATA[SELECT 
+	--@Tipo_Herramienta_Id=Tipo_Herramienta_Id
+	@Tipo_Herramienta_Tipo_Herramienta=Tipo_Herramienta
+	,@Aplica_Numero_Serie=Aplica_Numero_Serie
+	,@Es_Vehiculo=Es_Vehiculo
+	,@Es_Celular=Es_Celular
+	,@Es_Computadora=Es_Computadora
+	,@Es_Tarjeta_Bancaria=Es_Tarjeta_Bancaria
+	,@Es_Herramienta_Basica=Es_Herramienta_Basica
+FROM 
+	APP.Tipo_Herramienta
+WHERE
+	Tipo_Herramienta_Id = @Tipo_Herramienta_Id]]></rule>
+    <rule id="r104" commandName="New" type="Sql" phase="Execute"><![CDATA[---- CONSULTA PARA DEFAULT TIPO HERRAMIENTA
+--SELECT
+	--@Tipo_Herramienta_Id = IsNULL((Tipo_Herramienta_Id),0)
+	--,@Tipo_Herramienta_Tipo_Herramienta = IsNULL((Tipo_Herramienta),'')
+--FROM
+	--APP.Tipo_Herramienta
+--WHERE
+	--Tipo_Herramienta_Id = 0
+	
+---- CONSULTA PARA DEFAULT CONTRATADO
+SELECT 
+	@Contratado_Id=IsNULL((c.Contratado_Id),0)
+	,@Contratado=IsNULL((pv.Persona_Nombre),'Sin Contratado')
+FROM
+	APP.Contratado c
+	,dbo.Persona_V pv
+WHERE
+	c.Contratado_Id = 0
+	AND pv.Contratado_Id = c.Contratado_Id
+	
+---- CONSULTA PARA DEFAULT MARCA
+SELECT
+	@Marca_Id = IsNULL((Marca_Id),0)
+	,@Marca_Marca = IsNULL((Marca),'Sin Marca')
+FROM
+	APP.Marca
+WHERE
+	Marca_Id = 0
+	
+---- CONSULTA PARA DEFAULT COLOR
+SELECT 
+	@Color_Id=IsNULL((Color_Id),0)
+	,@Color_Color=IsNULL((Color),'Sin Color')
+FROM
+	APP.Color
+WHERE
+	Color_Id = 0
+	
+---- CONSULTA PARA DEFAULT AÑO
+SELECT
+	@Anio_Id=IsNULL((Anio_Id),0)
+	,@Anio_Anio=IsNULL((Anio),'1900')
+FROM
+	APP.Anio
+WHERE
+	Anio_Id = 0
+	
+---- CONSULTA PARA DEFAULT CLIENTE
+SELECT 
+	@Cliente_Id=IsNULL((Cliente_Id),0)
+	,@Cliente_Cliente=IsNULL((Cliente),'Sin Cliente')
+FROM
+	APP.Cliente
+WHERE
+	Cliente_Id = 0
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	]]></rule>
+    <rule id="r105" commandName="New" type="Sql" phase="Execute" view="CelularCreateForm"><![CDATA[SET @Mostrar_Tipo_Herramienta = 0
+SELECT 
+	@Tipo_Herramienta_Id=Tipo_Herramienta_Id
+	,@Tipo_Herramienta_Tipo_Herramienta=Tipo_Herramienta
+	,@Es_Celular=Es_Celular
+	,@Aplica_Numero_Serie=Aplica_Numero_Serie
+FROM 
+	APP.Tipo_Herramienta
+WHERE
+	Es_Celular = 1
+	AND Estatus_Registro_Id = 1]]></rule>
+    <rule id="r106" commandName="New" type="Sql" phase="Execute" view="VehiculoCreateForm"><![CDATA[SET @Mostrar_Tipo_Herramienta = 0
+SELECT 
+	@Tipo_Herramienta_Id=Tipo_Herramienta_Id
+	,@Tipo_Herramienta_Tipo_Herramienta=Tipo_Herramienta
+	,@Es_Vehiculo=Es_Vehiculo
+	,@Aplica_Numero_Serie=Aplica_Numero_Serie
+FROM 
+	APP.Tipo_Herramienta
+WHERE
+	Es_Vehiculo = 1
+	AND Estatus_Registro_Id = 1]]></rule>
+    <rule id="r107" commandName="New" type="Sql" phase="Execute" view="ComputadoraCreateForm"><![CDATA[SET @Mostrar_Tipo_Herramienta = 0
+SELECT 
+	@Tipo_Herramienta_Id=Tipo_Herramienta_Id
+	,@Tipo_Herramienta_Tipo_Herramienta=Tipo_Herramienta
+	,@Es_Computadora=Es_Computadora
+	,@Aplica_Numero_Serie=Aplica_Numero_Serie
+FROM 
+	APP.Tipo_Herramienta
+WHERE
+	Es_Computadora = 1
+	AND Estatus_Registro_Id = 1]]></rule>
+    <rule id="r108" commandName="New" type="Sql" phase="Execute" view="TarjetaBancariaCreateForm"><![CDATA[SET @Mostrar_Tipo_Herramienta = 0
+SELECT 
+	@Tipo_Herramienta_Id=Tipo_Herramienta_Id
+	,@Tipo_Herramienta_Tipo_Herramienta=Tipo_Herramienta
+	,@Es_Tarjeta_Bancaria=Es_Tarjeta_Bancaria
+	,@Aplica_Numero_Serie=Aplica_Numero_Serie
+FROM 
+	APP.Tipo_Herramienta
+WHERE
+	Es_Tarjeta_Bancaria = 1
+	AND Estatus_Registro_Id = 1
+	
+SET @Numeracion_Tarjeta=0]]></rule>
+    <rule id="r109" commandName="New" type="Sql" phase="Execute" view="HerramientaBasicaCreateForm"><![CDATA[SET @Mostrar_Tipo_Herramienta = 1
+SELECT 
+	@Tipo_Herramienta_Id=Tipo_Herramienta_Id
+	,@Tipo_Herramienta_Tipo_Herramienta=Tipo_Herramienta
+	,@Es_Herramienta_Basica=Es_Herramienta_Basica
+	,@Aplica_Numero_Serie=Aplica_Numero_Serie
+FROM 
+	APP.Tipo_Herramienta
+WHERE
+	Es_Herramienta_Basica = 1
+	AND Estatus_Registro_Id = 1]]></rule>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Herramienta_Trabajo_Asignada
+	WHERE
+		Tipo_Herramienta_Id = @Tipo_Herramienta_Id
+  		AND Contratado_Id = @Contratado_Id
+  		AND Marca_Id = @Marca_Id
+  		AND REPLACE(UPPER(Modelo),' ','') = REPLACE(UPPER(@Modelo),' ','')
+  		AND REPLACE(UPPER(Numero_Serie),' ','') = REPLACE(UPPER(@Numero_Serie),' ','')
+  
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un registro con los mismos datos en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya existe un registro con los mismos datos en la base de datos, favor de corregir.'
+   RETURN
+END
+
+
+
+
+]]></rule>
+    <rule id="r101" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Herramienta_Trabajo_Asignada
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Actualizado_Por_Id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Fecha_Creacion = GetDate()
+WHERE
+	Herramienta_Trabajo_Asignada_Id= @Herramienta_Trabajo_Asignada_Id]]></rule>
+    <rule id="r102" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Herramienta_Trabajo_Asignada
+	WHERE
+		Tipo_Herramienta_Id = @Tipo_Herramienta_Id
+  		AND Contratado_Id = @Contratado_Id
+  		AND Marca_Id = @Marca_Id
+  		AND REPLACE(UPPER(Modelo),' ','') = REPLACE(UPPER(@Modelo),' ','')
+  		AND REPLACE(UPPER(Numero_Serie),' ','') = REPLACE(UPPER(@Numero_Serie),' ','')  
+  		AND Herramienta_Trabajo_Asignada_Id <> @Herramienta_Trabajo_Asignada_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un registro con los mismos datos en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya existe un registro con los mismos datos en la base de datos, favor de corregir.'
+   RETURN
+END
+
+SELECT
+	@Aplica_Numero_Serie=Aplica_Numero_Serie
+	,@Es_Vehiculo=Es_Vehiculo
+FROM
+	APP.Tipo_Herramienta
+WHERE
+	Tipo_Herramienta_Id = @Tipo_Herramienta_Id]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Herramienta_Trabajo_Asignada
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Herramienta_Trabajo_Asignada_Id = @Herramienta_Trabajo_Asignada_Id]]></rule>
+  </businessRules>
+</dataController>

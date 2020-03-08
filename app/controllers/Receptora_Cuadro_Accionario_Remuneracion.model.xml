@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Receptora_Cuadro_Accionario_Remuneracion" alias="Receptora_Cuadro_Accionario_Remuneracion" created="2018-11-13T17:50:57" modified="2018-11-14T20:32:40" x="21" y="27" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Receptora_Cuadro_Accionario_" parentTableSchema="APP" parentTableName="Receptora_Cuadro_Accionario" x="975" y="20">
+      <foreignKeyColumn columnName="Receptora_Cuadro_Accionario_Id" parentColumnName="Receptora_Cuadro_Accionario_Id" />
+    </foreignKey>
+    <foreignKey id="Tipo_Remuneracion_" parentTableSchema="APP" parentTableName="Tipo_Remuneracion" x="1372" y="286">
+      <foreignKeyColumn columnName="Tipo_Remuneracion_Id" parentColumnName="Tipo_Remuneracion_Id" />
+    </foreignKey>
+    <foreignKey id="Anio_" parentTableSchema="APP" parentTableName="Anio" x="1074" y="345">
+      <foreignKeyColumn columnName="Anio_Id" parentColumnName="Anio_Id" />
+    </foreignKey>
+    <foreignKey id="Mes_" parentTableSchema="APP" parentTableName="Mes" x="1205" y="542">
+      <foreignKeyColumn columnName="Mes_Id" parentColumnName="Mes_Id" />
+    </foreignKey>
+    <foreignKey id="Receptora" parentTableSchema="APP" parentTableName="Receptora" x="1389" y="28" baseForeignKey="Receptora_Cuadro_Accionario_">
+      <foreignKeyColumn columnName="Receptora_Id" parentColumnName="Receptora_Id" />
+    </foreignKey>
+    <foreignKey id="cpUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="20" y="438">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="apUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="22" y="546">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="532" y="426">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Receptora_Cuadro_Accionario_Remuneracion_Id" fieldName="Receptora_Cuadro_Accionario_Remuneracion_Id" label="Receptora Cuadro Accionario Remuneracion Id" />
+    <column name="Receptora_Cuadro_Accionario_Id" fieldName="Receptora_Cuadro_Accionario_Id" label="Receptora Cuadro Accionario Id" />
+    <column name="Tipo_Remuneracion_Id" fieldName="Tipo_Remuneracion_Id" label="Tipo Remuneracion Id" aliasColumnName="Tipo_Remuneracion" aliasForeignKey="Tipo_Remuneracion_" />
+    <column name="Tipo_Remuneracion" fieldName="Tipo_Remuneracion_Tipo_Remuneracion" label="Tipo Remuneracion" foreignKey="Tipo_Remuneracion_" />
+    <column name="Anio_Id" fieldName="Anio_Id" label="Anio Id" aliasColumnName="Anio" aliasForeignKey="Anio_" />
+    <column name="Anio" fieldName="Anio_Anio" label="Anio" foreignKey="Anio_" />
+    <column name="Mes_Id" fieldName="Mes_Id" label="Mes Id" aliasColumnName="Mes" aliasForeignKey="Mes_" />
+    <column name="Mes" fieldName="Mes_Mes" label="Mes" foreignKey="Mes_" />
+    <column name="Fecha_Remuneracion" fieldName="Fecha_Remuneracion" label="Fecha Remuneracion" format="g" />
+    <column name="Remuneracion" fieldName="Remuneracion" label="Remuneracion" />
+    <column name="Notas" fieldName="Notas" label="Notas" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="cpUsuario_V" />
+    <column name="UserName" fieldName="CpusuarioVUsername" label="Cpusuario V Username" foreignKey="cpUsuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha Creacion" format="g" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="apUsuario_V" />
+    <column name="UserName" fieldName="ApusuarioVUsername" label="Apusuario V Username" foreignKey="apUsuario_V" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha Ultima Actualizacion" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro" />
+    <column name="Estatus_Registro" fieldName="EstatusRegistroestatusRegistro" label="Estatus Registroestatus Registro" foreignKey="Estatus_Registro" />
+    <column name="Receptora" fieldName="Receptora" label="Receptora Cuadro Accionario" foreignKey="Receptora" />
+  </columns>
+</dataModel>

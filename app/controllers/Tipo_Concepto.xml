@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Tipo_Concepto" conflictDetection="overwriteChanges" label="Tipo Concepto" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Tipo_Concepto"."Tipo_Concepto_Id" "Tipo_Concepto_Id"
+	,"Tipo_Concepto"."Tipo_Concepto" "Tipo_Concepto"
+	,"Tipo_Concepto"."Aplica_Entidad_Pagadora" "Aplica_Entidad_Pagadora"
+	,"Tipo_Concepto"."Aplica_Esquema_Pago" "Aplica_Esquema_Pago"
+	,"Tipo_Concepto"."Aplica_Monto" "Aplica_Monto"
+	,"Tipo_Concepto"."Aplica_Porcentaje" "Aplica_Porcentaje"
+	,"Tipo_Concepto"."Aplica_Unidad" "Aplica_Unidad"
+	,"Tipo_Concepto"."Aplica_Periodicidad" "Aplica_Periodicidad"
+	,"Tipo_Concepto"."Transaccion_Id" "Transaccion_Id"
+	,"Creado_Por"."UserName" "CreadoPorusername"
+	,"Tipo_Concepto"."Fecha_Creacion" "Fecha_Creacion"
+	,"Actualizado_Por"."UserName" "ActualizadoPorusername"
+	,"Tipo_Concepto"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Tipo_Concepto"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+from "APP"."Tipo_Concepto" "Tipo_Concepto"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Tipo_Concepto"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Creado_Por" on "Tipo_Concepto"."Creado_Por_Id" = "Creado_Por"."UserId"
+ and "Tipo_Concepto"."Actualizado_Por_Id" = "Creado_Por"."ApplicationId"
+	left join "dbo"."Usuario_V" "Actualizado_Por" on "Tipo_Concepto"."Actualizado_Por_Id" = "Actualizado_Por"."UserId"
+]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Tipo_Concepto_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Tipo Concepto Id" />
+    <field name="Tipo_Concepto" type="String" allowNulls="false" allowQBE="false" allowSorting="false" label="Tipo de Concepto" length="5000" showInSummary="true" />
+    <field name="Aplica_Entidad_Pagadora" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Entidad Pagadora?" showInSummary="true" />
+    <field name="Aplica_Esquema_Pago" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Esquema de Pago?" showInSummary="true" />
+    <field name="Aplica_Monto" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Monto?" showInSummary="true" />
+    <field name="Aplica_Porcentaje" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Porcentaje?" showInSummary="true" />
+    <field name="Aplica_Unidad" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Unidad?" />
+    <field name="Aplica_Periodicidad" type="Boolean" allowNulls="false" default="((0))" label="¿Aplica Periodicidad?" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transaccion Id" length="50" />
+    <field name="CreadoPorusername" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Creación" />
+    <field name="ActualizadoPorusername" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Última Actualización" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus Registro" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Tipo Concepto" showInSelector="false">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Tipo_Concepto_Id" columns="15" />
+        <dataField fieldName="Tipo_Concepto" rows="5" />
+        <dataField fieldName="Aplica_Entidad_Pagadora" />
+        <dataField fieldName="Aplica_Esquema_Pago" />
+        <dataField fieldName="Aplica_Monto" />
+        <dataField fieldName="Aplica_Porcentaje" />
+        <dataField fieldName="Aplica_Unidad" />
+        <dataField fieldName="Aplica_Periodicidad" />
+        <dataField fieldName="Transaccion_Id" columns="50" hidden="true" />
+        <dataField fieldName="CreadoPorusername" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="ActualizadoPorusername" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Revisar Tipo de Concepto" showInSelector="false">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Tipo_Concepto_Id" columns="15" />
+            <dataField fieldName="Tipo_Concepto" rows="5" />
+            <dataField fieldName="Aplica_Entidad_Pagadora" />
+            <dataField fieldName="Aplica_Esquema_Pago" />
+            <dataField fieldName="Aplica_Monto" />
+            <dataField fieldName="Aplica_Porcentaje" />
+            <dataField fieldName="Aplica_Unidad" />
+            <dataField fieldName="Aplica_Periodicidad" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nuevo Tipo de Concepto" showInSelector="false">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Tipo_Concepto_Id" columns="15" />
+            <dataField fieldName="Tipo_Concepto" rows="5" />
+            <dataField fieldName="Aplica_Entidad_Pagadora" />
+            <dataField fieldName="Aplica_Esquema_Pago" />
+            <dataField fieldName="Aplica_Monto" />
+            <dataField fieldName="Aplica_Porcentaje" />
+            <dataField fieldName="Aplica_Unidad" />
+            <dataField fieldName="Aplica_Periodicidad" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Tipo_Concepto_LookUp_List" type="Grid" commandId="command1" label="Tipo de Concepto" filter="Estatus_Registro_Id=1" showInSelector="false" sortExpression="Tipo_Concepto" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Tipo_Concepto_Id" columns="15" hidden="true" />
+        <dataField fieldName="Tipo_Concepto" rows="5" />
+        <dataField fieldName="Aplica_Entidad_Pagadora" />
+        <dataField fieldName="Aplica_Esquema_Pago" />
+        <dataField fieldName="Aplica_Monto" />
+        <dataField fieldName="Aplica_Porcentaje" />
+        <dataField fieldName="Aplica_Unidad" />
+        <dataField fieldName="Aplica_Periodicidad" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Hidden" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Hidden" />
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Hidden" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Hidden" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Hidden" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Hidden" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Hidden" />
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" roles="Hidden" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" roles="Hidden" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" roles="Hidden" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" roles="Hidden" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" roles="Hidden" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" roles="Hidden" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" roles="Hidden" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" roles="Hidden" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Hidden" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Hidden" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Hidden" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" roles="Hidden" headerText="&quot;Borrar&quot;" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" roles="Hidden" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" roles="Hidden" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" roles="Hidden" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" roles="Hidden" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" roles="Hidden" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" roles="Hidden" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Hidden" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Hidden" />
+    </actionGroup>
+  </actions>
+</dataController>

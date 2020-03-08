@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Grid_Solicitud_Gasto_V" alias="Grid_Solicitud_Gasto_V" created="2019-04-02T11:32:08" modified="2019-04-02T11:32:13" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="Administracion_Gasto_Id" fieldName="Administracion_Gasto_Id" label="Administracion Gasto Id" />
+    <column name="Estatus_Solicitud_Id" fieldName="Estatus_Solicitud_Id" label="Estatus Solicitud Id" />
+    <column name="Estatus_Solicitud" fieldName="Estatus_Solicitud" label="Estatus Solicitud" />
+    <column name="Monto_Gasto" fieldName="Monto_Gasto" label="Monto Gasto" />
+    <column name="Monto_Gasto_Autorizado" fieldName="Monto_Gasto_Autorizado" label="Monto Gasto Autorizado" />
+    <column name="Solicitud_Gasto_Key" fieldName="Solicitud_Gasto_Key" label="Solicitud Gasto Key" />
+    <column name="Autorizado_Rechazado_Por_Id" fieldName="Autorizado_Rechazado_Por_Id" label="Autorizado Rechazado Por Id" />
+    <column name="Comentarios_Autorizacion_Rechazo" fieldName="Comentarios_Autorizacion_Rechazo" label="Comentarios Autorizacion Rechazo" />
+    <column name="Fecha_Solicitud" fieldName="Fecha_Solicitud" label="Fecha Solicitud" format="g" />
+  </columns>
+</dataModel>

@@ -1,0 +1,707 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Administracion_Gasto_Recibo" label="Administracion_Gasto_Recibo" conflictDetection="overwriteChanges" handler="arhmexico.Rules.Administracion_Gasto_ReciboBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text" custom="false">
+      <text><![CDATA[select
+	"Administracion_Gasto"."Administracion_Gasto_Id" "Administracion_Gasto_Id"
+	,"Administracion_Gasto"."Contratado_Id" "Contratado_Id"
+	,"Administracion_Gasto"."Tipo_Gasto_Id" "Tipo_Gasto_Id"
+	,"Tipo_Gasto_"."Tipo_Gasto" "Tipo_Gasto_Tipo_Gasto"
+	,"Administracion_Gasto"."Monto_Gasto" "Monto_Gasto"
+	,"Administracion_Gasto"."Fecha_Gasto" "Fecha_Gasto"
+	,"Administracion_Gasto"."Direccion_Origen" "Direccion_Origen"
+	,"Administracion_Gasto"."Direccion_Destino" "Direccion_Destino"
+	,"Administracion_Gasto"."Ciudad_Origen_Id" "Ciudad_Origen_Id"
+	,"Ciudad_Origen"."Ciudad" "Ciudad_Origen"
+	,"Administracion_Gasto"."Ciudad_Destino_Id" "Ciudad_Destino_Id"
+	,"Ciudad_Destino"."Ciudad" "Ciudad_Destino"
+	,"Administracion_Gasto"."Kilometraje" "Kilometraje"
+	,"Administracion_Gasto"."Viaje_Redondo" "Viaje_Redondo"
+	,"Administracion_Gasto"."Estatus_Gasto_Id" "Estatus_Gasto_Id"
+	,"Estatus_Gasto_"."Estatus_Gasto" "Estatus_Gasto_Estatus_Gasto"
+	,"Administracion_Gasto"."Autorizado_Rechazado_Por_Id" "Autorizado_Rechazado_Por_Id"
+	,"Administracion_Gasto"."Fecha_Autorizacion_Rechazo" "Fecha_Autorizacion_Rechazo"
+	,"Administracion_Gasto"."Comentarios_Autorizacion_Rechazo" "Comentarios_Autorizacion_Rechazo"
+	,"Administracion_Gasto"."Transaccion_Id" "Transaccion_Id"
+	,"Administracion_Gasto"."Creado_Por_Id" "Creado_Por_Id"
+	,"cpUsuario_V"."UserName" "cpUserName"
+	,"Administracion_Gasto"."Fecha_Creacion" "Fecha_Creacion"
+	,"Administracion_Gasto"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"apUsuario_V"."UserName" "apUserName"
+	,"Administracion_Gasto"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Administracion_Gasto"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Persona_V"."Persona_Nombre" "Persona_Nombre"
+	,"Administracion_Gasto"."Servicio_Id" "Servicio_Id"
+	,"Servicio"."Servicio" "Servicio"
+	,"Administracion_Gasto"."NOTAS" "Notas"
+from "APP"."Administracion_Gasto" "Administracion_Gasto"
+	left join "APP"."Tipo_Gasto" "Tipo_Gasto_" on "Administracion_Gasto"."Tipo_Gasto_Id" = "Tipo_Gasto_"."Tipo_Gasto_Id"
+	left join "APP"."Estatus_Gasto" "Estatus_Gasto_" on "Administracion_Gasto"."Estatus_Gasto_Id" = "Estatus_Gasto_"."Estatus_Gasto_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Administracion_Gasto"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cpUsuario_V" on "Administracion_Gasto"."Creado_Por_Id" = "cpUsuario_V"."UserId"
+	left join "dbo"."Usuario_V" "apUsuario_V" on "Administracion_Gasto"."Actualizado_Por_Id" = "apUsuario_V"."UserId"
+	left join "APP"."Contratado" "Contratado" on "Administracion_Gasto"."Contratado_Id" = "Contratado"."Contratado_Id"
+	left join "dbo"."Persona_V" "Persona_V" on "Contratado"."Persona_Id" = "Persona_V"."Persona_Id"
+	left join "APP"."Ciudad" "Ciudad_Origen" on "Administracion_Gasto"."Ciudad_Origen_Id" = "Ciudad_Origen"."Ciudad_Id"
+	left join "APP"."Ciudad" "Ciudad_Destino" on "Administracion_Gasto"."Ciudad_Destino_Id" = "Ciudad_Destino"."Ciudad_Id"
+	left join "APP"."Servicio" "Servicio" on "Administracion_Gasto"."Servicio_Id" = "Servicio"."Servicio_Id"
+]]></text>
+    </command>
+    <command id="Administracion_Gasto_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Administracion_Gasto_Id" />
+      </output>
+    </command>
+    <command type="Text" id="Administracion_Gasto_Sociedad" custom="false">
+      <text><![CDATA[SELECT [Administracion_Gasto_Id]
+      ,[Sociedad_Id]
+      ,[Sociedad_Sociedad]
+      ,[Sociedad_Cuadro_Accionario_Id]
+      ,[Proveedor_Id]
+      ,[Proveedor_Proveedor]
+      ,[Proveedor_Arrendamiento_Id]
+      ,[Contratado_Id]
+      ,[Tipo_Gasto_Id]
+      ,[Tipo_Gasto_Tipo_Gasto]
+      ,[Monto_Gasto]
+      ,[Fecha_Gasto]
+      ,[Direccion_Origen]
+      ,[Direccion_Destino]
+      ,[Ciudad_Origen_Id]
+      ,[Ciudad_Origen]
+      ,[Ciudad_Destino_Id]
+      ,[Ciudad_Destino]
+      ,[Kilometraje]
+      ,[Viaje_Redondo]
+      ,[Estatus_Gasto_Id]
+      ,[Estatus_Gasto_Estatus_Gasto]
+      ,[Autorizado_Rechazado_Por_Id]
+      ,[Autorizado_Rechazado_Por]
+      ,[Fecha_Autorizacion_Rechazo]
+      ,[Comentarios_Autorizacion_Rechazo]
+      ,[Transaccion_Id]
+      ,[Creado_Por_Id]
+      ,[cpUserName]
+      ,[Fecha_Creacion]
+      ,[Actualizado_Por_Id]
+      ,[apUserName]
+      ,[Fecha_Ultima_Actualizacion]
+      ,[Estatus_Registro_Id]
+      ,[Estatus_Registro_Estatus_Registro]
+      ,[Persona_Nombre]
+      ,[Servicio_Id]
+      ,[Servicio]
+      ,[Notas]
+      ,[Picture]
+      ,[PictureFileName]
+      ,[PictureContentType]
+      ,[PictureLength]
+      ,[Es_Aerolinea]
+      ,[Es_De_Alimentos]
+      ,[Es_De_Hospedaje]
+      ,[Es_Gasolina]
+      ,[Es_Otro]
+      ,[Es_Transporte_Terrestre]
+      ,[Aplica_Para_Sociedad]
+      ,[Es_Fiscal]
+      ,[Significa_Autorizado]
+      ,[Significa_Rechazado]
+      ,[Significa_Pendiente]
+      ,[Pagado]
+      ,[Fecha_Pago]
+      ,[Notas_Pago]
+      ,[Fecha_Confirmacion_Pago]
+      ,[Pago_Confirmado_Por_Id]
+      ,[Pago_Confirmado_Por]
+      ,[Mes_Gasto_Id]
+      ,[Mes_Mes]
+      ,[Fecha_Solicitud]
+      ,[Solicitado_Por_Id]
+      ,[Notas_Solicitud]
+      ,[Solicitado_Por]
+      ,[Tipo_Gasto_Mantenimiento_Id]
+      ,[Tipo_Gasto_Mantenimiento]
+      ,[Aplica_Para_Sociedad_Mantenimiento]
+      ,[Es_De_Mantenimiento]
+      ,[Tipo_Gasto_Servicio_Basico_Id]
+      ,[Tipo_Gasto_Servicio_Basico]
+      ,[Aplica_Para_Sociedad_Servicio_Basico]
+      ,[Es_Servicio_Basico]
+	  ,[Fecha_Vencimiento]
+  FROM [dbo].[Grid_Administracion_Gasto_Sociedad_V]]]></text>
+    </command>
+    <command type="Text" id="ObtenerRecibo" custom="false">
+      <text><![CDATA[SELECT [Picture2]
+      ,[Picture2ContentType]
+      ,[Picture2FileName]
+      ,[Picture2Length]
+	   ,[Administracion_Gasto_Id]
+      ,[Solicitud_Gasto_Key]
+  FROM [dbo].[Obtener_Factura_Mediante_Solicitud_Gasto_Key]]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Administracion_Gasto_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Administracion Gasto Id" readOnly="true" />
+    <field name="Contratado_Id" type="Int32" allowNulls="false" label="Contratado Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratado_Admin" dataValueField="Contratado_Id" copy="" dataView="Contratado_Admin_LookUp_List" dataTextField="Persona_Nombre" />
+    </field>
+    <field name="Tipo_Gasto_Id" type="Int32" allowNulls="false" label="Tipo Gasto Id">
+      <items style="Lookup" dataController="Tipo_Gasto" dataValueField="Tipo_Gasto_Id" dataTextField="Tipo_Gasto" dataView="Tipo_Gasto_Sociedad_LookUp_List" copy="Es_Periodico=Es_Periodico&#xD;&#xA;Aplica_Solicitud=Aplica_Solicitud" />
+    </field>
+    <field name="Tipo_Gasto_Tipo_Gasto" type="String" readOnly="true" label="Tipo de Gasto" length="150" />
+    <field name="Es_Otro" type="Boolean" readOnly="true" label="Es Otro" allowNulls="false">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Gasolina" type="Boolean" readOnly="true" label="Es Gasolina" allowNulls="false">
+      <items style="CheckBox" />
+    </field>
+    <field name="Monto_Gasto" type="Decimal" allowNulls="false" label="Monto de Gasto" showInSummary="true" dataFormatString="c" writeRoles="Administrators,ArhAdmin" roles="Administrators,ArhAdmin,ARHLaboral" />
+    <field name="Fecha_Gasto" type="DateTime" allowNulls="false" dataFormatString="d" label="Fecha de Gasto" showInSummary="true" />
+    <field name="Direccion_Origen" type="String" default="('')" label="Dirección Origen" length="500" showInSummary="true" allowNulls="false" />
+    <field name="Direccion_Destino" type="String" default="('')" label="Dirección Destino" length="500" allowNulls="false" />
+    <field name="Ciudad_Origen_Id" type="Int32" allowNulls="false" default="((0))" label="Ciudad Origen Id">
+      <items style="Lookup" dataController="Ciudad" newDataView="createForm1" dataValueField="Ciudad_Id" dataTextField="Ciudad" dataView="Ciudad_LookUp_List" />
+    </field>
+    <field name="Ciudad_Origen" type="String" readOnly="true" label="Ciudad de Origen" length="150" />
+    <field name="Ciudad_Destino_Id" type="Int32" allowNulls="false" default="((0))" label="Ciudad Destino Id">
+      <items style="Lookup" dataController="Ciudad" newDataView="createForm1" dataValueField="Ciudad_Id" dataTextField="Ciudad" dataView="Ciudad_LookUp_List" />
+    </field>
+    <field name="Ciudad_Destino" type="String" readOnly="true" label="Ciudad de Destino" length="150" />
+    <field name="Kilometraje" type="Decimal" allowNulls="false" label="Kilometraje" />
+    <field name="Viaje_Redondo" type="Boolean" allowNulls="false" default="((0))" label="Viaje Redondo">
+      <items style="CheckBox" />
+    </field>
+    <field name="Estatus_Gasto_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Gasto Id" writeRoles="Administrators,ArhAdmin" roles="Administrators,ArhAdmin">
+      <items style="Lookup" dataController="Estatus_Gasto" dataValueField="Estatus_Gasto_Id" dataTextField="Estatus_Gasto" dataView="Estatus_Gasto_LookUp_List" newDataView="createForm1" copy="Significa_Pendiente=Significa_Pendiente&#xD;&#xA;Significa_Autorizado=Significa_Autorizado&#xD;&#xA;Significa_Rechazado=Significa_Rechazado" />
+    </field>
+    <field name="Estatus_Gasto_Estatus_Gasto" type="String" readOnly="true" label="Estatus de Gasto" length="150" />
+    <field name="Autorizado_Rechazado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Autorizado Rechazado Por Id">
+      <items dataController="Usuario_V" dataView="Usuario_LookUp_List" dataTextField="UserName" dataValueField="UserId" />
+    </field>
+    <field name="Fecha_Autorizacion_Rechazo" type="DateTime" allowNulls="false" dataFormatString="g" default="('01/01/1900')" label="Fecha de Autorizacion ó Rechazo" writeRoles="Administrators,ArhAdmin" roles="Administrators,ArhAdmin" />
+    <field name="Comentarios_Autorizacion_Rechazo" type="String" allowNulls="false" default="('')" label="Comentarios de Autorización o Rechazo" length="800" writeRoles="Administrators,ArhAdmin" roles="Administrators,ArhAdmin" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transacción Id" length="50" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id" />
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="Persona_Nombre" type="String" readOnly="true" label="Solicitado Por" length="603" />
+    <field name="Servicio_Id" type="Int32" allowNulls="false" default="((0))" label="Servicio Id">
+      <items style="Lookup" dataController="Servicio1" dataValueField="Servicio_Id" dataTextField="Servicio" dataView="grid1" newDataView="createForm1" />
+    </field>
+    <field name="Servicio" type="String" readOnly="true" label="Servicio" length="150" />
+    <field name="Gastos_Frecuentes_Id" type="Int32" allowNulls="false" default="((0))" label="Gastos Frecuentes Id" contextFields="Contratado_Id=Contratado_Id">
+      <items style="Lookup" dataController="Gastos_Frecuentes" dataView="Gastos_Frecuentes_LookUp_List" dataTextField="Gastos_Frecuentes" dataValueField="Gastos_Frecuentes_Id" newDataView="createForm1" />
+    </field>
+    <field name="Notas" type="String" allowNulls="false" default="('')" allowQBE="false" allowSorting="false" label="Notas" />
+    <field name="Latitud" type="Decimal" allowNulls="false" default="0" label="Latitud" />
+    <field name="Longitud" type="Decimal" allowNulls="false" default="0" label="Longitud" />
+    <field name="Picture" type="Byte[]" onDemand="true" sourceFields="Administracion_Gasto_Id" onDemandHandler="Administracion_GastoPicture" onDemandStyle="Thumbnail" allowQBE="false" allowSorting="false" label="Archivo de Gasto" />
+    <field name="PictureFileName" type="String" label="Nombre de Archivo" length="250" />
+    <field name="PictureContentType" type="String" label="Tipo de Archivo" length="250" />
+    <field name="PictureLength" type="Int32" label="Tamaño de Archivo" />
+    <field name="Pagado" type="Boolean" allowNulls="false" default="((0))" label="¿Pagado?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Fecha_Pago" type="DateTime" dataFormatString="d" default="(NULL)" label="Fecha Pago" />
+    <field name="Notas_Pago" type="String" allowQBE="false" allowSorting="false" label="Notas Pago" />
+    <field name="Fecha_Confirmacion_Pago" type="DateTime" dataFormatString="g" label="Fecha de Confirmación de Pago" />
+    <field name="Pago_Confirmado_Por_Id" type="Guid" label="Pago Confirmado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="PcpUserName" type="String" readOnly="true" label="Pago Confirmado Por" length="256" />
+    <field name="Sociedad_Id" type="Int32" default="((0))" label="Sociedad Id">
+      <items style="Lookup" dataController="Sociedad" dataView="Sociedad_LookUp_List" dataTextField="Sociedad" dataValueField="Sociedad_Id" />
+    </field>
+    <field name="Sociedad_Cuadro_Accionario_Id" type="Int32" allowNulls="false" default="((0))" label="Sociedad Cuadro Accionario Id" />
+    <field name="Proveedor_Id" type="Int32" allowNulls="false" default="((0))" label="Proveedor Id" />
+    <field name="Proveedor_Arrendamiento_Id" type="Int32" allowNulls="false" default="((0))" label="Proveedor Arrendamiento Id" />
+    <field name="Mes_Gasto_Id" type="Int32" default="((0))" label="Mes de Gasto">
+      <items style="Lookup" dataController="Mes" dataView="Mes_LookUp_List" dataTextField="Mes" dataValueField="Mes_Id" />
+    </field>
+    <field name="Solicitado_Por_Id" type="Guid" allowNulls="false" default="('5C7568FD-6412-474E-A099-006FAD27CD02')" label="Solicitado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataView="Usuario_LookUp_List" dataTextField="UserName" dataValueField="UserId" />
+    </field>
+    <field name="Fecha_Solicitud" type="DateTime" dataFormatString="d" label="Fecha de Solicitud" />
+    <field name="Notas_Solicitud" type="String" label="Notas de Solicitud" length="1500" />
+    <field name="Fecha_Vencimiento" type="DateTime" dataFormatString="d" label="Fecha de Vencimiento" />
+    <field name="MontoGastoAutorizado" type="Decimal" allowNulls="false" default="((0))" label="Monto Autorizado" dataFormatString="c" />
+    <field name="Mostrar_Lista_Gastos_Frecuentes" type="Boolean" label="¿Mostrar Catálogo de Gastos Frecuentes?" allowNulls="false" default="((0))">
+      <items style="CheckBox" />
+    </field>
+    <field name="Gastos_Frecuentes" type="String" label="Gastos Frecuentes" />
+    <field name="Mostrar_Mapa" type="Boolean" label="Mostrar Mapa" allowNulls="false" default="0">
+      <items style="CheckBox" />
+    </field>
+    <field name="Servicio_Hospedaje_Id" type="Int32" label="Servicio Hospedaje Id" contextFields="Tipo_Gasto_Id=Tipo_Gasto_Id">
+      <items style="Lookup" dataController="Servicio" dataView="Servicio_Hospedaje_LookUp_List" dataTextField="Servicio" dataValueField="Servicio_Id" copy="Servicio_Id=Servicio_Hospedaje_Id,&#xD;&#xA;Servicio_Hospedaje_Etiqueta=Servicio,&#xD;&#xA;Servicio=Servicio&#xD;&#xA;" newDataView="HospedajeCreateForm" />
+    </field>
+    <field name="Otro_Id" type="Int32" label="Otro Id">
+      <items style="Lookup" dataController="Tipo_Gasto" dataView="Tipo_Gasto_Otros_LookUp_List" dataTextField="Tipo_Gasto" dataValueField="Tipo_Gasto_Id" newDataView="createForm1" copy="Otros_Etiqueta=Tipo_Gasto,&#xD;&#xA;Tipo_Gasto_Id=Tipo_Gasto_Id,&#xD;&#xA;Tipo_Gasto_Tipo_Gasto=Tipo_Gasto" />
+    </field>
+    <field name="Otros_Etiqueta" type="String" label="Tipo de Gasto" length="150" />
+    <field name="Terrestre_Id" type="Int32" label="Terrestre Id">
+      <items style="Lookup" dataController="Tipo_Gasto" dataView="Tipo_Gasto_Terrestre_LookUp_List" dataTextField="Tipo_Gasto" dataValueField="Tipo_Gasto_Id" newDataView="createForm1" copy="Terrestre_Etiqueta=Tipo_Gasto,&#xD;&#xA;Tipo_Gasto_Id=Tipo_Gasto_Id,&#xD;&#xA;Tipo_Gasto_Tipo_Gasto=Tipo_Gasto" />
+    </field>
+    <field name="Terrestre_Etiqueta" type="String" label="Tipo de Gasto" length="150" />
+    <field name="Servicio_Hospedaje_Etiqueta" type="String" label="Servicio de Hospedaje" length="150" readOnly="true" />
+    <field name="Servicio_Vuelo_Id" type="Int32" label="Servicio Vuelo Id" contextFields="Tipo_Gasto_Id=Tipo_Gasto_Id">
+      <items style="Lookup" dataController="Servicio" dataView="Servicio_Vuelo_LookUp_List" dataTextField="Servicio" dataValueField="Servicio_Id" newDataView="VueloCreateForm" copy="Servicio_Id=Servicio_Id,&#xD;&#xA;Servicio=Servicio,&#xD;&#xA;Servicio_Vuelo_Etiqueta=Servicio" />
+    </field>
+    <field name="Servicio_Vuelo_Etiqueta" type="String" label="Servicio de Vuelo" length="150" />
+    <field name="Servicio_Gasolina_Id" type="Int32" label="Gasolina Id" contextFields="Tipo_Gasto_Id=Tipo_Gasto_Id">
+      <items style="Lookup" dataController="Servicio" dataView="Servicio_Gasolina_LookUp_List" dataTextField="Servicio" dataValueField="Servicio_Id" newDataView="GasolinaCreateForm" copy="Servicio_Id=Servicio_Id,&#xD;&#xA;Servicio_Gasolina_Etiqueta=Servicio,&#xD;&#xA;Servicio=Servicio" />
+    </field>
+    <field name="Servicio_Gasolina_Etiqueta" type="String" label="Servicio de Gasolina" length="150" readOnly="true" />
+    <field name="Servicio_Alimentos_Id" type="Int32" label="Servicio Alimentos Id" contextFields="Tipo_Gasto_Id=Tipo_Gasto_Id">
+      <items style="Lookup" dataController="Servicio" dataView="Servicio_Alimentos_LookUp_List" dataTextField="Servicio" dataValueField="Servicio_Id" newDataView="AlimentosCreateForm" copy="Servicio_Id=Servicio_Id,&#xD;&#xA;Servicio=Servicio,&#xD;&#xA;Servicio_Alimentos_Etiqueta=Servicio" />
+    </field>
+    <field name="Servicio_Alimentos_Etiqueta" type="String" label="Servicio de Alimentos" length="150" />
+    <field name="Servicio_Terrestre_Id" type="Int32" label="Servicio Terrestre Id" contextFields="Tipo_Gasto_Id=Tipo_Gasto_Id">
+      <items style="Lookup" dataController="Servicio" dataView="Servicio_Terrestre_LookUp_List" dataTextField="Servicio" dataValueField="Servicio_Id" newDataView="TerrestreCreateForm" copy="Servicio_Id=Servicio_Id,&#xD;&#xA;Servicio=Servicio,&#xD;&#xA;Servicio_Terrestre_Etiqueta=Servicio" />
+    </field>
+    <field name="Servicio_Terrestre_Etiqueta" type="String" label="Servicio" length="150" />
+    <field name="Servicio_Otros_Id" type="Int32" label="Servicio Otros Id" contextFields="Tipo_Gasto_Id=Tipo_Gasto_Id">
+      <items style="Lookup" dataController="Servicio" dataView="Servicio_Otros_LookUp_List" dataTextField="Servicio" dataValueField="Servicio_Id" newDataView="OtrosCreateForm" copy="Servicio_Id=Servicio_Id,&#xD;&#xA;Servicio=Servicio,&#xD;&#xA;Servicio_Otros_Etiqueta=Servicio" />
+    </field>
+    <field name="Servicio_Otros_Etiqueta" type="String" label="Servicio" length="150" />
+    <field name="Es_De_Hospedaje" type="Boolean" label="Es De Hospedaje" default="0">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_De_Alimentos" type="Boolean" label="Es De Alimentos" allowNulls="false" default="0">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Aerolinea" type="Boolean" label="Es Aerolinea" allowNulls="false" default="0">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Transporte_Terrestre" type="Boolean" label="Es Transporte Terrestre" allowNulls="false" default="0">
+      <items style="CheckBox" />
+    </field>
+    <field name="Significa_Pendiente" type="Boolean" readOnly="true" label="¿Significa Pendiente de Autorizar?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Significa_Autorizado" type="Boolean" label="¿Significa Autorizado?" readOnly="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Significa_Rechazado" type="Boolean" label="¿Significa Rechazado?" readOnly="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Autorizado_Rechazado_Por" type="String" readOnly="true" label="Autorizado/Rechazado Por" length="150" />
+    <field name="Mes_Mes" type="String" label="Mes de Gasto" length="150" />
+    <field name="Solicitado_Por" type="String" label="Solicitado Por" length="150" />
+    <field name="Es_Periodico" type="Boolean" allowNulls="false" readOnly="true" label="Es Periodico">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Servicio_Basico" type="Boolean" readOnly="true" label="Es Servicio Basico" allowNulls="false">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_De_Mantenimiento" type="Boolean" readOnly="true" label="Es De Mantenimiento" allowNulls="false">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Fiscal" type="Boolean" allowNulls="false" readOnly="true" label="Es Fiscal">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Dividendo" type="Boolean" allowNulls="false" readOnly="true" label="Es Dividendo" />
+    <field name="Es_Renta" type="Boolean" allowNulls="false" readOnly="true" label="Es Renta" />
+    <field name="Aplica_Solicitud" type="Boolean" allowNulls="false" label="Aplica Solicitud" readOnly="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Autorizacion" type="Boolean" allowNulls="false" readOnly="true" label="Aplica Autorizacion" />
+    <field name="Aplica_Para_Sociedad" type="Boolean" allowNulls="false" readOnly="true" label="Aplica Para Sociedad">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Sociedad_Cuadro_Accionario" type="Boolean" allowNulls="false" readOnly="true" label="Aplica Para Sociedad Cuadro Accionario">
+      <items style="CheckBox" />
+    </field>
+    <field name="Aplica_Para_Contratado" type="Boolean" allowNulls="false" readOnly="true" label="Aplica Para Contratado">
+      <items style="CheckBox" />
+    </field>
+    <field name="Sociedad_Sociedad" type="String" label="Sociedad " length="150" allowNulls="false" />
+    <field name="Tipo_Gasto_Mantenimiento_Id" type="Int32" allowNulls="false" label="Tipo Gasto Mantenimiento Id">
+      <items style="Lookup" dataController="Tipo_Gasto" dataView="Tipo_Gasto_Mantenimiento_LookUp_List" dataTextField="Tipo_Gasto" dataValueField="Tipo_Gasto_Id" copy="Es_Periodico=Es_Periodico&#xD;&#xA;Aplica_Solicitud=Aplica_Solicitud" />
+    </field>
+    <field name="Tipo_Gasto_Mantenimiento" type="String" allowNulls="false" label="Tipo de Gasto " length="150" />
+    <field name="Picture2" type="Byte[]" onDemand="true" sourceFields="Administracion_Gasto_Id" onDemandHandler="Administracion_GastoPicture2" onDemandStyle="Thumbnail" allowQBE="false" allowSorting="false" label="Archivo" />
+    <field name="Picture2FileName" type="String" label="Nombre del Archivo" length="250" />
+    <field name="Picture2ContentType" type="String" label="Tipo de Archivo" length="250" />
+    <field name="Picture2Length" type="Int32" label="Tamaño de Archivo" />
+    <field name="Tipo_Gasto_Servicio_Basico_Id" type="Int32" allowNulls="false" label="Tipo Gasto Servicio Basico Id">
+      <items style="Lookup" dataController="Tipo_Gasto" dataView="Tipo_Gasto_Servicio_Basico_LookUp_List" dataTextField="Tipo_Gasto" dataValueField="Tipo_Gasto_Id" copy="Es_Periodico=Es_Periodico&#xD;&#xA;Aplica_Solicitud = Aplica_Solicitud" />
+    </field>
+    <field name="Tipo_Gasto_Servicio_Basico" type="String" allowNulls="false" label="Tipo de Gasto" length="150" />
+    <field name="Solicitud_Gasto_Key" type="String" label="Solicitud Gasto Key" length="50" />
+  </fields>
+  <views>
+    <view id="editForm1" type="Form" label="Revisar Recibo o Factura" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" commandId="ObtenerRecibo" access="Public">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Archivo" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Administracion_Gasto_Id" columns="15" hidden="true" />
+            <dataField fieldName="Picture2" columns="15" />
+            <dataField fieldName="Picture2FileName" />
+            <dataField fieldName="Picture2ContentType" hidden="true" />
+            <dataField fieldName="Picture2Length" columns="15" hidden="true" />
+            <dataField fieldName="Solicitud_Gasto_Key" columns="50" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="grid1" commandId="ObtenerRecibo" type="Grid" label="Prueba" showInSelector="false" access="Public" />
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE 
+	APP.Administracion_Gasto
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Administracion_Gasto_Id = @Administracion_Gasto_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" />
+      <action id="a8" commandName="Duplicate" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Hidden" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Hidden">
+        <data><![CDATA[UPDATE 
+	APP.Administracion_Gasto
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Administracion_Gasto_Id = @Administracion_Gasto_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" roles="Hidden" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" commandName="Custom" commandArgument="EXECCS01" headerText="Guardar" whenLastCommandName="New" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" cssClass="NewIcon" headerText="Nuevo Gasto Servicio Básico" />
+      <action id="a101" headerText="Nuevo Gasto Mantenimiento" cssClass="NewIcon" commandName="New" />
+      <action commandName="New" headerText="Nuevo Servicio Impuesto" id="a104" />
+      <action commandName="New" headerText="Nuevo Gasto (Otros)" id="a103" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE 
+	APP.Administracion_Gasto
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Administracion_Gasto_Id = @Administracion_Gasto_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?">
+        <data><![CDATA[UPDATE 
+	APP.Administracion_Gasto
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Administracion_Gasto_Id = @Administracion_Gasto_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r108" commandName="New" type="Sql" phase="Execute"><![CDATA[---- DEFAULT CIUDAD ORIGEN
+SELECT
+	@Ciudad_Origen_Id=IsNULL((Ciudad_Id),0)
+	,@Ciudad_Origen=IsNULL((Ciudad),'')
+FROM
+	APP.Ciudad
+WHERE
+	Ciudad_Id = 0
+
+---- DEFAULT CIUDAD DESTINO
+SELECT
+	@Ciudad_Destino_Id=IsNULL((Ciudad_Id),0)
+	,@Ciudad_Destino=IsNULL((Ciudad),'')
+FROM
+	APP.Ciudad
+WHERE
+	Ciudad_Id = 0
+
+---- DEFAULT SERVICIO
+SELECT
+	@Servicio_Id=IsNULL((Servicio_Id),0)
+	,@Servicio=IsNULL((Servicio),'')
+FROM
+	APP.Servicio
+WHERE
+	Servicio_Id = 0
+	
+---- INICIALIZACION GASTOS FRECUENTES
+IF @Mostrar_Lista_Gastos_Frecuentes = 1
+BEGIN
+	SELECT 
+		@Tipo_Gasto_Id = [Tipo_Gasto_Id]
+		,@Ciudad_Origen_Id = [Ciudad_Origen_Id]
+		,@Ciudad_Destino_Id = [Ciudad_Destino_Id]
+		,@Direccion_Origen = [Direccion_Origen]
+		,@Direccion_Destino = [Direccion_Destino]
+		,@Viaje_Redondo = [Viaje_Redondo]
+		,@Latitud = [Latitud]
+		,@Longitud = [Longitud]
+		,@Kilometraje = [Kilometraje]
+		,@Monto_Gasto = [Monto_Historico]
+	FROM 
+		[APP].[Gastos_Frecuentes]
+	WHERE 
+		[Gastos_Frecuentes_Id] = @Gastos_Frecuentes_Id
+END -- IF @Mostrar_Lista_Gastos_Frecuentes = 1
+	
+
+SELECT
+	@Estatus_Gasto_Id = Estatus_Gasto_Id
+	,@Estatus_Gasto_Estatus_Gasto = Estatus_Gasto
+FROM
+	APP.Estatus_Gasto
+WHERE
+	Significa_Pendiente = 1
+	AND Estatus_Registro_Id = 1
+	
+
+
+SET @Comentarios_Autorizacion_Rechazo = 'Sin Comentarios'
+SET @Direccion_Origen = 'Sin Dirección Origen'
+SET @Direccion_Destino = 'Sin Dirección Destino'
+SET @Ciudad_Origen_Id = 0
+SET @Ciudad_Destino_Id = 0
+SET @Pagado = 0
+SET @Fecha_Pago = '01/01/1900'
+SET @Notas_Pago = ''
+SET @Fecha_Confirmacion_Pago = '01/01/1900'
+SET @Fecha_Autorizacion_Rechazo = '01/01/1900'
+SET @Monto_Gasto = 0
+SET @Latitud = 0
+SET @Longitud = 0
+SET @Kilometraje = 0
+SET @Viaje_Redondo = 0
+SET @Mostrar_Mapa = 0
+SET @Gastos_Frecuentes_Id = 0
+SET @Tipo_Gasto_Id = 0
+
+IF(IsNull(@Fecha_Solicitud,'01/01/1900')='01/01/1900')
+	SET @Fecha_Solicitud = '01/01/1900'
+	
+IF(IsNull(@Notas_Solicitud,'')='')
+	SET @Notas_Solicitud = 'Sin notas de solicitud'
+
+IF(IsNull(@Fecha_Vencimiento,'01/01/1900')='01/01/1900')
+	SET @Fecha_Vencimiento = '01/01/1900'
+	
+
+]]></rule>
+    <rule id="r101" commandName="New" type="Sql" phase="Execute" view="ServicioServiciosBasicosCreateForm"><![CDATA[SET @Notas_Pago = ''
+SET @Pagado = 0
+SET @Fecha_Pago = '01/01/1900'
+
+
+
+
+SELECT 
+TOP 1
+@Estatus_Gasto_Id= Estatus_Gasto_Id
+FROM
+APP.Estatus_Gasto
+WHERE 
+Significa_Pendiente = 1
+AND Estatus_Registro_Id = 1	
+	
+	
+SELECT
+@Aplica_Solicitud = Aplica_Solicitud
+FROM
+APP.Tipo_Gasto
+WHERE
+Tipo_Gasto_Id = @Tipo_Gasto_Servicio_Basico_Id
+AND Estatus_Registro_Id=1]]></rule>
+    <rule id="r106" commandName="New" view="ServicioMantenimientoCreateForm" type="Sql" phase="Execute"><![CDATA[SET @Notas_Pago = ''
+SET @Pagado = 0
+SET @Fecha_Pago = '01/01/1900'
+
+
+
+
+SELECT 
+TOP 1
+@Estatus_Gasto_Id= Estatus_Gasto_Id
+FROM
+APP.Estatus_Gasto
+WHERE 
+Significa_Pendiente = 1
+AND Estatus_Registro_Id = 1	
+	]]></rule>
+    <rule id="r107" commandName="New" view="ServicioImpuestoCreateForm" type="Sql" phase="Execute"><![CDATA[SELECT 
+	@Tipo_Gasto_Id = Tipo_Gasto_Id
+	,@Tipo_Gasto_Tipo_Gasto = Tipo_Gasto	
+FROM 
+	APP.Tipo_Gasto 
+WHERE 
+	Es_Fiscal = 1
+	AND Aplica_Para_Sociedad = 1
+	AND Estatus_Registro_Id = 1	
+	
+SELECT 
+TOP 1
+@Estatus_Gasto_Id= Estatus_Gasto_Id
+FROM
+APP.Estatus_Gasto
+WHERE 
+Significa_Pendiente = 1
+AND Estatus_Registro_Id = 1	]]></rule>
+    <rule id="r109" commandName="New" view="ServicioOtrosCreateForm" type="Sql" phase="Execute"><![CDATA[
+	
+SELECT 
+TOP 1
+@Estatus_Gasto_Id= Estatus_Gasto_Id
+FROM
+APP.Estatus_Gasto
+WHERE 
+Significa_Pendiente = 1
+AND Estatus_Registro_Id = 1	]]></rule>
+    <rule id="r104" commandName="Custom" type="Sql" phase="Execute"><![CDATA[--SET @Fecha_Autorizacion_Rechazo=GETDATE()
+]]></rule>
+    <rule id="r100" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Administracion_Gasto
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+	,Fecha_Solicitud = GetDate()
+WHERE
+	Administracion_Gasto_Id= @Administracion_Gasto_Id
+	
+SELECT
+	@Solicitado_Por_Id = pua.Usuario_Aplicacion_Id
+FROM
+  APP.Contratado c 
+  INNER JOIN APP.Persona p ON p.Persona_Id = c.Persona_Id
+  INNER JOIN APP.Persona_Usuario_Aplicacion pua ON pua.Persona_Id = p.Persona_Id
+WHERE
+	c.Contratado_Id = @Contratado_Id
+	
+	
+UPDATE
+	App.Administracion_Gasto
+SET 
+	Solicitado_Por_Id = @Solicitado_Por_Id
+	,Contratado_Id = 0
+WHERE
+	Administracion_Gasto_Id= @Administracion_Gasto_Id
+]]></rule>
+    <rule id="r105" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Valor_Uno_Calculo_Kilometraje NUMERIC(15,4)
+DECLARE @Valor_Dos_Calculo_Kilometraje NUMERIC(15,4)
+
+IF @Es_Gasolina = 1 
+BEGIN
+	IF @Kilometraje > 0 AND @Monto_Gasto = 0
+	BEGIN
+		SET @Valor_Uno_Calculo_Kilometraje = IsNull((SELECT TOP 1 Valor_Cuantitativo FROM dbo.Configuracion_Sistema WHERE Configuracion_Sistema_Id = 97),6.2)
+		SET @Valor_Dos_Calculo_Kilometraje = IsNull((SELECT TOP 1 Valor_Cuantitativo FROM dbo.Configuracion_Sistema WHERE Configuracion_Sistema_Id = 98),6.15)
+	
+		SET @Monto_Gasto = ( @Kilometraje * @Valor_Uno_Calculo_Kilometraje * @Valor_Dos_Calculo_Kilometraje)
+
+		IF @Viaje_Redondo = 1
+			SET @Monto_Gasto = @Monto_Gasto * 2
+	END
+		ELSE
+			SET @Monto_Gasto = 0
+END
+	
+IF (@Significa_Autorizado = 1 OR @Significa_Rechazado = 1) AND (IsNull(@Autorizado_Rechazado_Por_Id,CONVERT(UNIQUEIDENTIFIER,'5C7568FD-6412-474E-A099-006FAD27CD02')) = CONVERT(UNIQUEIDENTIFIER,'5C7568FD-6412-474E-A099-006FAD27CD02') OR DatePart(year,IsNull(@Fecha_Autorizacion_Rechazo,'01/01/1900')) = 1900 )
+BEGIN
+	SET @Autorizado_Rechazado_Por_Id = @BusinessRules_UserId
+	SET @Fecha_Autorizacion_Rechazo = GetDate()
+END
+
+IF @Significa_Autorizado = 1 AND @Pagado = 1 AND @Pago_Confirmado_Por_Id IS NULL
+BEGIN
+
+	SET @Pago_Confirmado_Por_Id = @BusinessRules_UserId
+	SET @Fecha_Confirmacion_Pago = GetDate()
+END
+
+IF(@Contratado_Id<>0)
+BEGIN
+SELECT
+	@Solicitado_Por_Id = pua.Usuario_Aplicacion_Id
+FROM
+  APP.Contratado c 
+  INNER JOIN APP.Persona p ON p.Persona_Id = c.Persona_Id
+  INNER JOIN APP.Persona_Usuario_Aplicacion pua ON pua.Persona_Id = p.Persona_Id
+WHERE
+	c.Contratado_Id = @Contratado_Id
+END]]></rule>
+    <rule id="r102" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Administracion_Gasto
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Administracion_Gasto_Id = @Administracion_Gasto_Id]]></rule>
+  </businessRules>
+</dataController>

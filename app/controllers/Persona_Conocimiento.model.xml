@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Persona_Conocimiento" alias="Persona_Conocimiento" created="2018-05-19T20:41:49" modified="2018-05-20T02:46:28" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Tipo_Conocimiento_" parentTableSchema="APP" parentTableName="Tipo_Conocimiento" x="405" y="20">
+      <foreignKeyColumn columnName="Tipo_Conocimiento_Id" parentColumnName="Tipo_Conocimiento_Id" />
+    </foreignKey>
+    <foreignKey id="Lista_Elemento_" parentTableSchema="APP" parentTableName="Lista_Elemento" x="405" y="250">
+      <foreignKeyColumn columnName="Lista_Elemento_Id" parentColumnName="Lista_Elemento_Id" />
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="Creado_Por_Id" />
+    </foreignKey>
+    <foreignKey id="Lista_Elemento_Lista_" parentTableSchema="APP" parentTableName="Lista" baseForeignKey="Lista_Elemento_" x="850" y="366">
+      <foreignKeyColumn columnName="Lista_Id" parentColumnName="Lista_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="405" y="503">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Persona" parentTableSchema="APP" parentTableName="Persona" x="844" y="63">
+      <foreignKeyColumn columnName="Persona_Id" parentColumnName="Persona_Id" />
+    </foreignKey>
+    <foreignKey id="cp" parentTableSchema="dbo" parentTableName="Usuario_V" x="80" y="440">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="ap" parentTableSchema="dbo" parentTableName="Usuario_V" x="1229" y="428">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Persona_Conocimiento_Id" fieldName="Persona_Conocimiento_Id" label="Persona Conocimiento Id" />
+    <column name="Persona_Id" fieldName="Persona_Id" label="Persona Id" aliasColumnName="Nombre" aliasForeignKey="Persona" />
+    <column name="Nombre" fieldName="PersonaNombre" label="Primer Nombre" foreignKey="Persona" />
+    <column name="Apellido_Paterno" fieldName="PersonaapellidoPaterno" label="Apellido Paterno" foreignKey="Persona" />
+    <column name="Apellido_Materno" fieldName="PersonaapellidoMaterno" label="Apellido Materno" foreignKey="Persona" />
+    <column name="Segundo_Nombre" fieldName="PersonasegundoNombre" label="Segundo Nombre" foreignKey="Persona" />
+    <column name="Tipo_Conocimiento_Id" fieldName="Tipo_Conocimiento_Id" label="Tipo Conocimiento Id" aliasColumnName="Tipo_Conocimiento" aliasForeignKey="Tipo_Conocimiento_" />
+    <column name="Tipo_Conocimiento" fieldName="Tipo_Conocimiento_Tipo_Conocimiento" label="Tipo de Conocimiento" foreignKey="Tipo_Conocimiento_" />
+    <column name="Lista_Elemento_Id" fieldName="Lista_Elemento_Id" label="Lista Elemento Id" aliasColumnName="Lista_Elemento" aliasForeignKey="Lista_Elemento_" />
+    <column name="Lista_Elemento" fieldName="Lista_Elemento_Lista_Elemento" label="Nivel de Conocimiento" foreignKey="Lista_Elemento_" />
+    <column name="Lista" fieldName="Lista_Elemento_Lista_Lista" label="Lista Elemento Lista" foreignKey="Lista_Elemento_Lista_" />
+    <column name="Notas" fieldName="Notas" label="Notas" />
+    <column name="Picture" fieldName="Picture" label="Certificado" />
+    <column name="PictureFileName" fieldName="PictureFileName" label="Nombre Archivo Certificado" />
+    <column name="PictureContentType" fieldName="PictureContentType" label="Tipo de Archivo Certificado" />
+    <column name="PictureLength" fieldName="PictureLength" label="Tamaño de Archivo Certificado" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cp" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="ap" />
+  </columns>
+</dataModel>

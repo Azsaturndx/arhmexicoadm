@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Cliente_Sucursal" conflictDetection="overwriteChanges" label="Cliente_Sucursal" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text" tableName="APP.Cliente_Sucursal" custom="true">
+      <text><![CDATA[SELECT
+	Cliente_Sucursal_Id
+	,Cliente_Id
+	,Cliente
+	,Sucursal_Id
+	,Sucursal
+	,Transaccion_Id
+	,Creado_Por_Id
+	,Creado_Por
+	,Fecha_Creacion
+	,Actualizado_Por_Id
+	,Actualizado_Por
+	,Fecha_Ultima_Actualizacion
+FROM
+	dbo.Grid_Cliente_Sucursal_V]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Cliente_Sucursal_Id" type="Int32" allowNulls="false" label="Cliente Sucursal#" showInSummary="true" isPrimaryKey="true" />
+    <field name="Cliente_Id" type="Int32" label="Cliente#" showInSummary="true">
+      <items style="Lookup" dataController="Cliente" dataView="Cliente_LookUp_List" dataTextField="Cliente" dataValueField="Cliente_Id" />
+    </field>
+    <field name="Cliente" type="String" label="Cliente" length="150" showInSummary="true" isVirtual="true" />
+    <field name="Sucursal_Id" type="Int32" label="Sucursal#" showInSummary="true">
+      <items style="Lookup" dataController="Sucursal" dataView="grid1" dataTextField="Sucursal" dataValueField="Sucursal_Id" />
+    </field>
+    <field name="Sucursal" type="String" label="Sucursal" length="300" showInSummary="true" isVirtual="true" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" label="Transaccion#" length="50" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" label="Creado Por#">
+      <items style="Lookup" dataController="Usuario_V" dataView="Usuario_LookUp_List" dataTextField="UserName" dataValueField="UserId" />
+    </field>
+    <field name="Creado_Por" type="String" label="Creado Por" length="256" isVirtual="true" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" label="Fecha Creacion" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" label="Actualizado Por#">
+      <items style="Lookup" dataController="Usuario_V" dataView="Usuario_LookUp_List" dataTextField="UserName" dataValueField="UserId" />
+    </field>
+    <field name="Actualizado_Por" type="String" label="Actualizado Por" length="256" isVirtual="true" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" label="Fecha Ultima Actualizacion" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Localidad de Cliente">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Cliente_Id" columns="15" aliasFieldName="Cliente" />
+        <dataField fieldName="Sucursal_Id" columns="15" aliasFieldName="Sucursal" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Localidad de Cliente">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Localidad de Cliente" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Sucursal_Id" columns="15" aliasFieldName="Sucursal" />
+            <dataField fieldName="Cliente_Id" columns="15" aliasFieldName="Cliente" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Localidad de Cliente">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Localidad de Cliente" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Sucursal_Id" columns="15" aliasFieldName="Sucursal" />
+            <dataField fieldName="Cliente_Id" columns="15" aliasFieldName="Cliente" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a3" commandName="SQL" roles="Administrators,ArhAdmin,ARHOperaciones" headerText="Borrar">
+        <data><![CDATA[UPDATE
+	APP.Cliente_Sucursal
+SET 
+	Estatus_Registro_Id=3
+	,Actualizado_Por_Id = @BusinessRules_UserId
+    ,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Cliente_Sucursal_Id = @Cliente_Sucursal_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" commandName="SQL" headerText="Borrar" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE
+	APP.Cliente_Sucursal
+SET 
+	Estatus_Registro_Id=3
+	,Actualizado_Por_Id = @BusinessRules_UserId
+    ,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Cliente_Sucursal_Id = @Cliente_Sucursal_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="SQL" headerText="Borrar">
+        <data><![CDATA[UPDATE
+	APP.Cliente_Sucursal
+SET 
+	Estatus_Registro_Id=3
+	,Actualizado_Por_Id = @BusinessRules_UserId
+    ,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Cliente_Sucursal_Id = @Cliente_Sucursal_Id]]></data>
+      </action>
+      <action id="a6" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenKeySelected="true" whenClientScript="this.hasDetails()" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="Borrar" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE
+	APP.Cliente_Sucursal
+SET 
+	Estatus_Registro_Id=3
+	,Actualizado_Por_Id = @BusinessRules_UserId
+    ,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Cliente_Sucursal_Id = @Cliente_Sucursal_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" commandName="SQL" headerText="Borrar" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE
+	APP.Cliente_Sucursal
+SET 
+	Estatus_Registro_Id=3
+	,Actualizado_Por_Id = @BusinessRules_UserId
+    ,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Cliente_Sucursal_Id = @Cliente_Sucursal_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+</dataController>

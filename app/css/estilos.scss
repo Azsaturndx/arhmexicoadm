@@ -1,0 +1,223 @@
+/* Declaración de variables*/
+/*
+$title-font: normal 24px/1.5 'Open Sans', sans-serif;
+$cool-red: #F44336;
+$box-shadow-bottom-only: 0 2px 1px 0 rgba(0, 0, 0, 0.2);
+*/
+$color-principal: #5DAD9A;
+$color-detalles: #868A8B;
+
+
+.text-arh {
+    color: $color-principal !important;
+}
+
+.texto-detalle{
+    color: $color-detalles;
+}
+
+.text-bold{
+    font-weight: bold !important;
+}
+
+.bg-arh {
+    background-color: $color-principal;
+}
+
+.d-inline{
+    display: inline;
+}
+
+.m-auto{
+    margin: auto;
+}
+
+.mt-0 {
+    margin-top: 0 !important;
+}
+
+.mt-1 {
+    margin-top: 0.25rem !important;
+}
+
+.mt-2 {
+    margin-top: 0.5rem !important;
+}
+
+.mt-3 {
+    margin-top: 1rem !important;
+}
+
+.mt-4 {
+    margin-top: 1.5rem !important;
+}
+
+.pt-0 {
+    padding-top: 0 !important;
+}
+
+.pt-4 {
+    padding-top: 1.5rem;
+}
+  
+
+.text-white{
+    color: white;
+}
+
+.estatus{
+    padding: 8px 25px;
+    border-radius: 15px;
+    font-weight: bolder;
+    @extend .d-inline;
+    @extend .text-white;
+}
+
+.estatus-activo{
+    @extend .estatus;
+    @extend .bg-arh;
+}
+
+.estatus-borrado{
+    @extend .estatus;
+    background-color: red;
+}
+
+#foto-usuario{
+    background-image: url("/images/chico.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: local;
+    background-size: cover;
+}
+
+/* FLEXBOX PARA ESTRUCTURA GENERAL*/
+.wrapper {
+    display: flex;  
+    flex-flow: row wrap;
+}
+.wrapper > * {
+    padding: 10px;
+    flex: 1 100%;
+}
+.aside-1 {
+    background: gold;
+}
+@media all and (min-width: 800px) {
+    .aside   { flex: 1 0 0; }
+    .main    { flex: 4 0px; }
+    .aside-1 { order: 1; } 
+    .main    { order: 2; }
+}
+/* FLEXBOX PARA ESTRUCTURA GENERAL*/
+
+
+/**
+PAGE LOADER
+*/
+
+#page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: #FFF none repeat scroll 0% 0%;
+    z-index: 99999;
+}
+
+#page-loader .preloader-interior {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #3498db;
+
+    -webkit-animation: spin 2s linear infinite;
+    /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 2s linear infinite;
+    /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+
+#page-loader .preloader-interior:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #e74c3c;
+
+    -webkit-animation: spin 3s linear infinite;
+    /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 3s linear infinite;
+    /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+
+#page-loader .preloader-interior:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #f9c922;
+
+    -webkit-animation: spin 1.5s linear infinite;
+    /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 1.5s linear infinite;
+    /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);
+        /* IE 9 */
+        transform: rotate(0deg);
+        /* Firefox 16+, IE 10+, Opera */
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);
+        /* IE 9 */
+        transform: rotate(360deg);
+        /* Firefox 16+, IE 10+, Opera */
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);
+        /* IE 9 */
+        transform: rotate(0deg);
+        /* Firefox 16+, IE 10+, Opera */
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);
+        /* IE 9 */
+        transform: rotate(360deg);
+        /* Firefox 16+, IE 10+, Opera */
+    }
+}
+
+
+

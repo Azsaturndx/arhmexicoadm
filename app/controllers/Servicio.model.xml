@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Servicio" alias="Servicio" created="2018-10-10T20:09:16" modified="2018-11-01T19:55:19" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="374" y="767">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="apUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="28" y="654">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="cpUsuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="48" y="387">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Tipo_Gasto" parentTableSchema="APP" parentTableName="Tipo_Gasto" x="489" y="32">
+      <foreignKeyColumn columnName="Tipo_Gasto_Id" parentColumnName="Tipo_Gasto_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Servicio_Id" fieldName="Servicio_Id" label="Servicio Id" />
+    <column name="Servicio" fieldName="Servicio" label="Servicio" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transacción Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="cpUsuario_V" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cpUsuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación UTC 0" format="d" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="apUsuario_V" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="apUsuario_V" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización UTC 0" format="d" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+    <column name="Tipo_Gasto_Id" fieldName="Tipo_Gasto_Id" label="Tipo Gasto Id" aliasColumnName="Tipo_Gasto" aliasForeignKey="Tipo_Gasto" />
+    <column name="Tipo_Gasto" fieldName="Tipo_Gasto" label="Tipo Gasto" foreignKey="Tipo_Gasto" />
+    <column name="Es_De_Hospedaje" fieldName="Tipo_Gasto_Es_De_Hospedaje" label="Tipo Gasto Es De Hospedaje" foreignKey="Tipo_Gasto" />
+    <column name="Es_De_Alimentos" fieldName="Tipo_Gasto_Es_De_Alimentos" label="Tipo Gasto Es De Alimentos" foreignKey="Tipo_Gasto" />
+    <column name="Es_Aerolinea" fieldName="Tipo_Gasto_Es_Aerolinea" label="Tipo Gasto Es Aerolinea" foreignKey="Tipo_Gasto" />
+    <column name="Es_Transporte_Terrestre" fieldName="Tipo_Gasto_Es_Transporte_Terrestre" label="Tipo Gasto Es Transporte Terrestre" foreignKey="Tipo_Gasto" />
+    <column name="Es_Otro" fieldName="Tipo_Gasto_Es_Otro" label="Tipo Gasto Es Otro" foreignKey="Tipo_Gasto" />
+    <column name="Es_Gasolina" fieldName="Tipo_Gasto_Es_Gasolina" label="Tipo Gasto Es Gasolina" foreignKey="Tipo_Gasto" />
+  </columns>
+</dataModel>

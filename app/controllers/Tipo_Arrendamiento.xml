@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Tipo_Arrendamiento" label="Tipo_Arrendamiento" conflictDetection="overwriteChanges" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command type="Text" id="gridTipoArrendamientoV" custom="false">
+      <text><![CDATA[SELECT [Tipo_Arrendamiento_Id]
+      ,[Tipo_Arrendamiento]
+      ,[Clave_Tipo_Arrendamiento]
+      ,[Es_Bodega]
+      ,[Es_Oficina]
+      ,[Es_Casa]
+      ,[Transaccion_Id]
+      ,[Creado_Por_Id]
+      ,[Creado_Por]
+      ,[Fecha_Creacion]
+      ,[Actualizado_Por]
+      ,[Fecha_Ultima_Actualizacion]
+      ,[Estatus_Registro_Id]
+      ,[Estatus_Registro_Estatus_Registro]
+  FROM [dbo].[Grid_Tipo_Arrendamiento_V]]]></text>
+    </command>
+    <command type="Text" id="command1" custom="false">
+      <text><![CDATA[select
+	"Tipo_Arrendamiento"."Tipo_Arrendamiento_Id" "Tipo_Arrendamiento_Id"
+	,"Tipo_Arrendamiento"."Tipo_Arrendamiento" "Tipo_Arrendamiento"
+	,"Tipo_Arrendamiento"."Clave_Tipo_Arrendamiento" "Clave_Tipo_Arrendamiento"
+	,"Tipo_Arrendamiento"."Es_Bodega" "Es_Bodega"
+	,"Tipo_Arrendamiento"."Es_Casa" "Es_Casa"
+	,"Tipo_Arrendamiento"."Es_Oficina" "Es_Oficina"
+	,"Tipo_Arrendamiento"."Transaccion_Id" "Transaccion_Id"
+	,"Usuario_V"."UserName" "cpUserName"
+	,"Tipo_Arrendamiento"."Fecha_Creacion" "Fecha_Creacion"
+	,"Usuario_V1"."UserName" "apUserName"
+	,"Tipo_Arrendamiento"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Tipo_Arrendamiento"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+from "APP"."Tipo_Arrendamiento" "Tipo_Arrendamiento"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Tipo_Arrendamiento"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Usuario_V" on "Tipo_Arrendamiento"."Creado_Por_Id" = "Usuario_V"."UserId"
+	left join "dbo"."Usuario_V" "Usuario_V1" on "Tipo_Arrendamiento"."Actualizado_Por_Id" = "Usuario_V1"."UserId"]]></text>
+    </command>
+    <command type="Text" id="command2" custom="false">
+      <text><![CDATA[select
+	"Tipo_Arrendamiento"."Tipo_Arrendamiento_Id" "Tipo_Arrendamiento_Id"
+	,"Tipo_Arrendamiento"."Tipo_Arrendamiento" "Tipo_Arrendamiento"
+	,"Tipo_Arrendamiento"."Clave_Tipo_Arrendamiento" "Clave_Tipo_Arrendamiento"
+	,"Tipo_Arrendamiento"."Es_Bodega" "Es_Bodega"
+	,"Tipo_Arrendamiento"."Es_Casa" "Es_Casa"
+	,"Tipo_Arrendamiento"."Es_Oficina" "Es_Oficina"
+	,"Tipo_Arrendamiento"."Transaccion_Id" "Transaccion_Id"
+	,"Usuario_V"."UserName" "cpUserName"
+	,"Tipo_Arrendamiento"."Fecha_Creacion" "Fecha_Creacion"
+	,"Usuario_V1"."UserName" "apUserName"
+	,"Tipo_Arrendamiento"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Tipo_Arrendamiento"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	
+from "APP"."Tipo_Arrendamiento" "Tipo_Arrendamiento"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Tipo_Arrendamiento"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Usuario_V" on "Tipo_Arrendamiento"."Creado_Por_Id" = "Usuario_V"."UserId"
+	left join "dbo"."Usuario_V" "Usuario_V1" on "Tipo_Arrendamiento"."Actualizado_Por_Id" = "Usuario_V1"."UserId"]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Tipo_Arrendamiento_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Tipo Arrendamiento V" />
+    <field name="Tipo_Arrendamiento" type="String" allowNulls="false" label="Tipo Arrendamiento" length="150" />
+    <field name="Clave_Tipo_Arrendamiento" type="String" allowNulls="false" label="Clave Tipo Arrendamiento" length="50" />
+    <field name="Es_Bodega" type="Boolean" allowNulls="false" label="Es Bodega" />
+    <field name="Es_Oficina" type="Boolean" allowNulls="false" label="Es Oficina" />
+    <field name="Es_Casa" type="Boolean" allowNulls="false" label="Es Casa" />
+    <field name="Creado_Por" type="String" allowNulls="false" label="Creado Por" length="150" />
+    <field name="Actualizado_Por" type="String" allowNulls="false" label="Actualizado Por" length="150" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" label="Fecha de Creación" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" label="Fecha de Última Actualización" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataView="Estatus_Registro_LookUp_List" dataTextField="Estatus_Registro" dataValueField="Estatus_Registro_ID" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" allowNulls="false" label="Estatus de Registro" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" label="Tipo de Arrendamiento" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" filter="Estatus_Registro_Id &lt;&gt;0" commandId="gridTipoArrendamientoV">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Tipo_Arrendamiento" rows="5" />
+        <dataField fieldName="Clave_Tipo_Arrendamiento" columns="50" />
+        <dataField fieldName="Es_Bodega" />
+        <dataField fieldName="Es_Oficina" />
+        <dataField fieldName="Es_Casa" />
+        <dataField fieldName="Creado_Por" rows="5" />
+        <dataField fieldName="Fecha_Creacion" columns="10" />
+        <dataField fieldName="Actualizado_Por" rows="5" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="10" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" label="Actualizar Tipo de Arrendamiento" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" commandId="command2">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Tipo_Arrendamiento" rows="5" />
+            <dataField fieldName="Clave_Tipo_Arrendamiento" columns="50" />
+            <dataField fieldName="Es_Bodega" />
+            <dataField fieldName="Es_Oficina" />
+            <dataField fieldName="Es_Casa" />
+            <dataField fieldName="Estatus_Registro_Id" columns="15" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" label="Nuevo Tipo de Arrendamiento" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" commandId="gridTipoArrendamientoV">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Tipo_Arrendamiento" rows="5" />
+            <dataField fieldName="Clave_Tipo_Arrendamiento" columns="50" />
+            <dataField fieldName="Es_Bodega" />
+            <dataField fieldName="Es_Oficina" />
+            <dataField fieldName="Es_Casa" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Tipo_Arrendamiento_LookUp_List" type="Grid" label="Tipo de Arrendamiento" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" filter="Estatus_Registro_Id IN (0,1)" commandId="gridTipoArrendamientoV">
+      <dataFields>
+        <dataField fieldName="Tipo_Arrendamiento" rows="5" />
+        <dataField fieldName="Clave_Tipo_Arrendamiento" columns="50" />
+        <dataField fieldName="Es_Bodega" />
+        <dataField fieldName="Es_Oficina" />
+        <dataField fieldName="Es_Casa" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+APP.Tipo_Arrendamiento
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Tipo_Arrendamiento_Id = @Tipo_Arrendamiento_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+APP.Tipo_Arrendamiento
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Tipo_Arrendamiento_Id = @Tipo_Arrendamiento_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+APP.Tipo_Arrendamiento
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Tipo_Arrendamiento_Id = @Tipo_Arrendamiento_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+APP.Tipo_Arrendamiento
+SET
+Estatus_Registro_Id = 3
+,Actualizado_Por_id = @BusinessRules_UserId
+,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+Tipo_Arrendamiento_Id = @Tipo_Arrendamiento_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+SET @Existe = 0
+
+SELECT
+	TOP 1 @Existe=1
+FROM
+	APP.Tipo_Arrendamiento
+WHERE
+	REPLACE(UPPER(Tipo_Arrendamiento),' ','') = REPLACE(UPPER(@Tipo_Arrendamiento),' ','')
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un registro para este tipo de arrendamiento en la base de datos, favor de corregir'
+   SET @Result_ShowAlert = 'Ya existe un registro para este tipo de arrendamiento en la base de datos, favor de corregir'
+   RETURN
+END]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+SET @Existe = 0
+
+SELECT
+	TOP 1 @Existe=1
+FROM
+	APP.Tipo_Arrendamiento
+WHERE
+	REPLACE(UPPER(Tipo_Arrendamiento),' ','') = REPLACE(UPPER(@Tipo_Arrendamiento),' ','')
+        AND Tipo_Arrendamiento_Id<>@Tipo_Arrendamiento_Id
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe un registro para este tipo de arrendamiento en la base de datos, favor de corregir'
+   SET @Result_ShowAlert = 'Ya existe un registro para este tipo de arrendamiento en la base de datos, favor de corregir'
+   RETURN
+END]]></rule>
+    <rule id="r102" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Tipo_Arrendamiento 
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Tipo_Arrendamiento_Id= @Tipo_Arrendamiento_Id
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Tipo_Arrendamiento 
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Tipo_Arrendamiento_Id= @Tipo_Arrendamiento_Id
+]]></rule>
+  </businessRules>
+</dataController>

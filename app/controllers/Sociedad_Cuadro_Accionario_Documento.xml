@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Sociedad_Cuadro_Accionario_Documento" conflictDetection="overwriteChanges" label="Sociedad Cuadro Accionario Documento" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Sociedad_Cuadro_Accionario_Documento"."Sociedad_Cuadro_Accionario_Documento_Id" "Sociedad_Cuadro_Accionario_Documento_Id"
+	,"Sociedad_Cuadro_Accionario_Documento"."Sociedad_Cuadro_Accionario_Id" "Sociedad_Cuadro_Accionario_Id"
+	,"Sociedad_Cuadro_Accionario_Documento"."Nombre_Documento" "Nombre_Documento"
+	,"Sociedad_Cuadro_Accionario_Documento"."Tipo_Documento_Id" "Tipo_Documento_Id"
+	,"Tipo_Documento_"."Tipo_Documento" "Tipo_Documento_Tipo_Documento"
+	,"Sociedad_Cuadro_Accionario_Documento"."Picture" "Picture"
+	,"Sociedad_Cuadro_Accionario_Documento"."PictureFileName" "PictureFileName"
+	,"Sociedad_Cuadro_Accionario_Documento"."PictureContentType" "PictureContentType"
+	,"Sociedad_Cuadro_Accionario_Documento"."PictureLength" "PictureLength"
+	,"Sociedad_Cuadro_Accionario_Documento"."Vigencia" "Vigencia"
+	,"Sociedad_Cuadro_Accionario_Documento"."Notas" "Notas"
+	,"Sociedad_Cuadro_Accionario_Documento"."Transaccion_Id" "Transaccion_Id"
+	,"Creado_Por"."UserName" "CreadoPorusername"
+	,"Sociedad_Cuadro_Accionario_Documento"."Fecha_Creacion" "Fecha_Creacion"
+	,"Actualizado_Por"."UserName" "ActualizadoPorusername"
+	,"Sociedad_Cuadro_Accionario_Documento"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Sociedad_Cuadro_Accionario_Documento"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Sociedad_Cuadro_Accionario_Documento"."Correo_Aviso_Fecha_Vencimiento" "Correo_Aviso_Fecha_Vencimiento"
+from "APP"."Sociedad_Cuadro_Accionario_Documento" "Sociedad_Cuadro_Accionario_Documento"
+	left join "APP"."Tipo_Documento" "Tipo_Documento_" on "Sociedad_Cuadro_Accionario_Documento"."Tipo_Documento_Id" = "Tipo_Documento_"."Tipo_Documento_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Sociedad_Cuadro_Accionario_Documento"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Creado_Por" on "Sociedad_Cuadro_Accionario_Documento"."Creado_Por_Id" = "Creado_Por"."UserId"
+	left join "dbo"."Usuario_V" "Actualizado_Por" on "Sociedad_Cuadro_Accionario_Documento"."Actualizado_Por_Id" = "Actualizado_Por"."UserId"
+]]></text>
+    </command>
+    <command id="Sociedad_Cuadro_Accionario_Documento_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Sociedad_Cuadro_Accionario_Documento_Id" />
+      </output>
+    </command>
+    <command type="Text" id="command2" custom="false">
+      <text><![CDATA[select
+	"Sociedad_Cuadro_Accionario_Documento"."Sociedad_Cuadro_Accionario_Documento_Id" "Sociedad_Cuadro_Accionario_Documento_Id"
+	,"Sociedad_Cuadro_Accionario_Documento"."Sociedad_Cuadro_Accionario_Id" "Sociedad_Cuadro_Accionario_Id"
+	,"Sociedad_Cuadro_Accionario_Documento"."Nombre_Documento" "Nombre_Documento"
+	,"Sociedad_Cuadro_Accionario_Documento"."Tipo_Documento_Id" "Tipo_Documento_Id"
+	,"Tipo_Documento_"."Tipo_Documento" "Tipo_Documento_Tipo_Documento"
+	,"Sociedad_Cuadro_Accionario_Documento"."Picture" "Picture"
+	,"Sociedad_Cuadro_Accionario_Documento"."PictureFileName" "PictureFileName"
+	,"Sociedad_Cuadro_Accionario_Documento"."PictureContentType" "PictureContentType"
+	,"Sociedad_Cuadro_Accionario_Documento"."PictureLength" "PictureLength"
+	,"Sociedad_Cuadro_Accionario_Documento"."Vigencia" "Vigencia"
+	,"Sociedad_Cuadro_Accionario_Documento"."Notas" "Notas"
+	,"Sociedad_Cuadro_Accionario_Documento"."Transaccion_Id" "Transaccion_Id"
+	,"Creado_Por"."UserName" "CreadoPorusername"
+	,"Sociedad_Cuadro_Accionario_Documento"."Fecha_Creacion" "Fecha_Creacion"
+	,"Actualizado_Por"."UserName" "ActualizadoPorusername"
+	,"Sociedad_Cuadro_Accionario_Documento"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Sociedad_Cuadro_Accionario_Documento"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Sociedad_Cuadro_Accionario_Documento"."Correo_Aviso_Fecha_Vencimiento" "Correo_Aviso_Fecha_Vencimiento"
+	,"Tipo_Documento_"."Aplica_Fecha_Vencimiento"
+from "APP"."Sociedad_Cuadro_Accionario_Documento" "Sociedad_Cuadro_Accionario_Documento"
+	left join "APP"."Tipo_Documento" "Tipo_Documento_" on "Sociedad_Cuadro_Accionario_Documento"."Tipo_Documento_Id" = "Tipo_Documento_"."Tipo_Documento_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Sociedad_Cuadro_Accionario_Documento"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Creado_Por" on "Sociedad_Cuadro_Accionario_Documento"."Creado_Por_Id" = "Creado_Por"."UserId"
+	left join "dbo"."Usuario_V" "Actualizado_Por" on "Sociedad_Cuadro_Accionario_Documento"."Actualizado_Por_Id" = "Actualizado_Por"."UserId"
+	left join "APP"."Sociedad_Cuadro_Accionario" "Sociedad_Cuadro_Accionario_" on "Sociedad_Cuadro_Accionario_"."Sociedad_Cuadro_Accionario_Id" = "Sociedad_Cuadro_Accionario_Documento"."Sociedad_Cuadro_Accionario_Id"
+	left join "APP"."Accionista" "Accionista_" on "Accionista_"."Accionista_Id" = "Sociedad_Cuadro_Accionario_"."Accionista_Id"
+	left join "APP"."Sociedad" "Sociedad_" on "Sociedad_"."Sociedad_Id" = "Sociedad_Cuadro_Accionario_"."Sociedad_Id"]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Sociedad_Cuadro_Accionario_Documento_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Sociedad Cuadro Accionario Documento Id" readOnly="true" />
+    <field name="Sociedad_Cuadro_Accionario_Id" type="Int32" allowNulls="false" default="((0))" label="Sociedad Cuadro Accionario Id" showInSummary="true">
+      <items style="Lookup" dataController="Sociedad_Cuadro_Accionario" dataView="Sociedad_Cuadro_Accionario_LookUp_List" dataValueField="Sociedad_Cuadro_Accionario_Id" dataTextField="Accionista_Sociedad" />
+    </field>
+    <field name="Nombre_Documento" type="String" allowNulls="false" default="('')" label="Nombre Documento" length="500" showInSummary="true" />
+    <field name="Tipo_Documento_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo Documento Id" showInSummary="true">
+      <items style="Lookup" dataController="Tipo_Documento" newDataView="createForm1" dataValueField="Tipo_Documento_Id" dataTextField="Tipo_Documento" dataView="Tipo_Documento_Sociedad_Cuadro_Accionario_LookUp_List" copy="Aplica_Fecha_Vencimiento=Aplica_Fecha_Vencimiento" />
+    </field>
+    <field name="Tipo_Documento_Tipo_Documento" type="String" readOnly="true" label="Tipo de Documento" length="150" />
+    <field name="Picture" type="Byte[]" onDemand="true" sourceFields="Sociedad_Cuadro_Accionario_Documento_Id" onDemandHandler="Sociedad_Cuadro_Accionario_DocumentoPicture" onDemandStyle="Thumbnail" allowQBE="false" allowSorting="false" label="Archivo" showInSummary="true" />
+    <field name="PictureFileName" type="String" label="Nombre del Archivo" length="250" showInSummary="true" />
+    <field name="PictureContentType" type="String" label="Tipo de Archivo" length="250" />
+    <field name="PictureLength" type="Int32" label="Tamaño de Archivo" />
+    <field name="Vigencia" type="DateTime" allowNulls="false" dataFormatString="d" label="Vigencia" />
+    <field name="Notas" type="String" allowQBE="false" allowSorting="false" label="Notas" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transaccion Id" length="50" />
+    <field name="CreadoPorusername" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Creación" />
+    <field name="ActualizadoPorusername" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha de Última Actualización" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus Registro" length="150" />
+    <field name="Correo_Aviso_Fecha_Vencimiento" type="String" label="Correo Aviso Fecha Vencimiento" length="1500" />
+    <field name="Aplica_Fecha_Vencimiento" type="Boolean" label="Aplica Fecha Vencimiento" isVirtual="true" />
+    <field name="Sociedad_Cuadro_Accionario_Accionista" type="String" label="Cuadro Accionario" isVirtual="true" length="150" computed="true">
+      <formula>"Sociedad_"."Sociedad" + ' - ' + "Accionista_"."Nombre_Completo"</formula>
+    </field>
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command2" label="Documentos de Cuadros Accionarios" showInSelector="false" filter="Estatus_Registro_Id=1" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Sociedad_Cuadro_Accionario_Id" aliasFieldName="Sociedad_Cuadro_Accionario_Accionista" />
+        <dataField fieldName="Nombre_Documento" />
+        <dataField fieldName="Tipo_Documento_Id" aliasFieldName="Tipo_Documento_Tipo_Documento" />
+        <dataField fieldName="Picture" columns="15" />
+        <dataField fieldName="PictureFileName" />
+        <dataField fieldName="PictureContentType" />
+        <dataField fieldName="PictureLength" columns="15" />
+        <dataField fieldName="Vigencia" columns="20" />
+        <dataField fieldName="Notas" rows="5" />
+        <dataField fieldName="Transaccion_Id" columns="50" hidden="true" />
+        <dataField fieldName="CreadoPorusername" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="ActualizadoPorusername" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Correo_Aviso_Fecha_Vencimiento" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command2" label="Revisar Documento" showInSelector="false">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Sociedad_Cuadro_Accionario_Id" aliasFieldName="Sociedad_Cuadro_Accionario_Accionista" />
+            <dataField fieldName="Nombre_Documento" />
+            <dataField fieldName="Tipo_Documento_Id" aliasFieldName="Tipo_Documento_Tipo_Documento" />
+            <dataField fieldName="Vigencia" columns="20">
+              <visibility>
+                <expression test="[Aplica_Fecha_Vencimiento]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Correo_Aviso_Fecha_Vencimiento">
+              <visibility>
+                <expression test="[Aplica_Fecha_Vencimiento]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Picture" columns="15" />
+            <dataField fieldName="PictureFileName" />
+            <dataField fieldName="PictureContentType" />
+            <dataField fieldName="PictureLength" columns="15" />
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="Aplica_Fecha_Vencimiento" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command2" label="Nuevo Documento" showInSelector="false">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="Sociedad_Cuadro_Accionario_Id" aliasFieldName="Sociedad_Cuadro_Accionario_Accionista" />
+            <dataField fieldName="Nombre_Documento" />
+            <dataField fieldName="Tipo_Documento_Id" aliasFieldName="Tipo_Documento_Tipo_Documento" />
+            <dataField fieldName="Vigencia" columns="20">
+              <visibility>
+                <expression test="[Aplica_Fecha_Vencimiento]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Correo_Aviso_Fecha_Vencimiento">
+              <visibility>
+                <expression test="[Aplica_Fecha_Vencimiento]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Picture" columns="15" />
+            <dataField fieldName="PictureFileName" />
+            <dataField fieldName="PictureContentType" />
+            <dataField fieldName="PictureLength" columns="15" />
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Aplica_Fecha_Vencimiento" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;">
+        <data><![CDATA[UPDATE
+	APP.Sociedad_Cuadro_Accionario_Documento
+SET
+	Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+        ,Actualizado_Por_Id = @BusinessRules_UserId	
+        ,Estatus_Registro_Id = 3
+WHERE
+	Sociedad_Cuadro_Accionario_Documento_Id= @Sociedad_Cuadro_Accionario_Documento_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;">
+        <data><![CDATA[UPDATE
+	APP.Sociedad_Cuadro_Accionario_Documento
+SET
+	Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+        ,Actualizado_Por_Id = @BusinessRules_UserId	
+        ,Estatus_Registro_Id = 3
+WHERE
+	Sociedad_Cuadro_Accionario_Documento_Id= @Sociedad_Cuadro_Accionario_Documento_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;">
+        <data><![CDATA[UPDATE
+	APP.Sociedad_Cuadro_Accionario_Documento
+SET
+	Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+        ,Actualizado_Por_Id = @BusinessRules_UserId	
+        ,Estatus_Registro_Id = 3
+WHERE
+	Sociedad_Cuadro_Accionario_Documento_Id= @Sociedad_Cuadro_Accionario_Documento_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;">
+        <data><![CDATA[UPDATE
+	APP.Sociedad_Cuadro_Accionario_Documento
+SET
+	Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+        ,Actualizado_Por_Id = @BusinessRules_UserId	
+        ,Estatus_Registro_Id = 3
+WHERE
+	Sociedad_Cuadro_Accionario_Documento_Id= @Sociedad_Cuadro_Accionario_Documento_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Sociedad_Cuadro_Accionario_Documento
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+        ,Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+        ,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Sociedad_Cuadro_Accionario_Documento_Id= @Sociedad_Cuadro_Accionario_Documento_Id
+]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Sociedad_Cuadro_Accionario_Documento
+SET
+	Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local](getdate(),-6)	
+        ,Actualizado_Por_Id = @BusinessRules_UserId	
+WHERE
+	Sociedad_Cuadro_Accionario_Documento_Id= @Sociedad_Cuadro_Accionario_Documento_Id]]></rule>
+  </businessRules>
+</dataController>

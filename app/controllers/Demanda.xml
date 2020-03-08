@@ -1,0 +1,642 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Demanda" conflictDetection="overwriteChanges" label="Demanda" handler="arhmexico.Rules.DemandaBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Lugar_Audiencia"."Lugar_Audiencia" "Lugar_Audiencia"
+	,"Demanda"."Demanda_Id" "Demanda_Id"
+	,"Demanda"."Contratado_Id" "Contratado_Id"
+	,"Demanda"."Contratante_Id" "Contratante_Id"
+	,"Contratante_"."Contratante" "Contratante_Contratante"
+	,"Demanda"."Cliente_Id" "Cliente_Id"
+	,"Cliente_"."Cliente" "Cliente"
+	,"Demanda"."Numero_Expediente" "Numero_Expediente"
+	,"Demanda"."Ciudad_Contratado_Id" "Ciudad_Contratado_Id"
+	,"Ciudad_Contratado_"."Ciudad" "Ciudad_Contratado_Ciudad"
+	,"Demanda"."Notas" "Notas"
+	,"Demanda"."Es_Demanda_Nueva" "Es_Demanda_Nueva"
+	,"Demanda"."Etapa_Demanda_Id" "Etapa_Demanda_Id"
+	,"Etapa_Demanda_"."Etapa_Demanda" "Etapa_Demanda_Etapa_Demanda"
+	,"Demanda"."Notas_Etapa" "Notas_Etapa"
+	,"Demanda"."Estatus_Demanda_Id" "Estatus_Demanda_Id"
+	,"Estatus_Demanda_"."Estatus_Demanda" "Estatus_Demanda_Estatus_Demanda"
+	,"Demanda"."Otras_Notas" "Otras_Notas"
+	,"Demanda"."Transaccion_Id" "Transaccion_Id"
+	,"Demanda"."Fecha_Creacion" "Fecha_Creacion"
+	,"Demanda"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Demanda"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"cpUsuario_V"."UserName" "cpUserName"
+	,"apUsuario_V"."UserName" "apUserName"
+	,"Persona_V"."Persona_Nombre" "Contratado_Persona_Nombre_Completo"
+	,"Demanda"."Lugar_Audiencia_Id" "Lugar_Audiencia_Id"
+	,"Demanda"."Monto_Demanda" "Monto_Demanda"
+	,"Demanda"."Finiquito_Id" "Finiquito_Id"
+	,"Demanda"."Fecha_Y_Hora_Audiencia" "Fecha_Y_Hora_Audiencia"
+	,"Demanda"."Monto_Convenio" "Monto_Convenio"
+	,"Demanda"."Salario_Demanda" "Salario_Demanda"
+	,"Demanda"."Salario_Caido" "Salario_Caido"
+	,"Demanda"."Vacaciones" "Vacaciones"
+	,"Demanda"."Prima_Vacacional" "Prima_Vacacional"
+	,"Demanda"."Prima_Antiguedad" "Prima_Antiguedad"
+	,"Demanda"."Aguinaldo" "Aguinaldo"
+	,"Demanda"."Tiempo_Extra" "Tiempo_Extra"
+	,"Demanda"."Fondo_Ahorro" "Fondo_Ahorro"
+	,"Demanda"."Utilidades" "Utilidades"
+	,"Demanda"."Septimo_Dia" "Septimo_Dia"
+	,"Demanda"."Premio_De_Asistencia_Y_Puntualidad" "Premio_De_Asistencia_Y_Puntualidad"
+	,"Demanda"."Pago_Dia_Festivo" "Pago_Dia_Festivo"
+	,"Demanda"."Monto_Contingencia_Laboral" "Monto_Contingencia_Laboral"
+	,"Demanda"."Porcentaje_Ahorro" "Porcentaje_Ahorro"
+	,"Demanda"."Otros" "Otros"
+	,"Demanda"."Fecha_Demanda" "Fecha_Demanda"
+	,"Demanda"."Paga_Cliente" "Paga_Cliente"
+from "APP"."Demanda" "Demanda"
+	left join "APP"."Contratante" "Contratante_" on "Demanda"."Contratante_Id" = "Contratante_"."Contratante_Id"
+	left join "APP"."Cliente" "Cliente_" on "Demanda"."Cliente_Id" = "Cliente_"."Cliente_Id"
+	left join "APP"."Ciudad" "Ciudad_Contratado_" on "Demanda"."Ciudad_Contratado_Id" = "Ciudad_Contratado_"."Ciudad_Id"
+	left join "APP"."Etapa_Demanda" "Etapa_Demanda_" on "Demanda"."Etapa_Demanda_Id" = "Etapa_Demanda_"."Etapa_Demanda_Id"
+	left join "APP"."Estatus_Demanda" "Estatus_Demanda_" on "Demanda"."Estatus_Demanda_Id" = "Estatus_Demanda_"."Estatus_Demanda_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Demanda"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "cpUsuario_V" on "Demanda"."Creado_Por_Id" = "cpUsuario_V"."UserId"
+	left join "dbo"."Usuario_V" "apUsuario_V" on "Demanda"."Actualizado_Por_Id" = "apUsuario_V"."UserId"
+	left join "APP"."Contratado" "Contratado" on "Demanda"."Contratado_Id" = "Contratado"."Contratado_Id"
+	left join "dbo"."Persona_V" "Persona_V" on "Contratado"."Persona_Id" = "Persona_V"."Persona_Id"
+	left join "APP"."Lugar_Audiencia" "Lugar_Audiencia" on "Demanda"."Lugar_Audiencia_Id" = "Lugar_Audiencia"."Lugar_Audiencia_Id"
+]]></text>
+    </command>
+    <command id="Demanda_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Demanda_Id" />
+      </output>
+    </command>
+    <command type="Text" id="Grid_Demanda_V" custom="false">
+      <text><![CDATA[SELECT
+	Demanda_Id
+	,Finiquito_Id
+	,Monto_Demanda
+	,Fecha_Y_Hora_Audiencia
+	,Cliente
+	,Contratante_Contratante
+	,Contratado_Persona_Nombre_Completo
+	,Numero_Expediente
+	,Es_Demanda_Nueva
+	,Fecha_Creacion
+	,Fecha_Ultima_Actualizacion
+	,Estatus_Registro_Id	
+	,Monto_Convenio
+	,Salario_Demanda
+	,Salario_Caido
+	,Vacaciones
+	,Prima_Vacacional
+	,Prima_Antiguedad
+	,Aguinaldo
+	,Tiempo_Extra
+	,Fondo_Ahorro
+	,Utilidades
+	,Septimo_Dia
+	,Premio_De_Asistencia_Y_Puntualidad
+	,Pago_Dia_Festivo
+	,Porcentaje_Ahorro
+	,Otros			
+	,Monto_Contingencia_Laboral
+	,Fecha_Demanda
+	,Estatus_Demanda_Estatus_Demanda
+	,Etapa_Demanda_Etapa_Demanda
+	,cpUserName
+	,apUserName
+	,Estatus_Registro_Estatus_Registro
+FROM 
+	dbo.Grid_Demanda_V
+
+
+]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Lugar_Audiencia" type="String" readOnly="true" label="Lugar Audiencia" length="150" />
+    <field name="Demanda_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Demanda Id" readOnly="true" />
+    <field name="Contratado_Id" type="Int32" allowNulls="false" default="((0))" label="Contratado Id" showInSummary="true" contextFields="Contratante_Id=Contratante_Id">
+      <items style="Lookup" dataController="Contratado_Admin" newDataView="createForm1" dataValueField="Contratado_Id" dataView="Contratado_Admin_LookUp_List" copy="Ciudad_Contratado_Id=Ciudad_Contratado_Id,&#xD;&#xA;Ciudad_Contratado_Ciudad=Ciudad_Contratado_Ciudad" dataTextField="Persona_Nombre" />
+    </field>
+    <field name="Contratante_Id" type="Int32" allowNulls="false" default="((0))" label="Contratante Id" showInSummary="true" contextFields="Cliente_Id=Cliente_Id">
+      <items style="Lookup" dataController="Contratante" newDataView="createForm1" dataValueField="Contratante_Id" dataTextField="Contratante" dataView="Contratante_Admin_LookUp_List" />
+    </field>
+    <field name="Contratante_Contratante" type="String" readOnly="true" label="Contratante" length="150" />
+    <field name="Cliente_Id" type="Int32" allowNulls="false" default="((0))" label="Cliente Id" showInSummary="true">
+      <items style="Lookup" dataController="Cliente" newDataView="createForm1" dataValueField="Cliente_Id" dataTextField="Cliente" dataView="Cliente_Admin_LookUp_List" />
+    </field>
+    <field name="Cliente" type="String" readOnly="true" label="Cliente" length="150" />
+    <field name="Numero_Expediente" type="String" allowNulls="false" default="((0))" label="Número de Expediente" length="20" showInSummary="true" />
+    <field name="Ciudad_Contratado_Id" type="Int32" allowNulls="false" default="((0))" label="Ciudad Contratado Id" showInSummary="true">
+      <items style="Lookup" dataController="Ciudad" newDataView="createForm1" dataValueField="Ciudad_Id" dataTextField="Ciudad" dataView="Ciudad_LookUp_List" />
+    </field>
+    <field name="Ciudad_Contratado_Ciudad" type="String" readOnly="true" label="Ciudad de Radicación del Contratado" length="150" />
+    <field name="Notas" type="String" default="('')" allowQBE="false" allowSorting="false" label="Otras Notas" />
+    <field name="Es_Demanda_Nueva" type="Boolean" allowNulls="false" default="((0))" label="¿Es Demanda Nueva?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Etapa_Demanda_Id" type="Int32" allowNulls="false" default="((0))" label="Etapa Demanda Id">
+      <items style="Lookup" dataController="Etapa_Demanda" newDataView="createForm1" dataValueField="Etapa_Demanda_Id" dataTextField="Etapa_Demanda" dataView="Etapa_Demanda_LookUp_List" />
+    </field>
+    <field name="Etapa_Demanda_Etapa_Demanda" type="String" readOnly="true" label="Etapa de Demanda" length="150" />
+    <field name="Notas_Etapa" type="String" default="('')" allowQBE="false" allowSorting="false" label="Notas Etapa" />
+    <field name="Estatus_Demanda_Id" type="Int32" allowNulls="false" default="((0))" label="Estatus Demanda Id">
+      <items style="Lookup" dataController="Estatus_Demanda" newDataView="createForm1" dataValueField="Estatus_Demanda_Id" dataTextField="Estatus_Demanda" dataView="Estatus_Demanda_LookUp_List" />
+    </field>
+    <field name="Estatus_Demanda_Estatus_Demanda" type="String" readOnly="true" label="Estatus de Demanda" length="150" />
+    <field name="Otras_Notas" type="String" default="('')" allowQBE="false" allowSorting="false" label="Notas Audencia" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transación Id" length="50" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Contratado_Persona_Nombre_Completo" type="String" readOnly="true" label="Contratado" length="603" />
+    <field name="Lugar_Audiencia_Id" type="Int32" allowNulls="false" default="((0))" label="Lugar Audiencia Id">
+      <items style="Lookup" dataController="Lugar_Audiencia" newDataView="createForm1" dataValueField="Lugar_Audiencia_Id" dataTextField="Lugar_Audiencia" dataView="Lugar_Audiencia_LookUp_List" />
+    </field>
+    <field name="Monto_Demanda" type="Decimal" allowNulls="false" default="((0))" label="Monto de Demanda" dataFormatString="c2" causesCalculate="true" />
+    <field name="Finiquito_Id" type="Int32" allowNulls="false" default="((0))" label="Finiquito Id">
+      <items style="Lookup" dataController="Finiquito" dataView="Finiquito_LookUp_List" dataTextField="Finiquito_Id" dataValueField="Finiquito_Id" newDataView="createForm1" />
+    </field>
+    <field name="Fecha_Y_Hora_Audiencia" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha y Hora de Audiencia" causesCalculate="true" />
+    <field name="Monto_Convenio" type="Decimal" allowNulls="false" dataFormatString="c2" default="((0))" label="Monto Convenio" causesCalculate="true" />
+    <field name="Salario_Demanda" type="Decimal" allowNulls="false" dataFormatString="c2" default="((0))" label="Salario Demanda" causesCalculate="true" />
+    <field name="Salario_Caido" type="Decimal" allowNulls="false" dataFormatString="c2" default="((0))" label="Salario Caido" causesCalculate="true" />
+    <field name="Vacaciones" type="Decimal" allowNulls="false" dataFormatString="c2" default="((0))" label="Vacaciones" causesCalculate="true" />
+    <field name="Prima_Vacacional" type="Decimal" allowNulls="false" dataFormatString="c2" default="((0))" label="Prima Vacacional" causesCalculate="true" />
+    <field name="Prima_Antiguedad" type="Decimal" allowNulls="false" dataFormatString="c2" default="((0))" label="Prima Antiguedad" causesCalculate="true" />
+    <field name="Aguinaldo" type="Decimal" allowNulls="false" dataFormatString="c2" default="((0))" label="Aguinaldo" causesCalculate="true" />
+    <field name="Tiempo_Extra" type="Decimal" allowNulls="false" dataFormatString="c2" default="((0))" label="Tiempo Extra" causesCalculate="true" />
+    <field name="Fondo_Ahorro" type="Decimal" allowNulls="false" dataFormatString="c2" default="((0))" label="Fondo Ahorro" causesCalculate="true" />
+    <field name="Utilidades" type="Decimal" allowNulls="false" dataFormatString="c2" default="((0))" label="Utilidades" causesCalculate="true" />
+    <field name="Septimo_Dia" type="Decimal" allowNulls="false" dataFormatString="c2" default="((0))" label="Séptimo Día" causesCalculate="true" />
+    <field name="Premio_De_Asistencia_Y_Puntualidad" type="Decimal" allowNulls="false" dataFormatString="c2" default="((0))" label="Premio de Asistencia y Puntualidad" causesCalculate="true" />
+    <field name="Pago_Dia_Festivo" type="Decimal" allowNulls="false" dataFormatString="c2" default="((0))" label="Pago de Día Festivo" causesCalculate="true" />
+    <field name="Monto_Contingencia_Laboral" type="Decimal" allowNulls="false" dataFormatString="c2" label="Monto de Contingencia Laboral" causesCalculate="true" />
+    <field name="Porcentaje_Ahorro" type="Decimal" label="Porcentaje de Ahorro" allowNulls="false" dataFormatString="p" causesCalculate="true">
+      <formula />
+    </field>
+    <field name="Otros" type="Decimal" allowNulls="false" dataFormatString="c2" default="((0))" label="Otros" causesCalculate="true" />
+    <field name="Fecha_Demanda" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Demanda" causesCalculate="true" />
+    <field name="Paga_Cliente" type="Boolean" allowNulls="false" default="((0))" label="Paga Cliente">
+      <items style="CheckBox" />
+    </field>
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="Grid_Demanda_V" label="Demanda" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" filter="Estatus_Registro_Id &lt;&gt; 0" sortExpression="Contratado_Persona_Nombre_Completo">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Demanda_Id" columns="15" hidden="true" />
+        <dataField fieldName="Finiquito_Id" columns="15" aliasFieldName="Finiquito_Id" />
+        <dataField fieldName="Numero_Expediente" columns="20" />
+        <dataField fieldName="Es_Demanda_Nueva" />
+        <dataField fieldName="Cliente" rows="5" hidden="true" />
+        <dataField fieldName="Contratante_Contratante" rows="5" hidden="true" />
+        <dataField fieldName="Contratado_Persona_Nombre_Completo" rows="5" hidden="true" />
+        <dataField fieldName="Monto_Demanda" columns="15" aggregate="Sum" />
+        <dataField fieldName="Fecha_Y_Hora_Audiencia" columns="20" />
+        <dataField fieldName="Monto_Convenio" columns="15" />
+        <dataField fieldName="Salario_Demanda" columns="15" />
+        <dataField fieldName="Salario_Caido" columns="15" />
+        <dataField fieldName="Vacaciones" columns="15" />
+        <dataField fieldName="Prima_Vacacional" columns="15" />
+        <dataField fieldName="Prima_Antiguedad" columns="15" />
+        <dataField fieldName="Aguinaldo" columns="15" />
+        <dataField fieldName="Tiempo_Extra" columns="15" />
+        <dataField fieldName="Fondo_Ahorro" columns="15" />
+        <dataField fieldName="Utilidades" columns="15" />
+        <dataField fieldName="Septimo_Dia" columns="15" />
+        <dataField fieldName="Premio_De_Asistencia_Y_Puntualidad" columns="15" />
+        <dataField fieldName="Pago_Dia_Festivo" columns="15" />
+        <dataField fieldName="Monto_Contingencia_Laboral" columns="15" />
+        <dataField fieldName="Porcentaje_Ahorro" columns="15" />
+        <dataField fieldName="Otros" columns="15" />
+        <dataField fieldName="Paga_Cliente" />
+        <dataField fieldName="Fecha_Demanda" columns="10" />
+        <dataField fieldName="apUserName" rows="5" />
+        <dataField fieldName="Estatus_Demanda_Estatus_Demanda" rows="5" />
+        <dataField fieldName="Etapa_Demanda_Etapa_Demanda" rows="5" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="10" />
+        <dataField fieldName="cpUserName" rows="5" />
+        <dataField fieldName="Fecha_Creacion" columns="10" />
+        <dataField fieldName="Estatus_Registro_Estatus_Registro" rows="5" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Contratado_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Demanda" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Datos Generales" tab="Datos Generales" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Ciudad_Contratado_Id" columns="15" aliasFieldName="Ciudad_Contratado_Ciudad">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Demanda_Id" columns="15" hidden="true" />
+            <dataField fieldName="Cliente_Id" columns="15" aliasFieldName="Cliente" hidden="true" />
+            <dataField fieldName="Contratante_Id" columns="15" aliasFieldName="Contratante_Contratante" hidden="true" />
+            <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Contratado_Persona_Nombre_Completo" hidden="true" />
+            <dataField fieldName="Numero_Expediente" columns="20" />
+            <dataField fieldName="Es_Demanda_Nueva" />
+            <dataField fieldName="Finiquito_Id" columns="15" aliasFieldName="Finiquito_Id" />
+          </dataFields>
+        </category>
+        <category headerText="Prestaciones" tab="Prestaciones" id="Prestaciones">
+          <dataFields>
+            <dataField fieldName="Salario_Demanda" columns="15" />
+            <dataField fieldName="Salario_Caido" columns="15" />
+            <dataField fieldName="Vacaciones" columns="15" />
+            <dataField fieldName="Prima_Antiguedad" columns="15" />
+            <dataField fieldName="Prima_Vacacional" columns="15" />
+            <dataField fieldName="Otros" columns="15" />
+            <dataField fieldName="Monto_Contingencia_Laboral" columns="15" />
+            <dataField fieldName="Aguinaldo" columns="15" />
+            <dataField fieldName="Tiempo_Extra" columns="15" />
+            <dataField fieldName="Fondo_Ahorro" columns="15" />
+            <dataField fieldName="Utilidades" columns="15" />
+            <dataField fieldName="Septimo_Dia" columns="15" />
+            <dataField fieldName="Monto_Demanda" columns="15" />
+            <dataField fieldName="Monto_Convenio" columns="15" />
+            <dataField fieldName="Porcentaje_Ahorro" columns="15" />
+            <dataField fieldName="Premio_De_Asistencia_Y_Puntualidad" columns="15" />
+            <dataField fieldName="Pago_Dia_Festivo" columns="15" />
+          </dataFields>
+        </category>
+        <category headerText="Audiencia" tab="Audiencia" id="c2">
+          <dataFields>
+            <dataField fieldName="Lugar_Audiencia_Id" aliasFieldName="Lugar_Audiencia" />
+            <dataField fieldName="Fecha_Demanda" columns="10" />
+            <dataField fieldName="Fecha_Y_Hora_Audiencia" columns="20" />
+            <dataField fieldName="Etapa_Demanda_Id" columns="15" aliasFieldName="Etapa_Demanda_Etapa_Demanda" />
+            <dataField fieldName="Notas_Etapa" rows="5" />
+            <dataField fieldName="Estatus_Demanda_Id" columns="15" aliasFieldName="Estatus_Demanda_Estatus_Demanda" />
+            <dataField fieldName="Otras_Notas" rows="5" />
+          </dataFields>
+        </category>
+        <category headerText="Otros" tab="Otros" id="c3">
+          <dataFields>
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Estatus_Registro_Id" columns="15" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nueva Demanda" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Datos Generales" tab="Datos Generales" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Cliente_Id" columns="15" aliasFieldName="Cliente" hidden="true" />
+            <dataField fieldName="Contratante_Id" columns="15" aliasFieldName="Contratante_Contratante" hidden="true" />
+            <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Contratado_Persona_Nombre_Completo" hidden="true" />
+            <dataField fieldName="Numero_Expediente" columns="20" />
+            <dataField fieldName="Ciudad_Contratado_Id" columns="15" aliasFieldName="Ciudad_Contratado_Ciudad" />
+            <dataField fieldName="Es_Demanda_Nueva" />
+            <dataField fieldName="Finiquito_Id" columns="15" aliasFieldName="Finiquito_Id" />
+          </dataFields>
+        </category>
+        <category headerText="Prestaciones" tab="Prestaciones" id="Prestaciones">
+          <dataFields>
+            <dataField fieldName="Monto_Demanda" columns="15" />
+            <dataField fieldName="Monto_Convenio" columns="15" />
+            <dataField fieldName="Porcentaje_Ahorro" columns="15" />
+            <dataField fieldName="Premio_De_Asistencia_Y_Puntualidad" columns="15" />
+            <dataField fieldName="Fondo_Ahorro" columns="15" />
+            <dataField fieldName="Utilidades" columns="15" />
+            <dataField fieldName="Septimo_Dia" columns="15" />
+            <dataField fieldName="Pago_Dia_Festivo" columns="15" />
+            <dataField fieldName="Salario_Demanda" columns="15" />
+            <dataField fieldName="Salario_Caido" columns="15" />
+            <dataField fieldName="Vacaciones" columns="15" />
+            <dataField fieldName="Aguinaldo" columns="15" />
+            <dataField fieldName="Tiempo_Extra" columns="15" />
+            <dataField fieldName="Prima_Antiguedad" columns="15" />
+            <dataField fieldName="Prima_Vacacional" columns="15" />
+            <dataField fieldName="Otros" columns="15" />
+            <dataField fieldName="Monto_Contingencia_Laboral" columns="15" />
+          </dataFields>
+        </category>
+        <category headerText="Audiencia" tab="Audiencia" id="c2">
+          <dataFields>
+            <dataField fieldName="Lugar_Audiencia_Id" aliasFieldName="Lugar_Audiencia" />
+            <dataField fieldName="Fecha_Demanda" columns="10" />
+            <dataField fieldName="Fecha_Y_Hora_Audiencia" columns="20" />
+            <dataField fieldName="Etapa_Demanda_Id" columns="15" aliasFieldName="Etapa_Demanda_Etapa_Demanda" />
+            <dataField fieldName="Notas_Etapa" rows="5" />
+            <dataField fieldName="Estatus_Demanda_Id" columns="15" aliasFieldName="Estatus_Demanda_Estatus_Demanda" />
+            <dataField fieldName="Otras_Notas" rows="5" />
+          </dataFields>
+        </category>
+        <category headerText="Otros" tab="Otros" id="c3">
+          <dataFields>
+            <dataField fieldName="Notas" rows="5" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" confirmation="¿Esta seguro que desea continuar?" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Demanda
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Demanda_Id= @Demanda_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" confirmation="¿Esta seguro que desea continuar?" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Demanda
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Demanda_Id= @Demanda_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Demanda
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Demanda_Id= @Demanda_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Demanda
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Demanda_Id= @Demanda_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r104" commandName="New" type="Sql" phase="Execute"><![CDATA[SELECT
+TOP 1
+@Estatus_Demanda_Id=Estatus_Demanda_Id
+,@Estatus_Demanda_Estatus_Demanda = Estatus_Demanda
+FROM
+APP.Estatus_Demanda
+WHERE
+Es_Activa = 1
+AND Estatus_Registro_Id = 1
+
+SELECT
+TOP 1
+@Cliente_Id = f.Cliente_Id
+,@Cliente = c.Cliente
+,@Contratante_Id = f.Contratante_Id
+,@Contratante_Contratante = cn.Contratante
+,@Contratado_Id = f.Contratado_Id
+,@Contratado_Persona_Nombre_Completo = p.Persona_Nombre
+FROM
+APP.Finiquito f
+,APP.Cliente c
+,APP.Contratante cn
+,APP.Contratado cr
+,dbo.Persona_V p
+WHERE
+f.Finiquito_Id = @Finiquito_Id
+AND c.Cliente_Id = f.Cliente_Id
+AND cn.Contratante_Id = f.Contratante_Id
+AND cr.Contratado_Id = f.Contratado_Id
+AND p.Persona_Id = cr.Persona_Id
+
+
+SELECT
+TOP 1 @Lugar_Audiencia_Id= Lugar_Audiencia_Id
+,@Lugar_Audiencia = Lugar_Audiencia
+FROM APP.Lugar_Audiencia
+WHERE
+Lugar_Audiencia_Id = 0 
+
+SET @Fecha_Y_Hora_Audiencia = '01/01/1900 00:00:00'
+SET @Fecha_Demanda = '01/01/1900 00:00:00'
+
+SELECT
+TOP 1 @Etapa_Demanda_Id = Etapa_Demanda_Id
+,@Etapa_Demanda_Etapa_Demanda = Etapa_Demanda
+FROM
+APP.Etapa_Demanda
+WHERE
+Etapa_Demanda_Id = 0
+
+SET @Monto_Demanda = 0
+SET @Monto_Convenio = 0
+SET @Salario_Demanda = 0
+SET @Salario_Caido = 0
+SET @Vacaciones = 0
+SET @Prima_Vacacional = 0
+SET @Prima_Antiguedad = 0
+SET @Aguinaldo = 0
+SET @Tiempo_Extra = 0
+SET @Fondo_Ahorro = 0
+SET @Utilidades = 0
+SET @Septimo_Dia = 0
+SET @Premio_De_Asistencia_Y_Puntualidad = 0
+SET @Pago_Dia_Festivo = 0
+SET @Fecha_Y_Hora_Audiencia = '01/01/1999'
+SET @Fecha_Demanda = '01/01/1999'
+
+
+
+
+
+]]></rule>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+DECLARE @Se_Permite_Concluir BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Demanda
+	WHERE
+		Contratado_Id = @Contratado_Id
+    AND Numero_Expediente = @Numero_Expediente
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe este registro de demanda para este contratado en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya existe este registro de demanda para este contratado en la base de datos, favor de corregir.'
+   RETURN
+END
+
+SELECT 
+	@Se_Permite_Concluir = Permitir_Concluir
+FROM
+	APP.Etapa_Demanda
+WHERE
+	Etapa_Demanda_Id = @Etapa_Demanda_Id
+	
+IF @Se_Permite_Concluir <> 1 AND @Estatus_Demanda_Id = 1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Solo se permite "Concluir" demanda cuando la etapa es "Convenio" ó "Desistimiento".'
+   SET @Result_ShowAlert = 'Solo se permite "Concluir" demanda cuando la etapa es "Convenio" ó "Desistimiento".'
+   RETURN
+END
+
+
+
+]]></rule>
+    <rule id="r101" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Demanda
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Demanda_Id= @Demanda_Id]]></rule>
+    <rule id="r102" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+DECLARE @Se_Permite_Concluir BIT
+
+SET @Se_Permite_Concluir = 1
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Demanda
+	WHERE
+  		Contratado_Id = @Contratado_Id
+        AND Numero_Expediente = @Numero_Expediente
+		AND Demanda_Id <> @Demanda_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe este registro de demanda para este contratado en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya existe este registro de demanda para este contratado en la base de datos, favor de corregir.'
+   RETURN
+END
+
+
+IF @Estatus_Demanda_Id = 0 
+	SET @Se_Permite_Concluir=1
+	
+SELECT 
+	@Se_Permite_Concluir = Permitir_Concluir
+FROM
+	APP.Etapa_Demanda
+WHERE
+	Etapa_Demanda_Id = @Etapa_Demanda_Id
+	
+IF @Se_Permite_Concluir <> 1 AND @Estatus_Demanda_Id = 1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Solo se permite "Concluir" demanda cuando la etapa es "Convenio" ó "Desistimiento".'
+   SET @Result_ShowAlert = 'Solo se permite "Concluir" demanda cuando la etapa es "Convenio" ó "Desistimiento".'
+   RETURN
+END
+
+
+
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Demanda
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Demanda_Id = @Demanda_Id]]></rule>
+    <rule id="r105" commandName="Calculate" type="Sql" phase="Execute"><![CDATA[DECLARE @resto_conceptos NUMERIC(15,4)
+DECLARE @diferencia_dias INT
+
+SET @resto_conceptos=@Salario_Demanda+@Salario_Caido+@Vacaciones+@Prima_Vacacional+@Prima_Antiguedad+@Aguinaldo+@Tiempo_Extra+@Fondo_Ahorro+@Utilidades+@Septimo_Dia+@Premio_De_Asistencia_Y_Puntualidad+@Pago_Dia_Festivo+@Porcentaje_Ahorro+@Otros
+
+SET @diferencia_dias=DATEDIFF(DAY, @Fecha_Demanda,@Fecha_Y_Hora_Audiencia)
+
+
+SET @Monto_Contingencia_Laboral=((@Salario_Demanda*@diferencia_dias)+@resto_conceptos)
+
+SET @Porcentaje_Ahorro = ( (@Monto_Demanda - @Monto_Convenio)/ @Monto_Demanda );
+
+]]></rule>
+  </businessRules>
+</dataController>

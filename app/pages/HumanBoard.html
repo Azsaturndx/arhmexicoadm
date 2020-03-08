@@ -1,0 +1,301 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Human Board</title>
+</head>
+
+<body data-authorize-roles="*">
+    <div data-app-role="page" data-content-framework="bootstrap">
+
+        <!-- JS Files -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.es.min.js"></script>
+        <script src="../js/jquery.html-svg-connect.js"></script>
+
+        <!-- CSS Files -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
+        <link rel="stylesheet" href="../css/estilos.css">
+
+        <!-- Contenedor de líneas para el módulo inferior -->
+        <div id="lines">
+            <div id="line-segundo-nivel"></div>
+        </div>
+
+        
+
+        <!-- Preloader -->
+        <div id="page-loader"><span class="preloader-interior"></span></div>
+
+        <!-- #wrapper -->
+        <div id="wrapper">
+
+            <!-- #sidebar-wrapper -->
+            <div id="sidebar-wrapper" class="bscrollbar">
+                <ul class="sidebar-nav">
+
+                    <!-- Título -->
+                    <li class="sidebar-brand">
+                        <h3 class="text-arh"><strong>SIDE BAR</strong></h3>
+                    </li>
+
+                    <!-- Calendario -->
+                    <li>
+                        <div class="container-fluid">
+                            <div id="calendar"></div>
+                        </div>
+                    </li>
+
+                    <!-- Anuncios -->
+                    <li>
+                        <div class="container-fluid">
+                            <div class="row" id="Contenedor_Anuncios">
+                                <!-- Aquí se insertarán los Anuncios que se obtengan de la db -->
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /#sidebar-wrapper -->
+
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+
+                <!-- Sección: Datos Generales. -->
+                <div class="container-fluid">
+
+                    <!-- Row 1 - Datos Generales -->
+                    <div class="row my-row">
+
+                        <!-- Imagen de Perfil -->
+                        <div class="col-lg-3 col-md-5 col-sm-5 col-xs-12" id="imagen-contenedor">
+                            <div id="foto-usuario" class="m-auto background"></div>
+                        </div>
+                        <!-- /Imagen de Perfil -->
+
+                        <!-- Información Basica -->
+                        <div class="col-lg-7 col-md-4 col-sm-4 col-xs-12 mt-2">
+                            <h3 id="nombre-completo" class="text-arh text-bold">KAREN SANTOSCOY GARCÍA</h3>
+                            <p class="mt-4">
+                                <span>Dirección</span> <br>
+                                <span id="e-mail">dsantoscoy@arhmexico.com</span> <br>
+                                <span id="telefono">8119964096</span> <br>
+                                RFC: <span id="rfc">XXXXXXXXXXXX</span> <br>
+                            </p>
+                            <p class="mt-3" id="direccion-contenedor">
+                                <span id="direccion"></span>
+                            </p>
+                            <a href="" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                        </div>
+                        <!-- /Información Basica -->
+
+                        <!-- Estatus de registro -->
+                        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 text-right pt-4">
+                            <div id="estatus-registro" class="estatus-activo mr-2">ACTIVO</div>
+                        </div>
+                        <!-- /Estatus de registro -->
+
+                    </div>
+                    <!-- /Row 1 - Datos Generales -->
+
+                    <!-- Row 2 - Separador -->
+                    <div class="row">
+                        <hr style="border-color: #5DAD9A;" />
+                    </div>
+                    <!-- /Row 2 - Separador -->
+
+                </div>
+                <!-- /Sección: Datos Generales. -->
+
+                <!-- Sección: Asignación. -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="modulo-datos">
+                                <div class="row">
+
+                                    <!-- #nivel-1 -->
+                                    <div class="col-md-4 col-lg-4" id="nivel-1">
+                                        <div class="row">
+                                            <div class="col-lg-12 card-wrapper bscrollbar" id="nivel-1_wrapper">
+
+                                                <!-- Estos elementos son predefinidos -->
+                                                <div class="row">
+                                                    <div class="col-lg-10 col-lg-offset-1">
+                                                        <div class="item" id="datos-personales">
+                                                            <div class="nivel-1__titulo-item">
+                                                                <i class="fa fa-user nivel-1__icono-item"></i>
+                                                                &nbsp;
+                                                                <span class="texto-detalle text-bold">Datos personales</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-10 col-lg-offset-1">
+                                                        <div class="item" id="datos-laborales">
+                                                            <div class="nivel-1__titulo-item">
+                                                                <i class="fa fa-briefcase nivel-1__icono-item"></i>
+                                                                &nbsp;
+                                                                <span class="texto-detalle text-bold">Datos laborales</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-10 col-lg-offset-1">
+                                                        <div class="item" id="vacaciones">
+                                                            <div class="nivel-1__titulo-item">
+                                                                <i class="fa fa-snowflake nivel-1__icono-item"></i>
+                                                                &nbsp;
+                                                                <span class="texto-detalle text-bold">Vacaciones</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-10 col-lg-offset-1">
+                                                        <div class="item" id="solicitud-gastos">
+                                                            <div class="nivel-1__titulo-item">
+                                                                <i class="fa fa-coins nivel-1__icono-item"></i>
+                                                                &nbsp;
+                                                                <span class="texto-detalle text-bold">Solicitud de gastos</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /#nivel-1 -->
+
+                                    <!-- #nivel-2 -->
+                                    <div class="col-md-4 col-lg-4" id="nivel-2">
+                                        <div class="row mb-3">
+                                            <div class="col-lg-10 col-lg-offset-1 card-wrapper bscrollbar"
+                                                id="nivel-2_wrapper">
+
+                                                <!-- Estos elementos son de cierta forma predefinidos -->
+                                                <div class="row">
+                                                    <div id="nivel-2-educacion" class="col-lg-12 nivel-2-item">
+                                                        <p class="nivel-2-item__text">Mi educación</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div id="nivel-2-pasatiempos" class="col-lg-12 nivel-2-item">
+                                                        <p class="nivel-2-item__text">Mis pasatiempos</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div id="nivel-2-documentos" class="col-lg-12 nivel-2-item">
+                                                        <p class="nivel-2-item__text">Mis documentos</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <a id="edit-perfil" href="">
+                                                    <div class="col-lg-12 nivel-2-item">
+                                                        <p class="nivel-2-item__text">Editar perfil</p>
+                                                    </div>
+                                                    </a>
+                                                </div>
+
+                                                <div class="row">
+                                                    <a href="/pages/contratados">
+                                                    <div class="col-lg-12 nivel-2-item">
+                                                        <p class="nivel-2-item__text">Ver más...</p>
+                                                    </div>
+                                                    </a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /#nivel-2 -->
+
+                                    <!-- #nivel-3 -->
+                                    <div class="col-md-4 col-lg-4" id="nivel-3">
+                                        <div class="row">
+                                            <div class="col-lg-12 card-wrapper bscrollbar" id="nivel-3_wrapper">
+
+                                                <div class="row">
+
+                                                    <div class="col-lg-9 nivel-3-header">
+                                                        <p class="nivel-3-header__text">Bachelor of arts</p>
+                                                    </div>
+
+                                                    <div class="col-lg-3 nivel-3-header-button nivel-3-header">
+                                                        <a id="edit-perfil-l3" class="nivel-3-header-button__text">Editar</a>
+                                                    </div>
+
+                                                </div>
+
+                                                <div id="nivel-3_body">
+                                                <!-- Ejemplo de un elemento (Habrán n cantidad.) -->
+                                                    <div class="row">
+                                                        <div class="col-lg-12 nivel-3-item">
+                                                            <h4>TIPO CONTRATADO:</h4>
+                                                            <h5>Proveedor</h5>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-lg-12 nivel-3-item">
+                                                            <h4>TIPO DE EMPLEADO:</h4>
+                                                            <h5>Proveedor</h5>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-lg-12 nivel-3-item">
+                                                            <h4>CLIENTE:</h4>
+                                                            <h5>Proveedor</h5>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-lg-12 nivel-3-item">
+                                                            <h4>TIPO CONTRATADO:</h4>
+                                                            <h5>Proveedor</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /#nivel-3 -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Sección: Asignación. -->
+
+            </div>
+            <!-- /#page-content-wrapper -->
+
+        </div>
+        <!-- /#wrapper -->
+
+        <script src="../js/human_board.js"></script>
+        <script src="../js/human_board_calendar_init.js"></script>
+        <script src="../js/human_board_anuncios_init.js"></script>
+
+    </div>
+    <!-- /#wrapper -->
+</body>
+
+</html>

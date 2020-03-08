@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Persona_Experiencia_Laboral_Prestacion" alias="Persona_Experiencia_Laboral_Prestacion" created="2018-08-01T12:29:21" modified="2018-08-01T12:31:37" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Persona_Experiencia_Laboral_" parentTableSchema="APP" parentTableName="Persona_Experiencia_Laboral" x="493" y="20">
+      <foreignKeyColumn columnName="Persona_Experiencia_Laboral_Id" parentColumnName="Persona_Experiencia_Laboral_Id" />
+    </foreignKey>
+    <foreignKey id="Tipo_Prestacion_" parentTableSchema="APP" parentTableName="Tipo_Prestacion" x="493" y="404">
+      <foreignKeyColumn columnName="Tipo_Prestacion_Id" parentColumnName="Tipo_Prestacion_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="493" y="635">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Usuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="107" y="333">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Usuario_V1" parentTableSchema="dbo" parentTableName="Usuario_V" x="102" y="589">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Persona_Experiencia_Laboral_Prestacion_Id" fieldName="Persona_Experiencia_Laboral_Prestacion_Id" label="Persona Experiencia Laboral Prestacion Id" />
+    <column name="Persona_Experiencia_Laboral_Id" fieldName="Persona_Experiencia_Laboral_Id" label="Persona Experiencia Laboral Id" aliasColumnName="Transaccion_Id" aliasForeignKey="Persona_Experiencia_Laboral_" />
+    <column name="Transaccion_Id" fieldName="Persona_Experiencia_Laboral_Transaccion_Id" label="Persona Experiencia Laboral Transaccion Id" foreignKey="Persona_Experiencia_Laboral_" />
+    <column name="Tipo_Prestacion_Id" fieldName="Tipo_Prestacion_Id" label="Tipo Prestacion Id" aliasColumnName="Tipo_Prestacion" aliasForeignKey="Tipo_Prestacion_" />
+    <column name="Tipo_Prestacion" fieldName="Tipo_Prestacion_Tipo_Prestacion" label="Tipo Prestacion" foreignKey="Tipo_Prestacion_" />
+    <column name="Otro_Tipo_Prestacion" fieldName="Otro_Tipo_Prestacion" label="Otro Tipo Prestacion" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V" />
+    <column name="UserName" fieldName="cpUserName" label="Usuario V Username" foreignKey="Usuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha Creacion" format="g" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V1" />
+    <column name="UserName" fieldName="apUserName" label="ap User Name" foreignKey="Usuario_V1" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha Ultima Actualizacion" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+  </columns>
+</dataModel>

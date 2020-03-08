@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Seguro" alias="Seguro" created="2019-05-27T12:55:21" modified="2019-05-27T14:28:42" x="20" y="32" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Parentesco" parentTableSchema="APP" parentTableName="Parentesco" x="1321" y="82">
+      <foreignKeyColumn columnName="Parentesco_Id" parentColumnName="Parentesco_Id" />
+    </foreignKey>
+    <foreignKey id="Categoria_Seguro" parentTableSchema="APP" parentTableName="Categoria_Seguro" x="1629" y="224">
+      <foreignKeyColumn columnName="Categoria_Seguro_Id" parentColumnName="Categoria_Seguro_Id" />
+    </foreignKey>
+    <foreignKey id="Sociedad" parentTableSchema="APP" parentTableName="Sociedad" x="727" y="209">
+      <foreignKeyColumn columnName="Sociedad_Id" parentColumnName="Sociedad_Id" />
+    </foreignKey>
+    <foreignKey id="Cliente" parentTableSchema="APP" parentTableName="Cliente" x="1442" y="242">
+      <foreignKeyColumn columnName="Cliente_Id" parentColumnName="Cliente_Id" />
+    </foreignKey>
+    <foreignKey id="Tipo_Seguro" parentTableSchema="APP" parentTableName="Tipo_Seguro" x="1424" y="122">
+      <foreignKeyColumn columnName="Tipo_Seguro_Id" parentColumnName="Tipo_Seguro_Id" />
+    </foreignKey>
+    <foreignKey id="Aseguradora" parentTableSchema="APP" parentTableName="Aseguradora" x="1124" y="314">
+      <foreignKeyColumn columnName="Aseguradora_Id" parentColumnName="Aseguradora_Id" />
+    </foreignKey>
+    <foreignKey id="Tipo_Asegurado" parentTableSchema="APP" parentTableName="Tipo_Asegurado" x="916" y="20">
+      <foreignKeyColumn columnName="Tipo_Asegurado_Id" parentColumnName="Tipo_Asegurado_Id" />
+    </foreignKey>
+    <foreignKey id="Periodicidad" parentTableSchema="APP" parentTableName="Periodicidad" x="1285" y="497">
+      <foreignKeyColumn columnName="Periodicidad_Id" parentColumnName="Periodicidad_Id" />
+    </foreignKey>
+    <foreignKey id="Anio" parentTableSchema="APP" parentTableName="Anio" x="1172" y="140">
+      <foreignKeyColumn columnName="Anio_Id" parentColumnName="Anio_Id" />
+    </foreignKey>
+    <foreignKey id="Proveedor" parentTableSchema="APP" parentTableName="Proveedor" x="1731" y="101">
+      <foreignKeyColumn columnName="Proveedor_Id" parentColumnName="Proveedor_Id" />
+    </foreignKey>
+    <foreignKey id="Genero" parentTableSchema="APP" parentTableName="Genero" x="939" y="366">
+      <foreignKeyColumn columnName="Genero_Id" parentColumnName="Genero_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="1124" y="859">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Creado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="1078" y="850">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Actualizado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="470" y="664">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Seguro_Id" fieldName="Seguro_Id" label="Seguro Id" />
+    <column name="Contratado_Id" fieldName="Contratado_Id" label="Contratado Id" />
+    <column name="Persona_Id" fieldName="Persona_Id" label="Persona Id" />
+    <column name="Es_Titular" fieldName="Es_Titular" label="¿Es Titular?" />
+    <column name="Beneficiario_Id" fieldName="Beneficiario_Id" label="Beneficiario Id" />
+    <column name="Parentesco_Id" fieldName="Parentesco_Id" label="Parentesco Id" aliasColumnName="Parentesco" aliasForeignKey="Parentesco" />
+    <column name="Parentesco" fieldName="Parentesco" label="Parentesco" foreignKey="Parentesco" />
+    <column name="Categoria_Seguro_Id" fieldName="Categoria_Seguro_Id" label="Categoria Seguro Id" aliasColumnName="Categoria_Seguro" aliasForeignKey="Categoria_Seguro" />
+    <column name="Categoria_Seguro" fieldName="CategoriaSegurocategoriaSeguro" label="Categoría Seguro" foreignKey="Categoria_Seguro" />
+    <column name="Sociedad_Id" fieldName="Sociedad_Id" label="Sociedad Id" aliasColumnName="Sociedad" aliasForeignKey="Sociedad" />
+    <column name="Sociedad" fieldName="Sociedad" label="Sociedad" foreignKey="Sociedad" />
+    <column name="Cliente_Id" fieldName="Cliente_Id" label="Cliente Id" aliasColumnName="Cliente" aliasForeignKey="Cliente" />
+    <column name="Cliente" fieldName="Cliente" label="Cliente" foreignKey="Cliente" />
+    <column name="Tipo_Seguro_Id" fieldName="Tipo_Seguro_Id" label="Tipo Seguro Id" aliasColumnName="Tipo_Seguro" aliasForeignKey="Tipo_Seguro" />
+    <column name="Tipo_Seguro" fieldName="TipoSegurotipoSeguro" label="Tipo de Seguro" foreignKey="Tipo_Seguro" />
+    <column name="Aseguradora_Id" fieldName="Aseguradora_Id" label="Aseguradora Id" aliasColumnName="Aseguradora" aliasForeignKey="Aseguradora" />
+    <column name="Aseguradora" fieldName="Aseguradora" label="Aseguradora" foreignKey="Aseguradora" />
+    <column name="Tipo_Asegurado_Id" fieldName="Tipo_Asegurado_Id" label="Tipo Asegurado Id" aliasColumnName="Tipo_Asegurado" aliasForeignKey="Tipo_Asegurado" />
+    <column name="Tipo_Asegurado" fieldName="TipoAseguradotipoAsegurado" label="Tipo Asegurado" foreignKey="Tipo_Asegurado" />
+    <column name="Periodicidad_Id" fieldName="Periodicidad_Id" label="Periodicidad Id" aliasColumnName="Periodicidad" aliasForeignKey="Periodicidad" />
+    <column name="Periodicidad" fieldName="Periodicidad" label="Periodicidad" foreignKey="Periodicidad" />
+    <column name="Anio_Id" fieldName="Anio_Id" label="Anio Id" aliasColumnName="Anio" aliasForeignKey="Anio" />
+    <column name="Anio" fieldName="Anio" label="Año" foreignKey="Anio" />
+    <column name="Proveedor_Id" fieldName="Proveedor_Id" label="Proveedor Id" aliasColumnName="Proveedor" aliasForeignKey="Proveedor" />
+    <column name="Proveedor" fieldName="Proveedor" label="Proveedor" foreignKey="Proveedor" />
+    <column name="Genero_Id" fieldName="Genero_Id" label="Genero Id" aliasColumnName="Genero" aliasForeignKey="Genero" />
+    <column name="Genero" fieldName="Genero" label="Género" foreignKey="Genero" />
+    <column name="Certificado" fieldName="Certificado" label="Certificado" />
+    <column name="Fecha_Movimiento" fieldName="Fecha_Movimiento" label="Fecha Movimiento" format="g" />
+    <column name="Numero_Movimiento" fieldName="Numero_Movimiento" label="Número Movimiento" />
+    <column name="Fecha_Calculo" fieldName="Fecha_Calculo" label="Fecha Cálculo" format="g" />
+    <column name="Prima_Tarifa" fieldName="Prima_Tarifa" label="Prima Tarifa" />
+    <column name="Recargo" fieldName="Recargo" label="Recargo" />
+    <column name="Gastos_Expedicion" fieldName="Gastos_Expedicion" label="Gastos Expedición" />
+    <column name="IVA" fieldName="IVA" label="IVA" />
+    <column name="Subsecuente" fieldName="Subsecuente" label="Subsecuente" />
+    <column name="Complemento" fieldName="Complemento" label="Complemento" />
+    <column name="Solo_Complemento" fieldName="Solo_Complemento" label="Solo Complemento" />
+    <column name="Porcentaje_Suma_Asegurada" fieldName="Porcentaje_Suma_Asegurada" label="Porcentaje Suma Asegurada" />
+    <column name="Fecha_Alta" fieldName="Fecha_Alta" label="Fecha Alta" format="g" />
+    <column name="Fecha_Inicio" fieldName="Fecha_Inicio" label="Fecha Inicio" format="g" />
+    <column name="Fecha_Fin" fieldName="Fecha_Fin" label="Fecha Fin" format="g" />
+    <column name="Importe" fieldName="Importe" label="Importe" />
+    <column name="Suma" fieldName="Suma" label="Suma" />
+    <column name="Tipo_Movimiento_Id" fieldName="Tipo_Movimiento_Id" label="Tipo Movimiento Id" />
+    <column name="Tipo_Registro_Id" fieldName="Tipo_Registro_Id" label="Tipo Registro Id" />
+    <column name="Forma_Recuperacion_Id" fieldName="Forma_Recuperacion_Id" label="Forma Recuperacion Id" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="UserName" fieldName="CreadoPorusername" label="Creado Por" foreignKey="Creado_Por" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="UserName" fieldName="ActualizadoPorusername" label="Actualizado Por" foreignKey="Actualizado_Por" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro" />
+    <column name="Estatus_Registro" fieldName="EstatusRegistroestatusRegistro" label="Estatus Registro" foreignKey="Estatus_Registro" />
+  </columns>
+</dataModel>

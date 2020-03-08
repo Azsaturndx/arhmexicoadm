@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Descripcion_Puesto" alias="Descripcion_Puesto" created="2019-02-05T16:04:09" modified="2019-08-15T12:06:33" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Usuario_V" parentTableSchema="dbo" parentTableName="Usuario_V" x="570" y="1435">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Usuario_V1" parentTableSchema="dbo" parentTableName="Usuario_V" x="889" y="1424">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Estatus_Descripcion_Puesto" parentTableSchema="APP" parentTableName="Estatus_Descripcion_Puesto" x="727" y="7192">
+      <foreignKeyColumn columnName="Estatus_Descripcion_Puesto_Id" parentColumnName="Estatus_Descripcion_Puesto_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Descripcion_Puesto_Id" fieldName="Descripcion_Puesto_Id" label="Descripcion Puesto Id" />
+    <column name="Descripcion_Puesto" fieldName="Descripcion_Puesto" label="Descripcion Puesto" />
+    <column name="Contratante_Puesto_Id" fieldName="Contratante_Puesto_Id" label="Contratante Puesto Id" />
+    <column name="Puesto_Id" fieldName="Puesto_Id" label="Puesto Id" />
+    <column name="Tipo_Contratado_Id" fieldName="Tipo_Contratado_Id" label="Tipo Contratado Id" />
+    <column name="Jefe_Directo_Id" fieldName="Jefe_Directo_Id" label="Jefe Directo Id" />
+    <column name="Tipo_Contrato_Id" fieldName="Tipo_Contrato_Id" label="Tipo Contrato Id" />
+    <column name="Actividades" fieldName="Actividades" label="Actividades" />
+    <column name="Esquema_Pago_Id" fieldName="Esquema_Pago_Id" label="Esquema Pago Id" />
+    <column name="Salario_Minimo" fieldName="Salario_Minimo" label="Salario Minimo" />
+    <column name="Salario_Maximo" fieldName="Salario_Maximo" label="Salario Maximo" />
+    <column name="Tipo_Prestacion_Id" fieldName="Tipo_Prestacion_Id" label="Tipo Prestacion Id" />
+    <column name="Rango_Estado_Civil_Id" fieldName="Rango_Estado_Civil_Id" label="Rango Estado Civil Id" />
+    <column name="Rango_Estado_Civil_KO" fieldName="Rango_Estado_Civil_KO" label="Rango Estado Civil KO" />
+    <column name="Rango_Estado_Civil_Ponderar" fieldName="Rango_Estado_Civil_Ponderar" label="Rango Estado Civil Ponderar" />
+    <column name="Rango_Estado_Civil_Valor_Id" fieldName="Rango_Estado_Civil_Valor_Id" label="Rango Estado Civil Valor Id" />
+    <column name="Rango_Genero_Id" fieldName="Rango_Genero_Id" label="Rango Genero Id" />
+    <column name="Rango_Genero_KO" fieldName="Rango_Genero_KO" label="Rango Genero KO" />
+    <column name="Rango_Genero_Ponderar" fieldName="Rango_Genero_Ponderar" label="Rango Genero Ponderar" />
+    <column name="Rango_Genero_Valor_Id" fieldName="Rango_Genero_Valor_Id" label="Rango Genero Valor Id" />
+    <column name="Rango_Religion_Id" fieldName="Rango_Religion_Id" label="Rango Religion Id" />
+    <column name="Rango_Religion_KO" fieldName="Rango_Religion_KO" label="Rango Religion KO" />
+    <column name="Rango_Religion_Ponderar" fieldName="Rango_Religion_Ponderar" label="Rango Religion Ponderar" />
+    <column name="Rango_Religion_Valor_Id" fieldName="Rango_Religion_Valor_Id" label="Rango Religion Valor Id" />
+    <column name="Documento_Id" fieldName="Documento_Id" label="Documento Id" />
+    <column name="Turno_Laboral_Id" fieldName="Turno_Laboral_Id" label="Turno Laboral Id" />
+    <column name="Dias_Laborables" fieldName="Dias_Laborables" label="Dias Laborables" />
+    <column name="Horario_Laboral_Id" fieldName="Horario_Laboral_Id" label="Horario Laboral Id" />
+    <column name="Tipo_Actividad_Id" fieldName="Tipo_Actividad_Id" label="Tipo Actividad Id" />
+    <column name="Otros" fieldName="Otros" label="Otros" />
+    <column name="Rango_Orientacion_Sexual_Id" fieldName="Rango_Orientacion_Sexual_Id" label="Rango Orientacion Sexual Id" />
+    <column name="Rango_Orientacion_Sexual_KO" fieldName="Rango_Orientacion_Sexual_KO" label="Rango Orientacion Sexual KO" />
+    <column name="Rango_Orientacion_Sexual_Ponderar" fieldName="Rango_Orientacion_Sexual_Ponderar" label="Rango Orientacion Sexual Ponderar" />
+    <column name="Rango_Orientacion_Sexual_Valor_Id" fieldName="Rango_Orientacion_Sexual_Valor_Id" label="Rango Orientacion Sexual Valor Id" />
+    <column name="Rango_Disposicion_A_Movilidad_Id" fieldName="Rango_Disposicion_A_Movilidad_Id" label="Rango Disposicion A Movilidad Id" />
+    <column name="Rango_Disposicion_A_Movilidad_KO" fieldName="Rango_Disposicion_A_Movilidad_KO" label="Rango Disposicion A Movilidad KO" />
+    <column name="Rango_Disposicion_A_Movilidad_Ponderar" fieldName="Rango_Disposicion_A_Movilidad_Ponderar" label="Rango Disposicion A Movilidad Ponderar" />
+    <column name="Rango_Disposicion_A_Movilidad_Valor_Id" fieldName="Rango_Disposicion_A_Movilidad_Valor_Id" label="Rango Disposicion A Movilidad Valor Id" />
+    <column name="Rango_Disposicion_A_Cambio_De_Domicilio_Id" fieldName="Rango_Disposicion_A_Cambio_De_Domicilio_Id" label="Rango Disposicion A Cambio De Domicilio Id" />
+    <column name="Rango_Disposicion_A_Cambio_De_Domicilio_KO" fieldName="Rango_Disposicion_A_Cambio_De_Domicilio_KO" label="Rango Disposicion A Cambio De Domicilio KO" />
+    <column name="Rango_Disposicion_A_Cambio_De_Domicilio_Ponderar" fieldName="Rango_Disposicion_A_Cambio_De_Domicilio_Ponderar" label="Rango Disposicion A Cambio De Domicilio Ponderar" />
+    <column name="Rango_Disposicion_A_Cambio_De_Domicilio_Valor_Id" fieldName="Rango_Disposicion_A_Cambio_De_Domicilio_Valor_Id" label="Rango Disposicion A Cambio De Domicilio Valor Id" />
+    <column name="Rango_Municipio1_Id" fieldName="Rango_Municipio1_Id" label="Rango Municipio1 Id" />
+    <column name="Rango_Municipio1_Codigo_Postal_Id" fieldName="Rango_Municipio1_Codigo_Postal_Id" label="Rango Municipio1 Codigo Postal Id" />
+    <column name="Rango_Municipio1_Ponderar" fieldName="Rango_Municipio1_Ponderar" label="Rango Municipio1 Ponderar" />
+    <column name="Rango_Municipio1_Valor_Id" fieldName="Rango_Municipio1_Valor_Id" label="Rango Municipio1 Valor Id" />
+    <column name="Rango_Municipio2_Id" fieldName="Rango_Municipio2_Id" label="Rango Municipio2 Id" />
+    <column name="Rango_Municipio2_Codigo_Postal_Id" fieldName="Rango_Municipio2_Codigo_Postal_Id" label="Rango Municipio2 Codigo Postal Id" />
+    <column name="Rango_Municipio2_Ponderar" fieldName="Rango_Municipio2_Ponderar" label="Rango Municipio2 Ponderar" />
+    <column name="Rango_Municipio2_Valor_Id" fieldName="Rango_Municipio2_Valor_Id" label="Rango Municipio2 Valor Id" />
+    <column name="Rango_Municipio3_Id" fieldName="Rango_Municipio3_Id" label="Rango Municipio3 Id" />
+    <column name="Rango_Municipio3_Codigo_Postal_Id" fieldName="Rango_Municipio3_Codigo_Postal_Id" label="Rango Municipio3 Codigo Postal Id" />
+    <column name="Rango_Municipio3_Ponderar" fieldName="Rango_Municipio3_Ponderar" label="Rango Municipio3 Ponderar" />
+    <column name="Rango_Municipio3_Valor_Id" fieldName="Rango_Municipio3_Valor_Id" label="Rango Municipio3 Valor Id" />
+    <column name="Rango_Edad_Minima_Id" fieldName="Rango_Edad_Minima_Id" label="Rango Edad Minima Id" />
+    <column name="Rango_Edad_Minima_KO" fieldName="Rango_Edad_Minima_KO" label="Rango Edad Minima KO" />
+    <column name="Rango_Edad_Minima_Ponderar" fieldName="Rango_Edad_Minima_Ponderar" label="Rango Edad Minima Ponderar" />
+    <column name="Rango_Edad_Minima_Valor_Id" fieldName="Rango_Edad_Minima_Valor_Id" label="Rango Edad Minima Valor Id" />
+    <column name="Rango_Edad_Maxima_Id" fieldName="Rango_Edad_Maxima_Id" label="Rango Edad Maxima Id" />
+    <column name="Rango_Edad_Maxima_KO" fieldName="Rango_Edad_Maxima_KO" label="Rango Edad Maxima KO" />
+    <column name="Rango_Edad_Maxima_Ponderar" fieldName="Rango_Edad_Maxima_Ponderar" label="Rango Edad Maxima Ponderar" />
+    <column name="Rango_Edad_Maxima_Valor_Id" fieldName="Rango_Edad_Maxima_Valor_Id" label="Rango Edad Maxima Valor Id" />
+    <column name="Rango_Color_Piel_Id" fieldName="Rango_Color_Piel_Id" label="Rango Color Piel Id" />
+    <column name="Rango_Color_Piel_KO" fieldName="Rango_Color_Piel_KO" label="Rango Color Piel KO" />
+    <column name="Rango_Color_Piel_Ponderar" fieldName="Rango_Color_Piel_Ponderar" label="Rango Color Piel Ponderar" />
+    <column name="Rango_Color_Piel_Valor_Id" fieldName="Rango_Color_Piel_Valor_Id" label="Rango Color Piel Valor Id" />
+    <column name="Rango_Estatura_Id" fieldName="Rango_Estatura_Id" label="Rango Estatura Id" />
+    <column name="Rango_Estatura_KO" fieldName="Rango_Estatura_KO" label="Rango Estatura KO" />
+    <column name="Rango_Estatura_Ponderar" fieldName="Rango_Estatura_Ponderar" label="Rango Estatura Ponderar" />
+    <column name="Rango_Estatura_Valor_Id" fieldName="Rango_Estatura_Valor_Id" label="Rango Estatura Valor Id" />
+    <column name="Rango_Peso_Id" fieldName="Rango_Peso_Id" label="Rango Peso Id" />
+    <column name="Rango_Peso_KO" fieldName="Rango_Peso_KO" label="Rango Peso KO" />
+    <column name="Rango_Peso_Ponderar" fieldName="Rango_Peso_Ponderar" label="Rango Peso Ponderar" />
+    <column name="Rango_Peso_Valor_Id" fieldName="Rango_Peso_Valor_Id" label="Rango Peso Valor Id" />
+    <column name="Rango_Complexion_Fisica_Id" fieldName="Rango_Complexion_Fisica_Id" label="Rango Complexion Fisica Id" />
+    <column name="Rango_Complexion_Fisica_KO" fieldName="Rango_Complexion_Fisica_KO" label="Rango Complexion Fisica KO" />
+    <column name="Rango_Complexion_Fisica_Ponderar" fieldName="Rango_Complexion_Fisica_Ponderar" label="Rango Complexion Fisica Ponderar" />
+    <column name="Rango_Complexion_Fisica_Valor_Id" fieldName="Rango_Complexion_Fisica_Valor_Id" label="Rango Complexion Fisica Valor Id" />
+    <column name="Rango_Tatuajes_Admitidos_Id" fieldName="Rango_Tatuajes_Admitidos_Id" label="Rango Tatuajes Admitidos Id" />
+    <column name="Rango_Tatuajes_Admitidos_KO" fieldName="Rango_Tatuajes_Admitidos_KO" label="Rango Tatuajes Admitidos KO" />
+    <column name="Rango_Tatuajes_Admitidos_Ponderar" fieldName="Rango_Tatuajes_Admitidos_Ponderar" label="Rango Tatuajes Admitidos Ponderar" />
+    <column name="Rango_Tatuajes_Admitidos_Valor_Id" fieldName="Rango_Tatuajes_Admitidos_Valor_Id" label="Rango Tatuajes Admitidos Valor Id" />
+    <column name="Rango_Tatuajes_Visibilidad_Id" fieldName="Rango_Tatuajes_Visibilidad_Id" label="Rango Tatuajes Visibilidad Id" />
+    <column name="Rango_Tatuajes_Visibilidad_KO" fieldName="Rango_Tatuajes_Visibilidad_KO" label="Rango Tatuajes Visibilidad KO" />
+    <column name="Rango_Tatuajes_Visibilidad_Ponderar" fieldName="Rango_Tatuajes_Visibilidad_Ponderar" label="Rango Tatuajes Visibilidad Ponderar" />
+    <column name="Rango_Tatuajes_Visibilidad_Valor_Id" fieldName="Rango_Tatuajes_Visibilidad_Valor_Id" label="Rango Tatuajes Visibilidad Valor Id" />
+    <column name="Rango_Tipo_Tatuajes_Id" fieldName="Rango_Tipo_Tatuajes_Id" label="Rango Tipo Tatuajes Id" />
+    <column name="Rango_Tipo_Tatuajes_KO" fieldName="Rango_Tipo_Tatuajes_KO" label="Rango Tipo Tatuajes KO" />
+    <column name="Rango_Tipo_Tatuajes_Ponderar" fieldName="Rango_Tipo_Tatuajes_Ponderar" label="Rango Tipo Tatuajes Ponderar" />
+    <column name="Rango_Tipo_Tatuajes_Valor_Id" fieldName="Rango_Tipo_Tatuajes_Valor_Id" label="Rango Tipo Tatuajes Valor Id" />
+    <column name="Senia_Particular1" fieldName="Senia_Particular1" label="Senia Particular1" />
+    <column name="Senia_Particular1_Detalle" fieldName="Senia_Particular1_Detalle" label="Senia Particular1 Detalle" />
+    <column name="Rango_Senia_Particular1_Id" fieldName="Rango_Senia_Particular1_Id" label="Rango Senia Particular1 Id" />
+    <column name="Rango_Senia_Particular1_KO" fieldName="Rango_Senia_Particular1_KO" label="Rango Senia Particular1 KO" />
+    <column name="Rango_Senia_Particular1_Ponderar" fieldName="Rango_Senia_Particular1_Ponderar" label="Rango Senia Particular1 Ponderar" />
+    <column name="Rango_Senia_Particular1_Valor_Id" fieldName="Rango_Senia_Particular1_Valor_Id" label="Rango Senia Particular1 Valor Id" />
+    <column name="Senia_Particular2" fieldName="Senia_Particular2" label="Senia Particular2" />
+    <column name="Senia_Particular2_Detalle" fieldName="Senia_Particular2_Detalle" label="Senia Particular2 Detalle" />
+    <column name="Rango_Senia_Particular2_Id" fieldName="Rango_Senia_Particular2_Id" label="Rango Senia Particular2 Id" />
+    <column name="Rango_Senia_Particular2_KO" fieldName="Rango_Senia_Particular2_KO" label="Rango Senia Particular2 KO" />
+    <column name="Rango_Senia_Particular2_Ponderar" fieldName="Rango_Senia_Particular2_Ponderar" label="Rango Senia Particular2 Ponderar" />
+    <column name="Rango_Senia_Particular2_Valor_Id" fieldName="Rango_Senia_Particular2_Valor_Id" label="Rango Senia Particular2 Valor Id" />
+    <column name="Senia_Particular3" fieldName="Senia_Particular3" label="Senia Particular3" />
+    <column name="Senia_Particular3_Detalle" fieldName="Senia_Particular3_Detalle" label="Senia Particular3 Detalle" />
+    <column name="Rango_Senia_Particular3_Id" fieldName="Rango_Senia_Particular3_Id" label="Rango Senia Particular3 Id" />
+    <column name="Rango_Senia_Particular3_KO" fieldName="Rango_Senia_Particular3_KO" label="Rango Senia Particular3 KO" />
+    <column name="Rango_Senia_Particular3_Ponderar" fieldName="Rango_Senia_Particular3_Ponderar" label="Rango Senia Particular3 Ponderar" />
+    <column name="Rango_Senia_Particular3_Valor_Id" fieldName="Rango_Senia_Particular3_Valor_Id" label="Rango Senia Particular3 Valor Id" />
+    <column name="Rango_Estado_Salud_Aparente_Id" fieldName="Rango_Estado_Salud_Aparente_Id" label="Rango Estado Salud Aparente Id" />
+    <column name="Rango_Estado_Salud_Aparente_KO" fieldName="Rango_Estado_Salud_Aparente_KO" label="Rango Estado Salud Aparente KO" />
+    <column name="Rango_Estado_Salud_Aparente_Ponderar" fieldName="Rango_Estado_Salud_Aparente_Ponderar" label="Rango Estado Salud Aparente Ponderar" />
+    <column name="Rango_Estado_Salud_Aparente_Valor_Id" fieldName="Rango_Estado_Salud_Aparente_Valor_Id" label="Rango Estado Salud Aparente Valor Id" />
+    <column name="Rango_Sufre_Diabetes_Id" fieldName="Rango_Sufre_Diabetes_Id" label="Rango Sufre Diabetes Id" />
+    <column name="Rango_Sufre_Diabetes_KO" fieldName="Rango_Sufre_Diabetes_KO" label="Rango Sufre Diabetes KO" />
+    <column name="Rango_Sufre_Diabetes_Ponderar" fieldName="Rango_Sufre_Diabetes_Ponderar" label="Rango Sufre Diabetes Ponderar" />
+    <column name="Rango_Sufre_Diabetes_Valor_Id" fieldName="Rango_Sufre_Diabetes_Valor_Id" label="Rango Sufre Diabetes Valor Id" />
+    <column name="Rango_Problemas_Presion_Arterial_Id" fieldName="Rango_Problemas_Presion_Arterial_Id" label="Rango Problemas Presion Arterial Id" />
+    <column name="Rango_Problemas_Presion_Arterial_KO" fieldName="Rango_Problemas_Presion_Arterial_KO" label="Rango Problemas Presion Arterial KO" />
+    <column name="Rango_Problemas_Presion_Arterial_Ponderar" fieldName="Rango_Problemas_Presion_Arterial_Ponderar" label="Rango Problemas Presion Arterial Ponderar" />
+    <column name="Rango_Problemas_Presion_Arterial_Valor_Id" fieldName="Rango_Problemas_Presion_Arterial_Valor_Id" label="Rango Problemas Presion Arterial Valor Id" />
+    <column name="Rango_Sufre_Sobrepeso_Id" fieldName="Rango_Sufre_Sobrepeso_Id" label="Rango Sufre Sobrepeso Id" />
+    <column name="Rango_Sufre_Sobrepeso_KO" fieldName="Rango_Sufre_Sobrepeso_KO" label="Rango Sufre Sobrepeso KO" />
+    <column name="Rango_Sufre_Sobrepeso_Ponderar" fieldName="Rango_Sufre_Sobrepeso_Ponderar" label="Rango Sufre Sobrepeso Ponderar" />
+    <column name="Rango_Sufre_Sobrepeso_Valor_Id" fieldName="Rango_Sufre_Sobrepeso_Valor_Id" label="Rango Sufre Sobrepeso Valor Id" />
+    <column name="Rango_Consumo_Estupefacientes_Id" fieldName="Rango_Consumo_Estupefacientes_Id" label="Rango Consumo Estupefacientes Id" />
+    <column name="Rango_Consumo_Estupefacientes_KO" fieldName="Rango_Consumo_Estupefacientes_KO" label="Rango Consumo Estupefacientes KO" />
+    <column name="Rango_Consumo_Estupefacientes_Ponderar" fieldName="Rango_Consumo_Estupefacientes_Ponderar" label="Rango Consumo Estupefacientes Ponderar" />
+    <column name="Rango_Consumo_Estupefacientes_Valor_Id" fieldName="Rango_Consumo_Estupefacientes_Valor_Id" label="Rango Consumo Estupefacientes Valor Id" />
+    <column name="Rango_Padece_Discapacidad_Id" fieldName="Rango_Padece_Discapacidad_Id" label="Rango Padece Discapacidad Id" />
+    <column name="Rango_Padece_Discapacidad_KO" fieldName="Rango_Padece_Discapacidad_KO" label="Rango Padece Discapacidad KO" />
+    <column name="Rango_Padece_Discapacidad_Ponderar" fieldName="Rango_Padece_Discapacidad_Ponderar" label="Rango Padece Discapacidad Ponderar" />
+    <column name="Rango_Padece_Discapacidad_Valor_Id" fieldName="Rango_Padece_Discapacidad_Valor_Id" label="Rango Padece Discapacidad Valor Id" />
+    <column name="Aspecto_Salud1" fieldName="Aspecto_Salud1" label="Aspecto Salud1" />
+    <column name="Aspecto_Salud1_Detalle_Indicacion" fieldName="Aspecto_Salud1_Detalle_Indicacion" label="Aspecto Salud1 Detalle Indicacion" />
+    <column name="Rango_Aspecto_Salud1_KO" fieldName="Rango_Aspecto_Salud1_KO" label="Rango Aspecto Salud1 KO" />
+    <column name="Rango_Aspecto_Salud1_Ponderar" fieldName="Rango_Aspecto_Salud1_Ponderar" label="Rango Aspecto Salud1 Ponderar" />
+    <column name="Rango_Aspecto_Salud1_Valor_Id" fieldName="Rango_Aspecto_Salud1_Valor_Id" label="Rango Aspecto Salud1 Valor Id" />
+    <column name="Aspecto_Salud2" fieldName="Aspecto_Salud2" label="Aspecto Salud2" />
+    <column name="Aspecto_Salud2_Detalle_Indicacion" fieldName="Aspecto_Salud2_Detalle_Indicacion" label="Aspecto Salud2 Detalle Indicacion" />
+    <column name="Rango_Aspecto_Salud2_KO" fieldName="Rango_Aspecto_Salud2_KO" label="Rango Aspecto Salud2 KO" />
+    <column name="Rango_Aspecto_Salud2_Ponderar" fieldName="Rango_Aspecto_Salud2_Ponderar" label="Rango Aspecto Salud2 Ponderar" />
+    <column name="Rango_Aspecto_Salud2_Valor_Id" fieldName="Rango_Aspecto_Salud2_Valor_Id" label="Rango Aspecto Salud2 Valor Id" />
+    <column name="Aspecto_Salud3" fieldName="Aspecto_Salud3" label="Aspecto Salud3" />
+    <column name="Aspecto_Salud3_Detalle_Indicacion" fieldName="Aspecto_Salud3_Detalle_Indicacion" label="Aspecto Salud3 Detalle Indicacion" />
+    <column name="Rango_Aspecto_Salud3_KO" fieldName="Rango_Aspecto_Salud3_KO" label="Rango Aspecto Salud3 KO" />
+    <column name="Rango_Aspecto_Salud3_Ponderar" fieldName="Rango_Aspecto_Salud3_Ponderar" label="Rango Aspecto Salud3 Ponderar" />
+    <column name="Rango_Aspecto_Salud3_Valor_Id" fieldName="Rango_Aspecto_Salud3_Valor_Id" label="Rango Aspecto Salud3 Valor Id" />
+    <column name="Discapacidades_Causan_KO" fieldName="Discapacidades_Causan_KO" label="Discapacidades Causan KO" />
+    <column name="Nombre_Discapacidad1" fieldName="Nombre_Discapacidad1" label="Nombre Discapacidad1" />
+    <column name="Tipo_Discapacidad1_Id" fieldName="Tipo_Discapacidad1_Id" label="Tipo Discapacidad1 Id" />
+    <column name="Rango_Discapacidad1_Ponderar" fieldName="Rango_Discapacidad1_Ponderar" label="Rango Discapacidad1 Ponderar" />
+    <column name="Rango_Discapacidad1_Valor_Id" fieldName="Rango_Discapacidad1_Valor_Id" label="Rango Discapacidad1 Valor Id" />
+    <column name="Nombre_Discapacidad2" fieldName="Nombre_Discapacidad2" label="Nombre Discapacidad2" />
+    <column name="Tipo_Discapacidad2_Id" fieldName="Tipo_Discapacidad2_Id" label="Tipo Discapacidad2 Id" />
+    <column name="Rango_Discapacidad2_Ponderar" fieldName="Rango_Discapacidad2_Ponderar" label="Rango Discapacidad2 Ponderar" />
+    <column name="Rango_Discapacidad2_Valor_Id" fieldName="Rango_Discapacidad2_Valor_Id" label="Rango Discapacidad2 Valor Id" />
+    <column name="Nombre_Discapacidad3" fieldName="Nombre_Discapacidad3" label="Nombre Discapacidad3" />
+    <column name="Tipo_Discapacidad3_Id" fieldName="Tipo_Discapacidad3_Id" label="Tipo Discapacidad3 Id" />
+    <column name="Rango_Discapacidad3_Ponderar" fieldName="Rango_Discapacidad3_Ponderar" label="Rango Discapacidad3 Ponderar" />
+    <column name="Rango_Discapacidad3_Valor_Id" fieldName="Rango_Discapacidad3_Valor_Id" label="Rango Discapacidad3 Valor Id" />
+    <column name="Nombre_Discapacidad4" fieldName="Nombre_Discapacidad4" label="Nombre Discapacidad4" />
+    <column name="Tipo_Discapacidad4_Id" fieldName="Tipo_Discapacidad4_Id" label="Tipo Discapacidad4 Id" />
+    <column name="Rango_Discapacidad4_Ponderar" fieldName="Rango_Discapacidad4_Ponderar" label="Rango Discapacidad4 Ponderar" />
+    <column name="Rango_Discapacidad4_Valor_Id" fieldName="Rango_Discapacidad4_Valor_Id" label="Rango Discapacidad4 Valor Id" />
+    <column name="Nombre_Discapacidad5" fieldName="Nombre_Discapacidad5" label="Nombre Discapacidad5" />
+    <column name="Tipo_Discapacidad5_Id" fieldName="Tipo_Discapacidad5_Id" label="Tipo Discapacidad5 Id" />
+    <column name="Rango_Discapacidad5_Ponderar" fieldName="Rango_Discapacidad5_Ponderar" label="Rango Discapacidad5 Ponderar" />
+    <column name="Rango_Discapacidad5_Valor_Id" fieldName="Rango_Discapacidad5_Valor_Id" label="Rango Discapacidad5 Valor Id" />
+    <column name="Puesto1_Id" fieldName="Puesto1_Id" label="Puesto1 Id" />
+    <column name="Periodo_Puesto1_Id" fieldName="Periodo_Puesto1_Id" label="Periodo Puesto1 Id" />
+    <column name="Area_Puesto1_Id" fieldName="Area_Puesto1_Id" label="Area Puesto1 Id" />
+    <column name="Tipo_Empleado_Puesto1_Id" fieldName="Tipo_Empleado_Puesto1_Id" label="Tipo Empleado Puesto1 Id" />
+    <column name="Rango_Puesto1_KO" fieldName="Rango_Puesto1_KO" label="Rango Puesto1 KO" />
+    <column name="Rango_Puesto1_Ponderar" fieldName="Rango_Puesto1_Ponderar" label="Rango Puesto1 Ponderar" />
+    <column name="Rango_Puesto1_Valor_Id" fieldName="Rango_Puesto1_Valor_Id" label="Rango Puesto1 Valor Id" />
+    <column name="Puesto2_Id" fieldName="Puesto2_Id" label="Puesto2 Id" />
+    <column name="Periodo_Puesto2_Id" fieldName="Periodo_Puesto2_Id" label="Periodo Puesto2 Id" />
+    <column name="Area_Puesto2_Id" fieldName="Area_Puesto2_Id" label="Area Puesto2 Id" />
+    <column name="Tipo_Empleado_Puesto2_Id" fieldName="Tipo_Empleado_Puesto2_Id" label="Tipo Empleado Puesto2 Id" />
+    <column name="Rango_Puesto2_KO" fieldName="Rango_Puesto2_KO" label="Rango Puesto2 KO" />
+    <column name="Rango_Puesto2_Ponderar" fieldName="Rango_Puesto2_Ponderar" label="Rango Puesto2 Ponderar" />
+    <column name="Rango_Puesto2_Valor_Id" fieldName="Rango_Puesto2_Valor_Id" label="Rango Puesto2 Valor Id" />
+    <column name="Puesto3_Id" fieldName="Puesto3_Id" label="Puesto3 Id" />
+    <column name="Periodo_Puesto3_Id" fieldName="Periodo_Puesto3_Id" label="Periodo Puesto3 Id" />
+    <column name="Area_Puesto3_Id" fieldName="Area_Puesto3_Id" label="Area Puesto3 Id" />
+    <column name="Tipo_Empleado_Puesto3_Id" fieldName="Tipo_Empleado_Puesto3_Id" label="Tipo Empleado Puesto3 Id" />
+    <column name="Rango_Puesto3_KO" fieldName="Rango_Puesto3_KO" label="Rango Puesto3 KO" />
+    <column name="Rango_Puesto3_Ponderar" fieldName="Rango_Puesto3_Ponderar" label="Rango Puesto3 Ponderar" />
+    <column name="Rango_Puesto3_Valor_Id" fieldName="Rango_Puesto3_Valor_Id" label="Rango Puesto3 Valor Id" />
+    <column name="Tipo_Contribucion1" fieldName="Tipo_Contribucion1" label="Tipo Contribucion1" />
+    <column name="Tipo_Contribucion1_Detalle" fieldName="Tipo_Contribucion1_Detalle" label="Tipo Contribucion1 Detalle" />
+    <column name="Rango_Tipo_Contribucion1_KO" fieldName="Rango_Tipo_Contribucion1_KO" label="Rango Tipo Contribucion1 KO" />
+    <column name="Rango_Tipo_Contribucion1_Ponderar" fieldName="Rango_Tipo_Contribucion1_Ponderar" label="Rango Tipo Contribucion1 Ponderar" />
+    <column name="Rango_Tipo_Contribucion1_Valor_Id" fieldName="Rango_Tipo_Contribucion1_Valor_Id" label="Rango Tipo Contribucion1 Valor Id" />
+    <column name="Tipo_Contribucion2" fieldName="Tipo_Contribucion2" label="Tipo Contribucion2" />
+    <column name="Tipo_Contribucion2_Detalle" fieldName="Tipo_Contribucion2_Detalle" label="Tipo Contribucion2 Detalle" />
+    <column name="Rango_Tipo_Contribucion2_KO" fieldName="Rango_Tipo_Contribucion2_KO" label="Rango Tipo Contribucion2 KO" />
+    <column name="Rango_Tipo_Contribucion2_Ponderar" fieldName="Rango_Tipo_Contribucion2_Ponderar" label="Rango Tipo Contribucion2 Ponderar" />
+    <column name="Rango_Tipo_Contribucion2_Valor_Id" fieldName="Rango_Tipo_Contribucion2_Valor_Id" label="Rango Tipo Contribucion2 Valor Id" />
+    <column name="Tipo_Contribucion3" fieldName="Tipo_Contribucion3" label="Tipo Contribucion3" />
+    <column name="Tipo_Contribucion3_Detalle" fieldName="Tipo_Contribucion3_Detalle" label="Tipo Contribucion3 Detalle" />
+    <column name="Rango_Tipo_Contribucion3_KO" fieldName="Rango_Tipo_Contribucion3_KO" label="Rango Tipo Contribucion3 KO" />
+    <column name="Rango_Tipo_Contribucion3_Ponderar" fieldName="Rango_Tipo_Contribucion3_Ponderar" label="Rango Tipo Contribucion3 Ponderar" />
+    <column name="Rango_Tipo_Contribucion3_Valor_Id" fieldName="Rango_Tipo_Contribucion3_Valor_Id" label="Rango Tipo Contribucion3 Valor Id" />
+    <column name="Conocimiento1_Id" fieldName="Conocimiento1_Id" label="Conocimiento1 Id" />
+    <column name="Nivel_Conocimiento1_Id" fieldName="Nivel_Conocimiento1_Id" label="Nivel Conocimiento1 Id" />
+    <column name="Anios_Uso_Conocimiento1_Id" fieldName="Anios_Uso_Conocimiento1_Id" label="Anios Uso Conocimiento1 Id" />
+    <column name="Certificado_Conocimiento1" fieldName="Certificado_Conocimiento1" label="Certificado Conocimiento1" />
+    <column name="Rango_Conocimiento1_KO" fieldName="Rango_Conocimiento1_KO" label="Rango Conocimiento1 KO" />
+    <column name="Rango_Conocimiento1_Ponderar" fieldName="Rango_Conocimiento1_Ponderar" label="Rango Conocimiento1 Ponderar" />
+    <column name="Rango_Conocimiento1_Valor_Id" fieldName="Rango_Conocimiento1_Valor_Id" label="Rango Conocimiento1 Valor Id" />
+    <column name="Conocimiento2_Id" fieldName="Conocimiento2_Id" label="Conocimiento2 Id" />
+    <column name="Nivel_Conocimiento2_Id" fieldName="Nivel_Conocimiento2_Id" label="Nivel Conocimiento2 Id" />
+    <column name="Anios_Uso_Conocimiento2_Id" fieldName="Anios_Uso_Conocimiento2_Id" label="Anios Uso Conocimiento2 Id" />
+    <column name="Certificado_Conocimiento2" fieldName="Certificado_Conocimiento2" label="Certificado Conocimiento2" />
+    <column name="Rango_Conocimiento2_KO" fieldName="Rango_Conocimiento2_KO" label="Rango Conocimiento2 KO" />
+    <column name="Rango_Conocimiento2_Ponderar" fieldName="Rango_Conocimiento2_Ponderar" label="Rango Conocimiento2 Ponderar" />
+    <column name="Rango_Conocimiento2_Valor_Id" fieldName="Rango_Conocimiento2_Valor_Id" label="Rango Conocimiento2 Valor Id" />
+    <column name="Conocimiento3_Id" fieldName="Conocimiento3_Id" label="Conocimiento3 Id" />
+    <column name="Nivel_Conocimiento3_Id" fieldName="Nivel_Conocimiento3_Id" label="Nivel Conocimiento3 Id" />
+    <column name="Anios_Uso_Conocimiento3_Id" fieldName="Anios_Uso_Conocimiento3_Id" label="Anios Uso Conocimiento3 Id" />
+    <column name="Certificado_Conocimiento3" fieldName="Certificado_Conocimiento3" label="Certificado Conocimiento3" />
+    <column name="Rango_Conocimiento3_KO" fieldName="Rango_Conocimiento3_KO" label="Rango Conocimiento3 KO" />
+    <column name="Rango_Conocimiento3_Ponderar" fieldName="Rango_Conocimiento3_Ponderar" label="Rango Conocimiento3 Ponderar" />
+    <column name="Rango_Conocimiento3_Valor_Id" fieldName="Rango_Conocimiento3_Valor_Id" label="Rango Conocimiento3 Valor Id" />
+    <column name="Habilidad1" fieldName="Habilidad1" label="Habilidad1" />
+    <column name="Nivel_Habilidad1_Id" fieldName="Nivel_Habilidad1_Id" label="Nivel Habilidad1 Id" />
+    <column name="Rango_Habilidad1_KO" fieldName="Rango_Habilidad1_KO" label="Rango Habilidad1 KO" />
+    <column name="Rango_Habilidad1_Ponderar" fieldName="Rango_Habilidad1_Ponderar" label="Rango Habilidad1 Ponderar" />
+    <column name="Rango_Habilidad1_Valor_Id" fieldName="Rango_Habilidad1_Valor_Id" label="Rango Habilidad1 Valor Id" />
+    <column name="Habilidad2" fieldName="Habilidad2" label="Habilidad2" />
+    <column name="Nivel_Habilidad2_Id" fieldName="Nivel_Habilidad2_Id" label="Nivel Habilidad2 Id" />
+    <column name="Rango_Habilidad2_KO" fieldName="Rango_Habilidad2_KO" label="Rango Habilidad2 KO" />
+    <column name="Rango_Habilidad2_Ponderar" fieldName="Rango_Habilidad2_Ponderar" label="Rango Habilidad2 Ponderar" />
+    <column name="Rango_Habilidad2_Valor_Id" fieldName="Rango_Habilidad2_Valor_Id" label="Rango Habilidad2 Valor Id" />
+    <column name="Habilidad3" fieldName="Habilidad3" label="Habilidad3" />
+    <column name="Nivel_Habilidad3_Id" fieldName="Nivel_Habilidad3_Id" label="Nivel Habilidad3 Id" />
+    <column name="Rango_Habilidad3_KO" fieldName="Rango_Habilidad3_KO" label="Rango Habilidad3 KO" />
+    <column name="Rango_Habilidad3_Ponderar" fieldName="Rango_Habilidad3_Ponderar" label="Rango Habilidad3 Ponderar" />
+    <column name="Rango_Habilidad3_Valor_Id" fieldName="Rango_Habilidad3_Valor_Id" label="Rango Habilidad3 Valor Id" />
+    <column name="Educacion_Causan_KO" fieldName="Educacion_Causan_KO" label="Educacion Causan KO" />
+    <column name="Institucion_Academica_Educacion1_Id" fieldName="Institucion_Academica_Educacion1_Id" label="Institucion Academica Educacion1 Id" />
+    <column name="Nivel_Escolaridad_Educacion1_Id" fieldName="Nivel_Escolaridad_Educacion1_Id" label="Nivel Escolaridad Educacion1 Id" />
+    <column name="Titulado_Educacion1" fieldName="Titulado_Educacion1" label="Titulado Educacion1" />
+    <column name="Becado_Educacion1" fieldName="Becado_Educacion1" label="Becado Educacion1" />
+    <column name="Promedio_Educacion1" fieldName="Promedio_Educacion1" label="Promedio Educacion1" />
+    <column name="Rango_Educacion1_Ponderar" fieldName="Rango_Educacion1_Ponderar" label="Rango Educacion1 Ponderar" />
+    <column name="Rango_Educacion1_Valor_Id" fieldName="Rango_Educacion1_Valor_Id" label="Rango Educacion1 Valor Id" />
+    <column name="Institucion_Academica_Educacion2_Id" fieldName="Institucion_Academica_Educacion2_Id" label="Institucion Academica Educacion2 Id" />
+    <column name="Nivel_Escolaridad_Educacion2_Id" fieldName="Nivel_Escolaridad_Educacion2_Id" label="Nivel Escolaridad Educacion2 Id" />
+    <column name="Titulado_Educacion2" fieldName="Titulado_Educacion2" label="Titulado Educacion2" />
+    <column name="Becado_Educacion2" fieldName="Becado_Educacion2" label="Becado Educacion2" />
+    <column name="Promedio_Educacion2" fieldName="Promedio_Educacion2" label="Promedio Educacion2" />
+    <column name="Rango_Educacion2_Ponderar" fieldName="Rango_Educacion2_Ponderar" label="Rango Educacion2 Ponderar" />
+    <column name="Rango_Educacion2_Valor_Id" fieldName="Rango_Educacion2_Valor_Id" label="Rango Educacion2 Valor Id" />
+    <column name="Institucion_Academica_Educacion3_Id" fieldName="Institucion_Academica_Educacion3_Id" label="Institucion Academica Educacion3 Id" />
+    <column name="Nivel_Escolaridad_Educacion3_Id" fieldName="Nivel_Escolaridad_Educacion3_Id" label="Nivel Escolaridad Educacion3 Id" />
+    <column name="Titulado_Educacion3" fieldName="Titulado_Educacion3" label="Titulado Educacion3" />
+    <column name="Becado_Educacion3" fieldName="Becado_Educacion3" label="Becado Educacion3" />
+    <column name="Promedio_Educacion3" fieldName="Promedio_Educacion3" label="Promedio Educacion3" />
+    <column name="Rango_Educacion3_Ponderar" fieldName="Rango_Educacion3_Ponderar" label="Rango Educacion3 Ponderar" />
+    <column name="Rango_Educacion3_Valor_Id" fieldName="Rango_Educacion3_Valor_Id" label="Rango Educacion3 Valor Id" />
+    <column name="Institucion_Academica_Educacion4_Id" fieldName="Institucion_Academica_Educacion4_Id" label="Institucion Academica Educacion4 Id" />
+    <column name="Nivel_Escolaridad_Educacion4_Id" fieldName="Nivel_Escolaridad_Educacion4_Id" label="Nivel Escolaridad Educacion4 Id" />
+    <column name="Titulado_Educacion4" fieldName="Titulado_Educacion4" label="Titulado Educacion4" />
+    <column name="Becado_Educacion4" fieldName="Becado_Educacion4" label="Becado Educacion4" />
+    <column name="Promedio_Educacion4" fieldName="Promedio_Educacion4" label="Promedio Educacion4" />
+    <column name="Rango_Educacion4_Ponderar" fieldName="Rango_Educacion4_Ponderar" label="Rango Educacion4 Ponderar" />
+    <column name="Rango_Educacion4_Valor_Id" fieldName="Rango_Educacion4_Valor_Id" label="Rango Educacion4 Valor Id" />
+    <column name="Programa_Curso_Capacitacion1_Id" fieldName="Programa_Curso_Capacitacion1_Id" label="Programa Curso Capacitacion1 Id" />
+    <column name="Institucion_Academica_Capacitacion1_Id" fieldName="Institucion_Academica_Capacitacion1_Id" label="Institucion Academica Capacitacion1 Id" />
+    <column name="Certificado_Capacitacion1" fieldName="Certificado_Capacitacion1" label="Certificado Capacitacion1" />
+    <column name="Rango_Capacitacion1_Ponderar" fieldName="Rango_Capacitacion1_Ponderar" label="Rango Capacitacion1 Ponderar" />
+    <column name="Rango_Capacitacion1_Valor_Id" fieldName="Rango_Capacitacion1_Valor_Id" label="Rango Capacitacion1 Valor Id" />
+    <column name="Programa_Curso_Capacitacion2_Id" fieldName="Programa_Curso_Capacitacion2_Id" label="Programa Curso Capacitacion2 Id" />
+    <column name="Institucion_Academica_Capacitacion2_Id" fieldName="Institucion_Academica_Capacitacion2_Id" label="Institucion Academica Capacitacion2 Id" />
+    <column name="Certificado_Capacitacion2" fieldName="Certificado_Capacitacion2" label="Certificado Capacitacion2" />
+    <column name="Rango_Capacitacion2_Ponderar" fieldName="Rango_Capacitacion2_Ponderar" label="Rango Capacitacion2 Ponderar" />
+    <column name="Rango_Capacitacion2_Valor_Id" fieldName="Rango_Capacitacion2_Valor_Id" label="Rango Capacitacion2 Valor Id" />
+    <column name="Programa_Curso_Capacitacion3_Id" fieldName="Programa_Curso_Capacitacion3_Id" label="Programa Curso Capacitacion3 Id" />
+    <column name="Institucion_Academica_Capacitacion3_Id" fieldName="Institucion_Academica_Capacitacion3_Id" label="Institucion Academica Capacitacion3 Id" />
+    <column name="Certificado_Capacitacion3" fieldName="Certificado_Capacitacion3" label="Certificado Capacitacion3" />
+    <column name="Rango_Capacitacion3_Ponderar" fieldName="Rango_Capacitacion3_Ponderar" label="Rango Capacitacion3 Ponderar" />
+    <column name="Rango_Capacitacion3_Valor_Id" fieldName="Rango_Capacitacion3_Valor_Id" label="Rango Capacitacion3 Valor Id" />
+    <column name="Nota1" fieldName="Nota1" label="Nota1" />
+    <column name="Nota1_Detalle" fieldName="Nota1_Detalle" label="Nota1 Detalle" />
+    <column name="Nota2" fieldName="Nota2" label="Nota2" />
+    <column name="Nota2_Detalle" fieldName="Nota2_Detalle" label="Nota2 Detalle" />
+    <column name="Nota3" fieldName="Nota3" label="Nota3" />
+    <column name="Nota3_Detalle" fieldName="Nota3_Detalle" label="Nota3 Detalle" />
+    <column name="Nota4" fieldName="Nota4" label="Nota4" />
+    <column name="Nota4_Detalle" fieldName="Nota4_Detalle" label="Nota4 Detalle" />
+    <column name="Nota5" fieldName="Nota5" label="Nota5" />
+    <column name="Nota5_Detalle" fieldName="Nota5_Detalle" label="Nota5 Detalle" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V" />
+    <column name="UserName" fieldName="UsuarioVUsername" label="Creado Por" foreignKey="Usuario_V" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha Creacion" format="g" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" aliasColumnName="UserName" aliasForeignKey="Usuario_V1" />
+    <column name="UserName" fieldName="UsuarioV1username" label="Actualizado Por" foreignKey="Usuario_V1" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha Ultima Actualizacion" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" />
+    <column name="Tramo_Control" fieldName="Tramo_Control" label="Tramo Control" />
+    <column name="Tipo_Empleado_Id" fieldName="TipoEmpleadoId" label="Tipo Empleado Id" />
+    <column name="Vacante_Id" fieldName="Vacante_Id" label="Vacante Id" />
+    <column name="Conocimiento4_Id" fieldName="Conocimiento4_Id" label="Conocimiento 4 Id" />
+    <column name="Nivel_Conocimiento4_Id" fieldName="Nivel_Conocimiento4_Id" label="Nivel Conocimiento 4 Id" />
+    <column name="Anios_Uso_Conocimiento4_Id" fieldName="Anios_Uso_Conocimiento4_Id" label="Anios Uso Conocimiento 4 Id" />
+    <column name="Certificado_Conocimiento4" fieldName="Certificado_Conocimiento4" label="Certificado Conocimiento 4" />
+    <column name="Rango_Conocimiento4_KO" fieldName="Rango_Conocimiento4_KO" label="Rango Conocimiento 4 KO" />
+    <column name="Rango_Conocimiento4_Ponderar" fieldName="Rango_Conocimiento4_Ponderar" label="Rango Conocimiento 4 Ponderar" />
+    <column name="Rango_Conocimiento4_Valor_Id" fieldName="Rango_Conocimiento4_Valor_Id" label="Rango Conocimiento 4 Valor Id" />
+    <column name="Conocimiento5_Id" fieldName="Conocimiento5_Id" label="Conocimiento 5 Id" />
+    <column name="Nivel_Conocimiento5_Id" fieldName="Nivel_Conocimiento5_Id" label="Nivel Conocimiento 5 Id" />
+    <column name="Anios_Uso_Conocimiento5_Id" fieldName="Anios_Uso_Conocimiento5_Id" label="Anios Uso Conocimiento 5 Id" />
+    <column name="Certificado_Conocimiento5" fieldName="Certificado_Conocimiento5" label="Certificado Conocimiento 5" />
+    <column name="Rango_Conocimiento5_KO" fieldName="Rango_Conocimiento5_KO" label="Rango Conocimiento 5 KO" />
+    <column name="Rango_Conocimiento5_Ponderar" fieldName="Rango_Conocimiento5_Ponderar" label="Rango Conocimiento 5 Ponderar" />
+    <column name="Rango_Conocimiento5_Valor_Id" fieldName="Rango_Conocimiento5_Valor_Id" label="Rango Conocimiento 5 Valor Id" />
+    <column name="Habilidad4" fieldName="Habilidad4" label="Habilidad 4" />
+    <column name="Nivel_Habilidad4_Id" fieldName="Nivel_Habilidad4_Id" label="Nivel Habilidad 4 Id" />
+    <column name="Rango_Habilidad4_KO" fieldName="Rango_Habilidad4_KO" label="Rango Habilidad 4 KO" />
+    <column name="Rango_Habilidad4_Ponderar" fieldName="Rango_Habilidad4_Ponderar" label="Rango Habilidad 4 Ponderar" />
+    <column name="Rango_Habilidad4_Valor_Id" fieldName="Rango_Habilidad4_Valor_Id" label="Rango Habilidad 4 Valor Id" />
+    <column name="Habilidad5" fieldName="Habilidad5" label="Habilidad 5" />
+    <column name="Nivel_Habilidad5_Id" fieldName="Nivel_Habilidad5_Id" label="Nivel Habilidad 5 Id" />
+    <column name="Rango_Habilidad5_KO" fieldName="Rango_Habilidad5_KO" label="Rango Habilidad 5 KO" />
+    <column name="Rango_Habilidad5_Ponderar" fieldName="Rango_Habilidad5_Ponderar" label="Rango Habilidad 5 Ponderar" />
+    <column name="Rango_Habilidad5_Valor_Id" fieldName="Rango_Habilidad5_Valor_Id" label="Rango Habilidad 5 Valor Id" />
+    <column name="Calificacion_Minima_Aprobatoria" fieldName="CalificacionMinimaAprobatoria" label="Calificacion Minima Aprobatoria" />
+    <column name="Estatus_Descripcion_Puesto_Id" fieldName="EstatusDescripcionPuestoId" label="Estatus Descripcion Puesto Id" aliasColumnName="Estatus_Descripcion_Puesto" aliasForeignKey="Estatus_Descripcion_Puesto" />
+    <column name="Estatus_Descripcion_Puesto" fieldName="EstatusDescripcionPuestoestatusDescripcionPuesto" label="Estatus Descripcion Puestoestatus Descripcion Puesto" foreignKey="Estatus_Descripcion_Puesto" />
+  </columns>
+</dataModel>

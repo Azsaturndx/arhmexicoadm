@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Persona" alias="Persona" created="2018-05-19T20:37:13" modified="2018-07-25T21:35:10" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Lugar_Nacimiento_" parentTableSchema="APP" parentTableName="Ciudad" x="416" y="20">
+      <foreignKeyColumn columnName="Lugar_Nacimiento_Id" parentColumnName="Ciudad_Id" />
+    </foreignKey>
+    <foreignKey id="Lugar_Nacimiento_Entidad_Pais_" parentTableSchema="APP" parentTableName="Entidad_Pais" baseForeignKey="Lugar_Nacimiento_" x="761" y="20">
+      <foreignKeyColumn columnName="Entidad_Pais_Id" parentColumnName="Entidad_Pais_Id" />
+    </foreignKey>
+    <foreignKey id="Lugar_Nacimiento_Entidad_Pais_Pais_" parentTableSchema="APP" parentTableName="Pais" baseForeignKey="Lugar_Nacimiento_Entidad_Pais_" x="1101" y="20">
+      <foreignKeyColumn columnName="Pais_Id" parentColumnName="Pais_Id" />
+    </foreignKey>
+    <foreignKey id="Maximo_Nivel_Escolaridad_" parentTableSchema="APP" parentTableName="Nivel_Escolaridad" x="416" y="275">
+      <foreignKeyColumn columnName="Maximo_Nivel_Escolaridad_Id" parentColumnName="Nivel_Escolaridad_Id" />
+    </foreignKey>
+    <foreignKey id="Estado_Civil_" parentTableSchema="APP" parentTableName="Estado_Civil" x="416" y="519">
+      <foreignKeyColumn columnName="Estado_Civil_Id" parentColumnName="Estado_Civil_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="416" y="980">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="cp" parentTableSchema="dbo" parentTableName="Usuario_V" x="812" y="278">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="ap" parentTableSchema="dbo" parentTableName="Usuario_V" x="833" y="535">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Cliente" parentTableSchema="APP" parentTableName="Cliente" x="96" y="729">
+      <foreignKeyColumn columnName="Cliente_Id" parentColumnName="Cliente_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Persona" parentTableSchema="APP" parentTableName="Estatus_Persona" x="753" y="750">
+      <foreignKeyColumn columnName="Estatus_Persona_Id" parentColumnName="Estatus_Persona_Id" />
+    </foreignKey>
+    <foreignKey id="Genero" parentTableSchema="APP" parentTableName="Genero" x="1442" y="20">
+      <foreignKeyColumn columnName="Genero_Persona_Id" parentColumnName="Genero_Id" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Persona_Id" fieldName="Persona_Id" label="Persona Id" />
+    <column name="Nombre" fieldName="Nombre" label="Nombre" />
+    <column name="Apellido_Paterno" fieldName="Apellido_Paterno" label="Apellido Paterno" />
+    <column name="Apellido_Materno" fieldName="Apellido_Materno" label="Apellido Materno" />
+    <column name="Segundo_Nombre" fieldName="Segundo_Nombre" label="Segundo Nombre" />
+    <column name="Fecha_Nacimiento" fieldName="Fecha_Nacimiento" label="Fecha de Nacimiento" format="g" />
+    <column name="Lugar_Nacimiento_Id" fieldName="Lugar_Nacimiento_Id" label="Lugar Nacimiento Id" aliasColumnName="Ciudad" aliasForeignKey="Lugar_Nacimiento_" />
+    <column name="Ciudad" fieldName="Lugar_Nacimiento_Ciudad" label="Ciudad de Nacimiento" foreignKey="Lugar_Nacimiento_" />
+    <column name="Entidad_Pais" fieldName="Lugar_Nacimiento_Entidad_Pais_Entidad_Pais" label="País de Nacimiento" foreignKey="Lugar_Nacimiento_Entidad_Pais_" />
+    <column name="Pais" fieldName="Lugar_Nacimiento_Entidad_Pais_Pais_Pais" label="Estado de la República de Nacimiento" foreignKey="Lugar_Nacimiento_Entidad_Pais_Pais_" />
+    <column name="Maximo_Nivel_Escolaridad_Id" fieldName="Maximo_Nivel_Escolaridad_Id" label="Maximo Nivel Escolaridad Id" aliasColumnName="Nivel_Escolaridad" aliasForeignKey="Maximo_Nivel_Escolaridad_" />
+    <column name="Nivel_Escolaridad" fieldName="Maximo_Nivel_Escolaridad_Nivel_Escolaridad" label="Máximo Nivel de Escolaridad" foreignKey="Maximo_Nivel_Escolaridad_" />
+    <column name="Estado_Civil_Id" fieldName="Estado_Civil_Id" label="Estado Civil Id" aliasColumnName="Estado_Civil" aliasForeignKey="Estado_Civil_" />
+    <column name="Estado_Civil" fieldName="Estado_Civil_Estado_Civil" label="Estado Civil" foreignKey="Estado_Civil_" />
+    <column name="Genero_Persona_Id" fieldName="Genero_Persona_Id" label="Genero Persona Id" aliasColumnName="Genero" aliasForeignKey="Genero" />
+    <column name="Genero" fieldName="Genero_Persona" label="Genero Persona" foreignKey="Genero" />
+    <column name="Picture" fieldName="Picture" label="Fotografía" />
+    <column name="PictureFileName" fieldName="PictureFileName" label="Nombre Archivo Fotografía" />
+    <column name="PictureContentType" fieldName="PictureContentType" label="Tipo de Archivo Fotografía" />
+    <column name="PictureLength" fieldName="PictureLength" label="Tamaño Fotografía" />
+    <column name="Registro_Federal_Causante_Id" fieldName="Registro_Federal_Causante_Id" label="RFC" />
+    <column name="Curp_Id" fieldName="Curp_Id" label="CURP" />
+    <column name="Notas" fieldName="Notas" label="Notas" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus de Registro" foreignKey="Estatus_Registro_" />
+    <column name="UserName" fieldName="cpUserName" label="Creado Por" foreignKey="cp" />
+    <column name="UserName" fieldName="apUserName" label="Actualizado Por" foreignKey="ap" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="Creado_Por_Id" fieldName="Creado_Por_Id" label="Creado Por Id" />
+    <column name="Actualizado_Por_Id" fieldName="Actualizado_Por_Id" label="Actualizado Por Id" />
+    <column name="Numero_Imss" fieldName="Numero_Imss" label="Numero Imss" />
+    <column name="Cliente_Id" fieldName="Cliente_Id" label="Cliente Id" aliasColumnName="Cliente" aliasForeignKey="Cliente" />
+    <column name="Cliente" fieldName="Cliente" label="Cliente" foreignKey="Cliente" />
+    <column name="Persona_Key" fieldName="Persona_Key" label="Persona Key" />
+    <column name="Estatus_Persona_Id" fieldName="Estatus_Persona_Id" label="Estatus Persona Id" aliasColumnName="Estatus_Persona" aliasForeignKey="Estatus_Persona" />
+    <column name="Estatus_Persona" fieldName="Estatus_Persona_Estatus_Persona" label="Estatus Persona" foreignKey="Estatus_Persona" />
+  </columns>
+</dataModel>

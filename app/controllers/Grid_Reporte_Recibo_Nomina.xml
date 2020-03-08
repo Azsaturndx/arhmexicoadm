@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Grid_Reporte_Recibo_Nomina" conflictDetection="overwriteChanges" label="Grid Reporte Recibo Nomina" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Grid_Reporte_Recibo_Nomina"."Cliente" "Cliente"
+	,"Grid_Reporte_Recibo_Nomina"."Contratante" "Contratante"
+	,"Grid_Reporte_Recibo_Nomina"."Nombre" "Nombre"
+	,"Grid_Reporte_Recibo_Nomina"."Enlace" "Enlace"
+	,"Grid_Reporte_Recibo_Nomina"."Periodo_Nomina" "Periodo_Nomina"
+	,"Grid_Reporte_Recibo_Nomina"."Anio" "Anio"
+	,"Grid_Reporte_Recibo_Nomina"."Mes_Numero" "Mes_Numero"
+from "dbo"."Grid_Reporte_Recibo_Nomina" "Grid_Reporte_Recibo_Nomina"
+]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Cliente" type="String" label="Cliente" length="150" showInSummary="true" />
+    <field name="Contratante" type="String" label="Contratante" length="150" showInSummary="true" />
+    <field name="Nombre" type="String" allowNulls="false" allowQBE="false" allowSorting="false" label="Nombre" readOnly="true" length="8000" showInSummary="true" />
+    <field name="Enlace" type="String" allowNulls="false" allowQBE="false" allowSorting="false" label="Enlace" showInSummary="true" htmlEncode="false" />
+    <field name="Periodo_Nomina" type="String" label="Periodo de Nomina" length="150" showInSummary="true" />
+    <field name="Anio" type="String" label="Anio" length="150" />
+    <field name="Mes_Numero" type="Byte" label="Mes Numero" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Grid Reporte Recibo Nomina">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="Cliente" />
+        <dataField fieldName="Contratante" />
+        <dataField fieldName="Nombre" rows="5" />
+        <dataField fieldName="Enlace" rows="5" />
+        <dataField fieldName="Periodo_Nomina" />
+        <dataField fieldName="Anio" />
+        <dataField fieldName="Mes_Numero" columns="15" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Hidden" />
+      <action id="a2" commandName="Delete" roles="Hidden" />
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" commandName="Select" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="hidden" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="hidden" />
+      <action id="a4" commandName="ExportRss" roles="hidden" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin,ArhContabilidad" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin,ArhContabilidad" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin,ArhContabilidad" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin,ArhContabilidad" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+  </actions>
+</dataController>

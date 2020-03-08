@@ -1,0 +1,641 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Finiquito" conflictDetection="overwriteChanges" label="Finiquito" handler="arhmexico.Rules.FiniquitoBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Finiquito"."Finiquito_Id" "Finiquito_Id"
+	,"Finiquito"."Tipo_Finiquito_Id" "Tipo_Finiquito_Id"
+	,"Tipo_Finiquito_"."Tipo_Finiquito" "Tipo_Finiquito_Tipo_Finiquito"
+	,"Finiquito"."Salario_Diario_Registrado_IMSS" "Salario_Diario_Registrado_IMSS"
+	,"Finiquito"."Fecha_Ingreso_Pagadora" "Fecha_Ingreso_Pagadora"
+	,"Finiquito"."Fecha_Salida_Pagadora" "Fecha_Salida_Pagadora"
+	,"Finiquito"."Puesto_Contratado_Finiquitar_Id" "Puesto_Contratado_Finiquitar_Id"
+	,"Contratante_Puesto"."Contratante_Puesto" "Puesto_Contratado"
+	,"Finiquito"."Domicilio_Contratado_Finiquitar_Id" "Domicilio_Contratado_Finiquitar_Id"
+	,"Finiquito"."Contacto_Contratado_Finiquitar_Id" "Contacto_Contratado_Finiquitar_Id"
+	,"Finiquito"."Estatus_Finiquito_Id" "Estatus_Finiquito_Id"
+	,"Estatus_Finiquito"."Estatus_Finiquito" "Estatus_Finiquito"
+	,"Finiquito"."Finiquito_En_Efectivo" "Finiquito_En_Efectivo"
+	,"Finiquito"."Banco_SA_Id" "Banco_SA_Id"
+	,"Banco_SA_"."Nombre_Completo" "Banco_SA_Nombre_Completo"
+	,"Finiquito"."Numero_Cheque_SA" "Numero_Cheque_SA"
+	,"Finiquito"."Banco_Sindicato_Id" "Banco_Sindicato_Id"
+	,"Banco_Sindicato_"."Nombre_Completo" "Banco_Sindicato_Nombre_Completo"
+	,"Finiquito"."Numero_Cheque_Sindicato" "Numero_Cheque_Sindicato"
+	,"Finiquito"."Cantidad_SA" "Cantidad_SA"
+	,"Finiquito"."Cantidad_Sindicato" "Cantidad_Sindicato"
+	,"Finiquito"."Otras_Cantidades" "Otras_Cantidades"
+	,"Finiquito"."Notas" "Notas"
+	,"Finiquito"."Fecha_Hora_Finiquito_Junta_Local_Conciliacion_Arbitraje" "Fecha_Hora_Finiquito_Junta_Local_Conciliacion_Arbitraje"
+	,"Finiquito"."Cantidad_Solicitada_A_Finiquitar" "Cantidad_Solicitada_A_Finiquitar"
+	,"Finiquito"."Transaccion_Id" "Transaccion_Id"
+	,"Finiquito"."Fecha_Creacion" "Fecha_Creacion"
+	,"Finiquito"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Finiquito"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Usuario_V"."UserName" "cpUserName"
+	,"Usuario_V1"."UserName" "apUserName"
+	,"Grid_Domicilio_V"."Domicilio_Etiqueta" "Domicilio_Etiqueta"
+	,"Ciudad"."Ciudad" "Ciudad_Convenio"
+	,"Persona_V"."Persona_Nombre" "Contacto_Peersona_Nombre_Completo"
+	,"Contacto"."Contacto" "Contacto_Etiqueta"
+	,"Finiquito"."Ciudad_Convenio_Id" "Ciudad_Convenio_Id"
+	,"Finiquito"."Cliente_Id" "Cliente_Id"
+	,"Cliente"."Cliente" "Cliente"
+	,"Finiquito"."Contratante_Id" "Contratante_Id"
+	,"Contratante"."Contratante" "Contratante"
+	,"Finiquito"."Contratado_Id" "Contratado_Id"
+	,"Contratado"."Persona_Id" "Contratado_Persona_Id"
+	,"Grid_Persona_V"."Nombre_Completo" "Contratado_Nombre"
+	,"Finiquito"."Pagadora_Id" "Pagadora_Id"
+	,"Pagadora"."Pagadora" "Pagadora"
+from "APP"."Finiquito" "Finiquito"
+	left join "APP"."Tipo_Finiquito" "Tipo_Finiquito_" on "Finiquito"."Tipo_Finiquito_Id" = "Tipo_Finiquito_"."Tipo_Finiquito_Id"
+	left join "APP"."Banco" "Banco_SA_" on "Finiquito"."Banco_SA_Id" = "Banco_SA_"."Banco_Id"
+	left join "APP"."Banco" "Banco_Sindicato_" on "Finiquito"."Banco_Sindicato_Id" = "Banco_Sindicato_"."Banco_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Finiquito"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "APP"."Estatus_Finiquito" "Estatus_Finiquito" on "Finiquito"."Estatus_Finiquito_Id" = "Estatus_Finiquito"."Estatus_Finiquito_Id"
+	left join "dbo"."Usuario_V" "Usuario_V" on "Finiquito"."Creado_Por_Id" = "Usuario_V"."UserId"
+	left join "dbo"."Usuario_V" "Usuario_V1" on "Finiquito"."Actualizado_Por_Id" = "Usuario_V1"."UserId"
+	left join "APP"."Domicilio" "Domicilio" on "Finiquito"."Domicilio_Contratado_Finiquitar_Id" = "Domicilio"."Domicilio_Id"
+	left join "dbo"."Grid_Domicilio_V" "Grid_Domicilio_V" on "Domicilio"."Domicilio_Id" = "Grid_Domicilio_V"."Domicilio_Id"
+	left join "APP"."Contacto" "Contacto" on "Finiquito"."Contacto_Contratado_Finiquitar_Id" = "Contacto"."Contacto_Id"
+	left join "dbo"."Persona_V" "Persona_V" on "Contacto"."Persona_Id" = "Persona_V"."Persona_Id"
+	left join "APP"."Ciudad" "Ciudad" on "Finiquito"."Ciudad_Convenio_Id" = "Ciudad"."Ciudad_Id"
+	left join "APP"."Cliente" "Cliente" on "Finiquito"."Cliente_Id" = "Cliente"."Cliente_Id"
+	left join "APP"."Contratante" "Contratante" on "Finiquito"."Contratante_Id" = "Contratante"."Contratante_Id"
+	left join "APP"."Contratado" "Contratado" on "Finiquito"."Contratado_Id" = "Contratado"."Contratado_Id"
+	left join "dbo"."Grid_Persona_V" "Grid_Persona_V" on "Contratado"."Persona_Id" = "Grid_Persona_V"."Persona_Id"
+	left join "APP"."Cliente_Pagadora" "Cliente_Pagadora" on "Finiquito"."Pagadora_Id" = "Cliente_Pagadora"."Pagadora_Id"
+	left join "APP"."Pagadora" "Pagadora" on "Cliente_Pagadora"."Pagadora_Id" = "Pagadora"."Pagadora_Id"
+	left join "APP"."Contratante_Puesto" "Contratante_Puesto" on "Finiquito"."Puesto_Contratado_Finiquitar_Id" = "Contratante_Puesto"."Contratante_Puesto_Id"
+]]></text>
+    </command>
+    <command id="Finiquito_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Finiquito_Id" />
+      </output>
+    </command>
+    <command type="Text" id="Grid_Finiquito_V" custom="false">
+      <text><![CDATA[SELECT
+	Cliente_Id
+	,Cliente
+	,Finiquito_Id
+	,Tipo_Finiquito_Id
+	,Fecha_Creacion
+	,Fecha_Ultima_Actualizacion
+	,Contratado_Id
+	,Estatus_Finiquito_Id
+	,Tipo_Finiquito_Tipo_Finiquito
+	,Contratado_Nombre
+	,Pagadora_Id
+	,Pagadora
+	,Contratante_Id
+	,Contratante
+	,Estatus_Finiquito
+	,Estatus_Registro_Id
+	,Estatus_Registro_Estatus_Registro
+	,cpUserName
+	,apUserName
+	,Es_Demanda
+	,Persona_Id
+FROM
+	dbo.Grid_Finiquito_V]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Finiquito_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Finiquito Id" readOnly="true" />
+    <field name="Tipo_Finiquito_Id" type="Int32" allowNulls="false" default="((0))" label="Tipo Finiquito Id" showInSummary="true">
+      <items style="Lookup" dataController="Tipo_Finiquito" dataValueField="Tipo_Finiquito_Id" dataTextField="Tipo_Finiquito" dataView="Tipo_Finiquito_LookUp_List" />
+    </field>
+    <field name="Tipo_Finiquito_Tipo_Finiquito" type="String" readOnly="true" label="Tipo de Finiquito" length="150" />
+    <field name="Salario_Diario_Registrado_IMSS" type="Decimal" default="((0))" label="Salario Diario Registrado IMSS" showInSummary="true" dataFormatString="c2" />
+    <field name="Fecha_Ingreso_Pagadora" type="DateTime" allowNulls="false" dataFormatString="d" label="Fecha de Ingreso a Pagadora" showInSummary="true" />
+    <field name="Fecha_Salida_Pagadora" type="DateTime" allowNulls="false" dataFormatString="d" label="Fecha de Salida a Pagadora" showInSummary="true" />
+    <field name="Puesto_Contratado_Finiquitar_Id" type="Int32" allowNulls="false" default="((0))" label="Puesto Contratado Finiquitar Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratante_Puesto" dataView="Contratante_Puesto_LookUp_List" dataTextField="Contratante_Puesto" dataValueField="Contratante_Puesto_Id" />
+    </field>
+    <field name="Puesto_Contratado" type="String" readOnly="true" label="Puesto Contratado" length="150" />
+    <field name="Domicilio_Contratado_Finiquitar_Id" type="Int32" allowNulls="false" default="((0))" label="Domicilio Contratado Finiquitar Id" contextFields="Persona_Id=Contratado_Persona_Id">
+      <items style="Lookup" dataController="Domicilio" newDataView="createForm1" dataValueField="Domicilio_Id" dataTextField="Domicilio_Etiqueta" dataView="Domicilio_LookUp_List" />
+    </field>
+    <field name="Contacto_Contratado_Finiquitar_Id" type="Int32" allowNulls="false" default="((0))" label="Contacto Contratado Finiquitar Id" contextFields="Persona_Id=Contratado_Persona_Id">
+      <items style="Lookup" dataController="Contacto" newDataView="createForm1" dataValueField="Contacto_Id" dataTextField="Contacto" dataView="Contacto_Telefonico_Persona_Finiquito_LookUp_List" />
+    </field>
+    <field name="Estatus_Finiquito_Id" type="Int32" allowNulls="false" default="((0))" label="Estatus Finiquito Id">
+      <items style="Lookup" dataController="Estatus_Finiquito" newDataView="createForm1" dataValueField="Estatus_Finiquito_Id" dataTextField="Estatus_Finiquito" dataView="Estatus_Finiquito_LookUp_List" />
+    </field>
+    <field name="Estatus_Finiquito" type="String" readOnly="true" label="Estatus de Finiquito" length="150" />
+    <field name="Finiquito_En_Efectivo" type="Boolean" allowNulls="false" default="((0))" label="¿Finiquito en Efectivo?" causesCalculate="true">
+      <items style="CheckBox" />
+    </field>
+    <field name="Banco_SA_Id" type="Int32" allowNulls="false" default="((0))" label="Banco SA Id">
+      <items style="Lookup" dataController="Banco" newDataView="createForm1" dataValueField="Banco_Id" dataTextField="Nombre_Completo" dataView="Banco_LookUp_List" />
+    </field>
+    <field name="Banco_SA_Nombre_Completo" type="String" readOnly="true" label="Banco SA" length="150" />
+    <field name="Numero_Cheque_SA" type="String" label="Numero Cheque SA" length="25" />
+    <field name="Banco_Sindicato_Id" type="Int32" allowNulls="false" default="((0))" label="Banco Sindicato Id">
+      <items style="Lookup" dataController="Banco" newDataView="createForm1" dataValueField="Banco_Id" dataTextField="Nombre_Completo" dataView="Banco_LookUp_List" />
+    </field>
+    <field name="Banco_Sindicato_Nombre_Completo" type="String" readOnly="true" label="Banco Sindicato" length="150" />
+    <field name="Numero_Cheque_Sindicato" type="String" label="Numero Cheque Sindicato" length="25" />
+    <field name="Cantidad_SA" type="Decimal" default="((0))" label="Cantidad SA" dataFormatString="c2" causesCalculate="true" />
+    <field name="Cantidad_Sindicato" type="Decimal" default="((0))" label="Cantidad Sindicato" dataFormatString="c2" causesCalculate="true" />
+    <field name="Otras_Cantidades" type="Decimal" default="((0))" label="Otras Cantidades" dataFormatString="c2" causesCalculate="true" />
+    <field name="Notas" type="String" allowQBE="false" allowSorting="false" label="Notas" />
+    <field name="Fecha_Hora_Finiquito_Junta_Local_Conciliacion_Arbitraje" type="DateTime" allowNulls="false" dataFormatString="g" default="(getdate())" label="Fecha Hora Finiquito Junta Local Conciliacion Arbitraje" />
+    <field name="Cantidad_Solicitada_A_Finiquitar" type="Decimal" default="((0))" label="Cantidad Solicitada A Finiquitar" dataFormatString="c2" causesCalculate="true" />
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transacción Id" length="50" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Domicilio_Etiqueta" type="String" label="Domicilio del Contratado" readOnly="true" length="1096" />
+    <field name="Ciudad_Convenio" type="String" readOnly="true" label="Ciudad de Convenio" length="150" />
+    <field name="Contacto_Peersona_Nombre_Completo" type="String" readOnly="true" label="Contacto del Contratado" length="603" />
+    <field name="Contacto_Etiqueta" type="String" readOnly="true" allowQBE="false" allowSorting="false" label="Contacto" length="5000" />
+    <field name="Ciudad_Convenio_Id" type="Int32" allowNulls="false" default="((0))" label="Ciudad Convenio Id">
+      <items style="Lookup" dataController="Ciudad" newDataView="createForm1" dataValueField="Ciudad_Id" dataTextField="Ciudad" dataView="Ciudad_LookUp_List" />
+    </field>
+    <field name="Cliente_Id" type="Int32" allowNulls="false" default="((0))" label="Cliente Id" contextFields="Contratante_Id=Contratante_Id" causesCalculate="true">
+      <items style="Lookup" dataController="Cliente" newDataView="createForm1" dataValueField="Cliente_Id" dataTextField="Cliente" dataView="Cliente_Admin_LookUp_List" />
+    </field>
+    <field name="Cliente" type="String" readOnly="true" label="Cliente" length="150" />
+    <field name="Contratante_Id" type="Int32" allowNulls="false" default="((0))" label="Contratante Id" causesCalculate="true">
+      <items style="Lookup" dataController="Contratante_Admin" newDataView="createForm1" dataValueField="Contratante_Id" dataTextField="Contratante" dataView="Contratante_Admin_LookUp_List" copy="Cliente_Id=Cliente_Id,&#xD;&#xA;Cliente=Cliente_Cliente" />
+    </field>
+    <field name="Contratante" type="String" readOnly="true" label="Contratante" length="150" />
+    <field name="Contratado_Id" type="Int32" allowNulls="false" default="((0))" label="Contratado Id">
+      <items style="Lookup" dataController="Contratado_Admin" newDataView="createForm1" dataValueField="Contratado_Id" dataView="Contratado_Admin_LookUp_List" dataTextField="Persona_Nombre" copy="Domicilio_Contratado_Finiquitar_Id=Persona_Domicilio_Etiqueta_Id,&#xD;&#xA;Domicilio_Etiqueta=Persona_Domicilio_Etiqueta,&#xD;&#xA;Contacto_Contratado_Finiquitar_Id=Persona_Contacto_iD,&#xD;&#xA;Contacto_Etiqueta=Persona_Contacto_Etiqueta,&#xD;&#xA;Puesto_Contratado_Finiquitar_Id=Puesto_Contratado_Finiquitar_Id,&#xD;&#xA;Puesto_Contratado=Puesto_Contratado_Finiquitar&#xD;&#xA;Contratante_Puesto_Id=Puesto_Contratado_Finiquitar_Id,&#xD;&#xA;Contratante_Puesto=Puesto_Contratado_Finiquitar,&#xD;&#xA;Contratado_Persona_Id=Persona_Id,&#xD;&#xA;Contratado_Nombre=Persona_Nombre,&#xD;&#xA;Contratante_Id=Contratante_Id,&#xD;&#xA;Contratante=Contratante_Contratante,&#xD;&#xA;Pagadora_Id=Pagadora_Id,&#xD;&#xA;Pagadora=Pagadora_Pagadora,&#xD;&#xA;Contratante_Domicilio_Etiqueta_Id=Contratante_Domicilio_Etiqueta_Id,&#xD;&#xA;Contratante_Domicilio_Etiqueta=Contratante_Domicilio_Etiqueta,&#xD;&#xA;Contratante_Encargado_RH_Persona_Nombre_Id=Contratante_Encargado_RH_Persona_Nombre_Id,&#xD;&#xA;Contratante_Encargado_RH_Persona_Nombre=Contratante_Encargado_RH_Persona_Nombre,&#xD;&#xA;Contratante_Encargado_RH_Contacto_Id=Contratante_Encargado_RH_Contacto_Id,&#xD;&#xA;Contratante_Encargado_RH_Contacto_Etiqueta=Contratante_Encargado_RH_Contacto_Etiqueta" />
+    </field>
+    <field name="Contratado_Persona_Id" type="Int32" readOnly="true" label="Contratado Persona Id" />
+    <field name="Contratado_Nombre" type="String" label="Contratado" readOnly="true" length="603" />
+    <field name="Pagadora_Id" type="Int32" allowNulls="false" label="Pagadora Id" default="((0))">
+      <items style="Lookup" dataController="Pagadora" newDataView="createForm1" dataValueField="Pagadora_Id" dataTextField="Pagadora" dataView="Pagadora_LookUp_List" />
+    </field>
+    <field name="Pagadora" type="String" readOnly="true" label="Pagadora" length="150" />
+    <field name="Es_Demanda" type="Boolean" label="¿Es Demanda?" allowNulls="false">
+      <items style="CheckBox" />
+    </field>
+    <field name="Persona_Id" type="Int32" readOnly="true" label="Persona Id" />
+    <field name="Contratante_Domicilio_Etiqueta_Id" type="Int32" label="Contratante Domicilio Etiqueta Id" isVirtual="true" readOnly="true">
+      <items style="Lookup" dataController="Domicilio" dataView="Domicilio_LookUp_List" dataTextField="Domicilio_Etiqueta" dataValueField="Domicilio_Id" />
+    </field>
+    <field name="Contratante_Domicilio_Etiqueta" type="String" label="Contratante Domicilio Etiqueta" isVirtual="true" length="5000" readOnly="true" />
+    <field name="Contratante_Encargado_RH_Persona_Nombre_Id" type="Int32" label="Contratante Encargado RH Persona Nombre Id" isVirtual="true" readOnly="true">
+      <items style="Lookup" dataController="Contratado_Admin" dataView="Contratado_Admin_LookUp_List" dataTextField="Persona_Nombre" dataValueField="Contratado_Id" />
+    </field>
+    <field name="Contratante_Encargado_RH_Persona_Nombre" type="String" label="Contratante Encargado RH Persona Nombre" isVirtual="true" length="650" readOnly="true" />
+    <field name="Contratante_Encargado_RH_Contacto_Id" type="Int32" label="Contratante Encargado RH Contacto Id" isVirtual="true" readOnly="true">
+      <items style="Lookup" dataController="Contacto" dataView="Contacto_LookUp_List" dataTextField="Contacto" dataValueField="Contacto_Id" />
+    </field>
+    <field name="Contratante_Encargado_RH_Contacto_Etiqueta" type="String" label="Contratante Encargado RH Contacto Etiqueta" isVirtual="true" length="650" readOnly="true" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="Grid_Finiquito_V" label="Finiquito" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" filter="Estatus_Registro_Id &lt;&gt; 0" sortExpression="Contratado_Nombre" showInSelector="false">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Contratado_Nombre" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" />
+        <dataField fieldName="Contratante_Id" aliasFieldName="Contratante" />
+        <dataField fieldName="Pagadora_Id" columns="15" aliasFieldName="Pagadora" />
+        <dataField fieldName="Estatus_Finiquito_Id" columns="15" aliasFieldName="Estatus_Finiquito" />
+        <dataField fieldName="cpUserName" rows="5" />
+        <dataField fieldName="Fecha_Creacion" columns="10" />
+        <dataField fieldName="apUserName" rows="5" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="10" />
+        <dataField fieldName="Estatus_Registro_Estatus_Registro" rows="5" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Tipo_Finiquito_Id" columns="15" hidden="true" aliasFieldName="Tipo_Finiquito_Tipo_Finiquito" />
+        <dataField fieldName="Es_Demanda" hidden="true" />
+        <dataField fieldName="Contratado_Persona_Id" columns="15" hidden="true" />
+        <dataField fieldName="Persona_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Actualizar Finiquito" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Datos Generales" tab="Datos Generales" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Contratado_Nombre" />
+            <dataField fieldName="Tipo_Finiquito_Id" columns="15" aliasFieldName="Tipo_Finiquito_Tipo_Finiquito" />
+            <dataField fieldName="Puesto_Contratado_Finiquitar_Id" columns="15" aliasFieldName="Puesto_Contratado" />
+            <dataField fieldName="Contratante_Id" aliasFieldName="Contratante" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" />
+            <dataField fieldName="Pagadora_Id" columns="15" aliasFieldName="Pagadora" />
+            <dataField fieldName="Contratado_Persona_Id" columns="15" hidden="true" />
+            <dataField fieldName="Fecha_Ingreso_Pagadora" columns="10" />
+            <dataField fieldName="Fecha_Salida_Pagadora" columns="10" />
+            <dataField fieldName="Fecha_Hora_Finiquito_Junta_Local_Conciliacion_Arbitraje" columns="10" />
+            <dataField fieldName="Ciudad_Convenio_Id" columns="15" aliasFieldName="Ciudad_Convenio" />
+            <dataField fieldName="Salario_Diario_Registrado_IMSS" columns="15" />
+            <dataField fieldName="Finiquito_Id" columns="15" hidden="true" />
+          </dataFields>
+        </category>
+        <category headerText="Contacto Finiquitado" tab="Contacto Finiquitado" id="c2">
+          <dataFields>
+            <dataField fieldName="Domicilio_Contratado_Finiquitar_Id" columns="15" aliasFieldName="Domicilio_Etiqueta" />
+            <dataField fieldName="Contacto_Contratado_Finiquitar_Id" columns="15" aliasFieldName="Contacto_Etiqueta" />
+          </dataFields>
+        </category>
+        <category headerText="Contacto RH del Finiquitado" tab="Contacto Finiquitado" id="c5">
+          <dataFields>
+            <dataField fieldName="Contratante_Domicilio_Etiqueta_Id" columns="15" aliasFieldName="Contratante_Domicilio_Etiqueta" readOnly="true">
+              <readOnly>
+                <expression test="1==0" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Contratante_Encargado_RH_Persona_Nombre_Id" columns="15" aliasFieldName="Contratante_Encargado_RH_Persona_Nombre" readOnly="true">
+              <readOnly>
+                <expression test="1==0" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Contratante_Encargado_RH_Contacto_Id" columns="15" aliasFieldName="Contratante_Encargado_RH_Contacto_Etiqueta" readOnly="true">
+              <readOnly>
+                <expression test="1==0" type="ClientScript" />
+              </readOnly>
+            </dataField>
+          </dataFields>
+        </category>
+        <category headerText="Montos Finiquito" tab="Montos Finiquito" id="c3">
+          <dataFields>
+            <dataField fieldName="Finiquito_En_Efectivo" />
+            <dataField fieldName="Banco_SA_Id" columns="15" aliasFieldName="Banco_SA_Nombre_Completo">
+              <visibility>
+                <expression test="[Finiquito_En_Efectivo]==false" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Cheque_SA" columns="25">
+              <visibility>
+                <expression test="[Finiquito_En_Efectivo]==false" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Cantidad_SA" columns="15" />
+            <dataField fieldName="Banco_Sindicato_Id" columns="15" aliasFieldName="Banco_Sindicato_Nombre_Completo">
+              <visibility>
+                <expression test="[Finiquito_En_Efectivo]==false" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Cheque_Sindicato" columns="25">
+              <visibility>
+                <expression test="[Finiquito_En_Efectivo]==false" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Cantidad_Sindicato" columns="15" />
+            <dataField fieldName="Otras_Cantidades" columns="15" />
+            <dataField fieldName="Cantidad_Solicitada_A_Finiquitar" columns="15" />
+          </dataFields>
+        </category>
+        <category headerText="Otros" tab="Otros" id="c4">
+          <dataFields>
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Estatus_Finiquito_Id" columns="15" aliasFieldName="Estatus_Finiquito" />
+            <dataField fieldName="Estatus_Registro_Id" columns="15" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="Nuevo Finiquito" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false">
+      <headerText />
+      <categories>
+        <category id="c1" headerText="Datos Generales" tab="Datos Generales" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Contratado_Id" columns="15" aliasFieldName="Contratado_Nombre" />
+            <dataField fieldName="Tipo_Finiquito_Id" columns="15" aliasFieldName="Tipo_Finiquito_Tipo_Finiquito" />
+            <dataField fieldName="Puesto_Contratado_Finiquitar_Id" columns="15" aliasFieldName="Puesto_Contratado">
+              <readOnly>
+                <expression test="true" type="ClientScript" />
+              </readOnly>
+            </dataField>
+            <dataField fieldName="Contratante_Id" aliasFieldName="Contratante" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente" />
+            <dataField fieldName="Pagadora_Id" columns="15" aliasFieldName="Pagadora" />
+            <dataField fieldName="Contratado_Persona_Id" columns="15" hidden="true" />
+            <dataField fieldName="Ciudad_Convenio_Id" columns="15" aliasFieldName="Ciudad_Convenio" />
+            <dataField fieldName="Salario_Diario_Registrado_IMSS" columns="15" />
+            <dataField fieldName="Fecha_Hora_Finiquito_Junta_Local_Conciliacion_Arbitraje" columns="10" />
+            <dataField fieldName="Fecha_Ingreso_Pagadora" columns="10" />
+            <dataField fieldName="Fecha_Salida_Pagadora" columns="10" />
+          </dataFields>
+        </category>
+        <category headerText="Contacto Finiquitado" tab="Contacto Finiquitado" id="c2">
+          <dataFields>
+            <dataField fieldName="Domicilio_Contratado_Finiquitar_Id" columns="15" aliasFieldName="Domicilio_Etiqueta" />
+            <dataField fieldName="Contacto_Contratado_Finiquitar_Id" columns="15" aliasFieldName="Contacto_Etiqueta" />
+          </dataFields>
+        </category>
+        <category headerText="Contacto RH del Finiquitado" tab="Contacto Finiquitado" id="c5">
+          <dataFields>
+            <dataField fieldName="Contratante_Domicilio_Etiqueta_Id" columns="15" aliasFieldName="Contratante_Domicilio_Etiqueta" />
+            <dataField fieldName="Contratante_Encargado_RH_Persona_Nombre_Id" columns="15" aliasFieldName="Contratante_Encargado_RH_Persona_Nombre" />
+            <dataField fieldName="Contratante_Encargado_RH_Contacto_Id" columns="15" aliasFieldName="Contratante_Encargado_RH_Contacto_Etiqueta" />
+          </dataFields>
+        </category>
+        <category headerText="Montos Finiquito" tab="Montos Finiquito" id="c3">
+          <dataFields>
+            <dataField fieldName="Finiquito_En_Efectivo" />
+            <dataField fieldName="Banco_SA_Id" columns="15" aliasFieldName="Banco_SA_Nombre_Completo">
+              <visibility>
+                <expression test="[Finiquito_En_Efectivo]==false" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Numero_Cheque_SA" columns="25">
+              <visibility>
+                <expression test="[Finiquito_En_Efectivo]==false" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Cantidad_SA" columns="15" />
+            <dataField fieldName="Banco_Sindicato_Id" columns="15" aliasFieldName="Banco_Sindicato_Nombre_Completo">
+              <visibility>
+                <expression test="[Finiquito_En_Efectivo]==false" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Cantidad_Sindicato" columns="15" />
+            <dataField fieldName="Numero_Cheque_Sindicato" columns="25">
+              <visibility>
+                <expression test="[Finiquito_En_Efectivo]==false" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Otras_Cantidades" columns="15" />
+            <dataField fieldName="Cantidad_Solicitada_A_Finiquitar" columns="15" />
+          </dataFields>
+        </category>
+        <category headerText="Otros" tab="Otros" id="c4">
+          <dataFields>
+            <dataField fieldName="Notas" rows="5" />
+            <dataField fieldName="Estatus_Finiquito_Id" columns="15" aliasFieldName="Estatus_Finiquito" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Finiquito_LookUp_List" commandId="Grid_Finiquito_V" type="Grid" label="Finiquito" showInSelector="false" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" filter="Estatus_Registro_Id = 1" sortExpression="Contratado_Persona_Nombre_Completo">
+      <dataFields>
+        <dataField fieldName="Finiquito_Id" columns="15" />
+        <dataField fieldName="Tipo_Finiquito_Id" columns="15" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Finiquito
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Finiquito_Id= @Finiquito_Id
+]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Finiquito
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Finiquito_Id= @Finiquito_Id
+]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Finiquito
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Finiquito_Id= @Finiquito_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Finiquito
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Finiquito_Id= @Finiquito_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r104" commandName="New" type="Sql" phase="Execute"><![CDATA[SELECT 
+TOP 1 @Estatus_Finiquito_Id= Estatus_Finiquito_Id
+,@Estatus_Finiquito = Estatus_Finiquito
+FROM
+APP.Estatus_Finiquito
+WHERE
+Significa_Solicitud_Pendiente_Atender = 1
+AND Estatus_Registro_Id = 1
+ 
+ SET @Otras_Cantidades = 0
+ SET @Fecha_Ingreso_Pagadora='01/01/1900'
+ SET @Fecha_Salida_Pagadora='01/01/1900'
+ SET @Fecha_Hora_Finiquito_Junta_Local_Conciliacion_Arbitraje = '01/01/1900']]></rule>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Finiquito
+	WHERE
+		Contratado_Id = @Contratado_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe este registro de finiquito para este contratado en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya existe este registro de finiquito para este contratado en la base de datos, favor de corregir.'
+   RETURN
+END
+
+]]></rule>
+    <rule id="r101" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Finiquito
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Finiquito_Id= @Finiquito_Id]]></rule>
+    <rule id="r102" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+
+SET @Existe = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Finiquito
+	WHERE
+  		Contratado_Id = @Contratado_Id
+		AND Finiquito_Id <> @Finiquito_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe este registro de finiquito para este contratado en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya existe este registro de finiquito para este contratado en la base de datos, favor de corregir.'
+   RETURN
+END
+
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Finiquito
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Finiquito_Id = @Finiquito_Id]]></rule>
+    <rule id="r105" commandName="Calculate" type="Sql" phase="Execute"><![CDATA[IF @Finiquito_En_Efectivo = 1
+BEGIN
+
+SELECT
+@Banco_SA_Id = Banco_Id
+,@Banco_SA_Nombre_Completo = Nombre_Completo
+FROM APP.Banco
+WHERE
+Banco_Id = 0
+
+
+SELECT
+@Banco_Sindicato_Id = Banco_Id
+,@Banco_Sindicato_Nombre_Completo = Nombre_Completo
+FROM APP.Banco
+WHERE
+Banco_Id = 0
+
+
+
+END
+
+SELECT
+	@Cliente_Id=Cliente_Id
+FROM
+	APP.Contratante
+WHERE
+	Contratante_Id=@Contratante_Id
+
+SELECT 
+	@Cliente=Cliente
+FROM 
+	APP.Cliente
+WHERE
+	Cliente_Id=@Cliente_Id
+	
+
+	
+SET @Cantidad_Solicitada_A_Finiquitar=@Cantidad_SA+@Cantidad_Sindicato+@Otras_Cantidades
+
+
+
+
+
+	]]></rule>
+    <rule id="r107" commandName="Select" view="editForm1" type="Sql" phase="Execute"><![CDATA[DECLARE @Br_Contratado_Estatus_Registro_Id INT = 0
+SET @Br_Contratado_Estatus_Registro_Id = (SELECT TOP 1 Estatus_Registro_Id FROM APP.Contratado WHERE Persona_Id=@Contratado_Persona_Id)
+
+IF @Br_Contratado_Estatus_Registro_Id <> 1
+BEGIN
+	SELECT TOP 1
+		 @Contratante_Domicilio_Etiqueta_Id = Contratante_Domicilio_Etiqueta_Id
+		,@Contratante_Domicilio_Etiqueta = Contratante_Domicilio_Etiqueta
+		,@Contratante_Encargado_RH_Persona_Nombre_Id = Contratante_Encargado_RH_Persona_Nombre_Id
+		,@Contratante_Encargado_RH_Persona_Nombre = Contratante_Encargado_RH_Persona_Nombre
+		,@Contratante_Encargado_RH_Contacto_Id = Contratante_Encargado_RH_Contacto_Id
+		,@Contratante_Encargado_RH_Contacto_Etiqueta = Contratante_Encargado_RH_Contacto_Etiqueta
+	FROM
+		dbo.Persona_Contratado_Baja_V
+	WHERE
+		Persona_Id=@Contratado_Persona_Id
+END
+ELSE
+BEGIN
+	SELECT TOP 1
+		 @Contratante_Domicilio_Etiqueta_Id = Contratante_Domicilio_Etiqueta_Id
+		,@Contratante_Domicilio_Etiqueta = Contratante_Domicilio_Etiqueta
+		,@Contratante_Encargado_RH_Persona_Nombre_Id = Contratante_Encargado_RH_Persona_Nombre_Id
+		,@Contratante_Encargado_RH_Persona_Nombre = Contratante_Encargado_RH_Persona_Nombre
+		,@Contratante_Encargado_RH_Contacto_Id = Contratante_Encargado_RH_Contacto_Id
+		,@Contratante_Encargado_RH_Contacto_Etiqueta = Contratante_Encargado_RH_Contacto_Etiqueta
+	FROM
+		dbo.Persona_Contratado_V
+	WHERE Persona_Id=@Contratado_Persona_Id
+END]]></rule>
+  </businessRules>
+</dataController>

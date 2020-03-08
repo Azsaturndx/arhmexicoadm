@@ -1,0 +1,860 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Contratante_Admin" label="Contratante_Admin" conflictDetection="overwriteChanges" handler="arhmexico.Rules.Contratante_AdminBusinessRules" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Contratante"."Contratante_Id" "Contratante_Id"
+	,"Contratante"."Contratante" "Contratante"
+	,"Contratante"."Contratante_Razon_Social" "Contratante_Razon_Social"
+	,"Contratante"."Contratante_Descripcion" "Contratante_Descripcion"
+	,"Contratante"."Cliente_Id" "Cliente_Id"
+	,"Cliente_"."Cliente" "Cliente_Cliente"
+	,"Contratante"."Transaccion_Id" "Transaccion_Id"
+	,"Contratante"."Creado_Por_Id" "Creado_Por_Id"
+	,"Usuario_V"."UserName" "cpUserName"
+	,"Contratante"."Fecha_Creacion" "Fecha_Creacion"
+	,"Contratante"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"Usuario_V1"."UserName" "apUserName"
+	,"Contratante"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Contratante"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro_"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+	,"Persona_V"."Persona_Nombre" "Persona_Nombre"
+	,"Contratante"."Contratado_Encargado_RH_Id" "Contratado_Encargado_RH_Id"
+	,"Contratante"."Clave_Contratante" "Clave_Contratante"
+	,"Contratante"."Vigencia_Dias" "Vigencia_Dias"
+	,"Contratante"."Nombre_Dominio" "Nombre_Dominio"
+	,"Contratante"."Mostrar_Religion_A_Aspirante" "Mostrar_Religion_A_Aspirante"
+	,"Contratante"."Mostrar_Orientacion_Sexual_A_Aspirante" "Mostrar_Orientacion_Sexual_A_Aspirante"
+	,"Contratante"."Mostrar_Senas_Particulares_A_Aspirante" "Mostrar_Senas_Particulares_A_Aspirante"
+	,"Contratante"."Permite_Cancelar_Solicitud_Vacaciones" "Permite_Cancelar_Solicitud_Vacaciones"
+	,"Contratante"."Layout_Correo_Electronico_Contratado_Id" "Layout_Correo_Electronico_Contratado_Id"
+	,"Layout_Correo_Electronico"."Layout_Correo_Electronico" "LayoutCorreoElectronicoContratado"
+	,"Contratante"."Layout_Correo_Electronico_Jefe_Id" "Layout_Correo_Electronico_Jefe_Id"
+	,"Layout_Correo_Electronico1"."Layout_Correo_Electronico" "LayoutCorreoElectronicoJefe"
+	,"Contratante"."Layout_Correo_Electronico_RH_Respuesta_Solicitud_Vacaciones_Id" "Layout_Correo_Electronico_RH_Respuesta_Solicitud_Vacaciones_Id"
+	,"Layout_Correo_Electronico3"."Layout_Correo_Electronico" "LayoutCorreoElectronicoRHRespuestaSolicitudVacaciones"
+	,"Contratante"."Layout_Correo_Electronico_RH_Solicitud_Vacaciones_Id" "Layout_Correo_Electronico_RH_Solicitud_Vacaciones_Id"
+	,"Layout_Correo_Electronico2"."Layout_Correo_Electronico" "LayoutCorreoElectronicoRHSolicitudVacaciones"
+	,"Contratante"."Generar_Usuario_Generico" "Generar_Usuario_Generico"
+	,"Contratante"."Permitir_Solicitar_Gastos" "Permitir_Solicitar_Gastos"
+	,"Contratante"."Numero_Telefono" "Numero_Telefono"
+	,"Contratante"."Permite_Enviar_Correo_Recibo_Nomina" "PermiteEnviarCorreoReciboNomina"
+	,"Contratante"."Permite_Solicitar_Prestamos" "Permite_Solicitar_Prestamos"
+	,"Contratante"."Contratado_Encargado_Prestamos_Id" "Contratado_Encargado_Prestamos_Id"
+	,"Contratante"."Antiguedad_Minima_Pedir_Prestamo" "Antiguedad_Minima_Pedir_Prestamo"
+	,"Contratante"."Layout_Correo_Electronico_Contratado_Solicitud_Prestamo_Id" "Layout_Correo_Electronico_Contratado_Solicitud_Prestamo_Id"
+	,"Contratante"."Layout_Correo_Electronico_Encargado_Prestamo_Id" "Layout_Correo_Electronico_Encargado_Prestamo_Id"
+	,"Contratante"."Layout_Correo_Electronico_RH_Solicitud_Prestamo_Id" "Layout_Correo_Electronico_RH_Solicitud_Prestamo_Id"
+	,"Contratante"."Layout_Correo_Electronico_RH_Respuesta_Solicitud_Prestamo_Id" "Layout_Correo_Electronico_RH_Respuesta_Solicitud_Prestamo_Id"
+	,"Contratante"."Layout_Correo_Electronico_Jefe_Notificacion_Cancelacion_Id" "LayoutCorreoElectronicoJefeNotificacionCancelacionId"
+	,"Contratante"."Validar_Vacaciones_Al_Pasado" "ValidarVacacionesAlPasado"
+	,"Contratante"."Validar_Vacaciones_Dia_Actual" "ValidarVacacionesDiaActual"
+from "APP"."Contratante" "Contratante"
+	left join "APP"."Cliente" "Cliente_" on "Contratante"."Cliente_Id" = "Cliente_"."Cliente_Id"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro_" on "Contratante"."Estatus_Registro_Id" = "Estatus_Registro_"."Estatus_Registro_Id"
+	left join "dbo"."Usuario_V" "Usuario_V" on "Contratante"."Creado_Por_Id" = "Usuario_V"."UserId"
+	left join "dbo"."Usuario_V" "Usuario_V1" on "Contratante"."Actualizado_Por_Id" = "Usuario_V1"."UserId"
+	left join "APP"."Contratado" "Contratado" on "Contratante"."Contratado_Encargado_RH_Id" = "Contratado"."Contratado_Id"
+	left join "dbo"."Persona_V" "Persona_V" on "Contratado"."Contratado_Id" = "Persona_V"."Contratado_Id"
+	left join "APP"."Layout_Correo_Electronico" "Layout_Correo_Electronico" on "Contratante"."Layout_Correo_Electronico_Contratado_Id" = "Layout_Correo_Electronico"."Layout_Correo_Electronico_Id"
+	left join "APP"."Layout_Correo_Electronico" "Layout_Correo_Electronico1" on "Contratante"."Layout_Correo_Electronico_Jefe_Id" = "Layout_Correo_Electronico1"."Layout_Correo_Electronico_Id"
+	left join "APP"."Layout_Correo_Electronico" "Layout_Correo_Electronico2" on "Contratante"."Layout_Correo_Electronico_RH_Solicitud_Vacaciones_Id" = "Layout_Correo_Electronico2"."Layout_Correo_Electronico_Id"
+	left join "APP"."Layout_Correo_Electronico" "Layout_Correo_Electronico3" on "Contratante"."Layout_Correo_Electronico_RH_Respuesta_Solicitud_Vacaciones_Id" = "Layout_Correo_Electronico3"."Layout_Correo_Electronico_Id"
+]]></text>
+    </command>
+    <command id="Contratante_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Contratante_Id" />
+      </output>
+    </command>
+    <command type="Text" id="Grid_Contratante" tableName="APP.Contratante" custom="false">
+      <text><![CDATA[SELECT Contratante_Id
+      ,Contratante
+      ,Contratante_Razon_Social
+      ,Contratante_Descripcion
+      ,Cliente_Id
+      ,Cliente_Cliente
+      ,Cliente_Estatus_Registro_Estatus_Registro
+      ,Transaccion_Id
+      ,Creado_Por_Id
+      ,cpUserName
+      ,Fecha_Creacion
+      ,Actualizado_Por_Id
+      ,apUserName
+      ,Fecha_Ultima_Actualizacion
+      ,Estatus_Registro_Id
+      ,Estatus_Registro_Estatus_Registro
+	  ,Contratado_Encargado_RH_Id
+	  ,Persona_Nombre
+	  ,UserId
+  FROM dbo.Grid_Contratante_V]]></text>
+    </command>
+    <command type="Text" id="GridContratanteAdmin" custom="false" tableName="APP.Contratante">
+      <text><![CDATA[SELECT Contratante_Id
+      ,Contratante
+      ,Contratante_Razon_Social
+      ,Contratante_Descripcion
+      ,Cliente_Id
+      ,Cliente_Cliente
+      ,Transaccion_Id
+      ,Creado_Por_Id
+      ,cpUserName
+      ,Fecha_Creacion
+      ,Actualizado_Por_Id
+      ,apUserName
+      ,Fecha_Ultima_Actualizacion
+      ,Estatus_Registro_Id
+      ,Estatus_Registro_Estatus_Registro
+      ,Contratado_Encargado_RH_Id
+      ,Persona_Nombre
+	  ,Contratado_Persona_Nombre
+	  ,Clave_Contratante
+	  ,Vigencia_Dias
+	  ,Nombre_Dominio
+	  ,Mostrar_Religion_A_Aspirante
+,Mostrar_Orientacion_Sexual_A_Aspirante
+,Mostrar_Senas_Particulares_A_Aspirante
+,Permite_Cancelar_Solicitud_Vacaciones
+,Layout_Correo_Electronico_Contratado_Id
+,LayoutCorreoElectronicoContratado
+,Layout_Correo_Electronico_Jefe_Id
+,LayoutCorreoElectronicoJefe
+,Validar_Vacaciones_Al_Pasado
+,Validar_Vacaciones_Dia_Actual
+,Layout_Correo_Electronico_Jefe_Notificacion_Cancelacion_Id
+,Layout_Correo_Electronico_Jefe_Notificacion_Cancelacion
+,Layout_Correo_Electronico_RH_Solicitud_Vacaciones_Id
+,LayoutCorreoElectronicoRHSolicitudVacaciones
+,Layout_Correo_Electronico_RH_Respuesta_Solicitud_Vacaciones_Id
+,LayoutCorreoElectronicoRHRespuestaSolicitudVacaciones
+,Generar_Usuario_Generico
+,Permitir_Solicitar_Gastos
+,Numero_Telefono
+,Permite_Enviar_Correo_Recibo_Nomina
+,Permite_Solicitar_Prestamos
+      ,Contratado_Encargado_Prestamos_Id
+      ,Layout_Correo_Electronico_Contratado_Solicitud_Prestamo_Id
+      ,Layout_Correo_Electronico_Encargado_Prestamo_Id
+      ,Layout_Correo_Electronico_RH_Solicitud_Prestamo_Id
+      ,Layout_Correo_Electronico_RH_Respuesta_Solicitud_Prestamo_Id
+	  ,Nombre_Completo_Encargado_Prestamos
+	  ,Layout_Correo_Electronico_Contratado_Solicitud_Prestamo
+	  ,Layout_Correo_Electronico_Encargado_Prestamo
+	  ,Layout_Correo_Electronico_RH_Solicitud_Prestamo
+	  ,Layout_Correo_Electronico_RH_Respuesta_Solicitud_Prestamo
+	  ,Layout_Correo_Electronico_Recibo_Nomina_Id
+	  ,Layout_Correo_Electronico_Recibo_Nomina
+	  ,Antiguedad_Minima_Pedir_Prestamo
+	  ,Acceso_Servicio_ARH_Vacaciones
+	  ,Acceso_Servicio_ARH_Nomina
+	  ,Acceso_Servicio_ARH_Gastos
+	  ,Acceso_Servicio_ARH_Prestamos
+	  ,Acceso_Servicio_ARH_Documentos
+  FROM dbo.Grid_Contratante_Admin_V
+  
+  
+  ]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Contratante_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Contratante Id" />
+    <field name="Contratante" type="String" allowNulls="false" label="Contratante" length="150" showInSummary="true" />
+    <field name="Contratante_Razon_Social" type="String" label="Razón Social" length="250" showInSummary="true" />
+    <field name="Contratante_Descripcion" type="String" allowQBE="false" allowSorting="false" label="Descripción de Contratante" showInSummary="true" />
+    <field name="Cliente_Id" type="Int32" allowNulls="false" default="((0))" label="Cliente Id" showInSummary="true">
+      <items style="Lookup" dataController="Cliente" dataValueField="Cliente_Id" dataTextField="Cliente" dataView="Cliente_Admin_LookUp_List" />
+    </field>
+    <field name="Cliente_Cliente" type="String" readOnly="true" label="Cliente" length="150" />
+    <field name="Transaccion_Id" type="String" default="(newid())" label="Transaccion Id" length="50" showInSummary="true" />
+    <field name="Creado_Por_Id" type="Guid" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Actualizado_Por_Id" type="Guid" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus de Registro" length="150" />
+    <field name="Persona_Nombre" type="String" readOnly="true" label="Encargado RH" length="603" />
+    <field name="Contratado_Encargado_RH_Id" type="Int32" allowNulls="false" default="((0))" label="Contratado Encargado RH Id">
+      <items style="Lookup" dataController="Contratado_Admin" dataValueField="Contratado_Id" dataTextField="Persona_Nombre" copy="Contratado_Encargado_RH_Id=Contratado_Id" dataView="Contratado_Admin_LookUp_List" />
+    </field>
+    <field name="Clave_Contratante" type="String" label="Clave de Contratante" length="3" />
+    <field name="Vigencia_Dias" type="Int32" label="Días Vigencia Recibo Electrónico de Nómina" />
+    <field name="Nombre_Dominio" type="String" default="('')" label="Nombre de Dominio" length="50" />
+    <field name="Mostrar_Religion_A_Aspirante" type="Boolean" allowNulls="false" default="((0))" label="¿Mostrar Religión A Aspirante?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Mostrar_Orientacion_Sexual_A_Aspirante" type="Boolean" allowNulls="false" default="((0))" label="¿Mostrar Orientación Sexual A Aspirante?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Mostrar_Senas_Particulares_A_Aspirante" type="Boolean" allowNulls="false" default="((0))" label="¿Mostrar Señas Particulares A Aspirante?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Permite_Cancelar_Solicitud_Vacaciones" type="Boolean" allowNulls="false" default="((0))" label="¿Permitir Cancelar Solicitudes de Vacaciones?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Layout_Correo_Electronico_Contratado_Id" type="Int32" default="((29))" label="Layout Correo Electronico Contratado Id">
+      <items style="Lookup" dataController="Layout_Correo_Electronico" dataValueField="Layout_Correo_Electronico_Id" dataTextField="Layout_Correo_Electronico" dataView="Layout_Correo_Electronico_LookUp_Vacaciones" />
+    </field>
+    <field name="LayoutCorreoElectronicoContratado" type="String" readOnly="true" label="Layout de Correo Electrónico para Contratado" length="450" />
+    <field name="Layout_Correo_Electronico_Jefe_Id" type="Int32" default="((30))" label="Layout Correo Electronico Jefe Id">
+      <items style="Lookup" dataController="Layout_Correo_Electronico" dataValueField="Layout_Correo_Electronico_Id" dataTextField="Layout_Correo_Electronico" dataView="Layout_Correo_Electronico_LookUp_Vacaciones" />
+    </field>
+    <field name="LayoutCorreoElectronicoJefe" type="String" readOnly="true" label="Layout de Correo Electrónico para Jefe" length="450" />
+    <field name="Layout_Correo_Electronico_RH_Respuesta_Solicitud_Vacaciones_Id" type="Int32" default="((32))" label="Layout Correo Electronico RH Respuesta Solicitud Vacaciones Id">
+      <items style="Lookup" dataController="Layout_Correo_Electronico" dataValueField="Layout_Correo_Electronico_Id" dataTextField="Layout_Correo_Electronico" dataView="Layout_Correo_Electronico_LookUp_Vacaciones" />
+    </field>
+    <field name="LayoutCorreoElectronicoRHRespuestaSolicitudVacaciones" type="String" readOnly="true" label="Layout de Correo Electrónico RH para respuesta de Solicitud de Vacaciones" length="450" />
+    <field name="Layout_Correo_Electronico_RH_Solicitud_Vacaciones_Id" type="Int32" default="((31))" label="Layout Correo Electronico RH Solicitud Vacaciones Id">
+      <items style="Lookup" dataController="Layout_Correo_Electronico" dataValueField="Layout_Correo_Electronico_Id" dataTextField="Layout_Correo_Electronico" dataView="Layout_Correo_Electronico_LookUp_Vacaciones" />
+    </field>
+    <field name="LayoutCorreoElectronicoRHSolicitudVacaciones" type="String" readOnly="true" label="Layout Correo Electrónico para Solicitud de Vacaciones" length="450" />
+    <field name="Generar_Usuario_Generico" type="Boolean" allowNulls="false" default="((0))" label="Generar Usuario Genérico">
+      <items style="CheckBox" />
+    </field>
+    <field name="Permitir_Solicitar_Gastos" type="Boolean" allowNulls="false" default="((0))" label="¿Permitir Solicitar Gastos?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Numero_Telefono" type="String" label="Número de Teléfono" length="11" />
+    <field name="Permite_Solicitar_Prestamos" type="Boolean" allowNulls="false" default="((0))" label="¿Permite Solicitar Préstamos?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Contratado_Encargado_Prestamos_Id" type="Int32" allowNulls="false" default="((0))" label="Encargado de Préstamos">
+      <items style="Lookup" dataController="Contratado_Admin" dataView="Contratado_Admin_LookUp_List" dataTextField="Persona_Nombre" dataValueField="Contratado_Id" copy="Contratado_Encargado_Prestamos_Id=Contratado_Id" />
+    </field>
+    <field name="Antiguedad_Minima_Pedir_Prestamo" type="Int32" allowNulls="false" default="((0))" label="Antigüedad Mínima para pedir Préstamo (años)" />
+    <field name="Layout_Correo_Electronico_Contratado_Solicitud_Prestamo_Id" type="Int32" allowNulls="false" default="((43))" label="Layout Correo Electronico Contratado Solicitud Prestamo Id">
+      <items style="Lookup" dataController="Layout_Correo_Electronico" dataView="Layout_Correo_Electronico_LookUp" dataTextField="Layout_Correo_Electronico" dataValueField="Layout_Correo_Electronico_Id" />
+    </field>
+    <field name="Layout_Correo_Electronico_Encargado_Prestamo_Id" type="Int32" allowNulls="false" default="((40))" label="Layout Correo Electronico Encargado Prestamo Id">
+      <items style="Lookup" dataController="Layout_Correo_Electronico" dataView="Layout_Correo_Electronico_LookUp" dataTextField="Layout_Correo_Electronico" dataValueField="Layout_Correo_Electronico_Id" />
+    </field>
+    <field name="Layout_Correo_Electronico_RH_Solicitud_Prestamo_Id" type="Int32" allowNulls="false" default="((41))" label="Layout Correo Electronico RH Solicitud Prestamo Id">
+      <items style="Lookup" dataController="Layout_Correo_Electronico" dataView="Layout_Correo_Electronico_LookUp" dataTextField="Layout_Correo_Electronico" dataValueField="Layout_Correo_Electronico_Id" />
+    </field>
+    <field name="Layout_Correo_Electronico_RH_Respuesta_Solicitud_Prestamo_Id" type="Int32" allowNulls="false" default="((42))" label="Layout Correo Electronico RH Respuesta Solicitud Prestamo Id">
+      <items style="Lookup" dataController="Layout_Correo_Electronico" dataView="Layout_Correo_Electronico_LookUp" dataTextField="Layout_Correo_Electronico" dataValueField="Layout_Correo_Electronico_Id" />
+    </field>
+    <field name="LayoutCorreoElectronicoJefeNotificacionCancelacionId" type="Int32" allowNulls="false" default="((44))" label="Layout Correo Electronico Jefe Notificacion Cancelacion Id" readOnly="true" />
+    <field name="ValidarVacacionesAlPasado" type="Boolean" default="((0))" label="Validar Vacaciones Al Pasado" readOnly="true" />
+    <field name="ValidarVacacionesDiaActual" type="Boolean" default="((0))" label="Validar Vacaciones Dia Actual" readOnly="true" />
+    <field name="UserId" type="Guid" label="User Id" />
+    <field name="Permite_Enviar_Correo_Recibo_Nomina" type="Boolean" label="¿Permitir Enviar Correo de Recibo de Nómina al Contratado?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Nombre_Completo_Encargado_Prestamos" type="String" label="Nombre Completo Encargado Préstamos" length="150" isVirtual="true" />
+    <field name="Layout_Correo_Electronico_Contratado_Solicitud_Prestamo" type="String" label="Layout Correo Electrónico Contratado Solicitud Préstamo" length="150" />
+    <field name="Layout_Correo_Electronico_Encargado_Prestamo" type="String" label="Layout Correo Electrónico Encargado Préstamo" length="150" />
+    <field name="Layout_Correo_Electronico_RH_Solicitud_Prestamo" type="String" label="Layout Correo Electrónico RH Solicitud Préstamo" length="150" />
+    <field name="Layout_Correo_Electronico_RH_Respuesta_Solicitud_Prestamo" type="String" label="Layout Correo Electrónico RH Respuesta Solicitud Préstamo" length="150" />
+    <field name="Layout_Correo_Electronico_Recibo_Nomina_Id" type="Int32" label="Layout Correo Electronico Recibo Nomina Id">
+      <items style="Lookup" dataController="Layout_Correo_Electronico" dataView="Layout_Correo_Electronico_LookUp" dataTextField="Layout_Correo_Electronico" dataValueField="Layout_Correo_Electronico_Id" newDataView="createForm1" />
+    </field>
+    <field name="Layout_Correo_Electronico_Recibo_Nomina" type="String" label="Layout Correo Electronico Recibo Nómina para Contratado" length="150" />
+    <field name="Validar_Vacaciones_Al_Pasado" type="Boolean" label="¿Validar Vacaciones Al Pasado?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Validar_Vacaciones_Dia_Actual" type="Boolean" label="¿Validar Vacaciones Dia Actual?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Layout_Correo_Electronico_Jefe_Notificacion_Cancelacion_Id" type="Int32" label="Layout Correo Electronico Jefe Notificacion Cancelacion Id">
+      <items style="Lookup" dataController="Layout_Correo_Electronico" dataView="Layout_Correo_Electronico_LookUp_Vacaciones" dataTextField="Layout_Correo_Electronico" dataValueField="Layout_Correo_Electronico_Id" />
+    </field>
+    <field name="Layout_Correo_Electronico_Jefe_Notificacion_Cancelacion" type="String" readOnly="true" label="Layout de Correo Electrónico Notificación de Cancelacion Para Jefe" length="250" />
+    <field name="Acceso_Servicio_ARH_Vacaciones" type="Boolean" label="Acceso Servicio ARH Vacaciones" readOnly="true" />
+    <field name="Acceso_Servicio_ARH_Nomina" type="Boolean" readOnly="true" label="Acceso Servicio ARH Nomina" />
+    <field name="Acceso_Servicio_ARH_Gastos" type="Boolean" readOnly="true" label="Acceso Servicio ARH Gastos" />
+    <field name="Acceso_Servicio_ARH_Prestamos" type="Boolean" readOnly="true" label="Acceso Servicio ARH Prestamos" />
+    <field name="Acceso_Servicio_ARH_Documentos" type="Boolean" readOnly="true" label="Acceso Servicio ARH Documentos" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="Grid_Contratante" label="Contratante" filter="Estatus_Registro_Id &lt;&gt; 0" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" sortExpression="Contratante">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Contratante_Id" columns="15" hidden="true" />
+        <dataField fieldName="Contratante" />
+        <dataField fieldName="Contratante_Razon_Social" />
+        <dataField fieldName="Contratante_Descripcion" rows="5" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" />
+        <dataField fieldName="Vigencia_Dias" columns="15" />
+        <dataField fieldName="Nombre_Dominio" columns="50" />
+        <dataField fieldName="Clave_Contratante" columns="3" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Mostrar_Religion_A_Aspirante" />
+        <dataField fieldName="Mostrar_Orientacion_Sexual_A_Aspirante" />
+        <dataField fieldName="Mostrar_Senas_Particulares_A_Aspirante" />
+        <dataField fieldName="Permite_Cancelar_Solicitud_Vacaciones" />
+        <dataField fieldName="Layout_Correo_Electronico_Contratado_Id" aliasFieldName="LayoutCorreoElectronicoContratado" />
+        <dataField fieldName="Layout_Correo_Electronico_Jefe_Id" aliasFieldName="LayoutCorreoElectronicoJefe" />
+        <dataField fieldName="Layout_Correo_Electronico_RH_Respuesta_Solicitud_Vacaciones_Id" aliasFieldName="LayoutCorreoElectronicoRHRespuestaSolicitudVacaciones" />
+        <dataField fieldName="Layout_Correo_Electronico_RH_Solicitud_Vacaciones_Id" aliasFieldName="LayoutCorreoElectronicoRHSolicitudVacaciones" />
+        <dataField fieldName="Generar_Usuario_Generico" />
+        <dataField fieldName="Permitir_Solicitar_Gastos" />
+        <dataField fieldName="Numero_Telefono" columns="11" />
+        <dataField fieldName="Permite_Solicitar_Prestamos" />
+        <dataField fieldName="Contratado_Encargado_Prestamos_Id" columns="15" />
+        <dataField fieldName="Antiguedad_Minima_Pedir_Prestamo" columns="15" />
+        <dataField fieldName="Layout_Correo_Electronico_Contratado_Solicitud_Prestamo_Id" columns="15" />
+        <dataField fieldName="Layout_Correo_Electronico_Encargado_Prestamo_Id" columns="15" />
+        <dataField fieldName="Layout_Correo_Electronico_RH_Solicitud_Prestamo_Id" columns="15" />
+        <dataField fieldName="Layout_Correo_Electronico_RH_Respuesta_Solicitud_Prestamo_Id" columns="15" />
+        <dataField fieldName="LayoutCorreoElectronicoJefeNotificacionCancelacionId" columns="15" />
+        <dataField fieldName="ValidarVacacionesAlPasado" />
+        <dataField fieldName="ValidarVacacionesDiaActual" />
+      </dataFields>
+    </view>
+    <view id="gridAdmin" type="Grid" label="Contratante (Admin)" filter="Estatus_Registro_Id = 1" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Contratante" commandId="GridContratanteAdmin">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Contratante_Id" columns="15" hidden="true" />
+        <dataField fieldName="Contratante" />
+        <dataField fieldName="Contratante_Razon_Social" />
+        <dataField fieldName="Contratante_Descripcion" rows="5" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" />
+        <dataField fieldName="Clave_Contratante" columns="3" />
+        <dataField fieldName="Vigencia_Dias" columns="15" />
+        <dataField fieldName="Nombre_Dominio" columns="50" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Mostrar_Religion_A_Aspirante" />
+        <dataField fieldName="Mostrar_Orientacion_Sexual_A_Aspirante" />
+        <dataField fieldName="Mostrar_Senas_Particulares_A_Aspirante" />
+        <dataField fieldName="Permite_Cancelar_Solicitud_Vacaciones" />
+        <dataField fieldName="Layout_Correo_Electronico_Contratado_Id" aliasFieldName="LayoutCorreoElectronicoContratado" />
+        <dataField fieldName="Layout_Correo_Electronico_Jefe_Id" aliasFieldName="LayoutCorreoElectronicoJefe" />
+        <dataField fieldName="Layout_Correo_Electronico_RH_Respuesta_Solicitud_Vacaciones_Id" aliasFieldName="LayoutCorreoElectronicoRHRespuestaSolicitudVacaciones" />
+        <dataField fieldName="Layout_Correo_Electronico_RH_Solicitud_Vacaciones_Id" aliasFieldName="LayoutCorreoElectronicoRHSolicitudVacaciones" />
+        <dataField fieldName="Generar_Usuario_Generico" />
+        <dataField fieldName="Permitir_Solicitar_Gastos" />
+        <dataField fieldName="Numero_Telefono" columns="11" />
+        <dataField fieldName="Permite_Solicitar_Prestamos" />
+        <dataField fieldName="Contratado_Encargado_Prestamos_Id" columns="15" aliasFieldName="Nombre_Completo_Encargado_Prestamos">
+          <visibility>
+            <expression test="[Permite_Solicitar_Prestamos]==true" type="ClientScript" />
+          </visibility>
+        </dataField>
+        <dataField fieldName="Antiguedad_Minima_Pedir_Prestamo" columns="15" />
+        <dataField fieldName="Layout_Correo_Electronico_Contratado_Solicitud_Prestamo_Id" columns="15" aliasFieldName="Layout_Correo_Electronico_Contratado_Solicitud_Prestamo" />
+        <dataField fieldName="Layout_Correo_Electronico_Encargado_Prestamo_Id" columns="15" aliasFieldName="Layout_Correo_Electronico_Encargado_Prestamo" />
+        <dataField fieldName="Layout_Correo_Electronico_RH_Solicitud_Prestamo_Id" columns="15" aliasFieldName="Layout_Correo_Electronico_RH_Solicitud_Prestamo" />
+        <dataField fieldName="Layout_Correo_Electronico_RH_Respuesta_Solicitud_Prestamo_Id" columns="15" aliasFieldName="Layout_Correo_Electronico_RH_Respuesta_Solicitud_Prestamo" />
+        <dataField fieldName="LayoutCorreoElectronicoJefeNotificacionCancelacionId" columns="15" />
+        <dataField fieldName="ValidarVacacionesAlPasado" />
+        <dataField fieldName="ValidarVacacionesDiaActual" />
+        <dataField fieldName="Contratado_Encargado_RH_Id" columns="15" aliasFieldName="Persona_Nombre" />
+        <dataField fieldName="Layout_Correo_Electronico_Recibo_Nomina_Id" columns="15" />
+        <dataField fieldName="Acceso_Servicio_ARH_Vacaciones" hidden="true" />
+        <dataField fieldName="Acceso_Servicio_ARH_Nomina" hidden="true" />
+        <dataField fieldName="Acceso_Servicio_ARH_Gastos" hidden="true" />
+        <dataField fieldName="Acceso_Servicio_ARH_Prestamos" hidden="true" />
+        <dataField fieldName="Acceso_Servicio_ARH_Documentos" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" label="Actualizar Contratante" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" commandId="GridContratanteAdmin">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Contratante_Id" columns="15" hidden="true" />
+            <dataField fieldName="Contratante" />
+            <dataField fieldName="Contratante_Razon_Social" />
+            <dataField fieldName="Contratante_Descripcion" rows="5" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" />
+            <dataField fieldName="Layout_Correo_Electronico_Contratado_Id" aliasFieldName="LayoutCorreoElectronicoContratado" />
+            <dataField fieldName="Layout_Correo_Electronico_Jefe_Id" aliasFieldName="LayoutCorreoElectronicoJefe" />
+            <dataField fieldName="Layout_Correo_Electronico_Jefe_Notificacion_Cancelacion_Id" columns="15" aliasFieldName="Layout_Correo_Electronico_Jefe_Notificacion_Cancelacion" />
+            <dataField fieldName="Layout_Correo_Electronico_RH_Respuesta_Solicitud_Vacaciones_Id" aliasFieldName="LayoutCorreoElectronicoRHRespuestaSolicitudVacaciones" />
+            <dataField fieldName="Layout_Correo_Electronico_RH_Solicitud_Vacaciones_Id" aliasFieldName="LayoutCorreoElectronicoRHSolicitudVacaciones" />
+            <dataField fieldName="Validar_Vacaciones_Dia_Actual" />
+            <dataField fieldName="Validar_Vacaciones_Al_Pasado" />
+            <dataField fieldName="Generar_Usuario_Generico" />
+            <dataField fieldName="ValidarVacacionesDiaActual" />
+            <dataField fieldName="Clave_Contratante" columns="3" />
+            <dataField fieldName="Vigencia_Dias" columns="15" />
+            <dataField fieldName="Contratado_Encargado_RH_Id" columns="15" aliasFieldName="Persona_Nombre" />
+            <dataField fieldName="Nombre_Dominio" columns="50" />
+            <dataField fieldName="Mostrar_Religion_A_Aspirante" />
+            <dataField fieldName="Mostrar_Orientacion_Sexual_A_Aspirante" />
+            <dataField fieldName="Mostrar_Senas_Particulares_A_Aspirante" />
+            <dataField fieldName="Permite_Cancelar_Solicitud_Vacaciones" />
+            <dataField fieldName="Permitir_Solicitar_Gastos" />
+            <dataField fieldName="Numero_Telefono" columns="11" />
+            <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+            <dataField fieldName="Permite_Enviar_Correo_Recibo_Nomina" />
+            <dataField fieldName="Layout_Correo_Electronico_Recibo_Nomina_Id" columns="15" aliasFieldName="Layout_Correo_Electronico_Recibo_Nomina">
+              <visibility>
+                <expression test="[Permite_Enviar_Correo_Recibo_Nomina]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Permite_Solicitar_Prestamos" />
+            <dataField fieldName="Contratado_Encargado_Prestamos_Id" columns="15" aliasFieldName="Nombre_Completo_Encargado_Prestamos">
+              <visibility>
+                <expression test="[Permite_Solicitar_Prestamos]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Antiguedad_Minima_Pedir_Prestamo" columns="15">
+              <visibility>
+                <expression test="[Permite_Solicitar_Prestamos]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Layout_Correo_Electronico_Contratado_Solicitud_Prestamo_Id" columns="15" aliasFieldName="Layout_Correo_Electronico_Contratado_Solicitud_Prestamo">
+              <visibility>
+                <expression test="[Permite_Solicitar_Prestamos]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Layout_Correo_Electronico_Encargado_Prestamo_Id" columns="15" aliasFieldName="Layout_Correo_Electronico_Encargado_Prestamo">
+              <visibility>
+                <expression test="[Permite_Solicitar_Prestamos]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Layout_Correo_Electronico_RH_Solicitud_Prestamo_Id" columns="15" aliasFieldName="Layout_Correo_Electronico_RH_Solicitud_Prestamo">
+              <visibility>
+                <expression test="[Permite_Solicitar_Prestamos]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Layout_Correo_Electronico_RH_Respuesta_Solicitud_Prestamo_Id" columns="15" aliasFieldName="Layout_Correo_Electronico_RH_Respuesta_Solicitud_Prestamo">
+              <visibility>
+                <expression test="[Permite_Solicitar_Prestamos]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Acceso_Servicio_ARH_Vacaciones" hidden="true" />
+            <dataField fieldName="Acceso_Servicio_ARH_Nomina" hidden="true" />
+            <dataField fieldName="Acceso_Servicio_ARH_Gastos" hidden="true" />
+            <dataField fieldName="Acceso_Servicio_ARH_Prestamos" hidden="true" />
+            <dataField fieldName="Acceso_Servicio_ARH_Documentos" hidden="true" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" label="Nuevo Contratante" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" commandId="GridContratanteAdmin">
+      <headerText />
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description />
+          <dataFields>
+            <dataField fieldName="Contratante" />
+            <dataField fieldName="Contratante_Razon_Social" />
+            <dataField fieldName="Contratante_Descripcion" rows="5" />
+            <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" />
+            <dataField fieldName="Clave_Contratante" columns="3" />
+            <dataField fieldName="Vigencia_Dias" columns="15" />
+            <dataField fieldName="Contratado_Encargado_RH_Id" columns="15" aliasFieldName="Persona_Nombre" />
+            <dataField fieldName="Nombre_Dominio" columns="50" />
+            <dataField fieldName="Mostrar_Religion_A_Aspirante" />
+            <dataField fieldName="Mostrar_Orientacion_Sexual_A_Aspirante" />
+            <dataField fieldName="Mostrar_Senas_Particulares_A_Aspirante" />
+            <dataField fieldName="Permite_Cancelar_Solicitud_Vacaciones" />
+            <dataField fieldName="Validar_Vacaciones_Al_Pasado" />
+            <dataField fieldName="Validar_Vacaciones_Dia_Actual" />
+            <dataField fieldName="Layout_Correo_Electronico_Contratado_Id" aliasFieldName="LayoutCorreoElectronicoContratado" />
+            <dataField fieldName="Layout_Correo_Electronico_Jefe_Id" aliasFieldName="LayoutCorreoElectronicoJefe" />
+            <dataField fieldName="Layout_Correo_Electronico_Jefe_Notificacion_Cancelacion_Id" columns="15" aliasFieldName="Layout_Correo_Electronico_Jefe_Notificacion_Cancelacion" />
+            <dataField fieldName="Layout_Correo_Electronico_RH_Respuesta_Solicitud_Vacaciones_Id" aliasFieldName="LayoutCorreoElectronicoRHRespuestaSolicitudVacaciones" />
+            <dataField fieldName="Layout_Correo_Electronico_RH_Solicitud_Vacaciones_Id" aliasFieldName="LayoutCorreoElectronicoRHSolicitudVacaciones" />
+            <dataField fieldName="Generar_Usuario_Generico" />
+            <dataField fieldName="Permitir_Solicitar_Gastos" />
+            <dataField fieldName="Numero_Telefono" columns="11" />
+            <dataField fieldName="Permite_Solicitar_Prestamos" />
+            <dataField fieldName="Contratado_Encargado_Prestamos_Id" columns="15" aliasFieldName="Nombre_Completo_Encargado_Prestamos">
+              <visibility>
+                <expression test="[Permite_Solicitar_Prestamos]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Antiguedad_Minima_Pedir_Prestamo" columns="15">
+              <visibility>
+                <expression test="[Permite_Solicitar_Prestamos]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Layout_Correo_Electronico_Contratado_Solicitud_Prestamo_Id" columns="15">
+              <visibility>
+                <expression test="[Permite_Solicitar_Prestamos]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Layout_Correo_Electronico_Encargado_Prestamo_Id" columns="15">
+              <visibility>
+                <expression test="[Permite_Solicitar_Prestamos]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Layout_Correo_Electronico_RH_Solicitud_Prestamo_Id" columns="15">
+              <visibility>
+                <expression test="[Permite_Solicitar_Prestamos]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="Layout_Correo_Electronico_RH_Respuesta_Solicitud_Prestamo_Id" columns="15">
+              <visibility>
+                <expression test="[Permite_Solicitar_Prestamos]==true" type="ClientScript" />
+              </visibility>
+            </dataField>
+            <dataField fieldName="LayoutCorreoElectronicoJefeNotificacionCancelacionId" columns="15" />
+            <dataField fieldName="ValidarVacacionesAlPasado" />
+            <dataField fieldName="ValidarVacacionesDiaActual" />
+            <dataField fieldName="Permite_Enviar_Correo_Recibo_Nomina" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="Contratante_LookUp_List" type="Grid" commandId="Grid_Contratante" label="Contratante" filter="Estatus_Registro_Id IN (1,0)" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" sortExpression="Contratante">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Contratante_Id" columns="15" hidden="true" />
+        <dataField fieldName="Contratante" />
+        <dataField fieldName="Contratante_Razon_Social" />
+        <dataField fieldName="Contratante_Descripcion" rows="5" hidden="true" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" hidden="true" />
+        <dataField fieldName="Mostrar_Religion_A_Aspirante" />
+        <dataField fieldName="Mostrar_Orientacion_Sexual_A_Aspirante" />
+        <dataField fieldName="Mostrar_Senas_Particulares_A_Aspirante" />
+        <dataField fieldName="Permite_Cancelar_Solicitud_Vacaciones" />
+        <dataField fieldName="Layout_Correo_Electronico_Contratado_Id" aliasFieldName="LayoutCorreoElectronicoContratado" />
+        <dataField fieldName="Layout_Correo_Electronico_Jefe_Id" aliasFieldName="LayoutCorreoElectronicoJefe" />
+        <dataField fieldName="Layout_Correo_Electronico_RH_Respuesta_Solicitud_Vacaciones_Id" aliasFieldName="LayoutCorreoElectronicoRHRespuestaSolicitudVacaciones" />
+        <dataField fieldName="Layout_Correo_Electronico_RH_Solicitud_Vacaciones_Id" aliasFieldName="LayoutCorreoElectronicoRHSolicitudVacaciones" />
+        <dataField fieldName="Generar_Usuario_Generico" />
+        <dataField fieldName="Permitir_Solicitar_Gastos" />
+        <dataField fieldName="Numero_Telefono" columns="11" />
+        <dataField fieldName="Permite_Solicitar_Prestamos" />
+        <dataField fieldName="Contratado_Encargado_Prestamos_Id" columns="15" />
+        <dataField fieldName="Antiguedad_Minima_Pedir_Prestamo" columns="15" />
+        <dataField fieldName="Layout_Correo_Electronico_Contratado_Solicitud_Prestamo_Id" columns="15" />
+        <dataField fieldName="Layout_Correo_Electronico_Encargado_Prestamo_Id" columns="15" />
+        <dataField fieldName="Layout_Correo_Electronico_RH_Solicitud_Prestamo_Id" columns="15" />
+        <dataField fieldName="Layout_Correo_Electronico_RH_Respuesta_Solicitud_Prestamo_Id" columns="15" />
+        <dataField fieldName="LayoutCorreoElectronicoJefeNotificacionCancelacionId" columns="15" />
+        <dataField fieldName="ValidarVacacionesAlPasado" />
+        <dataField fieldName="ValidarVacacionesDiaActual" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="Contratante_Admin_LookUp_List" type="Grid" label="Contratante" filter="Estatus_Registro_Id IN (1,0)" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" showInSelector="false" sortExpression="Contratante" commandId="GridContratanteAdmin">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Contratante_Id" columns="15" hidden="true" />
+        <dataField fieldName="Contratante" />
+        <dataField fieldName="Contratante_Razon_Social" hidden="true" />
+        <dataField fieldName="Contratante_Descripcion" rows="5" hidden="true" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" hidden="true" />
+        <dataField fieldName="Mostrar_Religion_A_Aspirante" />
+        <dataField fieldName="Mostrar_Orientacion_Sexual_A_Aspirante" />
+        <dataField fieldName="Mostrar_Senas_Particulares_A_Aspirante" />
+        <dataField fieldName="Permite_Cancelar_Solicitud_Vacaciones" />
+        <dataField fieldName="Layout_Correo_Electronico_Contratado_Id" aliasFieldName="LayoutCorreoElectronicoContratado" />
+        <dataField fieldName="Layout_Correo_Electronico_Jefe_Id" aliasFieldName="LayoutCorreoElectronicoJefe" />
+        <dataField fieldName="Layout_Correo_Electronico_RH_Respuesta_Solicitud_Vacaciones_Id" aliasFieldName="LayoutCorreoElectronicoRHRespuestaSolicitudVacaciones" />
+        <dataField fieldName="Layout_Correo_Electronico_RH_Solicitud_Vacaciones_Id" aliasFieldName="LayoutCorreoElectronicoRHSolicitudVacaciones" />
+        <dataField fieldName="Generar_Usuario_Generico" />
+        <dataField fieldName="Permitir_Solicitar_Gastos" />
+        <dataField fieldName="Numero_Telefono" columns="11" />
+        <dataField fieldName="Permite_Solicitar_Prestamos" />
+        <dataField fieldName="Contratado_Encargado_Prestamos_Id" columns="15" />
+        <dataField fieldName="Antiguedad_Minima_Pedir_Prestamo" columns="15" />
+        <dataField fieldName="Layout_Correo_Electronico_Contratado_Solicitud_Prestamo_Id" columns="15" />
+        <dataField fieldName="Layout_Correo_Electronico_Encargado_Prestamo_Id" columns="15" />
+        <dataField fieldName="Layout_Correo_Electronico_RH_Solicitud_Prestamo_Id" columns="15" />
+        <dataField fieldName="Layout_Correo_Electronico_RH_Respuesta_Solicitud_Prestamo_Id" columns="15" />
+        <dataField fieldName="LayoutCorreoElectronicoJefeNotificacionCancelacionId" columns="15" />
+        <dataField fieldName="ValidarVacacionesAlPasado" />
+        <dataField fieldName="ValidarVacacionesDiaActual" />
+        <dataField fieldName="Estatus_Registro_Id" columns="15" hidden="true" />
+        <dataField fieldName="Cliente_Cliente" rows="5" hidden="true" />
+      </dataFields>
+    </view>
+    <view id="gridAminBorrados" type="Grid" label="Bajas/Borrados" filter="Estatus_Registro_Id NOT IN (0,1)" tags="view-style-grid, &#xD;&#xA;view-style-list-disabled, &#xD;&#xA;view-style-charts-disabled,&#xD;&#xA;view-style-cards-disabled,&#xD;&#xA;view-style-calendar-disabled" sortExpression="Contratante" commandId="GridContratanteAdmin">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Contratante_Id" columns="15" hidden="true" />
+        <dataField fieldName="Contratante" />
+        <dataField fieldName="Contratante_Razon_Social" />
+        <dataField fieldName="Contratante_Descripcion" rows="5" />
+        <dataField fieldName="Cliente_Id" aliasFieldName="Cliente_Cliente" />
+        <dataField fieldName="Clave_Contratante" columns="3" />
+        <dataField fieldName="Vigencia_Dias" columns="15" />
+        <dataField fieldName="Nombre_Dominio" columns="50" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+        <dataField fieldName="Mostrar_Religion_A_Aspirante" />
+        <dataField fieldName="Mostrar_Orientacion_Sexual_A_Aspirante" />
+        <dataField fieldName="Mostrar_Senas_Particulares_A_Aspirante" />
+        <dataField fieldName="Permite_Cancelar_Solicitud_Vacaciones" />
+        <dataField fieldName="Layout_Correo_Electronico_Contratado_Id" aliasFieldName="LayoutCorreoElectronicoContratado" />
+        <dataField fieldName="Layout_Correo_Electronico_Jefe_Id" aliasFieldName="LayoutCorreoElectronicoJefe" />
+        <dataField fieldName="Layout_Correo_Electronico_RH_Respuesta_Solicitud_Vacaciones_Id" aliasFieldName="LayoutCorreoElectronicoRHRespuestaSolicitudVacaciones" />
+        <dataField fieldName="Layout_Correo_Electronico_RH_Solicitud_Vacaciones_Id" aliasFieldName="LayoutCorreoElectronicoRHSolicitudVacaciones" />
+        <dataField fieldName="Generar_Usuario_Generico" />
+        <dataField fieldName="Permitir_Solicitar_Gastos" />
+        <dataField fieldName="Numero_Telefono" columns="11" />
+        <dataField fieldName="Permite_Solicitar_Prestamos" />
+        <dataField fieldName="Contratado_Encargado_Prestamos_Id" columns="15" aliasFieldName="Nombre_Completo_Encargado_Prestamos">
+          <visibility>
+            <expression test="[Permite_Solicitar_Prestamos]==true" type="ClientScript" />
+          </visibility>
+        </dataField>
+        <dataField fieldName="Antiguedad_Minima_Pedir_Prestamo" columns="15" />
+        <dataField fieldName="Layout_Correo_Electronico_Contratado_Solicitud_Prestamo_Id" columns="15" aliasFieldName="Layout_Correo_Electronico_Contratado_Solicitud_Prestamo" />
+        <dataField fieldName="Layout_Correo_Electronico_Encargado_Prestamo_Id" columns="15" aliasFieldName="Layout_Correo_Electronico_Encargado_Prestamo" />
+        <dataField fieldName="Layout_Correo_Electronico_RH_Solicitud_Prestamo_Id" columns="15" aliasFieldName="Layout_Correo_Electronico_RH_Solicitud_Prestamo" />
+        <dataField fieldName="Layout_Correo_Electronico_RH_Respuesta_Solicitud_Prestamo_Id" columns="15" aliasFieldName="Layout_Correo_Electronico_RH_Respuesta_Solicitud_Prestamo" />
+        <dataField fieldName="LayoutCorreoElectronicoJefeNotificacionCancelacionId" columns="15" />
+        <dataField fieldName="ValidarVacacionesAlPasado" />
+        <dataField fieldName="ValidarVacacionesDiaActual" />
+        <dataField fieldName="Contratado_Encargado_RH_Id" columns="15" aliasFieldName="Persona_Nombre" />
+        <dataField fieldName="Layout_Correo_Electronico_Recibo_Nomina_Id" columns="15" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE 
+	APP.Contratante
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Contratante_Id = @Contratante_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" commandArgument="editForm1" />
+      <action commandName="Custom" headerText="Crear Usuarios" id="a100" roles="Administrators,Arhadmin,ARHOperaciones" commandArgument="EXECCS01">
+        <data />
+      </action>
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE 
+	APP.Contratante
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Contratante_Id = @Contratante_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE 
+	APP.Contratante
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Contratante_Id = @Contratante_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin,ARHOperaciones" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" commandArgument="editForm1" roles="Administrators,ArhAdmin,ARHOperaciones" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" confirmation="¿Esta seguro que desea continuar?" roles="Administrators,ArhAdmin,ARHOperaciones">
+        <data><![CDATA[UPDATE 
+	APP.Contratante
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = GetDate()
+WHERE
+	Contratante_Id = @Contratante_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+  <businessRules>
+    <rule id="r100" commandName="Insert" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+DECLARE @Existe_Clave BIT
+
+SET @Existe = 0
+SET @Existe_Clave = 0
+
+SET @Existe = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Contratante
+	WHERE
+		REPLACE(UPPER(Contratante),' ','') = REPLACE(UPPER(@Contratante),' ','')
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya esta registrado este contratante en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya esta registrado este contratante en la base de datos, favor de corregir.'
+   RETURN
+END
+
+SET @Existe_Clave = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Contratante
+	WHERE
+		REPLACE(UPPER(Clave_Contratante),' ','') = REPLACE(UPPER(@Clave_Contratante),' ','')
+),0)
+
+IF @Existe_Clave=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe esta clave para otro contratante en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe esta clave para otro contratante en la base de datos, favor de corregir.'
+   RETURN
+END
+
+IF(@Vigencia_Dias<1)
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'No puede elegir ese número de días como vigencia de recibos de nómina'
+   SET @Result_ShowAlert =  'No puede elegir ese número de días como vigencia de recibos de nómina'
+   RETURN
+END
+
+IF(@Vigencia_Dias>99999)
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'No puede elegir ese número de días como vigencia de recibos de nómina, debe elegir un número entre 1 y 99,999'
+   SET @Result_ShowAlert =  'No puede elegir ese número de días como vigencia de recibos de nómina, debe elegir un número entre 1 y 99,999'
+   RETURN
+END
+]]></rule>
+    <rule id="r102" commandName="Insert" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Contratante
+SET
+	Creado_Por_Id = @BusinessRules_UserId
+	,Fecha_Creacion = GetDate()
+	,Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Contratante_Id= @Contratante_Id]]></rule>
+    <rule id="r101" commandName="Update" type="Sql" phase="Before"><![CDATA[DECLARE @Existe BIT
+DECLARE @Existe_Clave BIT
+
+SET @Existe = 0
+SET @Existe_Clave = 0
+
+SET @Existe = IsNULL((
+	SELECT 
+		TOP 1 1
+	FROM
+		APP.Contratante
+	WHERE
+  		REPLACE(UPPER(Contratante),' ','') = REPLACE(UPPER(@Contratante),' ','')
+		AND Contratante_Id <> @Contratante_Id
+),0)
+
+IF @Existe=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya esta registrado este contratante en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert = 'Ya esta registrado este contratante en la base de datos, favor de corregir.'
+   RETURN
+END
+
+SET @Existe_Clave = IsNULL((
+	SELECT
+		TOP 1 1
+	FROM
+		APP.Contratante
+	WHERE
+		REPLACE(UPPER(Clave_Contratante),' ','') = REPLACE(UPPER(@Clave_Contratante),' ','')
+  		AND Contratante_Id <> @Contratante_Id
+),0)
+
+IF @Existe_Clave=1
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'Ya existe esta clave para otro contratante en la base de datos, favor de corregir.'
+   SET @Result_ShowAlert =  'Ya existe esta clave para otro contratante en la base de datos, favor de corregir.'
+   RETURN
+END
+
+IF(@Vigencia_Dias<1)
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'No puede elegir ese número de días como vigencia de recibos de nómina, debe elegir un número entre 1 y 99,999'
+   SET @Result_ShowAlert =  'No puede elegir ese número de días como vigencia de recibos de nómina, debe elegir un número entre 1 y 99,999'
+   RETURN
+END
+
+IF(@Vigencia_Dias>99999)
+BEGIN
+   SET @BusinessRules_PreventDefault = 1
+   SET @Result_ShowViewMessage = 'No puede elegir ese número de días como vigencia de recibos de nómina, debe elegir un número entre 1 y 99,999'
+   SET @Result_ShowAlert =  'No puede elegir ese número de días como vigencia de recibos de nómina, debe elegir un número entre 1 y 99,999'
+   RETURN
+END
+]]></rule>
+    <rule id="r103" commandName="Update" type="Sql" phase="After"><![CDATA[UPDATE
+	APP.Contratante
+SET
+	Fecha_Ultima_Actualizacion = GetDate()
+	,Actualizado_Por_Id = @BusinessRules_UserId
+WHERE
+	Contratante_Id = @Contratante_Id]]></rule>
+    <rule id="r104" commandName="Custom" type="Code" phase="After" commandArgument="EXECCS01" />
+  </businessRules>
+</dataController>

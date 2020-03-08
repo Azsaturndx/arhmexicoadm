@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="APP" baseTable="Layout_HTML_Objeto_Atributo" alias="Layout_HTML_Objeto_Atributo" created="2019-06-19T15:04:52" modified="2019-06-19T15:06:17" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys>
+    <foreignKey id="Layout_HTML_" parentTableSchema="dbo" parentTableName="Layout_HTML" x="483" y="20">
+      <foreignKeyColumn columnName="Layout_HTML_Id" parentColumnName="Layout_HTML_Id" />
+    </foreignKey>
+    <foreignKey id="Estatus_Registro_" parentTableSchema="dbo" parentTableName="Estatus_Registro" x="483" y="250">
+      <foreignKeyColumn columnName="Estatus_Registro_Id" parentColumnName="Estatus_Registro_Id" />
+    </foreignKey>
+    <foreignKey id="Creado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="969" y="53">
+      <foreignKeyColumn columnName="Creado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+    <foreignKey id="Actualizado_Por" parentTableSchema="dbo" parentTableName="Usuario_V" x="292" y="321">
+      <foreignKeyColumn columnName="Actualizado_Por_Id" parentColumnName="UserId" />
+    </foreignKey>
+  </foreignKeys>
+  <columns>
+    <column name="Layout_HTML_Objeto_Atributo_Id" fieldName="Layout_HTML_Objeto_Atributo_Id" label="Layout HTML Objeto Atributo Id" />
+    <column name="Layout_HTML_Objeto_Atributo" fieldName="Layout_HTML_Objeto_Atributo" label="Layout HTML Objeto Atributo" />
+    <column name="Layout_HTML_Objeto_Atributo_Etiqueta" fieldName="Layout_HTML_Objeto_Atributo_Etiqueta" label="Etiqueta" />
+    <column name="Layout_HTML_Objeto_Atributo_Secuencia" fieldName="Layout_HTML_Objeto_Atributo_Secuencia" label="Secuencia" />
+    <column name="Layout_HTML_Id" fieldName="Layout_HTML_Id" label="Layout HTML Id" aliasColumnName="Layout_HTML_Nombre" aliasForeignKey="Layout_HTML_" />
+    <column name="Layout_HTML_Nombre" fieldName="Layout_HTML_Layout_HTML_Nombre" label="Layout HTML Nombre" foreignKey="Layout_HTML_" />
+    <column name="Transaccion_Id" fieldName="Transaccion_Id" label="Transaccion Id" />
+    <column name="UserName" fieldName="CreadoPorusername" label="Creado Por" foreignKey="Creado_Por" />
+    <column name="Fecha_Creacion" fieldName="Fecha_Creacion" label="Fecha de Creación" format="g" />
+    <column name="UserName" fieldName="ActualizadoPorusername" label="Actualizado Por" foreignKey="Actualizado_Por" />
+    <column name="Fecha_Ultima_Actualizacion" fieldName="Fecha_Ultima_Actualizacion" label="Fecha de Última Actualización" format="g" />
+    <column name="Estatus_Registro_Id" fieldName="Estatus_Registro_Id" label="Estatus Registro Id" aliasColumnName="Estatus_Registro" aliasForeignKey="Estatus_Registro_" />
+    <column name="Estatus_Registro" fieldName="Estatus_Registro_Estatus_Registro" label="Estatus Registro" foreignKey="Estatus_Registro_" />
+  </columns>
+</dataModel>

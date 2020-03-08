@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="Bitacora_Movimiento_Personal" conflictDetection="overwriteChanges" label="Bitacora Movimiento Personal" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"Bitacora_Movimiento_Personal"."Bitacora_Movimiento_Personal_Id" "Bitacora_Movimiento_Personal_Id"
+	,"Bitacora_Movimiento_Personal"."Contratante_Puesto_Id" "Contratante_Puesto_Id"
+	,"Contratante_Puesto_"."Contratante_Puesto" "Contratante_Puesto_Contratante_Puesto"
+	,"Bitacora_Movimiento_Personal"."Estatus_Puesto_Id" "Estatus_Puesto_Id"
+	,"Estatus_Puesto_"."Estatus_Puesto" "Estatus_Puesto_Estatus_Puesto"
+	,"Bitacora_Movimiento_Personal"."Contratado_Id" "Contratado_Id"
+	,"Contratado_"."Identificador_Unico" "Contratado_Identificador_Unico"
+	,"Bitacora_Movimiento_Personal"."Estatus_Contratado_Id" "Estatus_Contratado_Id"
+	,"Estatus_Contratado_"."Estatus_Contratado" "Estatus_Contratado_Estatus_Contratado"
+	,"Bitacora_Movimiento_Personal"."Contratado_Puesto_Padre_Id" "Contratado_Puesto_Padre_Id"
+	,"Contratado_Puesto_Padre_"."Contratante_Puesto" "Contratado_Puesto_Padre_Contratante_Puesto"
+	,"Bitacora_Movimiento_Personal"."Contratante_Estructura_Organizacional_Id" "Contratante_Estructura_Organizacional_Id"
+	,"Contratante_Estructura_Organizacional_"."Estructura_Organizacional" "Contratante_Estructura_Organizacional_Estructura_Organizacional"
+	,"Bitacora_Movimiento_Personal"."Motivo_Movimiento_Id" "Motivo_Movimiento_Id"
+	,"Motivo_Movimiento_"."Motivo_Movimiento" "Motivo_Movimiento_Motivo_Movimiento"
+	,"Bitacora_Movimiento_Personal"."Estatus_Puesto_Before_Id" "Estatus_Puesto_Before_Id"
+	,"Estatus_Puesto_Before_"."Estatus_Puesto" "Estatus_Puesto_Before_Estatus_Puesto"
+	,"Bitacora_Movimiento_Personal"."Contratado_Before_Id" "Contratado_Before_Id"
+	,"Bitacora_Movimiento_Personal"."Estatus_Contratado_Before_Id" "Estatus_Contratado_Before_Id"
+	,"Bitacora_Movimiento_Personal"."Contratado_Puesto_Padre_Before_Id" "Contratado_Puesto_Padre_Before_Id"
+	,"Bitacora_Movimiento_Personal"."Contratante_Estructura_Organizacional_Before_Id" "Contratante_Estructura_Organizacional_Before_Id"
+	,"Contratante_Estructura_Organizacional_Before_"."Estructura_Organizacional" "Contratante_Estructura_Organizacional_Before_Estructura_Organizacional"
+	,"Bitacora_Movimiento_Personal"."Motivo_Movimiento_Before_Id" "Motivo_Movimiento_Before_Id"
+	,"Bitacora_Movimiento_Personal"."Tipo_Operacion_Id" "Tipo_Operacion_Id"
+	,"Bitacora_Movimiento_Personal"."Es_Desasignar_Contratado" "Es_Desasignar_Contratado"
+	,"Bitacora_Movimiento_Personal"."Es_Asignar_Contratado" "Es_Asignar_Contratado"
+	,"Bitacora_Movimiento_Personal"."Es_Remover_Contratado" "Es_Remover_Contratado"
+	,"Bitacora_Movimiento_Personal"."Es_Reemplazar_Contratado" "Es_Reemplazar_Contratado"
+	,"Bitacora_Movimiento_Personal"."Es_Degradar_Contratado" "Es_Degradar_Contratado"
+	,"Bitacora_Movimiento_Personal"."Es_Mover_A_Nuevo_Jefe" "Es_Mover_A_Nuevo_Jefe"
+	,"Bitacora_Movimiento_Personal"."Transaccion_Id" "Transaccion_Id"
+	,"Bitacora_Movimiento_Personal"."Creado_Por_Id" "Creado_Por_Id"
+	,"Usuario_V"."UserName" "cpUserName"
+	,"Bitacora_Movimiento_Personal"."Fecha_Creacion" "Fecha_Creacion"
+	,"Bitacora_Movimiento_Personal"."Actualizado_Por_Id" "Actualizado_Por_Id"
+	,"Usuario_V1"."UserName" "apUserName"
+	,"Bitacora_Movimiento_Personal"."Fecha_Ultima_Actualizacion" "Fecha_Ultima_Actualizacion"
+	,"Bitacora_Movimiento_Personal"."Estatus_Registro_Id" "Estatus_Registro_Id"
+	,"Estatus_Registro"."Estatus_Registro" "Estatus_Registro_Estatus_Registro"
+from "APP"."Bitacora_Movimiento_Personal" "Bitacora_Movimiento_Personal"
+	left join "APP"."Contratante_Puesto" "Contratante_Puesto_" on "Bitacora_Movimiento_Personal"."Contratante_Puesto_Id" = "Contratante_Puesto_"."Contratante_Puesto_Id"
+	left join "APP"."Estatus_Puesto" "Estatus_Puesto_" on "Bitacora_Movimiento_Personal"."Estatus_Puesto_Id" = "Estatus_Puesto_"."Estatus_Puesto_Id"
+	left join "APP"."Contratado" "Contratado_" on "Bitacora_Movimiento_Personal"."Contratado_Id" = "Contratado_"."Contratado_Id"
+	left join "APP"."Estatus_Contratado" "Estatus_Contratado_" on "Bitacora_Movimiento_Personal"."Estatus_Contratado_Id" = "Estatus_Contratado_"."Estatus_Contratado_Id"
+	left join "APP"."Contratante_Puesto" "Contratado_Puesto_Padre_" on "Bitacora_Movimiento_Personal"."Contratado_Puesto_Padre_Id" = "Contratado_Puesto_Padre_"."Contratante_Puesto_Id"
+	left join "APP"."Contratante_Estructura_Organizacional" "Contratante_Estructura_Organizacional_" on "Bitacora_Movimiento_Personal"."Contratante_Estructura_Organizacional_Id" = "Contratante_Estructura_Organizacional_"."Contratante_Estructura_Organizacional_Id"
+	left join "APP"."Motivo_Movimiento" "Motivo_Movimiento_" on "Bitacora_Movimiento_Personal"."Motivo_Movimiento_Id" = "Motivo_Movimiento_"."Motivo_Movimiento_Id"
+	left join "APP"."Estatus_Puesto" "Estatus_Puesto_Before_" on "Bitacora_Movimiento_Personal"."Estatus_Puesto_Before_Id" = "Estatus_Puesto_Before_"."Estatus_Puesto_Id"
+	left join "APP"."Contratante_Estructura_Organizacional" "Contratante_Estructura_Organizacional_Before_" on "Bitacora_Movimiento_Personal"."Contratante_Estructura_Organizacional_Before_Id" = "Contratante_Estructura_Organizacional_Before_"."Contratante_Estructura_Organizacional_Id"
+	left join "dbo"."Usuario_V" "Usuario_V" on "Bitacora_Movimiento_Personal"."Creado_Por_Id" = "Usuario_V"."UserId"
+	left join "dbo"."Usuario_V" "Usuario_V1" on "Bitacora_Movimiento_Personal"."Actualizado_Por_Id" = "Usuario_V1"."UserId"
+	left join "dbo"."Estatus_Registro" "Estatus_Registro" on "Bitacora_Movimiento_Personal"."Estatus_Registro_Id" = "Estatus_Registro"."Estatus_Registro_Id"
+]]></text>
+    </command>
+    <command id="Bitacora_Movimiento_Personal_IdIdentityCommand" type="Text" event="Inserted">
+      <text><![CDATA[select @@identity]]></text>
+      <output>
+        <fieldOutput fieldName="Bitacora_Movimiento_Personal_Id" />
+      </output>
+    </command>
+  </commands>
+  <fields>
+    <field name="Bitacora_Movimiento_Personal_Id" type="Int32" allowNulls="false" isPrimaryKey="true" label="Bitácora Movimiento Personal Id" readOnly="true" />
+    <field name="Contratante_Puesto_Id" type="Int32" allowNulls="false" default="((0))" label="Contratante Puesto Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratante_Puesto" newDataView="createForm1" dataValueField="Contratante_Puesto_Id" dataTextField="Contratante_Puesto" dataView="Contratante_Puesto_LookUp_List" />
+    </field>
+    <field name="Contratante_Puesto_Contratante_Puesto" type="String" readOnly="true" label="Contratante Puesto" length="150" />
+    <field name="Estatus_Puesto_Id" type="Int32" allowNulls="false" default="((0))" label="Estatus Puesto Id" showInSummary="true">
+      <items style="Lookup" dataController="Estatus_Puesto" newDataView="createForm1" dataValueField="Estatus_Puesto_Id" dataTextField="Estatus_Puesto" dataView="Estatus_Puesto_LookUp_List" />
+    </field>
+    <field name="Estatus_Puesto_Estatus_Puesto" type="String" readOnly="true" label="Estatus Puesto" length="250" />
+    <field name="Contratado_Id" type="Int32" allowNulls="false" default="((0))" label="Contratado Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratado" newDataView="createForm1" dataValueField="Contratado_Id" dataTextField="Identificador_Unico" dataView="Contratado_Admin_LookUp_List" />
+    </field>
+    <field name="Contratado_Identificador_Unico" type="String" readOnly="true" label="Contratado Identificador Unico" length="50" />
+    <field name="Estatus_Contratado_Id" type="Int32" allowNulls="false" default="((0))" label="Estatus Contratado Id" showInSummary="true">
+      <items style="Lookup" dataController="Estatus_Contratado" newDataView="createForm1" dataValueField="Estatus_Contratado_Id" dataTextField="Estatus_Contratado" dataView="Estatus_Contratado_LookUp_List" />
+    </field>
+    <field name="Estatus_Contratado_Estatus_Contratado" type="String" readOnly="true" label="Estatus Contratado" length="150" />
+    <field name="Contratado_Puesto_Padre_Id" type="Int32" allowNulls="false" default="((0))" label="Contratado Puesto Padre Id" showInSummary="true">
+      <items style="Lookup" dataController="Contratante_Puesto" newDataView="createForm1" dataValueField="Contratante_Puesto_Id" dataTextField="Contratante_Puesto" dataView="Contratante_Puesto_LookUp_List" />
+    </field>
+    <field name="Contratado_Puesto_Padre_Contratante_Puesto" type="String" readOnly="true" label="Contratado Puesto Padre" length="150" />
+    <field name="Contratante_Estructura_Organizacional_Id" type="Int32" allowNulls="false" default="((0))" label="Contratante Estructura Organizacional Id">
+      <items style="Lookup" dataController="Contratante_Estructura_Organizacional" newDataView="createForm1" dataValueField="Contratante_Estructura_Organizacional_Id" dataTextField="Estructura_Organizacional" dataView="Contratante_Estructura_Organizacional_LookUp_List" />
+    </field>
+    <field name="Contratante_Estructura_Organizacional_Estructura_Organizacional" type="String" readOnly="true" label="Contratante Estructura Organizacional" length="150" />
+    <field name="Motivo_Movimiento_Id" type="Int32" allowNulls="false" default="((0))" label="Motivo Movimiento Id">
+      <items style="Lookup" dataController="Motivo_Movimiento" newDataView="createForm1" dataValueField="Motivo_Movimiento_Id" dataTextField="Motivo_Movimiento" dataView="Motivo_Movimiento_LookUp_List" />
+    </field>
+    <field name="Motivo_Movimiento_Motivo_Movimiento" type="String" readOnly="true" label="Motivo Movimiento" length="250" />
+    <field name="Estatus_Puesto_Before_Id" type="Int32" allowNulls="false" default="((0))" label="Estatus Puesto Before Id">
+      <items style="Lookup" dataController="Estatus_Puesto" newDataView="createForm1" dataValueField="Estatus_Puesto_Id" dataTextField="Estatus_Puesto" dataView="Estatus_Puesto_LookUp_List" />
+    </field>
+    <field name="Estatus_Puesto_Before_Estatus_Puesto" type="String" readOnly="true" label="Estatus Puesto Before" length="250" />
+    <field name="Contratado_Before_Id" type="Int32" allowNulls="false" default="((0))" label="Contratado Before Id" />
+    <field name="Estatus_Contratado_Before_Id" type="Int32" allowNulls="false" default="((0))" label="Estatus Contratado Before Id" />
+    <field name="Contratado_Puesto_Padre_Before_Id" type="Int32" allowNulls="false" default="((0))" label="Contratado Puesto Padre Before Id" />
+    <field name="Contratante_Estructura_Organizacional_Before_Id" type="Int32" allowNulls="false" default="((0))" label="Contratante Estructura Organizacional Before Id">
+      <items style="Lookup" dataController="Contratante_Estructura_Organizacional" newDataView="createForm1" dataValueField="Contratante_Estructura_Organizacional_Id" dataTextField="Estructura_Organizacional" dataView="Contratante_Estructura_Organizacional_LookUp_List" />
+    </field>
+    <field name="Contratante_Estructura_Organizacional_Before_Estructura_Organizacional" type="String" readOnly="true" label="Contratante Estructura Organizacional Before" length="150" />
+    <field name="Motivo_Movimiento_Before_Id" type="Int32" allowNulls="false" default="((0))" label="Motivo Movimiento Before Id" />
+    <field name="Tipo_Operacion_Id" type="Int16" allowNulls="false" default="((0))" label="Tipo Operacion Id" />
+    <field name="Es_Desasignar_Contratado" type="Boolean" allowNulls="false" default="((0))" label="¿Es Desasignar Contratado?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Asignar_Contratado" type="Boolean" allowNulls="false" default="((0))" label="¿Es Asignar Contratado?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Remover_Contratado" type="Boolean" allowNulls="false" default="((0))" label="¿Es Remover Contratado?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Reemplazar_Contratado" type="Boolean" allowNulls="false" default="((0))" label="¿Es Reemplazar Contratado?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Degradar_Contratado" type="Boolean" allowNulls="false" default="((0))" label="¿Es Degradar Contratado?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Es_Mover_A_Nuevo_Jefe" type="Boolean" allowNulls="false" default="((0))" label="¿Es Mover A Nuevo Jefe?">
+      <items style="CheckBox" />
+    </field>
+    <field name="Transaccion_Id" type="String" allowNulls="false" default="(newid())" label="Transacción Id" length="50" />
+    <field name="Creado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Creado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="cpUserName" type="String" readOnly="true" label="Creado Por" length="256" />
+    <field name="Fecha_Creacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Creación UTC 0" />
+    <field name="Actualizado_Por_Id" type="Guid" allowNulls="false" default="(CONVERT([uniqueidentifier],'5C7568FD-6412-474E-A099-006FAD27CD02'))" label="Actualizado Por Id">
+      <items style="Lookup" dataController="Usuario_V" dataValueField="UserId" dataTextField="UserName" />
+    </field>
+    <field name="apUserName" type="String" readOnly="true" label="Actualizado Por" length="256" />
+    <field name="Fecha_Ultima_Actualizacion" type="DateTime" allowNulls="false" dataFormatString="d" default="(getdate())" label="Fecha de Última Actualización UTC 0" />
+    <field name="Estatus_Registro_Id" type="Int32" allowNulls="false" default="((1))" label="Estatus Registro Id">
+      <items style="Lookup" dataController="EstatusRegistro" newDataView="createForm1" dataValueField="Estatus_Registro_ID" dataTextField="Estatus_Registro" dataView="Estatus_Registro_LookUp_List" />
+    </field>
+    <field name="Estatus_Registro_Estatus_Registro" type="String" readOnly="true" label="Estatus Registro Estatus Registro" length="150" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Bitácora de Movimiento Personal">
+      <headerText />
+      <dataFields>
+        <dataField fieldName="Contratante_Puesto_Id" aliasFieldName="Contratante_Puesto_Contratante_Puesto" />
+        <dataField fieldName="Estatus_Puesto_Id" aliasFieldName="Estatus_Puesto_Estatus_Puesto" />
+        <dataField fieldName="Contratado_Id" aliasFieldName="Contratado_Identificador_Unico" />
+        <dataField fieldName="Estatus_Contratado_Id" aliasFieldName="Estatus_Contratado_Estatus_Contratado" />
+        <dataField fieldName="Contratado_Puesto_Padre_Id" aliasFieldName="Contratado_Puesto_Padre_Contratante_Puesto" />
+        <dataField fieldName="Contratante_Estructura_Organizacional_Id" aliasFieldName="Contratante_Estructura_Organizacional_Estructura_Organizacional" />
+        <dataField fieldName="Motivo_Movimiento_Id" aliasFieldName="Motivo_Movimiento_Motivo_Movimiento" />
+        <dataField fieldName="Estatus_Puesto_Before_Id" aliasFieldName="Estatus_Puesto_Before_Estatus_Puesto" />
+        <dataField fieldName="Contratado_Before_Id" columns="15" />
+        <dataField fieldName="Estatus_Contratado_Before_Id" columns="15" />
+        <dataField fieldName="Contratado_Puesto_Padre_Before_Id" columns="15" />
+        <dataField fieldName="Contratante_Estructura_Organizacional_Before_Id" aliasFieldName="Contratante_Estructura_Organizacional_Before_Estructura_Organizacional" />
+        <dataField fieldName="Motivo_Movimiento_Before_Id" columns="15" />
+        <dataField fieldName="Tipo_Operacion_Id" columns="15" />
+        <dataField fieldName="Es_Desasignar_Contratado" />
+        <dataField fieldName="Es_Asignar_Contratado" />
+        <dataField fieldName="Es_Remover_Contratado" />
+        <dataField fieldName="Es_Reemplazar_Contratado" />
+        <dataField fieldName="Es_Degradar_Contratado" />
+        <dataField fieldName="Es_Mover_A_Nuevo_Jefe" />
+        <dataField fieldName="Creado_Por_Id" aliasFieldName="cpUserName" />
+        <dataField fieldName="Fecha_Creacion" columns="20" />
+        <dataField fieldName="Actualizado_Por_Id" aliasFieldName="apUserName" />
+        <dataField fieldName="Fecha_Ultima_Actualizacion" columns="20" />
+        <dataField fieldName="Estatus_Registro_Id" aliasFieldName="Estatus_Registro_Estatus_Registro" />
+      </dataFields>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" />
+      <action id="a2" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Bitacora_Movimiento_Personal
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local] (GETDATE(),0)
+WHERE
+	Bitacora_Movimiento_Personal_Id = @Bitacora_Movimiento_Personal_Id]]></data>
+      </action>
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a8" commandName="Duplicate" roles="Administrators,ArhAdmin" />
+      <action id="a9" />
+      <action id="a10" commandName="BatchEdit" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Bitacora_Movimiento_Personal
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local] (GETDATE(),0)
+WHERE
+	Bitacora_Movimiento_Personal_Id = @Bitacora_Movimiento_Personal_Id]]></data>
+      </action>
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" commandName="Select" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" cssClass="EditIcon" whenView="grid1" roles="Administrators,ArhAdmin" />
+      <action id="a2" whenKeySelected="true" commandName="SQL" cssClass="DeleteIcon" whenView="grid1" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Bitacora_Movimiento_Personal
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local] (GETDATE(),0)
+WHERE
+	Bitacora_Movimiento_Personal_Id = @Bitacora_Movimiento_Personal_Id]]></data>
+      </action>
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" roles="Administrators,ArhAdmin" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ExportRss" roles="Administrators,ArhAdmin" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" roles="Administrators,ArhAdmin" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="ReportAsImage" roles="Administrators,ArhAdmin" />
+      <action id="a3" commandName="ReportAsExcel" roles="Administrators,ArhAdmin" />
+      <action id="a4" commandName="ReportAsWord" roles="Administrators,ArhAdmin" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag9" scope="ActionColumn">
+      <action id="a1" commandName="Edit" roles="Administrators,ArhAdmin" />
+      <action id="a2" commandName="SQL" headerText="&quot;Borrar&quot;" roles="Administrators,ArhAdmin">
+        <data><![CDATA[UPDATE 
+	APP.Bitacora_Movimiento_Personal
+SET
+	Estatus_Registro_Id = 3
+	,Actualizado_Por_id = @BusinessRules_UserId
+	,Fecha_Ultima_Actualizacion = [dbo].[fn_Convertir_UTC_A_Fecha_Hora_Local] (GETDATE(),0)
+WHERE
+	Bitacora_Movimiento_Personal_Id = @Bitacora_Movimiento_Personal_Id]]></data>
+      </action>
+    </actionGroup>
+  </actions>
+</dataController>

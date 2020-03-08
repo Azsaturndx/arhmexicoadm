@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Organigrama_Estructura_V" alias="Organigrama_Estructura_V" created="2018-07-16T16:29:35" modified="2018-08-20T00:16:08" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="Contratante_Estructura_Organizacional_Id" fieldName="Contratante_Estructura_Organizacional_Id" label="Contratante Estructura Organizacional Id" />
+    <column name="Estructura_Organizacional" fieldName="Estructura_Organizacional" label="Estructura Organizacional" />
+    <column name="Tipo_Estructura_Organizacional_Id" fieldName="TipoEstructuraOrganizacionalId" label="Tipo Estructura Organizacional Id" />
+    <column name="Color_Hexadecimal" fieldName="ColorHexadecimal" label="Color Hexadecimal" />
+    <column name="Cliente_Id" fieldName="ClienteId" label="Cliente Id" />
+    <column name="Contratante_Id" fieldName="ContratanteId" label="Contratante Id" />
+  </columns>
+</dataModel>
